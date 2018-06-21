@@ -1,0 +1,36 @@
+# Site data
+url: http://example.com
+
+# Build settings
+destination: tmp
+layouts_dir: src/theme/_layouts
+includes_dir: src/theme/_includes
+data_dir: src/theme/_data
+collections_dir: public-src/_pages
+collections:
+  - home
+  - page-not-found
+exclude:
+  - bin
+  - dist
+  - gulp
+  - src
+  - docker-compose.yml
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - gulpfile.js
+  - Makefile
+  - node_modules
+  - package.json
+  - README.md
+  - vendor
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  auto_ids: false
+
+# Localization
+languages:
+  - "en"

@@ -1,0 +1,6 @@
+.editorconfig
+.gitignore
+Makefile
+node_modules
+npm-debug.log
+vendor

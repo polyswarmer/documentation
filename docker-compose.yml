@@ -1,0 +1,13 @@
+version: '3'
+services:
+  jekyll:
+    build: .
+    image: jekyll-boilerplate
+    container_name: jekyll-boilerplate
+    ports:
+      - 3000:3000
+      - 3001:3001
+    volumes:
+      - ./app:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/vendor

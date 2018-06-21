@@ -1,0 +1,11 @@
+---
+layout: l-base
+---
+
+{% for data in site.home %}
+  {% if data.name == 'hero' %}
+
+    {% include organisms/home/o-home-hero.html %}
+
+  {% endif %}
+{% endfor %}

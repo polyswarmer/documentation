@@ -1,0 +1,31 @@
+/*=============================================
+=                Text Helpers                 =
+=============================================*/
+
+.h-text-center {
+  text-align: center !important;
+}
+
+.h-text-left {
+  text-align: left !important;
+}
+
+.h-text-right {
+  text-align: right !important;
+}
+
+.h-text-black {
+  color: $text-black !important;
+}
+
+.h-text-white {
+  color: $text-white !important;
+}
+
+.h-text-theme {
+  color: $theme-color !important;
+}
+
+.h-text-grey {
+  color: $dark-grey !important;
+}
