@@ -2,8 +2,8 @@ version: '3'
 services:
   jekyll:
     build: .
-    image: jekyll-boilerplate
-    container_name: jekyll-boilerplate
+    image: polyswarm/documentation
+    container_name: polyswarm-docs
     ports:
       - 3000:3000
       - 3001:3001

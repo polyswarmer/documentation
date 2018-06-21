@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-IMAGE=jekyll-boilerplate
-CONTAINER=jekyll-boilerplate
+IMAGE=polyswarm/documentation
+CONTAINER=polyswarm-docs
