@@ -1,6 +1,7 @@
 module.exports = (() => {
   const project = {
     src: './src',
+    publicSrc: './public-src',
     dest: './dist',
     assets: './dist/assets',
     theme: './src/theme'
@@ -12,7 +13,7 @@ module.exports = (() => {
 
   const jekyll = {
     dest: './tmp',
-    watchFiles: ['_config.yml', `${project.theme}/**/*`, `${project.publicSrc}/**/*`],
+    watchFiles: ['_config.yml', '_i18n/**/*', `${project.theme}/**/*`, `${project.publicSrc}/**/*`],
     head: [`${project.theme}/_includes/l-head.html`],
     foot: [`${project.theme}/_includes/l-scripts.html`]
   };

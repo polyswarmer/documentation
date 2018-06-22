@@ -313,29 +313,3 @@
 .h-pb-none\@md { @include breakpoint($md) { padding-bottom: 0 !important; } }
 .h-pb-none\@lg { @include breakpoint($lg) { padding-bottom: 0 !important; } }
 .h-pb-none\@xl { @include breakpoint($xl) { padding-bottom: 0 !important; } }
-
-
-
-/*----------  All Margins  ----------*/
-
-// Margin Right
-.h-margin-right-none {
-  margin: 0 !important;
-}
-
-/*----------  Has Downloads CTA  ----------*/
-
-.h-pt-downloads {
-  padding-top: 21.4rem !important;
-  @include breakpoint($sm) { padding-top: 21.4rem !important; }
-}
-
-.h-pb-downloads {
-  padding-bottom: 22.4rem !important;
-  @include breakpoint($sm) { padding-bottom: 21.4rem !important; }
-}
-
-.h-block {
-  display: block;
-}
-

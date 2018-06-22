@@ -1,0 +1,41 @@
+/*=============================================
+=              Testimonial Card               =
+=============================================*/
+
+.m-testimonial-card {
+  border-radius: $border-radius;
+  border: 1px solid $xx-light-grey;
+  box-shadow: 9px 10px 15px rgba(0,0,0,0.13);
+  text-align: center;
+  padding: $padding-md;
+  color: $light-grey;
+  font-size: 1rem;
+}
+
+.m-testimonial-card__image {
+  display: block;
+  max-width: 14em;
+  margin: 0 auto;
+  border-radius: 100%;
+  // box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.m-testimonial-card__quote {
+  font-size: 1.8em;
+  max-width: 70rem;
+  margin: 0 auto;
+
+  &:before, &:after {
+    content: "\0022";
+  }
+}
+
+.m-testimonial-card__name {
+  font-size: 2em;
+  color: $dark-grey;
+  font-weight: bold;
+}
+
+.m-testimonial-card__title {
+  font-size: 1.6em;
+}

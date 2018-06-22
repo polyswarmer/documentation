@@ -2,33 +2,101 @@
 =                  Typograpy                  =
 =============================================*/
 
-// .h1 - .h6
+// .h-h1 - .h-h6
 @for $i from 1 through 6 {
-  .h#{$i} {
+  .h-h#{$i} {
+    font-family: $font-heading;
     font-weight: bold;
   }
 }
 
-.h1 {
-  font-size: 3.2rem;
+.h-h1 {
+  line-height: 1.3;
+  font-size: 3.6rem;
+
+  @include breakpoint($sm) {
+    font-size: 4rem;
+  }
+
+  @include breakpoint($md) {
+    font-size: 5rem;
+  }
+
+  em {
+    background-color: $green;
+    color: $dark-purple;
+    padding: 0 $highlight-pad;
+  }
 }
 
-.h2 {
-  font-size: 2.4rem;
+.h-h1--lg{
+  // font-family: $font;
+  text-transform: uppercase;
+  @include breakpoint($lg) {
+    font-size: 6rem;
+  }
 }
 
-.h3 {
+.h-h2 {
+  font-size: 2.8rem;
+
+  @include breakpoint($sm) {
+    font-size: 3.2rem;
+  }
+
+  @include breakpoint($md) {
+    font-size: 3.6rem;
+  }
+}
+
+.h-h3 {
   font-size: 2rem;
 }
 
-.h4 {
-  font-size: 1.9rem;
-}
-
-.h5 {
-  font-size: 1.8rem;
-}
-
-.h6 {
+.h-h4 {
+  font-family: $font;
+  text-transform: uppercase;
   font-size: 1.7rem;
+
+  @include breakpoint($sm) {
+    font-size: 1.8rem;
+  }
+}
+
+.h-h5 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-family: $font;
+}
+
+.h-h6 {
+  font-size: 1.7rem;
+}
+
+.h-p {
+  font-size: 1.6rem;
+}
+
+.h-p1 {
+  font-size: 1.5rem;
+
+  @include breakpoint($sm) {
+    font-size: 1.7rem;
+  }
+
+  @include breakpoint($md) {
+    font-size: 1.8rem;
+  }
+}
+
+.h-p2 {
+  font-size: 1.8rem;
+
+  @include breakpoint($sm) {
+    font-size: 2rem;
+  }
+
+  @include breakpoint($lg) {
+    font-size: 2.8rem;
+  }
 }

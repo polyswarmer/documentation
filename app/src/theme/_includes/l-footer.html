@@ -1,5 +1,63 @@
-{% assign data = site.data.footer %}
+{% if site.lang != 'en' %}
+  {% capture lang %}/{{ site.lang }}{% endcapture %}
+{% else %}
+  {% assign lang = '' %}
+{% endif %}
 
-<footer class='l-footer'>
-  <p class='h-p l-footer__copyright'>&copy; {{ site.time | date: '%Y' }} {{ data.copyright }}</p>
+<footer class="l-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="l-footer__top">
+          <div class="l-footer__rows">
+            <div class="l-footer__row">
+              <a class="l-footer__logo" href="{{ lang }}/">{% include atoms/a-icon.html name='wordmark' title='PolySwarm' %}</a>
+              {% include molecules/m-social-links.html %}
+            </div>
+            <div class="l-footer__row">
+              <ul class="l-footer__list">
+                <li class="l-footer__item"><span class="l-footer__item-heading">Navigation</span></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/">Home</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/security_experts/">Security Experts</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/howitworks/">How It Works</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/grants/">Grants</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/road_map/">Roadmap</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/faq/">FAQ</a></li>
+              </ul>
+            </div>
+            <div class="l-footer__row">
+              <ul class="l-footer__list">
+                <li class="l-footer__item"><span class="l-footer__item-heading">Company</span></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/the_team/">The Team</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/contact/">Contact</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/security/">Security</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/media/">Media</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}/press/">Press</a></li>
+              </ul>
+            </div>
+            <div class="l-footer__row">
+              <ul class="l-footer__list">
+                <li class="l-footer__item"><span class="l-footer__item-heading">Telegram Channels</span></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="https://t.me/PolySwarm">PolySwarm</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="https://t.me/PolySwarmChinese">POLYSWARM官方中文群</a></li>
+                <li class="l-footer__item"><a class="l-footer__item-link" href="https://t.me/PolySwarmAnnouncements">PolySwarm Anouncements</a></li>
+              </ul>
+            </div>
+            <div class="l-footer__row">
+              {% include atoms/a-button.html root='true' url=site.whitepaperpdf target='_blank' title='Download Whitepaper' %}
+            </div>
+          </div>
+        </div>
+        <div class="l-footer__bottom">
+          <div class="l-footer__bottom-left">
+            <p>{{ site.time | date: "%Y" }} &copy; {{ site.company }}</p>
+          </div>
+          <div class="l-footer__bottom-right">
+            <a href="/privacy-terms/">Privacy Policy</a>
+            <a href="/privacy-terms/">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>

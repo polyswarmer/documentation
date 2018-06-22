@@ -1,35 +1,41 @@
-{% assign data = site.data.header %}
+{% assign data = site.translations[site.lang].header %}
 
-<header class='l-header'>
+{% if site.lang != 'en' %}
+  {% capture lang %}/{{ site.lang }}{% endcapture %}
+{% else %}
+  {% assign lang = '' %}
+{% endif %}
 
-  <nav class='l-header__nav'>
-    <ul class='l-header__nav-list'>
+<header id="js-main-menu" class="l-header l-header--{{ page.header }}">
+
+  <a href="#" id="js-main-menu-toggle" class="l-header__nav-toggle">
+    <span class="l-header__nav-toggle-line h-abs-center-top"></span>
+    <span class="l-header__nav-toggle-line h-abs-center"></span>
+    <span class="l-header__nav-toggle-line h-abs-center-bottom"></span>
+  </a>
+
+  <a href="{{ lang }}/" class="l-header__logo">{% include atoms/a-icon.html name='wordmark' title='PolySwarm' %}</a>
+
+  <nav class="l-header__nav">
+    <ul class="l-header__nav-list">
+
+      <li class="l-header__nav-item l-header__home-mobile">
+        <a href="{{ lang }}/" target="_self" class="l-header__nav-link">Home</a>
+      </li>
 
       {% for item in data.navigation.items %}
 
         {% if item.has_dropdown %}
 
-          <li class='l-header__nav-item'>
-            <span class='l-header__nav-link'>{{ item.name }}</span>
-            <ul class='l-header__nav-sub-list'>
-
-              {% for subitem in item.subitems %}
-
-                <li class='l-header__nav-sub-item'>
-                  <a href='{{ subitem.link }}' target='{{ subitem.target }}' class='m-nav-sub-link'>
-                    {{ subitem.name }}
-                  </a>
-                </li>
-
-              {% endfor %}
-
-            </ul>
+          <li class="l-header__nav-item">
+            <span class="l-header__nav-link l-header__dropdown-toggle js-dropdown">{{ item.name }}</span>
+            {% include molecules/m-dropdown.html items=item.subitems %}
           </li>
 
         {% else %}
 
-          <li class='l-header__nav-item'>
-            <a href='{{ item.link }}' target='{{ item.target }}' class='l-header__nav-link'>{{ item.name }}</a>
+          <li class="l-header__nav-item">
+            <a href="{{ lang }}{{ item.url }}" target="{{ item.target }}" class="l-header__nav-link">{{ item.name }}</a>
           </li>
 
         {% endif %}
@@ -38,5 +44,10 @@
 
     </ul>
   </nav>
+
+  <div class="l-header__language-toggle-wrap">
+    <span class="l-header__language-toggle js-dropdown">{% include atoms/a-icon.html name='globe' title='languages' %}</span>
+    {% include molecules/m-dropdown.html style="right" items=site.langs %}
+  </div>
 
 </header>

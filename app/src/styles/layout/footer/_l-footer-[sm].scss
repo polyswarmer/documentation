@@ -1,0 +1,42 @@
+/*=============================================
+=                 Footer [sm]                 =
+=============================================*/
+
+.l-footer {
+
+  .m-social-links {
+    font-size: 0.9rem;
+  }
+}
+
+.l-footer__rows {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.l-footer__row {
+  flex: 1;
+
+  &:first-child {
+    flex: 0 1 auto;
+  }
+
+  &:last-child {
+    flex: 0 1 auto;
+    width: auto;
+    text-align: right;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/*----------  Footer Bottom  ----------*/
+
+.l-footer__bottom-left {
+  margin-bottom: 0;
+  float: left;
+}
+
+.l-footer__bottom-right {
+  float: right;
+}

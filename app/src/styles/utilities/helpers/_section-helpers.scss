@@ -1,0 +1,66 @@
+/*=============================================
+=            Section Widths            =
+=============================================*/
+
+.h-section-width {
+  margin: 0 auto;
+  max-width: 60rem;
+
+  @include breakpoint($sm) {
+    max-width: 70rem;
+  }
+
+  @include breakpoint($md) {
+    max-width: 90rem;
+  }
+}
+
+.h-section-padding {
+  padding-top: $padding-lg;
+  padding-bottom: $padding-lg;
+
+  @include breakpoint($sm) {
+    padding-top: $padding-xl;
+    padding-bottom: $padding-xl;
+  }
+
+  @include breakpoint($md) {
+    padding-top: $padding-xxl;
+    padding-bottom: $padding-xxl;
+  }
+}
+
+.h-heading-pt {
+  padding-top: 12.4rem;
+
+  @include breakpoint($xs) {
+    padding-top: 14rem;
+  }
+
+  @include breakpoint($sm) {
+    padding-top: 16.4rem;
+  }
+
+  @include breakpoint($md) {
+    padding-top: 20rem;
+  }
+
+  @include breakpoint($lg) {
+    padding-top: 21.4rem;
+  }
+}
+
+.h-section-padding--small {
+  padding-top: $padding-lg + 5rem;
+  padding-bottom: $padding-lg;
+
+  @include breakpoint($sm) {
+    padding-top: $padding-xl + 5rem;
+    padding-bottom: $padding-xl;
+  }
+
+  @include breakpoint($md) {
+    padding-top: $padding-xxl + 5rem;
+    padding-bottom: $padding-xxl;
+  }
+}

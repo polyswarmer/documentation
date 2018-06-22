@@ -1,0 +1,107 @@
+/*=============================================
+=                Footer [base]                =
+=============================================*/
+
+.l-footer {
+  background-color: $xx-light-purple;
+
+  .a-icon--wordmark {
+    font-size: 1.2rem;
+    color: $bright-purple;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 2rem;
+  }
+
+  .m-social-links {
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .a-button {
+    font-size: 1.2rem;
+  }
+}
+
+.l-footer__top {
+  padding: $padding-lg 0;
+}
+
+.l-footer__rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.l-footer__row {
+  flex-grow: 1;
+  padding: 0;
+  margin-bottom: $padding-sm;
+  text-align: center;
+
+  &:first-child {
+    margin-bottom: $padding-md;
+    width: 100%;
+  }
+
+  &:last-child {
+    width: 100%;
+    margin-top: $padding-xxs;
+    margin-bottom: 0;
+  }
+}
+
+.l-footer__item {
+  margin-bottom: 0.8rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.l-footer__item-heading {
+  color: $purple;
+  font-weight: $bold;
+  text-transform: uppercase;
+}
+
+.l-footer__item-link {
+  color: $grey;
+  text-decoration: none;
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+
+  &:focus, &:hover {
+    text-decoration: underline;
+  }
+}
+
+/*----------  Footer Bottom  ----------*/
+
+.l-footer__bottom {
+  border-top: 1px solid $x-light-grey;
+  padding: $padding-sm 0;
+  font-size: 1.2rem;
+  color: $light-grey;
+  overflow: auto;
+  text-align: center;
+
+  a {
+    color: $light-grey;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-left: $padding-xxs;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:focus, &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.l-footer__bottom-left {
+  margin-bottom: $padding-xxs;
+}

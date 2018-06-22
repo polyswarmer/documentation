@@ -1,36 +1,69 @@
 # Site data
 url: http://example.com
+baseurl: ""
+company: PolySwarm Pte. Ltd.
+whitepaperpdf: /polyswarm-whitepaper.pdf
+langs:
+ - name: DE
+   fullname: Deutsch
+   url: "/de/"
+ - name: EN
+   fullname: English
+   url: "/"
+ - name: ES
+   fullname: Español
+   url: "/es/"
+ - name: FR
+   fullname: Français
+   url: "/fr/"
+ - name: RU
+   fullname: Русский
+   url: "/ru/"
+ - name: KR
+   fullname: 한국어
+   url: "/kr/"
+ - name: JA
+   fullname: 日本語
+   url: "/ja/"
+ - name: ZH
+   fullname: 中文
+   url: "/zh/"
 
 # Build settings
 destination: tmp
 layouts_dir: src/theme/_layouts
 includes_dir: src/theme/_includes
-data_dir: src/theme/_data
-collections_dir: public-src/_pages
-collections:
-  - home
-  - page-not-found
 exclude:
-  - bin
   - dist
   - gulp
+  - node_modules
   - src
-  - docker-compose.yml
-  - Dockerfile
+  - tmp
+  - vendor
   - Gemfile
   - Gemfile.lock
   - gulpfile.js
-  - Makefile
-  - node_modules
+  - package-lock.json
   - package.json
-  - README.md
-  - vendor
+
+# Front Matter defaults
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "l-base"
 
 # Markdown settings
 markdown: kramdown
 kramdown:
   auto_ids: false
 
-# Localization
+# Plugins
+plugins:
+  - jekyll-multiple-languages-plugin
+
+# i18n
 languages:
-  - "en"
+  - en
+  - fr

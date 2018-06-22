@@ -4,28 +4,15 @@
 
 .s-page {
 
-  h1 {
-    @extend .h1;
+  // h1 - h6
+  @for $i from 1 through 6 {
+    h#{$i} {
+      @extend .h-h#{$i};
+    }
   }
 
-  h2 {
-    @extend .h2;
-  }
-
-  h3 {
-    @extend .h3;
-  }
-
-  h4 {
-    @extend .h4;
-  }
-
-  h5 {
-    @extend .h5;
-  }
-
-  h6 {
-    @extend .h6;
+  p {
+    @extend .h-p;
   }
 
   b, strong {
@@ -37,12 +24,12 @@
   }
 
   a {
-    color: $theme-color;
+    color: $purple;
     text-decoration: none;
     transition: color $time $easing;
 
     &:focus, &:hover {
-      color: darken($theme-color, 10%);
+      color: darken($purple, 10%);
       text-decoration: underline;
     }
   }

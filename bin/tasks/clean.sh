@@ -16,7 +16,7 @@ else
     # Clean it up!
     docker system prune
     docker rmi $IMAGE
-    cd app && rm -rf tmp dist node_modules vendor
+    cd app && rm -rf tmp dist node_modules vendor .sass-cache
   else
     # Abort
     echo "OK. Aborting..."

@@ -1,0 +1,38 @@
+{% comment %}
+
+Example usage:
+
+{% include molecules/m-dropdown.html style="right" items=data.items %}
+
+{% endcomment %}
+
+
+{% assign items = include.items %}
+
+{% if site.lang != 'en' %}
+  {% capture lang %}/{{ site.lang }}{% endcapture %}
+{% else %}
+  {% assign lang = '' %}
+{% endif %}
+
+<ul class="m-dropdown m-dropdown--{{ include.style }}">
+
+  {% for item in include.items %}
+
+    {% if item.target %}
+      {% assign target = item.target %}
+    {% else %}
+      {% assign target = "_self" %}
+    {% endif %}
+
+    {% if item.fullname %}
+      {% assign name = item.fullname %}
+    {% else %}
+      {% assign name = item.name %}
+    {% endif %}
+
+    <li class="m-dropdown__item"><a class="m-dropdown__link" href="{{ lang }}{{ item.url }}" target="{{ target }}">{{ name }}</a></li>
+
+  {% endfor %}
+
+</ul>

@@ -4,15 +4,17 @@
 
 // Fonts
 $stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-$font: $stack;
+$font: "InputSans", $stack;
+$font-heading: "Fabrik", $stack;
 $mono: monospace;
 
 // Text colors
 $text-black: $black;
 $text-white: $white;
 
-// Font Weights
-$light: 300;
+// Font weights
 $normal: normal;
-$semibold: 600;
 $bold: bold;
+
+// Text spacing
+$highlight-pad: 0.7rem;

@@ -1,0 +1,65 @@
+{% comment %}
+
+Example usage:
+
+{% include atoms/a-button.html
+  root='true'
+  icon='video'
+  type=link
+  style='transparent'
+  url='#'
+  target='_self'
+  title='Button Text'
+%}
+
+{% endcomment %}
+
+{% if include.root %}
+  {% assign lang = '' %}
+{% elsif site.lang != 'en' %}
+  {% capture lang %}/{{ site.lang }}{% endcapture %}
+{% else %}
+  {% assign lang = '' %}
+{% endif %}
+
+{% if include.type == 'submit' %}
+
+  <input class="a-button a-button--{{ include.style }}" type="submit" value="{{ include.title }}">
+
+{% else %}
+
+  {% if include.type == 'span' %}
+
+    <span class="a-button a-button--{{ include.style }} a-button--{{ include.icon }}">
+
+  {% else %}
+
+    {% if include.target %}
+      {% assign target = include.target %}
+    {% else %}
+      {% assign target = "_self" %}
+    {% endif %}
+
+    <a class="a-button a-button--{{ include.style }} a-button--{{ include.icon }}" href="{{lang}}{{ include.url }}" target="{{ target }}">
+
+  {% endif %}
+
+    {% if include.icon == 'video' %}
+      {% include atoms/a-icon.html name='play' title='play' %}
+    {% elsif include.icon %}
+      {% include atoms/a-icon.html name=include.icon title=include.title %}
+    {% endif %}
+
+    {{ include.title }}
+
+  {% if include.type == 'span' %}
+
+    </span>
+
+  {% else %}
+
+    </a>
+
+  {% endif %}
+
+{% endif %}

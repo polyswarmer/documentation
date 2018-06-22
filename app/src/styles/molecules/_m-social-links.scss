@@ -1,0 +1,25 @@
+/*=============================================
+=                Social Links                 =
+=============================================*/
+
+.m-social-links__list {
+  display: flex;
+}
+
+.m-social-links__list-item {
+  margin-right: 1rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.m-social-links__link {
+  display: block;
+  transition: color $time $easing;
+  color: $purple;
+
+  &:focus, &:hover {
+    color: $black;
+  }
+}
