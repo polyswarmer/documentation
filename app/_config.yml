@@ -52,7 +52,7 @@ defaults:
     scope:
       path: ""
     values:
-      layout: "l-base"
+      layout: "l-page"
 
 # Markdown settings
 markdown: kramdown

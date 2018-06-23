@@ -64,3 +64,13 @@
     padding-bottom: $padding-xxl;
   }
 }
+
+.h-page-padding {
+  padding-top: $padding-md;
+  padding-bottom: $padding-md;
+
+  @include breakpoint($md) {
+    padding-top: $padding-lg;
+    padding-bottom: $padding-lg;
+  }
+}
