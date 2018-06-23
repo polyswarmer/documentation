@@ -111,4 +111,43 @@
     width: 100%;
     height: 100%;
   }
+
+  .callout {
+    border: 2px solid $x-light-grey;
+    background-color: $off-white;
+    padding: 0.5rem 1.5rem;
+    margin: $padding-xs 0;
+
+    p {
+      font-size: 1.4rem;
+      margin: 1rem 0;
+    }
+
+    strong {
+      font-family: $font-heading;
+      font-size: 1.6rem;
+      display: block;
+      margin: 1rem 0;
+    }
+  }
+
+  .callout--info {
+    border-color: $purple;
+    background-color: $light-purple;
+  }
+
+  .callout--warning {
+    border-color: darken(yellow, 30%);
+    background-color: yellow;
+  }
+
+  .callout--danger {
+    border-color: darken($red, 30%);
+    background-color: $red;
+  }
+
+  .callout--success {
+    border-color: darken($green, 30%);
+    background-color: $green;
+  }
 }

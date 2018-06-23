@@ -47,7 +47,8 @@ gulp.task('watch', () => {
     server: {
       baseDir: config.project.dest
     },
-    open: false
+    open: false,
+    online: false
   });
   plugins.watch(config.jekyll.watchFiles, () => gulp.start('jekyll-watch'));
   plugins.watch(config.styles.src + config.styles.pattern, () => gulp.start('styles'));
