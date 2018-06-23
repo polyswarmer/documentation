@@ -4,11 +4,18 @@
 
 .s-page {
 
+  color: $light-grey;
+
   // h1 - h6
   @for $i from 1 through 6 {
     h#{$i} {
       @extend .h-h#{$i};
+      color: $grey;
     }
+  }
+
+  h2 {
+    color: $purple;
   }
 
   h3 {
@@ -26,6 +33,7 @@
 
   b, strong {
     font-weight: bold;
+    color: $grey;
   }
 
   i, em {
@@ -46,12 +54,12 @@
   ul {
     list-style-type: disc;
     padding-left: $padding-xs;
-    list-style-position: inside;
   }
 
   ol {
     list-style-type: decimal;
     list-style-type: none;
+    padding-left: 0.6rem;
 
     li {
       counter-increment: step-counter;
@@ -60,13 +68,24 @@
         content: counter(step-counter)'.';
         margin-right: 1rem;
         font-weight: $bold;
-        padding-left: $padding-xs;
+      }
+    }
+  }
+
+  .footnotes {
+    ol {
+      padding: 0;
+      li {
+        &:before {
+          content: normal;
+        }
       }
     }
   }
 
   li {
     margin: 0.6rem 0;
+    color: $grey;
   }
 
   blockquote {
@@ -75,6 +94,7 @@
     margin: $padding-xs 0;
     padding: 1rem 2rem;
     quotes: "\201C""\201D""\2018""\2019";
+    color: $dark-grey;
 
     &:before {
       content: open-quote;
@@ -119,11 +139,13 @@
     margin: $padding-xs 0;
 
     p {
+      color: $dark-grey;
       font-size: 1.4rem;
       margin: 1rem 0;
     }
 
     strong {
+      color: $dark-grey;
       font-family: $font-heading;
       font-size: 1.6rem;
       display: block;
@@ -133,21 +155,21 @@
 
   .callout--info {
     border-color: $purple;
-    background-color: $light-purple;
+    background-color: $x-light-purple;
   }
 
   .callout--warning {
-    border-color: darken(yellow, 30%);
-    background-color: yellow;
+    border-color: darken($yellow, 40%);
+    background-color: $yellow;
   }
 
   .callout--danger {
     border-color: darken($red, 30%);
-    background-color: $red;
+    background-color: lighten($red, 10%);
   }
 
   .callout--success {
     border-color: darken($green, 30%);
-    background-color: $green;
+    background-color: lighten($green, 15%);
   }
 }
