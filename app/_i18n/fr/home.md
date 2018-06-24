@@ -106,6 +106,16 @@ Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over P
 
 ---
 
+---
+title: "Markup: Syntax Highlighting"
+excerpt: "Post displaying the various ways of highlighting code in Markdown."
+header:
+  teaser: "markup-syntax-highlighting-teaser.jpg"
+tags: 
+  - code
+  - syntax highlighting
+---
+
 Syntax highlighting is a feature that displays source code, in different colors and fonts according to the category of terms. This feature facilitates writing in a structured language such as a programming language or a markup language as both structures and syntax errors are visually distinct. Highlighting does not affect the meaning of the text itself; it is intended only for human readers.[^1]
 
 [^1]: <http://en.wikipedia.org/wiki/Syntax_highlighting>
@@ -170,57 +180,41 @@ Indentation matters. Be sure the indent of the code block aligns with the first 
         
 3. Now you can do this.
 
-```javascript
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-);
-```
-
+## Python Code Snippet
 
 ```python
-#!/usr/bin/env python3
+def dump_args(func):
+    "This decorator dumps out the arguments passed to a function before calling it"
+    argnames = func.func_code.co_varnames[:func.func_code.co_argcount]
+    fname = func.func_name
+    def echo_func(*args,**kwargs):
+        print fname, ":", ', '.join(
+            '%s=%r' % entry
+            for entry in zip(argnames,args) + kwargs.items())
+        return func(*args, **kwargs)
+    return echo_func
 
-import datetime
+@dump_args
+def f1(a,b,c):
+    print a + b + c
 
-from flask import Flask, request
+f1(1, 2, 3)
 
-from polyswarmd.config import init_config, whereami
-init_config()
+def precondition(precondition, use_conditions=DEFAULT_ON):
+    return conditions(precondition, None, use_conditions)
 
-from polyswarmd.eth import web3
-from polyswarmd.response import success, failure, install_error_handlers
-from polyswarmd.utils import bool_list_to_int, int_to_bool_list
-from polyswarmd.artifacts import artifacts
-from polyswarmd.balances import balances
-from polyswarmd.bounties import bounties
-from polyswarmd.relay import relay
-from polyswarmd.offers import offers
-from polyswarmd.websockets import init_websockets
+def postcondition(postcondition, use_conditions=DEFAULT_ON):
+    return conditions(None, postcondition, use_conditions)
 
-app = Flask('polyswarmd', root_path=whereami(), instance_path=whereami())
-install_error_handlers(app)
-app.register_blueprint(artifacts, url_prefix='/artifacts')
-app.register_blueprint(balances, url_prefix='/balances')
-app.register_blueprint(bounties, url_prefix='/bounties')
-app.register_blueprint(relay, url_prefix='/relay')
-app.register_blueprint(offers, url_prefix='/offers')
-init_websockets(app)
+class conditions(object):
+    __slots__ = ('__precondition', '__postcondition')
 
+    def __init__(self, pre, post, use_conditions=DEFAULT_ON):
+        if not use_conditions:
+            pre, post = None, None
 
-@app.before_request
-def before_request():
-    print(datetime.datetime.now(), request.method, request.path)
-
-
-# TODO: Keep this?
-@app.route('/syncing/<chain>', methods=['GET'])
-def get_syncing(chain):
-    if not web3[chain].eth.syncing:
-        return success(False)
-
-    return success(dict(web3[chain].eth.syncing))
-
+        self.__precondition  = pre
+        self.__postcondition = post
 ```
 
 Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor.
