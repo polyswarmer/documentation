@@ -1,0 +1,35 @@
+/*=============================================
+=                    Flag                     =
+=============================================*/
+
+.m-flag {
+  background-color: $off-white;
+  border-left: 5px solid $light-purple;
+  margin: $padding-xs 0;
+  padding: 1rem 2rem;
+  color: $dark-grey;
+
+  p {
+    color: $dark-grey;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+  }
+
+  strong {
+    color: $dark-grey;
+    font-family: $font-heading;
+    font-size: 1.6rem;
+  }
+}
+
+.m-flag--warning {
+  border-left-color: darken($yellow, 6%);
+}
+
+.m-flag--danger {
+  border-left-color: $red;
+}
+
+.m-flag--success {
+  border-left-color: $green;
+}

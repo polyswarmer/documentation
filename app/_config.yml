@@ -52,12 +52,10 @@ defaults:
     scope:
       path: ""
     values:
-      layout: "l-page"
+      layout: "l-docs"
 
 # Markdown settings
 markdown: kramdown
-kramdown:
-  auto_ids: false
 
 # Plugins
 plugins:

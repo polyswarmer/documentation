@@ -1,8 +1,8 @@
 /*=============================================
-=                 Scope Base                  =
+=                 Scope Post                  =
 =============================================*/
 
-.s-page {
+.s-post {
   color: $light-grey;
 
   // h1 - h6
@@ -16,6 +16,14 @@
 
   h2 {
     color: $purple;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+
+  h4 {
+    font-size: 1.6rem;
   }
 
   img {
@@ -33,9 +41,7 @@
   }
 
   i, em {
-    background-color: $green;
-    color: $purple;
-    padding: 0 0.3rem;
+    @extend .h-em;
   }
 
   sup {
@@ -136,18 +142,12 @@
 
   /*----------  Syntax Highlighting  ----------*/
 
-  pre {
-    font-family: $mono;
-  }
-
   // `this syntax`
   p code {
-    background-color: lighten($x-light-purple, 5%);
-    color: $dark-purple;
-    padding: 0 0.3rem;
+    @extend .h-em--purple;
   }
 
-  // code blocks
+  // code blocks - outer wrapper
   div.highlight {
     margin: $padding-xs 0;
   }
@@ -205,94 +205,19 @@
     width: 100%;
   }
 
-  .video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; // 16:9
-    padding-top: 25px;
-    height: 0;
-  }
-  .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
   /*----------  Callouts  ----------*/
 
-  .callout {
-    border: 2px solid $x-light-grey;
-    background-color: $off-white;
-    padding: 0.5rem 1.5rem;
-    margin: $padding-xs 0;
-
+  .m-callout {
     p {
-      color: $dark-grey;
-      font-size: 1.4rem;
-      margin: 1rem 0;
-    }
-
-    strong {
-      color: $dark-grey;
-      font-family: $font-heading;
-      font-size: 1.6rem;
-      display: block;
       margin: 1rem 0;
     }
   }
 
-  .callout--info {
-    border-color: lighten($purple, 15%);
-    background-color: $x-light-purple;
-  }
+  /*----------  Flags  ----------*/
 
-  .callout--warning {
-    border-color: darken($yellow, 15%);
-    background-color: lighten($yellow, 30%);
-  }
-
-  .callout--danger {
-    border-color: darken($red, 35%);
-    background-color: lighten($red, 10%);
-  }
-
-  .callout--success {
-    border-color: darken($green, 35%);
-    background-color: lighten($green, 15%);
-  }
-
-  .flag {
-    background-color: $off-white;
-    border-left: 5px solid $light-purple;
-    margin: $padding-xs 0;
-    padding: 1rem 2rem;
-    color: $dark-grey;
-
-    strong {
-      color: $dark-grey;
-      font-family: $font-heading;
-      font-size: 1.6rem;
-      display: block;
-      margin: 1rem 0;
-    }
-
+  .m-flag {
     p {
-      color: $dark-grey;
-      font-size: 1.4rem;
       margin: 1rem 0;
     }
-  }
-
-  .flag--warning {
-    border-left-color: darken($yellow, 6%);
-  }
-
-  .flag--danger {
-    border-left-color: $red;
-  }
-
-  .flag--success {
-    border-left-color: $green;
   }
 }

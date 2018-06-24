@@ -100,3 +100,14 @@
     font-size: 2.8rem;
   }
 }
+
+.h-em {
+  background-color: $green;
+  color: $purple;
+  padding: 0 $highlight-pad-sm;
+}
+
+.h-em--purple {
+  background-color: lighten($x-light-purple, 5%);
+  color: $dark-purple;
+}

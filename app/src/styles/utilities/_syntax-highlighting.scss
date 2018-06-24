@@ -2,11 +2,14 @@
 =             Syntax Highlighting             =
 =============================================*/
 
+// code blocks - inner wrapper
 pre.highlight {
   padding: 2rem;
   overflow-x: scroll;
+  font-family: $mono;
 }
 
+// code blocks - inner and outer wrapper
 .highlight {
   border-radius: $border-radius;
   background: #2d2d2d; /* Main */

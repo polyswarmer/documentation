@@ -1,0 +1,43 @@
+/*=============================================
+=                   m-Callout                   =
+=============================================*/
+
+.m-callout {
+  border: 2px solid $x-light-grey;
+  background-color: $off-white;
+  padding: 0.5rem 1.5rem;
+  margin: $padding-xs 0;
+
+  p {
+    color: $dark-grey;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+  }
+
+  strong {
+    color: $dark-grey;
+    font-family: $font-heading;
+    font-size: 1.6rem;
+    display: block;
+  }
+}
+
+.m-callout--info {
+  border-color: lighten($purple, 15%);
+  background-color: $x-light-purple;
+}
+
+.m-callout--warning {
+  border-color: darken($yellow, 15%);
+  background-color: lighten($yellow, 30%);
+}
+
+.m-callout--danger {
+  border-color: darken($red, 35%);
+  background-color: lighten($red, 10%);
+}
+
+.m-callout--success {
+  border-color: darken($green, 35%);
+  background-color: lighten($green, 15%);
+}

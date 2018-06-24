@@ -29,6 +29,11 @@ stop:
 clean:
 	@bin/tasks/clean.sh
 
+rebuild:
+	@$(MAKE) -f $(THIS_FILE) stop
+	@$(MAKE) -f $(THIS_FILE) clean
+	@$(MAKE) -f $(THIS_FILE) all
+
 help:
 	@echo
 	@echo "==== Jekyll Boilerplate ===="
@@ -60,5 +65,8 @@ help:
 	@echo "make clean"
 	@echo "  - Garbage collection."
 	@echo
+	@echo "make rebuild"
+	@echo "  - Rebuild container from scratch."
+	@echo
 
-.PHONY: start build build-prod watch npm-install bundle-install stop clean
+.PHONY: start build build-prod watch npm-install bundle-install stop clean rebuild

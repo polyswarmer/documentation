@@ -1,14 +1,14 @@
 import MainMenu from './main-menu';
-import ScrollSpy from './scroll-spy';
+import SidebarNav from './sidebar-nav';
 
 export default class MainLayout {
   constructor() {
     this.mainMenu = new MainMenu();
-    this.scrollSpy = new ScrollSpy();
+    this.sidebarNav = new SidebarNav();
   }
 
   init() {
     this.mainMenu.init();
-    this.scrollSpy.init();
+    this.sidebarNav.init();
   }
 }
