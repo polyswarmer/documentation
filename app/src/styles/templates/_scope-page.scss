@@ -3,7 +3,6 @@
 =============================================*/
 
 .s-page {
-
   color: $light-grey;
 
   // h1 - h6
@@ -37,8 +36,24 @@
   }
 
   i, em {
-    font-style: italic;
+    background-color: $green;
+    color: $purple;
   }
+
+  sup {
+    vertical-align: super;
+    font-size: smaller;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px dashed $x-light-grey;
+    width: 100%;
+    margin: $padding-xxs 0;
+    display: inline-block;
+  }
+
+  /*----------  Links  ----------*/
 
   a {
     color: $purple;
@@ -50,6 +65,8 @@
       text-decoration: underline;
     }
   }
+
+  /*----------  Lists  ----------*/
 
   ul {
     list-style-type: disc;
@@ -72,9 +89,29 @@
     }
   }
 
+  li {
+    margin: 0.6rem 0;
+    color: $grey;
+  }
+
+  /*----------  Syntax Highlighting  ----------*/
+
+  pre {
+    font-family: $mono;
+  }
+
+  // `this syntax`
+  p code {
+    background-color: lighten($x-light-purple, 5%);
+    color: $dark-purple;
+  }
+
+  // code blocks
   div.highlight {
     margin: $padding-xs 0;
   }
+
+  /*----------  Footnotes  ----------*/
 
   .footnotes {
     ol {
@@ -87,10 +124,7 @@
     }
   }
 
-  li {
-    margin: 0.6rem 0;
-    color: $grey;
-  }
+  /*----------  Blockquotes  ----------*/
 
   blockquote {
     background: $off-white;
@@ -114,9 +148,7 @@
     display: inline;
   }
 
-  pre {
-    font-family: $mono;
-  }
+  /*----------  Videos  ----------*/
 
   iframe {
     width: 100%;
@@ -135,6 +167,8 @@
     width: 100%;
     height: 100%;
   }
+
+  /*----------  Callouts  ----------*/
 
   .callout {
     border: 2px solid $x-light-grey;
