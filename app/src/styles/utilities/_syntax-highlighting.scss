@@ -4,11 +4,11 @@
 
 pre.highlight {
   padding: 2rem;
+  overflow-x: scroll;
 }
 
 .highlight {
   border-radius: $border-radius;
-  overflow-x: scroll;
   background: #2d2d2d; /* Main */
   color: #f2f0ec; /* Main */
 

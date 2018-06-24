@@ -71,26 +71,38 @@
   ul {
     list-style-type: disc;
     padding-left: $padding-xs;
+    font-size: 1.5rem;
   }
 
   ol {
     list-style-type: decimal;
     list-style-type: none;
-    padding-left: 0.6rem;
+    font-size: 1.5rem;
 
     li {
       counter-increment: step-counter;
+      position: relative;
+      padding-left: $padding-xs;
 
       &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
         content: counter(step-counter)'.';
-        margin-right: 1rem;
         font-weight: $bold;
+      }
+
+      // p tag inside ordered list
+      // usually for syntax highlighting
+      p {
+        display: inline;
+        font-size: 1.5rem;
       }
     }
   }
 
   li {
-    margin: 0.6rem 0;
+    margin: 1rem 0;
     color: $grey;
   }
 
@@ -114,13 +126,22 @@
   /*----------  Footnotes  ----------*/
 
   .footnotes {
+    overflow-x: scroll;
     ol {
       padding: 0;
       li {
+        background-color: $off-white;
+        display: inline-block;
         &:before {
           content: normal;
         }
       }
+    }
+    a {
+      font-size: 1.4rem;
+    }
+    p {
+      margin: 0;
     }
   }
 
@@ -192,22 +213,56 @@
   }
 
   .callout--info {
-    border-color: $purple;
+    border-color: lighten($purple, 20%);
     background-color: $x-light-purple;
   }
 
   .callout--warning {
-    border-color: darken($yellow, 40%);
-    background-color: $yellow;
+    border-color: darken($yellow, 20%);
+    background-color: lighten($yellow, 30%);
   }
 
   .callout--danger {
-    border-color: darken($red, 30%);
+    border-color: darken($red, 40%);
     background-color: lighten($red, 10%);
   }
 
   .callout--success {
-    border-color: darken($green, 30%);
+    border-color: darken($green, 35%);
     background-color: lighten($green, 15%);
+  }
+
+  .flag {
+    background: $off-white;
+    border-left: 5px solid $light-purple;
+    margin: $padding-xs 0;
+    padding: 1rem 2rem;
+    color: $dark-grey;
+
+    strong {
+      color: $dark-grey;
+      font-family: $font-heading;
+      font-size: 1.6rem;
+      display: block;
+      margin: 1rem 0;
+    }
+
+    p {
+      color: $dark-grey;
+      font-size: 1.4rem;
+      margin: 1rem 0;
+    }
+  }
+
+  .flag--warning {
+    border-left-color: darken($yellow, 6%);
+  }
+
+  .flag--danger {
+    border-left-color: $red;
+  }
+
+  .flag--success {
+    border-left-color: $green;
   }
 }
