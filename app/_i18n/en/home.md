@@ -109,6 +109,7 @@ Stairs? Were we're going we don't need no stairs.
 Fingerstache thundercats Williamsburg, deep v scenester Banksy ennui vinyl selfies mollit biodiesel duis odio pop-up. Banksy 3 wolf moon try-hard, sapiente enim stumptown deep v ad letterpress. Squid beard brunch
 
 ![Unsplash image 9](https://picsum.photos/800/500)
+
 ![Unsplash image 9](https://picsum.photos/500/800)
 
 <figure>
@@ -301,4 +302,62 @@ Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Lorem ipsum dolor 
 
 Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum.
 
+#### Heading Level 4
+
 Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+
+Nested and mixed lists are an interesting beast. It's a corner case to make sure that
+
+* Lists within lists do not break the ordered list numbering order
+* Your list styles go deep enough.
+
+1. ordered item
+2. ordered item 
+    1. sub ordered item
+    2. sub ordered item
+3. ordered item 
+4. ordered item 
+
+### Ordered -- Unordered -- Ordered
+
+1. ordered item
+2. ordered item 
+  * **unordered**
+  * **unordered** 
+    1. ordered item
+    2. ordered item
+3. ordered item
+4. ordered item
+
+### Ordered -- Unordered -- Unordered
+
+1. ordered item
+2. ordered item 
+  * **unordered**
+  * **unordered** 
+    * unordered item
+    * unordered item
+3. ordered item
+4. ordered item
+
+### Unordered -- Ordered -- Unordered
+
+* unordered item
+* unordered item 
+  1. ordered
+  2. ordered 
+    * unordered item
+    * unordered item
+* unordered item
+* unordered item
+
+### Unordered -- Unordered -- Ordered
+
+* unordered item
+* unordered item 
+  * unordered
+  * unordered 
+    1. **ordered item**
+    2. **ordered item**
+* unordered item
+* unordered item

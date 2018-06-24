@@ -10,15 +10,12 @@
     h#{$i} {
       @extend .h-h#{$i};
       color: $grey;
+      margin: $padding-xs 0;
     }
   }
 
   h2 {
     color: $purple;
-  }
-
-  h3 {
-    margin: 1rem 0;
   }
 
   img {
@@ -38,11 +35,17 @@
   i, em {
     background-color: $green;
     color: $purple;
+    padding: 0 0.3rem;
   }
 
   sup {
     vertical-align: super;
     font-size: smaller;
+  }
+
+  figcaption {
+    font-size: 1.4rem;
+    color: $grey;
   }
 
   hr {
@@ -99,6 +102,31 @@
         font-size: 1.5rem;
       }
     }
+
+    // Nested ul
+    ul {
+      li {
+        counter-reset: step-counter;
+        padding-left: 0;
+        font-weight: $normal;
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    // Nested ol
+    ol {
+      list-style-type: lower-roman;
+      li {
+        counter-reset: step-counter;
+        padding-left: 0;
+        margin-left: $padding-xs * 2;
+        &:before {
+          display: none;
+        }
+      }
+    }
   }
 
   li {
@@ -116,6 +144,7 @@
   p code {
     background-color: lighten($x-light-purple, 5%);
     color: $dark-purple;
+    padding: 0 0.3rem;
   }
 
   // code blocks
@@ -130,25 +159,26 @@
     ol {
       padding: 0;
       li {
-        background-color: $off-white;
-        display: inline-block;
+        padding: 0;
         &:before {
           content: normal;
         }
+        p {
+          background-color: $off-white;
+          display: inline-block;
+          margin: 0;
+          a {
+            font-size: 1.4rem;
+          }
+        }
       }
-    }
-    a {
-      font-size: 1.4rem;
-    }
-    p {
-      margin: 0;
     }
   }
 
   /*----------  Blockquotes  ----------*/
 
   blockquote {
-    background: $off-white;
+    background-color: $off-white;
     border-left: 5px solid $purple;
     margin: $padding-xs 0;
     padding: 1rem 2rem;
@@ -213,17 +243,17 @@
   }
 
   .callout--info {
-    border-color: lighten($purple, 20%);
+    border-color: lighten($purple, 15%);
     background-color: $x-light-purple;
   }
 
   .callout--warning {
-    border-color: darken($yellow, 20%);
+    border-color: darken($yellow, 15%);
     background-color: lighten($yellow, 30%);
   }
 
   .callout--danger {
-    border-color: darken($red, 40%);
+    border-color: darken($red, 35%);
     background-color: lighten($red, 10%);
   }
 
@@ -233,7 +263,7 @@
   }
 
   .flag {
-    background: $off-white;
+    background-color: $off-white;
     border-left: 5px solid $light-purple;
     margin: $padding-xs 0;
     padding: 1rem 2rem;
