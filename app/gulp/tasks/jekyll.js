@@ -1,4 +1,4 @@
-module.exports = (gulp, config, exec, fs, replace, runSequence, jekyllRev, run, isProduction) => {
+module.exports = (gulp, config, exec, fs, replace, runSequence, jekyllRev, run, isProduction, isAllLangs) => {
   // Asset versioning for Jekyll
   gulp.task('jekyll-rev', () => {
     if (isProduction) {
@@ -16,7 +16,13 @@ module.exports = (gulp, config, exec, fs, replace, runSequence, jekyllRev, run, 
   });
 
   // Build jekyll
-  gulp.task('jekyll-build', cb => run(exec, 'bash -c "bundle exec jekyll build"', () => cb()));
+  gulp.task('jekyll-build', cb => {
+    if (isAllLangs) {
+      run(exec, 'bash -c "bundle exec jekyll build"', () => cb());
+    } else {
+      run(exec, 'bash -c "bundle exec jekyll build --config "_config.yml,_config_en.yml""', () => cb());
+    }
+  });
 
   // Copy jekyll files into dist dir
   gulp.task('jekyll-copy', () =>

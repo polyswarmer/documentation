@@ -11,6 +11,9 @@ start:
 build:
 	@bin/tasks/build.sh
 
+build-all:
+	@bin/tasks/build-all.sh
+
 build-prod:
 	@bin/tasks/build-prod.sh
 
@@ -47,6 +50,9 @@ help:
 	@echo "make build"
 	@echo "  - Compiles the site using gulp."
 	@echo
+	@echo "make build-all"
+	@echo "  - Compiles the site for all languages using gulp."
+	@echo
 	@echo "make build-prod"
 	@echo "  - Compiles the site for production using gulp."
 	@echo
@@ -69,4 +75,4 @@ help:
 	@echo "  - Rebuild container from scratch."
 	@echo
 
-.PHONY: start build build-prod watch npm-install bundle-install stop clean rebuild
+.PHONY: start build build-all build-prod watch npm-install bundle-install stop clean rebuild

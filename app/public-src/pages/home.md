@@ -1,6 +1,6 @@
 ---
-title: Homepage
-description: This is the homepage.
+title: Documentation
+description: PolySwarm Documentation
 permalink: /
 ---
 

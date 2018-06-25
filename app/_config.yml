@@ -1,13 +1,11 @@
 # Site data
 url: https://docs.polyswarm.io
+rooturl: https://polyswarm.io
 baseurl: ""
-
-# Company info
-company: PolySwarm Pte. Ltd.
-email: info@polyswarm.io
+gtm_id: GTM-KVL483J
 
 # Social media
-social:
+social_media:
   facebook: https://www.facebook.com/PolySwarm
   twitter: https://twitter.com/polyswarm
   linkedin: https://www.linkedin.com/company/polyswarm
@@ -75,6 +73,9 @@ plugins:
   # Multiple languages plugin will be local until #122 is merged
   # https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin/pull/122
   # - jekyll-multiple-languages-plugin
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Multiple Languages Plugin Settings
 languages:
@@ -86,3 +87,20 @@ languages:
   - de
   - ru
   - kr
+
+# Jekyll Seo Tag Plugin Settings
+logo: /assets/images/favicon/siteicon.png
+title: PolySwarm
+author:
+  name: PolySwarm Pte. Ltd.
+  email: info@polyswarm.io
+  twitter: polyswarm
+social:
+  name: PolySwarm
+  links:
+    - https://www.facebook.com/PolySwarm
+    - https://twitter.com/polyswarm
+    - https://www.linkedin.com/company/polyswarm
+    - https://www.youtube.com/channel/UClkA8JVQ--oMsPomOKM85fA
+    - https://github.com/polyswarm
+    - https://medium.com/polyswarm

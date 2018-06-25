@@ -22,11 +22,12 @@ const plugins = require('gulp-load-plugins')({
 
 // Flags
 const isProduction = argv.production;
+const isAllLangs = argv['all-langs'];
 
 // Gulp tasks
 require('./gulp/tasks/clean')(gulp, config, del);
 require('./gulp/tasks/reload')(gulp, browserSync);
-require('./gulp/tasks/jekyll')(gulp, config, exec, fs, replace, runSequence, jekyllRev, run, isProduction);
+require('./gulp/tasks/jekyll')(gulp, config, exec, fs, replace, runSequence, jekyllRev, run, isProduction, isAllLangs);
 require('./gulp/tasks/styles')(gulp, plugins, config, browserSync, isProduction);
 require('./gulp/tasks/scripts')(
   gulp,

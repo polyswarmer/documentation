@@ -60,6 +60,16 @@ To run a bundle install if your Gemfile has changed:
 
 ---
 
+## i18n
+
+### Building for all langages
+
+To build the site with all languages using Gulp:
+
+    $ make build-all
+
+---
+
 ## Production
 
 ### Building for production

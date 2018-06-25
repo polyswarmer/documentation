@@ -1,3 +1,5 @@
+global:
+  description: PolySwarm is the world's first distributed threat Intelligence market.
 header:
   navigation:
     items:
