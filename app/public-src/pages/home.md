@@ -1,6 +1,6 @@
 ---
-title: Documentation
-description: PolySwarm Documentation
+title: pages.home.title
+description: pages.home.description
 permalink: /
 ---
 

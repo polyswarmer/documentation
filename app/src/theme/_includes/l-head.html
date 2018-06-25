@@ -1,9 +1,9 @@
 {% capture title %}
-  {{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}
+  {{ site.title }}{% if page.title %} - {% t page.title %}{% endif %}
 {% endcapture %}
 
 {% if page.description %}
-  {% assign description = page.description %}
+  {% capture description %}{% t page.description %}{% endcapture %}
 {% else %}
   {% assign description = site.translations[site.lang].global.description %}
 {% endif %}

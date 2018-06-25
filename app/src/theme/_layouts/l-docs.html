@@ -2,7 +2,9 @@
 layout: l-base
 ---
 
-{% include organisms/o-hero--small.html %}
+{% capture title %}{% t page.title %}{% endcapture %}
+
+{% include organisms/o-hero--small.html title=title %}
 
 <div id="js-sidebar-nav-wrap" class="l-docs h-post-padding">
   <div class="container">
