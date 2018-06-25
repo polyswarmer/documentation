@@ -5,10 +5,16 @@ export default class SidebarNav {
       wrap: '#js-sidebar-nav-wrap',
       nav: '#js-sidebar-nav',
       list: '#js-sidebar-nav-list',
+      heading: 'h2',
       isFixed: 'is-fixed',
       isActive: 'is-active'
     };
-    this.atBottom = false;
+    this.positions = {
+      wrapTop: 0,
+      wrapBottom: 0,
+      marginTop: 0,
+      atBottom: false
+    };
   }
 
   cacheElements() {
@@ -22,7 +28,7 @@ export default class SidebarNav {
       } else {
         this.$$.window = $(window);
         this.$$.document = $(document);
-        this.$$.sections = this.$$.wrap.find('h2');
+        this.$$.sections = this.$$.wrap.find(classText.heading);
         this.$$.nav = this.$$.wrap.find(classText.nav);
         this.$$.list = $(classText.list);
         resolve();
@@ -53,25 +59,36 @@ export default class SidebarNav {
     });
   }
 
-  handleScroll() {
+  handleResize() {
     const { $$, classText } = this;
+    this.positions.wrapTop = $$.wrap.offset().top;
+    this.positions.wrapBottom = $$.wrap.offset().top + $$.wrap.outerHeight() - $$.window.height();
+    this.positions.marginTop = parseInt(
+      $(classText.heading)
+        .first()
+        .css('marginTop')
+        .replace('px', ''),
+      10
+    );
+  }
+
+  handleScroll() {
+    const { $$, positions, classText } = this;
     const scrollPosition = $$.document.scrollTop();
-    const wrapTop = $$.wrap.offset().top;
-    const wrapBottom = $$.wrap.offset().top + $$.wrap.outerHeight() - $$.window.height();
 
     // Switch nav to fixed position
-    if (scrollPosition >= wrapTop && wrapBottom > scrollPosition) {
+    if (scrollPosition >= positions.wrapTop && positions.wrapBottom > scrollPosition) {
       $$.list.addClass(classText.isFixed);
     } else {
       $$.list.removeClass(classText.isFixed);
     }
 
     // Set top property if at the bottom
-    if (wrapBottom <= scrollPosition && !this.atBottom) {
-      this.atBottom = true;
-      $$.list.css('top', scrollPosition - wrapTop);
-    } else if (wrapBottom > scrollPosition && this.atBottom) {
-      this.atBottom = false;
+    if (positions.wrapBottom <= scrollPosition && !positions.atBottom) {
+      positions.atBottom = true;
+      $$.list.css('top', scrollPosition - positions.wrapTop);
+    } else if (positions.wrapBottom > scrollPosition && positions.atBottom) {
+      positions.atBottom = false;
       $$.list.css('top', 0);
     }
 
@@ -80,9 +97,7 @@ export default class SidebarNav {
       const $el = $(el);
       const id = $el.attr('id');
       // Account for margin due to collapsing
-      const margin = parseInt($el.css('marginTop').replace('px', ''), 10);
-      const elementPosition = $el.offset().top - margin;
-
+      const elementPosition = $el.offset().top - positions.marginTop;
       // Make viewable section active
       if (elementPosition <= scrollPosition) {
         $$.list.find('li').removeClass(classText.isActive);
@@ -96,6 +111,7 @@ export default class SidebarNav {
 
   bindings() {
     const { $$, classText } = this;
+    $$.window.on(`resize.${classText.namespace}`, () => this.handleResize()).trigger(`resize.${classText.namespace}`);
     $$.window.on(`scroll.${classText.namespace}`, () => this.handleScroll()).trigger(`scroll.${classText.namespace}`);
   }
 

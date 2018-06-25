@@ -3,41 +3,69 @@
 =============================================*/
 
 .m-callout {
-  border: 2px solid $x-light-grey;
-  background-color: $off-white;
+  border-radius: $border-radius;
+  background-color: $alert-grey;
   padding: 0.5rem 1.5rem;
   margin: $padding-xs 0;
 
   p {
-    color: $dark-grey;
+    color: $grey;
     font-size: 1.4rem;
     margin: 1rem 0;
   }
 
   strong {
-    color: $dark-grey;
+    color: $grey;
     font-family: $font-heading;
     font-size: 1.6rem;
     display: block;
   }
-}
 
-.m-callout--info {
-  border-color: lighten($purple, 15%);
-  background-color: $x-light-purple;
-}
+  &.m-callout--info {
+    background-color: $x-light-purple;
 
-.m-callout--warning {
-  border-color: darken($yellow, 15%);
-  background-color: lighten($yellow, 30%);
-}
+    p {
+      color: $purple-text;
+    }
 
-.m-callout--danger {
-  border-color: darken($red, 35%);
-  background-color: lighten($red, 10%);
-}
+    strong {
+      color: $purple-text;
+    }
+  }
 
-.m-callout--success {
-  border-color: darken($green, 35%);
-  background-color: lighten($green, 15%);
+  &.m-callout--warning {
+    background-color: $light-yellow;
+
+    p {
+      color: $dark-yellow;
+    }
+
+    strong {
+      color: $dark-yellow;
+    }
+  }
+
+  &.m-callout--danger {
+    background-color: $light-red;
+
+    p {
+      color: $dark-red;
+    }
+
+    strong {
+      color: $dark-red;
+    }
+  }
+
+  &.m-callout--success {
+    background-color: $light-green;
+
+    p {
+      color: $dark-green;
+    }
+
+    strong {
+      color: $dark-green;
+    }
+  }
 }

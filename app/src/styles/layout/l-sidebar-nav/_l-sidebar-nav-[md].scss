@@ -4,6 +4,7 @@
 
 .l-sidebar-nav {
   ul {
+    width: 28rem;
     height: calc(100vh - 7.2rem);
     &.is-fixed {
       margin-top: 7.2rem;

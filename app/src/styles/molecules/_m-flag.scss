@@ -23,11 +23,11 @@
 }
 
 .m-flag--warning {
-  border-left-color: darken($yellow, 6%);
+  border-left-color: $yellow;
 }
 
 .m-flag--danger {
-  border-left-color: $red;
+  border-left-color: $light-red;
 }
 
 .m-flag--success {

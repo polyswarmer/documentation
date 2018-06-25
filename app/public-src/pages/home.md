@@ -1,6 +1,6 @@
 ---
 title: Homepage
-description: This is the homepage
+description: This is the homepage.
 permalink: /
 ---
 
