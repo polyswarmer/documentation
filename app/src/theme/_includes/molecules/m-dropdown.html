@@ -31,7 +31,13 @@ Example usage:
       {% assign name = item.name %}
     {% endif %}
 
-    <li class="m-dropdown__item"><a class="m-dropdown__link" href="{{ lang }}{{ item.url }}" target="{{ target }}">{{ name }}</a></li>
+    {% if include.root or item.root %}
+      {% assign href = item.url %}
+    {% else %}
+      {% capture href %}{{ lang }}{{ item.url }}{% endcapture %}
+    {% endif %}
+
+    <li class="m-dropdown__item"><a class="m-dropdown__link" href="{{ href }}" target="{{ target }}">{{ name }}</a></li>
 
   {% endfor %}
 

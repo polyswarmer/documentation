@@ -14,9 +14,7 @@ Example usage:
 
 {% endcomment %}
 
-{% if include.root %}
-  {% assign lang = '' %}
-{% elsif site.lang != 'en' %}
+{% if site.lang != 'en' %}
   {% capture lang %}/{{ site.lang }}{% endcapture %}
 {% else %}
   {% assign lang = '' %}
@@ -40,7 +38,13 @@ Example usage:
       {% assign target = "_self" %}
     {% endif %}
 
-    <a class="a-button a-button--{{ include.style }} a-button--{{ include.icon }}" href="{{lang}}{{ include.url }}" target="{{ target }}">
+    {% if include.root %}
+      {% assign href = item.url %}
+    {% else %}
+      {% capture href %}{{ lang }}{{ include.url }}{% endcapture %}
+    {% endif %}
+
+    <a class="a-button a-button--{{ include.style }} a-button--{{ include.icon }}" href="{{ href }}" target="{{ target }}">
 
   {% endif %}
 

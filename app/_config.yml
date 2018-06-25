@@ -1,34 +1,46 @@
 # Site data
-url: http://example.com
+url: https://docs.polyswarm.io
 baseurl: ""
+
+# Company info
 company: PolySwarm Pte. Ltd.
-privacyurl: /privacy-terms/
-whitepaperpdf: /polyswarm-whitepaper.pdf
+email: info@polyswarm.io
+
+# Social media
+social:
+  facebook: https://www.facebook.com/PolySwarm
+  twitter: https://twitter.com/polyswarm
+  linkedin: https://www.linkedin.com/company/polyswarm
+  youtube: https://www.youtube.com/channel/UClkA8JVQ--oMsPomOKM85fA
+  github: https://github.com/polyswarm
+  medium: https://medium.com/polyswarm
+
+# Languages
 langs:
  - name: DE
    fullname: Deutsch
-   url: "/de/"
+   url: /de/
  - name: EN
    fullname: English
-   url: "/"
+   url: /
  - name: ES
    fullname: Español
-   url: "/es/"
+   url: /es/
  - name: FR
    fullname: Français
-   url: "/fr/"
+   url: /fr/
  - name: RU
    fullname: Русский
-   url: "/ru/"
+   url: /ru/
  - name: KR
    fullname: 한국어
-   url: "/kr/"
+   url: /kr/
  - name: JA
    fullname: 日本語
-   url: "/ja/"
+   url: /ja/
  - name: ZH
    fullname: 中文
-   url: "/zh/"
+   url: /zh/
 
 # Build settings
 destination: tmp
@@ -53,7 +65,7 @@ defaults:
     scope:
       path: ""
     values:
-      layout: "l-docs"
+      layout: l-docs
 
 # Markdown settings
 markdown: kramdown
@@ -64,7 +76,13 @@ plugins:
   # https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin/pull/122
   # - jekyll-multiple-languages-plugin
 
-# i18n
+# Multiple Languages Plugin Settings
 languages:
   - en
+  - zh
+  - ja
+  - es
   - fr
+  - de
+  - ru
+  - kr

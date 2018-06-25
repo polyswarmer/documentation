@@ -10,48 +10,55 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
+
         <div class="l-footer__top">
           <div class="l-footer__rows">
+
             <div class="l-footer__row">
               <a class="l-footer__logo" href="{{ lang }}/">{% include atoms/a-icon.html name='wordmark' title='PolySwarm' %}</a>
               {% include molecules/m-social-links.html %}
             </div>
 
             {% for column in data.navigation.columns %}
-
               <div class="l-footer__row">
                 <ul class="l-footer__list">
 
                   {% for item in column.items %}
 
                     {% if item.url %}
-                      <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}{{ item.url }}">{{ item.name }}</a></li>
+                      {% if item.root %}
+                        <li class="l-footer__item"><a class="l-footer__item-link" href="{{ item.url }}">{{ item.name }}</a></li>
+                      {% else %}
+                        <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}{{ item.url }}">{{ item.name }}</a></li>
+                      {% endif %}
                     {% else %}
                       <li class="l-footer__item"><span class="l-footer__item-heading">{{ item.name }}</span></li>
                     {% endif %}
+
 
                   {% endfor %}
 
                 </ul>
               </div>
-
             {% endfor %}
 
             <div class="l-footer__row">
-              {% include atoms/a-button.html root='true' url=site.whitepaperpdf target='_blank' title='Download Whitepaper' %}
+              {% include atoms/a-button.html root=data.cta.root url=data.cta.url target=data.cta.target title=data.cta.name %}
             </div>
 
           </div>
         </div>
+
         <div class="l-footer__bottom">
           <div class="l-footer__bottom-left">
             <p>{{ site.time | date: "%Y" }} &copy; {{ site.company }}</p>
           </div>
           <div class="l-footer__bottom-right">
-            <a href="{{ site.privacyurl }}">Privacy Policy</a>
-            <a href="{{ site.privacyurl }}">Terms of Service</a>
+            <a href="{{ lang }}{{ data.privacy.url }}">{{ data.privacy.name }}</a>
+            <a href="{{ lang }}{{ data.terms.url }}">{{ data.terms.name }}</a>
           </div>
         </div>
+
       </div>
     </div>
   </div>
