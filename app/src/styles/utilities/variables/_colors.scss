@@ -1,48 +1,53 @@
 /*=============================================
-=             Variables - Colors              =
+=             variables - colors              =
 =============================================*/
 
-/*----------  Opacity  ----------*/
+/*----------  opacity  ----------*/
 
 $alpha: 0.1;
 
-/*----------  Colors  ----------*/
+/*----------  colors  ----------*/
 
-// Primary
-$white: #FFFFFF;
-$off-white: #F8F8F8;
+// primary
+$white: #ffffff;
+$off-white: #f8f8f8;
 $black: #000000;
+$off-black: #272727;
 
-// Grey
-$xx-light-grey: #E3E3E3;
-$x-light-grey: #D4D4D4;
-$light-grey: #87878C;
-$grey: #5F5F61;
-$dark-grey: #4A4A4A;
+// grey
+$xx-light-grey: #e3e3e3;
+$alert-grey: #e6e6e6;
+$x-light-grey: #d4d4d4;
+$comment-grey: #999999;
+$light-grey: #87878c;
+$grey: #5f5f61;
+$dark-grey: #4a4a4a;
 
-// Purple
-$xx-light-purple: #F5F3FA;
-$x-light-purple: #DBCDF8;
-$light-purple: #CBB4FC;
-$bright-purple: #8500FF;
-$purple: #782AF5;
-$dark-purple: #5524A4;
+// purple
+$xx-light-purple: #f5f3fa;
+$x-light-purple: #dbcdf8;
+$light-purple: #cbb4fc;
+$purple-text: #7357ae;
+$bright-purple: #8500ff;
+$purple: #782af5;
+$dark-purple: #5524a4;
 $x-dark-purple: #421787;
 $xx-dark-purple: #371371;
 
-// Green
-$green: #7BFA7F;
-
-// Red
-$bright-red: #ff1f7a;
-
-// Alerts
-$purple-text: #7357AE;
-$alert-grey: #e6e6e6;
+// green
 $light-green: #c4ffc6;
+$green: #7bfa7f;
 $dark-green: #3e7e40;
+
+// red
 $light-red: #fe9eaa;
+$bright-red: #ff1f7a;
 $dark-red: #774349;
+
+// yellow
 $light-yellow: #fffaba;
 $yellow: #fdd584;
 $dark-yellow: #817c44;
+
+// orange
+$orange: #f19c6e;
