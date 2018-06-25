@@ -25,7 +25,7 @@
 
       {% for item in data.navigation.items %}
 
-        {% if item.has_dropdown %}
+        {% if item.subitems %}
 
           <li class="l-header__nav-item">
             <span class="l-header__nav-link l-header__dropdown-toggle js-dropdown">{{ item.name }}</span>

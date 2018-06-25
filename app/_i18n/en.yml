@@ -12,7 +12,6 @@ header:
       - name: FAQ
         url: /faq/
       - name: Company
-        has_dropdown: true
         subitems:
           - name: The Team
             url: /the_team/
@@ -24,3 +23,40 @@ header:
             url: /media/
           - name: Press
             url: /press/
+footer:
+  navigation:
+    columns:
+      - items:
+          - name: Navigation
+          - name: Home
+            url: /
+          - name: Security Experts
+            url: /security_experts/
+          - name: How It Works
+            url: /howitworks/
+          - name: Grants
+            url: /grants/
+          - name: Roadmap
+            url: /road_map/
+          - name: FAQ
+            url: /faq/
+      - items:
+          - name: Company
+          - name: The Team
+            url: /the_team/
+          - name: Contact
+            url: /contact/
+          - name: Security
+            url: /security/
+          - name: Media
+            url: /media/
+          - name: Press
+            url: /press/
+      - items:
+          - name: Telegram Channels
+          - name: PolySwarm
+            url: https://t.me/PolySwarm
+          - name: POLYSWARM官方中文群
+            url: https://t.me/PolySwarmChinese
+          - name: PolySwarm Anouncements
+            url: https://t.me/PolySwarmAnnouncements

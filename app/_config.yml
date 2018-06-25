@@ -2,6 +2,7 @@
 url: http://example.com
 baseurl: ""
 company: PolySwarm Pte. Ltd.
+privacyurl: /privacy-terms/
 whitepaperpdf: /polyswarm-whitepaper.pdf
 langs:
  - name: DE
@@ -59,7 +60,9 @@ markdown: kramdown
 
 # Plugins
 plugins:
-  - jekyll-multiple-languages-plugin
+  # Multiple languages plugin will be local until #122 is merged
+  # https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin/pull/122
+  # - jekyll-multiple-languages-plugin
 
 # i18n
 languages:

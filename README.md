@@ -83,3 +83,54 @@ To stop the container:
 To run a docker system prune and remove the container and image:
 
     $ make clean
+
+---
+
+## Markdown
+
+### Callouts
+
+Callouts are text boxes which are used to emphasize important content.
+
+```html
+<div class="m-callout m-callout--info">
+  <p><strong>Lorem ipsum dolor sit amet</strong></p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+```
+
+Style Classes:
+* `m-callout` - Grey
+* `m-callout m-callout--info` - Purple
+* `m-callout m-callout--warning` - Yellow
+* `m-callout m-callout--danger` - Red
+* `m-callout m-callout--success` - Green
+
+### Callouts
+
+Flags are also text boxes which are used to emphasize important content, but are stylistically different.
+
+```html
+<div class="m-flag m-flag--danger">
+  <p><strong>Lorem ipsum dolor sit amet</strong></p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+```
+
+Style Classes:
+* `m-flag` - Purple
+* `m-flag m-flag--warning` - Yellow
+* `m-flag m-flag--danger` - Red
+* `m-flag m-flag--success` - Green
+
+### Videos
+
+When embedding a YouTube video, it is best to wrap the embed code in a video wrapper using a div with the class of `h-video-wrapper` to make for a responsive embed.
+
+```html
+<div class="h-video-wrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+```

@@ -17,7 +17,9 @@ gem "jekyll", "~> 3.8.3"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-multiple-languages-plugin", "1.5.1"
+  # Multiple languages plugin will be local until #122 is merged
+  # https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin/pull/122
+  # gem "jekyll-multiple-languages-plugin", "1.5.1"
   gem "jekyll-sitemap", "1.2.0"
 end
 
