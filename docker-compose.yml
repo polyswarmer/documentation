@@ -1,12 +1,12 @@
 version: '3'
 services:
   jekyll:
-    build: .
-    image: polyswarm/documentation
+    image: gitlab.polyswarm.io:3343/polyswarm/documentation
     container_name: polyswarm-docs
     ports:
       - 3000:3000
       - 3001:3001
+      - 8000:8000
     volumes:
       - ./app:/usr/src/app
       - /usr/src/app/node_modules

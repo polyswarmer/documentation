@@ -2,8 +2,16 @@ THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
 all:
 	@$(MAKE) -f $(THIS_FILE) start
+	@$(MAKE) -f $(THIS_FILE) npm-install
+	@$(MAKE) -f $(THIS_FILE) bundle-install
 	@$(MAKE) -f $(THIS_FILE) build
-	@$(MAKE) -f $(THIS_FILE) watch
+
+prod:
+	@$(MAKE) -f $(THIS_FILE) start
+	@$(MAKE) -f $(THIS_FILE) npm-install
+	@$(MAKE) -f $(THIS_FILE) bundle-install
+	@$(MAKE) -f $(THIS_FILE) build-prod
+	@$(MAKE) -f $(THIS_FILE) stop
 
 start:
 	@bin/tasks/start.sh
@@ -45,19 +53,13 @@ help:
 	@echo "==== Jekyll Boilerplate ===="
 	@echo
 	@echo "make"
-	@echo "  - Starts container, builds, and starts watcher."
+	@echo "  - Starts container, installs dependencies, builds the project."
+	@echo
+	@echo "make prod"
+	@echo "  - Builds the project for production (for use with CI)."
 	@echo
 	@echo "make start"
 	@echo "  - Starts the container."
-	@echo
-	@echo "make build"
-	@echo "  - Compiles the site using gulp."
-	@echo
-	@echo "make build-all"
-	@echo "  - Compiles the site for all languages using gulp."
-	@echo
-	@echo "make build-prod"
-	@echo "  - Compiles the site for production using gulp."
 	@echo
 	@echo "make watch"
 	@echo "  - Starts the project watcher."
@@ -67,6 +69,15 @@ help:
 	@echo
 	@echo "make bundle-install"
 	@echo "  - Runs bundle install."
+	@echo
+	@echo "make build"
+	@echo "  - Compiles the site using gulp."
+	@echo
+	@echo "make build-all"
+	@echo "  - Compiles the site for all languages using gulp."
+	@echo
+	@echo "make build-prod"
+	@echo "  - Compiles the site for production using gulp."
 	@echo
 	@echo "make test"
 	@echo "  - Runs all tests."
@@ -81,4 +92,4 @@ help:
 	@echo "  - Rebuild container from scratch."
 	@echo
 
-.PHONY: start build build-all build-prod watch npm-install bundle-install test stop clean rebuild
+.PHONY: prod start build build-all build-prod watch npm-install bundle-install test stop clean rebuild

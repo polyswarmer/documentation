@@ -11,5 +11,6 @@ before_script:
 
 build:
   stage: build
-  scripts:
+  script:
+    - make prod
     - ls -lah
