@@ -1,5 +1,6 @@
 stages:
   - build
+  - test
 
 build:
   stage: build
@@ -10,9 +11,13 @@ build:
     - npm install --silent
     - bundle check || bundle install --path vendor/bundle
     - npx gulp --all-langs --production
-    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
+  artifacts:
     paths:
-      - app/node_modules/
-      - app/vendor/bundle/
+      - app/node_modules
+      - app/vendor/bundle
+
+test:
+  stage: test
+  image: gitlab.polyswarm.io:3343/polyswarm/documentation
+  script:
+    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
