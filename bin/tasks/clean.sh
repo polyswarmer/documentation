@@ -6,7 +6,7 @@ source bin/vars.sh
 
 # Is the container still running?
 if [[ $(docker inspect -f {{.State.Running}} $CONTAINER) == "true" ]]; then
-  echo "Your container is still running. Please run make stop before running clean."
+  echo "Your container is still running. Please stop it an try again."
   exit 1
 else
   # Are you sure you want to?
