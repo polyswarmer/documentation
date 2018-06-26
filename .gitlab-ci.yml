@@ -10,7 +10,6 @@ compile:
     - npm install --silent
     - bundle check || bundle install --path vendor/bundle
     - npx gulp --all-langs --production
-    - ls -lah
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
