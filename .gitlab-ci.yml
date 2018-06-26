@@ -36,6 +36,7 @@ test:
 
 deploy:
   stage: deploy
+  image: alpine/git
   # only:
   #   - master
   script:
