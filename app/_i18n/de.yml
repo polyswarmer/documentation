@@ -23,15 +23,20 @@ header:
       - name: Company
         subitems:
           - name: The Team
-            url: /the_team/
+            url: https://polyswarm.io/de/the_team/
+            root: true
           - name: Contact
-            url: /contact/
+            url: https://polyswarm.io/de/contact/
+            root: true
           - name: Security
-            url: /security/
+            url: https://polyswarm.io/de/security/
+            root: true
           - name: Media
-            url: /media/
+            url: https://polyswarm.io/de/media/
+            root: true
           - name: Press
-            url: /press/
+            url: https://polyswarm.io/de/press/
+            root: true
 footer:
   navigation:
     columns:

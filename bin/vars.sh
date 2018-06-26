@@ -2,3 +2,4 @@
 
 IMAGE=polyswarm/documentation
 CONTAINER=polyswarm-docs
+PROJECT_DEST=./dist

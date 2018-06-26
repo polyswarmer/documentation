@@ -1,5 +1,6 @@
 FROM ruby:2.5.1-stretch
 
+ENV LANG C.UTF-8
 ENV NODE_VERSION 8.11.3
 
 WORKDIR /usr/src/app

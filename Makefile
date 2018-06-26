@@ -26,6 +26,9 @@ npm-install:
 bundle-install:
 	@bin/tasks/bundle-install.sh
 
+test:
+	@bin/tasks/test.sh
+
 stop:
 	@bin/tasks/stop.sh
 
@@ -65,6 +68,9 @@ help:
 	@echo "make bundle-install"
 	@echo "  - Runs bundle install."
 	@echo
+	@echo "make test"
+	@echo "  - Runs all tests."
+	@echo
 	@echo "make stop"
 	@echo "  - Stops the container."
 	@echo
@@ -75,4 +81,4 @@ help:
 	@echo "  - Rebuild container from scratch."
 	@echo
 
-.PHONY: start build build-all build-prod watch npm-install bundle-install stop clean rebuild
+.PHONY: start build build-all build-prod watch npm-install bundle-install test stop clean rebuild

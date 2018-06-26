@@ -1,5 +1,6 @@
 stages:
   - build
+  - test
 
 compile:
   stage: build
@@ -10,6 +11,18 @@ compile:
     - npm install --silent
     - bundle check || bundle install --path vendor/bundle
     - npx gulp --all-langs --production
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - app/node_modules/
+      - app/vendor/bundle/
+
+test:
+  stage: test
+  image: mrjoshc/jekyll-node:2.5.1-8.11.3
+  script:
+    - cd app
+    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
