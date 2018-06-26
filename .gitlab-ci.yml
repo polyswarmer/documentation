@@ -1,6 +1,5 @@
 stages:
   - build
-  - test
   - deploy
 
 variables:
@@ -12,31 +11,22 @@ build:
   script:
     - cd app
     - source ~/.bashrc
-    - npm install --silent
-    - bundle check || bundle install --path vendor/bundle
+    - if [ ! -e node_modules ]; then npm install --silent; fi
+    - if [ ! -e vendor ]; then bundle install --path vendor/bundle; fi
     - npx gulp --all-langs --production
+    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
   cache:
     key: v001
     paths:
       - app/node_modules/
-      - app/vendor/bundle/
+      - app/vendor/
   artifacts:
     paths:
       - app/dist
-      - app/node_modules
-      - app/vendor/bundle
-
-test:
-  stage: test
-  image: $DOCKER_FULL_PATH
-  script:
-    - cd app
-    - bundle check || bundle install --path vendor/bundle
-    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
 
 deploy:
   stage: deploy
-  image: alpine/git
+  image: $DOCKER_FULL_PATH
   # only:
   #   - master
   script:
