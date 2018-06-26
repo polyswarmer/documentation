@@ -30,4 +30,5 @@ test:
   image: $DOCKER_FULL_PATH
   script:
     - cd app
+    - bundle check || bundle install --path vendor/bundle
     - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
