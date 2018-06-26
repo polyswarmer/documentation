@@ -2,9 +2,12 @@ stages:
   - build
   - test
 
+variables:
+  DOCKER_FULL_PATH: gitlab.polyswarm.io:3343/polyswarm/documentation
+
 build:
   stage: build
-  image: gitlab.polyswarm.io:3343/polyswarm/documentation
+  image: $DOCKER_FULL_PATH
   script:
     - cd app
     - source ~/.bashrc
@@ -13,11 +16,13 @@ build:
     - npx gulp --all-langs --production
   artifacts:
     paths:
+      - app/dist
       - app/node_modules
       - app/vendor/bundle
 
 test:
   stage: test
-  image: gitlab.polyswarm.io:3343/polyswarm/documentation
+  image: $DOCKER_FULL_PATH
   script:
+    - cd app
     - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external

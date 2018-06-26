@@ -20,7 +20,7 @@ To see a list of all of the available commands:
 
 ### Building the image
 
-To build the Docker image, start the container, build the site with Gulp, and start the project watcher all in one shot:
+To start the container, install the project dependencies, and build the site with Gulp:
 
     $ make
 
@@ -30,7 +30,7 @@ To build the Docker image, start the container, build the site with Gulp, and st
 
 ### Starting the container
 
-To simply build the image and start the container:
+To simply start the container:
 
     $ make start
 
@@ -93,6 +93,16 @@ To stop the container:
 To run a docker system prune and remove the container and image:
 
     $ make clean
+
+---
+
+## Stopping and Cleanup
+
+### Rebuilding the container
+
+If you would like to system prune and rebuild the container from scratch:
+
+    $ make rebuild
 
 ---
 

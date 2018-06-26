@@ -6,13 +6,6 @@ all:
 	@$(MAKE) -f $(THIS_FILE) bundle-install
 	@$(MAKE) -f $(THIS_FILE) build
 
-prod:
-	@$(MAKE) -f $(THIS_FILE) start
-	@$(MAKE) -f $(THIS_FILE) npm-install
-	@$(MAKE) -f $(THIS_FILE) bundle-install
-	@$(MAKE) -f $(THIS_FILE) build-prod
-	@$(MAKE) -f $(THIS_FILE) stop
-
 start:
 	@bin/tasks/start.sh
 
@@ -55,9 +48,6 @@ help:
 	@echo "make"
 	@echo "  - Starts container, installs dependencies, builds the project."
 	@echo
-	@echo "make prod"
-	@echo "  - Builds the project for production (for use with CI)."
-	@echo
 	@echo "make start"
 	@echo "  - Starts the container."
 	@echo
@@ -92,4 +82,4 @@ help:
 	@echo "  - Rebuild container from scratch."
 	@echo
 
-.PHONY: prod start build build-all build-prod watch npm-install bundle-install test stop clean rebuild
+.PHONY: start build build-all build-prod watch npm-install bundle-install test stop clean rebuild
