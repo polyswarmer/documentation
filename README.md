@@ -157,16 +157,10 @@ When embedding a YouTube video, it is best to wrap the embed code in a video wra
 
 ---
 
-## Deployment
+## Continuous Integration
 
 ### GitLab
 
 #### Caching
 
-There are two ways to clear the GitLab cache:
-
-1. Increment the cache key in the `gitlab-ci.yml` file (preferred).
-    * This is preferred because it is branch-specific.
-
-2. Click **Clear Runner Caches** in GitLab (use with caution).
-    * Be careful with this option as it will affect all branches.
+To clear the GitLab cache, increment the cache key in the `gitlab-ci.yml` file.
