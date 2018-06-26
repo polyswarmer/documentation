@@ -61,3 +61,8 @@ gulp.task('watch', () => {
 gulp.task('default', cb => {
   runSequence('clean', 'styles', ['scripts', 'images', 'fonts'], 'jekyll', cb);
 });
+
+// Build w/o Jekyll for CI tools
+gulp.task('build', cb => {
+  runSequence('clean', 'styles', ['scripts', 'images', 'fonts'], cb);
+});
