@@ -1,6 +1,7 @@
 stages:
   - build
   - test
+  - deploy
 
 variables:
   DOCKER_FULL_PATH: gitlab.polyswarm.io:3343/polyswarm/documentation
@@ -32,3 +33,14 @@ test:
     - cd app
     - bundle check || bundle install --path vendor/bundle
     - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
+
+deploy:
+  stage: deploy
+  only:
+    - master
+  script:
+    - cd app/dist
+    - git init
+    - git add . && git commit -am "Deployed with GitLab"
+    - git remote add origin https://${GITHUB_USER_ID}:${GITHUB_TOKEN}@github.com/polyswarm/polyswarm.github.io.git
+    - git push origin master
