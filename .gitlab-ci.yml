@@ -6,9 +6,11 @@ compile:
   image: mrjoshc/jekyll-node:2.5.1-8.11.3
   script:
     - cd app
-    - source ~/.bashrc && npm install --silent
+    - source ~/.bashrc
+    - npm install --silent
     - bundle check || bundle install --path vendor/bundle
-    - npx gulp --all-lange --production
+    - npx gulp --all-langs --production
+    - ls -lah
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
