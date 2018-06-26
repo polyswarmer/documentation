@@ -27,15 +27,13 @@ build:
 deploy:
   stage: deploy
   image: $DOCKER_FULL_PATH
-  # only:
-  #   - master
-  variables:
-    GITHUB_URL: "https://$GITHUB_USER_ID:$GITHUB_TOKEN@github.com/polyswarm/polyswarm.github.io.git"
+  only:
+    - master
   script:
     - cd app/dist
     - git config --global user.email "info@polyswarm.io"
     - git config --global user.name "PolySwarm"
     - git init
     - git add . && git commit -am "Deployed with GitLab :rocket:"
-    - git remote add origin $GITHUB_URL
+    - git remote add origin https://${GITHUB_USER_ID}:${GITHUB_TOKEN}@github.com/polyswarm/polyswarm.github.io.git
     - git push origin master
