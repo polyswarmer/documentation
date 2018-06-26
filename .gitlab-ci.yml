@@ -12,7 +12,7 @@ build:
     - cd app
     - source ~/.bashrc
     - if [ ! -e node_modules ]; then npm install --silent; fi
-    - if [ ! -e vendor ]; then bundle install --path vendor/bundle; fi
+    - bundle install --path vendor/bundle
     - npx gulp --all-langs --production
     - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
   cache:
