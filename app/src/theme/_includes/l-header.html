@@ -35,7 +35,11 @@
         {% else %}
 
           <li class="l-header__nav-item">
-            <a href="{{ site.url }}{{ lang }}{{ item.url }}" target="{{ item.target }}" class="l-header__nav-link">{{ item.name }}</a>
+            {% if item.root %}
+              <a href="{{ item.url }}" target="{{ item.target }}" class="l-header__nav-link">{{ item.name }}</a>
+            {% else %}
+              <a href="{{ lang }}{{ item.url }}" target="{{ item.target }}" class="l-header__nav-link">{{ item.name }}</a>
+            {% endif %}
           </li>
 
         {% endif %}

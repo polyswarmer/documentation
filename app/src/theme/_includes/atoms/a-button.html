@@ -39,7 +39,7 @@ Example usage:
     {% endif %}
 
     {% if include.root %}
-      {% assign href = item.url %}
+      {% assign href = include.url %}
     {% else %}
       {% capture href %}{{ lang }}{{ include.url }}{% endcapture %}
     {% endif %}

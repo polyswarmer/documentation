@@ -11,15 +11,20 @@ header:
   navigation:
     items:
       - name: Security Experts
-        url: /security_experts/
+        url: https://polyswarm.io/ja/security_experts/
+        root: true
       - name: How It Works
-        url: /howitworks/
+        url: https://polyswarm.io/ja/howitworks/
+        root: true
       - name: Grants
-        url: /grants/
+        url: https://polyswarm.io/ja/grants/
+        root: true
       - name: Roadmap
-        url: /road_map/
+        url: https://polyswarm.io/ja/road_map/
+        root: true
       - name: FAQ
-        url: /faq/
+        url: https://polyswarm.io/ja/faq/
+        root: true
       - name: Company
         subitems:
           - name: The Team
@@ -45,27 +50,37 @@ footer:
           - name: Home
             url: /
           - name: Security Experts
-            url: /security_experts/
+            url: https://polyswarm.io/ja/security_experts/
+            root: true
           - name: How It Works
-            url: /howitworks/
+            url: https://polyswarm.io/ja/howitworks/
+            root: true
           - name: Grants
-            url: /grants/
+            url: https://polyswarm.io/ja/grants/
+            root: true
           - name: Roadmap
-            url: /road_map/
+            url: https://polyswarm.io/ja/road_map/
+            root: true
           - name: FAQ
-            url: /faq/
+            url: https://polyswarm.io/ja/faq/
+            root: true
       - items:
           - name: Company
           - name: The Team
-            url: /the_team/
+            url: https://polyswarm.io/ja/the_team/
+            root: true
           - name: Contact
-            url: /contact/
+            url: https://polyswarm.io/ja/contact/
+            root: true
           - name: Security
-            url: /security/
+            url: https://polyswarm.io/ja/security/
+            root: true
           - name: Media
-            url: /media/
+            url: https://polyswarm.io/ja/media/
+            root: true
           - name: Press
-            url: /press/
+            url: https://polyswarm.io/ja/press/
+            root: true
       - items:
           - name: Telegram Channels
           - name: PolySwarm
@@ -79,12 +94,14 @@ footer:
             root: true
   cta:
     name: Download Whitepaper
-    url: /polyswarm-whitepaper.pdf
+    url: https://polyswarm.io/ja/polyswarm-whitepaper.pdf
     target: _blank
     root: true
   privacy:
     name: Privacy Policy
-    url: /privacy-terms/
+    url: https://polyswarm.io/ja/privacy-terms/
+    root: true
   terms:
     name: Terms of Service
-    url: /privacy-terms/
+    url: https://polyswarm.io/ja/privacy-terms/
+    root: true

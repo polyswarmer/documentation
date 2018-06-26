@@ -27,9 +27,9 @@
 
                     {% if item.url %}
                       {% if item.root %}
-                        <li class="l-footer__item"><a class="l-footer__item-link" href="{{ site.url }}{{ item.url }}">{{ item.name }}</a></li>
+                        <li class="l-footer__item"><a class="l-footer__item-link" href="{{ item.url }}">{{ item.name }}</a></li>
                       {% else %}
-                        <li class="l-footer__item"><a class="l-footer__item-link" href="{{ site.url }}{{ lang }}{{ item.url }}">{{ item.name }}</a></li>
+                        <li class="l-footer__item"><a class="l-footer__item-link" href="{{ lang }}{{ item.url }}">{{ item.name }}</a></li>
                       {% endif %}
                     {% else %}
                       <li class="l-footer__item"><span class="l-footer__item-heading">{{ item.name }}</span></li>
@@ -43,8 +43,7 @@
             {% endfor %}
 
             <div class="l-footer__row">
-              {% capture cta_url %}{{ site.url }}{{ data.cta.url }}{% endcapture %}
-              {% include atoms/a-button.html root=data.cta.root url=cta_url target=data.cta.target title=data.cta.name %}
+              {% include atoms/a-button.html root=data.cta.root url=data.cta.url target=data.cta.target title=data.cta.name %}
             </div>
 
           </div>
@@ -55,8 +54,16 @@
             <p>{{ site.time | date: "%Y" }} &copy; {{ site.author.name }}</p>
           </div>
           <div class="l-footer__bottom-right">
-            <a href="{{ site.url }}{{ lang }}{{ data.privacy.url }}">{{ data.privacy.name }}</a>
-            <a href="{{ site.url }}{{ lang }}{{ data.terms.url }}">{{ data.terms.name }}</a>
+            {% if data.privacy.root %}
+              <a href="{{ data.privacy.url }}">{{ data.privacy.name }}</a>
+            {% else %}
+              <a href="{{ lang }}{{ data.privacy.url }}">{{ data.privacy.name }}</a>
+            {% endif %}
+            {% if data.terms.root %}
+              <a href="{{ data.terms.url }}">{{ data.terms.name }}</a>
+            {% else %}
+              <a href="{{ lang }}{{ data.terms.url }}">{{ data.terms.name }}</a>
+            {% endif %}
           </div>
         </div>
 
