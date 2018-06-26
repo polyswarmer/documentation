@@ -1,28 +1,16 @@
 stages:
-  - compile
   - build
 
 compile:
-  stage: compile
-  image: node:8.11.3-jessie
+  stage: build
+  image: mrjoshc/jekyll-node:2.5.1-8.11.3
   script:
     - cd app
     - npm install --silent
-    - npx gulp build --production
+    - bundle check || bundle install --path vendor/bundle
+    - npx gulp --all-lange --production
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
       - app/node_modules/
-
-build:
-  stage: build
-  image: ruby:2.5.1-stretch
-  script:
-    - cd app
-    - bundle check || bundle install --path vendor/bundle
-    - bundle exec jekyll build
-    - ls -lah
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
-    paths:
       - app/vendor/bundle/
