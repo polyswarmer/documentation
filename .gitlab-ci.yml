@@ -1,0 +1,15 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build_job:
+  stage: build
+  image: node:8.11.3-jessie
+  script:
+    - npm install
+    - ls -lah
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+    - node_modules/
