@@ -15,7 +15,7 @@ build:
     - bundle check || bundle install --path vendor/bundle
     - npx gulp --all-langs --production
   cache:
-    key: ${CI_COMMIT_REF_SLUG}
+    key: v001
     paths:
       - app/node_modules/
       - app/vendor/bundle/

@@ -154,3 +154,16 @@ When embedding a YouTube video, it is best to wrap the embed code in a video wra
   <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 ```
+
+---
+
+## Deployment
+
+### GitLab
+
+#### Caching
+
+There are two ways to clear the GitLab cache:
+
+1. Click **Clear Runner Caches** in GitLab.
+2. Increment the cache key in the `gitlab-ci.yml` file.
