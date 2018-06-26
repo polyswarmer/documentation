@@ -1,15 +1,8 @@
-image: docker:stable
-
-services:
-  - docker:dind
-
 stages:
   - build
 
-before_script:
-  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-
 build:
   stage: build
+  image: gitlab.polyswarm.io:3343/polyswarm/documentation
   script:
     - ls -lah
