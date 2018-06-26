@@ -36,4 +36,4 @@ deploy:
     - git init
     - git add . && git commit -am "Deployed with GitLab :rocket:"
     - git remote add origin https://${GITHUB_USER_ID}:${GITHUB_TOKEN}@github.com/polyswarm/polyswarm.github.io.git
-    - git push origin master
+    - git push -f origin master
