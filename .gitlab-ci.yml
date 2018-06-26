@@ -1,18 +1,25 @@
+image: docker:git
+services: docker:dind
+
 stages:
   - build
 
+variables:
+  IMAGE: gitlab.polyswarm.io:3343/polyswarm/documentation
+
+before_script:
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+
 build:
   stage: build
-  image: mrjoshc/ruby-node:2.5.1-8.11.3
+  image: $IMAGE
   script:
     - cd app
     - source ~/.bashrc
     - npm install --silent
     - bundle check || bundle install --path vendor/bundle
     - npx gulp --all-langs --production
-    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
+  artifacts:
     paths:
-      - app/node_modules/
-      - app/vendor/bundle/
+      - app/node_modules
+      - app/vendor/bundle
