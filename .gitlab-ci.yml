@@ -2,11 +2,18 @@ stages:
   - build
   - deploy
 
+variables:
+  DOCKER_IMAGE: gitlab.polyswarm.io:3343/polyswarm/documentation
+
 build:
   stage: build
-  image: $CI_REGISTRY
+  image: $DOCKER_IMAGE
   script:
+    - echo $CI_REGISTRY
+    - echo $CI_REGISTRY_IMAGE
     - echo $GITHUB_USER_ID
+    - echo $GITHUB_USER_ID
+    - echo $CI_PROJECT_NAME
     - cd app
     - source ~/.bashrc
     - if [ ! -e node_modules ]; then npm install --silent; fi
@@ -24,7 +31,7 @@ build:
 
 deploy:
   stage: deploy
-  image: $CI_REGISTRY
+  image: $DOCKER_IMAGE
   only:
     - master
   script:
