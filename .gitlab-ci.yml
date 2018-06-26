@@ -12,14 +12,5 @@ before_script:
 
 build:
   stage: build
-  image: $IMAGE
   script:
-    - cd app
-    - source ~/.bashrc
-    - npm install --silent
-    - bundle check || bundle install --path vendor/bundle
-    - npx gulp --all-langs --production
-  artifacts:
-    paths:
-      - app/node_modules
-      - app/vendor/bundle
+    - ls -lah
