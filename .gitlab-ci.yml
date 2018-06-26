@@ -5,4 +5,14 @@ build:
   stage: build
   image: gitlab.polyswarm.io:3343/polyswarm/documentation
   script:
-    - ls -lah
+    - cd app
+    - source ~/.bashrc
+    - npm install --silent
+    - bundle check || bundle install --path vendor/bundle
+    - npx gulp --all-langs --production
+    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - app/node_modules/
+      - app/vendor/bundle/
