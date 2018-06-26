@@ -6,7 +6,6 @@ build:
   stage: build
   image: $CI_REGISTRY_IMAGE
   script:
-    - echo $GITHUB_TEST_VAR
     - cd app
     - source ~/.bashrc
     - if [ ! -e node_modules ]; then npm install --silent; fi
