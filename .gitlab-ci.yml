@@ -3,11 +3,11 @@ stages:
   - deploy
 
 variables:
-  DOCKER_FULL_PATH: gitlab.polyswarm.io:3343/polyswarm/documentation
+  DOCKER_IMAGE: gitlab.polyswarm.io:3343/polyswarm/documentation
 
 build:
   stage: build
-  image: $DOCKER_FULL_PATH
+  image: $DOCKER_IMAGE
   script:
     - cd app
     - source ~/.bashrc
@@ -26,7 +26,7 @@ build:
 
 deploy:
   stage: deploy
-  image: $DOCKER_FULL_PATH
+  image: $DOCKER_IMAGE
   only:
     - master
   script:
