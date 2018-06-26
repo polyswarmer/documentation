@@ -9,6 +9,12 @@ all:
 start:
 	@bin/tasks/start.sh
 
+npm-install:
+	@bin/tasks/npm-install.sh
+
+bundle-install:
+	@bin/tasks/bundle-install.sh
+
 build:
 	@bin/tasks/build.sh
 
@@ -20,12 +26,6 @@ build-prod:
 
 watch:
 	@bin/tasks/watch.sh
-
-npm-install:
-	@bin/tasks/npm-install.sh
-
-bundle-install:
-	@bin/tasks/bundle-install.sh
 
 test:
 	@bin/tasks/test.sh
@@ -51,9 +51,6 @@ help:
 	@echo "make start"
 	@echo "  - Starts the container."
 	@echo
-	@echo "make watch"
-	@echo "  - Starts the project watcher."
-	@echo
 	@echo "make npm-install"
 	@echo "  - Runs npm install."
 	@echo
@@ -69,6 +66,9 @@ help:
 	@echo "make build-prod"
 	@echo "  - Compiles the site for production using gulp."
 	@echo
+	@echo "make watch"
+	@echo "  - Starts the project watcher."
+	@echo
 	@echo "make test"
 	@echo "  - Runs all tests."
 	@echo
@@ -82,4 +82,4 @@ help:
 	@echo "  - Rebuild container from scratch."
 	@echo
 
-.PHONY: start build build-all build-prod watch npm-install bundle-install test stop clean rebuild
+.PHONY: start npm-install bundle-install build build-all build-prod watch test stop clean rebuild
