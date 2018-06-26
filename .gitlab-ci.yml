@@ -7,9 +7,10 @@ build_job:
   stage: build
   image: node:8.11.3-jessie
   script:
+    - cd app
     - npm install
     - ls -lah
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
-    - node_modules/
+    - app/node_modules/
