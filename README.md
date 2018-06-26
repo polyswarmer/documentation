@@ -24,6 +24,12 @@ To start the container, install the project dependencies, and build the site wit
 
     $ make
 
+### Watching the project
+
+To start the project watcher:
+
+    $ make watch
+
 ---
 
 ## Development
@@ -39,12 +45,6 @@ To simply start the container:
 To simply build the site with Gulp:
 
     $ make build
-
-### Watching the project
-
-To simply watch the project files:
-
-    $ make watch
 
 ### Running npm install
 
