@@ -36,8 +36,8 @@ test:
 
 deploy:
   stage: deploy
-  only:
-    - master
+  # only:
+  #   - master
   script:
     - cd app/dist
     - git init
