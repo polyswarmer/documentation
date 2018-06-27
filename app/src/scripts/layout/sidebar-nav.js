@@ -8,8 +8,8 @@ export default class SidebarNav {
       subheadings: 'h3',
       parentClass: 'js-sidebar-nav-parent l-sidebar-nav__link-parent',
       childClass: 'js-sidebar-nav-child l-sidebar-nav__link-child',
-      isAbsolute: 'is-absolute',
       isFixed: 'is-fixed',
+      isAbsolute: 'is-absolute',
       isActive: 'is-active'
     };
 
@@ -89,44 +89,41 @@ export default class SidebarNav {
     this.positions.navBottomPlacement = this.positions.navBottom - this.positions.sectionTop;
     this.positions.isFixed = false;
     this.positions.atBottom = false;
-    console.log(this.positions);
   }
 
   affix() {
-    const { $$ } = this;
+    const { $$, classText, positions } = this;
 
     const scrollPosition = $$.window.scrollTop();
 
     // Above top
-    if (scrollPosition < this.positions.sectionTop && this.positions.isFixed && !this.positions.atBottom) {
-      $$.nav.removeClass('is-fixed');
+    if (scrollPosition < positions.sectionTop && positions.isFixed && !positions.atBottom) {
+      $$.nav.removeClass(classText.isFixed);
       this.positions.isFixed = false;
 
       // Passed top
-    } else if (scrollPosition >= this.positions.sectionTop && !this.positions.isFixed && !this.positions.atBottom) {
-      $$.nav.addClass('is-fixed');
+    } else if (scrollPosition >= positions.sectionTop && !positions.isFixed && !positions.atBottom) {
+      $$.nav.addClass(classText.isFixed);
       this.positions.isFixed = true;
 
       // Above bottom
-    } else if (scrollPosition < this.positions.navBottom && !this.positions.isFixed && this.positions.atBottom) {
+    } else if (scrollPosition < positions.navBottom && !positions.isFixed && positions.atBottom) {
       $$.nav
-        .addClass('is-fixed')
-        .removeClass('is-absolute')
+        .addClass(classText.isFixed)
+        .removeClass(classText.isAbsolute)
         .css('top', '');
       this.positions.isFixed = true;
       this.positions.atBottom = false;
 
       // Passed bottom
-    } else if (scrollPosition >= this.positions.navBottom && this.positions.isFixed && !this.positions.atBottom) {
+    } else if (scrollPosition >= positions.navBottom && positions.isFixed && !positions.atBottom) {
       $$.nav
-        .removeClass('is-fixed')
-        .addClass('is-absolute')
-        .css('top', `${this.positions.navBottomPlacement}px`);
+        .removeClass(classText.isFixed)
+        .addClass(classText.isAbsolute)
+        .css('top', `${positions.navBottomPlacement}px`);
       this.positions.isFixed = false;
       this.positions.atBottom = true;
     }
-
-    console.log(this.positions);
   }
 
   // scrollspy() {}
@@ -137,7 +134,8 @@ export default class SidebarNav {
 
   bindings() {
     const { $$, handlers } = this;
-    $$.window.on(handlers.resize, _.debounce(this.setPositions.bind(this), 150)).trigger(handlers.resize);
+    $(window).on('load', () => this.setPositions());
+    $$.window.on(handlers.resize, _.debounce(this.setPositions.bind(this), 150));
     $$.window.on(handlers.scroll, () => this.affix());
   }
 

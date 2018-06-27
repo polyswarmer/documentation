@@ -4,13 +4,17 @@
 
 .l-sidebar-nav {
   display: none;
+  width: 28rem;
 
   &.is-fixed {
     top: 0;
     position: fixed;
+    height: 100vh;
+    overflow-y: auto;
   }
 
   &.is-absolute {
+    height: auto;
     position: absolute;
   }
 
