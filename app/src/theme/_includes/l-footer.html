@@ -68,16 +68,27 @@
             <p>{{ site.time | date: "%Y" }} &copy; {{ site.author.name }}</p>
           </div>
           <div class="l-footer__bottom-right">
-            {% if data.privacy.root %}
-              <a href="{{ data.privacy.url }}">{{ data.privacy.name }}</a>
+
+            {% if data.privacy.rooturl %}
+              {% capture privacyurl %}{{ site.rooturl }}{{ lang }}{{ data.privacy.url }}{% endcapture %}
+            {% elsif data.privacy.root %}
+              {% assign privacyurl = data.privacy.url %}
             {% else %}
-              <a href="{{ lang }}{{ data.privacy.url }}">{{ data.privacy.name }}</a>
+              {% capture privacyurl %}{{ lang }}{{ data.privacy.url }}{% endcapture %}
             {% endif %}
-            {% if data.terms.root %}
-              <a href="{{ data.terms.url }}">{{ data.terms.name }}</a>
+
+            <a href="{{ privacyurl }}">{{ data.privacy.name }}</a>
+
+            {% if data.terms.rooturl %}
+              {% capture termsurl %}{{ site.rooturl }}{{ lang }}{{ data.terms.url }}{% endcapture %}
+            {% elsif data.terms.root %}
+              {% assign termsurl = data.terms.url %}
             {% else %}
-              <a href="{{ lang }}{{ data.terms.url }}">{{ data.terms.name }}</a>
+              {% capture termsurl %}{{ lang }}{{ data.terms.url }}{% endcapture %}
             {% endif %}
+
+            <a href="{{ termsurl }}">{{ data.terms.name }}</a>
+
           </div>
         </div>
 

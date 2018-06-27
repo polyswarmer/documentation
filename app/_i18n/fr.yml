@@ -20,16 +20,6 @@ header:
         url: /Level-0-scratch-to-eicar/
       - name: polyswarmd API
         url: /API-polyswarm/
-      - name: test
-        url: /test/
-        rooturl: true
-      - name: test2
-        subitems:
-          - name: foo
-            url: /foo/
-          - name: bar
-            url: /bar/
-            rooturl: true
 footer:
   navigation:
     home:
