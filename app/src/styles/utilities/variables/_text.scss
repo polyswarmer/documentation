@@ -1,0 +1,21 @@
+/*=============================================
+=              Variables - Text               =
+=============================================*/
+
+// Fonts
+$stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$font: "InputSans", $stack;
+$font-heading: "Fabrik", $stack;
+$mono: monospace;
+
+// Text colors
+$text-black: $black;
+$text-white: $white;
+
+// Font weights
+$normal: normal;
+$bold: bold;
+
+// Text spacing
+$highlight-pad: 0.7rem;
+$highlight-pad-sm: 0.3rem;

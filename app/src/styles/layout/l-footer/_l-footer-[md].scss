@@ -1,0 +1,31 @@
+/*=============================================
+=                 Footer [md]                 =
+=============================================*/
+
+.l-footer {
+
+  .a-icon--wordmark {
+    margin: 0 0 2rem;
+    position: relative;
+    top: -0.6rem;
+  }
+
+  .m-social-links {
+    font-size: 0.8rem;
+  }
+}
+
+.l-footer__row {
+  text-align: left;
+  padding: 0 $padding-xs;
+
+  &:first-child {
+    width: auto;
+    flex: 1;
+    padding-left: 0;
+  }
+
+  &:nth-child(4) {
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,30 @@
+/*=============================================
+=                    Fonts                    =
+=============================================*/
+
+@font-face {
+  font-family: 'Fabrik';
+  src: url('/assets/fonts/Fabrik-Bold.eot');
+  src: url('/assets/fonts/Fabrik-Bold.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/Fabrik-Bold.woff2') format('woff2'),
+       url('/assets/fonts/Fabrik-Bold.woff') format('woff');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'InputSans';
+  src: url('/assets/fonts/InputSansNarrowLight.eot');
+  src: url('/assets/fonts/InputSansNarrowLight.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/InputSansNarrowLight.woff2') format('woff2'),
+       url('/assets/fonts/InputSansNarrowLight.woff') format('woff');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'InputSans';
+  src: url('/assets/fonts/InputSansNarrowBold.eot');
+  src: url('/assets/fonts/InputSansNarrowBold.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/InputSansNarrowBold.woff2') format('woff2'),
+       url('/assets/fonts/InputSansNarrowBold.woff') format('woff');
+  font-weight: bold;
+}

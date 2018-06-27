@@ -1,0 +1,45 @@
+/*=============================================
+=                In The Media                 =
+=============================================*/
+
+.o-press-logos__logos {
+  margin: 0 auto;
+  max-width: 36rem;
+
+  @include breakpoint(640px) {
+    max-width: 140rem;
+  }
+
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 1.2rem 3.4rem;
+  }
+
+  img {
+    font-size: 4px;
+    max-width: 15em;
+    max-height: 7.5em;
+
+    @include breakpoint($tiny) {
+      font-size: 5px;
+    }
+
+    @include breakpoint($xs) {
+      max-width: 20em;
+      max-height: 10em;
+    }
+
+    @include breakpoint($sm) {
+      font-size: 6px;
+    }
+
+    @include breakpoint($md) {
+      font-size: 8px;
+    }
+
+    @include breakpoint($xl) {
+      font-size: 11px;
+    }
+  }
+}

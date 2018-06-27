@@ -1,0 +1,21 @@
+/*=============================================
+=                  Text Icon                  =
+=============================================*/
+
+.m-text-icon {
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: $padding-xs;
+}
+
+.m-text-icon__icon {
+  max-width: 6rem;
+  margin: 0 auto;
+  display: block;
+}
+
+.m-text-icon__text {
+  font-size: 1.4rem;
+  color: $light-grey;
+}

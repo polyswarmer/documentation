@@ -1,0 +1,83 @@
+/*=============================================
+=                Compare Table                =
+=============================================*/
+
+.o-compare-table {
+  position: relative;
+  text-align: center;
+}
+
+.o-compare-table__table-wrap {
+  overflow-x: auto;
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+.o-compare-table__table {
+  text-align: left;
+  color: $text-white;
+  width: 100%;
+  font-size: 1.2rem;
+
+  @include breakpoint($sm) {
+    font-size: 1.4rem;
+  }
+
+  @include breakpoint($md) {
+    font-size: 1.6rem;
+  }
+
+  @include breakpoint($lg) {
+    font-size: 1.8rem;
+  }
+
+  .is-highlighted {
+    font-weight: $bold;
+    color: $green;
+  }
+}
+
+.o-compare-table__cell {
+  padding: 1.8rem;
+}
+
+.o-compare-table__header-cell {
+  padding: 1rem 1.8rem;
+}
+
+.o-compare-table__header {
+  border-bottom: 1px solid $text-white;
+  font-weight: bold;
+}
+
+.o-compare-table__spec {
+  padding-left: $highlight-pad;
+  width: 32%;
+  min-width: 18rem;
+}
+
+.o-compare-table__disclaimer {
+  color: $light-purple;
+  font-size: 1rem;
+
+  @include breakpoint($sm) {
+    font-size: 1.1rem;
+  }
+
+  @include breakpoint($md) {
+    font-size: 1.2rem;
+  }
+}
+
+.o-compare-table__row {
+
+  &:first-child {
+    .o-compare-table__cell {
+      padding-top: 3rem;
+    }
+  }
+
+  &:nth-child(even) {
+    background: $purple;
+  }
+}

@@ -1,0 +1,18 @@
+/*=============================================
+=                 4up Section                 =
+=============================================*/
+
+.o-4up-section {
+  padding-top: $padding-lg;
+  padding-bottom: $padding-lg - $padding-xs;
+
+  @include breakpoint($sm) {
+    padding-top: $padding-xl;
+    padding-bottom: $padding-xl - $padding-xs;
+  }
+
+  @include breakpoint($md) {
+    padding-top: $padding-xxl;
+    padding-bottom: $padding-xxl - $padding-xs;
+  }
+}

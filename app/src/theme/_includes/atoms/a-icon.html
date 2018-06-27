@@ -1,0 +1,12 @@
+{% comment %}
+
+Example usage:
+
+{% include atoms/a-icon.html name='wordmark' title='PolySwarm' %}
+
+{% endcomment %}
+
+<svg class="a-icon a-icon--{{ include.name }}">
+  <title>{{ include.title }}</title>
+  <use xlink:href="#icon-{{ include.name }}"></use>
+</svg>

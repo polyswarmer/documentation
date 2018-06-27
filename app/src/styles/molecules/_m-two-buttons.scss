@@ -1,0 +1,20 @@
+.m-two-buttons {
+
+  @include breakpoint(599px, max-width) {
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+
+  .a-button:first-child {
+    margin-bottom: $padding-xs;
+
+    @include breakpoint(600px) {
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+
+    @include breakpoint($sm) {
+      margin-right: 2rem;
+    }
+  }
+}

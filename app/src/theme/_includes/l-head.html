@@ -1,0 +1,65 @@
+{% capture title %}
+  {{ site.title }}{% if page.title %} - {% t page.title %}{% endif %}
+{% endcapture %}
+
+{% if page.description %}
+  {% capture description %}{% t page.description %}{% endcapture %}
+{% else %}
+  {% assign description = site.translations[site.lang].global.description %}
+{% endif %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+
+  {% comment %} Style Sheets {% endcomment %}
+  <link rel="stylesheet" href="/assets/styles/main.css">
+
+  {% comment %} Open Graph {% endcomment %}
+  <meta property="og:image" content="{{ site.url }}/assets/images/favicon/logo-400x400.png">
+  <meta property="og:image:url" content="{{ site.url }}/assets/images/favicon/logo-400x400.png">
+  <meta property='og:title' content="{{ title }}">
+  <meta property='og:description' content="{{ description }}">
+
+  {% comment %} Favicon {% endcomment %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ffffff">
+
+  {% comment %} Google Tag Manager {% endcomment %}
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ site.gtm_id }}');
+  </script>
+
+  {% comment %} Facebook Pixel {% endcomment %}
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '170774023410543');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img src="https://www.facebook.com/tr?id=170774023410543&ev=PageView&noscript=1" style="display:none" height="1" width="1" alt="facebook pixel loader" /></noscript>
+
+  {% comment %} Alexa Certify {% endcomment %}
+  <script type="text/javascript">
+    _atrk_opts = { atrk_acct:"ufyKp1IW1d10uG", domain:"swarm.market",dynamic: true};
+    (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+  </script>
+  <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=ufyKp1IW1d10uG" style="display:none" height="1" width="1" alt="alexa certify loader" /></noscript>
+
+</head>

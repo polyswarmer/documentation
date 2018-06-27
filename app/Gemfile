@@ -1,0 +1,14 @@
+source "https://rubygems.org"
+ruby "2.5.1"
+
+gem "jekyll", "3.8.3"
+gem "html-proofer", "3.9.1"
+
+group :jekyll_plugins do
+  # Multiple languages plugin will be local until #122 is merged
+  # https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin/pull/122
+  # gem "jekyll-multiple-languages-plugin", "1.5.1"
+  gem "jekyll-redirect-from", "0.13.0"
+  gem "jekyll-seo-tag", "2.5.0"
+  gem "jekyll-sitemap", "1.2.0"
+end

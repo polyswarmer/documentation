@@ -1,0 +1,33 @@
+/*=============================================
+=             Sidebar Nav [base]              =
+=============================================*/
+
+.l-sidebar-nav {
+  display: none;
+  ul {
+    position: absolute;
+    top: 0;
+    width: 20rem;
+    margin-top: 2.4rem;
+    overflow-y: auto;
+    height: calc(100vh - 4.8rem);
+    &.is-fixed {
+      margin-top: 4.8rem;
+      position: fixed;
+    }
+    li {
+      border-left: 3px solid $x-light-purple;
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+      &.is-active {
+        border-left-color: $purple;
+      }
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        color: $grey;
+      }
+    }
+  }
+}

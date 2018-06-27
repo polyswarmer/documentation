@@ -1,0 +1,66 @@
+/*=============================================
+=                  Dropdown                   =
+=============================================*/
+
+.m-dropdown {
+  background: $white;
+  padding: 1.5rem 2.4rem;
+  border-radius: $border-radius;
+  width: 17rem;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+
+  // Triangles
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+  }
+
+  // Triangle top
+  &:after {
+    top: -1.5rem;
+    left: 1.5rem;
+    border-left: 1.5rem solid transparent;
+    border-right: 1.5rem solid transparent;
+    border-bottom: 1.5rem solid $white;
+  }
+
+  // Triangle shadow
+  &:before {
+    top: -1.8rem;
+    left: 1.2rem;
+    border-left: 1.8rem solid transparent;
+    border-right: 1.8rem solid transparent;
+    border-bottom: 1.8rem solid rgba(0,0,0,0.02);
+  }
+}
+
+.m-dropdown__link {
+  color: $grey;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: $bold;
+  transition: color $time $easing;
+  display: block;
+  padding: 0.8rem 0;
+  text-transform: uppercase;
+
+  &:focus, &:hover {
+    color: $bright-purple;
+  }
+}
+
+.m-dropdown--right {
+
+  &:before, &:after {
+    left: auto;
+    right: 1.5rem;
+  }
+
+  &:before {
+    right: 1.2rem;
+  }
+}

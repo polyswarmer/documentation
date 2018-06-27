@@ -1,0 +1,15 @@
+/*=============================================
+=                  Main Form                  =
+=============================================*/
+
+.o-form-main {
+
+  .m-form-main {
+    max-width: 50rem;
+    margin: 0 auto;
+
+    @include breakpoint($sm) {
+      max-width: 70rem;
+    }
+  }
+}
