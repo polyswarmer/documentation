@@ -482,7 +482,7 @@ See state [explaintion](#state)
 }
 ```
 
-### Challage settle channel state
+### Challenge settle channel state
 
 Called by ambassador or expert to challenge a disputed state. The new state is accepted if it is signed by both parties and has a higher sequence number
 
