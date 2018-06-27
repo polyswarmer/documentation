@@ -7,6 +7,9 @@ pages:
   home:
     title: Documentation
     description: PolySwarm Documentation
+  api_polyswarm:
+    title: polyswarmd API
+    description: The polyswarmd API Documentation
 header:
   navigation:
     items:
