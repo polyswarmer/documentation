@@ -4,11 +4,11 @@ PolySwarm Documentation Source Code
 
 ## Adding and Localizing Content
 
-User-contributed content should be placed in two folders, `public-src` and `_i18n` (more on localization in a moment).
+User-contributed content should be placed in two folders, `app/public-src` and `app/_i18n` (more on localization in a moment).
 
-Create a file in `public-src/pages`. The contents of that file should look something like this:
+Create a file in `app/public-src/pages`. The contents of that file should look something like this:
 
-`public-src/pages/example.md`
+`app/public-src/pages/example.md`
 ```markdown
 ---
 title: pages.example.title
@@ -23,7 +23,7 @@ As you can see, this file simply points to the localized YAML and Markdown files
 
 You should then have a `[lang].yml` file and a `[lang]/example.md` file. For english content, it would look like this:
 
-`_i18n/en.yml`
+`app/_i18n/en.yml`
 ```yml
 pages:
   example:
@@ -31,7 +31,7 @@ pages:
     description: This is my example page.
 ```
 
-`_i18n/en/example.md`
+`app/_i18n/en/example.md`
 ```markdown
 ## Example
 
