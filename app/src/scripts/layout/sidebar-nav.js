@@ -43,6 +43,7 @@ export default class SidebarNav {
         const headings = [];
         let headingCount = -1;
 
+        // Generate list
         $$.headings.each((i, el) => {
           const $el = $(el);
           const id = $el.attr('id');
@@ -60,25 +61,66 @@ export default class SidebarNav {
               .append(`<li><a href="${id}" class="${classText.childClass}">${text}</a></li>`);
           }
         });
-        $$.nav.append(headings);
+
+        // Append list to DOM
+        const $ul = $('<ul></ul>');
+        $ul.append(headings);
+        $$.nav.append($ul);
+
         resolve();
       }
     });
   }
 
-  // setPositions() {
-  //   const { $$ } = this;
-  //   this.positions.sectionTop = $$.section.offset().top;
-  //   this.positions.sectionHeight = $$.section.outerHeight();
-  //   this.positions.sectionBottom = this.positions.sectionTop + this.positions.sectionHeight;
-  //   this.positions.navHeight = $$.nav.outerHeight();
-  //   this.positions.navBottom = this.positions.sectionBottom - this.positions.navHeight;
-  //   this.positions.navBottomPlacement = this.positions.navBottom - this.positions.sectionTop;
-  //   this.positions.isFixed = false;
-  //   this.positions.atBottom = false;
-  // }
+  setPositions() {
+    const { $$ } = this;
+    this.positions.sectionTop = $$.section.offset().top;
+    this.positions.sectionHeight = $$.section.outerHeight();
+    this.positions.sectionBottom = this.positions.sectionTop + this.positions.sectionHeight;
+    this.positions.navHeight = $$.nav.outerHeight();
+    this.positions.navBottom = this.positions.sectionBottom - this.positions.navHeight;
+    this.positions.navBottomPlacement = this.positions.navBottom - this.positions.sectionTop;
+    this.positions.isFixed = false;
+    this.positions.atBottom = false;
+    console.log(this.positions);
+  }
 
-  // affix() {}
+  affix() {
+    const { $$, positions } = this;
+
+    const scrollPosition = $$.window.scrollTop();
+
+    // Above top
+    if (scrollPosition < positions.sectionTop && positions.isFixed && !positions.atBottom) {
+      $$.nav.removeClass('is-fixed');
+      this.positions.isFixed = false;
+
+      // Passed top
+    } else if (scrollPosition >= positions.sectionTop && !positions.isFixed && !positions.atBottom) {
+      $$.nav.addClass('is-fixed');
+      this.positions.isFixed = true;
+
+      // Above bottom
+    } else if (scrollPosition < positions.navBottom && !positions.isFixed && positions.atBottom) {
+      $$.nav
+        .addClass('is-fixed')
+        .removeClass('is-absolute')
+        .css('top', '');
+      this.positions.isFixed = true;
+      this.positions.atBottom = false;
+
+      // Passed bottom
+    } else if (scrollPosition >= positions.navBottom && positions.isFixed && !positions.atBottom) {
+      $$.nav
+        .removeClass('is-fixed')
+        .addClass('is-absolute')
+        .css('top', `${positions.navBottomPlacement}px`);
+      this.positions.isFixed = false;
+      this.positions.atBottom = true;
+    }
+
+    console.log(this.positions);
+  }
 
   // scrollspy() {}
 
@@ -86,10 +128,14 @@ export default class SidebarNav {
 
   // onScroll() {}
 
-  // bindings() {}
+  bindings() {
+    const { $$ } = this;
+    $$.window.on(`resize.${this.classText.namespace}`, _.debounce(this.setPositions.bind(this), 150));
+    $$.window.on(`scroll.${this.classText.namespace}`, () => this.affix());
+  }
 
   init() {
-    this.cacheElements().then(() => this.createListItems(), () => {});
+    Promise.all([this.cacheElements(), this.createListItems()]).then(() => this.bindings(), () => {});
   }
 }
 

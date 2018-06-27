@@ -29,14 +29,15 @@ module.exports = (() => {
     dest: `${project.assets}/scripts`,
     pattern: '/**/*.js',
     vendorEntries: {
-      vendor: ['jquery']
+      vendor: ['jquery', 'lodash']
     },
     mainEntries: {
       app: `${project.src}/scripts/app.js`
     },
     providePlugins: {
       $: 'jquery',
-      jQuery: 'jquery'
+      jQuery: 'jquery',
+      _: 'lodash'
     }
   };
 

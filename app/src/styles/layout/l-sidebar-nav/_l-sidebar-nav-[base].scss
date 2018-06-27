@@ -4,29 +4,31 @@
 
 .l-sidebar-nav {
   display: none;
+
+  // Top-level list
   ul {
-    position: absolute;
-    top: 0;
-    width: 20rem;
-    margin-top: 2.4rem;
-    overflow-y: auto;
-    height: calc(100vh - 4.8rem);
-    &.is-fixed {
-      margin-top: 4.8rem;
-      position: fixed;
-    }
+    background: $purple;
+
+    // Top-level list items
     li {
-      border-left: 3px solid $x-light-purple;
-      padding: 0 1rem;
-      margin-bottom: 1rem;
-      &.is-active {
-        border-left-color: $purple;
-      }
+
+      // Top-level links
       a {
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 1.2rem;
-        color: $grey;
+        color: $green;
+      }
+
+      // Second-level list
+      ul {
+        background: $light-purple;
+
+        // Second-level list items
+        li {
+
+          // Second-level links
+          a {
+            color: $purple-text;
+          }
+        }
       }
     }
   }
