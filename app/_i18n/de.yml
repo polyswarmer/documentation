@@ -13,55 +13,65 @@ pages:
 header:
   navigation:
     home:
-      url: https://polyswarm.io/
-      root: true
+      url: /
+      rooturl: true
     items:
       - name: "Level 0: Scratch to EICAR"
         url: /Level-0-scratch-to-eicar/
       - name: polyswarmd API
         url: /API-polyswarm/
+      - name: test
+        url: /test/
+        rooturl: true
+      - name: test2
+        subitems:
+          - name: foo
+            url: /foo/
+          - name: bar
+            url: /bar/
+            rooturl: true
 footer:
   navigation:
     home:
-      url: https://polyswarm.io/
-      root: true
+      url: /
+      rooturl: true
     columns:
       - items:
           - name: Navigation
           - name: Home
             url: /
           - name: Security Experts
-            url: https://polyswarm.io/security_experts/
-            root: true
+            url: /security_experts/
+            rooturl: true
           - name: How It Works
-            url: https://polyswarm.io/howitworks/
-            root: true
+            url: /howitworks/
+            rooturl: true
           - name: Grants
-            url: https://polyswarm.io/grants/
-            root: true
+            url: /grants/
+            rooturl: true
           - name: Roadmap
-            url: https://polyswarm.io/road_map/
-            root: true
+            url: /road_map/
+            rooturl: true
           - name: FAQ
-            url: https://polyswarm.io/faq/
-            root: true
+            url: /faq/
+            rooturl: true
       - items:
           - name: Company
           - name: The Team
-            url: https://polyswarm.io/the_team/
-            root: true
+            url: /the_team/
+            rooturl: true
           - name: Contact
-            url: https://polyswarm.io/contact/
-            root: true
+            url: /contact/
+            rooturl: true
           - name: Security
-            url: https://polyswarm.io/security/
-            root: true
+            url: /security/
+            rooturl: true
           - name: Media
-            url: https://polyswarm.io/media/
-            root: true
+            url: /media/
+            rooturl: true
           - name: Press
-            url: https://polyswarm.io/press/
-            root: true
+            url: /press/
+            rooturl: true
       - items:
           - name: Telegram Channels
           - name: PolySwarm
@@ -75,14 +85,14 @@ footer:
             root: true
   cta:
     name: Download Whitepaper
-    url: https://polyswarm.io/polyswarm-whitepaper.pdf
+    url: https:polyswarm.io/polyswarm-whitepaper.pdf
     target: _blank
     root: true
   privacy:
     name: Privacy Policy
-    url: https://polyswarm.io/privacy-terms/
-    root: true
+    url: /privacy-terms/
+    rooturl: true
   terms:
     name: Terms of Service
-    url: https://polyswarm.io/privacy-terms/
-    root: true
+    url: /privacy-terms/
+    rooturl: true
