@@ -44,7 +44,11 @@ You can then copy these files into the other language directories to be translat
 
 ## Navigation
 
-Navigation items can be edited in the `[lang].yml` file. Add `root: true` to an item if you do not want the url to be localized.
+Navigation items can be edited in the `[lang].yml` file.
+
+Add `root: true` to an item if you do not want the url to be localized.
+
+You can also add `subitems: (name: string, [array of items])` to create a dropdown.
 
 ## Headings and Sidebar Navigation
 
