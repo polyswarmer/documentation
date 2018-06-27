@@ -13,6 +13,15 @@
     color: $dark-grey;
     font-size: 1.4rem;
     margin: 1rem 0;
+
+    a {
+      color: $dark-grey;
+      text-decoration: underline;
+
+      &:focus, &:hover {
+        color: $dark-grey;
+      }
+    }
   }
 
   strong {

@@ -12,6 +12,15 @@
     color: $grey;
     font-size: 1.4rem;
     margin: 1rem 0;
+
+    a {
+      color: $grey;
+      text-decoration: underline;
+
+      &:focus, &:hover {
+        color: $grey;
+      }
+    }
   }
 
   strong {
@@ -26,6 +35,15 @@
 
     p {
       color: $purple-text;
+
+      a {
+        color: $purple-text;
+        text-decoration: underline;
+
+        &:focus, &:hover {
+          color: $purple-text;
+        }
+      }
     }
 
     strong {
@@ -38,6 +56,15 @@
 
     p {
       color: $dark-yellow;
+
+      a {
+        color: $dark-yellow;
+        text-decoration: underline;
+
+        &:focus, &:hover {
+          color: $dark-yellow;
+        }
+      }
     }
 
     strong {
@@ -50,6 +77,15 @@
 
     p {
       color: $dark-red;
+
+      a {
+        color: $dark-red;
+        text-decoration: underline;
+
+        &:focus, &:hover {
+          color: $dark-red;
+        }
+      }
     }
 
     strong {
@@ -62,6 +98,15 @@
 
     p {
       color: $dark-green;
+
+      a {
+        color: $dark-green;
+        text-decoration: underline;
+
+        &:focus, &:hover {
+          color: $dark-green;
+        }
+      }
     }
 
     strong {
