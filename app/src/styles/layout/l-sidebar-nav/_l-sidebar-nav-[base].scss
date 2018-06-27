@@ -5,6 +5,15 @@
 .l-sidebar-nav {
   display: none;
 
+  &.is-fixed {
+    top: 0;
+    position: fixed;
+  }
+
+  &.is-absolute {
+    position: absolute;
+  }
+
   // Top-level list
   ul {
     background: $purple;

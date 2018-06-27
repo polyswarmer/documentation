@@ -12,7 +12,14 @@ export default class SidebarNav {
       isFixed: 'is-fixed',
       isActive: 'is-active'
     };
+
+    this.handlers = {
+      resize: `resize.${this.classText.namespace}`,
+      scroll: `scroll.${this.classText.namespace}`
+    };
+
     this.positions = {};
+
     this.headingOffsets = {};
   }
 
@@ -86,22 +93,22 @@ export default class SidebarNav {
   }
 
   affix() {
-    const { $$, positions } = this;
+    const { $$ } = this;
 
     const scrollPosition = $$.window.scrollTop();
 
     // Above top
-    if (scrollPosition < positions.sectionTop && positions.isFixed && !positions.atBottom) {
+    if (scrollPosition < this.positions.sectionTop && this.positions.isFixed && !this.positions.atBottom) {
       $$.nav.removeClass('is-fixed');
       this.positions.isFixed = false;
 
       // Passed top
-    } else if (scrollPosition >= positions.sectionTop && !positions.isFixed && !positions.atBottom) {
+    } else if (scrollPosition >= this.positions.sectionTop && !this.positions.isFixed && !this.positions.atBottom) {
       $$.nav.addClass('is-fixed');
       this.positions.isFixed = true;
 
       // Above bottom
-    } else if (scrollPosition < positions.navBottom && !positions.isFixed && positions.atBottom) {
+    } else if (scrollPosition < this.positions.navBottom && !this.positions.isFixed && this.positions.atBottom) {
       $$.nav
         .addClass('is-fixed')
         .removeClass('is-absolute')
@@ -110,11 +117,11 @@ export default class SidebarNav {
       this.positions.atBottom = false;
 
       // Passed bottom
-    } else if (scrollPosition >= positions.navBottom && positions.isFixed && !positions.atBottom) {
+    } else if (scrollPosition >= this.positions.navBottom && this.positions.isFixed && !this.positions.atBottom) {
       $$.nav
         .removeClass('is-fixed')
         .addClass('is-absolute')
-        .css('top', `${positions.navBottomPlacement}px`);
+        .css('top', `${this.positions.navBottomPlacement}px`);
       this.positions.isFixed = false;
       this.positions.atBottom = true;
     }
@@ -129,9 +136,9 @@ export default class SidebarNav {
   // onScroll() {}
 
   bindings() {
-    const { $$ } = this;
-    $$.window.on(`resize.${this.classText.namespace}`, _.debounce(this.setPositions.bind(this), 150));
-    $$.window.on(`scroll.${this.classText.namespace}`, () => this.affix());
+    const { $$, handlers } = this;
+    $$.window.on(handlers.resize, _.debounce(this.setPositions.bind(this), 150)).trigger(handlers.resize);
+    $$.window.on(handlers.scroll, () => this.affix());
   }
 
   init() {
