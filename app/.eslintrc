@@ -15,5 +15,8 @@
     "browser": true,
     "node": true,
     "jquery": true
+  },
+  "rules": {
+    "no-plusplus": 0
   }
 }

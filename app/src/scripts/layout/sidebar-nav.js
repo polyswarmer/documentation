@@ -2,120 +2,171 @@ export default class SidebarNav {
   constructor() {
     this.classText = {
       namespace: 'sidebarNav',
-      wrap: '#js-sidebar-nav-wrap',
+      section: '#js-sidebar-nav-section',
       nav: '#js-sidebar-nav',
-      list: '#js-sidebar-nav-list',
-      heading: 'h2',
+      headings: 'h2',
+      subheadings: 'h3',
+      parentClass: 'js-sidebar-nav-parent l-sidebar-nav__link-parent',
+      childClass: 'js-sidebar-nav-child l-sidebar-nav__link-child',
+      isAbsolute: 'is-absolute',
       isFixed: 'is-fixed',
       isActive: 'is-active'
     };
-    this.positions = {
-      wrapTop: 0,
-      wrapBottom: 0,
-      marginTop: 0,
-      atBottom: false
-    };
+    this.positions = {};
+    this.headingOffsets = {};
   }
 
   cacheElements() {
     return new Promise((resolve, reject) => {
       const { classText } = this;
 
-      this.$$ = { wrap: $(classText.wrap) };
+      this.$$ = { section: $(classText.section) };
 
-      if (!this.$$.wrap.length) {
+      if (!this.$$.section.length) {
         reject();
       } else {
         this.$$.window = $(window);
-        this.$$.document = $(document);
-        this.$$.sections = this.$$.wrap.find(classText.heading);
-        this.$$.nav = this.$$.wrap.find(classText.nav);
-        this.$$.list = $(classText.list);
+        this.$$.nav = $(classText.nav);
+        this.$$.headings = this.$$.section.find(`${classText.headings},${classText.subheadings}`);
         resolve();
       }
     });
   }
 
-  createElements() {
+  createListItems() {
     return new Promise((resolve, reject) => {
-      const { $$ } = this;
+      const { $$, classText } = this;
 
-      if ($$.sections.length <= 1) {
+      if ($$.headings.length < 2) {
         reject();
       } else {
-        $$.sections.each((i, el) => {
-          const $el = $(el);
-          const text = $el.text();
-          const id = $el.attr('id');
+        const headings = [];
+        let headingCount = -1;
 
-          $$.list.append(`
-            <li>
-              <a href="#${id}">${text}</a>
-            </li>
-          `);
+        $$.headings.each((i, el) => {
+          const $el = $(el);
+          const id = $el.attr('id');
+          const text = $el.text();
+          const isHeading = $el.prop('tagName') === classText.headings.toUpperCase();
+          if (isHeading) {
+            headings.push($(`<li><a href="${id}" class="${classText.parentClass}">${text}</a></li>`));
+            headingCount++;
+          } else {
+            if (!headings[headingCount].find('ul').length) {
+              headings[headingCount].append('<ul></ul>');
+            }
+            headings[headingCount]
+              .find('ul')
+              .append(`<li><a href="${id}" class="${classText.childClass}">${text}</a></li>`);
+          }
         });
+        $$.nav.append(headings);
         resolve();
       }
     });
   }
 
-  handleResize() {
-    const { $$, classText } = this;
-    this.positions.wrapTop = $$.wrap.offset().top;
-    this.positions.wrapBottom = $$.wrap.offset().top + $$.wrap.outerHeight() - $$.window.height();
-    this.positions.marginTop = parseInt(
-      $(classText.heading)
-        .first()
-        .css('marginTop')
-        .replace('px', ''),
-      10
-    );
-  }
+  // setPositions() {
+  //   const { $$ } = this;
+  //   this.positions.sectionTop = $$.section.offset().top;
+  //   this.positions.sectionHeight = $$.section.outerHeight();
+  //   this.positions.sectionBottom = this.positions.sectionTop + this.positions.sectionHeight;
+  //   this.positions.navHeight = $$.nav.outerHeight();
+  //   this.positions.navBottom = this.positions.sectionBottom - this.positions.navHeight;
+  //   this.positions.navBottomPlacement = this.positions.navBottom - this.positions.sectionTop;
+  //   this.positions.isFixed = false;
+  //   this.positions.atBottom = false;
+  // }
 
-  handleScroll() {
-    const { $$, positions, classText } = this;
-    const scrollPosition = $$.document.scrollTop();
+  // affix() {}
 
-    // Switch nav to fixed position
-    if (scrollPosition >= positions.wrapTop && positions.wrapBottom > scrollPosition) {
-      $$.list.addClass(classText.isFixed);
-    } else {
-      $$.list.removeClass(classText.isFixed);
-    }
+  // scrollspy() {}
 
-    // Set top property if at the bottom
-    if (positions.wrapBottom <= scrollPosition && !positions.atBottom) {
-      positions.atBottom = true;
-      $$.list.css('top', scrollPosition - positions.wrapTop);
-    } else if (positions.wrapBottom > scrollPosition && positions.atBottom) {
-      positions.atBottom = false;
-      $$.list.css('top', 0);
-    }
+  // onResize() {}
 
-    // Track scroll position of sections
-    $$.sections.each((i, el) => {
-      const $el = $(el);
-      const id = $el.attr('id');
-      // Account for margin due to collapsing
-      const elementPosition = $el.offset().top - positions.marginTop;
-      // Make viewable section active
-      if (elementPosition <= scrollPosition) {
-        $$.list.find('li').removeClass(classText.isActive);
-        $$.list
-          .find(`a[href="#${id}"]`)
-          .parent()
-          .addClass(classText.isActive);
-      }
-    });
-  }
+  // onScroll() {}
 
-  bindings() {
-    const { $$, classText } = this;
-    $$.window.on(`resize.${classText.namespace}`, () => this.handleResize()).trigger(`resize.${classText.namespace}`);
-    $$.window.on(`scroll.${classText.namespace}`, () => this.handleScroll()).trigger(`scroll.${classText.namespace}`);
-  }
+  // bindings() {}
 
   init() {
-    Promise.all([this.cacheElements(), this.createElements()]).then(() => this.bindings(), () => {});
+    this.cacheElements().then(() => this.createListItems(), () => {});
   }
 }
+
+// const $section = $('#js-scrollspy');
+// const $nav = $('#js-scrollspy-nav');
+// const $links = $nav.find('a');
+// const $headings = $('h2, h3');
+// // let headingOffsets = {};
+// // let sectionTop = $section.offset().top;
+// // let sectionHeight = $section.outerHeight();
+// // let sectionBottom = sectionTop + sectionHeight;
+// // let navHeight = $nav.outerHeight();
+// // let navBottom = sectionBottom - navHeight;
+// // let navBottomPlacement = navBottom - sectionTop;
+// // let isFixed = false;
+// // let atBottom = false;
+
+// // Scrollspy
+// $headings.each((i, el) => {
+//   const $el = $(el);
+//   const id = $el.attr('id');
+//   const top = $el.offset().top;
+//   headingOffsets[top] = `#${id}`;
+// });
+
+// // Scrollspy
+// $(window).on('scroll.spy', () => {
+//   const scrollPosition = $(window).scrollTop();
+
+//   for (offset in headingOffsets) {
+//     if (scrollPosition >= parseInt(offset, 10)) {
+//       const id = headingOffsets[offset];
+//       const $link = $nav.find(`a[href="${id}"]`);
+//       $links.removeClass('is-active');
+//       $link.addClass('is-active');
+//       if ($link.hasClass('nav-link--child')) {
+//         $link
+//           .parent()
+//           .parent()
+//           .parent()
+//           .find('.nav-link--parent')
+//           .addClass('is-active');
+//       }
+//     }
+//   }
+// });
+
+// // Affix
+// $(window).on('scroll.affix', () => {
+//   const scrollPosition = $(window).scrollTop();
+
+//   // Above top
+//   if (scrollPosition < sectionTop && isFixed && !atBottom) {
+//     $nav.removeClass('is-fixed');
+//     isFixed = false;
+
+//     // Passed top
+//   } else if (scrollPosition >= sectionTop && !isFixed && !atBottom) {
+//     $nav.addClass('is-fixed');
+//     isFixed = true;
+
+//     // Above bottom
+//   } else if (scrollPosition < navBottom && !isFixed && atBottom) {
+//     $nav
+//       .addClass('is-fixed')
+//       .removeClass('is-absolute')
+//       .css('top', '');
+//     isFixed = true;
+//     atBottom = false;
+
+//     // Passed bottom
+//   } else if (scrollPosition >= navBottom && isFixed && !atBottom) {
+//     $nav
+//       .removeClass('is-fixed')
+//       .addClass('is-absolute')
+//       .css('top', navBottomPlacement + 'px');
+//     isFixed = false;
+//     atBottom = true;
+//   }
+// });
