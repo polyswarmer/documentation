@@ -79,7 +79,7 @@ export default class SidebarNav {
     });
   }
 
-  setPositions() {
+  setAffixPositions() {
     const { $$ } = this;
     this.positions.sectionTop = $$.section.offset().top;
     this.positions.sectionHeight = $$.section.outerHeight();
@@ -89,6 +89,17 @@ export default class SidebarNav {
     this.positions.navBottomPlacement = this.positions.navBottom - this.positions.sectionTop;
     this.positions.isFixed = false;
     this.positions.atBottom = false;
+  }
+
+  setScrollSpyPositions() {
+    const { $$ } = this;
+    $$.headings.each((i, el) => {
+      const $el = $(el);
+      const id = $el.attr('id');
+      const { top } = $el.offset();
+      this.headingOffsets[top] = `#${id}`;
+    });
+    console.log(this.headingOffsets);
   }
 
   affix() {
@@ -134,7 +145,10 @@ export default class SidebarNav {
 
   bindings() {
     const { $$, handlers } = this;
+
+    // Set positions on load
     $(window).on('load', () => this.setPositions());
+
     $$.window.on(handlers.resize, _.debounce(this.setPositions.bind(this), 150));
     $$.window.on(handlers.scroll, () => this.affix());
   }
@@ -143,28 +157,6 @@ export default class SidebarNav {
     Promise.all([this.cacheElements(), this.createListItems()]).then(() => this.bindings(), () => {});
   }
 }
-
-// const $section = $('#js-scrollspy');
-// const $nav = $('#js-scrollspy-nav');
-// const $links = $nav.find('a');
-// const $headings = $('h2, h3');
-// // let headingOffsets = {};
-// // let sectionTop = $section.offset().top;
-// // let sectionHeight = $section.outerHeight();
-// // let sectionBottom = sectionTop + sectionHeight;
-// // let navHeight = $nav.outerHeight();
-// // let navBottom = sectionBottom - navHeight;
-// // let navBottomPlacement = navBottom - sectionTop;
-// // let isFixed = false;
-// // let atBottom = false;
-
-// // Scrollspy
-// $headings.each((i, el) => {
-//   const $el = $(el);
-//   const id = $el.attr('id');
-//   const top = $el.offset().top;
-//   headingOffsets[top] = `#${id}`;
-// });
 
 // // Scrollspy
 // $(window).on('scroll.spy', () => {
@@ -185,39 +177,5 @@ export default class SidebarNav {
 //           .addClass('is-active');
 //       }
 //     }
-//   }
-// });
-
-// // Affix
-// $(window).on('scroll.affix', () => {
-//   const scrollPosition = $(window).scrollTop();
-
-//   // Above top
-//   if (scrollPosition < sectionTop && isFixed && !atBottom) {
-//     $nav.removeClass('is-fixed');
-//     isFixed = false;
-
-//     // Passed top
-//   } else if (scrollPosition >= sectionTop && !isFixed && !atBottom) {
-//     $nav.addClass('is-fixed');
-//     isFixed = true;
-
-//     // Above bottom
-//   } else if (scrollPosition < navBottom && !isFixed && atBottom) {
-//     $nav
-//       .addClass('is-fixed')
-//       .removeClass('is-absolute')
-//       .css('top', '');
-//     isFixed = true;
-//     atBottom = false;
-
-//     // Passed bottom
-//   } else if (scrollPosition >= navBottom && isFixed && !atBottom) {
-//     $nav
-//       .removeClass('is-fixed')
-//       .addClass('is-absolute')
-//       .css('top', navBottomPlacement + 'px');
-//     isFixed = false;
-//     atBottom = true;
 //   }
 // });
