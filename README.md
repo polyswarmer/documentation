@@ -2,111 +2,67 @@
 
 PolySwarm Documentation Source Code
 
-## Requirements
+## Adding and Localizing Content
 
-[Docker CE](https://www.docker.com/community-edition)
+User-contributed content should be placed in two folders, `app/public-src` and `app/_i18n` (more on localization in a moment).
 
+Create a file in `app/public-src/pages`. The contents of that file should look something like this:
+
+`app/public-src/pages/example.md`
+```markdown
+---
+title: pages.example.title
+description: pages.example.description
+permalink: /example/
 ---
 
-## Getting Started
+{% translate_file example.md %}
+```
 
-### Make
+As you can see, this file simply points to the localized YAML and Markdown files found in the `_i18n` directory.
 
-This project uses a Makefile to abstract all of the Docker commands you will need.
+You should then have a `[lang].yml` file and a `[lang]/example.md` file. For english content, it would look like this:
 
-To see a list of all of the available commands:
+`app/_i18n/en.yml`
+```yml
+pages:
+  example:
+    title: My Example Page
+    description: This is my example page.
+```
 
-    $ make help
+`app/_i18n/en/example.md`
+```markdown
+## Example
 
-### Building the image
+This is my example markdown file.
+```
 
-To start the container, install the project dependencies, and build the site with Gulp:
+Now, visiting `/example` will display "This is my example page.".
 
-    $ make
+You can then copy these files into the other language directories to be translated.
 
-### Watching the project
+## Navigation
 
-To start the project watcher:
+Navigation items can be edited in the `[lang].yml` file.
 
-    $ make watch
+Add `root: true` to an item if you do not want the url to be localized.
 
----
+You can also add `subitems: (name: string, [array of items])` to create a dropdown.
 
-## Development
+## Headings and Sidebar Navigation
 
-### Starting the container
+The sidebar navigation is generated automatically from the Level 2 (h2) and Level 3 (h3) headings on the page.
 
-To simply start the container:
+```markdown
+  ## Main section
 
-    $ make start
+  ### Subsection
+```
 
-### Building the site
+Level 1 (h1) headings should not be used as an h1 is already used in the header.
 
-To simply build the site with Gulp:
-
-    $ make build
-
-### Running npm install
-
-To run an npm install if your package.json has changed:
-
-    $ make npm-install
-
-### Running bundle install
-
-To run a bundle install if your Gemfile has changed:
-
-    $ make bundle-install
-
----
-
-## i18n
-
-### Building for all langages
-
-To build the site with all languages using Gulp:
-
-    $ make build-all
-
----
-
-## Production
-
-### Building for production
-
-To build the site for prouduction using Gulp:
-
-    $ make build-prod
-
----
-
-## Stopping and Cleanup
-
-### Stopping the container
-
-To stop the container:
-
-    $ make stop
-
-### Cleanup
-
-To run a docker system prune and remove the container and image:
-
-    $ make clean
-
----
-
-## Stopping and Cleanup
-
-### Rebuilding the container
-
-If you would like to system prune and rebuild the container from scratch:
-
-    $ make rebuild
-
----
-
-## Markdown
+## Special Markdown Cases
 
 ### Callouts
 
@@ -154,13 +110,3 @@ When embedding a YouTube video, it is best to wrap the embed code in a video wra
   <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 ```
-
----
-
-## Continuous Integration
-
-### GitLab
-
-#### Caching
-
-To clear the GitLab cache, increment the cache key in the `gitlab-ci.yml` file.

@@ -4,9 +4,6 @@ pages:
   not_found:
     title: Page Not Found
     description: Page not found.
-  home:
-    title: Documentation
-    description: PolySwarm Documentation
   api_polyswarm:
     title: polyswarmd API
     description: The polyswarmd API Documentation
@@ -15,41 +12,19 @@ pages:
     description: Building Your First PolySwarm Microengine
 header:
   navigation:
+    home:
+      url: https://polyswarm.io/
+      root: true
     items:
-      - name: Security Experts
-        url: https://polyswarm.io/security_experts/
-        root: true
-      - name: How It Works
-        url: https://polyswarm.io/howitworks/
-        root: true
-      - name: Grants
-        url: https://polyswarm.io/grants/
-        root: true
-      - name: Roadmap
-        url: https://polyswarm.io/road_map/
-        root: true
-      - name: FAQ
-        url: https://polyswarm.io/faq/
-        root: true
-      - name: Company
-        subitems:
-          - name: The Team
-            url: https://polyswarm.io/the_team/
-            root: true
-          - name: Contact
-            url: https://polyswarm.io/contact/
-            root: true
-          - name: Security
-            url: https://polyswarm.io/security/
-            root: true
-          - name: Media
-            url: https://polyswarm.io/media/
-            root: true
-          - name: Press
-            url: https://polyswarm.io/press/
-            root: true
+      - name: "Level 0: Scratch to EICAR"
+        url: /Level-0-scratch-to-eicar/
+      - name: polyswarmd API
+        url: /API-polyswarm/
 footer:
   navigation:
+    home:
+      url: https://polyswarm.io/
+      root: true
     columns:
       - items:
           - name: Navigation

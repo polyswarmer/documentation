@@ -6,6 +6,12 @@
   {% assign lang = '' %}
 {% endif %}
 
+{% if data.navigation.home.root %}
+  {% assign homeurl = data.navigation.home.url %}
+{% else %}
+  {% capture homeurl %}{{ lang }}{{ data.navigation.home.url }}{% endcapture %}
+{% endif %}
+
 <footer class="l-footer">
   <div class="container">
     <div class="row">
@@ -15,7 +21,7 @@
           <div class="l-footer__rows">
 
             <div class="l-footer__row">
-              <a class="l-footer__logo" href="{{ lang }}/">{% include atoms/a-icon.html name='wordmark' title='PolySwarm' %}</a>
+              <a class="l-footer__logo" href="{{ homeurl }}">{% include atoms/a-icon.html name='wordmark' title='PolySwarm' %}</a>
               {% include molecules/m-social-links.html %}
             </div>
 
