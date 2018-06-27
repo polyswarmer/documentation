@@ -20,27 +20,32 @@
 
   // Top-level list
   ul {
-    background: $purple;
+    text-transform: uppercase;
+
+    a {
+      color: $text-black;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 2rem;
+      font-size: 1.4rem;
+    }
 
     // Top-level list items
     li {
+      border-left: 4px solid $purple;
+      margin-bottom: $padding-tiny;
 
-      // Top-level links
-      a {
-        color: $green;
+      &:last-child {
+        margin-bottom: 0;
       }
 
       // Second-level list
       ul {
-        background: $light-purple;
+        margin-left: $padding-xxs;
 
         // Second-level list items
         li {
-
-          // Second-level links
-          a {
-            color: $purple-text;
-          }
+          border-left: 4px solid $light-purple;
         }
       }
     }

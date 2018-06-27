@@ -57,7 +57,7 @@ export default class SidebarNav {
           const text = $el.text();
           const isHeading = $el.prop('tagName') === classText.headings.toUpperCase();
           if (isHeading) {
-            headings.push($(`<li><a href="${id}" class="${classText.parentClass}">${text}</a></li>`));
+            headings.push($(`<li><a href="#${id}" class="${classText.parentClass}">${text}</a></li>`));
             headingCount++;
           } else {
             if (!headings[headingCount].find('ul').length) {
@@ -65,7 +65,7 @@ export default class SidebarNav {
             }
             headings[headingCount]
               .find('ul')
-              .append(`<li><a href="${id}" class="${classText.childClass}">${text}</a></li>`);
+              .append(`<li><a href="#${id}" class="${classText.childClass}">${text}</a></li>`);
           }
         });
 
