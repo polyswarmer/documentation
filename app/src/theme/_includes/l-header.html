@@ -6,7 +6,9 @@
   {% assign lang = '' %}
 {% endif %}
 
-{% if data.navigation.home.root %}
+{% if data.navigation.home.rooturl %}
+  {% capture homeurl %}{{ site.rooturl }}{{ lang }}{{ data.navigation.home.url }}{% endcapture %}
+{% elsif data.navigation.home.root %}
   {% assign homeurl = data.navigation.home.url %}
 {% else %}
   {% capture homeurl %}{{ lang }}{{ data.navigation.home.url }}{% endcapture %}
@@ -40,12 +42,16 @@
 
         {% else %}
 
+          {% if item.rooturl %}
+            {% capture itemurl %}{{ site.rooturl }}{{ lang }}{{ item.url }}{% endcapture %}
+          {% elsif item.root %}
+            {% assign itemurl = item.url %}
+          {% else %}
+            {% capture itemurl %}{{ lang }}{{ item.url }}{% endcapture %}
+          {% endif %}
+
           <li class="l-header__nav-item">
-            {% if item.root %}
-              <a href="{{ item.url }}" target="{{ item.target }}" class="l-header__nav-link">{{ item.name }}</a>
-            {% else %}
-              <a href="{{ lang }}{{ item.url }}" target="{{ item.target }}" class="l-header__nav-link">{{ item.name }}</a>
-            {% endif %}
+            <a href="{{ itemurl }}" target="{{ item.target }}" class="l-header__nav-link">{{ item.name }}</a>
           </li>
 
         {% endif %}

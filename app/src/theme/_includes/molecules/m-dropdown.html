@@ -31,7 +31,9 @@ Example usage:
       {% assign name = item.name %}
     {% endif %}
 
-    {% if include.root or item.root %}
+    {% if include.rooturl or item.rooturl %}
+      {% capture href %}{{ site.rooturl }}{{ lang }}{{ item.url }}{% endcapture %}
+    {% elsif include.root or item.root %}
       {% assign href = item.url %}
     {% else %}
       {% capture href %}{{ lang }}{{ item.url }}{% endcapture %}
