@@ -1,7 +1,6 @@
 stages:
   - build
   - compile
-  - test
   - deploy
 
 variables:
@@ -27,25 +26,12 @@ compile-non-master:
   image: $NON_MASTER_IMAGE
   script:
     - bin/deploy/compile.sh
-  artifacts:
-    expire_in: 1 day
-    paths:
-      - app/dist
-      - app/node_modules/
-      - app/vendor/
+    - bin/deploy/test.sh
   cache:
     key: v001
     paths:
       - app/node_modules/
       - app/vendor/
-
-test-non-master:
-  except:
-    - master
-  stage: test
-  image: $NON_MASTER_IMAGE
-  script:
-    - bin/deploy/test.sh
 
 build-master:
   only:
@@ -66,20 +52,11 @@ compile-master:
   image: $MASTER_IMAGE
   script:
     - bin/deploy/compile-master.sh
+    - bin/deploy/test.sh
   artifacts:
     expire_in: 1 day
     paths:
       - app/dist
-      - app/node_modules/
-      - app/vendor/
-
-test-master:
-  only:
-    - master
-  stage: test
-  image: $MASTER_IMAGE
-  script:
-    - bin/deploy/test.sh
 
 deploy:
   stage: deploy
