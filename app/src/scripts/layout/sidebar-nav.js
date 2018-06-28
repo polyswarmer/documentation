@@ -95,11 +95,18 @@ export default class SidebarNav {
 
   setScrollSpyPositions() {
     const { $$ } = this;
+    const marginTop = parseInt(
+      $$.headings
+        .first()
+        .css('marginTop')
+        .replace('px', ''),
+      10
+    );
     $$.headings.each((i, el) => {
       const $el = $(el);
       const id = $el.attr('id');
-      const { top } = $el.offset();
-      this.headingOffsets[top] = `#${id}`;
+      const offsetTop = $el.offset().top - marginTop;
+      this.headingOffsets[offsetTop] = `#${id}`;
     });
   }
 

@@ -9,8 +9,8 @@
   &.is-fixed {
     top: 0;
     position: fixed;
-    height: 100vh;
-    overflow-y: auto;
+    // height: 100vh;
+    // overflow-y: auto;
   }
 
   &.is-absolute {
@@ -28,6 +28,10 @@
       display: block;
       padding: 0.5rem 2rem;
       font-size: 1.2rem;
+
+      &:hover {
+        color: $text-black;
+      }
     }
 
     // Top-level list items
@@ -46,7 +50,7 @@
           display: block;
         }
 
-        a {
+        & > a {
           color: $text-black;
         }
       }
@@ -54,7 +58,7 @@
       // Second-level list
       ul {
         display: none;
-        margin-left: $padding-xxs;
+        margin-left: 2.2rem;
 
         // Second-level list items
         li {
@@ -62,6 +66,10 @@
 
           &.is-active {
             border-left-color: $purple;
+          }
+
+          a {
+            padding: 0.5rem 1.8rem;
           }
         }
       }
