@@ -6,7 +6,7 @@ services:
 
 stages:
   - build
-  - deploy
+  - compile
 
 before_script:
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
@@ -16,21 +16,24 @@ build-non-master:
     - master
   tags:
     - docker
-  stage: build
+  stage: docker
+  variables:
+    DOCKER_IMAGE: $CI_REGISTRY_IMAGE:$CI_JOB_NAME
   script:
-    - |
-        if docker pull $CI_REGISTRY_IMAGE:CI_JOB_NAME; then
-          echo "success"
-        else
-          docker build -t $CI_REGISTRY_IMAGE:CI_JOB_NAME .
-          docker push $CI_REGISTRY_IMAGE:CI_JOB_NAME
-        fi
-    - docker images
-    # - cd app
-    # - source ~/.bashrc
-    # - if [ ! -e node_modules ]; then npm install --silent; fi
-    # - bundle install --path vendor/bundle
-    # - npx gulp --all-langs --production
+    - docker build -t $DOCKER_IMAGE .
+    - docker push $DOCKER_IMAGE
+
+compile-non-master:
+  except:
+    - master
+  stage: compile
+  image: $CI_REGISTRY_IMAGE:$CI_JOB_NAME
+  script:
+    - cd app
+    - source ~/.bashrc
+    - if [ ! -e node_modules ]; then npm install --silent; fi
+    - bundle install --path vendor/bundle
+    - npx gulp --all-langs --production
     # - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
   cache:
     key: v001
@@ -38,34 +41,35 @@ build-non-master:
       - app/node_modules/
       - app/vendor/
 
-build-master:
-  only:
-    - master
-  tags:
-    - docker
-  stage: build
-  script:
-    - docker build -t $CI_REGISTRY_IMAGE .
-    - cd app
-    - source ~/.bashrc
-    - npm install --silent
-    - bundle install --path vendor/bundle
-    - npx gulp --all-langs --production
-    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
-  artifacts:
-    paths:
-      - app/dist
+# build-master:
+#   only:
+#     - master
+#   tags:
+#     - docker
+#   stage: build
+#   script:
+#     - docker build -t $CI_REGISTRY_IMAGE .
+#     - cd app
+#     - source ~/.bashrc
+#     - npm install --silent
+#     - bundle install --path vendor/bundle
+#     - npx gulp --all-langs --production
+#     - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
+#   artifacts:
+#     expire_in: 1 day
+#     paths:
+#       - app/dist
 
-deploy:
-  stage: deploy
-  image: $CI_REGISTRY_IMAGE
-  only:
-    - master
-  script:
-    - cd app/dist
-    - git config --global user.email "info@polyswarm.io"
-    - git config --global user.name "PolySwarm"
-    - git init
-    - git add . && git commit -am "Deployed with GitLab :rocket:"
-    - git remote add origin https://${GITHUB_USER_ID}:${GITHUB_TOKEN}@github.com/polyswarm/polyswarm.github.io.git
-    - git push --mirror origin
+# deploy:
+#   stage: deploy
+#   image: $CI_REGISTRY_IMAGE
+#   only:
+#     - master
+#   script:
+#     - cd app/dist
+#     - git config --global user.email "info@polyswarm.io"
+#     - git config --global user.name "PolySwarm"
+#     - git init
+#     - git add . && git commit -am "Deployed with GitLab :rocket:"
+#     - git remote add origin https://${GITHUB_USER_ID}:${GITHUB_TOKEN}@github.com/polyswarm/polyswarm.github.io.git
+#     - git push --mirror origin
