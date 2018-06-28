@@ -7,6 +7,8 @@ export default class SidebarNav {
       headings: 'h2',
       subheadings: 'h3',
       items: 'js-sidebar-nav-item',
+      itemChild: 'l-sidebar-nav__item-child',
+      itemParent: 'l-sidebar-nav__item-parent',
       isResizing: 'is-resizing',
       isFixed: 'is-fixed',
       isAbsolute: 'is-absolute',
@@ -68,7 +70,7 @@ export default class SidebarNav {
             }
             headings[headingCount]
               .find('ul')
-              .append(`<li class="${classText.items}"><a href="#${id}">${text}</a></li>`);
+              .append(`<li class="${classText.items} ${classText.itemChild}"><a href="#${id}">${text}</a></li>`);
           }
         });
 
@@ -76,6 +78,11 @@ export default class SidebarNav {
         const $ul = $('<ul></ul>');
         $ul.append(headings);
         $$.nav.append($ul);
+        $$.nav
+          .find(`.${classText.itemChild}`)
+          .parent()
+          .parent()
+          .addClass(classText.itemParent);
 
         resolve();
       }

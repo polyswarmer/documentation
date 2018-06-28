@@ -77,6 +77,7 @@
         // Second-level list items
         li {
           border-left: 4px solid $light-purple;
+          background: none;
 
           &.is-active {
             border-left-color: $purple;
@@ -89,4 +90,9 @@
       }
     }
   }
+}
+
+.l-sidebar-nav__item-parent {
+  background: url('../images/1.4/patterns/arrow-down--purple.svg') no-repeat right 1.2rem;
+  background-size: 10px;
 }
