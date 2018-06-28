@@ -1,25 +1,28 @@
 stages:
   - build
   - compile
+  - deploy
 
 variables:
   NON_MASTER_IMAGE: $CI_REGISTRY_IMAGE:build-non-master
   MASTER_IMAGE: $CI_REGISTRY_IMAGE:latest
 
+before_script:
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+
 build-non-master:
-  except:
+  only: #for testing
     - master
   stage: build
   image: docker:stable
   services:
     - docker:dind
   script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build -t $NON_MASTER_IMAGE .
     - docker push $NON_MASTER_IMAGE
 
 compile-non-master:
-  except:
+  only: #for testing
     - master
   stage: compile
   image: $NON_MASTER_IMAGE
@@ -36,35 +39,43 @@ compile-non-master:
       - app/node_modules/
       - app/vendor/
 
-# build-master:
-#   only:
-#     - master
-#   tags:
-#     - docker
-#   stage: build
-#   script:
-#     - docker build -t $CI_REGISTRY_IMAGE .
-#     - cd app
-#     - source ~/.bashrc
-#     - npm install --silent
-#     - bundle install --path vendor/bundle
-#     - npx gulp --all-langs --production
-#     - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
-#   artifacts:
-#     expire_in: 1 day
-#     paths:
-#       - app/dist
+build-master:
+  except: #for testing
+    - master
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  script:
+    - docker build -t $MASTER_IMAGE .
+    - docker push $MASTER_IMAGE
 
-# deploy:
-#   stage: deploy
-#   image: $CI_REGISTRY_IMAGE
-#   only:
-#     - master
-#   script:
-#     - cd app/dist
-#     - git config --global user.email "info@polyswarm.io"
-#     - git config --global user.name "PolySwarm"
-#     - git init
-#     - git add . && git commit -am "Deployed with GitLab :rocket:"
-#     - git remote add origin https://${GITHUB_USER_ID}:${GITHUB_TOKEN}@github.com/polyswarm/polyswarm.github.io.git
-#     - git push --mirror origin
+compile-master:
+  except: #for testing
+    - master
+  stage: compile
+  image: $MASTER_IMAGE
+  script:
+    - cd app
+    - source ~/.bashrc
+    - npm install --silent
+    - bundle install --path vendor/bundle
+    - npx gulp --all-langs --production
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - app/dist
+
+deploy:
+  stage: deploy
+  image: $MASTER_IMAGE
+  only:
+    - master
+  script:
+    - cd app/dist
+    - git config --global user.email "info@polyswarm.io"
+    - git config --global user.name "PolySwarm"
+    - git init
+    - git add . && git commit -am "Deployed with GitLab :rocket:"
+    - git remote add origin https://${GITHUB_USER_ID}:${GITHUB_TOKEN}@github.com/polyswarm/polyswarm.github.io.git
+    - git push --mirror origin
