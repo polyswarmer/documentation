@@ -48,6 +48,8 @@ Navigation items can be edited in the `[lang].yml` file.
 
 Add `root: true` to an item if you do not want the url to be localized.
 
+Add `rooturl: true` to an item if you want to use https://polyswarm.io as the domain.
+
 You can also add `subitems: (name: string, [array of items])` to create a dropdown.
 
 ## Headings and Sidebar Navigation
