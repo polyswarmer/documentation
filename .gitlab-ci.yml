@@ -1,9 +1,3 @@
-
-image: docker:stable
-
-services:
-  - docker:dind
-
 stages:
   - build
   - compile
@@ -11,9 +5,10 @@ stages:
 build-non-master:
   except:
     - master
-  tags:
-    - docker
   stage: build
+  image: docker:stable
+  services:
+    - docker:dind
   variables:
     DOCKER_IMAGE: $CI_REGISTRY_IMAGE:$CI_JOB_NAME
   script:
