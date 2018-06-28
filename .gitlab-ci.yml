@@ -2,10 +2,14 @@ stages:
   - build
   - deploy
 
-build:
+build-non-master:
+  except:
+    - master
+  tags:
+    - docker
   stage: build
-  image: $CI_REGISTRY_IMAGE
   script:
+    - docker build -t $CI_REGISTRY_IMAGE:CI_JOB_NAME .
     - cd app
     - source ~/.bashrc
     - if [ ! -e node_modules ]; then npm install --silent; fi
@@ -17,6 +21,21 @@ build:
     paths:
       - app/node_modules/
       - app/vendor/
+
+build-master:
+  only:
+    - master
+  tags:
+    - docker
+  stage: build
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE .
+    - cd app
+    - source ~/.bashrc
+    - npm install --silent
+    - bundle install --path vendor/bundle
+    - npx gulp --all-langs --production
+    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
   artifacts:
     paths:
       - app/dist

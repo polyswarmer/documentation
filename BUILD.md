@@ -72,9 +72,9 @@ To build the site with all languages using Gulp:
 
 ## Production
 
-### Building for production
+### Testing production build
 
-To build the site for prouduction using Gulp:
+To build the site for all languages with the --production flag for testing:
 
     $ make build-prod
 
