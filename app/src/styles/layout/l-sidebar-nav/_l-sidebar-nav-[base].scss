@@ -4,7 +4,7 @@
 
 .l-sidebar-nav {
   display: none;
-  width: 28rem;
+  width: 20rem;
 
   &.is-resizing {
     height: auto !important;
@@ -41,7 +41,7 @@
       text-decoration: none;
       display: block;
       padding: 0.5rem 2rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
 
       &:hover {
         color: $text-black;
