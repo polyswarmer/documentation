@@ -6,8 +6,7 @@ export default class SidebarNav {
       nav: '#js-sidebar-nav',
       headings: 'h2',
       subheadings: 'h3',
-      parentClass: 'js-sidebar-nav-parent l-sidebar-nav__link-parent',
-      childClass: 'js-sidebar-nav-child l-sidebar-nav__link-child',
+      items: 'js-sidebar-nav-item',
       isFixed: 'is-fixed',
       isAbsolute: 'is-absolute',
       isActive: 'is-active'
@@ -33,7 +32,9 @@ export default class SidebarNav {
         reject();
       } else {
         this.$$.window = $(window);
+        this.$$.document = $(document);
         this.$$.nav = $(classText.nav);
+        this.$$.links = this.$$.nav.find('a');
         this.$$.headings = this.$$.section.find(`${classText.headings},${classText.subheadings}`);
         resolve();
       }
@@ -57,7 +58,8 @@ export default class SidebarNav {
           const text = $el.text();
           const isHeading = $el.prop('tagName') === classText.headings.toUpperCase();
           if (isHeading) {
-            headings.push($(`<li><a href="#${id}" class="${classText.parentClass}">${text}</a></li>`));
+            const activeClass = headingCount === -1 ? ` ${classText.isActive}` : '';
+            headings.push($(`<li class="${classText.items}${activeClass}"><a href="#${id}">${text}</a></li>`));
             headingCount++;
           } else {
             if (!headings[headingCount].find('ul').length) {
@@ -65,7 +67,7 @@ export default class SidebarNav {
             }
             headings[headingCount]
               .find('ul')
-              .append(`<li><a href="#${id}" class="${classText.childClass}">${text}</a></li>`);
+              .append(`<li class="${classText.items}"><a href="#${id}">${text}</a></li>`);
           }
         });
 
@@ -99,7 +101,11 @@ export default class SidebarNav {
       const { top } = $el.offset();
       this.headingOffsets[top] = `#${id}`;
     });
-    console.log(this.headingOffsets);
+  }
+
+  setPositions() {
+    this.setAffixPositions();
+    this.setScrollSpyPositions();
   }
 
   affix() {
@@ -137,45 +143,56 @@ export default class SidebarNav {
     }
   }
 
-  // scrollspy() {}
+  scrollSpy() {
+    const { $$, classText, headingOffsets } = this;
 
-  // onResize() {}
+    const scrollPosition = $$.window.scrollTop();
+    const atWindowBottom = scrollPosition + $$.window.height() === $$.document.height();
 
-  // onScroll() {}
+    if (atWindowBottom) {
+      $$.items.removeClass(classText.isActive);
+      console.log(
+        $$.items
+          .last()
+          .addClass(classText.isActive)
+          .parent()
+          .parent()
+          .addClass(classText.isActive)
+      );
+    } else {
+      Object.keys(headingOffsets).forEach(offset => {
+        if (scrollPosition >= parseInt(offset, 10)) {
+          const id = this.headingOffsets[offset];
+          const $link = $$.nav.find(`a[href="${id}"]`);
+          $$.items.removeClass(classText.isActive);
+          $link
+            .parent()
+            .addClass(classText.isActive)
+            .parent()
+            .parent()
+            .addClass(classText.isActive);
+        }
+      });
+    }
+  }
 
   bindings() {
-    const { $$, handlers } = this;
+    const { $$, classText, handlers } = this;
 
-    // Set positions on load
-    $(window).on('load', () => this.setPositions());
+    $(window).on('load', () => {
+      this.$$.items = this.$$.nav.find(`.${classText.items}`);
+      this.setPositions();
+    });
 
     $$.window.on(handlers.resize, _.debounce(this.setPositions.bind(this), 150));
-    $$.window.on(handlers.scroll, () => this.affix());
+
+    $$.window.on(handlers.scroll, () => {
+      this.affix();
+      this.scrollSpy();
+    });
   }
 
   init() {
     Promise.all([this.cacheElements(), this.createListItems()]).then(() => this.bindings(), () => {});
   }
 }
-
-// // Scrollspy
-// $(window).on('scroll.spy', () => {
-//   const scrollPosition = $(window).scrollTop();
-
-//   for (offset in headingOffsets) {
-//     if (scrollPosition >= parseInt(offset, 10)) {
-//       const id = headingOffsets[offset];
-//       const $link = $nav.find(`a[href="${id}"]`);
-//       $links.removeClass('is-active');
-//       $link.addClass('is-active');
-//       if ($link.hasClass('nav-link--child')) {
-//         $link
-//           .parent()
-//           .parent()
-//           .parent()
-//           .find('.nav-link--parent')
-//           .addClass('is-active');
-//       }
-//     }
-//   }
-// });
