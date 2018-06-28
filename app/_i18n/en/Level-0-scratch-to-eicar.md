@@ -7,7 +7,7 @@ For those anxious for the code, this guide will reference and build on:
 * [**microengine-scratch**](https://github.com/polyswarm/microengine-scratch): a shell of a Microengine that lacks an **analysis backend**
 * [**microengine-eicar**](https://github.com/polyswarm/microengine-eicar): a fully functional Microengine capable of detecting the EICAR test string
 * [**polyswarmd**](https://github.com/polyswarm/polyswarmd): the PolySwarm daemon that abstracts away Ethereum and IPFS idiosyncrasies, allowing you to focus on Microengine development
-* [**polyswarm-contracts**](https://github.com/polyswarm/polyswarm-contracts): the contracts all Microengines must support - TODO
+* [**polyswarm-contracts**](https://github.com/polyswarm/polyswarm-contracts): the contracts all Microengines must support
 
 Without further ado, let's get started!
 
