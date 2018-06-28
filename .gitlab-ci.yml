@@ -26,14 +26,13 @@ compile-non-master:
   stage: compile
   image: $NON_MASTER_IMAGE
   script:
-    - cd app
-    - source ~/.bashrc
-    - if [ ! -e node_modules ]; then npm install --silent; fi
-    - bundle install --path vendor/bundle
-    - npx gulp --all-langs --production
+    - bin/deploy/compile.sh
   artifacts:
+    expire_in: 1 day
     paths:
       - app/dist
+      - app/node_modules/
+      - app/vendor/
   cache:
     key: v001
     paths:
@@ -46,9 +45,7 @@ test-non-master:
   stage: test
   image: $NON_MASTER_IMAGE
   script:
-    - cd app
-    - bundle install --path vendor/bundle
-    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
+    - bin/deploy/test.sh
 
 build-master:
   only:
@@ -68,15 +65,13 @@ compile-master:
   stage: compile
   image: $MASTER_IMAGE
   script:
-    - cd app
-    - source ~/.bashrc
-    - npm install --silent
-    - bundle install --path vendor/bundle
-    - npx gulp --all-langs --production
+    - bin/deploy/compile-master.sh
   artifacts:
     expire_in: 1 day
     paths:
       - app/dist
+      - app/node_modules/
+      - app/vendor/
 
 test-master:
   only:
@@ -84,9 +79,7 @@ test-master:
   stage: test
   image: $MASTER_IMAGE
   script:
-    - cd app
-    - bundle install --path vendor/bundle
-    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
+    - bin/deploy/test.sh
 
 deploy:
   stage: deploy
