@@ -119,10 +119,10 @@ export default class SidebarNav {
   }
 
   setPositions() {
-    const { classText } = this;
+    const { $$, classText } = this;
     this.setAffixPositions();
     this.setScrollSpyPositions();
-    this.$$.nav.removeClass(classText.isResizing);
+    $$.nav.removeClass(classText.isResizing);
   }
 
   setIsResizing() {
@@ -142,7 +142,10 @@ export default class SidebarNav {
 
       // Passed top
     } else if (scrollPosition >= positions.sectionTop && !positions.isFixed && !positions.atBottom) {
-      $$.nav.addClass(classText.isFixed);
+      $$.nav
+        .removeClass(classText.isAbsolute)
+        .css('top', '')
+        .addClass(classText.isFixed);
       this.positions.isFixed = true;
 
       // Above bottom
