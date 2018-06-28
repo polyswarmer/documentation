@@ -3,8 +3,8 @@ stages:
   - compile
 
 variables:
-  $NON_MASTER_IMAGE: $CI_REGISTRY_IMAGE:build-non-master
-  $MASTER_IMAGE: $CI_REGISTRY_IMAGE:latest
+  NON_MASTER_IMAGE: $CI_REGISTRY_IMAGE:build-non-master
+  MASTER_IMAGE: $CI_REGISTRY_IMAGE:latest
 
 build-non-master:
   except:
