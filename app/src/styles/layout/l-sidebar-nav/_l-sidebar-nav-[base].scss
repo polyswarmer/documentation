@@ -4,30 +4,95 @@
 
 .l-sidebar-nav {
   display: none;
-  ul {
-    position: absolute;
-    top: 0;
-    width: 20rem;
-    margin-top: 2.4rem;
-    overflow-y: auto;
-    height: calc(100vh - 4.8rem);
-    &.is-fixed {
-      margin-top: 4.8rem;
-      position: fixed;
-    }
+  width: 20rem;
+
+  &.is-resizing {
+    height: auto !important;
     li {
-      border-left: 3px solid $x-light-purple;
-      padding: 0 1rem;
-      margin-bottom: 1rem;
-      &.is-active {
-        border-left-color: $purple;
+      ul {
+        display: none !important;
       }
-      a {
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 1.2rem;
-        color: $grey;
+      &:last-child {
+        ul {
+          display: block !important;
+        }
       }
     }
   }
+
+  &.is-fixed {
+    top: 0;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  &.is-absolute {
+    height: auto;
+    position: absolute;
+  }
+
+  // Top-level list
+  ul {
+    text-transform: uppercase;
+
+    a {
+      color: $grey;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 2rem;
+      font-size: 1.1rem;
+
+      &:hover {
+        color: $text-black;
+      }
+    }
+
+    // Top-level list items
+    li {
+      border-left: 4px solid $light-purple;
+      margin-bottom: $padding-tiny;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.is-active {
+        border-left-color: $purple;
+
+        ul {
+          display: block;
+        }
+
+        & > a {
+          color: $text-black;
+        }
+      }
+
+      // Second-level list
+      ul {
+        display: none;
+        margin-left: 2.2rem;
+
+        // Second-level list items
+        li {
+          border-left: 4px solid $light-purple;
+          background: none;
+
+          &.is-active {
+            border-left-color: $purple;
+          }
+
+          a {
+            padding: 0.5rem 1.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.l-sidebar-nav__item-parent {
+  background: url('../images/1.4/patterns/arrow-down--purple.svg') no-repeat right 1.2rem;
+  background-size: 10px;
 }

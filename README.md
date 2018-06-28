@@ -42,11 +42,19 @@ Now, visiting `/example` will display "This is my example page.".
 
 You can then copy these files into the other language directories to be translated.
 
+### Images
+
+Images should be placed in `app/public-src/images` and referenced as `/public-src/images/example.png`.
+
+Images should no more than about 720px wide and should be optimized before they are uploaded using a tool like [TinyPNG](https://tinypng.com/).
+
 ## Navigation
 
 Navigation items can be edited in the `[lang].yml` file.
 
 Add `root: true` to an item if you do not want the url to be localized.
+
+Add `rooturl: true` to an item if you want to use https://polyswarm.io as the domain.
 
 You can also add `subitems: (name: string, [array of items])` to create a dropdown.
 

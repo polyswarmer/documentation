@@ -64,7 +64,8 @@ help:
 	@echo "  - Compiles the site for all languages using gulp."
 	@echo
 	@echo "make build-prod"
-	@echo "  - Compiles the site for production using gulp."
+	@echo "  - Compiles the site for all languages with the --production flag."
+	@echo "  - To be used for pre-production testing."
 	@echo
 	@echo "make watch"
 	@echo "  - Starts the project watcher."

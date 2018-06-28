@@ -2,120 +2,223 @@ export default class SidebarNav {
   constructor() {
     this.classText = {
       namespace: 'sidebarNav',
-      wrap: '#js-sidebar-nav-wrap',
+      section: '#js-sidebar-nav-section',
       nav: '#js-sidebar-nav',
-      list: '#js-sidebar-nav-list',
-      heading: 'h2',
+      headings: 'h2',
+      subheadings: 'h3',
+      items: 'js-sidebar-nav-item',
+      itemChild: 'l-sidebar-nav__item-child',
+      itemParent: 'l-sidebar-nav__item-parent',
+      isResizing: 'is-resizing',
       isFixed: 'is-fixed',
+      isAbsolute: 'is-absolute',
       isActive: 'is-active'
     };
-    this.positions = {
-      wrapTop: 0,
-      wrapBottom: 0,
-      marginTop: 0,
-      atBottom: false
+
+    this.handlers = {
+      resize: `resize.${this.classText.namespace}`,
+      scroll: `scroll.${this.classText.namespace}`
     };
+
+    this.positions = {};
+
+    this.headingOffsets = {};
   }
 
   cacheElements() {
     return new Promise((resolve, reject) => {
       const { classText } = this;
 
-      this.$$ = { wrap: $(classText.wrap) };
+      this.$$ = { section: $(classText.section) };
 
-      if (!this.$$.wrap.length) {
+      if (!this.$$.section.length) {
         reject();
       } else {
         this.$$.window = $(window);
         this.$$.document = $(document);
-        this.$$.sections = this.$$.wrap.find(classText.heading);
-        this.$$.nav = this.$$.wrap.find(classText.nav);
-        this.$$.list = $(classText.list);
+        this.$$.nav = $(classText.nav);
+        this.$$.links = this.$$.nav.find('a');
+        this.$$.headings = this.$$.section.find(`${classText.headings},${classText.subheadings}`);
         resolve();
       }
     });
   }
 
-  createElements() {
+  createListItems() {
     return new Promise((resolve, reject) => {
-      const { $$ } = this;
+      const { $$, classText } = this;
 
-      if ($$.sections.length <= 1) {
+      if ($$.headings.length < 2) {
         reject();
       } else {
-        $$.sections.each((i, el) => {
-          const $el = $(el);
-          const text = $el.text();
-          const id = $el.attr('id');
+        const headings = [];
+        let headingCount = -1;
 
-          $$.list.append(`
-            <li>
-              <a href="#${id}">${text}</a>
-            </li>
-          `);
+        // Generate list
+        $$.headings.each((i, el) => {
+          const $el = $(el);
+          const id = $el.attr('id');
+          const text = $el.text();
+          const isHeading = $el.prop('tagName') === classText.headings.toUpperCase();
+          if (isHeading) {
+            const activeClass = headingCount === -1 ? ` ${classText.isActive}` : '';
+            headings.push($(`<li class="${classText.items}${activeClass}"><a href="#${id}">${text}</a></li>`));
+            headingCount++;
+          } else {
+            if (!headings[headingCount].find('ul').length) {
+              headings[headingCount].append('<ul></ul>');
+            }
+            headings[headingCount]
+              .find('ul')
+              .append(`<li class="${classText.items} ${classText.itemChild}"><a href="#${id}">${text}</a></li>`);
+          }
         });
+
+        // Append list to DOM
+        const $ul = $('<ul></ul>');
+        $ul.append(headings);
+        $$.nav.append($ul);
+        $$.nav
+          .find(`.${classText.itemChild}`)
+          .parent()
+          .parent()
+          .addClass(classText.itemParent);
+
         resolve();
       }
     });
   }
 
-  handleResize() {
-    const { $$, classText } = this;
-    this.positions.wrapTop = $$.wrap.offset().top;
-    this.positions.wrapBottom = $$.wrap.offset().top + $$.wrap.outerHeight() - $$.window.height();
-    this.positions.marginTop = parseInt(
-      $(classText.heading)
+  setAffixPositions() {
+    const { $$ } = this;
+    this.positions.sectionTop = $$.section.offset().top;
+    this.positions.sectionHeight = $$.section.outerHeight();
+    this.positions.sectionBottom = this.positions.sectionTop + this.positions.sectionHeight;
+    this.positions.navHeight = $$.nav.outerHeight();
+    this.positions.navBottom = this.positions.sectionBottom - this.positions.navHeight;
+    this.positions.navBottomPlacement = this.positions.navBottom - this.positions.sectionTop;
+    this.positions.isFixed = false;
+    this.positions.atBottom = false;
+  }
+
+  setScrollSpyPositions() {
+    const { $$ } = this;
+    this.headingOffsets = {};
+    const marginTop = parseInt(
+      $$.headings
         .first()
         .css('marginTop')
         .replace('px', ''),
       10
     );
-  }
-
-  handleScroll() {
-    const { $$, positions, classText } = this;
-    const scrollPosition = $$.document.scrollTop();
-
-    // Switch nav to fixed position
-    if (scrollPosition >= positions.wrapTop && positions.wrapBottom > scrollPosition) {
-      $$.list.addClass(classText.isFixed);
-    } else {
-      $$.list.removeClass(classText.isFixed);
-    }
-
-    // Set top property if at the bottom
-    if (positions.wrapBottom <= scrollPosition && !positions.atBottom) {
-      positions.atBottom = true;
-      $$.list.css('top', scrollPosition - positions.wrapTop);
-    } else if (positions.wrapBottom > scrollPosition && positions.atBottom) {
-      positions.atBottom = false;
-      $$.list.css('top', 0);
-    }
-
-    // Track scroll position of sections
-    $$.sections.each((i, el) => {
+    $$.headings.each((i, el) => {
       const $el = $(el);
       const id = $el.attr('id');
-      // Account for margin due to collapsing
-      const elementPosition = $el.offset().top - positions.marginTop;
-      // Make viewable section active
-      if (elementPosition <= scrollPosition) {
-        $$.list.find('li').removeClass(classText.isActive);
-        $$.list
-          .find(`a[href="#${id}"]`)
-          .parent()
-          .addClass(classText.isActive);
-      }
+      const offsetTop = $el.offset().top - marginTop;
+      this.headingOffsets[offsetTop] = `#${id}`;
     });
   }
 
-  bindings() {
+  setPositions() {
     const { $$, classText } = this;
-    $$.window.on(`resize.${classText.namespace}`, () => this.handleResize()).trigger(`resize.${classText.namespace}`);
-    $$.window.on(`scroll.${classText.namespace}`, () => this.handleScroll()).trigger(`scroll.${classText.namespace}`);
+    this.setAffixPositions();
+    this.setScrollSpyPositions();
+    $$.nav.removeClass(classText.isResizing);
+  }
+
+  setIsResizing() {
+    const { classText } = this;
+    this.$$.nav.addClass(classText.isResizing);
+  }
+
+  affix() {
+    const { $$, classText, positions } = this;
+
+    const scrollPosition = $$.window.scrollTop();
+
+    // Above top
+    if (scrollPosition < positions.sectionTop && positions.isFixed && !positions.atBottom) {
+      $$.nav.removeClass(classText.isFixed);
+      this.positions.isFixed = false;
+
+      // Passed top
+    } else if (scrollPosition >= positions.sectionTop && !positions.isFixed && !positions.atBottom) {
+      $$.nav
+        .removeClass(classText.isAbsolute)
+        .css('top', '')
+        .addClass(classText.isFixed);
+      this.positions.isFixed = true;
+
+      // Above bottom
+    } else if (scrollPosition < positions.navBottom && !positions.isFixed && positions.atBottom) {
+      $$.nav
+        .addClass(classText.isFixed)
+        .removeClass(classText.isAbsolute)
+        .css('top', '');
+      this.positions.isFixed = true;
+      this.positions.atBottom = false;
+
+      // Passed bottom
+    } else if (scrollPosition >= positions.navBottom && positions.isFixed && !positions.atBottom) {
+      $$.nav
+        .removeClass(classText.isFixed)
+        .addClass(classText.isAbsolute)
+        .css('top', `${positions.navBottomPlacement}px`);
+      this.positions.isFixed = false;
+      this.positions.atBottom = true;
+    }
+  }
+
+  scrollSpy() {
+    const { $$, classText, headingOffsets } = this;
+
+    const scrollPosition = $$.window.scrollTop();
+    const atWindowBottom = scrollPosition + $$.window.height() === $$.document.height();
+
+    if (atWindowBottom) {
+      $$.items.removeClass(classText.isActive);
+      $$.items
+        .last()
+        .addClass(classText.isActive)
+        .parent()
+        .parent()
+        .addClass(classText.isActive);
+    } else {
+      Object.keys(headingOffsets).forEach(offset => {
+        if (scrollPosition >= parseInt(offset, 10)) {
+          const id = this.headingOffsets[offset];
+          const $link = $$.nav.find(`a[href="${id}"]`);
+          $$.items.removeClass(classText.isActive);
+          $link
+            .parent()
+            .addClass(classText.isActive)
+            .parent()
+            .parent()
+            .addClass(classText.isActive);
+        }
+      });
+    }
+  }
+
+  bindings() {
+    const { $$, classText, handlers } = this;
+
+    $(window).on('load', () => {
+      this.$$.items = this.$$.nav.find(`.${classText.items}`);
+      this.setPositions();
+    });
+
+    $$.window.on(handlers.resize, () => this.setIsResizing());
+
+    $$.window.on(handlers.resize, _.debounce(this.setPositions.bind(this), 150));
+
+    $$.window.on(handlers.scroll, () => {
+      this.affix();
+      this.scrollSpy();
+    });
   }
 
   init() {
-    Promise.all([this.cacheElements(), this.createElements()]).then(() => this.bindings(), () => {});
+    Promise.all([this.cacheElements(), this.createListItems()]).then(() => this.bindings(), () => {});
   }
 }

@@ -3,11 +3,13 @@
 =============================================*/
 
 .l-sidebar-nav {
+  width: 28rem;
+  padding-right: 1rem;
+
+  // Top-level list
   ul {
-    width: 28rem;
-    height: calc(100vh - 7.2rem);
-    &.is-fixed {
-      margin-top: 7.2rem;
+    a {
+      font-size: 1.2rem;
     }
   }
 }
