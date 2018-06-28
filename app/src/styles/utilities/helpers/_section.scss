@@ -50,7 +50,7 @@
   }
 }
 
-.h-section-padding--small {
+.h-section-padding--sm {
   padding-top: $padding-lg + 5rem;
   padding-bottom: $padding-lg;
 
@@ -72,5 +72,15 @@
   @include breakpoint($md) {
     padding-top: $padding-md;
     padding-bottom: $padding-md;
+  }
+}
+
+.h-post-padding--lg {
+  padding-top: $padding-md;
+  padding-bottom: $padding-md;
+
+  @include breakpoint($md) {
+    padding-top: $padding-lg;
+    padding-bottom: $padding-lg;
   }
 }
