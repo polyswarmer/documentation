@@ -7,6 +7,7 @@ export default class SidebarNav {
       headings: 'h2',
       subheadings: 'h3',
       items: 'js-sidebar-nav-item',
+      isResizing: 'is-resizing',
       isFixed: 'is-fixed',
       isAbsolute: 'is-absolute',
       isActive: 'is-active'
@@ -111,8 +112,15 @@ export default class SidebarNav {
   }
 
   setPositions() {
+    const { classText } = this;
     this.setAffixPositions();
     this.setScrollSpyPositions();
+    this.$$.nav.removeClass(classText.isResizing);
+  }
+
+  setIsResizing() {
+    const { classText } = this;
+    this.$$.nav.addClass(classText.isResizing);
   }
 
   affix() {
@@ -190,6 +198,8 @@ export default class SidebarNav {
       this.$$.items = this.$$.nav.find(`.${classText.items}`);
       this.setPositions();
     });
+
+    $$.window.on(handlers.resize, () => this.setIsResizing());
 
     $$.window.on(handlers.resize, _.debounce(this.setPositions.bind(this), 150));
 
