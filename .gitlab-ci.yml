@@ -1,6 +1,7 @@
 stages:
   - build
   - compile
+  - test
   - deploy
 
 variables:
@@ -8,7 +9,7 @@ variables:
   MASTER_IMAGE: $CI_REGISTRY_IMAGE:latest
 
 build-non-master:
-  only: #for testing
+  except:
     - master
   stage: build
   image: docker:stable
@@ -20,7 +21,7 @@ build-non-master:
     - docker push $NON_MASTER_IMAGE
 
 compile-non-master:
-  only: #for testing
+  except:
     - master
   stage: compile
   image: $NON_MASTER_IMAGE
@@ -30,15 +31,24 @@ compile-non-master:
     - if [ ! -e node_modules ]; then npm install --silent; fi
     - bundle install --path vendor/bundle
     - npx gulp --all-langs --production
-    # - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
+  artifacts:
+    paths:
+      - app/dist
   cache:
     key: v001
     paths:
       - app/node_modules/
       - app/vendor/
 
+test-non-master:
+  except: master
+  stage: test
+  image: $NON_MASTER_IMAGE
+  script:
+    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
+
 build-master:
-  except: #for testing
+  only:
     - master
   stage: build
   image: docker:stable
@@ -50,7 +60,7 @@ build-master:
     - docker push $MASTER_IMAGE
 
 compile-master:
-  except: #for testing
+  only:
     - master
   stage: compile
   image: $MASTER_IMAGE
@@ -64,6 +74,13 @@ compile-master:
     expire_in: 1 day
     paths:
       - app/dist
+
+test-master:
+  only: master
+  stage: test
+  image: $MASTER_IMAGE
+  script:
+    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
 
 deploy:
   stage: deploy
