@@ -46,6 +46,7 @@ test-non-master:
   stage: test
   image: $NON_MASTER_IMAGE
   script:
+    - cd app
     - bundle install --path vendor/bundle
     - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
 
@@ -83,6 +84,7 @@ test-master:
   stage: test
   image: $MASTER_IMAGE
   script:
+    - cd app
     - bundle install --path vendor/bundle
     - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
 
