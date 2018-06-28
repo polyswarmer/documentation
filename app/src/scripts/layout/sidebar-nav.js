@@ -173,14 +173,12 @@ export default class SidebarNav {
 
     if (atWindowBottom) {
       $$.items.removeClass(classText.isActive);
-      console.log(
-        $$.items
-          .last()
-          .addClass(classText.isActive)
-          .parent()
-          .parent()
-          .addClass(classText.isActive)
-      );
+      $$.items
+        .last()
+        .addClass(classText.isActive)
+        .parent()
+        .parent()
+        .addClass(classText.isActive);
     } else {
       Object.keys(headingOffsets).forEach(offset => {
         if (scrollPosition >= parseInt(offset, 10)) {
