@@ -1,29 +1,89 @@
 stages:
   - build
+  - compile
+  - test
   - deploy
 
-build:
+variables:
+  NON_MASTER_IMAGE: $CI_REGISTRY_IMAGE:build-non-master
+  MASTER_IMAGE: $CI_REGISTRY_IMAGE:latest
+
+build-non-master:
+  except:
+    - master
   stage: build
-  image: $CI_REGISTRY_IMAGE
+  image: docker:stable
+  services:
+    - docker:dind
   script:
-    - cd app
-    - source ~/.bashrc
-    - if [ ! -e node_modules ]; then npm install --silent; fi
-    - bundle install --path vendor/bundle
-    - npx gulp --all-langs --production
-    - bundle exec htmlproofer ./dist --check-html --url-ignore '/#.*/' --disable-external
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker build -t $NON_MASTER_IMAGE .
+    - docker push $NON_MASTER_IMAGE
+
+compile-non-master:
+  except:
+    - master
+  stage: compile
+  image: $NON_MASTER_IMAGE
+  script:
+    - bin/deploy/compile.sh
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - app/dist
+      - app/node_modules/
+      - app/vendor/
   cache:
     key: v001
     paths:
       - app/node_modules/
       - app/vendor/
+
+test-non-master:
+  except:
+    - master
+  stage: test
+  image: $NON_MASTER_IMAGE
+  script:
+    - bin/deploy/test.sh
+
+build-master:
+  only:
+    - master
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker build -t $MASTER_IMAGE .
+    - docker push $MASTER_IMAGE
+
+compile-master:
+  only:
+    - master
+  stage: compile
+  image: $MASTER_IMAGE
+  script:
+    - bin/deploy/compile-master.sh
   artifacts:
+    expire_in: 1 day
     paths:
       - app/dist
+      - app/node_modules/
+      - app/vendor/
+
+test-master:
+  only:
+    - master
+  stage: test
+  image: $MASTER_IMAGE
+  script:
+    - bin/deploy/test.sh
 
 deploy:
   stage: deploy
-  image: $CI_REGISTRY_IMAGE
+  image: $MASTER_IMAGE
   only:
     - master
   script:

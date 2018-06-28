@@ -42,6 +42,12 @@ Now, visiting `/example` will display "This is my example page.".
 
 You can then copy these files into the other language directories to be translated.
 
+### Images
+
+Images should be placed in `app/public-src/images` and referenced as `/public-src/images/example.png`.
+
+Images should no more than about 720px wide and should be optimized before they are uploaded using a tool like [TinyPNG](https://tinypng.com/).
+
 ## Navigation
 
 Navigation items can be edited in the `[lang].yml` file.

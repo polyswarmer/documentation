@@ -39,6 +39,7 @@
     "lazypipe": "1.0.1",
     "lodash": "4.17.10",
     "replace": "1.0.0",
+    "retire": "1.6.1",
     "run-sequence": "2.2.1",
     "uglifyjs-webpack-plugin": "1.2.6",
     "webpack": "4.12.0",
