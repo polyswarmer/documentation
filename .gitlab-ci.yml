@@ -19,7 +19,7 @@ build-non-master:
   stage: build
   script:
     - |
-        if docker run $CI_REGISTRY_IMAGE:CI_JOB_NAME ; then
+        if docker run $CI_REGISTRY_IMAGE:CI_JOB_NAME echo "hello" ; then
           echo "success"
         else
           docker build -t $CI_REGISTRY_IMAGE:CI_JOB_NAME .
