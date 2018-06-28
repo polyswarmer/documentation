@@ -41,7 +41,8 @@ compile-non-master:
       - app/vendor/
 
 test-non-master:
-  except: master
+  except:
+    - master
   stage: test
   image: $NON_MASTER_IMAGE
   script:
@@ -76,7 +77,8 @@ compile-master:
       - app/dist
 
 test-master:
-  only: master
+  only:
+    - master
   stage: test
   image: $MASTER_IMAGE
   script:
