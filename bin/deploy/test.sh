@@ -2,6 +2,8 @@
 
 cd app
 
+source ~/.bashrc
+
 bundle install --path vendor/bundle
 
 npx retire -n -p
