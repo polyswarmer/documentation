@@ -7,9 +7,6 @@ variables:
   NON_MASTER_IMAGE: $CI_REGISTRY_IMAGE:build-non-master
   MASTER_IMAGE: $CI_REGISTRY_IMAGE:latest
 
-before_script:
-  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-
 build-non-master:
   only: #for testing
     - master
@@ -18,6 +15,7 @@ build-non-master:
   services:
     - docker:dind
   script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build -t $NON_MASTER_IMAGE .
     - docker push $NON_MASTER_IMAGE
 
@@ -47,6 +45,7 @@ build-master:
   services:
     - docker:dind
   script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build -t $MASTER_IMAGE .
     - docker push $MASTER_IMAGE
 
