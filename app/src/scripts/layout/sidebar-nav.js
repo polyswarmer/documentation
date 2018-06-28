@@ -103,6 +103,7 @@ export default class SidebarNav {
 
   setScrollSpyPositions() {
     const { $$ } = this;
+    this.headingOffsets = {};
     const marginTop = parseInt(
       $$.headings
         .first()
