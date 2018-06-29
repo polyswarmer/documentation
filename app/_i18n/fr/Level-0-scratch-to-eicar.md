@@ -59,7 +59,7 @@ In the PolySwarm marketplace, **Ambassadors** ask the market for a crowdsourced 
 *Ambassadors may also ask specific Experts via Offer channels; Offers will be discussed in a later tutorial.*
 
 At a high level:
-1. An **Ambassaor** "bounties" a suspect artifact.
+1. An **Ambassador** "bounties" a suspect artifact.
 2. **Microengines** hear about this new artifact by listening for Ethereum events (optionally via `polyswarmd`).
 3. Each **Microengine** decides if the artifact at hand is within their wheelhouse of expertise.
 4. If **Microengine** has insight on the artifact, it produces an `assertion` + a `stake` of NCT on that `assertion`.

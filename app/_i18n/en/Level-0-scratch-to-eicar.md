@@ -7,7 +7,7 @@ For those anxious for the code, this guide will reference and build on:
 * [**microengine-scratch**](https://github.com/polyswarm/microengine-scratch): a shell of a Microengine that lacks an **analysis backend**
 * [**microengine-eicar**](https://github.com/polyswarm/microengine-eicar): a fully functional Microengine capable of detecting the EICAR test string
 * [**polyswarmd**](https://github.com/polyswarm/polyswarmd): the PolySwarm daemon that abstracts away Ethereum and IPFS idiosyncrasies, allowing you to focus on Microengine development
-* [**polyswarm-contracts**](https://github.com/polyswarm/polyswarm-contracts): the contracts all Microengines must support
+* [**polyswarm-contracts**](https://github.com/polyswarm/polyswarm-contracts): the contracts all Microengines must support - TODO
 
 Without further ado, let's get started!
 
@@ -59,7 +59,7 @@ In the PolySwarm marketplace, **Ambassadors** ask the market for a crowdsourced 
 *Ambassadors may also ask specific Experts via Offer channels; Offers will be discussed in a later tutorial.*
 
 At a high level:
-1. An **Ambassaor** "bounties" a suspect artifact.
+1. An **Ambassador** "bounties" a suspect artifact.
 2. **Microengines** hear about this new artifact by listening for Ethereum events (optionally via `polyswarmd`).
 3. Each **Microengine** decides if the artifact at hand is within their wheelhouse of expertise.
 4. If **Microengine** has insight on the artifact, it produces an `assertion` + a `stake` of NCT on that `assertion`.
