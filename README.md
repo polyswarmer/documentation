@@ -4,18 +4,18 @@
 
 Create a file in `public-src/_docs`. The contents of that file should look something like this:
 
-`public-src/_docs/2018-07-06-example.md`
+`public-src/_docs/example.md`
 ```markdown
 ---
 title: docs.example.title
 ---
 
-{% tf _docs/2018-07-06-example.md %}
+{% tf _docs/example.md %}
 ```
 
 As you can see, this file simply points to the localized YAML and Markdown files found in the `_i18n` directory.
 
-You should then have a `[lang].yml` file and a `[lang]/_docs/2018-07-06-example.md` file. For english content, it would look like this:
+You should then have a `[lang].yml` file and a `[lang]/_docs/example.md` file. For english content, it would look like this:
 
 `_i18n/en.yml`
 ```yml
@@ -24,7 +24,7 @@ docs:
     title: My Example Page
 ```
 
-`_i18n/en/_docs/2018-07-06-example.md`
+`_i18n/en/_docs/example.md`
 ```markdown
 ## Example
 
