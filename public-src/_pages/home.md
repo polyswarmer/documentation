@@ -1,4 +1,4 @@
 ---
-layout: t-home
+layout: t-docs
 permalink: /
 ---

@@ -1,1 +1,0 @@
-PolySwarm is a decentralized security marketplace where threats are detected in real-time by thousands of micro-engines honed by security experts competing to protect you.
