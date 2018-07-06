@@ -1,9 +1,0 @@
-/*=============================================
-=                   Footer                    =
-=============================================*/
-
-@import 'l-footer-[base]';
-@include breakpoint($sm) { @import 'l-footer-[sm]'; }
-@include breakpoint($md) { @import 'l-footer-[md]'; }
-@include breakpoint($lg) { @import 'l-footer-[lg]'; }
-@include breakpoint($xl) { @import 'l-footer-[xl]'; }

@@ -1,7 +1,0 @@
-/*=============================================
-=             Mixins - Background             =
-=============================================*/
-
-@mixin bg-gradient {
-  background-image: linear-gradient(to left bottom, $purple, $x-dark-purple);
-}

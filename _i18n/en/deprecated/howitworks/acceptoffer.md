@@ -1,0 +1,2 @@
+<li><span><strong>Enterprises</strong> and <strong>Ambassadors</strong> can choose to work with specific <strong>Experts</strong> by opening an offer channel. If you receive an <strong>Offer</strong> you can decide whether or not to participate at the amount of <strong>Nectar</strong> offered.</span></li>
+<li><span><strong>Ambassadors</strong> rapidly reward experts in a low-friction manner using <a href="http://raiden.network/" target='_blank'>Raiden-style</a> Channels.</span></li>

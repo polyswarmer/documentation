@@ -1,9 +1,0 @@
-/*=============================================
-=                 Sidebar Nav                 =
-=============================================*/
-
-@import 'l-sidebar-nav-[base]';
-@include breakpoint($sm) { @import 'l-sidebar-nav-[sm]'; }
-@include breakpoint($md) { @import 'l-sidebar-nav-[md]'; }
-@include breakpoint($lg) { @import 'l-sidebar-nav-[lg]'; }
-@include breakpoint($xl) { @import 'l-sidebar-nav-[xl]'; }

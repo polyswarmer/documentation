@@ -1,0 +1,1179 @@
+global:
+  description: PolySwarm is the world's first distributed threat Intelligence market.
+  prev_next:
+    previous: Previous article
+    next: Next article
+  forms:
+    main:
+      button:
+        name: Get In Touch
+        type: submit
+    coming_soon_signup:
+      button:
+        name: Sign me up!
+        style: light
+        type: submit
+  events:
+    register: Register
+    types:
+      meetup: PolySwarm Meetup
+      conference: Conference
+header:
+  menu: Menu
+  languages: Languages
+  navigation:
+    home:
+      name: Home
+      url: /
+    items:
+      - name: Security Experts
+        url: /security_experts/
+      - name: How It Works
+        url: /howitworks/
+      - name: Grants
+        url: /grants/
+      - name: Roadmap
+        url: /road_map/
+      - name: FAQ
+        url: /faq/
+      - name: Company
+        subitems:
+          - name: The Team
+            url: /the_team/
+          - name: Security
+            url: /security/
+          - name: Media
+            url: /media/
+          - name: Press
+            url: /press/
+footer:
+  navigation:
+    home:
+      url: /
+    columns:
+      - items:
+          - name: Navigation
+          - name: Home
+            url: /
+          - name: Security Experts
+            url: /security_experts/
+          - name: How It Works
+            url: /howitworks/
+          - name: Grants
+            url: /grants/
+          - name: Roadmap
+            url: /road_map/
+          - name: FAQ
+            url: /faq/
+      - items:
+          - name: Company
+          - name: The Team
+            url: /the_team/
+          - name: Security
+            url: /security/
+          - name: Media
+            url: /media/
+          - name: Press
+            url: /press/
+      - items:
+          - name: Telegram Channels
+          - name: PolySwarm
+            url: https://t.me/PolySwarm
+            root: true
+          - name: POLYSWARM官方中文群
+            url: https://t.me/PolySwarmChinese
+            root: true
+          - name: PolySwarm Announcements
+            url: https://t.me/PolySwarmAnnouncements
+            root: true
+  cta:
+    name: Download Whitepaper
+    url: /polyswarm-whitepaper.pdf
+    target: _blank
+    root: true
+  privacy:
+    name: Privacy Policy
+    url: /privacy-terms/
+  terms:
+    name: Terms of Service
+    url: /privacy-terms/
+pages:
+  page_not_found:
+    title: Page not found
+    bg_image: /backgrounds/network-bg.png
+    heading: Page not found
+    button:
+      name: Back to home
+      url: /
+      style: transparent
+  home:
+    hero:
+      bg_image: /backgrounds/globe-bg.jpg
+      heading: The first <em>decentralized</em> threat intelligence marketplace
+      text: Crowdsourcing truth by market design and Ethereum smart contracts.
+      buttons:
+        - name: Enterprise Clients
+          url: /enterprise_clients/
+          style: light
+        - name: Security Experts
+          url: /security_experts/
+          style: light-transparent
+      trust_logos:
+        heading: Our Partnerships
+        logos:
+          - image:
+              src: /trust-logos/binaryninja-white.png
+              alt: binaryninja
+            link:
+              url: /press/2018/02/10/polyswarm-binary-partners/
+              target: _blank
+          - image:
+              src: /trust-logos/science-white.png
+              alt: science
+            link:
+              url: https://medium.com/@scienceinc/polyswarm-the-first-decentralized-threat-intelligence-marketplace-joins-science-blockchain-f375cdff315
+              target: _blank
+              root: true
+          - image:
+              src: /trust-logos/rivetz-white.png
+              alt: rivetz
+            link:
+              url: /press/2018/01/19/rivetz-and-polyswarm-partnership-dc2/
+              target: _blank
+          - image:
+              src: /trust-logos/cyber-triage-white.png
+              alt: cyber triage
+            link:
+              url: https://www.cybertriage.com/
+              target: _blank
+              root: true
+          - image:
+              src: /trust-logos/blocktower-white.png
+              alt: blocktower
+            link:
+              url: /press/2018/02/13/polyswarm-announces-investment-from-blocktower/
+              target: _blank
+    four_column_section:
+      heading: The antivirus industry is broken
+      text: Existing antivirus products offer duplicative coverage, are not interoperable, and are designed to focus on known widespread threats. New malware is being produced and deployed at a faster pace than antivirus products can keep up with.
+      columns:
+        - heading: Growing Problem
+          text: 90 million cyber threats each year lead to more than $3 trillion in costs. These costs are expected to double by 2021.
+          byline: Cybersecurity Ventures
+          image:
+            src: /icons/chart.png
+            alt: chart
+        - heading: Limited landscape Coverage
+          text: There are 400 new threats every minute and 70% of them go undetected by current anti-virus products.
+          byline: Merill Lynch
+          image:
+            src: /icons/terminal.png
+            alt: terminal
+        - heading: Slow to React
+          text: Time to resolve cyber attacks has increased by 33% due to limited resources and low R&amp;D investment.
+          byline: Ponemon Institute
+          image:
+            src: /icons/hourglass.png
+            alt: hourglass
+        - heading: Shortage of Infosec Experts
+          text: The infosec expert ‘talent gap’ is estimated to reach 3.5 M by 2021.
+          byline: Gartner
+          image:
+            src: /icons/expert.png
+            alt: expert
+    introduction:
+      heading: Introducing PolySwarm
+      text: Polyswarm is a threat detection marketplace where antivirus companies and enterprises dramatically expand and improve their protection coverage against new threats.
+      infographic:
+        traditional:
+          text: A single vendor, employing a centralized group of threat experts, provides a one-size-fits-all solution. This leaves you vulnerable to attacks.
+          button:
+            name: Traditional Antivirus
+            style: transparent
+            type: span
+        polyswarm:
+          text: Micro-engines, developed by a global community of security experts, converge to quickly analyze the threat, providing broader analysis and protection that’s tailor-made to your exact needs.
+          button:
+            type: span
+            icon: wordmark
+            title: PolySwarm
+      stats:
+        - heading: Up to Date
+          text: Up-to-date coverage for new threats, within minutes—not hours or weeks. Specialized expertise is incentivized by market design, unlike the current market.
+          image:
+            src: /icons/stopwatch.png
+            alt: stopwatch
+        - heading: Broader Coverage
+          text: PolySwarm aggregates coverage from thousands of specialized 'micro-engines,' created and maintained by a global swarm of security experts.
+          image:
+            src: /icons/coverage.png
+            alt: globe and spyglass
+        - heading: Automated
+          text: Unlike traditional bug bounties, threat detection is automated, performed by micro-engines.
+          image:
+            src: /icons/gears.png
+            alt: gears
+        - heading: Crowdsourced
+          text: A global 'swarm' of experts, with a proven and publicly-accessible track record, compete (and get rewarded) for protecting you.
+          image:
+            src: /icons/crowdsource.png
+            alt: crowdsource
+      cta:
+        name: Watch Video
+        url: https://www.youtube.com/watch?v=tiL_FdJ8Fi4
+        style: transparent
+        icon: video
+        target: _blank
+        root: true
+    how_it_works:
+      heading: How PolySwarm works
+      text: "The PolySwarm ecosystem incentivizes what matters most: quality output of malintent detection. It rewards honest market participation through collection and distribution of fees to value-adding, active security experts."
+      cta:
+        name: Learn More
+        url: /howitworks/
+        style: transparent
+    compare_table:
+      heading: How we compare
+      footer_text: "*Traditional signature-based antivirus"
+      rows:
+        - Coverage
+        - Reaction time to new threats
+        - Interoperable
+        - Crowdsourced
+        - Decentralized
+        - Ecosystem growth and evolution
+        - Barriers to entry
+      columns:
+        - heading: "Antivirus*"
+          rows:
+            - Limited
+            - Slow
+            - "No"
+            - "No"
+            - "No"
+            - "No"
+            - High
+        - heading: PolySwarm
+          highlighted: true
+          rows:
+            - "Yes"
+            - Fast
+            - "Yes"
+            - "Yes"
+            - "Yes"
+            - "Yes"
+            - Low
+        - heading: VirusTotal
+          rows:
+            - Limited
+            - n/a
+            - "Yes"
+            - "No"
+            - "No"
+            - n/a
+            - High
+    press_logos:
+      heading: PolySwarm in the media
+      logos:
+        - image:
+            src: /trust-logos/inc-black.png
+            alt: Inc
+          link:
+            url: https://www.inc.com/darren-heitner/a-possible-fix-for-grave-threat-of-increased-cyber-crimes.html
+            target: _blank
+            root: true
+        - image:
+            src: /trust-logos/entrepreneur-black.png
+            alt: Entrepreneur
+          link:
+            url: https://www.entrepreneur.com/article/312652
+            target: _blank
+            root: true
+        - image:
+            src: /trust-logos/huffpost-black.png
+            alt: HuffPost
+          link:
+            url: https://www.huffingtonpost.com/entry/how-this-startup-is-revolutionizing-the-block-chain_us_5a2f162de4b012875c465db8
+            target: _blank
+            root: true
+        - image:
+            src: /trust-logos/forbes-black.png
+            alt: Forbes
+          link:
+            url: http://3g.forbeschina.com/review/201801/0066222.shtml?from=timeline&isappinstalled=0
+            target: _blank
+            root: true
+        - image:
+            src: /trust-logos/naver-black.png
+            alt: Naver
+          link:
+            url: http://news.naver.com/main/hotissue/read.nhn?sid1=110&cid=1073715&iid=5080077&oid=014&aid=0003954868
+            target: _blank
+            root: true
+        - image:
+            src: /trust-logos/cnet-black.png
+            alt: CNET
+          link:
+            url: https://japan.cnet.com/release/30233773/
+            target: _blank
+            root: true
+        - image:
+            src: /trust-logos/mcafee-black.png
+            alt: McAfee
+          link:
+            url: https://securingtomorrow.mcafee.com/business/can-blockchain-cybersecurity/
+            target: _blank
+            root: true
+        - image:
+            src: /trust-logos/cpomag-black.png
+            alt: CPO Magazine
+          link:
+            url: https://www.cpomagazine.com/2018/05/07/blockchain-is-the-future-of-antivirus/
+            target: _blank
+            root: true
+        - image:
+            src: /trust-logos/scmag-black.png
+            alt: SC Magazine
+      cta:
+        name: More Press
+        url: /press/
+        style: transparent
+    testimonial_carousel:
+      cards:
+        - name: Mark Tonnesen
+          quote: I’m thrilled to be working with PolySwarm because they’re uniquely addressing an important issue in cyber security.
+          title: Former CIO, McAfee
+          image: /testimonials/mark-tonnesen.png
+        - name: Jurriaan Bremer
+          quote: With more and more advanced malware being released on a daily basis, it’s becoming increasingly difficult to perform detection and understand the motives of attackers in near real-time. We believe the PolySwarm ecosystem is capable of achieving this exact goal.
+          title: Lead Developer of Cuckoo Sandbox
+          image: /testimonials/jurriaan-bremer.png
+        - name: Dinesh Dhamija
+          quote: PolySwarm is leading the way when it comes to blockchain’s real-world use cases, and I am happy to support their growth.
+          title: U.K.Entrepreneur, Deputy Treasurer of U.K.'s Liberal Democratic Party; Founder, Former CEO and Chairman, Ebookers.com
+          image: /testimonials/dinesh-dhamija.png
+    call_to_action:
+      heading: Join the marketplace
+      buttons:
+        - name: Enterprise Clients
+          url: /enterprise_clients/
+          style: light
+        - name: Security Experts
+          url: /security_experts/
+          style: light-transparent
+  security_experts:
+    title: Security Experts
+    hero:
+      bg_image: /backgrounds/earth-bg.jpg
+      heading: Join a global <em>swarm</em> of hackers competing to protect the world
+      text: Polyswarm is a crowdsourced threat intelligence marketplace that rewards experts who accurately detect malware.
+      buttons:
+        - name: Sign me up!
+          url: "#swarmroyale-sign-up"
+          style: light
+    two_column_image_text:
+      - heading: Generate passive income
+        text: Unlike traditional bug bounty programs, threat detection is automated, performed by an algorithm or small piece of antivirus software; a "micro-engine" built and tuned by you, a security expert. Earn tokens while you sleep. Tune and optimize your engine as needed.
+        icon:
+          name: income
+          title: income
+      - heading: Challenge your security expertise
+        text: Compete and benchmark yourself against other experts. Check our live Leaderboard with performance data from the best. Build reputation, gain status, get invited to private programs, and receive direct ‘offers’ from enterprises.
+        icon:
+          name: leaderboard
+          title: leaderboard
+      - heading: Be part of the solution
+        text: Join us in our mission to protect others and making the internet a safer place. Polyswarm’s disruptive, open and crowdsourced marketplace powered by blockchain technology aims to revert the existing economic incentives in the market.
+        icon:
+          name: shield
+          title: shield
+      - heading: Learn cutting-edge blockchain skills
+        text: Decentralized storage, humanless authentication, transparency, and traceability make blockchain technology especially applicable to cybersecurity. Learn valuable,  in-demand blockchain skills and apply them to your field, get an edge, and become an early adopter!
+        icon:
+          name: blocks
+          title: blocks
+    coming_soon_signup:
+      bg_image: /backgrounds/coin-bg.png
+      icon:
+        name: clock
+        title: Coming Soon
+      heading: The<span class="h-text-camel"> </span><em>Swarm</em><span class="h-text-zero"> </span>Royale Competition
+      text: Can you build a micro-engine that detects malware?
+    press_logos:
+      heading: Our Partners
+      logos:
+        - image:
+            src: /trust-logos/binaryninja-black.png
+            alt: Binary Ninja
+          link:
+            url: /press/2018/02/10/polyswarm-binary-partners/
+        - image:
+            src: /trust-logos/digitalocean-black.png
+            alt: DigitalOcean
+          link:
+            url: https://www.digitalocean.com/
+            target: _blank
+            root: true
+        - image:
+            src: /trust-logos/cyber-triage-black.png
+            alt: Cyber Triage
+          link:
+            url: https://www.cybertriage.com/
+            target: _blank
+            root: true
+    events:
+      heading: Our conference schedule
+      text: Visit PolySwarm at these events to learn about the platform, meet the team, and talk everything blockchain and cybersecurity.
+    call_to_action:
+      heading: Learn more about PolySwarm
+      buttons:
+        - name: Check Our Code
+          url: https://github.com/PolySwarm
+          target: _blank
+          root: true
+          style: light
+        - name: How It Works
+          url: /howitworks/
+          style: light-transparent
+  enterprise_clients:
+    title: Enterprise Clients
+    form:
+      bg_image: /backgrounds/network-bg.png
+      heading: Improve your protection against new threats
+      text: Send us a message and you will be <span class="h-br@xs"></span>contacted shortly.
+  howitworks:
+    title: How It Works
+  grants:
+    title: Grants
+  road_map:
+    title: Roadmap
+  faq:
+    title: FAQ
+  the_team:
+    title: The Team
+  security:
+    title: Security
+  media:
+    title: Media
+  press:
+    title: Press Releases
+  privacy_terms:
+    title: Terms of Service & Privacy Policy 
+press:
+  mark_tonnesen:
+    title: Mark Tonnesen, former McAfee CIO, joins PolySwarm as an adviser
+  concept_launch:
+    title: PolySwarm Announces Nectar (NCT), First Decentralized IT Security Marketplace Using Ethereum ERC20
+  rivetz_partnership:
+    title: PolySwarm and Rivetz to Form Decentralized Cybersecurity Consortium
+  tokyo_headquarters:
+    title: Decentralized IT Security Marketplace PolySwarm Selects Tokyo for Asian Headquarters
+  binary_partnership:
+    title: PolySwarm Partners with Reverse Engineering Platform Binary Ninja
+  blocktower_investment:
+    title: Decentralized IT Security Marketplace PolySwarm Announces Investment from BlockTower Capital
+  presale_goal:
+    title: PolySwarm Reaches $15 Million USD Presale Goal
+  public_sale:
+    title: Decentralized IT Security Marketplace PolySwarm Launches Public Token Sale
+  cyber_triage_partnership:
+    title: Cyber Triage Partners with PolySwarm to Connect First Responders with Pioneering Cybersecurity Marketplace
+  cuckoo_partnership:
+    title: PolySwarm Kickstarts Platform with First Arbiter Based on Cuckoo Sandbox
+  joel_dietz:
+    title: Swarm Syndicates - Joel Dietz Invests $500,000 in PolySwarm’s Token Sale
+  dinesh_dhamija:
+    title: U.K. Entrepreneur Dinesh Dhamija Joins PolySwarm’s Advisory Board
+  end_of_ico:
+    title: PolySwarm Raises $25.94 Million in Public Token Sale to Decentralize Cybersecurity
+  global_tour:
+    title: PolySwarm Completes Global Tour, Visiting Cities in 4 Continents
+
+# v1.4 (deprecated)
+pagecontent:
+  grants:
+    nav: Grants
+  downloads:
+    nav: Downloads
+    title: Downloads
+  media:
+    nav: Media
+    sections:
+      product: >-
+        PolySwarm Product Videos
+      interviews: >-
+        PolySwarm Interviews
+      reviews: >-
+        PolySwarm Reviewed
+      conferences: >-
+        PolySwarm at Conferences
+      in_the_media: >-
+        PolySwarm in the Media
+  faq:
+    nav: FAQ
+  roadmap:
+    nav: Roadmap
+    title: Roadmap
+  wholoves:
+    title: PolySwarm in the Media
+    partnertitle: Partners
+    rivetz:
+      quote: >-
+        "PolySwarm and Rivetz recently announced a partnership to form the Decentralized Cybersecurity Consortium. DC2 is a professional group for IT security companies aimed at developing best practices for blockchain-based cybersecurity."
+      name: Rivetz
+    science:
+      quote: >-
+        "Science Inc., whose investment portfolio includes Medium, Dollar Shave Club or Wealthfront, runs an incubator called Science Blockchain that focuses on funding and growing leading blockchain companies."
+      name: Science Inc.
+    binaryninja:
+      quote: >-
+        "Vector 35, makers of the reverse engineering platform Binary Ninja will offer world class analysis capabilities to security experts in PolySwarm's ecosystem, while PolySwarm will support the development of Binary Ninja."
+      name: Binary Ninja
+    huffpo:
+      quote: >-
+        “Applying blockchain technology to better serve global security needs is a passion that has seen Steve Bassi found a potential industry game changer.”
+      name: How This Startup is Revolutionizing the Blockchain for Security
+      title: Huffington Post
+    virgin:
+      quote: >-
+        “Where it becomes particularly compelling and scalable, is that the system is borderless, with security experts coming from everywhere from Sweden to Swaziland.”
+      name: How your team becomes your family
+      title: Virgin
+    mcafee:
+      quote: >-
+        “In the most simple case, anyone can submit a sample through Swarm and ask “Is this malicious?”. They can also post a “bounty” for the resultant information.”
+      name: What can Blockchain Do For Cybersecurity?
+      title: McAfee
+    coindesk:
+      title: CoinDesk
+      name: Anti-Virus Token? Polyswarm Seeks Safer Internet With ICO
+      quote: >-
+        “This is particularly novel in that today's anti-virus company structures incentivize chasing threats against the most widely used software, in an effort to attract the largest possible client base.“
+  whitepaperurl: /polyswarm-whitepaper.pdf
+  contact:
+    vulns: Contact security@polyswarm.io to report any vulnerabilities in the PolySwarm.io website or any of the PolySwarm projects. PGP key available on request.
+    nav: Contact
+  about:
+    nav: The Team
+  home:
+    nav: Home
+  social:
+    telegram: Talk to Us on Telegram
+    telegram2: Talk to PolySwarm on Telegram
+    telegram_q: Questions? Join us on Telegram
+    blog: Read our Blog
+    github: PolySwarm on GitHub
+    facebook: PolySwarm on Facebook
+    twitter: PolySwarm on Twitter
+    youtube: PolySwarm on YouTube
+    linkedin: PolySwarm on LinkedIn
+    reddit: PolySwarm on Reddit
+    email: Email PolySwarm
+  privacy:
+    nav: Terms of Service & Privacy Policy
+  securityexperts:
+    title: Security Experts
+    nav: Security Experts
+    bountyherobutton: Bounty Program
+    bountyrules: View Malware Bounty Program Rules for full details
+    intro: PolySwarm is the first decentralized marketplace where security experts earn income by operating cutting-edge micro-engines that compete to protect users and enterprises.
+    problemstitle: Problems Solved by PolySwarm
+    problems:
+      - title: Unbalanced Market
+        description: While the costs associated with cybercrime are expected to double in 2021, experts estimate that there will be a shortage of 3.5 million IT security jobs by 2021…Most of the security jobs are in western countries, while there is lack of opportunities in other locations.
+      - title: Access to opportunities
+        description: PolySwarm’s decentralized marketplace breaks down geographical barriers connecting expertise with opportunity. PolySwarm addresses the problem on both ends, allowing talented security expertise to freely flow from regions without enough jobs to regions without enough talent.
+      - title: Niche software is hard to scale
+        description: It is hard to find buyers for narrowly-scoped, specialized security software solutions that security experts currently develop and use in their local threat analysis environments.
+      - title: Revenue stream
+        description: Polyswarm provides security experts an outlet to monetize their already built specialized anti-malware software. They can also build their own with using PolySwarm’s platform development kit (Perigord).  Experts compete to detect today’s threats and are rewarded based on accuracy and speed of their assertions.
+    worksforyou: Learn How PolySwarm Works for You
+    bountytitle: Free Nectar for Malware Bounty Program.
+    bountyannounce: $300,000 worth of NCT up for grabs. Enter the bounty to claim your share.
+    bountycontent: >-
+      PolySwarm’s free nectar for malware campaign was launched January 23, 2018 and continues until the funding cap is reached.
+
+      <br /><br />
+
+      We will cap the value of the campaign at $300,000 with a maximum of $6,250 to be awarded each day.
+
+      <br /><br />
+
+      Security Experts can earn NCT while testing out the marketplace on the testnet.
+      Once per day, each Security Expert can enter one IPFS link to a suspicious file. If you are one of the first five to trigger a ClamAV signature per malware family, you earn NCT.
+      Each day, we will announce a specific malware family in the <a href="https://t.me/polyswarm" target="_blank">PolySwarm Telegram Channel</a>, and if the user submits a file that triggers a ClamAV signature for that malware family, they will get an additional NCT bonus.
+    bountybutton: Join the Bounty Program
+    codebutton: Check Out the code
+    learnmorebutton: Learn more about the token sale
+    signupmsg: Sign up and get notified about our releases.
+  howitworks:
+    nav: How it Works
+    fueltitle: Fueled by Nectar
+    chooseamb: Choose an Ambassador
+    diy: Do it yourself
+    foryou: Learn How PolySwarm Works for You
+    select: >-
+      Select your Perspective:
+    intro: The PolySwarm market runs on Nectar, a token that will make it easy to submit and classify potential threats on the PolySwarm market. Nectar replaces traditional lump anti-virus and threat scanning subscription payments that are inefficiently distributed to a single vendor that doesn’t cover your variety of threats well.
+    repute: Choose a reputable Ambassador
+    option1: Option 1
+    option2: Option 2
+    bounty: Bounty
+    offer: Offer
+    easy: Identify a good Ambassador using PoySwarm's public, blockchain-based record of their past performance.
+    easydesc: Simply choose a reputable <strong>Ambassador</strong> and pay their subscription fee. That’s it. You’ll now be protected by security experts worldwide.
+    twoways: >-
+      There are 2 ways to submit a suspicious Artifact: <br />Bounties and Offers.
+    submitbounty: Submit a Bounty
+    bountydesc: Bounties represent a public, smart (as in contract) commitment to pay for information leading to the quarantine or exoneration of Artifacts, similar to a Wild West style “Wanted” poster.
+    submitoffer: Submit an Offer
+    offerdesc: If you want more rapid transactions and want to limit the exposure of the Artifact in question and/or prefer to work only with specific Experts, you can submit Direct Offers.
+    recruitamb: Recruit Enterprises
+    recruitdesc: Ambassadors provide a link between Enterprises and PolySwarm.<br /><br />Continue collecting subscription fees on the frontend while transparently enhancing your offering by plugging into PolySwarm on the backend.
+    putwork: Put your knowledge to work
+    expertyay: Get rewarded for accurate and timely threat detection.<br /><br />Hunt alongside and compete with a global cadre of security experts.
+    respondbounty: Respond to Bounties
+    acceptoffer: Accept Offers
+    expertcontact: Profit from <br> your expertise.
+    ambassadorcontact: Dramatically strengthen your security <br> services and ensure your users are <br /> fully protected.
+    alphacta: Sign up and be one of the first to be notified of our Alpha release.
+    aacta: Make sure you’re protected from all angles™.
+    becomeone: Become one with the Swarm
+  security:
+    nav: Security
+    bounty: Bug Bounty
+    weknowbugs: We’re Information Security people, so we know bugs happen. More importantly, we know that we’re not above making them. During Alpha and Beta development, we’ll offer a bug bounty program to the world. Details are being decided now, stay tuned!
+    audit: Professional Audit
+  press:
+    nav: Press
+    sectiontitle: Press Releases
+telegram:
+  channels: >-
+    Telegram Channels:
+  en: PolySwarm
+  zh: PolySwarm官方中文群
+  announce: PolySwarm Announcements
+buttons:
+  blog: BLOG
+  send: SEND
+  telegram: JOIN US ON TELEGRAM
+  github: REVIEW THE CODE
+  downloadwp: DOWNLOAD WHITE PAPER
+  downloadmsg: Download the white paper
+  learn_more: LEARN MORE
+  tsagree: Token sale agreement
+  signup: SIGN UP
+  register: BUY NCT NOW
+  registerforsale: Buy Nectar (NCT) Tokens
+  facebook: FACEBOOK
+  twitter: TWITTER
+  youtube: YOUTUBE
+udbranding: Branding & design in partnership with UNDERDOG
+redefinedsec:
+  title: Threat protection <span><span>redefined.</span></span>
+  cpy: >-
+    The PolySwarm ecosystem incentivizes what matters most: quality output of malintent detection. It rewards honest market participation through collection and distribution of fees to value-adding, active security experts.
+  clickme: Click participant icons to get an overview of how the system works.
+  button: Learn more
+roles:
+  ambassador: Ambassador
+  enterprise: Enterprise
+  expert: Expert
+nav:
+  clickbo: Click on BOUNTY or OFFER to continue
+  clickback: Click to go back
+fields:
+  email: Email
+  required: (Required)
+  first: First Name
+  last: Last Name
+  listhead: PolySwarm Newsletters
+  listsecurity: Security Experts Updates
+  listambassador: Ambassador Updates
+  listps: PolySwarm Updates
+disclaimers:
+  nosell: We never sell or share your information.
+tspage:
+  link: Token Sale
+  annualburn: Annual Burn
+  close: Close
+  register: pre-Register
+  end: End
+  currate: Current rate
+  bonus: Bonus
+  levels:
+    one: Level 1 (Minimum Funding)
+    two: Level 2
+    three: Level 3
+    four: Level 4 (Moonshot Funding)
+  title: PolySwarm Nectar (NCT)<br />Token Sale
+  clickhelp: >-
+    Click each funding level's hexagonal icon for specifics concerning deliverables. All deliverables are cumulative.
+    <br />
+    * The 15% BONUS level is omitted. It provides the purchaser additional NCT, but does not trigger additional deliverables.
+  purchasetokens:
+    title: Purchase Tokens at<span><span>20%</span></span> Bonus!
+    actionbuttontext: >-
+      Sale Start: February 20th, 2018 19:00 UTC
+  why:
+    title: Why Purchase?
+    blurb: Get a jump start on tomorrow's threat intelligence market.
+    sta: Strong Team & Advisers
+    bc: Broader Coverage
+    mca: More Current & Accurate
+    ct: Custom Tailored
+    lb: Lowers Barrier to Entry for Security Experts
+  rm:
+    title: Roadmap
+    focus: PolySwarm will gradually introduce new opportunities for Ambassador, Expert, and Enterprise interactions.
+    alt: As always, please refer to our Whitepaper for full details. Roadmap dates are all anticipated and subject to change, given the nature of software development.
+    alpha: V0.1 Alpha (30 April 2018)
+    beta: V0.2 Beta (31 May 2018)
+    gamma: V0.3 Gamma (31 July 2018)
+    one: PolySwarm 1.0 (Q4 2018)
+    two: PolySwarm 2.0 (Q2 2019)
+    future: Future Features
+  # Do not translate the value next to "dn" in this section.
+  faq:
+    title: FAQ
+    faqs:
+      - question: How do I purchase Nectar tokens (NCT)?
+        answer: |
+          Nectar tokens (NCT) will be available for purchase exclusively with Ether (ETH).
+          If you plan to participate in the Nectar token sale, we recommend acquiring ETH well in advance of the sale start date to ensure your ability to contribute.
+
+          <br /><br />
+
+          Participants will complete a brief registration process that will be launching in advance of the token sale.
+
+          <br /><br />
+
+          Please follow us on Twitter and other social media (links at the bottom of the page) or sign up for our newsletter to stay up to date!
+        dn: how-purchase
+      - question: What are PolySwarm's minimum and maximum funding levels?
+        answer: |
+          A lot of work goes into the creation of a viable marketplace - well beyond the engineering work of developing smart contracts and reference implementations.
+          In order for PolySwarm to be a success, substantial community engagement must take place to ensure a sufficiently thick market in terms of Enterprises, Ambassadors and Experts.
+          See funding level tranches for a rough breakdown of categories of costs inherent to bootstrapping the PolySwarm Market.
+
+          <br /><br />
+
+          PolySwarm's minimum funding level is set at <b>$5,000,000 USD equivalent in ETH</b>.
+          PolySwarm's maximum funding level (cap) is set at <b>$50,000,000 USD equivalent in ETH</b>.
+          For the purpose of minimum funding calculation, the exchange rate as specified on <a href="https://coinmarketcap.com/" target="_blank">https://coinmarketcap.com/</a> at the beginning of the Creation Period (February 20, 2018 at 19:00 UTC) will be used.
+        dn: what-is-min-funding
+      - question: What happens if PolySwarm's minimum funding level is not reached?
+        answer: |
+          If PolySwarm does not meet its minimum funding level, all ETH contributions will be refunded to the contributors' addresses.
+        dn: nomin
+      - question: How many Nectar tokens will be created? Will more be created later?
+        answer: |
+          The amount of Nectar created will be determined by the total ETH contributed during the token sale.
+          Please refer to PolySwarm's Terms of Token Sale document for exchange rates between ETH and NCT during different tranches.
+
+          <br /><br />
+
+          <b>After the token sale closes, no more NCT will be created</b>.
+        dn: how-many
+      - question: When does the sale start? How long is the sale open?
+        answer: |
+          The token sale opens on February 20th, 2018 19:00 UTC and will close on March 22nd, 2018 19:00 UTC
+        dn: when-start
+      - question: How is PolySwarm Pte. Ltd. ensuring the security of the token sale contracts and subsequently funded PolySwarm contracts?
+        answer: |
+          We're glad you asked!
+          We're security people ourselves, so this would be one of the first questions we would ask if we were in your shoes.
+
+          <br /><br />
+
+          At a high level, we will take the following precautions:
+
+          <br /><br />
+
+          1. Nectar's token sale contract will be very simple and will draw heavily from well-studied <a href="https://github.com/ConsenSys/Tokens" target="_blank">ConsenSys</a> and <a href="https://github.com/OpenZeppelin/zeppelin-solidity/tree/master/contracts" target="_blank">OpenZeppelin</a> contracts.
+            No reinventing the wheel here.
+
+            <br />
+
+          2. PolySwarm Pte. Ltd. will run a bug bounty program to crowdsource vulnerability identification in contracts developed with token sale funding.
+
+          <br />
+
+          3. PolySwarm Pte. Ltd. will engage with Trail of Bits for a professional audit using cutting-edge EVM tools.
+
+          <br /><br />
+
+          The two latter items deserve more discussion; head over to <a href="/security" target="_blank">our Security page</a> to learn more!
+        dn: security
+      - question: Do Nectar token holders participate in PolySwarm governance?
+        answer: |
+          The PolySwarm Market is a market and specifically does not function like a Distributed Autonomous Organization (DAO).
+          PolySwarm's Nectar tokens are designed to be purely utilitarian: participants exchange threat intelligence for NCT - end of story.
+
+          <br /><br />
+
+          <b>PolySwarm token holders (and PolySwarm Pte. Ltd.) will not earn any manner of dividends or "return" for Nectar holdings, nor are PolySwarm token holders entitled to any equity, voting rights, or any other right beyond NCT's utility for engaging in PolySwarm Market transactions.</b>
+          Fees are not remitted to holders (including PolySwarm Pte. Ltd..
+
+          <br /><br />
+
+          PolySwarm is specifically designed to <i>avoid</i> token holder control over the market, as this would be anathema to PolySwarm's goals for fostering an open, fair and distributed marketplace for threat intelligence.
+        dn: governance
+      - question: Why does PolySwarm need a token?
+        answer: |
+          Nectar serves to isolate PolySwarm from external market forces including the value of Ether (ETH) and the performance of applications that transact in Ether.
+
+          <br /><br />
+
+          Token-enabled market isolation is not a uniquely PolySwarm concern; many other applications have chosen to use tokens for the same reason.
+          Nectar-based isolation will allow for more consistency in PolySwarm market behavior, enabling participants to transact with greater confidence and reducing perverse incentives that would otherwise harm the PolySwarm Market.
+
+          <br /><br />
+
+          Suppose PolySwarm participants transacted directly in Ether (ETH).
+          In a hypthotical Ether-based PolySwarm, Ambassadors are incentivized to buffer a number of Enterprises' artifacts until the value of Ether diminishes sufficiently to minimize the Ambassador's Bounty placement cost and in turn maximize his / her profit.
+          This selfish behavior might be good for the Ambassador in the short term, but triggers a tragedy of commons condition in the long term, potentially causing gridlocks via delayed Bounties (or even delayed Assertions placed on Bounties).
+          When considering the ground truth feedback mechanism, we expect PolySwarm bounties to operate on day or week timescales: orders of magnitude longer than minute fluctuations in ETH value.
+
+          <br /><br />
+
+          In a Nectar-based PolySwarm, we are able to peg the price of Bounty placement (in terms of NCT required) <i>independently</i> of ETH value fluctuations, unlocking stability strategies and diminishing return on micro timing choices that would otherwise amount to perverse incentive.
+        dn: why-token
+      - question: >-
+          How do I complete the KYC (Know Your Customer) to get prepared for the
+          token sale prior to Feb 20th?
+        answer: |
+          We will have series of KYC questions that have to be answered when you register for the token
+          sale. This should be ready around 15 Jan 2018.
+        dn: howto-kyc
+      - question: >-
+          How would you prevent a rogue team of say 100-200 hackers, who are
+          sponsored and don’t care about losing money, from building up their reputation as
+          trustworthy experts over a lengthy period of time, say a year or two, and who may then
+          become trusted by a large firm for example, only to want to flip on them after a while
+          and suggest that certain malware that this firm might be asking about is in fact
+          harmless, when in reality it isn’t?
+        answer: |
+          If it takes 100-200 well financed hackers to build reputation over time and ultimately risk burning
+          that reputation to hide some malware from a subset of ambassadors, I'd say we've won. That
+          bar is far higher than today's status quo - this is a much more costly endeavor that what is
+          required to evade AV today.
+
+          <br /><br />
+
+          No system can be 100% perfect, including PolySwarm, but PolySwarm is far better than today's
+          environment if such resources are required to pull off such an attack.
+        dn: rogue-protect
+      - question: >-
+          As a single user at home, how exactly would PolySwarm help me? I mean if
+          I didn’t want to go through a known anti-virus company, like AVAST or any of the other
+          scores of firms out there, how would I tap into the PolySwarm network on my PC?
+        answer: |
+          End users will benefit from PolySwarm by being exposed to better-valued services. We don't
+          expect most end users to directly interact with the PolySwarm network; this is the role that
+          Ambassadors fill.
+
+          <br /><br />
+
+          PolySwarm Ambassadors will be today's familiar, existing AV companies (like AVAST) as well
+          as new companies made possible by PolySwarm’s economic model.
+
+          <br /><br />
+
+          We expect to see new companies acting as Ambassadors that serve as a direct conduit to the
+          PolySwarm network. These new companies will exchange end user subscription fees for a
+          convenient link to the PolySwarm network, handling Bounties and Offers on behalf of their end
+          user customers. This new type of company will almost certainly have lower cost relative to
+          monolithic offerings seen today. We believe this will translate into a better value for the end
+          user.
+
+          <br /><br />
+
+          In short: most end users will continue to engage with a subscription-based service, but will get
+          more protection for less money due to the efficiencies made possible by PolySwarm's
+          crowdsourced, distributed design.
+        dn: home-use-connect
+      - question: >-
+          What strategies are PolySwarm planning to use to bootstrap the various
+          actors/services required for the network to function effectively from day one?
+        answer: |
+          We have a multi-pronged approach, targeting enterprise, ambassador and security expert
+          onboarding, respectively.
+
+          <br /><br />
+
+          At a high level, we will foster a network effect, playing enterprise interest toward security experts
+          (more bounties available) and then security expert interest toward ambassadors and enterprises
+          (increasingly quality threat intelligence). This two-sided effect will naturally encourage uptake on
+          the opposite side.
+
+          <br /><br />
+
+          <b>1. Sponsor PolySwarm integration into existing incident response (IR) and defensive
+          toolkits.</b>
+
+          <br /><br />
+
+          PolySwarm will offer Nectar bounties (from PolySwarm Pte. Ltd.s holding) as reward for
+          open source contributions to widely used IR, defense and forensics toolkits. Specifically, we will
+          target open source projects like Facebook’s <a href="https://osquery.io/" target="_blank">osquery</a> , and
+          <a href="https://www.sleuthkit.org/" target="_blank">The Sleuth Kit / Autopsy</a>.
+          By making it trivial to use PolySwarm with these tools, PolySwarm seamlessly plugs into
+          existing workflows. Some users will choose to leverage PolySwarm and any such leverage will
+          help create a network effect.
+
+          <br /><br />
+
+          <b>2. Partnership with existing threat intelligence vendors, offering early Arbitership as
+          incentive to plug into the network.</b>
+
+          <br /><br />
+
+          Existing threat intelligence companies will desire to become Arbiters in the PolySwarm
+          ecosystem. PolySwarm will offer designated arbitership to chosen Arbiters to help bootstrap the
+          network. This will be limited time offer, after which Arbiter must maintain high ecosystem
+          throughput to maintain their status.
+
+          <br /><br />
+
+          <b>3. Hackathons, competitions and sponsorship directed toward information security
+          expertise, with an emphasis toward markets that already participate heavily in
+          vulnerability bug bounty programs.</b>
+
+          <br /><br />
+
+          This one is pretty self-explanatory. We will target information security conferences in Eastern
+          Europe, Asia, Latin and South America in particular.
+        dn: bootstrap-roles
+      - question: >-
+          What gives Swarm the confidence that they will be able to attract thousands
+          of Experts to become part of the network?
+        answer: |
+          This was alluded to a little in the previous question / response.
+
+          <br /><br />
+
+          In addition to the response above, PolySwarm plans to host a Nectar-for-artifact bounty program
+          to help build a corpus of “swarmed” artifacts in the network and get initial people onboard.
+          Security experts will receive Nectar in response to “swarming” malicious artifacts during this
+          Beta period. Prior to Arbiter establishment, malintent determination will be outsourced.
+
+          <br /><br />
+
+          Beyond this mass market approach, all of the founders and many of our friends and colleagues
+          work in the Information Security industry. Many of them have custom malware analysis tools
+          that they develop for their work or hobbies that could be reconfigured to work as micro-engines.
+
+          <br /><br />
+
+          We speak with graduate and PhD students at conferences and events that have the technical
+          skills to build and run micro-engines, but cannot get jobs at cyber security companies due to
+          their nationality or choice of home location.
+
+          <br /><br />
+
+          The quality security experts are out there, and we are giving them the means to participate.
+        dn: attracting-experts
+      - question: >-
+          Is the Hacken project a competitor of PolySwarm? How are they
+          similar/different? Why would a Security Expert want to be involved with PolySwarm vs
+          Hacken?
+        answer: |
+          It’s a different market and we wish them success. Hacken is decentralizing bug (vulnerability)
+          bounties against corporate sites and software, basically security experts doing manual analysis
+          against unique targets.
+
+          <br /><br />
+
+          We’re pretty familiar with the bug bounty market: average transaction value is 400-500 USD per
+          bounty. Hacken’s market requires manual review to evaluate if bounties are won or not. There’s
+          probably on the order of 1000’s of transactions a year.
+
+          <br /><br />
+
+          Conversely, PolySwarm deals with the sort of threat intelligence that can be <b>automated</b>, such
+          as anti-virus. Anti-virus companies, worldwide, see billions of samples a day and probably 10’s
+          of millions are unique. Transaction value ranges 0.0025-0.015 USD per file/url/artifact scan. All
+          micro-engines and the vast majority of ground truth determination in PolySwarm will be
+          automated.
+
+          <br /><br />
+
+          Manual review of a smallish binary takes the better part of a day or two. Larger applications, we
+          are talking many days or even weeks.
+        dn: hacken-compare
+      - question: >-
+          Does Polyswarm protect a company's corporate network similar to how a
+          Palo Alto Networks device does?
+        answer: |
+          PolySwarm will enable companies like Palo Alto to enhance their offerings by being able to
+          solicit crowdsourced opinion on files they're unsure of. Today, they reach out to VirusTotal (and
+          pay handsomely to do so). Tomorrow, with PolySwarm, they'll get access to a broader set of
+          security expertise without a middle man (VirusTotal is owned by Google).
+
+          <br /><br />
+
+          From the enterprise perspective, should Palo Alto plug into PolySwarm, the enterprise will see
+          better detection rates. Palo Alto will save money and ideally those savings will be passed down
+          to the customer. In the PolySwarm ecosystem, Palo Alto (PA) is an "Ambassador".
+        dn: poly-palo
+      - question: Is PolySwarm a Marketplace?
+        answer: |
+          Yes. More specifically, it's a set of smart contracts that define how threat intelligence is sourced
+          and how good threat intelligence is rewarded at the expense of bad (inaccurate) threat
+          intelligence.
+
+          <br /><br />
+
+          We expect some larger enterprises to participate directly in the marketplace (bypassing
+          Ambassadors) and one of our big goals is make Ambassadorship as accessible as possible --
+          today you need funding rounds, marketing, HR, etc, etc, to build a company like Palo Alto
+          Networks. Tomorrow, we hope that the raw statistics surrounding each Ambassadors’
+          performance, coupled with the autonomous nature of the market will allow for more streamlined
+          operations - mini-Ambassadors if you will - that wouldn't fit into today's market, but would thrive
+          in PolySwarm.
+
+          <br /><br />
+
+          In other words, only few can get listed as a vendor on VirusTotal, but anyone can call
+          themselves an Ambassador on PolySwarm. Ambassadors will have to maintain their quality of
+          service and reputation to attract enterprises and end users as customers.
+        dn: is-marketplace
+team:
+  - name: Steve Bassi
+    title: CEO, Developer, Founder
+    image: steve.png
+    shortbio: Founder of Narf Industries with clients ranging from DARPA to Fortune 500.
+    bio: >-
+      <p>Steve previously founded Narf Industries, an information security R&amp;D firm, with marquee clients from DARPA to members of the Fortune 500.
+      He brings over 20 years of experience in Information Security focused development.
+      He previously served in lead roles in a variety of projects for Government and Industry including: software development for advanced incident response, blockchain-based identity management R&amp;D, and development of cutting-edge program analysis tools for DARPA’s CGC.
+      Previously, he competed in several DEF CON Capture The Flags as a member of Sk3wl of R00t.</p>
+    linkedin: sbassijr
+    github: scsich
+    align: alt2
+  - name: Paul Makowski
+    title: CTO, Developer, Co-Founder
+    image: paul.png
+    shortbio: Expert on vulnerability research and cryptography with extensive blockchain experience.
+    bio: >-
+      <p>Paul brings over 10 years of experience in modern software exploitation, program analysis, vulnerability research, reverse engineering, cryptography, and low-level development.</p>
+      <p>Prior to co-founding PolySwarm, Paul reverse engineered and wrote bespoke malware disinfection tools for Fortune 100 clients. Paul has conducted cutting-edge research on partial homomorphic encryption as it applies to protecting network signatures and programs and has co-designed a confidentiality system for a public / private hybrid blockchain for identity management on behalf of the US Department of Homeland Security.</p>
+      <p>Paul has led cutting-edge information security research and development efforts in both private and public sectors, has identified exploitable vulnerabilities in defensive tools as a Vulnerability Analyst for CERT/CC, served as a web application security engineer for McAfee and won DEF CON's CTF competition.</p>
+      <p>Paul holds a BSc in Computer Engineering from Santa Clara University and a MSc in Information Technology and Management from Carnegie Mellon University.</p>
+    twitter: myhndl
+    github: myhndl
+    linkedin: paul-makowski-b98703b9
+    align: alt
+  - name: Ben Schmidt
+    title: CSO, Developer, Co-Founder
+    image: ben.png
+    shortbio: Ben has uncovered hundreds of vulnerabilities in widely-used products.
+    bio: >-
+      <p>Ben brings over a decade of experience in information security to the table, having led research on automated program analysis, malware reverse engineering, secure software development, cryptography, cryptocurrency, and vulnerability analysis.</p>
+      <p>Having won multiple CTFs, including DEF CON, Ben continues to participate in hacking competitions today, staying at the cutting edge of reverse engineering and software exploitation. At Narf, he made use of this experience in his work on DARPA’s Cyber Grand Challenge, helping to develop and secure a game with millions in prizes that tested the state-of-the-art in program analysis.</p>
+      <p>It’s not all fun and games though: throughout his career, Ben has uncovered hundreds of vulnerabilities in an impressive range of products, including widely-used open source products, hugely popular web applications, security-critical embedded devices, and multiple mobile platforms. He authored many source and binary analysis tools to aid in his research, ensuring that future bugs can be found quickly and efficiently.</p>
+      <p>Ben holds a BSc and MSc in Computer Science from the University of Tulsa.</p>
+    twitter: _supernothing
+    github: supernothing
+    linkedin: ben-schmidt-6a7246102
+    align: alt2
+  - name: Nick Davis
+    title: COO, Developer, Co-Founder
+    shortbio: Substantial experience leading enterprise teams in real-world, large-scale digital forensics.
+    image: nick.png
+    bio: >-
+      <p>Nick brings substantial experience leading enterprise teams in the performance of real-world, large-scale digital forensics, malware reverse engineering, adversarial hunting, threat analysis and incident response.</p>
+      <p>As a Narf co-founder, he helped deliver cutting-edge research using partial homomorphic encryption applied to network signatures, audited thousands of lines of code for security vulnerabilities, and created a variety of custom-designed binary applications each possessing intentional vulnerabilities that are used to test the efficacy of automated program analysis tools.</p>
+      <p>Nick has competed in and won several DEF CON Capture The Flag competitions as a member of Sk3wl of R00t.</p>
+    github: mrtizmo
+    linkedin: nick-davis-655a667
+    align: alt
+  - name: Max Koo
+    title: Senior Backend Developer, Co-Founder
+    shortbio: Experience in secure software engineering, vulnerability analysis, digital forensics, and reverse engineering.
+    image: max.png
+    bio: >-
+      <p>Max brings 9 years of experience in secure software engineering, vulnerability analysis, digital forensics, and reverse engineering. He has developed software for a wide range of platforms, from embedded microcontrollers to large distributed systems. He has experience in reverse engineering a variety of targets and  performing threat analysis on malware samples.</p>
+      <p>While with Narf, he developed cutting-edge exploit mitigations including ELFbac, an ELF ABI-aware memory protection scheme for Linux presented at Black Hat 2016. He also has developed custom tools for large-scale program analysis and vulnerability discovery which run on distributed systems.</p>
+      <p>He has participated in a number of CTF competitions, typically as an individual.</p>
+      <p>Max holds a BSc in Computer Science and a BSc in Electrical and Computer Engineering from Carnegie Mellon University.</p>
+    github: mjkoo
+    linkedin: maxwell-koo-aa42ab149
+    align: alt2
+  - name: Adrian Escude
+    title: CMO
+    shortbio: Expert in marketing, digital analytics and product management for Fortune 100 companies.
+    image: adrian.png
+    bio: >-
+      <p>Adrian brings 10 years of experience in data driven Marketing, Product Management and Market Research working and consulting for Fortune 100 companies, professional services firms and startups across diverse industries.</p>
+      <p>At BusinessOnline, a B2B Digital Marketing Agency, Adrian led the Market Intelligence department and Marketing Analytics consulting engagements with companies such as General Electric, HP, Siemens, Lenovo and Honeywell.
+      Adrian was recently awarded as the “Agency Professional of the Year” by SDX, the oldest Marketing association in San Diego, California.</p>
+      <p>Prior to Business Online, Adrian worked for Sony Electronics, where he managed the computer and tablet business for five countries in Latin America, where he consistently increased sales, profit margins and market share.</p>
+      <p>Adrian has also worked as a consultant for Monster Cable and Deloitte, has a MBA from the University of San Francisco and a BBA from IQS University (Barcelona, Spain).</p>
+    linkedin: adrianescude
+    align: alt
+  - name: Bill Fehr
+    title: VP of Growth & Partnership
+    shortbio: A business development and marketing expert, practiced at selling technical services.
+    image: bill.png
+    bio: >-
+      <p>Bill brings 23 years of experience in helping startups grow fast. He is a business development and marketing expert who is practiced at designing user focused adoption strategies, selling technical services to large and small companies as well as building and leading effective marketing and sales teams.</p>
+      <p>Most recently, Bill was Director of Growth & Partnerships at Digital Telepathy, which was acquired by ServiceNow.</p>
+      <p>Bill has a proven track record of closing deals from 10k to 1+ million. He co-founded, built and managed a 42 person UX interactive agency running major development programs for clients such as Cisco, Logitech, Cartus, Adaptec and KPMG.</p>
+      <p>Bill has been a founder and cofounder of three startups prior to PolySwarm.</p>
+    linkedin: williamfehr
+    align: alt2
+  - name: Evelyn Hytopoulos
+    title: Chief Economist and Data Scientist
+    shortbio: Expert in economics, big data, and advanced analytics with international, cross-industry experience.
+    image: evelyn.png
+    bio: >-
+      <p>Evelyn brings substantial experience in advanced statistical, econometric, and predictive analytics, impact evaluation, international business, public economics, and project design.</p>
+      <p>Having worked across four continents for private and public sector organizations both small and large, Evelyn has a track record of using technically rigorous econometric evaluations to enable business growth, process optimization, increased value for money, market development, and much more through data-driven decision-making.
+      Projects that Evelyn has worked on range in value from $500k to $400+ million.</p>
+      <p>Evelyn holds a BA in Economics from U.C. Berkeley and an MPA in Public and Economic Policy from the London School of Economics.</p>
+    linkedin: evelynhytop
+    align: alt
+  - name: Jessica Thiefels
+    title: VP of Community Management
+    shortbio: You can find her work on more than 500 websites worldwide including Virgin, Forbes and Business Insider.
+    image: jessica.png
+    bio: >-
+      <p>Jessica brings 10 years of experience working and consulting in digital marketing, community management and content creation and has worked for a wide range of organizations including small startups and worldwide brands.</p>
+      <p>Her data-driven approach to content and social media helped her build an online brand for Learn2Earn, a small but growing education startup in San Diego, where she was a one-woman marketing team as the Director of Social Outreach. She took their blog from 0 to 180K monthly PVs in 1.5 years, while expanding their social media following from 3K to 20K, and growing.</p>
+      <p>You can find her work on more than 500 websites worldwide and some of her favorite pieces can be found on publications like Virgin, Forbes, Business Insider, and Business2Community. She's also a regular expert contributor for a variety of business blogs, including GoDaddy, BlueHost and Manta.</p>
+      <p>Prior to Learn2Earn, Jessica was an Associate Online Editor for Active.com, and her first job in San Diego was as a Copywriter and Editor for Business.com.</p>
+      <p>Jessica holds a B.A. in English, and is also a Certified Personal Trainer and Fitness Nutrition Specialist.</p>
+    linkedin: jessicathiefels
+    align: alt2
+advisers:
+  - name: Mark Tonnesen
+    title: Former CIO, McAfee
+    image: markt.png
+    twitter: mtonnese
+    linkedin: marktonnesen
+  - name: Dinesh Dhamija
+    title: U.K. Entrepreneur, Deputy Treasurer of United Kingdom’s Liberal Democratic party, founder and former CEO and Chairman of ebookers.com
+    image: dineshd.png
+    twitter: Dinesh_Dhamija
+    linkedin: dinesh-dhamija-738b65
+    web: 'https://en.wikipedia.org/wiki/Dinesh_Dhamija'
+  - name: Dan Guido
+    title: Co-Founder & CEO,<br />Trail of Bits
+    image: dang.png
+    twitter: dguido/status/905852526276349952
+    github: dguido
+    linkedin: danguido
+    web: 'https://www.trailofbits.com/'
+  - name: Chris Eagle
+    title: Author, IDA Pro Book<br/>Senior Lecturer, Naval Postgraduate School
+    image: eagle.png
+    twitter: sk3wl
+    github: cseagle
+    web: 'https://www.nostarch.com/idapro2.htm'
+  - name: Carl Hoffman
+    title: Founder & CEO, Basis Technology
+    image: carl.png
+    linkedin: cwhoffman
+    web: 'https://www.basistech.com/management/carl-w-hoffman/'
