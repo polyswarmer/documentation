@@ -1,37 +1,30 @@
 # PolySwarm Documentation
 
-PolySwarm Documentation Source Code
-
 ## Adding and Localizing Content
 
-User-contributed content should be placed in two folders, `app/public-src` and `app/_i18n` (more on localization in a moment).
+Create a file in `public-src/_docs`. The contents of that file should look something like this:
 
-Create a file in `app/public-src/pages`. The contents of that file should look something like this:
-
-`app/public-src/pages/example.md`
+`public-src/_docs/2018-07-06-example.md`
 ```markdown
 ---
-title: pages.example.title
-description: pages.example.description
-permalink: /example/
+title: docs.example.title
 ---
 
-{% translate_file example.md %}
+{% tf _docs/2018-07-06-example.md %}
 ```
 
 As you can see, this file simply points to the localized YAML and Markdown files found in the `_i18n` directory.
 
-You should then have a `[lang].yml` file and a `[lang]/example.md` file. For english content, it would look like this:
+You should then have a `[lang].yml` file and a `[lang]/_docs/2018-07-06-example.md` file. For english content, it would look like this:
 
-`app/_i18n/en.yml`
+`_i18n/en.yml`
 ```yml
-pages:
+docs:
   example:
     title: My Example Page
-    description: This is my example page.
 ```
 
-`app/_i18n/en/example.md`
+`_i18n/en/_docs/2018-07-06-example.md`
 ```markdown
 ## Example
 
@@ -44,7 +37,7 @@ You can then copy these files into the other language directories to be translat
 
 ### Images
 
-Images should be placed in `app/public-src/images` and referenced as `/public-src/images/example.png`.
+Images should be placed in `public-src/images` and referenced as `/public-src/images/example.png`.
 
 Images should no more than about 720px wide and should be optimized before they are uploaded using a tool like [TinyPNG](https://tinypng.com/).
 
