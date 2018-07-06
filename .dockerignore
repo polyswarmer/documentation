@@ -1,7 +1,0 @@
-.editorconfig
-.gitignore
-.sass-cache
-Makefile
-node_modules
-npm-debug.log
-vendor
