@@ -11,10 +11,18 @@ header:
       name: Docs Home
       url: /
     items:
-      - name: "Level 0: Scratch to EICAR"
-        url: /Level-0-scratch-to-eicar/
-      - name: PolySwarm API
-        url: /API-polyswarm/
+      - name: Getting Started
+        subitems:
+          - name: "Level 0: Scratch to EICAR"
+            url: /Level-0-scratch-to-eicar/
+          - name: "Level 1: ClamAV Microengine"
+            url: /Level-1-ClamAV-microengine/
+          - name: "Level 2: ClamAV Yara Engine"
+            url: /Level-2-ClamAV-Yara-Engine/
+      - name: API
+        subitems:
+          - name: "PolySwarm API"
+            url: /API-polyswarm/
 footer:
   navigation:
     home:
@@ -88,8 +96,20 @@ pages:
       url: /
       style: transparent
   home:
+    title: Documentation
 docs:
   api:
-    title: PolySwarm API
+    polyswarm:
+      title: PolySwarm API
+    microengine:
+      title: Microengine API
   level_0:
     title: "Level 0: Scratch to EICAR"
+  level_1:
+    title: "Level 1: ClamAV Microengine"
+  level_2:
+    title: "Level 2: ClamAV Yara Engine"
+  exonum_evaluation:
+    title: Exonum Evaluation
+  wdl:
+    title: Worker Description Language (WDL), Registry &amp; Search
