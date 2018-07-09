@@ -11,14 +11,19 @@ header:
       name: Docs Home
       url: /
     items:
-      - name: "Level 0: Scratch to EICAR"
-        url: /Level-0-scratch-to-eicar/
-      - name: PolySwarm API
-        url: /API-polyswarm/
+      - name: Getting Started
+        subitems:
+          - name: "Level 0: Scratch to EICAR"
+            url: /Level-0-scratch-to-eicar/
+      - name: API
+        subitems:
+          - name: "PolySwarm API"
+            url: /API-polyswarm/
 footer:
   navigation:
     home:
       url: /
+      rooturl: true
     columns:
       - items:
           - name: Navigation
@@ -88,8 +93,10 @@ pages:
       url: /
       style: transparent
   home:
+    title: Documentation
 docs:
   api:
-    title: PolySwarm API
+    polyswarm:
+      title: PolySwarm API
   level_0:
     title: "Level 0: Scratch to EICAR"

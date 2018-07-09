@@ -1,5 +1,20 @@
 # PolySwarm Documentation
 
+Docs is a comprehensive documentation hub for public to help Experts/Arbiters/Ambassadors/ etc.. 
+to know/get help from Polyswarm products.
+
+## Branch Level
+
+### master
+
+The pages here is regarded as public/authentic. Not any articles under development or incomplete state
+should be located here.
+
+### develop
+
+This branch is pre-master branch which enhances development-phase articles. Once the branch is ready 
+for release, it will be merged into master
+
 ## Adding and Localizing Content
 
 Create a file in `public-src/_docs`. The contents of that file should look something like this:
