@@ -4,10 +4,10 @@ This tutorial will step you through building your very first PolySwarm microengi
 You'll start with `microengine-scratch`, a Microengine that lacks an "Analysis Backed", and end up with `microengine-eicar`, a simple Microengine with a trivial EICAR-detecting Analysis Backend.
 
 For those anxious for the code, this guide will reference and build on:
-* [**microengine-scratch**](https://github.com/polyswarm/microengine-scratch): a shell of a Microengine that lacks an **analysis backend**
-* [**microengine-eicar**](https://github.com/polyswarm/microengine-eicar): a fully functional Microengine capable of detecting the EICAR test string
+* [**microengine-scratch**](https://github.com/polyswarm/microengine): a shell of a Microengine that lacks an **analysis backend**
+* [**microengine-eicar**](https://github.com/polyswarm/microengine): a fully functional Microengine capable of detecting the EICAR test string
 * [**polyswarmd**](https://github.com/polyswarm/polyswarmd): the PolySwarm daemon that abstracts away Ethereum and IPFS idiosyncrasies, allowing you to focus on Microengine development
-* [**polyswarm-contracts**](https://github.com/polyswarm/contracts): the contracts that all Microengines must support 
+* [**polyswarm-contracts**](https://github.com/polyswarm/contracts): the contracts that all Microengines must support
 
 Without further ado, let's get started!
 
@@ -27,7 +27,7 @@ Security Experts maintain and tweak their Microengines in response to new threat
 
 Conceptually, a microengine is composed of:
 
-1. `N` **analysis backends**: the scanners that ingest artifacts (files) and determine `malicious` or `benign`. 
+1. `N` **analysis backends**: the scanners that ingest artifacts (files) and determine `malicious` or `benign`.
 1. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
 1. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
 1. **glue** that binds all the above together, tracks state, communicates with the blockchain and IPFS
@@ -65,7 +65,7 @@ At a high level:
 4. If the **Microengine** has insight on the artifact, it produces an `assertion` + a `stake` of NCT on that `assertion`.
 5. The **Ambassador** can see all `assertions` and returns a `verdict` to their customer.
 6. Some time passes.
-7. **Arbiters** offer *ground truth* regarding the malintent of the artifact. 
+7. **Arbiters** offer *ground truth* regarding the malintent of the artifact.
 Correct **Microengines** are rewarded with the escrowed funds of incorrect **Microengines**.
 
 For full details on this process, please refer to the [PolySwarm whitepaper](https://polyswarm.io/polyswarm-whitepaper.pdf) for now - more documentation is forthcoming!
@@ -93,7 +93,7 @@ docker-compose version 1.21.1, build 5a3f1a3
 
 ### Git
 
-We'll need to grab a a few source code repositories; it'll be easiest to use Git.
+We'll need to grab a few source code repositories; it'll be easiest to use Git.
 Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
 
@@ -104,7 +104,7 @@ $ git clone https://github.com/polyswarm/microengine
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### Spin Up a Development Enviroment
+### Spin Up a Development Environment
 
 ```sh
 $ pushd orchestration
@@ -119,27 +119,27 @@ You should be good to go, working on your fancy new Microengine.
 
 `microengine-scratch` is a full-featured Microengine, aside from the analysis backend.
 
-Conceptually, all Microengines using `polyswarmd` should support the following endpoints:
+Conceptually, all Microengines using `polyswarmd` should support the following:
 
+* `waitForEvent` - listen for and process events from polyswarmd (daemon). Minimum functionality - handle/process bounties
 * `getArtifact` - send a GET web request to `polyswarmd` to download an artifact via polyswarmd IPFS
 * `scan` - tells your analysis backend to process the artifact and process the output of your analysis backend
-* `sendVerdict` - relay your analysis backend's verdict to polyswarmd via POST webrequest
-* `waitForEvent()` - listen for events from polyswarmd (daemon), process events. Minimum functionality - handle/process bounties  
- 
+* `sendVerdict` - relay your analysis backend's verdict to polyswarmd via POST web request
+
 
 ### Start with microengine-scratch
 
-We'll start with `microengine/src/microengine/scratch.py` and work toward `microengine/src/microengine/eicar.py`.   
+We'll start with `microengine/src/microengine/scratch.py` and work toward `microengine/src/microengine/eicar.py`.
 
-If we look at `scratch.py`, we see the following:  
+If we look at `scratch.py`, we see the following:
 ```python
 from microengine import Microengine
 
 class ScratchMicroengine(Microengine):
     """Scratch microengine is the same as the default behavior"""
-    pass        
-```  
-Default behavior happens in `__init.py__`, so let's open that up, and look at the scan method.  
+    pass
+```
+Default behavior happens in `__init.py__`, so let's open that up, and look at the scan method.
 
 ```python
 async def scan(self, guid, content):
@@ -147,16 +147,16 @@ async def scan(self, guid, content):
         return True, True, ''
 ```
 
-As you can see, there's nothing to detect the EICAR test file, much less a real piece of malware! 
+As you can see, there's nothing to detect the EICAR test file, much less a real piece of malware!
 
 
 ### Write EICAR Detection Logic
 
 The EICAR test file contains the following string:
-`X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`.  
+`X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`.
 
-There are many ways to search a file for a string. 
-`__init__.py` handles all of the IPFS and ethereum interactions, so all we have to worry about is writing the `scan` method. 
+There are many ways to search a file for a string.
+`__init__.py` handles all of the IPFS and ethereum interactions, so all we have to worry about is writing the `scan` method.
 
 ```sh
 $ vim scratch.py
@@ -178,7 +178,7 @@ class EicarMicroengine(Microengine):
 
         return False, False, ''
 ```
-Here's another way, this time with a `signature` ;) 
+Here's another way, this time with a `signature` ;)
 ```python
 ...
 from os import write,close
@@ -201,7 +201,7 @@ from hashlib import sha256
             return bit, assertion, ''
         print ("I can only detect EICAR. I detected no EICAR.")
         print ("Not EICAR.")
-        
+
         return bit, assertion, ''
 ```
 
@@ -209,15 +209,15 @@ from hashlib import sha256
 Now we're going to build our docker images and see what's going on!
 ```sh
 $ docker build -t polyswarm/eicar -f docker/Dockerfile .
-// with `docker-compose _dev environment_` still running in the background/another pane (see Spin Up a Dev Enviroment^^)
+# with `docker-compose _dev environment_` still running in the background/another pane (see Spin Up a Dev Enviroment^^)
 $ docker run -it --net=orchestration_default polyswarm/eicar bash
-// get dropped into a new container
-bash-4.4# microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password 
-//open a new pane/terminal window
+# get dropped into a new container
+bash-4.4# microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password
+#open a new pane/terminal window
 $ docker run -it --net=orchestration_default polyswarm/ambassador bash
-// get dropped into a new container
-bash-4.4# python newAmbassador.py 
+# get dropped into a new container
+bash-4.4# python newAmbassador.py
 ```
-And now you should have one pane running the dev.yml setup, another running your EICAR-detecting microengine, and a third running the mock `ambassador`! Exciting. 
+And now you should have one pane running the dev.yml setup, another running your EICAR-detecting microengine, and a third running the mock `ambassador`! Exciting.
 
-If you don't feel like copying in and pasting the code to detect EICAR, you can use the flag for `microengine` "`--backend eicar`". Neat.  
+If you don't feel like copying in and pasting the code to detect EICAR, you can use the flag for `microengine` "`--backend eicar`". Neat.
