@@ -23,6 +23,7 @@ footer:
   navigation:
     home:
       url: /
+      rooturl: true
     columns:
       - items:
           - name: Navigation
