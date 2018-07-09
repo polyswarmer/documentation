@@ -1,0 +1,5 @@
+files:
+  - source: /_i18n/**/*.md
+    translation: /_i18n/%two_letters_code%/**/%original_file_name%
+  - source: /_i18n/en.yml
+    translation: /_i18n/%two_letters_code%.yml
