@@ -75,7 +75,7 @@ async def scan(self, guid, content):
 
         return True, False, ''
 ```
-If clamd detects a piece of malware, it puts 'FOUND' in result[0]. The return values that the microengine expects are: `bit, assertion, name` where `bit` is a boolean representing whether or not the file is malware, `assertion` is another boolean representing whether or not the engine wishes to assert on it, and `name` is an optional string identifying the artifact. Since ClamAV is signature-based, we'll submit the name of the artifact since we can generally trust it to be accurate.
+If clamd detects a piece of malware, it puts 'FOUND' in result[0]. The return values that the microengine expects are: `bit, assertion, metadata` where `bit` is a boolean representing whether or not the file is malware, `assertion` is another boolean representing whether or not the engine wishes to assert on it, and `metadata` is an optional string identifying the artifact. Since ClamAV is signature-based, we'll submit the metadata of the artifact since we can generally trust it to be accurate.
 
 ## ClamAV microengine testing!
 
