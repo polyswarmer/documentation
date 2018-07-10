@@ -318,6 +318,76 @@ metadata - to include in the assertion (can be empty string)
 
 **Method** : `GET`
 
+## Staking API
+
+### Post Deposit Stake
+
+Called by arbiters to deposit stake Nectar.
+
+**URL** : `/staking/deposit?account=[eth_account_here]&chain=[chain_name]`
+
+**Method** : `POST`
+
+**Data constraints**
+
+Provide:
+
+amount - the amount of NCT to add to current stake
+
+```json
+{
+    "amount": "[string minimum length 1 / max length 100]"
+}
+```
+
+**Data example** All fields must be sent.
+
+```json
+{
+    "amount": "30000000000"
+}
+```
+
+### Post Withdrawal Stake
+
+Called by arbiters to withdraw available staked Nectar.
+
+**URL** : `/staking/withdraw?account=[eth_account_here]&chain=[chain_name]`
+
+**Method** : `POST`
+
+**Data constraints**
+
+Provide:
+
+amount - the amount of NCT to withdraw from current stake
+
+```json
+{
+    "amount": "[string minimum length 1 / max length 100]"
+}
+```
+
+**Data example** All fields must be sent.
+
+```json
+{
+    "amount": "30000000000"
+}
+```
+
+### Get total stake balance
+
+**URL** : `/balances/<address>/staking/total`
+
+**Method** : `GET`
+
+### Get withdrawable stake balance
+
+**URL** : `/balances/<address>/staking/withdrawable`
+
+**Method** : `GET`
+
 ## Artifacts API
 
 ### Post Artifact
@@ -334,13 +404,13 @@ Provide:
 
 List of files to upload. You can upload a max of 256
 
-### Get file links associated with hash 
+### Get file links associated with hash
 
 **URL** : `/<ipfshash>`
 
 **Method** : `GET`
 
-### Get a link associated with hash and link index 
+### Get a link associated with hash and link index
 
 **URL** : `/<ipfshash>/<int:id_>`
 
@@ -370,7 +440,7 @@ base_nonce - (optional) a number for transaction nonce
 ambassador - address of ambassador using channel
 expert - address of expert using channel
 settlementPeriodLength - how long the parties have to dispute the settlement offer channel
-websocketUri - uri of socket to send messages to ambassador 
+websocketUri - uri of socket to send messages to ambassador
 
 ```json
 {
@@ -935,7 +1005,7 @@ See state [explaintion](#state)
 
 **Method** : `POST`
 
-All signied transactions are POSTed here to start the transaction on the chain of choice. 
+All signied transactions are POSTed here to start the transaction on the chain of choice.
 
 To add transaction signing to your polyswarmd dependent project you need to to
 write/use something that follows the steps below.
@@ -946,7 +1016,7 @@ write/use something that follows the steps below.
 
 2) POST the signed transaction to `/transactions`
 
-There is a python example embedded below, though you can use any 
+There is a python example embedded below, though you can use any
 other language.
 
 ```python
@@ -1020,7 +1090,7 @@ meta_data - meta data about current offer
 Example POST data:
 
 ```
-{ 
+{
   "close_flag": 0,
   "nonce": 0,
   "ambassador": "0x000000000000000000000000000000000",
