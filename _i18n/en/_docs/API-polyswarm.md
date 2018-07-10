@@ -336,7 +336,7 @@ amount - the amount of NCT to add to current stake
 
 ```json
 {
-    "amount": "[string minimum length 1 / max length 100]"
+  "amount": "[string minimum length 1 / max length 100]"
 }
 ```
 
@@ -344,7 +344,7 @@ amount - the amount of NCT to add to current stake
 
 ```json
 {
-    "amount": "30000000000"
+  "amount": "30000000000"
 }
 ```
 
@@ -364,7 +364,7 @@ amount - the amount of NCT to withdraw from current stake
 
 ```json
 {
-    "amount": "[string minimum length 1 / max length 100]"
+  "amount": "[string minimum length 1 / max length 100]"
 }
 ```
 
@@ -372,7 +372,7 @@ amount - the amount of NCT to withdraw from current stake
 
 ```json
 {
-    "amount": "30000000000"
+  "amount": "30000000000"
 }
 ```
 
