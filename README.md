@@ -99,7 +99,7 @@ Style Classes:
 * `m-callout m-callout--danger` - Red
 * `m-callout m-callout--success` - Green
 
-### Callouts
+### Flags
 
 Flags are also text boxes which are used to emphasize important content, but are stylistically different.
 
