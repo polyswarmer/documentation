@@ -1,12 +1,18 @@
 ## Let's Get it On: ClamAV
+
 ClamAV is an open-source signature-based engine with a daemon that provides quick analysis of artifacts that it recognizes. 
 This tutorial will step you through building your second PolySwarm microengine by means of incorporating ClamAV.
-Required code:
-[polyswarm/microengine](https://github.com/polyswarm/microengine)
-[polyswarm/orchestration](https://github.com/polyswarm/orchestration)
-#### Disclaimer: it is very likely that the PolySwarm marketplace will be a source of new/fresh malware and that signature-based scanners such as ClamAV won't be performant sources of income. This is not a recommendation for how to approach the marketplace but rather an example of how to incorporate an analysis backend into the microengine skeleton.
+
+We'll be building on these projects:
+* [**polyswarm/microengine**](https://github.com/polyswarm/microengine)
+* [**polyswarm/orchestration**](https://github.com/polyswarm/orchestration)
+
+Note: the PolySwarm marketplace will be a source of new / fresh malware.
+Using a strictly signature-based engine as your analysis backend, particularly one that anyone can access (e.g. ClamAV) is unlikely to yield unique insight into "swarmed" artifacts and therefore unlikely to outperform other engines.
+This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into the `microengine` skeleton.
 
 ### Recall src/microengine/eicar.py:
+
 ```python
 from microengine import Microengine
 
