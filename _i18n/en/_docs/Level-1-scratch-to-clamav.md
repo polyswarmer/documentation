@@ -7,9 +7,11 @@ We'll be building on these projects:
 * [**polyswarm/microengine**](https://github.com/polyswarm/microengine)
 * [**polyswarm/orchestration**](https://github.com/polyswarm/orchestration)
 
-> Note: the PolySwarm marketplace will be a source of previously unseens malware.
-Relying on a strictly signature-based engine as your analysis backend, particularly one whose signatures everyone can access (e.g. ClamAV) is unlikely to yield unique insight into "swarmed" artifacts and therefore unlikely to outperform other engines. 
-This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into the `microengine` skeleton.
+<div class="m-flag">
+  <p><strong style="display: inline;">Note:</strong> the PolySwarm marketplace will be a source of previously unseens malware.</p>
+  <p>Relying on a strictly signature-based engine as your analysis backend, particularly one whose signatures everyone can access (e.g. ClamAV) is unlikely to yield unique insight into "swarmed" artifacts and therefore unlikely to outperform other engines. </p>
+  <p>This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into the <strong style="display: inline;">microengine</strong> skeleton.</p>
+</div>
 
 ### Recall `src/microengine/eicar.py`:
 
@@ -19,13 +21,13 @@ from microengine import Microengine
 EICAR = b'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*'
 
 class EicarMicroengine(Microengine):
-    """Microengine which tests for the EICAR test file"""
+  """Microengine which tests for the EICAR test file"""
 
-    async def scan(self, guid, content):
-        if content == EICAR:
-            return True, True, ''
+  async def scan(self, guid, content):
+    if content == EICAR:
+      return True, True, ''
 
-        return False, False, ''
+    return False, False, ''
 ```
 
 This simple engine asserts `malicious` on the EICAR test file and `benign` on all other files.
@@ -38,7 +40,7 @@ To get started, install and launch the ClamAV daemon, `clamd`.
 
 On Ubuntu:
 
-```
+```sh
 $ sudo apt-get install clamav-daemon clamav-freshclam clamav-unofficial-sigs
 $ sudo freshclam
 $ sudo service clamav-daemon start
@@ -51,7 +53,7 @@ We will be interacting with `clamd` via the `clamd` Python module.
 If you installed all of the `polyswarm/microengine` required PIP modules in the previous tutorial, you already have the `clamd` module installed.
 If not, just do:
 
-```
+```sh
 $ pip install clamd
 ```
 
@@ -79,11 +81,11 @@ Let's get `clamd` initialized and running.
 
 ```python
 class ClamavMicroengine(Microengine):
-    """Clamav microengine scans samples through clamd"""
-    def __init__(self, polyswarmd_addr, keyfile, password):
-    	#initialize clamAV Daemon (clamd)
-        super().__init__(polyswarmd_addr, keyfile, password)
-        self.clamd = clamd.ClamdNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
+  """Clamav microengine scans samples through clamd"""
+  def __init__(self, polyswarmd_addr, keyfile, password):
+    # initialize clamAV Daemon (clamd)
+    super().__init__(polyswarmd_addr, keyfile, password)
+    self.clamd = clamd.ClamdNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
 ```
 
 Now, all we need is a scan method. 
@@ -107,12 +109,12 @@ To complete our scan function:
 
 ```python
 async def scan(self, guid, content):
-        result = self.clamd.instream(BytesIO(content)).get('stream')
-        print(result)
-        if len(result) >= 2 and result[0] == 'FOUND':
-            return True, True, result[1]
+  result = self.clamd.instream(BytesIO(content)).get('stream')
+  print(result)
+  if len(result) >= 2 and result[0] == 'FOUND':
+    return True, True, result[1]
 
-        return True, False, ''
+  return True, False, ''
 ```
 
 If `clamd` detects a piece of malware, it puts `FOUND` in `result[0]`.
