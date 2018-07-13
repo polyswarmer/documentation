@@ -1,6 +1,6 @@
 # PolySwarm Documentation
 
-Docs is a comprehensive documentation hub for public to help Experts/Arbiters/Ambassadors/ etc.. 
+PolySwarm Documentation (https://docs.polyswarm.io) is a comprehensive documentation hub for public to help Experts/Arbiters/Ambassadors/ etc.. 
 to know/get help from Polyswarm products.
 
 ## Branch Level
@@ -58,7 +58,7 @@ English content is the basis for all other languages, so once you've created the
 
 Images should be placed in `public-src/images` and referenced as `/public-src/images/example.png`.
 
-Images should no more than about 720px wide and should be optimized before they are uploaded, using a tool like [TinyPNG](https://tinypng.com/).
+Images should be no more than about 720px wide and should be optimized before they are uploaded, using a tool like [TinyPNG](https://tinypng.com/).
 
 ### Translation
 
@@ -71,7 +71,7 @@ If you want to translate this documentation into a language that our Crowdin pro
 
 ## Navigation
 
-Navigation items can be edited in the `[lang].yml` file.
+Navigation items can be edited in the `en.yml` file.
 
 Add `root: true` to an item if you do not want the url to be localized.
 
