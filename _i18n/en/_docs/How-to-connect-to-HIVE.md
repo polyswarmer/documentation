@@ -29,8 +29,17 @@ ssh -i /path/to/key -L 31337:hive.polyswarm.network:31337 <user>@gate.polyswarm.
 
 You will not see a prompt on that terminal, but don't worry, you have an open tunnel.
 
-With the open tunnel, connect to polyswarmd at `http://localhost:31337`
+With the open tunnel, you can point your microengine to the `polyswarmd` API at `http://localhost:31337`.
+
+### Verify connection
+
+An easy way to make sure you have a valid connection to reach `polyswarmd`, try the commands below. If everything is working, you should see a json response like `{"status": "OK", "result":"some_value"}`.
+
+```bash
+curl http://localhost:31337/bounites
+curl http://localhost:31337/balances/<address>/nct
+```
 
 ### Using polyswarmd
 
-Checkout the polyswarmd api on our docs [here](API-polyswarm)
+Visit the [polyswarmd api docs](API-polyswarm) for the API specification.
