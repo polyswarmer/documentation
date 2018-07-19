@@ -21,7 +21,7 @@ that you will need to use, and a one-liner connect.
 
 `hive.polyswarm.io` is the endpoint where you can access `polyswarmd`.
 
-For this part, you should either run this in a separate tab, terminal, inside tmux., or any other means to leave this command running.
+For this next command you should run it in a separate tab, terminal, inside tmux., or any other means to leave this command running.
 
 ```bash
 ssh -i /path/to/key -L 31337:hive.polyswarm.network:31337 <user>@gate.polyswarm.io
