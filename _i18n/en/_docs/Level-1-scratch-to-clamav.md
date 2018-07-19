@@ -133,5 +133,5 @@ Finally, let's test!
 
 ```sh
 $ cd orchestration
-$ docker-compose -f dev.yml -f tutorial.yml up
+$ docker-compose -f dev.yml -f tutorial1.yml up
 ```
