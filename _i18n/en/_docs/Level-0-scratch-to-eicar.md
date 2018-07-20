@@ -144,11 +144,16 @@ Default behavior happens in `__init.py__`, so let's open that up, and look at th
 ```python
 async def scan(self, guid, content):
         """Override this to implement custom scanning logic"""
+        """return bit, assertion, metadata"""
         return True, True, ''
 ```
 
-As you can see, there's nothing to detect the EICAR test file, much less a real piece of malware!
+The return values that the microengine expects are: 
+1. `bit` : a `boolean` representing a `malicious` or `benign` determination
+1. `assertion`: another `boolean` representing whether the engine wishes to assert on the artifact
+1. `metadata`: (optional) `string` describing the artifact
 
+As you can see, there's nothing to detect the EICAR test file, much less a real piece of malware!
 
 ### Write EICAR Detection Logic
 
