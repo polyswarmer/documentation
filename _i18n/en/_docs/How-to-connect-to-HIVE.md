@@ -44,4 +44,4 @@ curl http://localhost:31337/balances/<address>/nct
 
 ### Using polyswarmd
 
-Visit the [polyswarmd api docs](API-polyswarm) for the API specification.
+Visit the [polyswarmd api docs](/API-polyswarm/) for the API specification.
