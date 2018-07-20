@@ -135,3 +135,24 @@ Finally, let's test!
 $ cd orchestration
 $ docker-compose -f dev.yml -f tutorial1.yml up
 ```
+The above will compose the development environment(Polyswarmd, the contract migration, ipfs, and geth) and the tutorial components(A mock arbiter, mock ambassador, and our ClamAV microengine).
+
+
+
+We have also included a unit testing suite, for your convenience, so that you may quickly test the functionality of any microengine's scan function.
+```sh
+docker run -it polyswarm/microengine bash
+```
+
+You will get dropped into a new container.
+
+```bash
+root@id:/usr/src/app# microengine-unit-test --malware_repo dummy --backend eicar
+Using account: 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.782s
+
+OK
+
+```
