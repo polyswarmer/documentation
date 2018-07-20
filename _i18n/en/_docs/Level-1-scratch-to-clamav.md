@@ -1,6 +1,6 @@
 ## Let's Get it On: ClamAV
 
-ClamAV is an open source signature-based engine with a daemon that provides quick analysis of artifacts that it recognizes. 
+ClamAV is an open source signature-based engine with a daemon that provides quick analysis of artifacts that it recognizes.
 This tutorial will step you through building your second PolySwarm microengine by means of incorporating ClamAV as an analysis backend.
 
 We'll be building on these projects:
@@ -76,7 +76,7 @@ CLAMD_PORT = int(os.getenv('CLAMD_PORT', '3310'))
 CLAMD_TIMEOUT = 30.0
 ```
 
-Would you believe me if I said we were almost done? 
+Would you believe me if I said we were almost done?
 Let's get `clamd` initialized and running.
 
 ```python
@@ -88,7 +88,7 @@ class ClamavMicroengine(Microengine):
     self.clamd = clamd.ClamdNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
 ```
 
-Now, all we need is a scan method. 
+Now, all we need is a scan method.
 Let's rock.
 
 ```python
@@ -99,7 +99,7 @@ We interact with `clamd` by sending it a byte stream of artifact contents.
 
 ClamAV responds to these byte streams in the form:
 
-```
+```json
 {'stream': ('FOUND', 'Eicar-Test-Signature')}
 ```
 
@@ -118,8 +118,9 @@ async def scan(self, guid, content):
 ```
 
 If `clamd` detects a piece of malware, it puts `FOUND` in `result[0]`.
- 
-The return values that the microengine expects are: 
+
+The return values that the microengine expects are:
+
 1. `bit` : a `boolean` representing a `malicious` or `benign` determination
 1. `assertion`: another `boolean` representing whether the engine wishes to assert on the artifact
 1. `metadata`: (optional) `string` describing the artifact
@@ -128,18 +129,20 @@ We leave submitting ClamAV's `metadata` as an exercise to the reader.
 
 ## Testing, Testing, Testing
 
-Great, we've written our method to interpret `clamd`'s result. 
+Great, we've written our method to interpret `clamd`'s result.
 Finally, let's test!
 
 ```sh
-$ cd orchestration
+$ cd microengine
+$ docker build -t polyswarm/microengine -f docker/Dockerfile .
+$ cd ../orchestration
 $ docker-compose -f dev.yml -f tutorial1.yml up
 ```
-The above will compose the development environment(Polyswarmd, the contract migration, ipfs, and geth) and the tutorial components(A mock arbiter, mock ambassador, and our ClamAV microengine).
 
-
+The above will compose the development environment(Polyswarmd, the contract migration, ipfs, and geth) and the tutorial components(A mock arbiter, mock ambassador, and your ClamAV microengine).
 
 We have also included a unit testing suite, for your convenience, so that you may quickly test the functionality of any microengine's scan function.
+
 ```sh
 docker run -it polyswarm/microengine bash
 ```
