@@ -6,19 +6,18 @@ PolySwarm Hive is an invite-only testnet to facilitate the development of microe
 
 ### How to Apply
 
-Hive is (currently) invite-only.
-Message us on [Twitter](https://twitter.com/PolySwarm), join our Discord or otherwise hunt us down for an invite :)
+Hive is (currently) invite-only. Message us on [Twitter](https://twitter.com/PolySwarm), join our Discord or otherwise hunt us down for an invite :)
 
 ### What we Need from You
 
 When you are invited, we will need two things from you:
+
 1. an SSH public key
 2. a username
 
 ### Connecting to Hive
 
-Connecting to the Hive has been designed to be as simple as possible. 
-We have two subdomains that you will need to use, and a one-liner connect.
+Connecting to the Hive has been designed to be as simple as possible. We have two subdomains that you will need to use, and a one-liner connect.
 
 * `gate.polyswarm.io` is our bastion host. All traffic is routed through there via SSH.
 * `hive.polyswarm.io` is the endpoint where you can access `polyswarmd`.
@@ -44,4 +43,4 @@ curl http://localhost:31337/balances/<address>/nct
 
 ### Using polyswarmd
 
-Visit the [polyswarmd api docs](/API-polyswarm/) for the API specification.
+Visit the [polyswarmd api docs](API-polyswarm) for the API specification.

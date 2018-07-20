@@ -27,6 +27,12 @@ header:
           - 
             name: "PolySwarm API"
             url: /API-polyswarm/
+      - 
+        name: Hive
+        subitems:
+          - 
+            name: "How to connect to the PolySwarm Hive"
+            url: /How-to-connect-to-HIVE/
 footer:
   navigation:
     home:
@@ -129,3 +135,5 @@ docs:
     title: "Level 0: Scratch to EICAR"
   level_1:
     title: "Level 1: Scratch to ClamAV"
+  hive:
+    title: "How to connect to the PolySwarm Hive"
