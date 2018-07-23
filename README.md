@@ -145,9 +145,9 @@ When embedding a YouTube video, it is best to wrap the embed code in a video wra
 ```html
 <details markdown="1">
 
-<summary>Toggle Button</summary>
+  <summary>Toggle Button</summary>
 
-some markdown to reveal
+  some markdown to reveal
 
 </details>
 ```
