@@ -98,9 +98,12 @@ Finally, now that we have some accurate data in our variables, we can distill th
 	return bit, verdict, metadata
 ```
 Resulting in a completed `scan` method!
-<details><summary>Scan Method</summary>
+<details><summary><b>Scan Method</b></summary>
 <p>
-```py
+
+### Scan method
+
+```python
 async def scan(self, guid, content):
         """Scan an artifact with ClamAV + YARA
         Args:
