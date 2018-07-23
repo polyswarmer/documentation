@@ -423,7 +423,6 @@ List of files to upload. You can upload a max of 256
 **Method** : `GET`
 
 ## Offers API
-*Stateless offer api coming soon*
 
 ### Create an offer channel
 
@@ -1249,3 +1248,29 @@ Sent when an arbiter votes on a bounty
   }
 }
 ```
+
+## Account Balances API 
+
+### Get an account's ETH balance
+
+**URL** : `/<address>/eth`
+
+**Method** : `GET`
+
+### Get an account's NCT balance
+
+**URL** : `/<address>/nct`
+
+**Method** : `GET`
+
+### Get amount of NCT staked
+
+**URL** : `/<address>/staking/total`
+
+**Method** : `GET`
+
+### Get amount of staked NCT that is withdrawable
+
+**URL** : `/<address>/staking/withdrawable`
+
+**Method** : `GET`
