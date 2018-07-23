@@ -25,7 +25,7 @@ Connecting to the Hive has been designed to be as simple as possible. We have tw
 For this next command you should run it in a separate tab, terminal, inside `tmux`, or any other means to leave this command running.
 
 ```bash
-ssh -i /path/to/key -L 31337:hive.polyswarm.network:31337 <user>@gate.polyswarm.io
+ssh -i /path/to/key -N -L 31337:hive.polyswarm.network:31337 <user>@gate.polyswarm.io
 ```
 
 You will not see a prompt on that terminal, but don't worry, you have an open tunnel.
