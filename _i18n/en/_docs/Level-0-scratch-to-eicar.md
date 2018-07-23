@@ -143,8 +143,8 @@ Default behavior happens in `__init.py__`, so let's open that up, and look at th
 
 ```python
 async def scan(self, guid, content):
-        """Override this to implement custom scanning logic"""
-        return True, True, ''
+    """Override this to implement custom scanning logic"""
+    return True, True, ''
 ```
 
 As you can see, there's nothing to detect the EICAR test file, much less a real piece of malware!
@@ -212,11 +212,11 @@ $ docker build -t polyswarm/eicar -f docker/Dockerfile .
 # with `docker-compose _dev environment_` still running in the background/another pane (see Spin Up a Dev Enviroment^^)
 $ docker run -it --net=orchestration_default polyswarm/eicar bash
 # get dropped into a new container
-bash-4.4# microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password
-#open a new pane/terminal window
+$ microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password
+# open a new pane/terminal window
 $ docker run -it --net=orchestration_default polyswarm/ambassador bash
 # get dropped into a new container
-bash-4.4# python newAmbassador.py
+$ python newAmbassador.py
 ```
 And now you should have one pane running the dev.yml setup, another running your EICAR-detecting microengine, and a third running the mock `ambassador`! Exciting.
 

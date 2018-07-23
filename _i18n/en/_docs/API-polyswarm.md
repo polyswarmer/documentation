@@ -1089,7 +1089,7 @@ meta_data - meta data about current offer
 
 Example POST data:
 
-```
+```json
 {
   "close_flag": 0,
   "nonce": 0,
