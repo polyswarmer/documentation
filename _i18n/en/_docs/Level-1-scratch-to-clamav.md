@@ -143,11 +143,9 @@ We have also included a unit testing suite, for your convenience, so that you ma
 ```sh
 docker run -it polyswarm/microengine bash
 ```
-
 You will get dropped into a new container.
-
 ```bash
-root@id:/usr/src/app# microengine-unit-test --malware_repo dummy --backend eicar
+root@id:/usr/src/app# microengine-unit-test --malware_repo dummy --backend clamav
 Using account: 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
 .
 ----------------------------------------------------------------------
