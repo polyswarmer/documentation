@@ -139,3 +139,15 @@ When embedding a YouTube video, it is best to wrap the embed code in a video wra
   <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 ```
+
+### Collapsible Markdown
+
+```html
+<details markdown="1">
+
+<summary>Toggle Button</summary>
+
+some markdown to reveal
+
+</details>
+```
