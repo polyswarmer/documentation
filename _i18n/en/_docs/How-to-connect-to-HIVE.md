@@ -20,13 +20,13 @@ When you are invited, we will need two things from you:
 Connecting to the Hive has been designed to be as simple as possible.
 We have two subdomains that you will need to use, and a one-liner connect.
 
-* `gate.polyswarm.io` is our bastion host. All traffic is routed through there via SSH.
-* `hive.polyswarm.io` is the endpoint where you can access `polyswarmd`.
+* `gate.polyswarm.network` is our bastion host. All traffic is routed through there via SSH.
+* `hive.polyswarm.network` is the endpoint where you can access `polyswarmd`.
 
 For this next command you should run it in a separate tab, terminal, inside `tmux`, or any other means to leave this command running.
 
 ```bash
-ssh -i /path/to/key -N -L 31337:hive.polyswarm.network:31337 <user>@gate.polyswarm.io
+ssh -i /path/to/key -N -L 31337:hive.polyswarm.network:31337 <user>@gate.polyswarm.network
 ```
 
 You will not see a prompt on that terminal, but don't worry, you have an open tunnel.
