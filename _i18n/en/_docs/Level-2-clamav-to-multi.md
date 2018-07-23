@@ -33,7 +33,7 @@ docker build -t polyswarm/microengine -f docker/Dockerfile .
 Let's get into it!
 
 ### Config
-If you have your own YARA rules index file and want to use that instead, edit the following snippet in `*microengine/src/microengine/multi.py*` to point to your own rules/index file.
+If you have your own YARA rules index file and want to use that instead, edit the following snippet in **`microengine/src/microengine/multi.py`** to point to your own rules/index file.
 The easiest way is to just copy your rules to the `src/yara/rules` directory that already exists. 
 If you don't copy your rules there, you'll need to add that location to either the `Dockerfile` as a line like: `COPY /path/to/your/rules/dir/ /wherever/you/want/it/in/the/container/` , or in the `tutorial2.yml` `docker-compose` file as a mounted volume. 
 ```py
@@ -85,7 +85,6 @@ For the ClamAV backend, there is a similarly small addition.
 		clam_res = True
 		clam_metadata = result[1]
 ```
-
 Finally, now that we have some accurate data in our variables, we can distill them into a usable and submissible verdict.
 ```py
 	# We assert on all artifacts
@@ -98,6 +97,45 @@ Finally, now that we have some accurate data in our variables, we can distill th
 
 	return bit, verdict, metadata
 ```
+Resulting in a completed `scan` method!
+<details><summary>Scan Method</summary>
+<p>
+```py
+async def scan(self, guid, content):
+        """Scan an artifact with ClamAV + YARA
+        Args:
+            guid (str): GUID of the bounty under analysis, use to track artifacts in the same bounty
+            content (bytes): Content of the artifact to be scan
+        Returns:
+            (bool, bool, str): Tuple of bit, verdict, metadata
+            bit (bool): Whether to include this artifact in the assertion or not
+            verdict (bool): Whether this artifact is malicious or not
+            metadata (str): Optional metadata about this artifact
+        """
+        yara_res = False
+        clam_res = False
+        yara_metadata = ''
+        clam_metadata = ''
+        # Yara rule matching
+        matches = self.rules.match(data=content)
+        if matches:
+            yara_res = True
+        # ClamAV scan
+        result = self.clamd.instream(BytesIO(content)).get('stream')
+        if len(result) >= 2 and result[0] == 'FOUND':
+            clam_res = True
+            clam_metadata = result[1]
+        # We assert on all artifacts
+        bit = True
+        # If either finds a match, trust it and send it along
+        # If not, assert it is benign
+        verdict = yara_res or clam_res
+        metadata = ' '.join([yara_metadata, clam_metadata]).strip()
+        return bit, verdict, metadata
+```
+</p>
+</details>
+
 ## Testing
 Let's fire it up and test!
 ```sh
@@ -117,5 +155,6 @@ If you want more responsive and cleaner output, open up `tutorial2.yml` and add 
 then:
 ```sh
 cd orchestration/
-docker-compose -f dev.yml -f tutorial2.yml up | grep tutorial #(tutorial is the name of the container with our microengine)
+docker-compose -f dev.yml -f tutorial2.yml up | grep "tutorial"
+#(tutorial is the name of the container with our microengine)
 ```
