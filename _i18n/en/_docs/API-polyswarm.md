@@ -223,9 +223,9 @@ verdicts - array of verdicts on bounty artifacts
 
 ### Reveal bounty assersions
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+Called by expert to reveal his bounty assersion to the network during the reveal period. This is done to prevent cheating.
 
-**URL** : `/bounties/<uuid:guid>/vote?account=[eth_account_here]&chain=[chain_name]`
+**URL** : `/bounties/<uuid:guid>/assertions/<int:id_>/reveal/vote?account=[eth_account_here]&chain=[chain_name]`
 
 **Method** : `POST`
 
@@ -1089,7 +1089,7 @@ meta_data - meta data about current offer
 
 Example POST data:
 
-```
+```json
 {
   "close_flag": 0,
   "nonce": 0,
