@@ -33,7 +33,7 @@ docker build -t polyswarm/microengine -f docker/Dockerfile .
 Let's get into it!
 
 ### Config
-If you have your own YARA rules index file and want to use that instead, edit the following snippet in `microengine/src/microengine/multi.py` to point to your own rules/index file.
+If you have your own YARA rules index file and want to use that instead, edit the following snippet in `*microengine/src/microengine/multi.py*` to point to your own rules/index file.
 The easiest way is to just copy your rules to the `src/yara/rules` directory that already exists. 
 If you don't copy your rules there, you'll need to add that location to either the `Dockerfile` as a line like: `COPY /path/to/your/rules/dir/ /wherever/you/want/it/in/the/container/` , or in the `tutorial2.yml` `docker-compose` file as a mounted volume. 
 ```py
@@ -98,11 +98,13 @@ Finally, now that we have some accurate data in our variables, we can distill th
 
 	return bit, verdict, metadata
 ```
+## Testing
 Let's fire it up and test!
 ```sh
 cd orchestration/
 docker-compose -f dev.yml -f tutorial2.yml up
 ```
+### Other Testing
 If you want more responsive and cleaner output, open up `tutorial2.yml` and add the `PYTHONUNBUFFERED` environment variable like so:
 ```yml
  tutorial:
