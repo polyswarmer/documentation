@@ -98,10 +98,12 @@ Finally, now that we have some accurate data in our variables, we can distill th
 	return bit, verdict, metadata
 ```
 Resulting in a completed `scan` method!
-<details><summary><b>Scan Method</b></summary>
-<p>
 
-### Scan method
+<details markdown="1">
+
+<summary><b>Scan Method</b></summary>
+
+### A completed Scan() method!
 
 ```python
 async def scan(self, guid, content):
@@ -136,7 +138,7 @@ async def scan(self, guid, content):
         metadata = ' '.join([yara_metadata, clam_metadata]).strip()
         return bit, verdict, metadata
 ```
-</p>
+
 </details>
 
 ## Testing
