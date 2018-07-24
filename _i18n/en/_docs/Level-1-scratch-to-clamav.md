@@ -120,7 +120,7 @@ The above will compose the development environment(Polyswarmd, the contract migr
 We have also included a unit testing suite, for your convenience, so that you may quickly test the functionality of any microengine's scan function.
 Start off by composing the clamAV daemon.
 ```sh
-docker-compose -f dev.yml -f tutorial1.yml up polyswarmd contracts clamav
+docker-compose -f dev.yml -f tutorial1.yml up clamav
 ```
 In a new window/pane:
 ```sh

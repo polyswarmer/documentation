@@ -155,7 +155,7 @@ We have also included a unit testing suite, for your convenience, so that you ma
 
 Start off by composing the clamAV daemon.
 ```sh
-$ docker-compose -f dev.yml -f tutorial2.yml up clamav polyswarmd contracts
+$ docker-compose -f dev.yml -f tutorial2.yml up clamav
 ```
 In another pane, run a microengine container that's networked to the same network as clamd above:
 ```sh
