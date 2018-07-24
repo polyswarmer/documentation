@@ -4,10 +4,9 @@ This tutorial will step you through building your very first PolySwarm microengi
 You'll start with `microengine-scratch`, a Microengine that lacks an "Analysis Backed", and end up with `microengine-eicar`, a simple Microengine with a trivial EICAR-detecting Analysis Backend.
 
 For those anxious for the code, this guide will reference and build on:
-* [**microengine-scratch**](https://github.com/polyswarm/microengine): a shell of a Microengine that lacks an **analysis backend**
-* [**microengine-eicar**](https://github.com/polyswarm/microengine): a fully functional Microengine capable of detecting the EICAR test string
+* [**microengine**](https://github.com/polyswarm/microengine): an extensible Microengine with configurable backends
 * [**polyswarmd**](https://github.com/polyswarm/polyswarmd): the PolySwarm daemon that abstracts away Ethereum and IPFS idiosyncrasies, allowing you to focus on Microengine development
-* [**polyswarm-contracts**](https://github.com/polyswarm/contracts): the contracts that all Microengines must support
+* [**contracts**](https://github.com/polyswarm/contracts): the contracts that all Microengines must support
 
 Without further ado, let's get started!
 
@@ -117,8 +116,6 @@ You should be good to go, working on your fancy new Microengine.
 
 ## Writing Your First Analysis Backend
 
-`microengine-scratch` is a full-featured Microengine, aside from the analysis backend.
-
 Conceptually, all Microengines using `polyswarmd` should support the following:
 
 * `waitForEvent` - listen for and process events from polyswarmd (daemon). Minimum functionality - handle/process bounties
@@ -127,7 +124,7 @@ Conceptually, all Microengines using `polyswarmd` should support the following:
 * `sendVerdict` - relay your analysis backend's verdict to polyswarmd via POST web request
 
 
-### Start with microengine-scratch
+### Start with the scratch microengine
 
 We'll start with `microengine/src/microengine/scratch.py` and work toward `microengine/src/microengine/eicar.py`.
 
@@ -164,7 +161,7 @@ There are many ways to search a file for a string.
 `__init__.py` handles all of the IPFS and ethereum interactions, so all we have to worry about is writing the `scan` method.
 
 ```sh
-$ vim scratch.py
+$ vim eicar.py
 ```
 
 Feel free to Google around and search for yourself, if you so desire.
@@ -185,27 +182,23 @@ class EicarMicroengine(Microengine):
 ```
 Here's another way, this time with a `signature` ;)
 ```python
-...
-from os import write,close
-import tempfile
 from hashlib import sha256
-...
-   async def scan(self, guid, content):
-        """Override this to implement custom scanning logic"""
-        eicar = r'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*'
-        hash3 = sha256(eicar.encode()).hexdigest()
+from microengine import Microengine
 
-        print(content)
-        hash1 = sha256(content).hexdigest()
-        print("looking to see if " +hash1 + " (hash of content) == " +hash3 + "(hash of eicarstring).")
+EICAR = b'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*'
+HASH = sha256(EICAR).hexdigest()
+
+class EicarMicroengine(Microengine):
+    """Microengine which tests for the EICAR test file"""
+
+    async def scan(self, guid, content):
+        """Override this to implement custom scanning logic"""
+        testhash = sha256(content).hexdigest()
 
         bit, assertion = False,False
-        if (hash1 == hash3):
-            print ("EICAR TEST FILE detected...reporting as Infected.")
+        if (testhash == HASH):
             bit, assertion = True, True
             return bit, assertion, ''
-        print ("I can only detect EICAR. I detected no EICAR.")
-        print ("Not EICAR.")
 
         return bit, assertion, ''
 ```
@@ -214,15 +207,11 @@ from hashlib import sha256
 Now we're going to build our docker images and see what's going on!
 ```sh
 $ docker build -t polyswarm/eicar -f docker/Dockerfile .
-# with `docker-compose _dev environment_` still running in the background/another pane (see Spin Up a Dev Enviroment^^)
-$ docker run -it --net=orchestration_default polyswarm/eicar bash
-# get dropped into a new container
-bash-4.4# microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password
-#open a new pane/terminal window
-$ docker run -it --net=orchestration_default polyswarm/ambassador bash
-# get dropped into a new container
-bash-4.4# python newAmbassador.py
+# With `docker-compose _dev environment_` still running in the background/another pane (see Spin Up a Dev Enviroment^^)
+$ docker run --net=orchestration_default polyswarm/eicar microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password --backend eicar
+# Open a new pane/terminal window
+$ docker run -it --net=orchestration_default polyswarm/ambassador
 ```
 And now you should have one pane running the dev.yml setup, another running your EICAR-detecting microengine, and a third running the mock `ambassador`! Exciting.
 
-If you don't feel like copying in and pasting the code to detect EICAR, you can use the flag for `microengine` "`--backend eicar`". Neat.
+If you don't feel like copying in and pasting the code to detect EICAR, you can use the EICAR backend for the `polyswarm/microengine` image with the flag: "`--backend eicar`". Neat.
