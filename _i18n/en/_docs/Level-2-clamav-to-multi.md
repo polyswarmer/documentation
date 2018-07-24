@@ -101,7 +101,7 @@ Resulting in a completed `scan` method!
 
 <details markdown="1">
 
-<summary><b>Scan Method</b></summary>
+<summary>Scan Method</summary>
 
 ### A completed Scan() method!
 
@@ -147,7 +147,30 @@ Let's fire it up and test!
 cd orchestration/
 docker-compose -f dev.yml -f tutorial2.yml up
 ```
-### Other Testing
+## Other Testing
+
+We have also included a unit testing suite, for your convenience, so that you may quickly test the functionality of any microengine's scan function.
+
+### Unit Testing
+
+Start off by composing the clamAV daemon.
+```sh
+$ docker-compose -f dev.yml -f tutorial2.yml up clamav polyswarmd contracts
+```
+In another pane, run a microengine container that's networked to the same network as clamd above:
+```sh
+$ docker run -it --net=orchestration_default polyswarm/microengine bash
+bash-4.4# export CLAMD_HOST=clamav
+bash-4.4# bash
+bash-4.4# microengine-unit-test --backend multi --malware_repo dummy
+Using account: 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
+.
+----------------------------------------------------------------------
+Ran 1 test in 8.411s
+
+OK
+```
+### Tricks
 If you want more responsive and cleaner output, open up `tutorial2.yml` and add the `PYTHONUNBUFFERED` environment variable like so:
 ```yml
  tutorial:

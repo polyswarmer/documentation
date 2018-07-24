@@ -34,35 +34,9 @@ This simple engine asserts `malicious` on the EICAR test file and `benign` on al
 Let's expand on this simple backend and incorporate a full-fledged ClamAV instance as our analysis backend.
 ClamAV, of course, detects much more than just EICAR :)
 
-## Install `clamd`
-
-To get started, install and launch the ClamAV daemon, `clamd`.
-
-On Ubuntu:
-
-```sh
-$ sudo apt-get install clamav-daemon clamav-freshclam clamav-unofficial-sigs
-$ sudo freshclam
-$ sudo service clamav-daemon start
-```
-
-## Install the `clamd` Python Module
-
-We will be interacting with `clamd` via the `clamd` Python module.
-
-If you installed all of the `polyswarm/microengine` required PIP modules in the previous tutorial, you already have the `clamd` module installed.
-If not, just do:
-
-```sh
-$ pip install clamd
-```
-
-Source code for the `clamd` Python module can be found [here](https://github.com/graingert/python-clamd)
-
-
 ## `clamd` Implementation and Integration
 
-We begin our ClamAV analysis backend by importing the `clamd` module and configuring some globals.
+We begin our ClamAV `analysis backend` by importing the `clamd` module and configuring some globals.
 
 ```python
 import clamd
@@ -141,19 +115,80 @@ $ docker-compose -f dev.yml -f tutorial1.yml up
 
 The above will compose the development environment(Polyswarmd, the contract migration, ipfs, and geth) and the tutorial components(A mock arbiter, mock ambassador, and your ClamAV microengine).
 
-We have also included a unit testing suite, for your convenience, so that you may quickly test the functionality of any microengine's scan function.
+### Unit Testing
 
+We have also included a unit testing suite, for your convenience, so that you may quickly test the functionality of any microengine's scan function.
+Start off by composing the clamAV daemon.
 ```sh
-docker run -it polyswarm/microengine bash
+docker-compose -f dev.yml -f tutorial1.yml up polyswarmd contracts clamav
 ```
-You will get dropped into a new container.
+In a new window/pane:
+```sh
+docker run -it --net=orchestration_default polyswarm/microengine bash
+```
+You will get dropped into a running microengine container.
 ```bash
+root@id:/usr/src/app# export CLAMD_HOST=clamav
+root@id:/usr/src/app# bash
 root@id:/usr/src/app# microengine-unit-test --malware_repo dummy --backend clamav
 Using account: 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
 .
 ----------------------------------------------------------------------
-Ran 1 test in 0.782s
+Ran 1 test in 7.782s
 
 OK
+```
 
+## Testing Locally(not advised)
+
+### Install `clamd`
+
+To get started, install and launch the ClamAV daemon, `clamd`.
+
+On Ubuntu:
+
+```sh
+$ sudo apt-get install clamav-daemon clamav-freshclam clamav-unofficial-sigs
+$ sudo freshclam
+$ sudo service clamav-daemon start
+```
+
+### Install the `clamd` Python Module
+
+We will be interacting with `clamd` via the `clamd` Python module.
+
+If you installed all of the `polyswarm/microengine` required PIP modules in the previous tutorial, you already have the `clamd` module installed.
+If not, just do:
+
+```sh
+$ pip install clamd
+```
+
+Source code for the `clamd` Python module can be found [here](https://github.com/graingert/python-clamd).
+
+### Install the microengine
+
+```sh
+$ pip install .
+$ pip install -r requirements.txt
+```
+### Expose the Clamd port
+```sh
+vim orchestration/tutorial1.yml
+...
+  clamav:
+        image: "mkodockx/docker-clamav"
+        ports:
+           - 3310:3310
+```
+### Run it!
+
+```sh
+#in one pane, get clamd running
+$ docker-compose -f orchestration/dev.yml -f orchestration/tutorial1.yml up polyswarmd contracts clamav
+#in another pane, once orchestration_contracts_1 exited with code 0
+$ cd microengine/
+$ microengine --backend clamav --malware_repo dummy
+#expected output:
+........
 ```
