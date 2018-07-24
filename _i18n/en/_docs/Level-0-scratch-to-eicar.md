@@ -208,10 +208,11 @@ Now we're going to build our docker images and see what's going on!
 ```sh
 $ docker build -t polyswarm/eicar -f docker/Dockerfile .
 # With `docker-compose _dev environment_` still running in the background/another pane (see Spin Up a Dev Enviroment^^)
-$ docker run --net=orchestration_default polyswarm/eicar microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password --backend eicar
+$ docker run -it --net=orchestration_default polyswarm/eicar microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password --backend eicar
 # Open a new pane/terminal window
 $ docker run -it --net=orchestration_default polyswarm/ambassador
 ```
-And now you should have one pane running the dev.yml setup, another running your EICAR-detecting microengine, and a third running the mock `ambassador`! Exciting.
+And now you should have one pane running the dev.yml setup, another running your EICAR-detecting microengine, and a third running the mock `ambassador`! If you update your eicar micro-engine you can retest it by re-building the micro engine docker container and re-running the ambassador command about to inject new EICAR/not-EICAR `ambassador`.
 
 If you don't feel like copying in and pasting the code to detect EICAR, you can use the EICAR backend for the `polyswarm/microengine` image with the flag: "`--backend eicar`". Neat.
+
