@@ -63,8 +63,8 @@ This is a subsection of my top-level section.
 ```
 
 Because our title will render as a level 1 heading (h1), we want to use level 2 headings (h2) for our top-level sections as shown above.
-Any subsection will be a level 3 heading (h3).
-This way, the sidebar nav will render properly and be easy for users to navigate.
+Use level 3 headings (h3) for subsections.
+This way, the sidebar nav will render properly and it will be easy for users to navigate the page.
 
 #### Images
 

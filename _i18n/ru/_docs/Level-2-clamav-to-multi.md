@@ -7,7 +7,7 @@ Before we start, make sure that you have the latest code from these repos:
 * [**polyswarm/microengine**](https://github.com/polyswarm/microengine)
 * [**polyswarm/orchestration**](https://github.com/polyswarm/orchestration)
 
-And of course,`docker` and `docker-compose` are still requirements as well. These projects are dockerized for your convenience.
+And of course, `docker` and `docker-compose` are still requirements as well. These projects are dockerized for your convenience.
 
 ## Adding YARA to our Microengine
 
@@ -17,9 +17,9 @@ We need some rules for YARA. The [Yara-Rules](https://github.com/Yara-Rules/rule
 
 ```sh
 #(from root of microengine repo)
-git submodule update --init --recursive
+$ git submodule update --init --recursive
 #(rebuild so that your docker container has your new rules)
-docker build -t polyswarm/microengine -f docker/Dockerfile .
+$ docker build -t polyswarm/microengine -f docker/Dockerfile .
 ```
 
 ## Code and Configuration
@@ -47,9 +47,9 @@ import yara
 ...
 async def scan(self, guid, content):
 ...
-    matches = rules.match(data=content)
-    if matches:
-       yara_res = True
+matches = rules.match(data=content)
+if matches:
+    yara_res = True
 ```
 
 Nice! However, this tutorial is about using *multiple* analysis backends, which means we need to have some way to get the result of both backends(YARA and ClamAV) and distill that into our verdict. More code! If you took a peep at `src/microengine/multi.py` then you might have noticed some variables:
@@ -66,32 +66,32 @@ async def scan(self, guid, content):
 We'll use these to keep track of our state. In the case of the YARA backend, it is sufficient to write:
 
 ```py
-    if matches:
-        yara_res = True
+if matches:
+    yara_res = True
 ```
 
 For the ClamAV backend, there is a similarly small addition.
 
 ```py
-    #clam scan
-    result = self.clamd.instream(BytesIO(content)).get('stream')
-    if len(result) >= 2 and result[0] == 'FOUND':
-        clam_res = True
-        clam_metadata = result[1]
+#clam scan
+result = self.clamd.instream(BytesIO(content)).get('stream')
+if len(result) >= 2 and result[0] == 'FOUND':
+    clam_res = True
+    clam_metadata = result[1]
 ```
 
 Finally, now that we have some accurate data in our variables, we can distill them into a usable and submissible verdict.
 
 ```py
-    # We assert on all artifacts
-    bit = True
+# We assert on all artifacts
+bit = True
 
-    # If either finds a match, trust it and send it along
-    # If not, assert it is benign
-    verdict = yara_res or clam_res
-    metadata = ' '.join([yara_metadata, clam_metadata]).strip()
+# If either finds a match, trust it and send it along
+# If not, assert it is benign
+verdict = yara_res or clam_res
+metadata = ' '.join([yara_metadata, clam_metadata]).strip()
 
-    return bit, verdict, metadata
+return bit, verdict, metadata
 ```
 
 Resulting in a completed `scan` method!
@@ -104,36 +104,36 @@ Resulting in a completed `scan` method!
 
 ```python
 async def scan(self, guid, content):
-        """Scan an artifact with ClamAV + YARA
-        Args:
-            guid (str): GUID of the bounty under analysis, use to track artifacts in the same bounty
-            content (bytes): Content of the artifact to be scan
-        Returns:
-            (bool, bool, str): Tuple of bit, verdict, metadata
-            bit (bool): Whether to include this artifact in the assertion or not
-            verdict (bool): Whether this artifact is malicious or not
-            metadata (str): Optional metadata about this artifact
-        """
-        yara_res = False
-        clam_res = False
-        yara_metadata = ''
-        clam_metadata = ''
-        # Yara rule matching
-        matches = self.rules.match(data=content)
-        if matches:
-            yara_res = True
-        # ClamAV scan
-        result = self.clamd.instream(BytesIO(content)).get('stream')
-        if len(result) >= 2 and result[0] == 'FOUND':
-            clam_res = True
-            clam_metadata = result[1]
-        # We assert on all artifacts
-        bit = True
-        # If either finds a match, trust it and send it along
-        # If not, assert it is benign
-        verdict = yara_res or clam_res
-        metadata = ' '.join([yara_metadata, clam_metadata]).strip()
-        return bit, verdict, metadata
+    """Scan an artifact with ClamAV + YARA
+    Args:
+        guid (str): GUID of the bounty under analysis, use to track artifacts in the same bounty
+        content (bytes): Content of the artifact to be scan
+    Returns:
+        (bool, bool, str): Tuple of bit, verdict, metadata
+        bit (bool): Whether to include this artifact in the assertion or not
+        verdict (bool): Whether this artifact is malicious or not
+        metadata (str): Optional metadata about this artifact
+    """
+    yara_res = False
+    clam_res = False
+    yara_metadata = ''
+    clam_metadata = ''
+    # Yara rule matching
+    matches = self.rules.match(data=content)
+    if matches:
+        yara_res = True
+    # ClamAV scan
+    result = self.clamd.instream(BytesIO(content)).get('stream')
+    if len(result) >= 2 and result[0] == 'FOUND':
+        clam_res = True
+        clam_metadata = result[1]
+    # We assert on all artifacts
+    bit = True
+    # If either finds a match, trust it and send it along
+    # If not, assert it is benign
+    verdict = yara_res or clam_res
+    metadata = ' '.join([yara_metadata, clam_metadata]).strip()
+    return bit, verdict, metadata
 ```
 
 </details>
@@ -143,8 +143,8 @@ async def scan(self, guid, content):
 Let's fire it up and test!
 
 ```sh
-cd orchestration/
-docker-compose -f dev.yml -f tutorial2.yml up
+$ cd orchestration
+$ docker-compose -f dev.yml -f tutorial2.yml up
 ```
 
 ## Other Testing
@@ -163,9 +163,9 @@ In another pane, run a microengine container that's networked to the same networ
 
 ```sh
 $ docker run -it --net=orchestration_default polyswarm/microengine bash
-bash-4.4# export CLAMD_HOST=clamav
-bash-4.4# bash
-bash-4.4# microengine-unit-test --backend multi --malware_repo dummy
+$ export CLAMD_HOST=clamav
+$ bash
+$ microengine-unit-test --backend multi --malware_repo dummy
 Using account: 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
 .
 ----------------------------------------------------------------------
@@ -179,19 +179,18 @@ OK
 If you want more responsive and cleaner output, open up `tutorial2.yml` and add the `PYTHONUNBUFFERED` environment variable like so:
 
 ```yml
- tutorial:
-        image: "polyswarm/microengine"
-        depends_on:
-
-            - polyswarmd
-        environment:
-           - PYTHONUNBUFFERED=1
+tutorial:
+  image: "polyswarm/microengine"
+  depends_on:
+    - polyswarmd
+  environment:
+    - PYTHONUNBUFFERED=1
 ```
 
 then:
 
 ```sh
-cd orchestration/
-docker-compose -f dev.yml -f tutorial2.yml up | grep "tutorial"
+$ cd orchestration
+$ docker-compose -f dev.yml -f tutorial2.yml up | grep "tutorial"
 #(tutorial is the name of the container with our microengine)
 ```
