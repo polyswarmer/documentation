@@ -11,7 +11,7 @@ And of course,`docker` and `docker-compose` are still requirements as well. Thes
 
 ## Adding YARA to our Microengine
 
-Check out this Dockerfile if you're curious about how to add YARA to a Docker image(how we added YARA to the microengine Docker image). Credit to [blacktop](https://hub.docker.com/r/blacktop/yara/~/dockerfile/)
+Refer to [this](https://hub.docker.com/r/blacktop/yara/~/dockerfile/) Dockerfile for instructions on including YARA in your own Docker image.
 
 We need some rules for YARA. The [Yara-Rules](https://github.com/Yara-Rules/rules) repo is a place to get some for free. It is added as a submodule for your convenience.
 
