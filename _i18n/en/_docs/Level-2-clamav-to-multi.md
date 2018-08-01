@@ -52,9 +52,9 @@ import yara
 ...
 async def scan(self, guid, content):
 ...
-  matches = rules.match(data=content)
-      if matches:
-          yara_res = True
+matches = rules.match(data=content)
+if matches:
+    yara_res = True
 ```
 
 Nice! 
