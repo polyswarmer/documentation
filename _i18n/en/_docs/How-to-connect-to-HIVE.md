@@ -25,8 +25,8 @@ We have two subdomains that you will need to use, and a one-liner connect.
 
 For this next command you should run it in a separate tab, terminal, inside `tmux`, or any other means to leave this command running.
 
-```bash
-ssh -i /path/to/key -N -L 31337:hive.polyswarm.network:31337 <user>@gate.polyswarm.network
+```sh
+$ ssh -i /path/to/key -N -L 31337:hive.polyswarm.network:31337 <user>@gate.polyswarm.io
 ```
 
 You will not see a prompt on that terminal, but don't worry, you have an open tunnel.
@@ -37,9 +37,9 @@ With the open tunnel, you can point your microengine to the `polyswarmd` API at 
 
 An easy way to make sure you have a valid connection to reach `polyswarmd`, try the commands below. If everything is working, you should see a json response like `{"status": "OK", "result":"some_value"}`.
 
-```bash
-curl http://localhost:31337/bounites
-curl http://localhost:31337/balances/<address>/nct
+```sh
+$ curl http://localhost:31337/bounites
+$ curl http://localhost:31337/balances/<address>/nct
 ```
 
 ### Using polyswarmd

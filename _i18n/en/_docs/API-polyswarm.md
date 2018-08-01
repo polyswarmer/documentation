@@ -223,9 +223,9 @@ verdicts - array of verdicts on bounty artifacts
 
 ### Reveal bounty assersions
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+Called by expert to reveal his bounty assersion to the network during the reveal period. This is done to prevent cheating.
 
-**URL** : `/bounties/<uuid:guid>/vote?account=[eth_account_here]&chain=[chain_name]`
+**URL** : `/bounties/<uuid:guid>/assertions/<int:id_>/reveal/vote?account=[eth_account_here]&chain=[chain_name]`
 
 **Method** : `POST`
 
@@ -423,7 +423,6 @@ List of files to upload. You can upload a max of 256
 **Method** : `GET`
 
 ## Offers API
-*Stateless offer api coming soon*
 
 ### Create an offer channel
 
@@ -1089,7 +1088,7 @@ meta_data - meta data about current offer
 
 Example POST data:
 
-```
+```json
 {
   "close_flag": 0,
   "nonce": 0,
@@ -1249,3 +1248,29 @@ Sent when an arbiter votes on a bounty
   }
 }
 ```
+
+## Account Balances API 
+
+### Get an account's ETH balance
+
+**URL** : `/<address>/eth`
+
+**Method** : `GET`
+
+### Get an account's NCT balance
+
+**URL** : `/<address>/nct`
+
+**Method** : `GET`
+
+### Get amount of NCT staked
+
+**URL** : `/<address>/staking/total`
+
+**Method** : `GET`
+
+### Get amount of staked NCT that is withdrawable
+
+**URL** : `/<address>/staking/withdrawable`
+
+**Method** : `GET`

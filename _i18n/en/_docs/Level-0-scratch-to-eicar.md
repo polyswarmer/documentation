@@ -140,9 +140,8 @@ Default behavior happens in `__init.py__`, so let's open that up, and look at th
 
 ```python
 async def scan(self, guid, content):
-        """Override this to implement custom scanning logic"""
-        """return bit, assertion, metadata"""
-        return True, True, ''
+    """Override this to implement custom scanning logic"""
+    return True, True, ''
 ```
 
 The return values that the microengine expects are: 
@@ -204,14 +203,21 @@ class EicarMicroengine(Microengine):
 ```
 
 ### Build and Test Your Brand New EICAR-Detecting Microengine!
+
 Now we're going to build our docker images and see what's going on!
+
 ```sh
 $ docker build -t polyswarm/eicar -f docker/Dockerfile .
-# With `docker-compose _dev environment_` still running in the background/another pane (see Spin Up a Dev Enviroment^^)
-$ docker run -it --net=orchestration_default polyswarm/eicar microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password --backend eicar
-# Open a new pane/terminal window
-$ docker run -it --net=orchestration_default polyswarm/ambassador
+# with `docker-compose _dev environment_` still running in the background/another pane (see Spin Up a Dev Enviroment^^)
+$ docker run -it --net=orchestration_default polyswarm/eicar bash
+# get dropped into a new container
+$ microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password
+# open a new pane/terminal window
+$ docker run -it --net=orchestration_default polyswarm/ambassador bash
+# get dropped into a new container
+$ python newAmbassador.py
 ```
+
 And now you should have one pane running the dev.yml setup, another running your EICAR-detecting microengine, and a third running the mock `ambassador`! If you update your eicar micro-engine, you can retest it by re-building the micro engine docker container and re-running the `ambassador` container to inject a new pair of EICAR/not-EICAR artifacts.
 
 If you don't feel like copying in and pasting the code to detect EICAR, you can use the EICAR backend for the `polyswarm/microengine` image with the flag: "`--backend eicar`". Neat.

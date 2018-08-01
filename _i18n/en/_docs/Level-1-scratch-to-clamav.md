@@ -21,13 +21,13 @@ from microengine import Microengine
 EICAR = b'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*'
 
 class EicarMicroengine(Microengine):
-  """Microengine which tests for the EICAR test file"""
+    """Microengine which tests for the EICAR test file"""
 
-  async def scan(self, guid, content):
-    if content == EICAR:
-      return True, True, ''
+    async def scan(self, guid, content):
+        if content == EICAR:
+            return True, True, ''
 
-    return False, False, ''
+        return False, False, ''
 ```
 
 This simple engine asserts `malicious` on the EICAR test file and `benign` on all other files.
@@ -55,11 +55,11 @@ Let's get `clamd` initialized and running.
 
 ```python
 class ClamavMicroengine(Microengine):
-  """Clamav microengine scans samples through clamd"""
-  def __init__(self, polyswarmd_addr, keyfile, password):
-    # initialize clamAV Daemon (clamd)
-    super().__init__(polyswarmd_addr, keyfile, password)
-    self.clamd = clamd.ClamdNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
+    """Clamav microengine scans samples through clamd"""
+    def __init__(self, polyswarmd_addr, keyfile, password):
+        # initialize clamAV Daemon (clamd)
+        super().__init__(polyswarmd_addr, keyfile, password)
+        self.clamd = clamd.ClamdNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
 ```
 
 Now, all we need is a scan method.
@@ -83,12 +83,12 @@ To complete our scan function:
 
 ```python
 async def scan(self, guid, content):
-  result = self.clamd.instream(BytesIO(content)).get('stream')
-  print(result)
-  if len(result) >= 2 and result[0] == 'FOUND':
-    return True, True, result[1]
+    result = self.clamd.instream(BytesIO(content)).get('stream')
+    print(result)
+    if len(result) >= 2 and result[0] == 'FOUND':
+        return True, True, result[1]
 
-  return True, False, ''
+    return True, False, ''
 ```
 
 If `clamd` detects a piece of malware, it puts `FOUND` in `result[0]`.

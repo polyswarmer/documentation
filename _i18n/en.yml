@@ -17,6 +17,8 @@ header:
             url: /Level-0-scratch-to-eicar/
           - name: "Level 1: Scratch to ClamAV"
             url: /Level-1-scratch-to-clamav/
+          - name: "Level 2: ClamAV to Multi"
+            url: /Level-2-clamav-to-multi/
       - name: API
         subitems:
           - name: "PolySwarm API"
@@ -108,5 +110,7 @@ docs:
     title: "Level 0: Scratch to EICAR"
   level_1:
     title: "Level 1: Scratch to ClamAV"
+  level_2:
+    title: "Level 2: ClamAV to Multi"
   hive:
     title: "How to connect to the PolySwarm Hive"
