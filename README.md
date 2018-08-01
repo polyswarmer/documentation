@@ -109,7 +109,7 @@ The content within the curly braces and percentage signs [references the localiz
 Navigation items can be added or removed in the `_i18n/en.yml` file.
 There, you will see a key called `header` with a property called `navigation`. You can also see that `navigation` has a property called `items` which is an array of navigation items.
 
-Navigation items should follow the following structure:
+Navigation items should use the following structure:
 
 ```yml
 - name: My Page Title
