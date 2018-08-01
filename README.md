@@ -1,13 +1,13 @@
 # PolySwarm Documentation
 
-PolySwarm Documentation (https://docs.polyswarm.io) is a public resource designed to help Experts, Arbiters, Ambassadors, and more get to know PolySwarm products.
+PolySwarm Documentation (https://docs.polyswarm.io) is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products.
 
 ## Branch Level
 
 ### master
 
-The pages here is regarded as public/authentic.
-Not any articles under development or incomplete state should be located here.
+The pages here are regarded as public/authentic.
+No articles under development or incomplete state should be located here.
 
 ### develop
 
@@ -16,8 +16,8 @@ Once the branch is ready for release, it will be merged into master.
 
 ## Adding an English Page to the Docs
 
-PolySwarm Documentation is availble in many target languages, however, the source language for all content is English.
-This section will show you how to add English content that will then be availbe for translation.
+PolySwarm Documentation is available in many target languages, however, the source language for all content is English.
+This section will show you how to add English content that will then be available for translation.
 
 A new English page can be added in four steps:
 
@@ -44,7 +44,7 @@ docs:
 
 Now that we've created our title, let's create the localized file that will hold our content.
 
-In `_i18n/en/_docs`, create a new [Markdown](https://github.com/polyswarm/documentation#markdown) file with the following format:
+In `_i18n/en/_docs`, create a new [Markdown](https://github.com/polyswarm/documentation#markdown) file named using the following format:
 
 ```
 my-page-title.md
@@ -62,7 +62,7 @@ This is a top-level section in my new example page.
 This is a subsection of my top-level section.
 ```
 
-As you can see, because our title will render as an level 1 heading (h1), we want to use level 2 headings (h2) for our top-level sections.
+As you can see, because our title will render as a level 1 heading (h1), we want to use level 2 headings (h2) for our top-level sections.
 Any subsection will be a level 3 heading (h3). This way, the sidebar nav will render properly and be easy for users to navigate.
 
 #### Images
@@ -79,7 +79,7 @@ Images should be no more than about 720px wide and should be optimized before th
 
 Now that we have added a localized title and have created our localized content, it's time to add our page to the site.
 
-To add your page to the site, create a file in `public-src/_docs` with the following format:
+To add your page to the site, create a file in `public-src/_docs` named using the following format:
 
 ```
 YYYY-MM-DD-my-page-title.md
@@ -109,7 +109,7 @@ The content within the curly braces and percentage signs [references the localiz
 Navigation items can be added or removed in the `_i18n/en.yml` file.
 There, you will see a key called `header` with a property called `navigation`. You can also see that `navigation` has a property called `items` which is an array of navigation items.
 
-Navigation items have the following format:
+Navigation items should follow the following structure:
 
 ```yml
 - name: My Page Title
