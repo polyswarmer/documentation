@@ -100,9 +100,9 @@ title: docs.my_unique_page_key.title
 
 The section between the triple-dashed lines is the [YAML front matter](https://jekyllrb.com/docs/frontmatter/) block.
 
-As you can see, the front matter block references the localized title you defined in `_i18n/en.yml`.
+As you can see, the front matter block [references the localized title](https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin#54-i18n-in-templates) you defined in `_i18n/en.yml`.
 
-The content within the curly braces and percentage signs references the localized content from your Markdown file in `_i18n/en/_docs`.
+The content within the curly braces and percentage signs [references the localized content](https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin#52-including-translated-files) from your Markdown file in `_i18n/en/_docs`.
 
 ### Step Four: Add Your Page to the Navigation
 
