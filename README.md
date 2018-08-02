@@ -195,7 +195,7 @@ When embedding a YouTube video, it is best to wrap the embed code in a video wra
 
 #### Collapsible Markdown
 
-Create collapislbe sections with Markdown.
+Create collapsible sections with Markdown.
 
 ```html
 <details markdown="1">
