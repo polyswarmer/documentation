@@ -195,6 +195,8 @@ When embedding a YouTube video, it is best to wrap the embed code in a video wra
 
 #### Collapsible Markdown
 
+Create collapislbe sections with Markdown.
+
 ```html
 <details markdown="1">
 
@@ -204,3 +206,5 @@ When embedding a YouTube video, it is best to wrap the embed code in a video wra
 
 </details>
 ```
+
+**Note:** Do not use level 2 or 3 headings inside collapsible sections as it will cause issues with the sidebar nav.

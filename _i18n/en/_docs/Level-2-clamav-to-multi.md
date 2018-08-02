@@ -109,7 +109,7 @@ Resulting in a completed `scan` method!
 
 <summary>Scan Method</summary>
 
-### A completed Scan() method!
+**A completed Scan() method!**
 
 ```python
 async def scan(self, guid, content):
