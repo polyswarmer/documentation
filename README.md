@@ -62,8 +62,9 @@ This is a top-level section in my new example page.
 This is a subsection of my top-level section.
 ```
 
-As you can see, because our title will render as a level 1 heading (h1), we want to use level 2 headings (h2) for our top-level sections.
-Any subsection will be a level 3 heading (h3). This way, the sidebar nav will render properly and be easy for users to navigate.
+Because our title will render as a level 1 heading (h1), we want to use level 2 headings (h2) for our top-level sections as shown above.
+Use level 3 headings (h3) for subsections.
+This way, the sidebar nav will render properly and it will be easy for users to navigate the page.
 
 #### Images
 
@@ -194,6 +195,8 @@ When embedding a YouTube video, it is best to wrap the embed code in a video wra
 
 #### Collapsible Markdown
 
+Create collapsible sections with Markdown.
+
 ```html
 <details markdown="1">
 
@@ -203,3 +206,5 @@ When embedding a YouTube video, it is best to wrap the embed code in a video wra
 
 </details>
 ```
+
+**Note:** Do not use level 2 or 3 headings inside collapsible sections as it will cause issues with the sidebar nav.
