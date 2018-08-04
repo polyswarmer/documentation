@@ -1,15 +1,15 @@
 ## The More The Merrier: YARA
 
-This tutorial will show you how to combine multiple analysis backends and outlines a basic verdict distillation primitive. 
-The two backends will be `ClamAV` (from the last tutorial) and [`YARA`](https://virustotal.github.io/yara/). 
+This tutorial will show you how to combine multiple analysis backends and outlines a basic verdict distillation primitive.
+The two backends will be `ClamAV` (from the last tutorial) and [`YARA`](https://virustotal.github.io/yara/).
 
 Before we start, make sure that you have the latest code from these repos:
 
 * [**polyswarm/microengine**](https://github.com/polyswarm/microengine)
 * [**polyswarm/orchestration**](https://github.com/polyswarm/orchestration)
 
-And of course, `docker` and `docker-compose` are still requirements as well. 
-These projects are dockerized for your convenience. 
+And of course, `docker` and `docker-compose` are still requirements as well.
+These projects are dockerized for your convenience.
 
 ## Adding YARA to our Microengine
 
@@ -32,8 +32,8 @@ Let's get into it!
 
 ### Config
 If you have your own YARA rules index file and want to use that instead, edit the following snippet in **`microengine/src/microengine/multi.py`** to point to your own rules/index file.
-The easiest way is to just copy your rules to the `data/yara-rules` directory that already exists. 
-If you don't copy your rules there, you'll need to add that location to either the `Dockerfile` as a line like: `COPY /path/to/your/rules/dir/ /wherever/you/want/it/in/the/container/` , or in the `tutorial2.yml` `docker-compose` file as a mounted volume. 
+The easiest way is to just copy your rules to the `data/yara-rules` directory that already exists.
+If you don't copy your rules there, you'll need to add that location to either the `Dockerfile` as a line like: `COPY /path/to/your/rules/dir/ /wherever/you/want/it/in/the/container/` , or in the `tutorial2.yml` `docker-compose` file as a mounted volume.
 
 ```py
 # Yara rules import
@@ -44,7 +44,7 @@ Since our mock ambassador only posts 2 files, EICAR and not_EICAR, it is suffici
 
 ### Code
 
-Yara-Python's `rules` object has a `match(path)` function that compares all of your rules to the file at the specified `path` and returns a list of the rules that the scanned file matched. 
+Yara-Python's `rules` object has a `match(path)` function that compares all of your rules to the file at the specified `path` and returns a list of the rules that the scanned file matched.
 Here's how we scan a file using YARA:
 
 ```py
@@ -57,13 +57,13 @@ if matches:
     yara_res = True
 ```
 
-Nice! 
-However, this tutorial is about using _multiple_ analysis backends, which means we need to have some way to get the result of both backends(YARA and ClamAV) and distill that into our verdict. 
+Nice!
+However, this tutorial is about using _multiple_ analysis backends, which means we need to have some way to get the result of both backends(YARA and ClamAV) and distill that into our verdict.
 More code!
 If you took a peep at `src/microengine/multi.py` then you might have noticed some variables:
 
 ```py
-async def scan(self, guid, content):	
+async def scan(self, guid, content):
     #state variables, res=result, met=metadata
     yara_res = False
     clam_res = False
@@ -71,7 +71,7 @@ async def scan(self, guid, content):
     clam_metadata = ''
 ```
 
-We'll use these to keep track of our state. 
+We'll use these to keep track of our state.
 In the case of the YARA backend, it is sufficient to write:
 
 ```py
