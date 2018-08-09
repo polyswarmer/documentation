@@ -106,11 +106,16 @@ docs:
   api:
     polyswarm:
       title: PolySwarm API
+      description: The PolySwarm API documentation.
   level_0:
     title: "Level 0: Scratch to EICAR"
+    description: This tutorial will step you through building your very first PolySwarm microengine - a hello world microengine capable of detecting the EICAR test file.
   level_1:
     title: "Level 1: Scratch to ClamAV"
+    description: This tutorial will step you through building your second PolySwarm microengine by means of incorporating ClamAV as an analysis backend.
   level_2:
     title: "Level 2: ClamAV to Multi"
+    description: This tutorial will show you how to combine multiple analysis backends (ClamAV and YARA) and outlines a basic verdict distillation primitive.
   hive:
     title: "How to connect to the PolySwarm Hive"
+    description: PolySwarm Hive is an invite-only testnet to facilitate the development of microengines and arbiters. This section will show you how to connect to Hive.
