@@ -1,12 +1,76 @@
 global:
   title: The first decentralized threat intelligence marketplace
   description: PolySwarm Documentation is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products.
-  prev_next:
-    previous: Previous article
-    next: Next article
+  languages:
+    - name: en
+      fullname: English
+      url: /
+      text: This page is available in English.
+      ok:
+        text: View now
+      close:
+        text: Close
+    - name: de
+      fullname: Deutsch
+      url: /de/
+      text: This page is available in Deutsch.
+      ok:
+        text: View now
+      close:
+        text: Close
+    - name: es
+      fullname: Español
+      url: /es/
+      text: This page is available in Español.
+      ok:
+        text: View now
+      close:
+        text: Close
+    - name: fr
+      fullname: Français
+      url: /fr/
+      text: This page is available in Français.
+      ok:
+        text: View now
+      close:
+        text: Close
+    - name: ru
+      fullname: Русский
+      url: /ru/
+      text: This page is available in Русский.
+      ok:
+        text: View now
+      close:
+        text: Close
+    - name: ko
+      fullname: 한국어
+      url: /ko/
+      text: This page is available in 한국어.
+      ok:
+        text: View now
+      close:
+        text: Close
+    - name: ja
+      fullname: 日本語
+      url: /ja/
+      text: This page is available in 日本語.
+      ok:
+        text: View now
+      close:
+        text: Close
+    - name: zh
+      fullname: 中文
+      url: /zh/
+      text: This page is available in 中文.
+      ok:
+        text: View now
+      close:
+        text: Close
+  previous_text: Previous article
+  next_text: Next article
 header:
-  menu: Menu
-  languages: Languages
+  menu_text: Menu
+  languages_text: Languages
   navigation:
     home:
       name: Docs Home
