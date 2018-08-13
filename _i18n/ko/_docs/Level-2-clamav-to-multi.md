@@ -28,7 +28,7 @@ Let's get into it!
 
 ### Config
 
-If you have your own YARA rules index file and want to use that instead, edit the following snippet in **`microengine/src/microengine/multi.py`** to point to your own rules/index file. The easiest way is to just copy your rules to the `src/yara/rules` directory that already exists. If you don't copy your rules there, you'll need to add that location to either the `Dockerfile` as a line like: `COPY /path/to/your/rules/dir/ /wherever/you/want/it/in/the/container/` , or in the `tutorial2.yml` `docker-compose` file as a mounted volume.
+If you have your own YARA rules index file and want to use that instead, edit the following snippet in **`microengine/src/microengine/multi.py`** to point to your own rules/index file. The easiest way is to just copy your rules to the `data/yara-rules` directory that already exists. If you don't copy your rules there, you'll need to add that location to either the `Dockerfile` as a line like: `COPY /path/to/your/rules/dir/ /wherever/you/want/it/in/the/container/` , or in the `tutorial2.yml` `docker-compose` file as a mounted volume.
 
 ```py
 # Yara rules import
@@ -55,7 +55,7 @@ if matches:
 Nice! However, this tutorial is about using *multiple* analysis backends, which means we need to have some way to get the result of both backends(YARA and ClamAV) and distill that into our verdict. More code! If you took a peep at `src/microengine/multi.py` then you might have noticed some variables:
 
 ```py
-async def scan(self, guid, content):    
+async def scan(self, guid, content):
     #state variables, res=result, met=metadata
     yara_res = False
     clam_res = False
@@ -100,7 +100,7 @@ Resulting in a completed `scan` method!
 
 <summary>Scan Method</summary>
 
-### A completed Scan() method!
+**A completed Scan() method!**
 
 ```python
 async def scan(self, guid, content):
