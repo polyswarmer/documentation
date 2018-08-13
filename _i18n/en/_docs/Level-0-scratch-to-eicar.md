@@ -10,7 +10,6 @@ For those anxious for the code, this guide will reference and build on:
 
 Without further ado, let's get started!
 
-
 ## Background on Microengines
 
 ![Microengine_Architecture](/public-src/images/Microengine_Architecture.png)
@@ -21,7 +20,6 @@ If you have unique insight into a particular malware family, file format or cate
 Microengines respond to Bounties and Offers in the PolySwarm marketplace, determining whether a suspect file is malicious or benign and stake a certain amount of Nectar (NCT) tokens alongside that assertion.
 Security Experts maintain and tweak their Microengines in response to new threat information and new analyses tools, vying against one another to stay at the forefront of their area of expertise.
 
-
 ### Microengine Components
 
 Conceptually, a microengine is composed of:
@@ -30,7 +28,6 @@ Conceptually, a microengine is composed of:
 1. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
 1. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
 1. **glue** that binds all the above together, tracks state, communicates with the blockchain and IPFS
-
 
 ### What Microengines Do
 
@@ -51,7 +48,6 @@ To avoid duplication of effort and to make getting started as easy as possible, 
 In addition, we provide exemplar Microengines like `microengine-clamav` that everyone is welcome to build on.
 We license all of our code under a permissive MIT license, allowing even for commercial, closed-source use.
 
-
 ## Microengines' Role in the PolySwarm Marketplace
 
 In the PolySwarm marketplace, **Ambassadors** ask the market for a crowdsourced opinion on a suspect artifact (file) through the Wild-West style PolySwarm Bounty mechanism.
@@ -68,7 +64,6 @@ At a high level:
 Correct **Microengines** are rewarded with the escrowed funds of incorrect **Microengines**.
 
 For full details on this process, please refer to the [PolySwarm whitepaper](https://polyswarm.io/polyswarm-whitepaper.pdf) for now - more documentation is forthcoming!
-
 
 ## Set up a Microengine Development Environment
 
@@ -95,7 +90,6 @@ docker-compose version 1.21.1, build 5a3f1a3
 We'll need to grab a few source code repositories; it'll be easiest to use Git.
 Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
-
 ### Grab the Code
 
 ```sh
@@ -113,7 +107,6 @@ $ docker-compose -f dev.yml -f tutorial.yml up
 That's it!
 You should be good to go, working on your fancy new Microengine.
 
-
 ## Writing Your First Analysis Backend
 
 Conceptually, all Microengines using `polyswarmd` should support the following:
@@ -122,7 +115,6 @@ Conceptually, all Microengines using `polyswarmd` should support the following:
 * `getArtifact` - send a GET web request to `polyswarmd` to download an artifact via polyswarmd IPFS
 * `scan` - tells your analysis backend to process the artifact and process the output of your analysis backend
 * `sendVerdict` - relay your analysis backend's verdict to polyswarmd via POST web request
-
 
 ### Start with the scratch microengine
 
@@ -145,7 +137,7 @@ async def scan(self, guid, content):
         return True, True, ''
 ```
 
-The return values that the microengine expects are: 
+The return values that the microengine expects are:
 1. `bit` : a `boolean` representing a `malicious` or `benign` determination
 1. `assertion`: another `boolean` representing whether the engine wishes to assert on the artifact
 1. `metadata`: (optional) `string` describing the artifact
