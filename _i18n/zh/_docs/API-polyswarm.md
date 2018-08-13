@@ -1,24 +1,24 @@
-## Bounties API
+## 悬赏API
 
-### Post Bounty
+### 张贴悬赏
 
-Called by end users and ambassadors to post a bounty.
+可被终端用户和代表调用以张贴悬赏
 
 **URL** : `/bounties?account=[eth_account_here]&chain=[chain_name]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide:
+提供：
 
-base_nonce - (optional) a number for transaction nonce
+base_nonce - (可选) 用於交易随机数(nonce) 的数字
 
-amount - the amount of NCT to post as a reward
+amount - 做为奖赏的NCT数量
 
-uri - uri of the artifacts comprising this bounty
+uri - 此悬赏包含的工件的uri
 
-duration - duration of this bounty in blocks
+duration - 此悬赏在几个区块后过期
 
 ```json
 {
@@ -28,7 +28,7 @@ duration - duration of this bounty in blocks
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
 ```json
 {
@@ -38,13 +38,13 @@ duration - duration of this bounty in blocks
 }
 ```
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+** 条件 **: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -69,23 +69,23 @@ duration - duration of this bounty in blocks
 }
 ```
 
-### Vote on Bounty
+### 投票悬赏
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+在悬赏到期后，由仲裁者调用来確定他们的"真正事实"判断并且支付"断言"奖励．
 
 **URL** : `/bounties/<uuid:guid>/vote?account=[eth_account_here]&chain=[chain_name]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide:
+提供：
 
-base_nonce - (optional) a number for transaction nonce
+base_nonce - (可选) 用於交易随机数(nonce) 的数字
 
-verdicts - array of verdicts representing ground truth for the bounty's artifacts
+verdicts - 一個數組包含著代表此懸賞工件的"真正事實"的判決
 
-valid_bloom - if this is a bloom vote
+valid_bloom - 這是否一個??投票
 
 ```json
 {
@@ -94,7 +94,7 @@ valid_bloom - if this is a bloom vote
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
 ```json
 {
@@ -103,13 +103,13 @@ valid_bloom - if this is a bloom vote
 }
 ```
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+** 条件 **: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
 **Code** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -126,23 +126,23 @@ valid_bloom - if this is a bloom vote
 }
 ```
 
-### Settle Bounty
+### 判断悬赏
 
-Callable after the voting window has closed to handle reward disbursal.
+可以在投票窗口关闭后后调用来处里奖励分配．
 
 **URL** : `/bounties/<uuid:guid>/settle?account=[eth_account_here]&chain=[chain_name]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**No data needed for this request**
+**此請求無需數據**
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+** 条件 **: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -159,25 +159,25 @@ Callable after the voting window has closed to handle reward disbursal.
 }
 ```
 
-### Assert on bounty
+### 對懸賞提出"斷言"
 
-Called by security experts to post an assertion on a bounty
+由安全专家调用来张贴对一个悬赏的"断言"
 
 **URL** : `/bounties/<uuid:guid>/assertions?account=[eth_account_here]&chain=[chain_name]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide:
+提供：
 
-base_nonce - (optional) a number for transaction nonce
+base_nonce - (可选) 用於交易随机数(nonce) 的数字
 
-bid - the amount of NCT to stake
+bid - 投標的NCT數量
 
-mask - the artifacts to assert on from the set in the bounty
+mask - 在這個懸賞中要"斷言"的懸賞工件
 
-verdicts - array of verdicts on bounty artifacts
+verdicts - 包含对悬赏工件的判决的数组
 
 ```json
 {
@@ -187,7 +187,7 @@ verdicts - array of verdicts on bounty artifacts
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
 ```json
 {
@@ -197,13 +197,13 @@ verdicts - array of verdicts on bounty artifacts
 }
 ```
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK the generated nonce will be created later used for reveal and you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+** 条件 **: 如果一切正常，公佈時用的交易隨機數(nonce) 待會將會被產生，並且您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 { "nonce": 432984098,
@@ -220,25 +220,25 @@ verdicts - array of verdicts on bounty artifacts
 }
 ```
 
-### Reveal bounty assersions
+### 揭示懸賞的"斷言"
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+在悬赏到期后，由仲裁者调用来確定他们的"真正事实"判断并且支付"断言"奖励．
 
 **URL** : `/bounties/<uuid:guid>/vote?account=[eth_account_here]&chain=[chain_name]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide:
+提供：
 
-base_nonce - (optional) a number for transaction nonce
+base_nonce - (可选) 用於交易随机数(nonce) 的数字
 
-nonce - the nonce used to generate the commitment hash (returned from asserting on a bounty)
+nonce - 用於生成承諾哈希 (從"斷言"懸賞中返回)
 
-verdicts - the verdicts making up this assertion
+verdicts - 構成此"斷言"的判決們
 
-metadata - to include in the assertion (can be empty string)
+metadata - 包含在"断言"中的元数据 (可为空字符串)
 
 ```json
 {
@@ -248,7 +248,7 @@ metadata - to include in the assertion (can be empty string)
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
 ```json
 {
@@ -258,13 +258,13 @@ metadata - to include in the assertion (can be empty string)
 }
 ```
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+** 条件 **: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -281,41 +281,41 @@ metadata - to include in the assertion (can be empty string)
 }
 ```
 
-### Get all the bounties
+### 取得所有的悬赏
 
 **URL** : `/bounties?chain=[chain_name]`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
-### Get all active bounties
+### 取得所有现行(active) 的悬赏
 
 **URL** : `/active?chain=[chain_name]`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
-### Get all pending bounties
+### 取得所有待处理(pending) 的悬赏
 
 **URL** : `/pending?chain=[chain_name]`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
-### Get a bounty's info
+### 取得一个悬赏的资讯
 
 **URL** : `/<uuid:guid>?chain=[chain_name]`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
-### Get assertions for a bounty
+### 取得一个悬赏的所有"断言"
 
 **URL** : `/<uuid:guid>/assertions?chain=[chain_name]`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
-### Get an assertion for a bounty
+### 取得一个悬赏的其中一個"断言"
 
 **URL** : `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
 ## Staking API
 
@@ -325,11 +325,11 @@ Called by arbiters to deposit stake Nectar.
 
 **URL** : `/staking/deposit?account=[eth_account_here]&chain=[chain_name]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide:
+提供：
 
 amount - the amount of NCT to add to current stake
 
@@ -339,7 +339,7 @@ amount - the amount of NCT to add to current stake
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
 ```json
 {
@@ -353,11 +353,11 @@ Called by arbiters to withdraw available staked Nectar.
 
 **URL** : `/staking/withdraw?account=[eth_account_here]&chain=[chain_name]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide:
+提供：
 
 amount - the amount of NCT to withdraw from current stake
 
@@ -367,7 +367,7 @@ amount - the amount of NCT to withdraw from current stake
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
 ```json
 {
@@ -379,63 +379,63 @@ amount - the amount of NCT to withdraw from current stake
 
 **URL** : `/balances/<address>/staking/total`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
 ### Get withdrawable stake balance
 
 **URL** : `/balances/<address>/staking/withdrawable`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
-## Artifacts API
+## 工件 API
 
-### Post Artifact
+### 发布工件
 
-Post an artifact to IPFS
+发布一个工件到 IPFS
 
 **URL** : `/artifacts`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide:
+提供：
 
-List of files to upload. You can upload a max of 256
+要上传的文件列表 您可以上传最多256个文件
 
-### Get file links associated with hash
+### 取得与此哈希有关联的文件链接
 
 **URL** : `/<ipfshash>`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
-### Get a link associated with hash and link index
+### 取得与此哈希和连结索引关联的链接
 
 **URL** : `/<ipfshash>/<int:id_>`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
-### Get stats on artifact link
+### 取得有关此工件链接的统计信息
 
 **URL** : `/<ipfshash>/<int:id_>/stat`
 
-**Method** : `GET`
+**请求方式** : `GET`
 
-## Offers API
+## 出价 API
 
-*Stateless offer api coming soon*
+*无状态的出价API即将推出*
 
-### Create an offer channel
+### 创建一的出价通道
 
-Called by ambassador to initialize an offer contract It deploys a new offer multi sig
+由代表来调用来初始化一个出价合约，这会部署一个新的多签名的出价．
 
 **URL** : `/offers?account=[eth_account_here]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide: base_nonce - (optional) a number for transaction nonce ambassador - address of ambassador using channel expert - address of expert using channel settlementPeriodLength - how long the parties have to dispute the settlement offer channel websocketUri - uri of socket to send messages to ambassador
+提供： base_nonce - (可选) 用于交易随机数(nonce) 的数字 ambassador - 代表所使用的通道地址 expert - 专家所使用的通道地址 settlementPeriodLength - 当事方有多长时间去沟通结算出价通道 websocketUri - 传给信息给大使的套接自(socket) uri
 
 ```json
 {
@@ -446,7 +446,7 @@ Provide: base_nonce - (optional) a number for transaction nonce ambassador - add
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
 ```json
 {
@@ -457,13 +457,13 @@ Provide: base_nonce - (optional) a number for transaction nonce ambassador - add
 }
 ```
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+** 条件 **: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -480,17 +480,17 @@ Provide: base_nonce - (optional) a number for transaction nonce ambassador - add
 }
 ```
 
-### Open channel
+### 开启通道(channel)
 
-Called by ambassador to open channel with expert
+由大使调用来开启与专家间的通道
 
 **URL** : `offers/open/<uuid:guid>?account=[eth_account_here]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide: base_nonce - (optional) a number for transaction nonce state - inital offer state v - the recovery id from signature of state string r - output of ECDSA signature of state string s - output of ECDSA signature of state string
+提供： base_nonce - (可选) 用于交易随机数(nonce) 的数字 state - 初始出价状态 v - the recovery id from signature of state string r - ECDSA 签名的状态字符处输出 s - ECDSA 签名的状态字符处输出
 
 ```json
 {
@@ -501,9 +501,9 @@ Provide: base_nonce - (optional) a number for transaction nonce state - inital o
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
-See state [explaintion](#state)
+请参照状态[解释](#state)
 
 ```json
 {
@@ -514,13 +514,13 @@ See state [explaintion](#state)
 }
 ```
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+** 条件 **: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -537,17 +537,17 @@ See state [explaintion](#state)
 }
 ```
 
-### Join channel
+### 加入通道
 
-Called by expert to join ambassador channel
+由專家調用來加入大使的通道
 
 **URL** : `offers/open?account=[eth_account_here]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide: base_nonce - (optional) a number for transaction nonce state - offer state from ambassador v - the recovery id from signature of state string r - output of ECDSA signature of state string s - output of ECDSA signature of state string
+提供： base_nonce - (可选) 用于交易随机数(nonce) 的数字 state - 来自大使的出价状态 v - the recovery id from signature of state string r - ECDSA签名的状态字符串输出 s - ECDSA签名的状态字符串输出
 
 ```json
 {
@@ -558,9 +558,9 @@ Provide: base_nonce - (optional) a number for transaction nonce state - offer st
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
-See state [explaintion](#state)
+请参照状态[解释](#state)
 
 ```json
 {
@@ -571,13 +571,13 @@ See state [explaintion](#state)
 }
 ```
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**条件**: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -594,25 +594,25 @@ See state [explaintion](#state)
 }
 ```
 
-### Cancel channel
+### 取消通道
 
-Called by ambassador to cancel if the contract hasn't been joined yet
+若合约尚未被加入，由大使调用来取消通道．
 
 **URL** : `offers/cancel?account=[eth_account_here]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
-Provide: base_nonce - (optional) a number for transaction nonce
+提供： base_nonce - (可选) 用于交易随机数(nonce) 的数字
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**条件**: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -629,15 +629,15 @@ Provide: base_nonce - (optional) a number for transaction nonce
 }
 ```
 
-### Close channel
+### 关闭通道
 
-Called by any party with a both signatures on a state with a closed state flag set to 1
+当一个状态上有双方的签名并且关闭状态标志设置为1时，可由任何一方调用来关闭通道．
 
 **URL** : `/close?account=[eth_account_here]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
 Provide: base_nonce - (optional) a number for transaction nonce state - offer state with closed flag v - array of the recovery ids from signature of state string for both parties r - array of outputs of ECDSA signature of state string for both parties s - rray of outputs of ECDSA signature of state string for both parties
 
@@ -650,9 +650,9 @@ Provide: base_nonce - (optional) a number for transaction nonce state - offer st
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
-See state [explaintion](#state)
+请参照状态 [解释](#state)
 
 ```json
 {
@@ -663,13 +663,13 @@ See state [explaintion](#state)
 }
 ```
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**条件**: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -692,9 +692,9 @@ Called by any party with a both signatures on a state that is the final challeng
 
 **URL** : `/offers/closeChallenged?account=[eth_account_here]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
 Provide: base_nonce - (optional) a number for transaction nonce state - offer state with closed flag v - array of the recovery ids from signature of state string for both parties r - array of outputs of ECDSA signature of state string for both parties s - rray of outputs of ECDSA signature of state string for both parties
 
@@ -707,9 +707,9 @@ Provide: base_nonce - (optional) a number for transaction nonce state - offer st
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
-See state [explaintion](#state)
+请参照状态[解释](#state)
 
 ```json
 {
@@ -720,13 +720,13 @@ See state [explaintion](#state)
 }
 ```
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**条件**: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -749,9 +749,9 @@ Called by ambassador or expert to start initalize a disputed settlement using an
 
 **URL** : `/offers/settle?account=[eth_account_here]`
 
-**Method** : `POST`
+**请求方式** : `POST`
 
-**Data constraints**
+**请求数据约束**
 
 Provide: base_nonce - (optional) a number for transaction nonce state - offer state both parties signed v - array of the recovery ids from signature of state string for both parties r - array of outputs of ECDSA signature of state string for both parties s - rray of outputs of ECDSA signature of state string for both parties
 
@@ -764,9 +764,9 @@ Provide: base_nonce - (optional) a number for transaction nonce state - offer st
 }
 ```
 
-**Data example** All fields must be sent.
+**请求示例** 必须包含所有参数
 
-See state [explaintion](#state)
+请参照状态 [解释](#state)
 
 ```json
 {
@@ -777,13 +777,13 @@ See state [explaintion](#state)
 }
 ```
 
-#### Success Response
+#### 正确返回
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**条件**: 如果一切正常, 您将得到一个包含尚未签名的交易数组, 通过 `/transactions ` 路径进行签名和发送
 
-**Code** : `200`
+**返回代码** : `200`
 
-**Content example**
+**返回示例**
 
 ```json
 {
@@ -1182,11 +1182,11 @@ Sent when a new assertion to a bounty is posted
 }
 ```
 
-***Verdict***
+***判決***
 
-Sent when an arbiter votes on a bounty
+当一个仲裁者对一个悬赏投票时发送
 
-**Content example**
+**返回示例**
 
 ```json
 {

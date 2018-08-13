@@ -55,7 +55,7 @@ if matches:
 Nice! However, this tutorial is about using *multiple* analysis backends, which means we need to have some way to get the result of both backends(YARA and ClamAV) and distill that into our verdict. More code! If you took a peep at `src/microengine/multi.py` then you might have noticed some variables:
 
 ```py
-async def scan(self, guid, content):    
+async def scan(self, guid, content):
     #state variables, res=result, met=metadata
     yara_res = False
     clam_res = False
