@@ -181,7 +181,7 @@ footer:
             root: true
   cta:
     name: Download Whitepaper
-    url: /polyswarm-whitepaper-kr.pdf
+    url: /polyswarm-whitepaper-ko.pdf
     target: _blank
     rooturl: true
   privacy:
