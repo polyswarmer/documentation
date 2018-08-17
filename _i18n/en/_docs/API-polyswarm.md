@@ -1109,7 +1109,7 @@ Example POST data:
 
 ### Signing State
 
-The offers api requires signed states here's an example of signing to create the v, r, and s signature peices in Javascript.
+The offers api requires signed states. Here's an example of signing to create the v, r, and s signature pieces in Javascript.
 
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
