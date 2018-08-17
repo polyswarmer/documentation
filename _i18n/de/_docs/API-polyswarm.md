@@ -427,7 +427,7 @@ List of files to upload. You can upload a max of 256
 
 ### Create an offer channel
 
-Called by ambassador to initialize an offer contract It deploys a new offer multi sig
+Called by an ambassador to deploy a new multi signature offer
 
 **URL** : `/offers?account=[eth_account_here]`
 
