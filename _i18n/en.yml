@@ -164,7 +164,6 @@ pages:
     button:
       name: Back to home
       url: /
-      style: transparent
   home:
     title: Documentation
 docs:
