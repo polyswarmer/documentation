@@ -427,7 +427,7 @@ List of files to upload. You can upload a max of 256
 
 ### Create an offer channel
 
-Called by ambassador to initialize an offer contract It deploys a new offer multi sig
+Called by an ambassador to deploy a new multi signature offer
 
 **URL** : `/offers?account=[eth_account_here]`
 
@@ -1063,7 +1063,7 @@ Example POST data:
 
 ### Signing State
 
-The offers api requires signed states here's an example of signing to create the v, r, and s signature peices in Javascript.
+The offers api requires signed states. Here's an example of signing to create the v, r, and s signature pieces in Javascript.
 
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
