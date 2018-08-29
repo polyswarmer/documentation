@@ -71,6 +71,7 @@ For full details on this process, please refer to the [PolySwarm whitepaper](htt
 
 We've Docker-ized as many things as we could to make it as easy as possible to get started, regardless of your development environment.
 Assuming Docker is installed, these images should *just work* under Windows, macOS and Linux.
+Please ensure that your system has at least 4GB of RAM available.
 
 To get started, you'll need Docker-CE (base) as well as Docker Compose (packaged with Docker in all modern releases).
 If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
@@ -97,7 +98,7 @@ $ git clone https://github.com/polyswarm/microengine
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### Spin Up a Development Environment
+### Spin Up a Development Environment and Launch Demo
 
 ```sh
 $ pushd orchestration
@@ -198,8 +199,11 @@ class EicarMicroengine(Microengine):
 ### Build and Test Your Brand New EICAR-Detecting Microengine!
 Now we're going to build our docker images and see what's going on!
 ```sh
+# Build our new image
 $ docker build -t polyswarm/eicar -f docker/Dockerfile .
-# With `docker-compose _dev environment_` still running in the background/another pane (see Spin Up a Dev Enviroment^^)
+# Spin up our dev environment, this time without the demo. If the demo is still running, make sure to close it.
+$ docker-compose -f dev.yml up
+# Open a new pane/terminal. Wait until polyswarmd reports that the migration has completed, and start our microengine. This could take a minute.
 $ docker run -it --net=orchestration_default polyswarm/eicar microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password --backend eicar
 # Open a new pane/terminal window
 $ docker run -it --net=orchestration_default polyswarm/ambassador
