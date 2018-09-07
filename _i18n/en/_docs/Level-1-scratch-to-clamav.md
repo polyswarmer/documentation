@@ -129,7 +129,6 @@ docker run -it --net=orchestration_default polyswarm/microengine bash
 You will get dropped into a running microengine container.
 ```bash
 root@id:/usr/src/app# export CLAMD_HOST=clamav
-root@id:/usr/src/app# bash
 root@id:/usr/src/app# microengine-unit-test --malware_repo dummy --backend clamav
 Using account: 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
 .
