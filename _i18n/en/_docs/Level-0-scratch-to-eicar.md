@@ -210,7 +210,7 @@ class EicarMicroengine(Microengine):
 
 First, let's spin up a subset of the complete end-to-end testnet, leaving out `microengine` and `ambassador`:
 ```sh
-$ docker-compose -f dev.yml -f tutorial0.yml up polyswarmd contracts homechain sidechain ipfs arbiter`
+$ docker-compose -f dev.yml -f tutorial0.yml up polyswarmd contracts homechain sidechain ipfs arbiter
 ```
 
 Once `contracts` has reported that it has successfully deployed the PolySwarm contracts, let's spin up our `microengine` in a second terminal window:
