@@ -122,6 +122,7 @@ Start off by composing the clamAV daemon.
 ```sh
 docker-compose -f dev.yml -f tutorial1.yml up clamav
 ```
+Wait for `polyswarmd` to report that migration has completed.
 In a new window/pane:
 ```sh
 docker run -it --net=orchestration_default polyswarm/microengine bash
@@ -129,7 +130,6 @@ docker run -it --net=orchestration_default polyswarm/microengine bash
 You will get dropped into a running microengine container.
 ```bash
 root@id:/usr/src/app# export CLAMD_HOST=clamav
-root@id:/usr/src/app# bash
 root@id:/usr/src/app# microengine-unit-test --malware_repo dummy --backend clamav
 Using account: 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
 .
