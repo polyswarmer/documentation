@@ -98,13 +98,9 @@ $ git clone https://github.com/polyswarm/microengine
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-<<<<<<< HEAD
-### Spin Up a Development Environment and Launch Demo
-=======
 ### Run a Complete End-to-End Development Testnet
 
 Before creating our microengine, let's take a look at how all the pre-packaged elements work together.
->>>>>>> fix/ambassador
 
 ```sh
 $ pushd orchestration
