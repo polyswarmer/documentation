@@ -159,7 +159,7 @@ Start off by composing the clamAV daemon.
 $ docker-compose -f dev.yml -f tutorial2.yml up clamav
 ```
 
-In another pane, run a microengine container that's networked to the same network as clamd above:
+Wait for `polyswarmd` to report that migration has completed. In another pane, run a microengine container that's networked to the same network as clamd above:
 
 ```sh
 $ docker run -it --net=orchestration_default polyswarm/microengine bash

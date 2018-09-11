@@ -6,7 +6,7 @@ global:
     - 
       name: en
       fullname: English
-      url: /
+      d_url: /
       text: This page is available in English.
       ok:
         text: View now
@@ -15,7 +15,7 @@ global:
     - 
       name: de
       fullname: Deutsch
-      url: /de/
+      d_url: /de/
       text: This page is available in Deutsch.
       ok:
         text: View now
@@ -24,7 +24,7 @@ global:
     - 
       name: es
       fullname: Español
-      url: /es/
+      d_url: /es/
       text: This page is available in Español.
       ok:
         text: View now
@@ -33,7 +33,7 @@ global:
     - 
       name: fr
       fullname: Français
-      url: /fr/
+      d_url: /fr/
       text: This page is available in Français.
       ok:
         text: View now
@@ -42,7 +42,7 @@ global:
     - 
       name: ru
       fullname: Русский
-      url: /ru/
+      d_url: /ru/
       text: This page is available in Русский.
       ok:
         text: View now
@@ -51,7 +51,7 @@ global:
     - 
       name: ko
       fullname: 한국어
-      url: /ko/
+      d_url: /ko/
       text: This page is available in 한국어.
       ok:
         text: View now
@@ -60,7 +60,7 @@ global:
     - 
       name: ja
       fullname: 日本語
-      url: /ja/
+      d_url: /ja/
       text: This page is available in 日本語.
       ok:
         text: View now
@@ -69,7 +69,7 @@ global:
     - 
       name: zh
       fullname: 中文
-      url: /zh/
+      d_url: /zh/
       text: This page is available in 中文.
       ok:
         text: View now
@@ -83,37 +83,37 @@ header:
   navigation:
     home:
       name: Docs Home
-      url: /
+      d_url: /
     items:
       - 
         name: Getting Started
         subitems:
           - 
             name: "Level 0: Scratch to EICAR"
-            url: /Level-0-scratch-to-eicar/
+            d_url: /Level-0-scratch-to-eicar/
           - 
             name: "Level 1: Scratch to ClamAV"
-            url: /Level-1-scratch-to-clamav/
+            d_url: /Level-1-scratch-to-clamav/
           - 
             name: "Level 2: ClamAV to Multi"
-            url: /Level-2-clamav-to-multi/
+            d_url: /Level-2-clamav-to-multi/
       - 
         name: API
         subitems:
           - 
             name: "PolySwarm API"
-            url: /API-polyswarm/
+            d_url: /API-polyswarm/
       - 
         name: Hive
         subitems:
           - 
             name: "How to connect to the PolySwarm Hive"
-            url: /How-to-connect-to-HIVE/
+            d_url: /How-to-connect-to-HIVE/
 footer:
   navigation:
     home:
-      url: /
-      rooturl: true
+      d_url: /
+      d_rooturl: true
     columns:
       - 
         items:
@@ -121,85 +121,86 @@ footer:
             name: Navigation
           - 
             name: Home
-            url: /
-            rooturl: true
+            d_url: /
+            d_rooturl: true
           - 
             name: Security Experts
-            url: /security_experts/
-            rooturl: true
+            d_url: /security_experts/
+            d_rooturl: true
           - 
             name: How It Works
-            url: /howitworks/
-            rooturl: true
+            d_url: /howitworks/
+            d_rooturl: true
           - 
             name: Grants
-            url: /grants/
-            rooturl: true
+            d_url: /grants/
+            d_rooturl: true
           - 
             name: Roadmap
-            url: /road_map/
-            rooturl: true
+            d_url: /road_map/
+            d_rooturl: true
           - 
             name: FAQ
-            url: /faq/
-            rooturl: true
+            d_url: /faq/
+            d_rooturl: true
       - 
         items:
           - 
             name: Company
           - 
             name: The Team
-            url: /the_team/
-            rooturl: true
+            d_url: /the_team/
+            d_rooturl: true
           - 
             name: Security
-            url: /security/
-            rooturl: true
+            d_url: /security/
+            d_rooturl: true
           - 
             name: Media
-            url: /media/
-            rooturl: true
+            d_url: /media/
+            d_rooturl: true
           - 
             name: Press
-            url: /press/
-            rooturl: true
+            d_url: /press/
+            d_rooturl: true
       - 
         items:
           - 
             name: Telegram Channels
           - 
             name: PolySwarm
-            url: https://t.me/PolySwarm
-            root: true
+            d_url: https://t.me/PolySwarm
+            d_root: true
           - 
             name: POLYSWARM官方中文群
-            url: https://t.me/PolySwarmChinese
-            root: true
+            d_url: https://t.me/PolySwarmChinese
+            d_root: true
           - 
             name: PolySwarm Announcements
-            url: https://t.me/PolySwarmAnnouncements
-            root: true
+            d_url: https://t.me/PolySwarmAnnouncements
+            d_root: true
   cta:
     name: Download Whitepaper
-    url: /polyswarm-whitepaper-zh.pdf
-    target: _blank
-    rooturl: true
+    d_url: /polyswarm-whitepaper.pdf
+    d_target: _blank
+    d_rooturl: true
   privacy:
     name: Privacy Policy
-    url: /privacy-terms/
-    rooturl: true
+    d_url: /privacy-terms/
+    d_rooturl: true
   terms:
     name: Terms of Service
-    url: /privacy-terms/
-    rooturl: true
+    d_url: /privacy-terms/
+    d_rooturl: true
 pages:
   page_not_found:
     title: Page not found
-    bg_image: /backgrounds/network-bg.png
+    d_bg_image: /backgrounds/network-bg.png
     heading: Page not found
     button:
       name: Back to home
-      url: /
+      d_url: /
+      d_style: transparent
   home:
     title: Documentation
 docs:

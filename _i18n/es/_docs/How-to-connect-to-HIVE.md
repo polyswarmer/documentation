@@ -12,34 +12,22 @@ Hive is (currently) invite-only. Message us on [Twitter](https://twitter.com/Pol
 
 When you are invited, we will need two things from you:
 
-1. an SSH public key
-2. a username
+1. An E-mail address
+2. Ethereum address(es) you will be connecting from
+
+We will then provide an API key to you to access our service
 
 ### Connecting to Hive
 
-Connecting to the Hive has been designed to be as simple as possible. We have two subdomains that you will need to use, and a one-liner connect.
+Connecting to the Hive has been designed to be as simple as possible.
 
-* `gate.polyswarm.network` is our bastion host. All traffic is routed through there via SSH.
-* `hive.polyswarm.network` is the endpoint where you can access `polyswarmd`.
+We have a hosted [polyswarmd](https://github.com/polyswarm/polyswarmd) instance running on `https://hive.polyswarm.network`
 
-For this next command you should run it in a separate tab, terminal, inside `tmux`, or any other means to leave this command running.
+You can point your [microengine](https://github.com/polyswarm/microengine) to `https://hive.polyswarm.network`, providing your API key via the command line.
 
-```bash
-ssh -i /path/to/key -N -L 31337:hive.polyswarm.network:31337 <user>@gate.polyswarm.network
-```
+If you are not using our microengine harness, in requests made to Hive put your API key in the headers of your request as follows:
 
-You will not see a prompt on that terminal, but don't worry, you have an open tunnel.
-
-With the open tunnel, you can point your microengine to the `polyswarmd` API at `http://localhost:31337`.
-
-### Verify connection
-
-An easy way to make sure you have a valid connection to reach `polyswarmd`, try the commands below. If everything is working, you should see a json response like `{"status": "OK", "result":"some_value"}`.
-
-```bash
-curl http://localhost:31337/bounites
-curl http://localhost:31337/balances/<address>/nct
-```
+`Authorization: [API KEY]`
 
 ### Using polyswarmd
 
