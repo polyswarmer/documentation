@@ -4,15 +4,16 @@ PolySwarm Documentation (https://docs.polyswarm.io) is a public resource designe
 
 ## Branch Level
 
+### develop
+
+Pull requests should be submitted to the develop branch.
+This branch is pre-master branch which enhances development-phase articles.
+Once the branch is ready for release, it will be merged into master.
+
 ### master
 
 The pages here are regarded as public/authentic.
 No articles under development or incomplete state should be located here.
-
-### develop
-
-This branch is pre-master branch which enhances development-phase articles.
-Once the branch is ready for release, it will be merged into master.
 
 ## Adding an English Page to the Docs
 
