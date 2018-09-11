@@ -857,64 +857,6 @@ See state [explaintion](#state)
 }
 ```
 
-### Send message to ambassador socket
-
-Called to pass state to a participant.
-
-**URL** : `/offers/challenge?account=[eth_account_here]`
-
-**Method** : `POST`
-
-**Data constraints**
-
-Provide: fromSocketUri - uri sending (used to return messages) state - offer state both parties signed
-
-Optional: toSocketUri - to send to a different person (defaults to the ambassador) v - recovery ids from signature of state string for both parties r - ECDSA signature of state string s - ECDSA signature of state string
-
-```json
-{
-  "fromSocketUri": "[string]",
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]"
-}
-```
-
-**Data example** All fields must be sent.
-
-See state [explaintion](#state)
-
-```json
-{
-  "state": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006e6f6e650000000000000000000000000000000000000000000000000000004c6f636b79",
-  "fromSocketUri": "ws://localhost:9999/echo"
-}
-```
-
-#### Success Response
-
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
-
-**Code** : `200`
-
-**Content example**
-
-```json
-{
-  "transactions": [
-    { "chainId": 1337,
-      "data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
-      "gas": 5000000,
-      "gasPrice": 100000000000,
-      "nonce": 748,
-      "to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
-      "value": 0
-    }
-  ]
-}
-```
-
 ### Get offer channel info
 
 **URL** : `/offers/<uuid:guid>`

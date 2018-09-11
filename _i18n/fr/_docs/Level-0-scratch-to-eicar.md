@@ -63,7 +63,7 @@ For full details on this process, please refer to the [PolySwarm whitepaper](htt
 
 ### Docker
 
-We've Docker-ized as many things as we could to make it as easy as possible to get started, regardless of your development environment. Assuming Docker is installed, these images should *just work* under Windows, macOS and Linux.
+We've Docker-ized as many things as we could to make it as easy as possible to get started, regardless of your development environment. Assuming Docker is installed, these images should *just work* under Windows, macOS and Linux. Please ensure that your system has at least 4GB of RAM available.
 
 To get started, you'll need Docker-CE (base) as well as Docker Compose (packaged with Docker in all modern releases). If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
 
@@ -88,14 +88,27 @@ $ git clone https://github.com/polyswarm/microengine
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### Spin Up a Development Environment
+### Run a Complete End-to-End Development Testnet
+
+Before creating our microengine, let's take a look at how all the pre-packaged elements work together.
 
 ```sh
 $ pushd orchestration
 $ docker-compose -f dev.yml -f tutorial.yml up
 ```
 
-That's it! You should be good to go, working on your fancy new Microengine.
+You'll see output from the following components:
+
+1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running a toy copy of our "homechain". In production use, "homechain" may be the Ethereum mainnet or a limited-access Ethereum sidechain. More on that later.
+2. `sidechain`: Another geth instance running a "sidechain". In production, "sidechains" will be used to address scalability concerns and support limit-access artifact sharing.
+3. `ipfs`: A sole IPFS node responsible for hosting all artifacts in our development testnet
+4. `polyswarmd`: The PolySwarm daemon providing convenient access to the services offered by `homechain`, `sidechain` and `ipfs`.
+5. `contracts`: Responsible for deploying the PolySwarm Nectar and BountyRegistry contracts onto our development testnet.
+6. `ambassador`: A mock Ambassador that will place bounties on [the EICAR file](https://en.wikipedia.org/wiki/EICAR_test_file) and on a file that is not EICAR.
+7. `arbiter`: A mock Arbiter that will deliver verdicts on "swarmed" artifacts and settle Bounties.
+8. `microengine`: A mock Microengine that will investigate the "swarmed" artifacts and render Assertions.
+
+When you've seen enough log output, do `ctrl-c` to halt the development testnet.
 
 ## Writing Your First Analysis Backend
 
@@ -190,16 +203,26 @@ class EicarMicroengine(Microengine):
 
 ### Build and Test Your Brand New EICAR-Detecting Microengine!
 
-Now we're going to build our docker images and see what's going on!
+First, let's spin up a subset of the complete end-to-end testnet, leaving out `microengine` and `ambassador`:
 
 ```sh
-$ docker build -t polyswarm/eicar -f docker/Dockerfile .
-# With `docker-compose _dev environment_` still running in the background/another pane (see Spin Up a Dev Enviroment^^)
-$ docker run -it --net=orchestration_default polyswarm/eicar microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password --backend eicar
-# Open a new pane/terminal window
-$ docker run -it --net=orchestration_default polyswarm/ambassador
+$ docker-compose -f dev.yml -f tutorial0.yml up polyswarmd contracts homechain sidechain ipfs arbiter
 ```
 
-And now you should have one pane running the dev.yml setup, another running your EICAR-detecting microengine, and a third running the mock `ambassador`! If you update your eicar micro-engine, you can retest it by re-building the micro engine docker container and re-running the `ambassador` container to inject a new pair of EICAR/not-EICAR artifacts.
+Once `contracts` has reported that it has successfully deployed the PolySwarm contracts, let's spin up our `microengine` in a second terminal window:
+
+```sh
+$ docker run -it --net=orchestration_default polyswarm/eicar microengine --polyswarmd-addr polyswarmd:31337 --keyfile docker/keyfile --password password
+```
+
+Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window:
+
+```sh
+$ docker run -it --net=orchestration_default polyswarm/ambassador python3 ambassador.py --polyswarmd-addr polyswarmd:31337
+```
+
+Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassor's Bounties!
+
+If you update your EICAR Microengine, you can retest the engine by re-building the Microengine docker container and re-running the `ambassador` container to inject a new pair of EICAR/not-EICAR artifacts.
 
 If you don't feel like copying in and pasting the code to detect EICAR, you can use the EICAR backend for the `polyswarm/microengine` image with the flag: "`--backend eicar`". Neat.
