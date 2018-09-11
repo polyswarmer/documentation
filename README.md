@@ -4,15 +4,16 @@ PolySwarm Documentation (https://docs.polyswarm.io) is a public resource designe
 
 ## Branch Level
 
+### develop
+
+Pull requests should be submitted to the develop branch.
+This branch is pre-master branch which enhances development-phase articles.
+Once the branch is ready for release, it will be merged into master.
+
 ### master
 
 The pages here are regarded as public/authentic.
 No articles under development or incomplete state should be located here.
-
-### develop
-
-This branch is pre-master branch which enhances development-phase articles.
-Once the branch is ready for release, it will be merged into master.
 
 ## Adding an English Page to the Docs
 
@@ -114,20 +115,21 @@ Navigation items should use the following structure:
 
 ```yml
 - name: My Page Title
-  url: /my-page-title/
-  root:  bool # (optional) If true, url will NOT be localized
-  rooturl: bool # (optional) If true, baseurl will be https://polyswarm.io
+  d_url: /my-page-title/
+  d_root:  bool # (optional) If true, url will NOT be localized
+  d_rooturl: bool # (optional) If true, baseurl will be https://polyswarm.io
 ```
 
+The `d_` prefix indicates a data property that should not be translated.
 You can also create a nav item with a dropdown list of subitems (where subitems is an array of items) like so:
 
 ```yml
 - name: My Dropdown Title
   subitems:
   - name: My Page Title
-    url: /my-page-title/
-    root:  bool # (optional) If true, url will NOT be localized
-    rooturl: bool # (optional) If true, baseurl will be https://polyswarm.io
+    d_url: /my-page-title/
+    d_root:  bool # (optional) If true, url will NOT be localized
+    d_rooturl: bool # (optional) If true, baseurl will be https://polyswarm.io
 ```
 
 Congratulations! Now that you have added your page to the navigation, your page is ready to be deployed and translated.
