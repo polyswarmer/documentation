@@ -68,6 +68,7 @@ global:
         text: Close
   previous_text: Previous article
   next_text: Next article
+  close_text: Close
 header:
   menu_text: Menu
   languages_text: Languages
@@ -165,6 +166,8 @@ pages:
       name: Back to home
       d_url: /
       d_style: transparent
+  home:
+    title: PolySwarm Documentation
 docs:
   api:
     polyswarm:

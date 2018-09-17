@@ -1,5 +1,6 @@
 ---
 layout: t-docs
+title: pages.home.title
 permalink: /
 ---
 
