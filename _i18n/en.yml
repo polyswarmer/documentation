@@ -112,37 +112,43 @@ footer:
             d_rooturl: true
           - name: Grants
             d_url: /grants/
-            d_rooturl: true
-          - name: Roadmap
-            d_url: /road_map/
+          - name: Updates
+            d_url: /updates/
             d_rooturl: true
           - name: FAQ
             d_url: /faq/
+          - name: Contact
+            d_url: /contact/
             d_rooturl: true
       - items:
           - name: Company
           - name: The Team
             d_url: /the_team/
+          - name: Careers
+            d_url: /careers/
+            d_rooturl: true
+          - name: Roadmap
+            d_url: /road_map/
             d_rooturl: true
           - name: Security
             d_url: /security/
-            d_rooturl: true
           - name: Media
             d_url: /media/
-            d_rooturl: true
           - name: Press
             d_url: /press/
-            d_rooturl: true
       - items:
           - name: Telegram Channels
           - name: PolySwarm
             d_url: https://t.me/PolySwarm
+            d_target: _blank
             d_root: true
           - name: POLYSWARM官方中文群
             d_url: https://t.me/PolySwarmChinese
+            d_target: _blank
             d_root: true
           - name: PolySwarm Announcements
             d_url: https://t.me/PolySwarmAnnouncements
+            d_target: _blank
             d_root: true
   cta:
     name: Download Whitepaper
