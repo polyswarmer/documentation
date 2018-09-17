@@ -1,3 +1,7 @@
+## Welcome
+
+Welcome to the PolySwarm documentation website. This is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products. Let's get started by taking a look at what a microengine is and what its role is in the PolySwarm marketplace.
+
 ## Background on Microengines
 
 ![Microengine_Architecture](/public-src/images/Microengine_Architecture.png)
