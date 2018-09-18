@@ -75,7 +75,7 @@ Images should be placed in the `public-src/images` directoy and referenced like 
 ![example image](/public-src/images/example.png)
 ```
 
-Images should be no more than about 720px wide and should be optimized before they are uploaded, using a tool like [TinyPNG](https://tinypng.com/).
+Images should be no more than 600px wide and should be optimized before they are uploaded, using a tool like [TinyPNG](https://tinypng.com/).
 
 ### Step Three: Reference Your Localized Title and Content
 
