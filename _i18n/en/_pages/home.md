@@ -4,7 +4,7 @@ Welcome to the PolySwarm documentation website. This is a public resource design
 
 ## Background on Microengines
 
-![Microengine_Architecture](/public-src/images/Microengine_Architecture.png)
+![Microengine Architecture](/public-src/images/microengine-architecture.png)
 
 Microengines are Security Experts' representatives in the PolySwarm marketplace; they encapsulate security expertise in the form of signatures, heuristics, dynamic analyses, emulation, virtualization, a combination of these things or perhaps something else entirely.
 If you have unique insight into a particular malware family, file format or category of malicious behavior, you are encouraged to encapsulate your knowledge into a PolySwarm Microengine, hook it up to the PolySwarm network and (potentially) earn passive income for your insight!
