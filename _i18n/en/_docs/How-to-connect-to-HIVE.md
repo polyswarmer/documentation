@@ -27,7 +27,7 @@ You can point your [microengine](https://github.com/polyswarm/microengine) to `h
 
 If you are not using our microengine harness, in requests made to Hive put your API key in the headers of your request as follows:
 
-`Authorization: Bearer [API KEY]`
+`Authorization: [API KEY]`
 
 ### Using polyswarmd
 
