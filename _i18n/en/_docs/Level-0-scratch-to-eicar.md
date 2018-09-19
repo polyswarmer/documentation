@@ -7,6 +7,7 @@ For those anxious for the code, this guide will reference and build on:
 * [**microengine**](https://github.com/polyswarm/polyswarm-client/tree/master/src/microengine): an extensible Microengine with configurable backends
 * [**polyswarmd**](https://github.com/polyswarm/polyswarmd): the PolySwarm daemon that abstracts away Ethereum and IPFS idiosyncrasies, allowing you to focus on Microengine development
 * [**contracts**](https://github.com/polyswarm/contracts): the contracts that all Microengines must support
+* [**polyswarm/orchestration**](https://github.com/polyswarm/orchestration): An example test network setup for local development
 
 Without further ado, let's get started!
 
@@ -164,22 +165,7 @@ from polyswarmclient.microengine import Microengine
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 
 class EicarMicroengine(Microengine):
-    """Microengine which tests for the EICAR test file"""
-
     async def scan(self, guid, content, chain):
-        """Scan an artifact searching for the EICAR string
-
-        Args:
-            guid (str): GUID of the bounty under analysis, use to track artifacts in the same bounty
-            content (bytes): Content of the artifact to be scan
-            chain (str): Chain sample is being sent from
-        Returns:
-            (bool, bool, str): Tuple of bit, verdict, metadata
-
-            bit (bool): Whether to include this artifact in the assertion or not
-            verdict (bool): Whether this artifact is malicious or not
-            metadata (str): Optional metadata about this artifact
-        """
         if content == EICAR:
             return True, True, ''
 
@@ -198,22 +184,7 @@ EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQ
 HASH = sha256(EICAR).hexdigest()
 
 class EicarMicroengine(Microengine):
-    """Microengine which tests for the EICAR test file"""
-
     async def scan(self, guid, content, chain):
-        """Scan an artifact searching for the EICAR string
-
-        Args:
-            guid (str): GUID of the bounty under analysis, use to track artifacts in the same bounty
-            content (bytes): Content of the artifact to be scan
-            chain (str): Chain sample is being sent from
-        Returns:
-            (bool, bool, str): Tuple of bit, verdict, metadata
-
-            bit (bool): Whether to include this artifact in the assertion or not
-            verdict (bool): Whether this artifact is malicious or not
-            metadata (str): Optional metadata about this artifact
-        """
         testhash = sha256(content).hexdigest()
         if (testhash == HASH):
             return True, True, ''
@@ -255,7 +226,7 @@ $ docker run -it --net=orchestration_default microengine-eicar
 
 Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window:
 ```sh
-$ docker-compose -f dev.yml -f tutorial0.yml up --scale ambassador=1
+$ docker-compose -f dev.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
 Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!
