@@ -23,7 +23,7 @@ Connecting to the Hive has been designed to be as simple as possible.
 
 We have a hosted [polyswarmd](https://github.com/polyswarm/polyswarmd) instance running on `https://gamma-polyswarmd.prod.polyswarm.network`
 
-You can point your [microengine](https://github.com/polyswarm/microengine) to `https://gamma-polyswarmd.prod.polyswarm.network`, providing your API key via the command line.
+You can point your [microengine](https://github.com/polyswarm/polyswarm-client/tree/master/src/microengine) to `https://gamma-polyswarmd.prod.polyswarm.network`, providing your API key via the command line.
 
 If you are not using our microengine harness, in requests made to Hive put your API key in the headers of your request as follows:
 
