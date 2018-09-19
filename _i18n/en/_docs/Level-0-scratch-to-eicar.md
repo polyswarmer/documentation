@@ -7,7 +7,7 @@ For those anxious for the code, this guide will reference and build on:
 * [**microengine**](https://github.com/polyswarm/polyswarm-client/tree/master/src/microengine): an extensible Microengine with configurable backends
 * [**polyswarmd**](https://github.com/polyswarm/polyswarmd): the PolySwarm daemon that abstracts away Ethereum and IPFS idiosyncrasies, allowing you to focus on Microengine development
 * [**contracts**](https://github.com/polyswarm/contracts): the contracts that all Microengines must support
-* [**polyswarm/orchestration**](https://github.com/polyswarm/orchestration): An example test network setup for local development
+* [**orchestration**](https://github.com/polyswarm/orchestration): An example test network setup for local development
 
 Without further ado, let's get started!
 

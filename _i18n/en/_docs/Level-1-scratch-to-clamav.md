@@ -5,7 +5,7 @@ This tutorial will step you through building your second PolySwarm Microengine b
 
 We'll be building on these projects:
 * [**microengine**](https://github.com/polyswarm/polyswarm-client/tree/master/src/microengine): an extensible Microengine with configurable backends
-* [**polyswarm/orchestration**](https://github.com/polyswarm/orchestration): An example test network setup for local development
+* [**orchestration**](https://github.com/polyswarm/orchestration): An example test network setup for local development
 
 <div class="m-flag">
   <p><strong style="display: inline;">Note:</strong> the PolySwarm marketplace will be a source of previously unseen malware.</p>
@@ -150,7 +150,7 @@ $ docker run -it --net=orchestration_default microengine-clamav
 
 Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window:
 ```sh
-$ docker-compose -f dev.yml -f tutorial0.yml up --no-deps ambassador
+$ docker-compose -f dev.yml -f tutorial1.yml up --no-deps ambassador
 ```
 
 Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!
