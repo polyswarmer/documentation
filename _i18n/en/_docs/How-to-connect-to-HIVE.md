@@ -7,7 +7,7 @@ PolySwarm Hive is an invite-only testnet to facilitate the development of microe
 ### How to Apply
 
 Hive is (currently) invite-only.
-Message us on [Twitter](https://twitter.com/PolySwarm), join our Discord or otherwise hunt us down for an invite :)
+Message us on [Twitter](https://twitter.com/PolySwarm), join our [Discord](https://discord.gg/ntEku44) or otherwise hunt us down for an invite :)
 
 ### What we Need from You
 
@@ -23,12 +23,12 @@ Connecting to the Hive has been designed to be as simple as possible.
 
 We have a hosted [polyswarmd](https://github.com/polyswarm/polyswarmd) instance running on `https://gamma-polyswarmd.prod.polyswarm.network`
 
-You can point your [microengine](https://github.com/polyswarm/polyswarm-client/tree/master/src/microengine) to `https://gamma-polyswarmd.prod.polyswarm.network`, providing your API key via the command line.
+You can point your [Microengine](https://github.com/polyswarm/polyswarm-client/tree/master/src/microengine) to `https://gamma-polyswarmd.prod.polyswarm.network`, providing your API key via the command line.
 
-If you are not using our microengine harness, in requests made to Hive put your API key in the headers of your request as follows:
+If you are not using our Microengine harness, in requests made to Hive put your API key in the headers of your request as follows:
 
 `Authorization: [API KEY]`
 
 ### Using polyswarmd
 
-Visit the [polyswarmd api docs](/API-polyswarm/) for the API specification.
+Visit the [polyswarmd API Documentation](/API-polyswarm/) for the API specification.

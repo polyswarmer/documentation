@@ -4,15 +4,13 @@
 
 Called by end users and ambassadors to post a bounty.
 
-**URL** : `/bounties?account=[eth_account_here]&chain=[chain_name]`
+**URL** :`/bounties?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-
-base_nonce - (optional) a number for transaction nonce
 
 amount - the amount of NCT to post as a reward
 
@@ -73,7 +71,7 @@ duration - duration of this bounty in blocks
 
 Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
 
-**URL** : `/bounties/<uuid:guid>/vote?account=[eth_account_here]&chain=[chain_name]`
+**URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]`
 
 **Method** : `POST`
 
@@ -81,17 +79,17 @@ Called by arbiter after bounty expiration to settle with their ground truth dete
 
 Provide:
 
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 
 verdicts - array of verdicts representing ground truth for the bounty's artifacts
 
-valid_bloom - if this is a bloom vote
+valid\_bloom - if this is a bloom vote
 
 
 ```json
 {
   "verdicts": "[array with a max of 256 boolean items]",
-  "valid_bloom": "[boolean]"
+  "valid\_bloom": "[boolean]"
 }
 ```
 
@@ -100,7 +98,7 @@ valid_bloom - if this is a bloom vote
 ```json
 {
   "verdicts": "[true, false, true, true, false]",
-  "valid_bloom": "true"
+  "valid\_bloom": "true"
 }
 ```
 
@@ -131,7 +129,7 @@ valid_bloom - if this is a bloom vote
 
 Callable after the voting window has closed to handle reward disbursal.
 
-**URL** : `/bounties/<uuid:guid>/settle?account=[eth_account_here]&chain=[chain_name]`
+**URL** : `/bounties/<uuid:guid>/settle?account=[eth_address]&chain=[chain_name]`
 
 **Method** : `POST`
 
@@ -164,7 +162,7 @@ Callable after the voting window has closed to handle reward disbursal.
 
 Called by security experts to post an assertion on a bounty
 
-**URL** : `/bounties/<uuid:guid>/assertions?account=[eth_account_here]&chain=[chain_name]`
+**URL** : `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]`
 
 **Method** : `POST`
 
@@ -172,7 +170,7 @@ Called by security experts to post an assertion on a bounty
 
 Provide:
 
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 
 bid - the amount of NCT to stake
 
@@ -225,7 +223,7 @@ verdicts - array of verdicts on bounty artifacts
 
 Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
 
-**URL** : `/bounties/<uuid:guid>/vote?account=[eth_account_here]&chain=[chain_name]`
+**URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]`
 
 **Method** : `POST`
 
@@ -233,7 +231,7 @@ Called by arbiter after bounty expiration to settle with their ground truth dete
 
 Provide:
 
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 
 nonce - the nonce used to generate the commitment hash (returned from asserting on a bounty)
 
@@ -324,7 +322,7 @@ metadata - to include in the assertion (can be empty string)
 
 Called by arbiters to deposit stake Nectar.
 
-**URL** : `/staking/deposit?account=[eth_account_here]&chain=[chain_name]`
+**URL** : `/staking/deposit?account=[eth_address]&chain=[chain_name]`
 
 **Method** : `POST`
 
@@ -352,7 +350,7 @@ amount - the amount of NCT to add to current stake
 
 Called by arbiters to withdraw available staked Nectar.
 
-**URL** : `/staking/withdraw?account=[eth_account_here]&chain=[chain_name]`
+**URL** : `/staking/withdraw?account=[eth_address]&chain=[chain_name]`
 
 **Method** : `POST`
 
@@ -429,14 +427,14 @@ List of files to upload. You can upload a max of 256
 
 Called by an ambassador to deploy a new multi signature offer
 
-**URL** : `/offers?account=[eth_account_here]`
+**URL** : `/offers?account=[eth_address]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 ambassador - address of ambassador using channel
 expert - address of expert using channel
 settlementPeriodLength - how long the parties have to dispute the settlement offer channel
@@ -489,14 +487,14 @@ websocketUri - uri of socket to send messages to ambassador
 
 Called by ambassador to open channel with expert
 
-**URL** : `offers/open/<uuid:guid>?account=[eth_account_here]`
+**URL** : `offers/open/<uuid:guid>?account=[eth_address]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 state - inital offer state
 v - the recovery id from signature of state string
 r - output of ECDSA signature of state string
@@ -551,14 +549,14 @@ See state [explaintion](#state)
 
 Called by expert to join ambassador channel
 
-**URL** : `offers/open?account=[eth_account_here]`
+**URL** : `offers/open?account=[eth_address]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 state - offer state from ambassador
 v - the recovery id from signature of state string
 r - output of ECDSA signature of state string
@@ -613,14 +611,14 @@ See state [explaintion](#state)
 
 Called by ambassador to cancel if the contract hasn't been joined yet
 
-**URL** : `offers/cancel?account=[eth_account_here]`
+**URL** : `offers/cancel?account=[eth_address]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 
 #### Success Response
 
@@ -649,14 +647,14 @@ base_nonce - (optional) a number for transaction nonce
 
 Called by any party with a both signatures on a state with a closed state flag set to 1
 
-**URL** : `/close?account=[eth_account_here]`
+**URL** : `/close?account=[eth_address]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 state - offer state with closed flag
 v - array of the recovery ids from signature of state string for both parties
 r - array of outputs of ECDSA signature of state string for both parties
@@ -711,14 +709,14 @@ See state [explaintion](#state)
 
 Called by any party with a both signatures on a state that is the final challenge state
 
-**URL** : `/offers/closeChallenged?account=[eth_account_here]`
+**URL** : `/offers/closeChallenged?account=[eth_address]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 state - offer state with closed flag
 v - array of the recovery ids from signature of state string for both parties
 r - array of outputs of ECDSA signature of state string for both parties
@@ -773,14 +771,14 @@ See state [explaintion](#state)
 
 Called by ambassador or expert to start initalize a disputed settlement using an agreed upon state. It starts a timeout for a reply using `settlementPeriodLength`
 
-**URL** : `/offers/settle?account=[eth_account_here]`
+**URL** : `/offers/settle?account=[eth_address]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 state - offer state both parties signed
 v - array of the recovery ids from signature of state string for both parties
 r - array of outputs of ECDSA signature of state string for both parties
@@ -835,14 +833,14 @@ See state [explaintion](#state)
 
 Called by ambassador or expert to challenge a disputed state. The new state is accepted if it is signed by both parties and has a higher sequence number
 
-**URL** : `/offers/challenge?account=[eth_account_here]`
+**URL** : `/offers/challenge?account=[eth_address]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base_nonce - (optional) a number for transaction nonce
+base\_nonce - (optional) a number for transaction nonce
 state - offer state both parties signed
 v - array of the recovery ids from signature of state string for both parties
 r - array of outputs of ECDSA signature of state string for both parties
@@ -931,7 +929,7 @@ See state [explaintion](#state)
 
 ### Get my offers
 
-**URL** : `/offers/myoffers?account=[eth_account_here]`
+**URL** : `/offers/myoffers?account=[eth_address]`
 
 **Method** : `GET`
 

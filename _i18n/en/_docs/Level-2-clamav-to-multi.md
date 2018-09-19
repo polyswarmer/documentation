@@ -24,7 +24,7 @@ If we examine the base `Microengine`'s scan implementation, we can see that if i
         if self.scanner:
             return await self.scanner.scan(guid, content, chain)
 
-        return True, True, ''
+        return False, False, ''
 ```
 
 ## Adding YARA to our Microengine

@@ -18,7 +18,6 @@ Conceptually, a Microengine is composed of:
 1. `N` **analysis backends**: the scanners that ingest artifacts (files) and determine `malicious` or `benign`.
 1. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
 1. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
-1. **glue** that binds all the above together, tracks state, communicates with the blockchain and IPFS
 
 ### What Microengines Do
 
@@ -26,14 +25,15 @@ Microengines are Security Experts' autonomous representatives in the PolySwarm m
 They handle everything from scanning files to placing stakes on assertions concerning the malintent of files.
 
 Specifically, Microengines:
-1. listen for Bounties and Offers on the Ethereum blockchain (via `polyswarmd`)
-2. pull artifacts from IPFS (via `polyswarmd`)
-3. scan/analyze the artifacts (via one or more **analysis backends**)
-4. determine a Nectar (NCT) staking amount (via a **verdict distillation engine**)
-5. render an assertion (their `verdict` + `stake`) (via a **staking engine**)
+1. Listen for Bounties and Offers on the Ethereum blockchain (via `polyswarmd`)
+2. Pull artifacts from IPFS (via `polyswarmd`)
+3. Scan/analyze the artifacts (via one or more **analysis backends**)
+4. Determine a Nectar (NCT) staking amount (via a **verdict distillation engine**)
+5. Render an assertion (their `verdict` + `stake`) (via a **staking engine**)
 
 All Microengines share this set of tasks.
 This tutorial will focus exclusively on item #3: bulding an analysis backend into our `microengine-scratch` skeleton project.
+The remaining tasks are handled with a reasonable default implementation in `polyswarm-client`, however customized implemenations are also possible through our API.
 
 To avoid duplication of effort and to make getting started as easy as possible, we abstract Ethereum and IPFS-specific items away with `polyswarmd`, providing a convenient API to the Microengine for interacting with these networks.
 In addition, we provide exemplar Microengines like `microengine-clamav` that everyone is welcome to build on.
@@ -44,7 +44,7 @@ We license all of our code under a permissive MIT license, allowing even for com
 ### Docker
 
 We've Docker-ized as many things as we could to make it as easy as possible to get started, regardless of your development environment.
-Assuming Docker is installed, these images should *just work* under Windows, macOS and Linux.
+Assuming Docker is installed, these images should *just work* under Windows, Mac OS X and Linux.
 Please ensure that your system has at least 4GB of RAM available.
 
 To get started, you'll need Docker-CE (base) as well as Docker Compose (packaged with Docker in all modern releases).
@@ -133,7 +133,7 @@ Default behavior happens in [microengine.py](https://github.com/polyswarm/polysw
         if self.scanner:
             return await self.scacnner.scan(guid, content, chain)
 
-        return True, True, ''
+        return False, False, ''
 ```
 
 The return values that the Microengine expects are:
@@ -149,7 +149,7 @@ The EICAR test file contains the following string:
 `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`.
 
 There are many ways to search a file for a string.
-`microengine.py` handles all of the IPFS and ethereum interactions, so all we have to worry about is writing the `scan` method.
+`microengine.py` handles all of the IPFS and Ethereum interactions, so all we have to worry about is writing the `scan` method.
 
 ```sh
 $ vim eicar.py
@@ -169,7 +169,7 @@ class EicarMicroengine(Microengine):
         if content == EICAR:
             return True, True, ''
 
-        return False, False, ''
+        return True, False, ''
 ```
 
 Here's another way, this time with a `signature` ;)
@@ -189,7 +189,7 @@ class EicarMicroengine(Microengine):
         if (testhash == HASH):
             return True, True, ''
 
-        return False, False, ''
+        return True, False, ''
 ```
 
 ### Build and Test Your Brand New EICAR-Detecting Microengine!

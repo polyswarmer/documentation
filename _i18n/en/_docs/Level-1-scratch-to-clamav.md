@@ -42,10 +42,10 @@ class EicarMicroengine(Microengine):
         if content == EICAR:
             return True, True, ''
 
-        return False, False, ''
+        return True, False, ''
 ```
 
-This simple engine asserts `malicious` on the EICAR test file and `benign` on all other files.
+This simple engine asserts `malicious` on the EICAR test file only, and `benign` on all others.
 Let's expand on this simple backend and incorporate a full-fledged ClamAV instance as our analysis backend.
 ClamAV, of course, detects much more than just EICAR :)
 
