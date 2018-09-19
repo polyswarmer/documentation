@@ -2,7 +2,7 @@
 
 ### What is Hive
 
-PolySwarm Hive is an invite-only testnet to facilitate the development of microengines and arbiters.
+PolySwarm Hive is an invite-only testnet to facilitate the development of Microengines, Ambassadors, and Arbiters.
 
 ### How to Apply
 

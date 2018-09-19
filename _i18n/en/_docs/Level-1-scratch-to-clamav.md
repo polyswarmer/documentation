@@ -10,7 +10,7 @@ We'll be building on these projects:
 <div class="m-flag">
   <p><strong style="display: inline;">Note:</strong> the PolySwarm marketplace will be a source of previously unseen malware.</p>
   <p>Relying on a strictly signature-based engine as your analysis backend, particularly one whose signatures everyone can access (e.g. ClamAV) is unlikely to yield unique insight into "swarmed" artifacts and therefore unlikely to outperform other engines. </p>
-  <p>This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into the <strong style="display: inline;">microengine</strong> skeleton.</p>
+  <p>This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into the <strong style="display: inline;">Microengine</strong> skeleton.</p>
 </div>
 
 ### Recall `eicar.py`:

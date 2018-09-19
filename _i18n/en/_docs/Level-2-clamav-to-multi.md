@@ -58,7 +58,7 @@ class YaraScanner(Scanner):
         return True, False, ''
 ```
 
-You can also add custom YARA signatures to your microengine.
+You can also add custom YARA signatures to your Microengine.
 The YARA backend included with polyswarm-client` accepts a `RULES_DIR` environment variable that lets you point to your YARA rules, represented by the `RULES_DIR` variable above.
 You can copy custom rules to the `docker/yara-rules` directory that exists by default in the `polyswarm-client` repository, this is also where the `Yara-Rules` submodule is located.
 Edit the `yara-python` compile line in `src/microengine/yara.py` to use your rules instead of the default configuration. 
@@ -69,7 +69,7 @@ class YaraScanner(Scanner):
         self.rules = yara.compile(os.path.join(RULES_DIR, "custom"))
 ```
 
-Since our mock ambassador only posts 2 files, EICAR and not_EICAR, it is sufficient for the content of this tutorial to only include the relevant EICAR rule.
+Since our mock Ambassador only posts 2 files, EICAR and not_EICAR, it is sufficient for the content of this tutorial to only include the relevant EICAR rule.
 
 ## ClamAV Scanner
 
@@ -80,7 +80,7 @@ An implemenation for the impatient can be found in [clamav.py](https://github.co
 ## Multiple Analysis Backends
 
 We will extend our Microengine to utilize multiple analysis backends, which means we need to have some way to get the result of both backends(YARA and ClamAV) and distill that into our verdict.
-Let's create a microengine which initializes multiple scanners for use:
+Let's create a Microengine which initializes multiple scanners for use:
 
 ```py
 BACKENDS = [ClamavScanner, YaraScanner]

@@ -81,7 +81,7 @@ $ pushd orchestration
 $ docker-compose -f dev.yml -f tutorial0.yml up
 ```
 
-You'll see output from the following components:
+You'll see output from the following services:
 1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running a toy copy of our "homechain". In production use, "homechain" may be the Ethereum mainnet or a limited-access Ethereum private network. More on that later.
 1. `sidechain`: Another geth instance running a "sidechain". In production, "sidechains" will be used to address scalability concerns and support limit-access artifact sharing.
 1. `ipfs`: A sole IPFS node responsible for hosting all artifacts in our development testnet
