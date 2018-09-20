@@ -1,57 +1,20 @@
-## Let's Get it On: ClamAV
+## Setting the Stage
 
 ClamAV is an open source signature-based engine with a daemon that provides quick analysis of artifacts that it recognizes.
 This tutorial will step you through building your second PolySwarm Microengine by means of incorporating ClamAV as an analysis backend.
 
-We'll be building on these projects:
-* [**microengine**](https://github.com/polyswarm/polyswarm-client/tree/master/src/microengine): an extensible Microengine with configurable backends
-* [**orchestration**](https://github.com/polyswarm/orchestration): An example test network setup for local development
-
 <div class="m-flag">
   <p><strong style="display: inline;">Note:</strong> the PolySwarm marketplace will be a source of previously unseen malware.</p>
   <p>Relying on a strictly signature-based engine as your analysis backend, particularly one whose signatures everyone can access (e.g. ClamAV) is unlikely to yield unique insight into "swarmed" artifacts and therefore unlikely to outperform other engines. </p>
-  <p>This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into the <strong style="display: inline;">Microengine</strong> skeleton.</p>
+  <p>This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into a <strong style="display: inline;">Microengine</strong> skeleton.</p>
 </div>
 
-### Recall `eicar.py`:
-
-```python
-import base64
-
-from polyswarmclient.microengine import Microengine
-
-EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
-
-class EicarMicroengine(Microengine):
-    """Microengine which tests for the EICAR test file"""
-
-    async def scan(self, guid, content, chain):
-        """Scan an artifact searching for the EICAR string
-
-        Args:
-            guid (str): GUID of the bounty under analysis, use to track artifacts in the same bounty
-            content (bytes): Content of the artifact to be scan
-            chain (str): Chain sample is being sent from
-        Returns:
-            (bool, bool, str): Tuple of bit, verdict, metadata
-
-            bit (bool): Whether to include this artifact in the assertion or not
-            verdict (bool): Whether this artifact is malicious or not
-            metadata (str): Optional metadata about this artifact
-        """
-        if content == EICAR:
-            return True, True, ''
-
-        return True, False, ''
-```
-
-This simple engine asserts `malicious` on the EICAR test file only, and `benign` on all others.
-Let's expand on this simple backend and incorporate a full-fledged ClamAV instance as our analysis backend.
-ClamAV, of course, detects much more than just EICAR :)
+This tutorial will walk the reader through building [microengine/clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py); please refer to `clamav.py` for the completed work.
 
 ## `clamd` Implementation and Integration
 
 We begin our ClamAV `analysis backend` by importing the `clamd` module and configuring some globals.
+Let's edit [microengine/scratch.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/scratch.py) and begin writing a ClamAV analysis backend:
 
 ```python
 import clamd
@@ -109,12 +72,9 @@ The return values that the Microengine expects are:
 1. `verdict`: another `boolean` representing whether the engine wishes to assert on the artifact
 1. `metadata`: (optional) `string` describing the artifact
 
-We leave submitting ClamAV's `metadata` as an exercise to the reader (the impatient can reference [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py))
+We leave submitting ClamAV's `metadata` as an exercise to the reader - or check [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) :)
 
 ## Testing, Testing, Testing
-
-Great, we've written our method to interpret `clamd`'s result.
-Finally, let's test!
 
 Let's build a docker image to test our new Microengine. Put your ClamAV code into a file named `clamav.py`, and create a `Dockerfile` with the following contents:
 ```dockerfile
