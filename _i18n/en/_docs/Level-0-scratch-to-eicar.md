@@ -1,25 +1,15 @@
 ## Building Your First PolySwarm Microengine
 
 This tutorial will step you through building your very first PolySwarm Microengine - a `hello world` Microengine capable of detecting the EICAR test file (and nothing else).
-You'll start with `microengine-scratch`, a Microengine that lacks an "Analysis Backed", and end up with `microengine-eicar`, a simple Microengine with a trivial EICAR-detecting Analysis Backend.
+We'll start with a "scratch" Microengine that lacks an "Analysis Backed", and iterate toward a simple Microengine with a trivial EICAR-detecting Analysis Backend.
 
-For those anxious for the code, this guide will reference and build on:
-* [**microengine**](https://github.com/polyswarm/polyswarm-client/tree/master/src/microengine): an extensible Microengine with configurable backends
-* [**polyswarmd**](https://github.com/polyswarm/polyswarmd): the PolySwarm daemon that abstracts away Ethereum and IPFS idiosyncrasies, allowing you to focus on Microengine development
-* [**contracts**](https://github.com/polyswarm/contracts): the contracts that all Microengines must support
-* [**orchestration**](https://github.com/polyswarm/orchestration): An example test network setup for local development
-
-Without further ado, let's get started!
-
-### Microengine Components
+### Breaking Down Microengines
 
 Conceptually, a Microengine is composed of:
 
 1. `N` **analysis backends**: the scanners that ingest artifacts (files) and determine `malicious` or `benign`.
 1. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
 1. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
-
-### What Microengines Do
 
 Microengines are Security Experts' autonomous representatives in the PolySwarm marketplace.
 They handle everything from scanning files to placing stakes on assertions concerning the malintent of files.
@@ -33,13 +23,17 @@ Specifically, Microengines:
 
 All Microengines share this set of tasks.
 This tutorial will focus exclusively on item #3: bulding an analysis backend into our `microengine-scratch` skeleton project.
-The remaining tasks are handled with a reasonable default implementation in `polyswarm-client`, however customized implemenations are also possible through our API.
-
-To avoid duplication of effort and to make getting started as easy as possible, we abstract Ethereum and IPFS-specific items away with `polyswarmd`, providing a convenient API to the Microengine for interacting with these networks.
-In addition, we provide exemplar Microengines like `microengine-clamav` that everyone is welcome to build on.
-We license all of our code under a permissive MIT license, allowing even for commercial, closed-source use.
+All other items will be covered by `polyswarmd` defaults.
+After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](https://docs.polyswarm.io/API-polyswarm/) for pointers on customizing these other aspects of their Microengine.
 
 ## Set up a Microengine Development Environment
+
+This guide will reference and build on:
+* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): The Swiss Army knife of exemplar PolySwarm participants ("clients"). 
+`polyswarm-client` can function as a `microengine` (we'll build on this functionality in this tutorial), an `arbiter` and an `ambassador` (we'll use these to test what we built).
+* [**polyswarmd**](https://github.com/polyswarm/polyswarmd): The PolySwarm daemon. This daemon handles Ethereum and IPFS idiosyncrasies for you, allowing you to focus on Microengine development :)
+* [**contracts**](https://github.com/polyswarm/contracts): The contracts that all Microengines must support.
+* [**orchestration**](https://github.com/polyswarm/orchestration): A set of `docker-compose` files that we'll use to conveniently stand up a local test network.
 
 ### Docker
 
@@ -53,12 +47,14 @@ If you do not have a recent Docker setup, please [install Docker now](https://ww
 Once installed, verify that the installation works.
 
 ```sh
-$ docker -v
-Docker version 18.05.0-ce build f150324
-
-$ docker-compose -v
-docker-compose version 1.21.1, build 5a3f1a3
+docker -v
 ```
+Should output at least: `Docker version 18.05.0-ce build f150324`
+
+```sh
+$ docker-compose -v
+```
+Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
 
 ### Git
 
@@ -68,28 +64,31 @@ Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-G
 ### Grab the Code
 
 ```sh
-$ git clone https://github.com/polyswarm/polyswarm-client
-$ git clone https://github.com/polyswarm/orchestration
+git clone https://github.com/polyswarm/polyswarm-client
+git clone https://github.com/polyswarm/orchestration
 ```
 
-### Run a Complete End-to-End Development Testnet
+### Stand Up a Development Testnet
 
 Before creating our Microengine, let's take a look at how all the pre-packaged elements work together.
+Do the following:
 
 ```sh
-$ pushd orchestration
-$ docker-compose -f dev.yml -f tutorial0.yml up
+pushd orchestration
+docker-compose -f dev.yml -f tutorial0.yml up
 ```
 
 You'll see output from the following services:
-1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running a toy copy of our "homechain". In production use, "homechain" may be the Ethereum mainnet or a limited-access Ethereum private network. More on that later.
-1. `sidechain`: Another geth instance running a "sidechain". In production, "sidechains" will be used to address scalability concerns and support limit-access artifact sharing.
-1. `ipfs`: A sole IPFS node responsible for hosting all artifacts in our development testnet
+1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running a toy copy of our "homechain". 
+In production use, "homechain" may be the Ethereum mainnet or a limited-access Ethereum private network. More on that later.
+1. `sidechain`: Another geth instance running a "sidechain". 
+In production, "sidechains" will be used to address scalability concerns and support limit-access artifact sharing.
+1. `ipfs`: A sole IPFS node responsible for hosting all artifacts in our development testnet.
 1. `polyswarmd`: The PolySwarm daemon providing convenient access to the services offered by `homechain`, `sidechain` and `ipfs`.
-1. `contracts`: Responsible for deploying the PolySwarm Nectar and BountyRegistry contracts onto our development testnet.
-1. `ambassador`: A mock Ambassador that will place bounties on [the EICAR file](https://en.wikipedia.org/wiki/EICAR_test_file) and on a file that is not EICAR.
-1. `arbiter`: A mock Arbiter that will deliver verdicts on "swarmed" artifacts and settle Bounties.
-1. `microengine`: A mock Microengine that will investigate the "swarmed" artifacts and render Assertions.
+1. `contracts`: Responsible for deploying the PolySwarm Nectar and `BountyRegistry` contracts onto our development testnet.
+1. `ambassador`: A mock Ambassador (provided by `polyswarm-client`) that will place bounties on [the EICAR file](https://en.wikipedia.org/wiki/EICAR_test_file) and on a file that is not EICAR.
+1. `arbiter`: A mock Arbiter (provided by `polyswarm-client`) that will deliver verdicts on "swarmed" artifacts and settle Bounties.
+1. `microengine`: A mock Microengine (provided by `polyswarm-client`) that will investigate the "swarmed" artifacts and render Assertions.
 
 When you've seen enough log output, do `Ctrl-C` to halt the development testnet.
 
@@ -102,7 +101,7 @@ Conceptually, all Microengines using `polyswarmd` should support the following:
 
 ### Start with the scratch Microengine
 
-We'll start with [microengine-scratch](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/scratch.py) and work toward [microengine-eicar](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py)
+We'll start with [microengine/scratch.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/scratch.py) and work toward [microengine/eicar.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py)
 
 If we look at `scratch.py`, we see the following:
 ```python
@@ -148,15 +147,8 @@ As you can see, there's nothing to detect the EICAR test file, much less a real 
 The EICAR test file contains the following string:
 `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`.
 
-There are many ways to search a file for a string.
-`microengine.py` handles all of the IPFS and Ethereum interactions, so all we have to worry about is writing the `scan` method.
+There are many ways to search a file for a string; let's take a look at how [eicar.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/polyswarmclient/microengine.py) does this detection:
 
-```sh
-$ vim eicar.py
-```
-
-Feel free to Google around and search for yourself, if you so desire.
-There's not a lot of technical know-how required so here's one way:
 ```python
 import base64
 
@@ -172,7 +164,7 @@ class EicarMicroengine(Microengine):
         return True, False, ''
 ```
 
-Here's another way, this time with a `signature` ;)
+Here's another way, this time comparing the SHA-256 of the EICAR test file with a known-bad hash:
 
 ```python
 import base64
@@ -194,7 +186,8 @@ class EicarMicroengine(Microengine):
 
 ### Build and Test Your Brand New EICAR-Detecting Microengine!
 
-Let's build a docker image to test our new Microengine. Put your eicar code into a file named `eicar.py`, and create a `Dockerfile` with the following contents:
+Let's build a docker image to test our new Microengine. 
+Put your EICAR code into a file named `eicar.py`, and create a `Dockerfile` with the following contents:
 ```dockerfile
 FROM polyswarm/polyswarm-client
 LABEL maintainer="Your Name <your@email.com>"
