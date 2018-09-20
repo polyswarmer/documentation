@@ -18,7 +18,7 @@ Once you're approved for access to Hive, you will be provided with:
 #### Hive Testnets
 
 | Friendly Name | `polyswarmd` Endpoint                              |
-| ------------- | -------------------------------------------------- |
+| ------------- |:-------------------------------------------------- |
 | Production    | `https://gamma-polyswarmd.prod.polyswarm.network`  |
 | Staging       | `https://gamma-polyswarmd.stage.polyswarm.network` |
 
