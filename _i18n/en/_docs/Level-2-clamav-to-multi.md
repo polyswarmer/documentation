@@ -3,21 +3,16 @@
 This tutorial will show you how to combine multiple analysis backends and outlines a basic verdict distillation primitive.
 The two backends will be `ClamAV` (from the last tutorial) and [`YARA`](https://virustotal.github.io/yara/).
 
-Before we start, make sure that you have the latest code from these repos:
+## Introducing Scanners
 
-* [**microengine**](https://github.com/polyswarm/polyswarm-client/tree/master/src/microengine): an extensible Microengine with configurable backends
-* [**orchestration**](https://github.com/polyswarm/orchestration): An example test network setup for local development
-
-And of course, `docker` and `docker-compose` are still requirements as well.
-These projects are dockerized for your convenience.
-
-## Scanners
-
-Lets us introduce the concept of Scanners.
 For the past two tutorials we've been overriding the `scan` method in the Microengine class to implement our custom scanning functionality.
-`polyswarm-client` also provides for `Scanner` objects, which contain the same scan method which can be overridden to customize behavior.
-This allows a separation between scanning logic and bounty/offer submission logic, and for easier reuse in other Microengines or Arbiters.
-If we examine the base `Microengine`'s scan implementation, we can see that if it is provided a scanner object it's scan method will use it by default.
+This is simple and works great for when you're just getting started.
+
+To make developing multiple Scanners as easy as possible, `polyswarm-client` also provides for `Scanner` objects, which contain the same `scan` method which can be overridden to customize behavior.
+This allows a separation between scanning logic and bounty / offer submission logic, and for easier reuse in other Microengines or Arbiters.
+
+
+If we examine the base `micorengine` scan implementation, we can see that, when provided with a `scanner` object, `scanner.scan()` is invoked by default.
 
 ```py
     async def scan(self, guid, content, chain):
@@ -27,20 +22,21 @@ If we examine the base `Microengine`'s scan implementation, we can see that if i
         return False, False, ''
 ```
 
-## Adding YARA to our Microengine
+## Adding YARA to the Mix
 
-Let's add a YARA backend to our Microengine.
-We need some rules for YARA.
-The [Yara-Rules](https://github.com/Yara-Rules/rules) repo is a place to get some for free.
-It is added as a submodule for your convenience.
-If you didn't clone `polyswarm-client` with `git clone --recursive`, run this to update it:
+We're going to add a YARA backend to our Microengine - but we need some YARA signatures (rules) first!
+
+The [Yara-Rules](https://github.com/Yara-Rules/rules) repo is a great resource for free rules; we've submodule'd this repo to `polyswarm-client` your convenience.
+If you didn't clone `polyswarm-client` with `git clone --recursive`, run this to update pull these free rules in the root of the `polyswarm-client` directory:
 
 ```sh
-#(from root of microengine repo)
-$ git submodule update --init --recursive
+git submodule update --init --recursive
 ```
 
-We will also need the `yara-python` module to interpret these rules.
+We will also need the `yara-python` module to interpret these rules - install this if you don't have it:
+```sh
+pip install yara-python
+```
 
 Next, we will create a Scanner which uses `yara-python` to scan artifacts.
 Our Scanner will look something like this:
@@ -59,28 +55,22 @@ class YaraScanner(Scanner):
 ```
 
 You can also add custom YARA signatures to your Microengine.
-The YARA backend included with polyswarm-client` accepts a `RULES_DIR` environment variable that lets you point to your YARA rules, represented by the `RULES_DIR` variable above.
+The YARA backend included with `polyswarm-client` accepts a `RULES_DIR` environment variable that lets you point to your YARA rules.
 You can copy custom rules to the `docker/yara-rules` directory that exists by default in the `polyswarm-client` repository, this is also where the `Yara-Rules` submodule is located.
-Edit the `yara-python` compile line in `src/microengine/yara.py` to use your rules instead of the default configuration. 
-
-```py
-class YaraScanner(Scanner):
-    def __init__(self):
-        self.rules = yara.compile(os.path.join(RULES_DIR, "custom"))
-```
 
 Since our mock Ambassador only posts 2 files, EICAR and not_EICAR, it is sufficient for the content of this tutorial to only include the relevant EICAR rule.
 
 ## ClamAV Scanner
 
-Let's take what we've learned about Scanners plus the ClamAV Microengine implemenation from the previous tutorial, and implement a ClamAV Scanner.
+Take what you've learned about Scanners and the implementing a ClamAV Microengine (previous tutorial) and implement a ClamAV Scanner.
 This is left as an exercise to the reader.
-An implemenation for the impatient can be found in [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py)
+
+A finished solution can be found in [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py)
 
 ## Multiple Analysis Backends
 
-We will extend our Microengine to utilize multiple analysis backends, which means we need to have some way to get the result of both backends(YARA and ClamAV) and distill that into our verdict.
-Let's create a Microengine which initializes multiple scanners for use:
+We will extend our Microengine to utilize multiple analysis backends, which means we need to have some way to get the result of both backends (YARA and ClamAV) and distill that into our verdict.
+Let's create a Microengine which initializes multiple scanners for use can name it `multi.py`:
 
 ```py
 BACKENDS = [ClamavScanner, YaraScanner]
@@ -109,9 +99,9 @@ Here we calculate all of our Scanner's results asynchronously, and then combine 
 Here we will assert if any of the backends return a True bit, and we will assert that the artifact is malicious if any backend claims it is.
 We will also combine all of the metadata from our scanners into one string to be attached to our assertion.
 
-## Testing
+A finished solution can be found in [multi.py]((https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/multi.py)).
 
-Let's fire it up and test!
+## Testing
 
 Let's build a docker image to test our new Microengine. With our code in files `clamav.py`, `yara.py`, `multi.py`, lets build an image with the following `Dockerfile`:
 
