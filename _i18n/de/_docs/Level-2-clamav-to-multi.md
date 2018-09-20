@@ -88,7 +88,7 @@ Now that we can access both Scanners, let's use both of their results to distill
 
 Here we calculate all of our Scanner's results asynchronously, and then combine them into our final verdict. Here we will assert if any of the backends return a True bit, and we will assert that the artifact is malicious if any backend claims it is. We will also combine all of the metadata from our scanners into one string to be attached to our assertion.
 
-A finished solution can be found in [multi.py]((https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/multi.py)).
+A finished solution can be found in [multi.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/multi.py).
 
 ## Testing
 
