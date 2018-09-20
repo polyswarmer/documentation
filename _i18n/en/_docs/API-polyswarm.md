@@ -1,5 +1,11 @@
 ## Bounties API
 
+### Bounty Parameters
+
+**URL** : `/bounties/parameters?chain=[chain_name]`
+
+**Method** : `GET`
+
 ### Post Bounty
 
 Called by end users and ambassadors to post a bounty.
@@ -71,15 +77,13 @@ duration - duration of this bounty in blocks
 
 Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
 
-**URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]`
+**URL** :`/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-
-base\_nonce - (optional) a number for transaction nonce
 
 verdicts - array of verdicts representing ground truth for the bounty's artifacts
 
@@ -129,7 +133,7 @@ valid\_bloom - if this is a bloom vote
 
 Callable after the voting window has closed to handle reward disbursal.
 
-**URL** : `/bounties/<uuid:guid>/settle?account=[eth_address]&chain=[chain_name]`
+**URL** : `/bounties/<uuid:guid>/settle?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -162,15 +166,13 @@ Callable after the voting window has closed to handle reward disbursal.
 
 Called by security experts to post an assertion on a bounty
 
-**URL** : `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]`
+**URL** : `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-
-base\_nonce - (optional) a number for transaction nonce
 
 bid - the amount of NCT to stake
 
@@ -223,15 +225,13 @@ verdicts - array of verdicts on bounty artifacts
 
 Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
 
-**URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]`
+**URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-
-base\_nonce - (optional) a number for transaction nonce
 
 nonce - the nonce used to generate the commitment hash (returned from asserting on a bounty)
 
@@ -280,24 +280,6 @@ metadata - to include in the assertion (can be empty string)
 }
 ```
 
-### Get all the bounties
-
-**URL** : `/bounties?chain=[chain_name]`
-
-**Method** : `GET`
-
-### Get all active bounties
-
-**URL** : `/active?chain=[chain_name]`
-
-**Method** : `GET`
-
-### Get all pending bounties
-
-**URL** : `/pending?chain=[chain_name]`
-
-**Method** : `GET`
-
 ### Get a bounty's info
 
 **URL** : `/<uuid:guid>?chain=[chain_name]`
@@ -318,11 +300,18 @@ metadata - to include in the assertion (can be empty string)
 
 ## Staking API
 
+### Staking Parameters
+
+**URL** : `/bounties/parameters?chain=[chain_name]`
+
+**Method** : `GET`
+
+
 ### Post Deposit Stake
 
 Called by arbiters to deposit stake Nectar.
 
-**URL** : `/staking/deposit?account=[eth_address]&chain=[chain_name]`
+**URL** : `/staking/deposit?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -350,7 +339,7 @@ amount - the amount of NCT to add to current stake
 
 Called by arbiters to withdraw available staked Nectar.
 
-**URL** : `/staking/withdraw?account=[eth_address]&chain=[chain_name]`
+**URL** : `/staking/withdraw?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -427,17 +416,20 @@ List of files to upload. You can upload a max of 256
 
 Called by an ambassador to deploy a new multi signature offer
 
-**URL** : `/offers?account=[eth_address]`
+**URL** : `/offers?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base\_nonce - (optional) a number for transaction nonce
+
 ambassador - address of ambassador using channel
+
 expert - address of expert using channel
+
 settlementPeriodLength - how long the parties have to dispute the settlement offer channel
+
 websocketUri - uri of socket to send messages to ambassador
 
 ```json
@@ -487,17 +479,20 @@ websocketUri - uri of socket to send messages to ambassador
 
 Called by ambassador to open channel with expert
 
-**URL** : `offers/open/<uuid:guid>?account=[eth_address]`
+**URL** : `offers/open/<uuid:guid>?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base\_nonce - (optional) a number for transaction nonce
+
 state - inital offer state
+
 v - the recovery id from signature of state string
+
 r - output of ECDSA signature of state string
+
 s - output of ECDSA signature of state string
 
 ```json
@@ -549,17 +544,20 @@ See state [explaintion](#state)
 
 Called by expert to join ambassador channel
 
-**URL** : `offers/open?account=[eth_address]`
+**URL** : `offers/open?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base\_nonce - (optional) a number for transaction nonce
+
 state - offer state from ambassador
+
 v - the recovery id from signature of state string
+
 r - output of ECDSA signature of state string
+
 s - output of ECDSA signature of state string
 
 ```json
@@ -611,14 +609,11 @@ See state [explaintion](#state)
 
 Called by ambassador to cancel if the contract hasn't been joined yet
 
-**URL** : `offers/cancel?account=[eth_address]`
+**URL** : `offers/cancel?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
-
-Provide:
-base\_nonce - (optional) a number for transaction nonce
 
 #### Success Response
 
@@ -647,17 +642,20 @@ base\_nonce - (optional) a number for transaction nonce
 
 Called by any party with a both signatures on a state with a closed state flag set to 1
 
-**URL** : `/close?account=[eth_address]`
+**URL** : `/close?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base\_nonce - (optional) a number for transaction nonce
+
 state - offer state with closed flag
+
 v - array of the recovery ids from signature of state string for both parties
+
 r - array of outputs of ECDSA signature of state string for both parties
+
 s - rray of outputs of ECDSA signature of state string for both parties
 
 ```json
@@ -709,17 +707,20 @@ See state [explaintion](#state)
 
 Called by any party with a both signatures on a state that is the final challenge state
 
-**URL** : `/offers/closeChallenged?account=[eth_address]`
+**URL** : `/offers/closeChallenged?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base\_nonce - (optional) a number for transaction nonce
+
 state - offer state with closed flag
+
 v - array of the recovery ids from signature of state string for both parties
+
 r - array of outputs of ECDSA signature of state string for both parties
+
 s - rray of outputs of ECDSA signature of state string for both parties
 
 ```json
@@ -769,20 +770,23 @@ See state [explaintion](#state)
 
 ### Settle channel
 
-Called by ambassador or expert to start initalize a disputed settlement using an agreed upon state. It starts a timeout for a reply using `settlementPeriodLength`
+Called by ambassador or expert to start initialize a disputed settlement using an agreed upon state. It starts a timeout for a reply using `settlementPeriodLength`
 
-**URL** : `/offers/settle?account=[eth_address]`
+**URL** : `/offers/settle?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base\_nonce - (optional) a number for transaction nonce
+
 state - offer state both parties signed
+
 v - array of the recovery ids from signature of state string for both parties
+
 r - array of outputs of ECDSA signature of state string for both parties
-s - rray of outputs of ECDSA signature of state string for both parties
+
+s - array of outputs of ECDSA signature of state string for both parties
 
 ```json
 {
@@ -833,18 +837,21 @@ See state [explaintion](#state)
 
 Called by ambassador or expert to challenge a disputed state. The new state is accepted if it is signed by both parties and has a higher sequence number
 
-**URL** : `/offers/challenge?account=[eth_address]`
+**URL** : `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
 **Data constraints**
 
 Provide:
-base\_nonce - (optional) a number for transaction nonce
+
 state - offer state both parties signed
+
 v - array of the recovery ids from signature of state string for both parties
+
 r - array of outputs of ECDSA signature of state string for both parties
-s - rray of outputs of ECDSA signature of state string for both parties
+
+s - array of outputs of ECDSA signature of state string for both parties
 
 ```json
 {
@@ -939,7 +946,7 @@ See state [explaintion](#state)
 
 **Method** : `POST`
 
-All signied transactions are POSTed here to start the transaction on the chain of choice.
+All signed transactions are POSTed here to start the transaction on the chain of choice.
 
 To add transaction signing to your polyswarmd dependent project you need to to
 write/use something that follows the steps below.
@@ -989,7 +996,7 @@ def post_transactions(transactions):
 
 ### Creating State
 
-The state byte string contains details the ambassabor and expert sign off on.
+The state byte string contains details the ambassador and expert sign off on.
 
 **URL** : `/offers/state`
 
@@ -1048,9 +1055,6 @@ The offers api requires signed states. Here's an example of signing to create th
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
 const keythereum = require('keythereum');
-const WebSocket = require('isomorphic-ws');
-
-const ws = new WebSocket('ws://localhost:31337/transactions');
 
 const DATADIR = '/home/user/.ethereum/priv_testnet';
 const ADDRESS = '34e583cf9c1789c3141538eec77d9f0b8f7e89f2';
@@ -1097,7 +1101,7 @@ s - ECDSA signature of state string
 
 **Data example** All fields must be sent.
 
-See state [explaintion](#state)
+See state [explanation](#state)
 
 ```json
 {
@@ -1168,7 +1172,27 @@ Sent when a new assertion to a bounty is posted
 }
 ```
 
-***Verdict***
+***Reveal***
+
+Sent when an assertion to a bounty is revealed
+
+**Content example**
+
+```json
+{
+  "event": "assertion",
+  "data": {
+    "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+    "author": "0x000000000000000000000000000000000",
+    "index": 0,
+    "nonce": "0",
+    "verdicts": [true],
+    "metadata": ""
+  }
+}
+```
+
+**Verdict***
 
 Sent when an arbiter votes on a bounty
 
@@ -1180,6 +1204,56 @@ Sent when an arbiter votes on a bounty
   "data": {
     "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
     "verdicts": [true]
+  }
+}
+```
+
+**Quorum***
+
+Sent when arbiters have reached quorum on a bounty
+
+**Content example**
+
+```json
+{
+  "event": "quorum",
+  "data": {
+    "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+    "quorum_block": 1000
+  }
+}
+```
+
+**Settled***
+
+Sent when a participant settles their portion of a bounty
+
+**Content example**
+
+```json
+{
+  "event": "settled_bounty",
+  "data": {
+    "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+    "settler": "0x0000000000000000000000000000000000000000"
+  }
+}
+```
+
+**Initialized Channel***
+
+Sent when a new channel is initialized
+
+**Content example**
+
+```json
+{
+  "event": "initialized_channel",
+  "data": {
+    "guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+    "ambassador": "0x0000000000000000000000000000000000000000",
+    "expert": "0x0000000000000000000000000000000000000000",
+    "mutl_signature": "0x0000000000000000000000000000000000000000"
   }
 }
 ```
