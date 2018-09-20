@@ -2,33 +2,71 @@
 
 ### What is Hive
 
-PolySwarm Hive is an invite-only testnet to facilitate the development of microengines and arbiters.
+PolySwarm Hive is a set of (currently invite-only) testnets that facilitate the development of Microengines, Ambassadors, and Arbiters.
 
-### How to Apply
+#### How to Apply
 
-Hive is (currently) invite-only. Message us on [Twitter](https://twitter.com/PolySwarm), join our Discord or otherwise hunt us down for an invite :)
-
-### What we Need from You
-
-When you are invited, we will need two things from you:
-
-1. An E-mail address
-2. Ethereum address(es) you will be connecting from
-
-We will then provide an API key to you to access our service
+Hive is (currently) operated on invite-only basis. Reach out to us on [Twitter](https://twitter.com/PolySwarm), join our [Discord](https://discord.gg/ntEku44) or otherwise hunt us down for an invite :)
 
 ### Connecting to Hive
 
-Connecting to the Hive has been designed to be as simple as possible.
+Once you're approved for access to Hive, you will be provided with:
 
-We have a hosted [polyswarmd](https://github.com/polyswarm/polyswarmd) instance running on `https://gamma-polyswarmd.prod.polyswarm.network`
+1. `hive.apikey`: An API key that will provide you with access to 1 or more Hive testnets
+2. `wallet.json`: An Ethereum wallet JSON associated with this API key. This wallet will contain testnet Nectar tokens to play around with.
 
-You can point your [microengine](https://github.com/polyswarm/microengine) to `https://gamma-polyswarmd.prod.polyswarm.network`, providing your API key via the command line.
+#### Hive Testnets
 
-If you are not using our microengine harness, in requests made to Hive put your API key in the headers of your request as follows:
+| Friendly Name | `polyswarmd` Endpoint                              |
+| ------------- | -------------------------------------------------- |
+| Production    | `https://gamma-polyswarmd.prod.polyswarm.network`  |
+| Staging       | `https://gamma-polyswarmd.stage.polyswarm.network` |
 
-`Authorization: [API KEY]`
+`polyswarmd` is hosted for you in the Hive environment.
 
-### Using polyswarmd
+* "Production" Hive `polyswarmd` is located at: `https://gamma-polyswarmd.prod.polyswarm.network`
+* "Stagning" Hive `polyswarmd` is located at `https://gamma-polyswarmd.prod.polyswarm.network`
 
-Visit the [polyswarmd api docs](/API-polyswarm/) for the API specification.
+#### Connecting with polyswarm-client
+
+We'll connect an EICAR-detecting Microengine (discussed in [Tutorial 0](/Level-0-scratch-to-eicar/)) to the PolySwarm Hive Staging testnet.
+
+Grab a copy of `polyswarm-client`:
+
+```sh
+git clone https://github.com/polyswarm/polyswarm-client
+```
+
+Copy your provisioned `wallet.json` into the project:
+
+```sh
+cp wallet.json polyswarm-client/docker/
+pushd polyswarm-client
+docker build -t polyswarm/polyswarm-client:tutorial -f docker/Dockerfile .
+popd
+```
+
+Run our EICAR-detecting Microengine, hooked into Hive:
+
+```sh
+docker run polyswarm/polyswarm-client:tutorial \
+    microengine \
+    --api-key "<YOUR API KEY HERE>" \
+    --keyfile "docker/wallet.json" \
+    --password "password" \
+    --polyswarmd-addr "gamma-polyswarmd.stage.polyswarm.network" \
+    --backend "eicar"
+```
+
+That's it!
+
+#### Using with Custom Client
+
+If you're building a custom client, please ensure that all API requests to Hive hosted `polyswarmd` instances must contain your API key in the headers:
+
+    Authorization: [API KEY]
+    
+
+Furthermore, please ensure that the wallet utilized by your custom client matches the API key sent in all API calls.
+
+For more details on the `polyswarmd API`, please refer to our API specification [polyswarmd API Documentation](/API-polyswarm/).
