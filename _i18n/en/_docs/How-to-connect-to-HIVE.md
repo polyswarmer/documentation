@@ -12,16 +12,16 @@ Reach out to us on [Twitter](https://twitter.com/PolySwarm), join our [Discord](
 ### Connecting to Hive
 
 Once you're approved for access to Hive, you will be provided with:
-1. An API key that will provide you with access to 1 or more Hive testnets
-1. An Ethereum wallet JSON associated with this API key.
-This wallet will contain a certain number of testnet Nectar tokens to play around with.
+1. `hive.apikey`: An API key that will provide you with access to 1 or more Hive testnets
+1. `wallet.json`: An Ethereum wallet JSON associated with this API key.
+This wallet will contain testnet Nectar tokens to play around with.
 
 #### Hive Testnets
 
 | Friendly Name | `polyswarmd` Endpoint |
 |---------------|-----------------------|
 | Production    | `https://gamma-polyswarmd.prod.polyswarm.network` | 
-| Stagning      | `https://gamma-polyswarmd.prod.polyswarm.network` | 
+| Staging       | `https://gamma-polyswarmd.stage.polyswarm.network` | 
 
 `polyswarmd` is hosted for you in the Hive environment.
 * "Production" Hive `polyswarmd` is located at: `https://gamma-polyswarmd.prod.polyswarm.network`
@@ -29,15 +29,33 @@ This wallet will contain a certain number of testnet Nectar tokens to play aroun
 
 #### Connecting with polyswarm-client
 
-Let's connect an EICAR-detecting microengine (discussed in [Tutorial 0](/Level-0-scratch-to-eicar/)) to the PolySwarm Hive Staging testnet.
+We'll connect an EICAR-detecting Microengine (discussed in [Tutorial 0](/Level-0-scratch-to-eicar/)) to the PolySwarm Hive Staging testnet.
 
+Grab a copy of `polyswarm-client`:
 ```sh
-docker run 
+git clone https://github.com/polyswarm/polyswarm-client
 ```
 
-If you don't have a local copy of `polyswarm/polyswarm-client` already, Docker will pull a new copy from Docker Hub.
+Copy your provisioned `wallet.json` into the project:
+```sh
+cp wallet.json polyswarm-client/docker/
+pushd polyswarm-client
+docker build -t polyswarm/polyswarm-client:tutorial -f docker/Dockerfile .
+popd
+```
 
-Connecting is as simple as dropping your API key & wallet JSON into `polyswarm-client` (or your own client) and pointing it toward the hosted `polyswarmd` instance:
+Run our EICAR-detecting Microengine, hooked into Hive:
+```sh
+docker run polyswarm/polyswarm-client:tutorial \
+    microengine \
+    --api-key "<YOUR API KEY HERE>" \
+    --keyfile "docker/wallet.json" \
+    --password "password" \
+    --polyswarmd-addr "gamma-polyswarmd.stage.polyswarm.network" \
+    --backend "eicar"
+```
+
+That's it!
 
 
 #### Using with Custom Client
