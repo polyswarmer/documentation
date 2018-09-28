@@ -18,14 +18,12 @@ This wallet will contain testnet Nectar tokens to play around with.
 
 #### Hive Testnets
 
+`polyswarmd` is hosted for you in the Hive environment.
+
 | Friendly Name | `polyswarmd` Endpoint                              |
 | ------------- | :--------------------------------------------------|
 | Production    | `https://gamma-polyswarmd.prod.polyswarm.network`  |
 | Staging       | `https://gamma-polyswarmd.stage.polyswarm.network` |
-
-`polyswarmd` is hosted for you in the Hive environment.
-* "Production" Hive `polyswarmd` is located at: `https://gamma-polyswarmd.prod.polyswarm.network`
-* "Stagning" Hive `polyswarmd` is located at `https://gamma-polyswarmd.prod.polyswarm.network`
 
 #### Connecting with polyswarm-client
 
