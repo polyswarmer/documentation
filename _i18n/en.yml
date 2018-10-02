@@ -198,3 +198,10 @@ docs:
   hive:
     title: "How to connect to the PolySwarm Hive"
     description: PolySwarm Hive is an invite-only testnet to facilitate the development of microengines and arbiters. This section will show you how to connect to Hive.
+banners:
+  - id: cookie-consent
+    text: "This site uses cookies to provide you with a better browsing experience."
+    d_type: accept
+    link:
+      name: Accept
+      d_url: "#"
