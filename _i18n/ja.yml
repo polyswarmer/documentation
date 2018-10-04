@@ -78,6 +78,10 @@ global:
   previous_text: Previous article
   next_text: Next article
   close_text: Close
+  privacy_settings:
+    heading: Privacy Settings
+    text: Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you consent to our use of cookies, please make sure the box below is checked. Otherwise, uncheck the box below to opt out.
+    label: Enable Cookies
 header:
   menu_text: Menu
   languages_text: Languages
@@ -206,11 +210,10 @@ footer:
     d_rooturl: true
   privacy:
     name: Privacy Policy
-    d_url: /privacy-terms/
-    d_rooturl: true
+    d_url: /privacy/
   terms:
     name: Terms of Service
-    d_url: /privacy-terms/
+    d_url: /terms/
     d_rooturl: true
 pages:
   page_not_found:
@@ -241,7 +244,7 @@ docs:
 banners:
   - 
     id: cookie-consent
-    text: "This site uses cookies to provide you with a better browsing experience."
+    text: 'Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you do not consent to our use of cookies, you can change your <a href="/privacy/#privacy-settings" target="_blank">Privacy Settings</a>. Otherwise, you may click <a href="#" class="js-banner__accept">Accept</a>.'
     d_type: accept
     link:
       name: Accept
