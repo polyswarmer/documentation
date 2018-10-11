@@ -132,7 +132,7 @@ Let's spin up a subset of the end-to-end testnet, leaving out the `tutorial` (Mi
 YARA does not require an additional container; `yara-python` will do our rule matching for us.
 
 ```sh
-$ docker-compose -f dev.yml -f tutorial2.yml up --scale tutorial=0 --scale ambassador=0
+$ docker-compose -f base.yml -f tutorial2.yml up --scale microengine=0 --scale ambassador=0
 ```
 
 Once `contracts` has reported that it has successfully deployed the PolySwarm contracts, let's spin up our Microengine in a second terminal window:
@@ -142,7 +142,7 @@ $ docker run -it --net=orchestration_default microengine-multi
 
 Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window:
 ```sh
-$ docker-compose -f dev.yml -f tutorial2.yml up --no-deps ambassador
+$ docker-compose -f base.yml -f tutorial2.yml up --no-deps ambassador
 ```
 
 Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!

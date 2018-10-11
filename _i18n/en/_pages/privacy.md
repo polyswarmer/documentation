@@ -2,110 +2,230 @@
 
 **Date Posted: 02 September 2017**
 
-**Last Updated (effective date): 30 March 2018**
+**Last Updated (effective date): 05 October 2018**
 
-Welcome to the PolySwarm website (the "PolySwarm Site"), operated by PolySwarm Pte. Ltd. ("Company", "we", "us" or "our"). Our practices related to your personal information are described in this privacy policy (the "Privacy Policy"). Company makes available the PolySwarm Products (defined below) to you subject to your acceptance of the Privacy Policy. If you do not accept the terms of this Privacy Policy you may not use the PolySwarm Products.
+Thank you for choosing to be part of our community at PolySwarm Pte. Ltd. ("Company", "we", "us", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at [privacy@polyswarm.io](mailto:privacy@polyswarm.io).
 
-#### Application of this Privacy Policy
+When you visit our website (https://polyswarm.io), and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy notice, we describe our privacy policy. We seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our Sites and our services.
 
-This Privacy Policy applies to your use of (regardless of means of access) any of the current set of PolySwarm products and services and/or participation in any token sales we may offer from time to time ("Token Sales"), collectively referred to as "PolySwarm Products", such as our website ([https://polyswarm.io](https://polyswarm.io)) related to the PolySwarm threat intelligence marketplace, a decentralized, blockchain-based, automated cyber threat intelligence platform implemented in Ethereum smart contracts. The PolySwarm Products are owned and provided by Company. You can access, download or use PolySwarm Products through the PolySwarm Site (including via Devices (defined below)) as set forth herein or in the Terms of Service or in any Terms of Token Sale applicable to you. A "Device" is any computer used to access the PolySwarm Products, including without limitation a desktop, laptop, mobile phone, tablet, or other consumer electronic device. PolySwarm Products can enable you to use applications developed by third parties, individually and collectively referred to as "Third Party Apps" on a Device, such as an Android app on a Device running either the Microsoft Windows, Apple OS X or Linux operating systems.
+This privacy policy applies to all information collected through our website (such as https://polyswarm.io), and/or any related services, sales, marketing or events (we refer to them collectively in this privacy policy as the "Sites").
 
-#### General Information
+PLEASE READ THIS PRIVACY POLICY CAREFULLY AS IT WILL HELP YOU MAKE INFORMED DECISIONS ABOUT SHARING YOUR PERSONAL INFORMATION WITH US.
 
-We believe that you have the right to understand how your information is stored and used. We are not responsible for the privacy practices of any third parties or the content of linked sites although we do encourage you to read the applicable privacy policies and terms and conditions of such parties or web sites.
+#### What Information Do We Collect?
 
-#### Information We Gather
+**Personal information you disclose to us**
 
-Information You Provide: If you wish to obtain information about our products or services you can contact us. We may collect your name, and email address, along with other personally identifiable information or personal data ("Personally Identifiable Information" or "PII") or other information you may choose to submit, in connection with your use of the PolySwarm Products. When you register for a PolySwarm account, we may collect certain PII, such as your name, email address and citizenship. You may also be asked to provide log-in information, such as your email address and a password, which will be used to access your account. If you participate in a Token Sale, you will be required to provide PII sufficient to validate your participation and comply with Company’s internal procedures and applicable law, including, for example, a government issued identification number such as a tax number, drivers’ license number, or personal identification number. By providing your PII to us, you explicitly agree to our collection and use of such information as described in this Privacy Policy. You can choose not to provide certain information, but then you might not be able to take advantage of many of our features. We use the information that you provide for such purposes as responding to your requests, customizing our features, and communicating with you.
+**In Short:** We collect personal information that you provide to us such as name, address, contact information, passwords and security data, payment information, and social media login data.
 
-Information Automatically Collected: We (or our service providers acting on our behalf) may collect PII and other information about the PolySwarm Products that you use and how you use them. This information includes information that may identify you as well as statistical information ("Analytics") that does not identify you. Some Analytics may be correlated with your PII. Usage information may include:
+We collect personal information that you voluntarily provide to us when registering at the Sites expressing an interest in obtaining information about us or our products and services, when participating in activities on the Sites or otherwise contacting us.
 
-a) Device Information: We may collect Device-specific information (such as your hardware model and operating system version).
+The personal information that we collect depends on the context of your interactions with us and the Sites, the choices you make and the products and features you use. The personal information we collect can include the following:
 
-b) Log Information: When you use PolySwarm Products, we may automatically record or log information from your Device, its software, and your activity using the PolySwarm Products. This may include: The Device’s Internet Protocol ("IP") address; Locale preferences; Date and time stamps associated with transactions; System configuration information; and other interactions with the PolySwarm Products.
+Name and Contact Data. We collect your first and last name, email address, postal address, phone number, and other similar contact data.
 
-Cookies: We may receive and store certain types of information whenever you interact with us. For example, like many Web sites, we may use "cookies," and we obtain certain types of information when your Web browser accesses the PolySwarm Site or advertisements and other content served by or on behalf of the PolySwarm Site on other Web sites. We may use cookies to personalize our Site for you and to collect aggregate information about site usage by all of our users. A cookie is a text file that our Site transfers to your computer’s hard drive for record-keeping purposes and to enhance the quality of your visit to our Site. The cookie assigns a random, unique number to your computer.
+Credentials. We collect passwords, password hints, and similar security information used for authentication and account access.
 
-The cookies we may use on the PolySwarm Site may include:
+Payment Data. We collect data necessary to process your payment if you make purchases, such as your payment instrument number (such as a credit card number), and the security code associated with your payment instrument. All payment data is stored by our payment processor and you should review its privacy policies and contact the payment processor directly to respond to your questions.
 
-a) Session cookies: We may use session cookies to grant our users access to content and to enable actions they must be logged in to do.
+Social Media Login Data. We provide you with the option to register using social media account details, like your Facebook, Twitter or other social media account. If you choose to register in this way, we will collect the Information described in the section called "How Do We Handle Your Social Logins" below.
 
-b) Persistent cookies: These usually have an expiration date in the distant future and remain in your browser until they expire or you manually delete them. We may use persistent cookies to better understand usage patterns so we can improve the site for our customers. For example, we may use a persistent cookie to associate you with your user account or to remember that your choices on the PolySwarm Site, but this only works when cookies on our site are enabled.
+All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information.
 
-c) Third party cookies: We permit limited third parties to place cookies through the PolySwarm Site to provide us with better insights into the use of the PolySwarm Site or user demographics or to provide relevant advertising to you. These third parties may collect information about a consumer’s online activities over time and across different websites when he or she uses our website. For example, we may utilize Google Analytics to analyze usage patterns of the PolySwarm Site. Google Analytics generates a cookie to capture information about your use of the PolySwarm Site which Google uses to compile reports on website activity for us and to provide other related services. Google may use a portion of your IP address to identify their cookie, but this will not be associated with any other data held by Google.
+**Information automatically collected**
 
-We may also permit third party service providers to place cookies through the PolySwarm Site, as indicated above, to perform analytic or marketing functions where you are notified of them and you have consented to the usage. We do not control the use of such third party cookies or the resulting information and we are not responsible for any actions or policies of such third parties.
+**In Short:** Some information - such as IP address and/or browser and device characteristics - is collected automatically when you visit our Sites.
 
-Your use of the PolySwarm Site will be deemed to be your consent to the placement of cookies on your computer or other device. If you prefer not to receive cookies through the PolySwarm Site, you can set your browser to either reject all cookies, to allow only "trusted" websites to set them, or to accept only those cookies from those sites you are currently on. Unless you have adjusted your browser setting so that it will refuse cookies, our system will issue cookies when you log on to the PolySwarm Site and use it. If you refuse cookies, this will limit system performance and may even cause certain features of the PolySwarm Site to malfunction or not to work at all.
+We automatically collect certain information when you visit, use or navigate the Sites. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Sites and other technical information. This information is primarily needed to maintain the security and operation of our Sites, and for our internal analytics and reporting purposes.
 
-E-mail Communications: To help us make e-mails more useful and interesting, we may receive a confirmation when you open e-mail from the PolySwarm Site, if your computer supports such capabilities. In an effort to avoid sending unnecessary messages to our customers, we also compare our customer list to lists received from other companies.
+Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in the "Cookies Policy" section below.
 
-Blockchain Information: Many PolySwarm Products are built on, or are directly integrated with, public record blockchains, such as the Ethereum Blockchain. Your use of PolySwarm Products will be deemed to be your consent to the placement of information necessary to the proper functioning of PolySwarm Products on all necessary blockchains, both public and private. We have no control over, and are not responsible for, the functioning of such blockchains or actions taken by them with respect to your information.
+**Information collected from other sources**
 
-Information from Other Sources: We might receive information about you from other sources and add it to our account information.
+**In Short:** We may collect limited data from public databases, marketing partners, social media platforms, and other outside sources.
 
-#### Use of Information
+We may obtain information about you from other sources, such as public databases, joint marketing partners, social media platforms (such as Facebook), as well as from other third parties. Examples of the information we receive from other sources include: social media profile information (your name, gender, birthday, email, current city, state and country, user identification numbers for your contacts, profile picture URL and any other information that you choose to make public); marketing leads and search results and links, including paid listings (such as sponsored links).
 
-The use of your information is subject to the PolySwarm Privacy Policy, the Terms of Service in effect at the time of use and the Terms of Token Sale. The provisions contained herein supersede all previous notices or statements regarding our privacy practices with respect to the PolySwarm Products.
+#### How Do We Use Your Information?
 
-We may use aggregated or anonymized data (independent of any personal identifiers) for research and commercial purposes, such as improving the PolySwarm Products. This information includes what areas our users visit most frequently and what services they access most often. This information helps us develop a better site that is more useful and accessible to you.
+**In Short:** We process your information for purposes based on legitimate business interests, the fulfillment of our contract with you, compliance with our legal obligations, and/or your consent.
 
-We may use your PII internally for our general commercial purposes including, among other things, to offer our own, our affiliates’ or third-party products and services that we think you may find of interest
+We use personal information collected via our Sites for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests ("Business Purposes"), in order to enter into or perform a contract with you ("Contractual"), with your consent ("Consent"), and/or for compliance with our legal obligations ("Legal Reasons"). We indicate the specific processing grounds we rely on next to each purpose listed below.
 
-We may use your email address to contact you to respond to your inquiries or to provide information on products or services to you.
+We use the information we collect or receive:
 
-Do-Not-Track: We may (and we may allow third party service providers to) use cookies or similar technologies to collect information about your browsing activities over time and across different websites following your use of the PolySwarm Site. For example, we may use a third party analytics service to help us analyze how users use the PolySwarm Site and enhance your experience when you use the Site. Our Site currently does not respond to "Do Not Track" (DNT) signals and operates as described in this Privacy Policy, whether or not a DNT signal is received.
+* To facilitate account creation and login process. See the section below headed "How We Handle Your Social Logins" for further information.
 
-Disclosing Your Information: We may reveal PII about you to unaffiliated third parties: (1) if you request or authorize it; (2) if the information is provided to help complete a transaction for you; (3) if the information is provided to comply with the law, applicable regulations, governmental and quasi- governmental requests, court orders or subpoenas, to enforce our Terms of Service or other agreements, or to protect our rights, property or safety or the rights, property or safety of our users or others (e.g., to a consumer reporting agency for fraud protection etc.); (4) if the disclosure is done as part of a purchase, transfer or sale of services or assets (e.g., in the event that any of our assets are acquired by another party, customer information may be one of the transferred assets); (5) if the information is provided to our agents, outside vendors or service providers to perform functions on our behalf (e.g., analyzing data, providing marketing assistance, providing customer service, processing orders, etc.); (6) to allow them to market to you; or (7) as otherwise described in this PolySwarm Privacy Policy. We may disclose your aggregated or anonymized information, such as usage statistics of the PolySwarm Products, to our affiliates and third parties.
+* To send you marketing and promotional communications for Business Purposes and/or with your Consent. We and/or our third party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt-out of our marketing emails at any time (see the "What Are Your Privacy Rights" section below).
 
-Opt-Out Rights: If you do not wish to receive offers or other commercial communications from us in the future, you can "opt out" by following the "unsubscribe" instructions in any communication you receive from us. Please be aware that you are not able to opt out of receiving communications about your account or transactions with us.
+* To send administrative information to you for Business Purposes, Legal Reasons and/or possibly for Contractual. We may use your personal information to send you product, service and new feature information and/or information about changes to our terms, conditions, and policies.
 
-Accessing Your Information: You are required to provide us with accurate and up to date information. PolySwarm generally gives you the ability to amend the data you provide in connection with your PolySwarm account registration by accessing your account on our site and modifying the information.
+* Deliver targeted advertising to you for our Business Purposes and/or with your Consent. We may use your information to develop and display content and advertising (and work with third parties who do so) tailored to your interests and/or location and to measure its effectiveness. For more information, see the "Cookie Policy" section below.
 
-Subject to any legislation which might, from time to time, oblige us to store the information for a certain period of time, we will respect your wishes to correct inaccurate information. Otherwise, we will hold your information for as long as we believe it will help us to achieve our aims as detailed in this policy.
+* Administer prize draws and competitions for our Business Purposes and/or with your Consent. We may use your information to administer prize draws and competitions when you elect to participate in competitions.
 
-You can ask us whether we are keeping personal information about you and you can ask to receive a copy of that personal information. We will respond as quickly as we can to your requests for details of personal information we hold about you.
+* To protect our Sites for Business Purposes and/or for Legal Reasons. We may use your information as part of our efforts to keep our Sites safe and secure (for example, for fraud monitoring and prevention).
 
-#### Security
+* To enforce our terms, conditions and policies for Business Purposes, Legal Reasons and/or possibly Contractual.
 
-We have security measures in place in our physical facilities and in our computer systems, databases, and communications networks that are reasonably designed to protect information contained within our systems from loss, misuse or alteration.
+* To respond to legal requests and prevent harm for Legal Reasons. If we receive a subpoena or other legal request, we may need to inspect the data we hold to determine how to respond.
 
-WE ARE NOT RESPONSIBLE FOR MAINTAINING THE CONFIDENTIALITY OF ANY NON- PUBLIC INFORMATION THAT YOU PROVIDE US. IF THERE IS INFORMATION THAT YOU WISH TO PROTECT FROM DISCLOSURE TO OTHERS, DO NOT PROVIDE IT TO US.
+* For other Business Purposes. We may use your information for other Business Purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Sites, products, services, marketing and your experience.
 
-No method of electronic transmission or storage is 100% secure. Therefore, we cannot guarantee absolute security of your PII. You also play a role in protecting your information. Please safeguard your user name, email address and password and do not share them with others. If we receive instructions using your log-in information we will consider that you have authorized the instructions. You agree to notify us immediately of any unauthorized use of your account or any other breach of security. We reserve the right to refuse service, terminate accounts, or remove or edit content in our sole discretion.
+#### Will Your Information Be Shared with Anyone?
 
-#### California Residents
+**In Short:** We only share information with your consent, to comply with laws, to protect your rights, or to fulfill business obligations.
 
-Because we value your privacy, we have taken the necessary precautions to be in compliance with the California Online Privacy Protection Act. We may disclose your personal information to our affiliates or other third parties, including Google, who may use that information to market to you directly. Pursuant to California’s "Shine the Light Act", California residents are permitted to request information about the manner in which we share certain categories of information with third parties for their marketing use. Please email us at [legal@PolySwarm.io](mailto:legal@PolySwarm.io) to request a copy of our disclosure pursuant to California law.
+We only share and disclose your information in the following situations:
 
-#### Children’s Online Privacy Protection Act
+* Compliance with Laws. We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process, such as in response to a court order or a subpoena (including in response to public authorities to meet national security or law enforcement requirements).
 
-We are in compliance with the requirements of the Children’s Online Privacy Protection Act ("COPPA") and do not collect knowingly collect any information from anyone under 13 years of age. If you are under the age of 13, you may not submit any PII through the PolySwarm Products. We encourage parents and legal guardians to monitor their children’s Internet usage and to help enforce our Privacy Policy by instructing their children never to provide PII through the PolySwarm Products without their permission. If you have reason to believe that a child under the age of 13 has provided PII to us through the PolySwarm Products, please contact us, and we will endeavor to delete that information from our databases. Our website, products, and services may only be used by individuals who are at least 18 years old or older.
+* Vital Interests and Legal Rights. We may disclose your information where we believe it is necessary to investigate, prevent, or take action regarding potential violations of our policies, suspected fraud, situations involving potential threats to the safety of any person and illegal activities, or as evidence in litigation in which we are involved.
 
-#### Links to Third-Party Sites
+* Vendors, Consultants and Other Third-Party Service Providers. We may share your data with third party vendors, service providers, contractors or agents who perform services for us or on our behalf and require access to such information to do that work. Examples include: payment processing, data analysis, email delivery, hosting services, customer service and marketing efforts. We may allow selected third parties to use tracking technology on the Sites, which will enable them to collect data about how you interact with the Sites over time. This information may be used to, among other things, analyze and track data, determine the popularity of certain content and better understand online activity. Unless described in this Policy, we do not share, sell, rent or trade any of your information with third parties for their promotional purposes.
 
-When you use the PolySwarm Site or the PolySwarm Products, you may be directed to other websites that are beyond our control. We may also allow third-party sites or applications to link to the PolySwarm Site. We are not responsible for the privacy practices of any third parties or the content of linked sites but we do encourage you to read the applicable privacy policies and terms and conditions of such parties or web sites. The only website to which this Privacy Policy applies is the PolySwarm Site.
+* Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.
 
-#### International Transfers
+* With your Consent. We may disclose your personal information for any other purpose with your consent.
 
-The PII we receive may be held on our computers and systems in the European Union, throughout Asia and in the computers and systems of our offices and datacenters in the United States and may be accessed by or given to our staff working outside the European Union. Your information may be processed by us in the United States, where laws regarding data protection may be less stringent than the laws in your country. By using the PolySwarm Site and by providing any personal information to the PolySwarm Site, all users, including without limitation users in Canada and the European Union, fully understand and unambiguously consent to the collection and processing of such information in the United States.
+#### Do We Use Cookies and Other Tracking Technologies?
 
-#### Online Privacy Policy Only
+**In Short:** We may use cookies and other tracking technologies to collect and store your information.
 
-This PolySwarm Privacy Policy applies only to information collected online through our website and not to information collected offline. This Privacy Policy shall not apply to any unsolicited information you provide to us through the PolySwarm Products or through any other means. This includes, but is not limited to, information posted to any public areas of the PolySwarm Products, such as forums, any ideas for new products or modifications to existing products, and other unsolicited submissions (collectively, "Unsolicited Information"). All Unsolicited Information shall be deemed to be non-confidential and we shall be free to reproduce, use, disclose, and distribute such Unsolicited Information to others without limitation or attribution.
+We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in the "Cookie Policy" section below.
 
-#### Terms of Service
+#### How Do We Handle Your Social Logins?
 
-Please also visit our Terms of Service section, which establishes the use, disclaimers, and limitations of liability governing the use of our website.
+**In Short:** If you choose to register or log in to our websites using a social media account, we may have access to certain information about you.
 
-#### Terms of Token Sale
+Our Sites offer you the ability to register and login using your third party social media account details (like your Facebook or Twitter logins). Where you choose to do this, we will receive certain profile information about you from your social media provider. The profile Information we receive may vary depending on the social media provider concerned, but will often include your name, e-mail address, friends list, profile picture as well as other information you choose to make public.
 
-We may also collect information from our customers in connection with any Terms of Token Sale which may be applicable to that customer or user.
+We will use the information we receive only for the purposes that are described in this privacy policy or that are otherwise made clear to you on the Sites. Please note that we do not control, and are not responsible for, other uses of your personal information by your third party social media provider. We recommend that you review their privacy policy to understand how they collect, use and share your personal information, and how you can set your privacy preferences on their sites and apps.
 
-#### Changes to Our Privacy Policy
+#### Is Your Information Transferred Internationally?
 
-As our services evolve and we perceive the need or desirability of using information collected in other ways, we may from time to time amend this Privacy Policy. We encourage you to check the PolySwarm Site frequently to see the current Privacy Policy and Terms of Service in effect and any changes that may have been made to them. If we make material changes to this Policy, we will post the revised PolySwarm Privacy Policy and the revised effective date on the PolySwarm Site. Please check back here periodically or contact us at the address listed at the end of this Policy. Your continued used of our services after any changes or revisions to the Privacy Policy shall indicate your agreement with the terms of such revised Privacy Policy.
+**In Short:** We may transfer, store, and process your information in countries other than your own.
 
-#### Contacting Us
+Our servers are located in the U.S. If you are accessing our Sites from outside, please be aware that your information may be transferred to, stored, and processed by us in our facilities and by those third parties with whom we may share your personal information (see "Will Your Information Be Shared with Anyone?" above), in the U.S. and other countries.
 
-This site is owned and operated by PolySwarm Pte. Ltd. If you have any questions or suggestions with respect to this policy, or if you wish to ask us to delete, correct, or show you your information as provided above, you can write to us at [legal@PolySwarm.io](mailto:legal@PolySwarm.io).
+If you are a resident in the European Economic Area, then these countries may not have data protection or other laws as comprehensive as those in your country. We will however take all necessary measures to protect your personal information in accordance with this privacy policy and applicable law.
+
+#### How Long Do We Keep Your Information?
+
+**In Short:** We keep your information for as long as necessary to fulfill the purposes outlined in this privacy policy unless otherwise required by law.
+
+We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law (such as tax, accounting or other legal requirements). No purpose in this policy will require us keeping your personal information for longer than the period of time in which users have an account with us.
+
+When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize it, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
+
+#### How Do We Keep Your Information Safe?
+
+**In Short:** We aim to protect your personal information through a system of organizational and technical security measures.
+
+We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Sites is at your own risk. You should only access the services within a secure environment.
+
+#### Do We Collect Information from Minors?
+
+**In Short:** We do not knowingly collect data from or market to children under 18 years of age.
+
+We do not knowingly solicit data from or market to children under 18 years of age. By using the Sites, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Sites. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at [privacy@polyswarm.io](mailto:privacy@polyswarm.io).
+
+#### What Are Your Privacy Rights?
+
+**In Short:** In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.
+
+In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws.
+
+If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.
+
+If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: [http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm](http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm).
+
+**Account information**
+
+If you would at any time like to review or change the information in your account or terminate your account, you can:
+
+* Log into your account settings and update your account.
+
+Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use and/or comply with legal requirements.
+
+Cookies and similar technologies: Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Sites. For further information, visit [http://www.aboutads.info/choices/](http://www.aboutads.info/choices/). You can also learn more in the "Cookie Policy" section below.
+
+Opting out of email marketing:
+
+You can unsubscribe from our marketing email list at any time by clicking on the unsubscribe link in the emails that we send or by contacting us using the details provided below. You will then be removed from the marketing email list – however, we will still need to send you service-related emails that are necessary for the administration and use of your account. To otherwise opt-out, you may:
+
+* Access your account settings and update preferences.
+
+#### Do California Residents Have Specific Privacy Rights?
+
+**In Short:** Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.
+
+California Civil Code Section 1798.83, also known as the "Shine The Light" law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
+
+If you are under 18 years of age, reside in California, and have a registered account with the Sites, you have the right to request removal of unwanted data that you publicly post on the Sites. To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Sites, but please be aware that the data may not be completely or comprehensively removed from our systems.
+
+#### Cookie Policy
+
+**What are cookies?**
+
+Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.
+
+Cookies set by the website owner (in this case, PolySwarm Pte. Ltd.) are called "first party cookies". Cookies set by parties other than the website owner are called "third party cookies". Third party cookies enable third party features or functionality to be provided on or through the website (e.g. like advertising, interactive content and analytics). The parties that set these third party cookies can recognize your computer both when it visits the website in question and also when it visits certain other websites.
+
+**Why do we use cookies?**
+
+We use first and third party cookies for several reasons. Some cookies are required for technical reasons in order for our Sites to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our Online Properties. Third parties serve cookies through our Sites for advertising, analytics and other purposes. This is described in more detail below.
+
+The specific types of first and third party cookies served through our Websites and the purposes they perform are described below (please note that the specific cookies served may vary depending on the specific Online Properties you visit):
+
+**Performance and functionality cookies:**
+
+These cookies are used to enhance the performance and functionality of our Sites but are non-essential to their use. However, without these cookies, certain functionality (like videos) may become unavailable.
+
+* Who serves these cookies?
+ * Cookie provider: PolySwarm
+  * Website URL: https://polyswarm.io/
+* How to refuse:
+ * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
+
+**Analytics and customization cookies:**
+
+These cookies collect information that is used either in aggregate form to help us understand how our Sites are being used or how effective our marketing campaigns are, or to help us customize our Sites for you.
+
+* Who serves these cookies?
+ * Cookie provider: Google Analytics
+  * Website URL: https://analytics.google.com/analytics/web/
+ * Cookie provider: Pardot
+  * Website URL: https://www.pardot.com/
+* How to refuse:
+ * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
+
+**What about other tracking technologies, like web beacons?**
+
+Cookies are not the only way to recognize or track visitors to a website. We may use other, similar technologies from time to time, like web beacons (sometimes called "tracking pixels" or "clear gifs"). These are tiny graphics files that contain a unique identifier that enable us to recognize when someone has visited our Sites or opened an e-mail that we have sent them. This allows us, for example, to monitor the traffic patterns of users from one page within our Websites to another, to deliver or communicate with cookies, to understand whether you have come to our Websites from an online advertisement displayed on a third-party website, to improve site performance, and to measure the success of e-mail marketing campaigns. In many instances, these technologies are reliant on cookies to function properly, and so declining cookies will impair their functioning.
+
+**How can I control cookies?**
+
+You can change your [privacy settings](/privacy/#privacy-settings). Additionally, you can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted. As the means by which you can refuse cookies through your web browser controls vary from browser-to-browser, you should visit your browser's help menu for more information.
+
+In addition, most advertising networks offer you a way to opt out of targeted advertising. If you would like to find out more information, please visit [http://www.aboutads.info/choices/](http://www.aboutads.info/choices/) or [http://www.youronlinechoices.com](http://www.youronlinechoices.com).
+
+#### Do We Make Updates to This Policy?
+
+**In Short:** Yes, we will update this policy as necessary to stay compliant with relevant laws.
+
+We may update this privacy policy from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
+
+#### How Can You Contact Us About This Policy?
+
+If you have questions or comments about this policy, you may contact us by email at [privacy@polyswarm.io](mailto:privacy@polyswarm.io), or by post to:
+
+PolySwarm Pte. Ltd.<br>
+548 Market Street<br>
+#37005<br>
+San Francisco, CA 94104<br>
+United States
+
+#### How Can You Review, Update, or Delete, the Data We Collect from You?
+
+Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please submit a request by emailing [privacy@polyswarm.io](mailto:privacy@polyswarm.io).

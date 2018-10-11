@@ -100,7 +100,7 @@ docker build -t microengine-clamav .
 
 Let's spin up a subset of the end-to-end testnet, leaving out the `tutorial` (Microengine) and `ambassador` services, but including a `clamav` service listening for samples over the network:
 ```sh
-$ docker-compose -f dev.yml -f tutorial1.yml up --scale tutorial=0 --scale ambassador=0
+$ docker-compose -f base.yml -f tutorial1.yml up --scale microengine=0 --scale ambassador=0
 ```
 
 Once `contracts` has reported that it has successfully deployed the PolySwarm contracts, let's spin up our Microengine in a second terminal window:
@@ -110,7 +110,7 @@ $ docker run -it --net=orchestration_default microengine-clamav
 
 Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window:
 ```sh
-$ docker-compose -f dev.yml -f tutorial1.yml up --no-deps ambassador
+$ docker-compose -f base.yml -f tutorial1.yml up --no-deps ambassador
 ```
 
 Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!
