@@ -135,7 +135,7 @@ footer:
             d_url: /careers/
             d_rooturl: true
           - name: Roadmap
-            d_url: /road_map/
+            d_url: /roadmap/
             d_rooturl: true
           - name: FAQ
             d_url: /faq/
