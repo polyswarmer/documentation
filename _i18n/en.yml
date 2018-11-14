@@ -10,46 +10,46 @@ global:
         text: View now
       close:
         text: Close
-    - name: de
-      fullname: Deutsch
-      d_url: /de/
-      text: This page is available in Deutsch.
-      ok:
-        text: View now
-      close:
-        text: Close
-    - name: es
-      fullname: Español
-      d_url: /es/
-      text: This page is available in Español.
-      ok:
-        text: View now
-      close:
-        text: Close
-    - name: fr
-      fullname: Français
-      d_url: /fr/
-      text: This page is available in Français.
-      ok:
-        text: View now
-      close:
-        text: Close
-    - name: ru
-      fullname: Русский
-      d_url: /ru/
-      text: This page is available in Русский.
-      ok:
-        text: View now
-      close:
-        text: Close
-    - name: ko
-      fullname: 한국어
-      d_url: /ko/
-      text: This page is available in 한국어.
-      ok:
-        text: View now
-      close:
-        text: Close
+  #   - name: de
+  #     fullname: Deutsch
+  #     d_url: /de/
+  #     text: This page is available in Deutsch.
+  #     ok:
+  #       text: View now
+  #     close:
+  #       text: Close
+  #   - name: es
+  #     fullname: Español
+  #     d_url: /es/
+  #     text: This page is available in Español.
+  #     ok:
+  #       text: View now
+  #     close:
+  #       text: Close
+  #   - name: fr
+  #     fullname: Français
+  #     d_url: /fr/
+  #     text: This page is available in Français.
+  #     ok:
+  #       text: View now
+  #     close:
+  #       text: Close
+  #   - name: ru
+  #     fullname: Русский
+  #     d_url: /ru/
+  #     text: This page is available in Русский.
+  #     ok:
+  #       text: View now
+  #     close:
+  #       text: Close
+  #   - name: ko
+  #     fullname: 한국어
+  #     d_url: /ko/
+  #     text: This page is available in 한국어.
+  #     ok:
+  #       text: View now
+  #     close:
+  #       text: Close
     - name: ja
       fullname: 日本語
       d_url: /ja/
@@ -58,14 +58,14 @@ global:
         text: View now
       close:
         text: Close
-    - name: zh
-      fullname: 中文
-      d_url: /zh/
-      text: This page is available in 中文.
-      ok:
-        text: View now
-      close:
-        text: Close
+    # - name: zh
+    #   fullname: 中文
+    #   d_url: /zh/
+    #   text: This page is available in 中文.
+    #   ok:
+    #     text: View now
+    #   close:
+    #     text: Close
   previous_text: Previous article
   next_text: Next article
   close_text: Close
@@ -112,7 +112,7 @@ footer:
             d_url: /security_experts/
             d_rooturl: true
           - name: How It Works
-            d_url: /howitworks/
+            d_url: /how_it_works/
             d_rooturl: true
           - name: Grants
             d_url: /grants/
