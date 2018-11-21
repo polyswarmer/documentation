@@ -114,8 +114,8 @@ footer:
           - name: How It Works
             d_url: /how_it_works/
             d_rooturl: true
-          - name: Grants
-            d_url: /grants/
+          - name: Partners
+            d_url: /partners/
             d_rooturl: true
           - name: Updates
             d_url: /updates/
@@ -139,6 +139,9 @@ footer:
             d_rooturl: true
           - name: FAQ
             d_url: /faq/
+            d_rooturl: true
+          - name: Grants
+            d_url: /grants/
             d_rooturl: true
           - name: Security
             d_url: /security/
