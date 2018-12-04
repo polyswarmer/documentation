@@ -85,14 +85,14 @@ Called by arbiter after bounty expiration to settle with their ground truth dete
 
 Provide:
 
-verdicts - array of verdicts representing ground truth for the bounty's artifacts
+votes - array of votes representing ground truth for the bounty's artifacts
 
 valid\_bloom - if this is a bloom vote
 
 
 ```json
 {
-  "verdicts": "[array with a max of 256 boolean items]",
+  "votes": "[array with a max of 256 boolean items]",
   "valid\_bloom": "[boolean]"
 }
 ```
@@ -101,7 +101,7 @@ valid\_bloom - if this is a bloom vote
 
 ```json
 {
-  "verdicts": "[true, false, true, true, false]",
+  "votes": "[true, false, true, true, false]",
   "valid\_bloom": "true"
 }
 ```
@@ -295,6 +295,24 @@ metadata - to include in the assertion (can be empty string)
 ### Get an assertion for a bounty
 
 **URL** : `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
+
+**Method** : `GET`
+
+### Get bloom for a bounty
+
+**URL** : `/<uuid:guid>/bloom?chain=[chain_name]`
+
+**Method** : `GET`
+
+### Get votes for a bounty
+
+**URL** : `/<uuid:guid>/votes?chain=[chain_name]`
+
+**Method** : `GET`
+
+### Get a vote for a bounty
+
+**URL** : `/<uuid:guid>/votes/<int:id_>?chain=[chain_name]`
 
 **Method** : `GET`
 
@@ -1192,7 +1210,7 @@ Sent when an assertion to a bounty is revealed
 }
 ```
 
-**Verdict***
+***Vote***
 
 Sent when an arbiter votes on a bounty
 
@@ -1200,15 +1218,15 @@ Sent when an arbiter votes on a bounty
 
 ```json
 {
-  "event": "verdict",
+  "event": "vote",
   "data": {
     "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "verdicts": [true]
+    "votes": [true]
   }
 }
 ```
 
-**Quorum***
+***Quorum***
 
 Sent when arbiters have reached quorum on a bounty
 
@@ -1224,7 +1242,7 @@ Sent when arbiters have reached quorum on a bounty
 }
 ```
 
-**Settled***
+***Settled***
 
 Sent when a participant settles their portion of a bounty
 
@@ -1240,7 +1258,7 @@ Sent when a participant settles their portion of a bounty
 }
 ```
 
-**Initialized Channel***
+***Initialized Channel***
 
 Sent when a new channel is initialized
 
