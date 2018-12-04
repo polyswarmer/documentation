@@ -43,12 +43,13 @@ Please [install Python](https://www.python.org/downloads/) for your development 
 
 ### (Optional) Set up a Virtual Environment (virtualenv)
 
-If you plan to use this Windows installation for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
+If you plan to use this host for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
 
 ```bash
+pip install virtualenv
 cd ~
-python -m venv polyswarmvenv
-./polyswarmvenv/Scripts/Activate.ps1
+virtualenv polyswarmvenv -p <PATH TO PYTHON 3.5.4 OR ABOVE>
+source polyswarmvenv/bin/activate
 ```
 
 > Info: If you install `polyswarm-client` in a virtualenv, you'll need to "activate" the virtualenv (see above) each time you open a shell.
@@ -70,8 +71,7 @@ You should now have a working development environment!
 To verify, simply try importing `polyswarmclient`:
 ```bash
 $ python
-Python 3.5.4 (v3.5.4:3f56838, Aug  8 2017, 02:17:05) [MSC v.1900 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license" for more information.
+...
 >>> import polyswarmclient
 >>>
 ```
