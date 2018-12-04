@@ -115,3 +115,13 @@ You should be able to import `polyswarmclient` without issue.
 
 [Next, we'll walk you through building your very own PolySwarm microengine, capable of detecting the EICAR test file ->](TODO: link to tut-eicar.md)
 
+TODO:
+
+# Creating a Windows Engine
+
+Docker on Windows leaves a lot to be desired, so instead we use [Packer](https://www.packer.io/) to build Windows-based [AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html).
+
+Windows-based engines are built in 2 stages:
+1. We build a skeleton Windows AMI with Python on [Windows builds of `polyswarm-client` libraries installed](https://github.com/polyswarm/polyswarm-client).
+2. `cookiecutter` produces a template microengine wrap project that contains a Packer template and Continuous Integration (CI) instructions to build & push the resultant AMI.
+
