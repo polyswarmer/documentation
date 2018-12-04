@@ -1,50 +1,47 @@
-## Building Your First PolySwarm Microengine
+TODO:
+> Info: These instructions produce AMI files for use on Amazon AWS. 
+Stay tuned for instructions supporting other hosting providers and local hosting options.
 
 
-TOOD this section:
+# Microengine "Hello World"
+
+## Overview 
+
+The "Hello World" of developing an anti-malware solution is invariably detecting the [EICAR test file](https://en.wikipedia.org/wiki/EICAR_test_file).
+
+This benign file is detected as "malicious" by all major anti-malware products - a safe way to test a positive result.
+
+Our microengine will be no difficult: we'll set out to detect EICAR.
+
+[Review the components of a microengine ->](TODO: link to participants_microengine.md, section Breaking Down Microengines)
+
+## Building Blocks
 
 This guide will reference and build on:
-* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): The Swiss Army knife of exemplar PolySwarm participants ("clients"). 
+
+* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): 
+The Swiss Army knife of exemplar PolySwarm participants ("clients"). 
 `polyswarm-client` can function as a `microengine` (we'll build on this functionality in this tutorial), an `arbiter` and an `ambassador` (we'll use these to test what we built).
-* [**polyswarmd**](https://github.com/polyswarm/polyswarmd): The PolySwarm daemon. This daemon handles Ethereum and IPFS idiosyncrasies for you, allowing you to focus on Microengine development :)
-* [**contracts**](https://github.com/polyswarm/contracts): The contracts that all Microengines must support.
-* [**orchestration**](https://github.com/polyswarm/orchestration): A set of `docker-compose` files that we'll use to conveniently stand up a local test network.
 
+* [**polyswarmd**](https://github.com/polyswarm/polyswarmd): 
+The PolySwarm daemon. 
+This daemon handles Ethereum and IPFS idiosyncrasies for you, allowing you to focus on Microengine development :)
 
-This tutorial will step you through building your very first PolySwarm Microengine - a `hello world` Microengine capable of detecting the EICAR test file (and nothing else).
-We'll start with a "scratch" Microengine that lacks an "Analysis Backed", and iterate toward a simple Microengine with a trivial EICAR-detecting Analysis Backend.
+* [**contracts**](https://github.com/polyswarm/contracts): 
+The contracts that all Microengines must support.
 
-### Breaking Down Microengines
-
-Conceptually, a Microengine is composed of:
-
-1. `N` **analysis backends**: the scanners that ingest artifacts (files) and determine `malicious` or `benign`.
-1. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
-1. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
-
-Microengines are Security Experts' autonomous representatives in the PolySwarm marketplace.
-They handle everything from scanning files to placing stakes on assertions concerning the malintent of files.
-
-Specifically, Microengines:
-1. Listen for Bounties and Offers on the Ethereum blockchain (via `polyswarmd`)
-2. Pull artifacts from IPFS (via `polyswarmd`)
-3. Scan/analyze the artifacts (via one or more **analysis backends**)
-4. Determine a Nectar (NCT) staking amount (via a **verdict distillation engine**)
-5. Render an assertion (their `verdict` + `stake`) (via a **staking engine**)
-
-All Microengines share this set of tasks.
-This tutorial will focus exclusively on item #3: bulding an analysis backend into our `microengine-scratch` skeleton project.
-All other items will be covered by `polyswarmd` defaults.
-After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](https://docs.polyswarm.io/API-polyswarm/) for pointers on customizing these other aspects of their Microengine.
+* [**orchestration**](https://github.com/polyswarm/orchestration): 
+A set of `docker-compose` files that we'll use to conveniently stand up a local test network.
 
 
 
-### Stand Up a Development Testnet
+
+### (Linux Only) Stand Up a Development Testnet
 
 Before creating our Microengine, let's take a look at how all the pre-packaged elements work together.
 Do the following:
 
-```sh
+```bash
 pushd orchestration
 docker-compose -f base.yml -f tutorial0.yml up
 ```
@@ -63,6 +60,7 @@ In production, "sidechains" will be used to address scalability concerns and sup
 
 When you've seen enough log output, do `Ctrl-C` to halt the development testnet.
 
+
 ## Writing Your First Analysis Backend
 
 Conceptually, all Microengines using `polyswarmd` should support the following:
@@ -70,7 +68,7 @@ Conceptually, all Microengines using `polyswarmd` should support the following:
 * `scan` - Scan an artifact associated with a bounty and return an assertion
 * `bid` - Calculate how much NCT to stake with an assertion
 
-### Start with the scratch Microengine
+### Start with the `scratch` Microengine
 
 We'll start with [microengine/scratch.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/scratch.py) and work toward [microengine/eicar.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py)
 
@@ -174,22 +172,22 @@ CMD ["--polyswarmd-addr", "polyswarmd:31337", "--insecure-transport", "--testing
 ```
 
 Build your image with
-```sh
+```bash
 docker build -t microengine-eicar .
 ```
 
 Let's spin up a subset of the end-to-end testnet, leaving out the `tutorial` (Microengine) and `ambassador` services:
-```sh
+```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
 Once `contracts` has reported that it has successfully deployed the PolySwarm contracts, let's spin up our Microengine in a second terminal window:
-```sh
+```bash
 $ docker run -it --net=orchestration_default microengine-eicar
 ```
 
 Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window:
-```sh
+```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
