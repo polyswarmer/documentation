@@ -3,7 +3,7 @@
 ## System Requirements
 
 * x86-64 CPU
-* 4GB RAM
+* 4GB of RAM
 * Windows 10*
 
 *Older versions of Windows may work, but are untested (and unsupported) at this time.
