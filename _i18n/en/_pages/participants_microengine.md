@@ -55,7 +55,6 @@ After completing these tutorials, advanced users may want to refer to [**polyswa
 
 ## Developing a Microengine
 
-Enough chit-chat.
 Ready to develop your first Microengine and start earning NCT?
 
 [Let's configure our development environment ->](TODO: link to dev_env.md)

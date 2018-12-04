@@ -7,9 +7,9 @@ The "Hello World" of developing an anti-malware solution is invariably detecting
 
 This benign file is detected as "malicious" by all major anti-malware products - a safe way to test a positive result.
 
-Our microengine will be no different: we'll set out to detect EICAR.
+Our first Microengine will be no different: let's detect EICAR!
 
-[If you need, review the components of a microengine ->](TODO: link to participants_microengine.md, section "Breaking Down Microengines")
+[(Optional) Review the components of a Microengine ->](TODO: link to participants_microengine.md, section "Breaking Down Microengines")
 
 
 ## Building Blocks
@@ -17,76 +17,33 @@ Our microengine will be no different: we'll set out to detect EICAR.
 This guide will reference and build on:
 
 * [**engine-template**](https://github.com/polyswarm/engine-template):
-The name says it all - it's a convenient template with interactive prompts for creating new engines.
+The name says it all - this is a convenient template with interactive prompts for creating new engines.
 We'll use this in our tutorial.
 
 * [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): 
 The Swiss Army knife of exemplar PolySwarm participants ("clients"). 
 `polyswarm-client` can function as a `microengine` (we'll build on this functionality in this tutorial), an `arbiter` and an `ambassador` (we'll use these to test what we built).
 
-* [**polyswarmd**](https://github.com/polyswarm/polyswarmd): 
-The PolySwarm daemon. 
-This daemon handles Ethereum and IPFS idiosyncrasies for you, allowing you to focus on Microengine development :)
 
-* [**contracts**](https://github.com/polyswarm/contracts): 
-The contracts that all Microengines must support.
-
-* [**orchestration**](https://github.com/polyswarm/orchestration): 
-A set of `docker-compose` files that we'll use to conveniently stand up a local test network.
-
-
-### (Linux Only) Stand Up a Development Testnet
-
-Before creating our Microengine, let's take a look at how all the pre-packaged elements work together.
-Do the following:
-
-```bash
-pushd orchestration
-docker-compose -f base.yml -f tutorial0.yml up
-```
-
-You'll see output from the following services:
-1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running a toy copy of our "homechain". 
-In production use, "homechain" may be the Ethereum mainnet or a limited-access Ethereum private network. More on that later.
-1. `sidechain`: Another geth instance running a "sidechain". 
-In production, "sidechains" will be used to address scalability concerns and support limit-access artifact sharing.
-1. `ipfs`: A sole IPFS node responsible for hosting all artifacts in our development testnet.
-1. `polyswarmd`: The PolySwarm daemon providing convenient access to the services offered by `homechain`, `sidechain` and `ipfs`.
-1. `contracts`: Responsible for deploying the PolySwarm Nectar and `BountyRegistry` contracts onto our development testnet.
-1. `ambassador`: A mock Ambassador (provided by `polyswarm-client`) that will place bounties on [the EICAR file](https://en.wikipedia.org/wiki/EICAR_test_file) and on a file that is not EICAR.
-1. `arbiter`: A mock Arbiter (provided by `polyswarm-client`) that will deliver verdicts on "swarmed" artifacts and settle Bounties.
-1. `microengine`: A mock Microengine (provided by `polyswarm-client`) that will investigate the "swarmed" artifacts and render Assertions.
-
-When you've seen enough log output, do `Ctrl-C` to halt the development testnet.
-
-
-## Writing Your First Analysis Backend
-
-Conceptually, all Microengines using `polyswarmd` should support the following:
-
-* `scan` - Scan an artifact associated with a bounty and return an assertion
-* `bid` - Calculate how much NCT to stake with an assertion
-
-
-## Customize `engine-template` for your Engine
+## Customize `engine-template`
 
 > Warning: Windows-based engines are currently only supported as AMIs - AWS Machine Images.
-The customization process for Window-based engines assumes you have an AWS account ID handy.
-Supprot will be expanded to additional deployment options in the near future.
+The customization process for Window-based engines assumes you have an AWS account and its ID handy.
+We'll be expanding deployment options in near future, including self-hosted options.
 Linux-based engines have no such stipulation.
 
 We're going to cut our Engine from `engine-template`.
-To do, we'll need `cookiecutter`:
+To do this, we'll need `cookiecutter`:
 ```bash
 pip install cookiecutter
 ```
 
-With `cookiecutter` installed, jumpstarting your engine from our template is as easy as:
+With `cookiecutter` installed, jump-starting your engine from our template is as easy as:
 ```bash
-cookiecutter git@github.com:polyswarm/engine-template
+cookiecutter https://github.com/polyswarm/engine-template
 ```
 
-Prompts will appear, here's how we'll answer:
+Prompts will appear, here's how we'll answer them:
 * `engine_name`: **MyEicarEngine**
 * `engine_name_slug`: (accept the default)
 * `project_slug`: (accept the default)
@@ -102,7 +59,6 @@ Prompts will appear, here's how we'll answer:
 All set!
 
 You should find a `microengine-myeicarengine` in your current working direction - this is what we'll be editing to implement EICAR scan functionality.
-
 
 
 ### Start with the `scratch` Microengine
