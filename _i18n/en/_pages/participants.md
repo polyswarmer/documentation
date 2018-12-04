@@ -1,6 +1,23 @@
 # PolySwarm Market Participants
 
-## Microengines
+For a high-level overview of the roles in the PolySwarm marketplace, take a look at our TODO https://polyswarm.io/how_it_works/
+
+In brief:
+
+*Ambassadors* pay a fee or purchase a subscription to submit files (artifacts) to the PolySwarm network.
+This fee funds Security Experts who have developed Microengines and Arbiters who are responsible for determining Ground Truth.
+In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in triage or incident response.
+
+*Microengines* are developed by individuals or organizations who have a knack for identifying malware.
+Microengines encapsulate security expertise and bundle it in an autonomous process that 
+
+In return, they recieve crowdsourced expertise 
+
+in brief, TODO
+
+## Choose Your Own Adventure
+
+### Building a Microengine
 
 ![Microengine Architecture](/public-src/images/microengine-architecture.jpg)
 
@@ -28,10 +45,10 @@ Correct **Microengines** are rewarded with the escrowed funds of incorrect **Mic
 
 For full details on this process, please refer to the [PolySwarm whitepaper](https://polyswarm.io/polyswarm-whitepaper.pdf) for now - more documentation is forthcoming!
 
-## Ambassadors
+### Building an Ambassador
 
 TODO
 
-## Arbiters
+### Becoming an Arbiter
 
-TODO
+TODO - we're working with initial partners on this role - inctructions to come

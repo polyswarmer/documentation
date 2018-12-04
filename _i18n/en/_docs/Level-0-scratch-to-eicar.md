@@ -26,47 +26,7 @@ This tutorial will focus exclusively on item #3: bulding an analysis backend int
 All other items will be covered by `polyswarmd` defaults.
 After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](https://docs.polyswarm.io/API-polyswarm/) for pointers on customizing these other aspects of their Microengine.
 
-## Set up a Microengine Development Environment
 
-This guide will reference and build on:
-* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): The Swiss Army knife of exemplar PolySwarm participants ("clients"). 
-`polyswarm-client` can function as a `microengine` (we'll build on this functionality in this tutorial), an `arbiter` and an `ambassador` (we'll use these to test what we built).
-* [**polyswarmd**](https://github.com/polyswarm/polyswarmd): The PolySwarm daemon. This daemon handles Ethereum and IPFS idiosyncrasies for you, allowing you to focus on Microengine development :)
-* [**contracts**](https://github.com/polyswarm/contracts): The contracts that all Microengines must support.
-* [**orchestration**](https://github.com/polyswarm/orchestration): A set of `docker-compose` files that we'll use to conveniently stand up a local test network.
-
-### Docker
-
-We've Docker-ized as many things as we could to make it as easy as possible to get started, regardless of your development environment.
-Assuming Docker is installed, these images should *just work* under Windows, Mac OS X and Linux.
-Please ensure that your system has at least 4GB of RAM available.
-
-To get started, you'll need Docker-CE (base) as well as Docker Compose (packaged with Docker in all modern releases).
-If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
-
-Once installed, verify that the installation works.
-
-```sh
-docker -v
-```
-Should output at least: `Docker version 18.05.0-ce build f150324`
-
-```sh
-$ docker-compose -v
-```
-Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
-
-### Git
-
-We'll need to grab a few source code repositories; it'll be easiest to use Git.
-Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
-
-### Grab the Code
-
-```sh
-git clone https://github.com/polyswarm/polyswarm-client
-git clone https://github.com/polyswarm/orchestration
-```
 
 ### Stand Up a Development Testnet
 
