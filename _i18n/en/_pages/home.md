@@ -45,7 +45,7 @@ Future communities may include:
 Anyone will be able to administer their own Community and advertise their community through PolySwarm Portal.
 
 
-### Community Chains: Home vs Side
+### Chains: Home vs Side
 
 Each Community has a "homechain" and a "sidechain", either of which may be shared with other Communities.
 Generally speaking, the "homechain" is where crypto assets natviely exist and the "sidechain" is where PolySwarm transations take place.
