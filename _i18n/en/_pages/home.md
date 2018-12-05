@@ -15,7 +15,7 @@ Before we dive into the code, let's get our bearings:
 
 There are several ways to participate in the PolySwarm ecosystem: will you create a microengine, an ambassador, an arbiter or something else entirely?
 
-[Explore Roles and determine where you fit into PolySwarm ->](TODO link to particpants.md)
+[Determine where you fit into PolySwarm ->](TODO link to particpants.md)
 
 
 ## Portal
@@ -29,7 +29,7 @@ The [PolySwarm Portal](https://polyswarm.network) is PolySwarm's one-stop shop f
 
 ... and much, much more.
 
-[Take a look ->](https://polyswarm.network)
+[Explore the Portal ->](https://polyswarm.network)
 
 
 ## Communities
@@ -48,5 +48,14 @@ Future communities may include:
 
 Anyone will be able to administer their own community and advertise their community through PolySwarm Portal.
 
-[Browse the Communities ->](TODO: link to Portal / Communities)
+### Homechain Versus Sidechain
+
+TODO
+
+In production use, "homechain" may be the Ethereum mainnet or a limited-access Ethereum private network.
+
+note for testing, there's a single home / side chain clique node
+
+
+[Browse currently active Communities ->](TODO: link to Portal / Communities)
 

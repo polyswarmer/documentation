@@ -44,7 +44,7 @@ cookiecutter https://github.com/polyswarm/engine-template
 ```
 
 Prompts will appear, here's how we'll answer them:
-* `engine_name`: **MyEicarEngine** (the name of your engine)
+* `engine_name`: MyEicarEngine (the name of your engine)
 * `engine_name_slug`: (accept the default)
 * `project_slug`: (accept the default)
 * `author_org`: ACME (or the real name of your organization)
@@ -110,8 +110,6 @@ From [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/
 
 ```python
 import base64
-
-from polyswarmclient.microengine import Microengine
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 
