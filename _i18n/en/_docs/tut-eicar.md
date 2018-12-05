@@ -74,7 +74,7 @@ TODO: end aside
 
 You're all set!
 
-You should find a `microengine-myeicarengine` in your current working direction - this is what we'll be editing to implement EICAR scan functionality.
+You should find a `microengine-myeicarengine` in your current working directory - this is what we'll be editing to implement EICAR scan functionality.
 
 
 ## Implement an EICAR Scanner & Microengine
@@ -109,8 +109,11 @@ If you'd like some inspiration, below are a couple of ways to go about it.
 From [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py):
 
 ```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import base64
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
+from polyswarmclient.abstractscanner import AbstractScanner
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 
@@ -133,10 +136,12 @@ class Microengine(AbstractMicroengine):
 Here's another way, this time comparing the SHA-256 of the EICAR test file with a known-bad hash:
 
 ```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import base64
-
 from hashlib import sha256
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
+from polyswarmclient.abstractscanner import AbstractScanner
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 HASH = sha256(EICAR).hexdigest()
