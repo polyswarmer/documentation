@@ -7,7 +7,10 @@ Unit testing your Microengine is a simple process:
 1. build a Docker image of your Microengine
 1. run `docker-compose` to use `tox` to execute your testing logic in `src/scan_test.py`
 
-Build a your Microengine into a Docker image:
+Run the following commands from the root of your project directory.
+
+
+Build your Microengine into a Docker image:
 ```bash
 docker build -t ${PWD##*/} -f docker/Dockerfile .
 ```

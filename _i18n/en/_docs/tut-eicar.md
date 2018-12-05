@@ -106,19 +106,28 @@ The `scan` function's `content` parameter contains the entire content of the art
 **Try your hand at writing a `scan` function that detects the EICAR test file.**
 If you'd like some inspiration, below are a couple of ways to go about it.
  
-From [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/polyswarmclient/microengine.py):
+From [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py):
 
 ```python
 import base64
+from polyswarmclient.abstractmicroengine import AbstractMicroengine
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 
-class EicarMicroengine(Microengine):
+class Scanner(AbstractScanner):
+
     async def scan(self, guid, content, chain):
         if content == EICAR:
             return True, True, ''
 
         return True, False, ''
+
+
+class Microengine(AbstractMicroengine):
+    def __init__(self, client, testing=0, scanner=None, chains=None):
+        scanner = Scanner()
+        super().__init__(client, testing, scanner, chains)
+
 ```
 
 Here's another way, this time comparing the SHA-256 of the EICAR test file with a known-bad hash:
@@ -127,18 +136,26 @@ Here's another way, this time comparing the SHA-256 of the EICAR test file with 
 import base64
 
 from hashlib import sha256
-from polyswarmclient.microengine import Microengine
+from polyswarmclient.abstractmicroengine import AbstractMicroengine
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 HASH = sha256(EICAR).hexdigest()
 
-class EicarMicroengine(Microengine):
+class Scanner(AbstractScanner):
+
     async def scan(self, guid, content, chain):
         testhash = sha256(content).hexdigest()
         if (testhash == HASH):
             return True, True, ''
 
         return True, False, ''
+
+
+class Microengine(AbstractMicroengine):
+    def __init__(self, client, testing=0, scanner=None, chains=None):
+        scanner = Scanner()
+        super().__init__(client, testing, scanner, chains)
+
 ```
 
 That's it!
