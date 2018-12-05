@@ -59,3 +59,7 @@ note for testing, there's a single home / side chain clique node
 
 [Browse currently active Communities ->](TODO: link to Portal / Communities)
 
+
+## Assorted TODOs
+
+TODO - change the names of tutorial files
