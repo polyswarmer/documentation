@@ -62,12 +62,10 @@ docker_test_engine_myeicarengine_1_800a4ac410b0 exited with code 1
 
 ## Integration Testing
 
-Integration testing is far more complex.
 The PolySwarm marketplace is composed of a myriad of participants and technologies: Ethereum & IPFS nodes, contracts, Microengines, Ambassadors, Arbiters, artifacts and much more.
 Testing a single component often demands availability of all of the other components.
 
-But we did the hard work for you :)
-Our `orchestration` project makes this easy and seamless.
+The `orchestration` project makes standing up a complete testnet easy and seamless.
 True to its name, `orchestration` orchestrates all the components necessary to stand up and tear down an entire PolySwarm marketplace environment on a local development machine.
 
 Grab `orchestration`:
@@ -75,7 +73,7 @@ Grab `orchestration`:
 git clone https://github.com/polyswarm/orchestration
 ```
 
-### (Optional) Get a Sense for a Complete Testnet
+### (Optional) Preview a Complete, Working Testnet
 
 Let's spin up a complete, working testnet to get a sense for what things *should* look like:
 ```bash
@@ -85,7 +83,7 @@ docker-compose -f base.yml -f tutorial0.yml up
 
 You'll see output from the following services:
 1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running our testnet's "homechain".
-See [Homechain Versus Sidechain](TODO: link to Homechain Versus Sidechain in home.md) for an explanation of the homechain / sidechain concept.
+See [Chains: Home vs Side](TODO: link to appropraite section in home.md) for an explanation of our split-chain design.
 1. `sidechain`: Another `geth` instance, this one running our testnet's "sidechain". 
 1. `ipfs`: An IPFS node responsible for hosting all artifacts in our development testnet.
 1. `polyswarmd`: The PolySwarm daemon providing convenient access to the services offered by `homechain`, `sidechain` and `ipfs`.
@@ -116,16 +114,13 @@ Finally, let's introduce some artifacts for our Microengine to scan in a third t
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
-
-TODO: do we want to scale in above?
+TODO: do we want to use scale in above?
 
 Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!
 
 When you make changes to your Engine, testing those changes is as simple as re-building your Docker image and re-running the `ambassador` service to inject a new a new pair of EICAR/not-EICAR artifacts.
 You can keep the rest of the testnet running while you iterate.
 
+That's it for detecting EICAR!
 
-
-
-
-
+[Move onto bigger and better things ->](TODO: link to tut_clamav.md)
