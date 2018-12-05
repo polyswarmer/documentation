@@ -75,9 +75,3 @@ This split-chain design makes that possible.
 There are several ways to participate in the PolySwarm ecosystem: will you create a Microengine, an Ambassador, an Arbiter or something else entirely?
 
 [Determine where you fit into PolySwarm ->](TODO link to particpants.md)
-
-
-
-## Assorted TODOs
-
-TODO - change the names of tutorial files
