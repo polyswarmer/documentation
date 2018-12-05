@@ -157,9 +157,21 @@ By default, all assertions are placed with the minimum stake permitted by the co
 Check back soon for an exploration of various staking strategies.
 
 
-## Finalizing Your Engine
+## Finalizing & Testing Your Engine
 
 `cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself.
-We've already covered the major items above, but do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
+We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
 
-[Let's test our engine ->](TODO link to testing.md)
+Once everything is in place, let's test our engine:
+
+[Test Linux-based Engines ->](TODO: link to testing_lin.md)
+
+[Test Windows-based Engines ->](TODO: link to testing_win.md)
+
+
+## Next Steps
+
+Implementing scan logic directly in the Scanner class is difficult to manage and scale.
+Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
+
+[Next, we'll wrap ClamAV into a Microengine ->](TODO: link to tut-clamav.md)
