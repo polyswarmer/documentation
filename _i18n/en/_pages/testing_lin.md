@@ -120,7 +120,3 @@ Take a look at the logs from all three terminal windows - you should see your Mi
 
 When you make changes to your Engine, testing those changes is as simple as re-building your Docker image and re-running the `ambassador` service to inject a new a new pair of EICAR/not-EICAR artifacts.
 You can keep the rest of the testnet running while you iterate.
-
-That's it for detecting EICAR!
-
-[Move onto bigger and better things ->](TODO: link to tut_clamav.md)
