@@ -1,3 +1,5 @@
+# Wrapping a Real Engine: ClamAV
+
 ## Setting the Stage
 
 ClamAV is an open source signature-based engine with a daemon that provides quick analysis of artifacts that it recognizes.
@@ -9,7 +11,7 @@ This tutorial will step you through building your second PolySwarm Microengine b
   <p>This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into a <strong style="display: inline;">Microengine</strong> skeleton.</p>
 </div>
 
-This tutorial will walk the reader through building [microengine/clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py); please refer to `clamav.py` for the completed work.
+This tutorial will walk the reader through building [microengine/clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py).
 
 ## `clamd` Implementation and Integration
 
@@ -17,7 +19,7 @@ Start with a fresh engine-template, give it the `engine-name` of "MyClamAvEngine
 You should find a `microengine-myclamavengine` in your current working directory - this is what we'll be editing to implement ClamAV scan functionality.
 TODO: "engine-template" above should link to the tut-eicar.md section called "Customize engine-template"
 
-Edit the `__init__.py` as we describe below:
+Edit the `__init__.py` as we describe below.
 
 We begin our ClamAV `analysis backend` by importing the `clamd` module and configuring some globals.
 
@@ -95,6 +97,6 @@ Once everything is in place, let's test our engine:
 ## Next Steps
 
 In the Eicar example, we showed you how to implement scan logic directly in the Scanner class.
-And in this ClamAV example, we showed you how to call out to an external socket to access scanning logic.
+In this ClamAV example, we showed you how to call out to an external socket to access scanning logic.
 
 [Next, we'll wrap ClamAV and Yara into a single Microengine ->](TODO: link to tut-yara-multi.md)
