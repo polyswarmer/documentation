@@ -11,14 +11,14 @@ For a high-level overview of the PolySwarm marketplace, see [How It Works](https
 Microengines encapsulate security expertise and bundle it in an autonomous process that responds to queries from Ambassadors, identifying the latest malware and earning Nectar (NCT) rewards for accurately identifying new strands of malware.
 *Threat intelligence goes in, NCT comes out.*
 
-I want to learn more about creating a Microengine -> (TODO: link to participants_microengine.md)
+[I want to learn more about creating a Microengine ->](TODO: link to participants_microengine.md)
 
 
 ## Ambassadors
 
 **Ambassadors** pay a fee or purchase a subscription to submit files (artifacts) to the PolySwarm network.
-This fee funds Security Experts who have developed Microengines and Arbiters who are responsible for determining Ground Truth.
-In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in triage or incident response.
+This fee funds Microengines and Arbiters for offering thereat intelligence and determining ground truth, respectively.
+In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in, e.g. triage or incident response.
 *NCT goes in, threat intelligence comes out.*
 
 I want to learn more about creating an Ambassador (coming soon!) (TODO: this is a greyed out link)
