@@ -10,7 +10,7 @@ These instructions are developed against and tested to work on Ubuntu 18.04.
 
 We've Docker-ized as many things as possible to make it easy to dive right in.
 
-You need to install Docker-CE (base) as well as Docker Compose (packaged with Docker in all modern releases).
+You need to install Docker-CE (base) as well as Docker Compose.
 If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
 
 Once installed, verify that the installation works.
@@ -20,6 +20,8 @@ docker -v
 ```
 
 Should output at least: `Docker version 18.05.0-ce build f150324`
+
+Also install [`docker-compose`](https://docs.docker.com/compose/install/)
 
 ```bash
 $ docker-compose -v
@@ -34,10 +36,10 @@ We'll need to grab a few source code repositories; it'll be easiest to use Git.
 Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
 
-## Install Python
+### Install Python & PIP
 
 PolySwarm development requires Python 3.5.4 or above.
-Please [install Python](https://www.python.org/downloads/) for your development platform.
+Please install [Python](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) for your development platform.
 
 
 ## (Optional) Set up a Virtual Environment (virtualenv)

@@ -155,10 +155,6 @@ class Microengine(AbstractMicroengine):
 
 ```
 
-That's it!
-
-Don't worry, we'll test your Microengine shorty :)
-
 
 ### Develop a Staking Strategy
 
