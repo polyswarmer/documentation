@@ -1,9 +1,29 @@
 # Testing Windows-Based Engines
 
+These instructions will enable you to perform local testing of your Windows-based microengine.
+The first step is to create one Windows and one Linux VM.
+The next step is to network the two VMs together and configure them.
+After that, you can perform your local testing.
 
 ## TODO requirements
 
+These instructions assume that you have a recent Windows desktop or server computer that meets the following requirements:
+* VT-X enabled in BIOS, to enable you to run VMs
+* More than 8GB of RAM
+* More than 8 64bit CPU cores
+* At least 100GB of available disk space
+
+We've tested the instructions on a Windows 10 Pro desktop.
+
+* [Download and Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* [Download Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO)
+* [Download Xubuntu 18.04 amd64 ISO](https://xubuntu.org/release/18-04/)
+
 ## Windows VM configuration (`polyswarm_win`):
+
+Create a Windows VM using the following parameters:
+
+* Name: polyswarm_win
 * Windows 10 Pro
 * 4GB RAM
 * 4 CPU
@@ -11,23 +31,22 @@
 * tools installed
 * video memory 128MB
 * 3D acceleration off
+* TODO: size of disk
 
 ## Linux VM configuration (`polyswarm_lin`):
-* Xubuntu 18.04
+
+Create a Linux VM using the following paramters:
+
+* Name: polyswarm_lin
+* Xubuntu 18.04 amd64
 * 8GB RAM
 * 4 CPU
 * tools installed
 * video memory 128MB
 * 3D acceleration off
+* TODO: size of disk
 
-
-## Unit Testing
-
-TODO
-
-
-## Integration Testing
-
+## Configure VMs for PolySwarm testing
 
 ### Establish Networking Between Your Linux & Windows VMs
 
@@ -35,12 +54,11 @@ We need to establish an "internal" network that our Linux and Windows VMs will u
 
 Before we get started, shut down both the Linux and the Windows VM.
 
-Open a PowerShell and change to the VirtualBox installation directory:
+On your host computer, open a PowerShell and change to the VirtualBox installation directory:
 ```powershell
 PS C:\Users\user> pushd $Env:Programfiles\Oracle\VirtualBox
 PS C:\Program Files\Oracle\VirtualBox>
 ```
-
 
 #### Create Internal PolySwarm Network
 
@@ -119,6 +137,57 @@ Reply from 192.168.0.101: bytes=32 time<1ms TTL=64
 ```
 
 Looking good!
+
+### Install tools on Linux VM
+
+There are some tools we need to install on the Linux VM to enable it to act as a test version of the PolySwarm marketplace.
+
+#### Install Docker
+
+We've Docker-ized the test version of the PolySwarm marketplace.
+To use it, you need to install Docker-CE (base) as well as Docker Compose.
+If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
+
+Once installed, verify that the installation works.
+
+```bash
+docker -v
+```
+
+Should output at least: `Docker version 18.05.0-ce build f150324`
+
+Also install [`docker-compose`](https://docs.docker.com/compose/install/)
+
+```bash
+$ docker-compose -v
+```
+
+Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
+
+> Note: If you get permission errors when running docker or docker-compose commands, prefix the command with `sudo`.
+
+#### Download polyswarm/orchestration
+
+On github, we publish the `polyswarm/orchestration` project. 
+This purpose of this project is to enable developers to run a test version of the PolySwarm marketplace.
+Open a browser in the Linux VM and browse to the [polyswarm/orchestration](https://github.com/polyswarm/orchestration) project.
+On that page, click on the green button and select `Download ZIP`.
+Once you've downloaded the .zip file, extract it to your home directory.
+That will create a directory named `orchestration` in your home directory.
+Any docker commands you run when testing your microengine must be run from within this `orchestration` directory.
+
+### Install tools on Windows VM
+
+Your Windows VM can be your main development environment if you choose to do so.
+If not, it will need to be setup following the instructions for [Setting up a Windows Development Environment]()TODO: insert link to development-environment-windows.md.
+And then you'll need to copy your microengine project directory into the VM to do testing.
+
+## Unit Testing
+
+TODO
+
+
+## Integration Testing
 
 
 ### Test Your Engine
