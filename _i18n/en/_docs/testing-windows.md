@@ -2,8 +2,10 @@
 
 These instructions will enable you to perform local testing of your Windows-based microengine.
 The first step is to create one Windows and one Linux VM.
+The Windows VM is where you will run your Windows-based microengine (and possibily do your development).
+And the Linux VM is where you will run a local testing version of the PolySwarm marketplace, which we'll call the "testnet".
 The next step is to network the two VMs together and configure them.
-After that, you can perform your local testing.
+Finally, you can perform your local testing.
 
 ## TODO requirements
 
@@ -20,6 +22,9 @@ We've tested the instructions on a Windows 10 Pro desktop.
 * [Download Xubuntu 18.04 amd64 ISO](https://xubuntu.org/release/18-04/)
 
 ## Windows VM configuration (`polyswarm_win`):
+
+> Note: If you are already doing your development in a Windows VM, you do not need to create an additional Windows VM for testing.
+You simply substitute your Windows VM name for `polyswarm_win` in our instructions in this document.
 
 Create a Windows VM using the following parameters:
 
@@ -89,6 +94,8 @@ Boot `polyswarm_win` and configure the new adapter for these static IPv4 setting
 * netmask: `255.255.255.0`
 * gateway: `192.168.0.1`
 
+TODO: why does the windows VM need a static IP? This seems like an unnecessary step.
+TODO: we should use a network that is less common with people's home routers/lans to prevent conflicts. How about 192.168.42.0/24?
 
 #### Configure Windows VM for `polyswarmd` DNS Resolution
 
@@ -140,7 +147,7 @@ Looking good!
 
 ### Install tools on Linux VM
 
-There are some tools we need to install on the Linux VM to enable it to act as a test version of the PolySwarm marketplace.
+There are some tools we need to install on the Linux VM to enable it to act as a testnet.
 
 #### Install Docker
 
@@ -168,18 +175,17 @@ Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
 
 #### Download polyswarm/orchestration
 
-On github, we publish the `polyswarm/orchestration` project. 
-This purpose of this project is to enable developers to run a test version of the PolySwarm marketplace.
+On github, we publish the `polyswarm/orchestration` project to enable developers to run a local testing version of the PolySwarm marketplace.
 Open a browser in the Linux VM and browse to the [polyswarm/orchestration](https://github.com/polyswarm/orchestration) project.
 On that page, click on the green button and select `Download ZIP`.
 Once you've downloaded the .zip file, extract it to your home directory.
-That will create a directory named `orchestration` in your home directory.
-Any docker commands you run when testing your microengine must be run from within this `orchestration` directory.
+That will create a directory named `orchestration-master` in your home directory.
+Any docker commands you run when testing your microengine must be run from within this `orchestration-master` directory.
 
 ### Install tools on Windows VM
 
 Your Windows VM can be your main development environment if you choose to do so.
-If not, it will need to be setup following the instructions for [Setting up a Windows Development Environment]()TODO: insert link to development-environment-windows.md.
+But regardless, it will need to be setup following the instructions for [Setting up a Windows Development Environment]()TODO: insert link to development-environment-windows.md.
 And then you'll need to copy your microengine project directory into the VM to do testing.
 
 ## Unit Testing
@@ -234,8 +240,7 @@ TODO
 
 this means we're ready for some artifacts:
 ```powershell
-(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> microengine --keyfile keyfile --password password --backen
-d polyswarm_mywindowsengine --polyswarmd-addr polyswarmd:31337 --insecure-transport
+(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> microengine --keyfile keyfile --password password --backend polyswarm_mywindowsengine --polyswarmd-addr polyswarmd:31337 --insecure-transport
 INFO:root:2018-12-05 22:15:29,256 Logging in text format.
 INFO:polyswarmclient:2018-12-05 22:15:29,880 Using account: 0x34E583cf9C1789c3141538EeC77D9F0B8F7E89f2
 INFO:polyswarm_mywindowsengine:2018-12-05 22:15:29,880 Loading MyWindowsEngine scanner...
