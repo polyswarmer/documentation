@@ -238,7 +238,7 @@ docs:
       title: polyswarmd API
       description: The polyswarmd API documentation.
   hive:
-    title: "How to connect to the PolySwarm Hive"
+    title: PolySwarm Hive
     description: PolySwarm Hive is an invite-only testnet to facilitate the development of microengines and arbiters. This section will show you how to connect to Hive.
 banners:
   - id: cookie-consent

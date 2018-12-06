@@ -1,22 +1,20 @@
-## PolySwarm Hive
-
-### What is Hive
+## What is Hive
 
 PolySwarm Hive is a set of (currently invite-only) testnets that facilitate the development of Microengines, Ambassadors, and Arbiters.
 
-#### How to Apply
+### How to Apply
 
 Hive is (currently) operated on invite-only basis.
 Reach out to us on [Twitter](https://twitter.com/PolySwarm), join our [Discord](https://discord.gg/ntEku44) or otherwise hunt us down for an invite :)
 
-### Connecting to Hive
+## Connecting to Hive
 
 Once you're approved for access to Hive, you will be provided with:
 1. `hive.apikey`: An API key that will provide you with access to 1 or more Hive testnets
 1. `wallet.json`: An Ethereum wallet JSON associated with this API key.
 This wallet will contain testnet Nectar tokens to play around with.
 
-#### Hive Testnets
+### Hive Testnets
 
 `polyswarmd` is hosted for you in the Hive environment.
 
@@ -25,7 +23,7 @@ This wallet will contain testnet Nectar tokens to play around with.
 | Production    | `https://gamma-polyswarmd.prod.polyswarm.network`  |
 | Staging       | `https://gamma-polyswarmd.stage.polyswarm.network` |
 
-#### Connecting with polyswarm-client
+### Connecting with polyswarm-client
 
 We'll connect an EICAR-detecting Microengine (discussed in [Tutorial 0](/Level-0-scratch-to-eicar/)) to the PolySwarm Hive Staging testnet.
 
@@ -56,7 +54,7 @@ docker run polyswarm/polyswarm-client:tutorial \
 That's it!
 
 
-#### Using with Custom Client
+### Using with Custom Client
 
 If you're building a custom client, please ensure that all API requests to Hive hosted `polyswarmd` instances must contain your API key in the headers:
 
