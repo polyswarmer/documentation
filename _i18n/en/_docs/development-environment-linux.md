@@ -1,7 +1,7 @@
 ## System Requirements
 
 * x86-64 CPU
-* 4GB of RAM
+* 8GB of RAM
 
 These instructions are developed against and tested to work on Ubuntu 18.04.
 
