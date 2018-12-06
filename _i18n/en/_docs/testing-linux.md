@@ -83,7 +83,7 @@ docker-compose -f base.yml -f tutorial0.yml up
 
 You'll see output from the following services:
 1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running our testnet's "homechain".
-See [Chains: Home vs Side](TODO: link to appropraite section in home.md) for an explanation of our split-chain design.
+See [Chains: Home vs Side](/#chains-home-vs-side) for an explanation of our split-chain design.
 1. `sidechain`: Another `geth` instance, this one running our testnet's "sidechain".
 1. `ipfs`: An IPFS node responsible for hosting all artifacts in our development testnet.
 1. `polyswarmd`: The PolySwarm daemon providing convenient access to the services offered by `homechain`, `sidechain` and `ipfs`.

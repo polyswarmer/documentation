@@ -11,7 +11,7 @@ For a high-level overview of the PolySwarm marketplace, see [How It Works](https
 Microengines encapsulate security expertise and bundle it in an autonomous process that responds to queries from Ambassadors, identifying the latest malware and earning Nectar (NCT) rewards for accurately identifying new strands of malware.
 *Threat intelligence goes in, NCT comes out.*
 
-[I want to learn more about creating a Microengine →](TODO: link to participants_microengine.md)
+[I want to learn more about creating a Microengine →](/concepts-participants-microengine/)
 
 
 ## Ambassadors

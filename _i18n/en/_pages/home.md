@@ -67,7 +67,7 @@ Today, Ethereum does not scale (they're working on this of course), so applicati
 PolySwarm supports the notion of limited-access, private Communities.
 This split-chain design makes that possible.
 
-[Browse Communities →](TODO: link to Portal / Communities)
+<button disabled>Browse Communities → (coming soon!)</button>
 
 
 ## Your Role in the PolySwarm Marketplace

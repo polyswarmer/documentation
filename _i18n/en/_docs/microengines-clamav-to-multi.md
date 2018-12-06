@@ -5,9 +5,8 @@ The two backends will be `ClamAV` (from the last tutorial) and [YARA](https://vi
 
 ## Adding YARA to the Mix
 
-Start with a fresh `engine-template`, give it the `engine-name` of "MyYaraEngine".
+Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyYaraEngine".
 You should find a `microengine-myyaraengine` in your current working directory - this is what we'll be editing to implement Yara's functionality.
-TODO: "engine-template" above should link to the tut-eicar.md section called "Customize engine-template"
 
 We're going to add a YARA backend to our Microengine - but we need some YARA signatures (rules) first!
 
@@ -60,23 +59,21 @@ The YARA backend included with `polyswarm-client` accepts a `RULES_DIR` environm
 So, you should set the `RULES_DIR` environment variable to point to the YARA rules you downloaded when you test this engine.
 
 <div class="m-flag">
-  <p><strong>Info:</strong> When conducting integration testing (Linux, Windows) (TODO: link to Integration Testing section of appropriate tutorial), our mock Ambassador only bounties 2 files: EICAR and a file that is not EICAR. Therefore, for the purposes of testing in our framework, we only need a YARA rule that detects EICAR.</p>
+  <p><strong>Info:</strong> When conducting integration testing ([Linux](/testing-linux/), [Windows](/testing-windows/)), our mock Ambassador only bounties 2 files: EICAR and a file that is not EICAR. Therefore, for the purposes of testing in our framework, we only need a YARA rule that detects EICAR.</p>
 </div>
 
 With that we have a YARA microengine. But, our plan was to have multiple engines run by a single microengine, so let's continue.
 
 ## ClamAV Scanner
 
-We are going to re-use the ClamAV scanner from the previous tutorial.
-TODO: make "previous tutorial" link to tut-clamav.md.
+We are going to re-use the ClamAV scanner from the [previous tutorial](/microengines-scratch-to-clamav/).
 
 A finished solution can be found in [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py).
 
 ## Multiple Analysis Backends
 
-Start with a fresh engine-template, give it the `engine-name` of "MyMultiEngine".
+Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyMultiEngine".
 You should find a `microengine-mymultiengine` in your current working directory - this is what we'll be editing to implement YARA's functionality.
-TODO: "engine-template" above should link to the tut-eicar.md section called "Customize engine-template"
 
 We will extend our Microengine to utilize multiple analysis backends, which means we need to have some way to get the result of both backends (YARA and ClamAV) and distill that into our verdict.
 Let's create a Microengine which initializes multiple scanners:

@@ -114,4 +114,4 @@ You should be able to import `polyswarmclient` without issue.
 
 Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
 
-[Make a "Hello World" Microengine →](TODO: link to tut-eicar.md)
+[Make a "Hello World" Microengine →](/microengines-scratch-to-eicar/)

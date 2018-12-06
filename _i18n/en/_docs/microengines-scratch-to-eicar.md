@@ -8,7 +8,7 @@ This benign file is detected as "malicious" by all major anti-malware products -
 
 Our first Microengine will be no different: let's detect EICAR!
 
-[(Optional) review the components of a Microengine →](TODO: link to participants_microengine.md, section "Breaking Down Microengines")
+[(Optional) review the components of a Microengine →](/concepts-participants-microengine/#breaking-down-microengines)
 
 
 ## Building Blocks
@@ -174,9 +174,9 @@ We've already covered the major items above, but you'll want to do a quick searc
 
 Once everything is in place, let's test our engine:
 
-[Test Linux-based Engines →](TODO: link to testing_lin.md)
+[Test Linux-based Engines →](/testing-linux/)
 
-[Test Windows-based Engines →](TODO: link to testing_win.md)
+[Test Windows-based Engines →](/testing-windows/)
 
 
 ## Next Steps
@@ -184,4 +184,4 @@ Once everything is in place, let's test our engine:
 Implementing scan logic directly in the Scanner class is difficult to manage and scale.
 Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
 
-[Next, we'll wrap ClamAV into a Microengine →](TODO: link to tut-clamav.md)
+[Next, we'll wrap ClamAV into a Microengine →](/microengines-scratch-to-clamav/)

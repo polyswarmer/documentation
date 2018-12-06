@@ -50,15 +50,15 @@ Specifically, Microengines:
 All Microengines share this set of tasks.
 This tutorial will focus exclusively on item #3: bulding an analysis backend into our `microengine-scratch` skeleton project.
 All other items will be covered by `polyswarmd` defaults.
-After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](https://docs.polyswarm.io/API-polyswarm/) for pointers on customizing these other aspects of their Microengine.
+After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](/polyswarmd-api/) for pointers on customizing these other aspects of their Microengine.
 
 
 ## Developing a Microengine
 
 Ready to develop your first Microengine and start earning NCT?
 
-(Recommended) [I want to build a Linux-based Microengine →](TODO: link to dev_env_lin.md)
+(Recommended) [I want to build a Linux-based Microengine →](/development-environment-linux/)
 
 Linux-based Engines are far easier to test and come with more deployment options than Windows-based Engines.
 
-[My scan engine only supports Windows; I want to build a Windows-based Microengine →](TODO: links to dev_env_win.md)
+[My scan engine only supports Windows; I want to build a Windows-based Microengine →](/development-environment-windows/)
