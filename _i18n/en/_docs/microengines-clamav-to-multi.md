@@ -59,7 +59,7 @@ The YARA backend included with `polyswarm-client` accepts a `RULES_DIR` environm
 So, you should set the `RULES_DIR` environment variable to point to the YARA rules you downloaded when you test this engine.
 
 <div class="m-flag">
-  <p><strong>Info:</strong> When conducting integration testing ([Linux](/testing-linux/), [Windows](/testing-windows/)), our mock Ambassador only bounties 2 files: EICAR and a file that is not EICAR. Therefore, for the purposes of testing in our framework, we only need a YARA rule that detects EICAR.</p>
+  <p><strong>Info:</strong> When conducting integration testing (<a href="/testing-linux/#integration-testing">Linux</a>, <a href="/testing-windows/">Windows</a>), our mock Ambassador only bounties 2 files: EICAR and a file that is not EICAR. Therefore, for the purposes of testing in our framework, we only need a YARA rule that detects EICAR.</p>
 </div>
 
 With that we have a YARA microengine. But, our plan was to have multiple engines run by a single microengine, so let's continue.
