@@ -1,4 +1,4 @@
-# Microengine Overview
+## Microengine Overview
 
 ![Microengine Architecture](/public-src/images/microengine-architecture.jpg)
 
@@ -57,8 +57,8 @@ After completing these tutorials, advanced users may want to refer to [**polyswa
 
 Ready to develop your first Microengine and start earning NCT?
 
-(Recommended) [I want to build a Linux-based Microengine ->](TODO: link to dev_env_lin.md)
+(Recommended) [I want to build a Linux-based Microengine →](TODO: link to dev_env_lin.md)
 
 Linux-based Engines are far easier to test and come with more deployment options than Windows-based Engines.
 
-[My scan engine only supports Windows; I want to build a Windows-based Microengine ->](TODO: links to dev_env_win.md)
+[My scan engine only supports Windows; I want to build a Windows-based Microengine →](TODO: links to dev_env_win.md)

@@ -1,4 +1,4 @@
-# Roles in the PolySwarm Marketplace
+## Introduction
 
 PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
 
@@ -11,7 +11,7 @@ For a high-level overview of the PolySwarm marketplace, see [How It Works](https
 Microengines encapsulate security expertise and bundle it in an autonomous process that responds to queries from Ambassadors, identifying the latest malware and earning Nectar (NCT) rewards for accurately identifying new strands of malware.
 *Threat intelligence goes in, NCT comes out.*
 
-[I want to learn more about creating a Microengine ->](TODO: link to participants_microengine.md)
+[I want to learn more about creating a Microengine →](TODO: link to participants_microengine.md)
 
 
 ## Ambassadors
@@ -21,7 +21,7 @@ This fee funds Microengines and Arbiters for offering thereat intelligence and d
 In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in, e.g. triage or incident response.
 *NCT goes in, threat intelligence comes out.*
 
-I want to learn more about creating an Ambassador (coming soon!) (TODO: this is a greyed out link)
+<button disabled>I want to learn more about creating an Ambassador → (coming soon!)</button>
 
 
 ## Arbiters
@@ -31,5 +31,4 @@ Arbiter serve a critical role: Arbiter-derived ground truth is used to determine
 Crucially, Arbiters must expand their internal threat detection capabilities, taking into consideration the assertions of Microengines to push the boundaries of what the PolySwarm marketplace can detect.
 In return for their service, Arbiters are compensated via PolySwarm network fees imposed on both Ambassadors and Microengines.
 
-I want to learn more about creating an Arbiter (coming soon!) (TODO: this is a greyed out link)
-
+<button disabled>I want to learn more about creating an Arbiter → (coming soon!)</button>

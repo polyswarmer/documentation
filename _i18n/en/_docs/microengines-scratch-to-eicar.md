@@ -1,7 +1,6 @@
 # Microengine "Hello World"
 
-
-## Overview 
+## Overview
 
 The "Hello World" of developing an anti-malware solution is invariably detecting the [EICAR test file](https://en.wikipedia.org/wiki/EICAR_test_file).
 
@@ -9,7 +8,7 @@ This benign file is detected as "malicious" by all major anti-malware products -
 
 Our first Microengine will be no different: let's detect EICAR!
 
-[(Optional) review the components of a Microengine ->](TODO: link to participants_microengine.md, section "Breaking Down Microengines")
+[(Optional) review the components of a Microengine →](TODO: link to participants_microengine.md, section "Breaking Down Microengines")
 
 
 ## Building Blocks
@@ -20,17 +19,18 @@ This guide will reference and build on:
 The name says it all - this is a convenient template with interactive prompts for creating new engines.
 We'll use this in our tutorial.
 
-* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): 
-The Swiss Army knife of exemplar PolySwarm participants ("clients"). 
+* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client):
+The Swiss Army knife of exemplar PolySwarm participants ("clients").
 `polyswarm-client` can function as a `microengine` (we'll build on this functionality in this tutorial), an `arbiter` and an `ambassador` (we'll use these to test what we built).
 
 
 ## Customize `engine-template`
 
-> Warning: Windows-based engines are currently only supported as AMIs (AWS Machine Images).
-The customization process for Window-based engines assumes you have an AWS account and its ID handy.
-We'll be expanding deployment options in near future, including self-hosted options.
-Linux-based engines have no such stipulation.
+<div class="m-flag m-flag--warning">
+  <p><strong>Warning:</strong> Windows-based engines are currently only supported as AMIs (AWS Machine Images).</p>
+  <p>The customization process for Window-based engines assumes you have an AWS account and its ID handy.</p>
+  <p>We'll be expanding deployment options in near future, including self-hosted options. Linux-based engines have no such stipulation.</p>
+</div>
 
 We're going to cut our Engine from `engine-template`.
 To do this, we'll need `cookiecutter`:
@@ -56,25 +56,22 @@ Prompts will appear, here's how we'll answer them:
 * `has_backend`: no (see explanation below)
 * `aws_account_for_ami`: (Windows only) your AWS account ID (for Linux engines, just accept the default)
 
-TODO: make this whole section into some sort of aside / callout, start here
-
-One of the prompt items is `has_backend`, which can be thought of as "has a disjoint backend" and deserves additional explanation.
-
-When wrapping your scan engine, inheritance of `polyswarm-client` classes and implementation of class functionality are referred to as "frontend" changes.
-If your scan engine "frontend" must reach out across a network or local socket to a separate process that does the real scanning work (the "backend"), then you have a disjoint "backend" and you should answer `yes` to `has_backend`.
-If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select `no` for `has_backend`.
-
-Example of disjoint frontend / backend:
-* ClamAV: https://github.com/polyswarm/polyswarm-client/blob/5959742f0014a582baf5046c7bf6694c23f7435e/src/microengine/clamav.py#L18
-
-Example of only a frontend (has_backend is false):
-* Yara: https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/yara.py
-
-TODO: end aside
+<div class="m-callout">
+  <p>One of the prompt items is <code>has_backend</code>, which can be thought of as "has a disjoint backend" and deserves additional explanation.</p>
+  <p>When wrapping your scan engine, inheritance of <code>polyswarm-client</code> classes and implementation of class functionality are referred to as "frontend" changes. If your scan engine "frontend" must reach out across a network or local socket to a separate process that does the real scanning work (the "backend"), then you have a disjoint "backend" and you should answer <code>yes</code> to <code>has_backend</code>. If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>no</code> for <code>has_backend</code>.</p>
+  <p>Example of disjoint frontend / backend:</p>
+  <ul>
+    <li><a href="https://github.com/polyswarm/polyswarm-client/blob/5959742f0014a582baf5046c7bf6694c23f7435e/src/microengine/clamav.py#L18">ClamAV</a></li>
+  </ul>
+  <p>Example of only a frontend (has_backend is false):</p>
+  <ul>
+    <li><a href="https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/yara.py">Yara</a></li>
+  </ul>
+</div>
 
 You're all set!
 
-You should find a `microengine-myeicarengine` in your current working directory - this is what we'll be editing to implement EICAR scan functionality.
+You should find a `microengine-myeicarengine` in your current working direction - this is what we'll be editing to implement EICAR scan functionality.
 
 
 ## Implement an EICAR Scanner & Microengine
@@ -89,7 +86,7 @@ Open `microengine-myeicarengine/src/(the org slug name)_myeicarengine/__init__.p
 
 This file will implement both our Scanner and Microengine classes:
 
-* **Scanner**: our Scanner class. 
+* **Scanner**: our Scanner class.
 This class will implement our EICAR-detecting logic in its `scan` function.
 
 * **Microengine**: our Microengine class.
@@ -105,15 +102,12 @@ The `scan` function's `content` parameter contains the entire content of the art
 
 **Try your hand at writing a `scan` function that detects the EICAR test file.**
 If you'd like some inspiration, below are a couple of ways to go about it.
- 
+
 From [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py):
 
 ```python
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import base64
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 
@@ -136,12 +130,10 @@ class Microengine(AbstractMicroengine):
 Here's another way, this time comparing the SHA-256 of the EICAR test file with a known-bad hash:
 
 ```python
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import base64
+
 from hashlib import sha256
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 HASH = sha256(EICAR).hexdigest()
@@ -186,9 +178,9 @@ We've already covered the major items above, but you'll want to do a quick searc
 
 Once everything is in place, let's test our engine:
 
-[Test Linux-based Engines ->](TODO: link to testing_lin.md)
+[Test Linux-based Engines →](TODO: link to testing_lin.md)
 
-[Test Windows-based Engines ->](TODO: link to testing_win.md)
+[Test Windows-based Engines →](TODO: link to testing_win.md)
 
 
 ## Next Steps
@@ -196,4 +188,4 @@ Once everything is in place, let's test our engine:
 Implementing scan logic directly in the Scanner class is difficult to manage and scale.
 Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
 
-[Next, we'll wrap ClamAV into a Microengine ->](TODO: link to tut-clamav.md)
+[Next, we'll wrap ClamAV into a Microengine →](TODO: link to tut-clamav.md)

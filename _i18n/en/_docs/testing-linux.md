@@ -1,6 +1,3 @@
-# Testing Linux-based Engines
-
-
 ## Unit Testing
 
 Unit testing your Microengine is a simple process:
@@ -38,7 +35,7 @@ test_engine_myeicarengine_1_800a4ac410b0 | hypothesis profile 'default' -> datab
 test_engine_myeicarengine_1_800a4ac410b0 | rootdir: /usr/src/app, inifile:
 test_engine_myeicarengine_1_800a4ac410b0 | plugins: timeout-1.3.2, cov-2.6.0, asyncio-0.9.0, hypothesis-3.82.1
 test_engine_myeicarengine_1_800a4ac410b0 | collected 2 items / 1 errors
-test_engine_myeicarengine_1_800a4ac410b0 | 
+test_engine_myeicarengine_1_800a4ac410b0 |
 test_engine_myeicarengine_1_800a4ac410b0 | ==================================== ERRORS ====================================
 test_engine_myeicarengine_1_800a4ac410b0 | __________ ERROR collecting src/polyswarm_myeicarengine/scan_test.py ___________
 test_engine_myeicarengine_1_800a4ac410b0 | ImportError while importing test module '/usr/src/app/src/polyswarm_myeicarengine/scan_test.py'.
@@ -50,7 +47,7 @@ test_engine_myeicarengine_1_800a4ac410b0 | E   ImportError: No module named 'pol
 test_engine_myeicarengine_1_800a4ac410b0 | =============================== warnings summary ===============================
 test_engine_myeicarengine_1_800a4ac410b0 | /usr/src/app/.tox/py35/lib/python3.5/site-packages/eth_utils/applicators.py:32: DeprecationWarning: combine_argument_formatters(formatter1, formatter2)([item1, item2])has been deprecated and will be removed in a subsequent major version release of the eth-utils library. Update your calls to use apply_formatters_to_sequence([formatter1, formatter2], [item1, item2]) instead.
 test_engine_myeicarengine_1_800a4ac410b0 |   "combine_argument_formatters(formatter1, formatter2)([item1, item2])"
-test_engine_myeicarengine_1_800a4ac410b0 | 
+test_engine_myeicarengine_1_800a4ac410b0 |
 test_engine_myeicarengine_1_800a4ac410b0 | -- Docs: https://docs.pytest.org/en/latest/warnings.html
 test_engine_myeicarengine_1_800a4ac410b0 | !!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
 test_engine_myeicarengine_1_800a4ac410b0 | ===================== 1 warnings, 1 error in 0.81 seconds ======================
@@ -87,7 +84,7 @@ docker-compose -f base.yml -f tutorial0.yml up
 You'll see output from the following services:
 1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running our testnet's "homechain".
 See [Chains: Home vs Side](TODO: link to appropraite section in home.md) for an explanation of our split-chain design.
-1. `sidechain`: Another `geth` instance, this one running our testnet's "sidechain". 
+1. `sidechain`: Another `geth` instance, this one running our testnet's "sidechain".
 1. `ipfs`: An IPFS node responsible for hosting all artifacts in our development testnet.
 1. `polyswarmd`: The PolySwarm daemon providing convenient access to the services offered by `homechain`, `sidechain` and `ipfs`.
 1. `contracts`: Responsible for housing & deploying the PolySwarm Nectar (NCT) and `BountyRegistry` contracts onto our development testnet.

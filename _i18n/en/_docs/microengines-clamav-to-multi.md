@@ -12,7 +12,7 @@ TODO: "engine-template" above should link to the tut-eicar.md section called "Cu
 We're going to add a YARA backend to our Microengine - but we need some YARA signatures (rules) first!
 
 The [Yara-Rules](https://github.com/Yara-Rules/rules) repo is a great resource for free rules.
-So, let's get those rules: 
+So, let's get those rules:
 
 ```sh
 git clone https://github.com/Yara-Rules/rules.git
@@ -52,12 +52,16 @@ class Scanner(AbstractScanner):
         return True, False, ''
 ```
 
-> Info: the Microengine class is required, but we do not need to modify it, so it is not shown here.
+<div class="m-flag">
+  <p><strong>Info:</strong> The Microengine class is required, but we do not need to modify it, so it is not shown here.</p>
+</div>
 
 The YARA backend included with `polyswarm-client` accepts a `RULES_DIR` environment variable that lets you point to your YARA rules.
 So, you should set the `RULES_DIR` environment variable to point to the YARA rules you downloaded when you test this engine.
 
-> Info: When conducting integration testing (Linux, Windows)(TODO: link to Integration Testing section of appropriate tutorial), our mock Ambassador only bounties 2 files: EICAR and a file that is not EICAR. Therefore, for the purposes of testing in our framework, we only need a YARA rule that detects EICAR.
+<div class="m-flag">
+  <p><strong>Info:</strong> When conducting integration testing (Linux, Windows) (TODO: link to Integration Testing section of appropriate tutorial), our mock Ambassador only bounties 2 files: EICAR and a file that is not EICAR. Therefore, for the purposes of testing in our framework, we only need a YARA rule that detects EICAR.</p>
+</div>
 
 With that we have a YARA microengine. But, our plan was to have multiple engines run by a single microengine, so let's continue.
 
@@ -100,7 +104,9 @@ class Scanner(AbstractScanner):
 
 ```
 
-> Info: the Microengine class is required, but we do not need to modify it, so it is not shown here.
+<div class="m-flag">
+  <p><strong>Info:</strong> The Microengine class is required, but we do not need to modify it, so it is not shown here.</p>
+</div>
 
 This creates a list of backends containing instances of our YaraScanner, plus your ClamavScanner.
 
@@ -132,4 +138,3 @@ pip install .
 ## Next Steps
 
 Now that we've learned how to make a variety of microengines using existing AV products, you can move onto creating your own custom microengine.
-

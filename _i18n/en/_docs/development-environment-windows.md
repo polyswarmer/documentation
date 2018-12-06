@@ -1,5 +1,3 @@
-# Windows Development Environment
-
 ## System Requirements
 
 * x86-64 CPU
@@ -8,9 +6,10 @@
 
 *Older versions of Windows may work, but are untested (and unsupported) at this time.
 
-> Warning: These instructions will make changes to your Windows installation. 
-We strongly recommend that you isolate these changes from your host system by conducting Windows development inside of a virtual machine, using e.g. VMWare, QEMU, VirtualBox, etc. TODO: recommend VirtualBox?
-
+<div class="m-flag m-flag--warning">
+  <p><strong>Warning:</strong> These instructions will make changes to your Windows installation.</p>
+  <p>We strongly recommend that you isolate these changes from your host system by conducting Windows development inside of a virtual machine, using e.g. VMWare, QEMU, VirtualBox, etc. TODO: recommend VirtualBox?</p>
+</div>
 
 ## Configure Windows
 
@@ -18,7 +17,7 @@ We'll need to use Administrator privilege to make several changes to default Win
 We'll need an "elevated" / "privileged" PowerShell console:
 - search "PowerShell" in the desktop search bar
 - right click on "Windows PowerShell"
-- select "Run as administrator". 
+- select "Run as administrator".
 
 Run the following in this privileged PowerShell console.
 
@@ -59,7 +58,9 @@ choco install -y visualcpp-build-tools --version 14.0.25420.1
 
 ## Disable Anti-Malware Products
 
-> Warning: We strongly recommend disabling all anti-malware products in your development environment - including the built-in Windows Defender. Below, we describe disabling Windows Defender. Disabling third party solutions is left as an exercise for the reader.
+<div class="m-flag m-flag--warning">
+  <p><strong>Warning:</strong> We strongly recommend disabling all anti-malware products in your development environment - including the built-in Windows Defender. Below, we describe disabling Windows Defender. Disabling third party solutions is left as an exercise for the reader.</p>
+</div>
 
 PolySwarm engines should expect to come into contact with malware.
 Existing anti-malware engines, including the built-in Windows Defender, can easily get in our way, quarantining or deleting files during development.
@@ -111,6 +112,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 You should be able to import `polyswarmclient` without issue.
 
-Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file. 
+Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
 
-[Make a "Hello World" Microengine ->](TODO: link to tut-eicar.md)
+[Make a "Hello World" Microengine →](TODO: link to tut-eicar.md)

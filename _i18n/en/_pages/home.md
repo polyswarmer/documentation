@@ -1,12 +1,12 @@
-# PolySwarm Developer Documentation
+## Welcome
 
 Welcome and thank you for your interest in PolySwarm!
 
 Here you'll find everything you need to get started developing for PolySwarm.
 
-Before we dive into the code, let's get our bearings: 
-* What does it look like to participate in PolySwarm? 
-* Which role fits my use case? 
+Before we dive into the code, let's get our bearings:
+* What does it look like to participate in PolySwarm?
+* Which role fits my use case?
 * Which Communities do I want to engage with?
 * How do I monitor the performance of my Engines?
 * What are Communities? What is an Engine?
@@ -25,7 +25,7 @@ Let's take a look at some of the high level concepts and drill down into details
 
 ... and much, much more.
 
-[Explore Portal ->](https://polyswarm.network)
+[Explore Portal →](https://polyswarm.network)
 
 
 ## Communities
@@ -61,17 +61,17 @@ Rather than transacting directly on the Ethereum Mainnet, PolySwarm participants
 Maintaining a minimal balance on the sidechain is made easy by `polyswarm-client`'s [`balancemanager`](https://github.com/polyswarm/polyswarm-client/tree/master/src/balancemanager).
 
 This split-chain design provides two key benefits:
-1. **Scalability** 
+1. **Scalability**
 Today, Ethereum does not scale (they're working on this of course), so applications must implement their own "Layer 2" scaling solutions if they demand low latency or high throughput transactions.
 1. **Confidentiality**
 PolySwarm supports the notion of limited-access, private Communities.
 This split-chain design makes that possible.
 
-[Browse Communities ->](TODO: link to Portal / Communities)
+[Browse Communities →](TODO: link to Portal / Communities)
 
 
 ## Your Role in the PolySwarm Marketplace
 
 There are several ways to participate in the PolySwarm ecosystem: will you create a Microengine, an Ambassador, an Arbiter or something else entirely?
 
-[Determine where you fit into PolySwarm ->](TODO link to particpants.md)
+[Determine where you fit into PolySwarm →](TODO link to particpants.md)

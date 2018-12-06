@@ -1,7 +1,4 @@
-## Linux Development Environment
-
-
-### System Requirements
+## System Requirements
 
 * x86-64 CPU
 * 4GB of RAM
@@ -9,7 +6,7 @@
 These instructions are developed against and tested to work on Ubuntu 18.04.
 
 
-### Install Docker
+## Install Docker
 
 We've Docker-ized as many things as possible to make it easy to dive right in.
 
@@ -31,19 +28,19 @@ $ docker-compose -v
 Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
 
 
-### Install Git
+## Install Git
 
 We'll need to grab a few source code repositories; it'll be easiest to use Git.
 Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
 
-### Install Python
+## Install Python
 
 PolySwarm development requires Python 3.5.4 or above.
 Please [install Python](https://www.python.org/downloads/) for your development platform.
 
 
-### (Optional) Set up a Virtual Environment (virtualenv)
+## (Optional) Set up a Virtual Environment (virtualenv)
 
 If you plan to use this machine for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
 
@@ -55,7 +52,7 @@ source polyswarmvenv/bin/activate
 ```
 
 
-### Install `polyswarm-client` Libraries
+## Install `polyswarm-client` Libraries
 
 > Info: If you're using a virtualenv (see above), ensure that you activate it before installing `polyswarm-client`.
 
@@ -78,6 +75,6 @@ $ python
 
 You should be able to import `polyswarmclient` without issue.
 
-Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file. 
+Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
 
-[Make a "Hello World" Microengine ->](TODO: link to tut-eicar.md)
+[Make a "Hello World" Microengine →](TODO: link to tut-eicar.md)
