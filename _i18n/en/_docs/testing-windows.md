@@ -89,7 +89,7 @@ In particular, do NOT enable 3D acceleration.
   </p>
 </div>
 
-Use the ISO you downloaded to install Windows in the VM.
+Use the ISO you downloaded to install Xubuntu in the VM.
 
 
 #### (Optional) Install VirtualBox Guest Additions

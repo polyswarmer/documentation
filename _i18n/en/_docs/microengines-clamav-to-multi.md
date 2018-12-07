@@ -11,9 +11,10 @@ You should find a `microengine-myyaraengine` in your current working directory -
 We're going to add a YARA backend to our Microengine - but we need some YARA signatures (rules) first!
 
 The [Yara-Rules](https://github.com/Yara-Rules/rules) repo is a great resource for free rules.
-So, let's get those rules:
+So, let's get those rules and put them into the `pkg` directory of your `microengine-myyaraengine`:
 
 ```sh
+cd microengine-myyaraengine/pkg
 git clone https://github.com/Yara-Rules/rules.git
 ```
 
@@ -80,7 +81,7 @@ A finished solution can be found in [clamav.py](https://github.com/polyswarm/pol
 ## Multiple Analysis Backends
 
 Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyMultiEngine".
-You should find a `microengine-mymultiengine` in your current working directory - this is what we'll be editing to implement YARA's functionality.
+You should find a `microengine-mymultiengine` in your current working directory - this is what we'll be editing to make use of both ClamAv's and YARA's functionality.
 
 We will extend our Microengine to utilize multiple analysis backends, which means we need to have some way to get the result of both backends (YARA and ClamAV) and distill that into our verdict.
 Let's create a Microengine which initializes multiple scanners:
@@ -115,7 +116,7 @@ class Scanner(AbstractScanner):
   </p>
 </div>
 
-This creates a list of backends containing instances of our YaraScanner, plus your ClamavScanner.
+This creates a list of backends containing instances of our YaraScanner and ClamavScanner.
 
 Now that we can access both Scanners, let's use both of their results to distill a final verdict in our Scanner's `scan()` function.
 

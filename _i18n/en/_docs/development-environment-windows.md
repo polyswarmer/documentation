@@ -115,16 +115,16 @@ We'll need an "elevated" / "privileged" PowerShell console:
 Run the following in this privileged PowerShell console.
 
 1. Permit script execution (necessary for installing Chocolatey & using virtualenvs):
+    
+    ```powershell
+    Set-ExecutionPolicy Bypass -Scope LocalMachine -Force
+    ```
 
-```powershell
-Set-ExecutionPolicy Bypass -Scope LocalMachine -Force
-```
-
-1. Force PowerShell to use TLSv2 (required of some dependancies):
-
-```powershell
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-```
+2. Force PowerShell to use TLSv2 (required of some dependancies):
+    
+    ```powershell
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    ```
 
 
 ## Install Chocolatey & Prerequisities
@@ -135,19 +135,19 @@ We'll use it to help with installing some prerequisites.
 Run the following in a *privileged* PowerShell console.
 
 1. Install Chocolatey:
-
-```powershell
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-```
-
+ 
+    ```powershell
+    iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    ```
+ 
 2. Use Chocolatey to install prerequisites (do these one at a time):
-
-```powershell
-choco install -y python --version 3.5.4
-choco install -y git
-choco install -y visualcpp-build-tools --version 14.0.25420.1
-```
-
+ 
+    ```powershell
+    choco install -y python --version 3.5.4
+    choco install -y git
+    choco install -y visualcpp-build-tools --version 14.0.25420.1
+    ```
+ 
 
 ## Disable Anti-Malware Products
 
@@ -167,9 +167,9 @@ Disabling Windows Defender is a two step process.
 
 1. Run the following command in a privileged PowerShell:
 
-```powershell
-Set-ItemProperty 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender' DisableAntiSpyware 1
-```
+    ```powershell
+    Set-ItemProperty 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender' DisableAntiSpyware 1
+    ```
 
 2. Reboot Windows.
 
