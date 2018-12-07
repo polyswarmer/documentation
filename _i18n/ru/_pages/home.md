@@ -1,27 +1,71 @@
 ## Welcome
 
-Welcome to the PolySwarm documentation website. This is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products. Let's get started by taking a look at what a microengine is and what its role is in the PolySwarm marketplace.
+Welcome and thank you for your interest in PolySwarm!
 
-## Background on Microengines
+Here you'll find everything you need to get started developing for PolySwarm.
 
-![Microengine Architecture](/public-src/images/microengine-architecture.svg)
+Before we dive into the code, let's get our bearings:
 
-Microengines are Security Experts' representatives in the PolySwarm marketplace; they encapsulate security expertise in the form of signatures, heuristics, dynamic analyses, emulation, virtualization, a combination of these things or perhaps something else entirely. If you have unique insight into a particular malware family, file format or category of malicious behavior, you are encouraged to encapsulate your knowledge into a PolySwarm Microengine, hook it up to the PolySwarm network and (potentially) earn passive income for your insight!
+* What does it look like to participate in PolySwarm?
+* Which role fits my use case?
+* Which Communities do I want to engage with?
+* How do I monitor the performance of my Engines?
+* What are Communities? What is an Engine?
 
-Microengines respond to Bounties and Offers in the PolySwarm marketplace, determining whether a suspect file is malicious or benign and stake a certain amount of Nectar (NCT) tokens alongside that assertion. Security Experts maintain and tweak their Microengines in response to new threat information and new analyses tools, vying against one another to stay at the forefront of their area of expertise.
+Let's take a look at some of the high level concepts and drill down into details where appropriate.
 
-## Microengines' Role in the PolySwarm Marketplace
+## Portal
 
-In the PolySwarm marketplace, **Ambassadors** ask the market for a crowdsourced opinion on a suspect artifact (file) through the Wild-West style PolySwarm Bounty mechanism. *Ambassadors may also ask specific Experts via Offer channels; Offers will be discussed in a later tutorial.*
+[PolySwarm Portal](https://polyswarm.network) is PolySwarm's one-stop shop for:
 
-At a high level:
+* tracking Engine performance
+* discovering Communities (see below)
+* naming Engines
+* creating Profiles
+* connecting with Security Experts
 
-1. An **Ambassador** "bounties" a suspect artifact.
-2. **Microengines** hear about this new artifact by listening for Ethereum events (optionally via `polyswarmd`).
-3. Each **Microengine** decides if the artifact at hand is within their wheelhouse of expertise.
-4. If the **Microengine** has insight on the artifact, it produces an `assertion` + a `stake` of NCT on that `assertion`.
-5. The **Ambassador** can see all `assertions` and returns a `verdict` to their customer.
-6. Some time passes.
-7. **Arbiters** offer *ground truth* regarding the malintent of the artifact. Correct **Microengines** are rewarded with the escrowed funds of incorrect **Microengines**.
+... and much, much more.
 
-For full details on this process, please refer to the [PolySwarm whitepaper](https://polyswarm.io/polyswarm-whitepaper.pdf) for now - more documentation is forthcoming!
+[Explore Portal →](https://polyswarm.network)
+
+## Communities
+
+PolySwarm is composed of a series of Communities (hence the "Poly"). Each Community serves a particular purpose and can either permit everyone to join or limit access to specific participants.
+
+PolySwarm will launch with two communities:
+
+* **Genesis: the public mainnet community**: everyone can join & participate!
+* **Hive: a private testing community**: a closed Community for initial partners preparing for launch on Genesis
+
+This list will expand, allowing Ambassadors and Microengine developers to control their audience. Future communities may include:
+
+* A GDPR-complaint community with artifact sharing amongst a closed set of complaint participants.
+* A network of mutually NDA'ed MSSPs & security experts.
+
+Anyone will be able to administer their own Community and advertise their community through PolySwarm Portal.
+
+### Chains: Home vs Side
+
+Each Community has a "homechain" and a "sidechain", either of which may be shared with other Communities. Generally speaking, the "homechain" is where crypto assets natviely exist and the "sidechain" is where PolySwarm transations take place.
+
+For example, **Genesis**, the first public Community will be configured as such:
+
+* `homechain`: the Ethereum Mainnet
+* `sidechain`: a set of hosted `geth` nodes running in a [Clique configuration](https://github.com/ethereum/EIPs/issues/225)
+
+PolySwarm Nectar (NCT) natively lives on the Ethereum Mainnet. Unfortunately, the Ethereum mainnet is far too slow (~15s block time) and far too expensive to support the sort of micro-transactions required by PolySwarm.
+
+Rather than transacting directly on the Ethereum Mainnet, PolySwarm participants will instead relay NCT from Mainnet to the Genesis sidechain and conduct their business on this sidechain. Maintaining a minimal balance on the sidechain is made easy by `polyswarm-client`'s [`balancemanager`](https://github.com/polyswarm/polyswarm-client/tree/master/src/balancemanager).
+
+This split-chain design provides two key benefits:
+
+1. **Scalability** Today, Ethereum does not scale (they're working on this of course), so applications must implement their own "Layer 2" scaling solutions if they demand low latency or high throughput transactions.
+2. **Confidentiality** PolySwarm supports the notion of limited-access, private Communities. This split-chain design makes that possible.
+
+<button disabled>Browse Communities → (coming soon!)</button>
+
+## Your Role in the PolySwarm Marketplace
+
+There are several ways to participate in the PolySwarm ecosystem: will you create a Microengine, an Ambassador, an Arbiter or something else entirely?
+
+[Determine where you fit into PolySwarm →](/concepts-participants/)
