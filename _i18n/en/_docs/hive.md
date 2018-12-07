@@ -25,7 +25,7 @@ This wallet will contain testnet Nectar tokens to play around with.
 
 ### Connecting with polyswarm-client
 
-We'll connect an EICAR-detecting Microengine (discussed in [Tutorial 0](/Level-0-scratch-to-eicar/)) to the PolySwarm Hive Staging testnet.
+We'll connect an EICAR-detecting Microengine (discussed in [Tutorial 0](/microengines-scratch-to-eicar/)) to the PolySwarm Hive Staging testnet.
 
 Grab a copy of `polyswarm-client`:
 ```sh
@@ -64,4 +64,4 @@ Authorization: [API KEY]
 
 Furthermore, please ensure that the wallet utilized by your custom client matches the API key sent in all API calls.
 
-For more details on the `polyswarmd API`, please refer to our API specification [polyswarmd API Documentation](/API-polyswarm/).
+For more details on the `polyswarmd API`, please refer to our API specification [polyswarmd API Documentation](/polyswarmd-api/).

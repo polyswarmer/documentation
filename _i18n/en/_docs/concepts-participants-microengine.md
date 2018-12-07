@@ -1,6 +1,6 @@
 ## Microengine Overview
 
-![Microengine Architecture](/public-src/images/microengine-architecture.jpg)
+![Microengine Architecture](/public-src/images/microengine-architecture.svg)
 
 Microengines are Security Experts' representation in the PolySwarm marketplace.
 Microengines encapsulate security expertise in the form of signatures, heuristics, dynamic analyses, emulation, virtualization, a combination of these things or perhaps something else entirely.

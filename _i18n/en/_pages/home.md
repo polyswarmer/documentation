@@ -16,7 +16,7 @@ Let's take a look at some of the high level concepts and drill down into details
 
 ## Portal
 
-[PolySwarm Portal](https://polyswarm.network) is PolySwarm's one-stop shop for:
+PolySwarm Portal is PolySwarm's one-stop shop for:
 * tracking Engine performance
 * discovering Communities (see below)
 * naming Engines
@@ -25,7 +25,7 @@ Let's take a look at some of the high level concepts and drill down into details
 
 ... and much, much more.
 
-[Explore Portal →](https://polyswarm.network)
+<button disabled>Explore Portal → (coming soon!)</button>
 
 
 ## Communities
