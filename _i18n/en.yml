@@ -81,22 +81,38 @@ header:
       name: Docs Home
       d_url: /
     items:
-      - name: Getting Started
+      - name: Concepts
+        subitems:
+          - name: Participants
+            d_url: /concepts-participants/
+          - name: Microengines
+            d_url: /concepts-participants-microengine/
+      - name: Development Environment
+        subitems:
+          - name: Linux
+            d_url: /development-environment-linux/
+          - name: Windows
+            d_url: /development-environment-windows/
+      - name: Microengines
         subitems:
           - name: "Level 0: Scratch to EICAR"
-            d_url: /Level-0-scratch-to-eicar/
+            d_url: /microengines-scratch-to-eicar/
           - name: "Level 1: Scratch to ClamAV"
-            d_url: /Level-1-scratch-to-clamav/
+            d_url: /microengines-scratch-to-clamav/
           - name: "Level 2: ClamAV to Multi"
-            d_url: /Level-2-clamav-to-multi/
-      - name: API
+            d_url: /microengines-clamav-to-multi/
+      - name: Testing
         subitems:
-          - name: "PolySwarm API"
-            d_url: /API-polyswarm/
-      - name: Hive
+          - name: Linux
+            d_url: /testing-linux/
+          - name: Windows
+            d_url: /testing-windows/
+      - name: Advanced
         subitems:
-          - name: "How to connect to the PolySwarm Hive"
-            d_url: /How-to-connect-to-HIVE/
+          - name: polyswarmd API
+            d_url: /polyswarmd-api/
+          - name: Hive
+            d_url: /hive/
 footer:
   navigation:
     home:
@@ -187,22 +203,42 @@ pages:
       name: Back to home
       d_url: /
       d_style: transparent
+  privacy:
+    title: Privacy Policy
+    description: PolySwarm's Privacy Policy
 docs:
-  api:
-    polyswarm:
-      title: PolySwarm API
-      description: The PolySwarm API documentation.
-  level_0:
+  concepts_participants:
+    title: Roles in the PolySwarm Marketplace
+    description: PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
+  concepts_participants_microengine:
+    title: "Participants: Microengine"
+    description: Microengines are Security Experts' representation in the PolySwarm marketplace.
+  development_environment_linux:
+    title: Linux Development Environment
+    description: How to configure a Linux development environment for PolySwarm
+  development_environment_windows:
+    title: Windows Development Environment
+    description: How to configure a Windows development environment for PolySwarm
+  microengines_scratch_to_eicar:
     title: "Level 0: Scratch to EICAR"
     description: This tutorial will step you through building your very first PolySwarm microengine - a hello world microengine capable of detecting the EICAR test file.
-  level_1:
+  microengines_scratch_to_clamav:
     title: "Level 1: Scratch to ClamAV"
     description: This tutorial will step you through building your second PolySwarm microengine by means of incorporating ClamAV as an analysis backend.
-  level_2:
+  microengines_clamav_to_multi:
     title: "Level 2: ClamAV to Multi"
     description: This tutorial will show you how to combine multiple analysis backends (ClamAV and YARA) and outlines a basic verdict distillation primitive.
+  testing_linux:
+    title: Testing Linux-Based Engines
+    description: How to test a Linux-based PolySwarm microengine.
+  testing_windows:
+    title: Testing Windows-Based Engines
+    description: How to test a Windows-based PolySwarm microengine.
+  polyswarmd_api:
+      title: polyswarmd API
+      description: The polyswarmd API documentation.
   hive:
-    title: "How to connect to the PolySwarm Hive"
+    title: PolySwarm Hive
     description: PolySwarm Hive is an invite-only testnet to facilitate the development of microengines and arbiters. This section will show you how to connect to Hive.
 banners:
   - id: cookie-consent
