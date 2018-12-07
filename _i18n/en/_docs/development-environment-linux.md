@@ -36,7 +36,7 @@ We'll need to grab a few source code repositories; it'll be easiest to use Git.
 Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
 
-### Install Python & PIP
+## Install Python & PIP
 
 PolySwarm development requires Python 3.5.4 or above.
 Please install [Python](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) for your development platform.

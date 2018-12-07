@@ -22,15 +22,25 @@ This tutorial will walk the reader through building [microengine/clamav.py](http
 
 ## `clamd` Implementation and Integration
 
+Start with a [fresh engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyClamAvEngine".
+You should find a `microengine-myclamavengine` in your current working directory - this is what we'll be editing to implement ClamAV scan functionality.
+
+Edit the `__init__.py` as we describe below:
+
 We begin our ClamAV `analysis backend` by importing the `clamd` module and configuring some globals.
-Let's edit [microengine/scratch.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/scratch.py) and begin writing a ClamAV analysis backend:
 
 ```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import clamd
+import logging
 import os
-
 from io import BytesIO
-from polyswarmclient.microengine import Microengine
+
+from polyswarmclient.abstractmicroengine import AbstractMicroengine
+from polyswarmclient.abstractscanner import AbstractScanner
+
+logger = logging.getLogger(__name__)  # Initialize logger
 
 CLAMD_HOST = os.getenv('CLAMD_HOST', 'localhost')
 CLAMD_PORT = int(os.getenv('CLAMD_PORT', '3310'))
@@ -38,19 +48,12 @@ CLAMD_TIMEOUT = 30.0
 ```
 
 Would you believe me if I said we were almost done?
-Let's get `clamd` initialized and running.
+Let's get `clamd` initialized and running, so it can communicate with the `clamd-daemon` over a network socket.
 
 ```python
-class ClamavMicroengine(Microengine):
-    def __init__(self, polyswarmd_addr, keyfile, password, api_key=None, testing=0, insecure_transport=False, chains={'home'}):
-        super().__init__(polyswarmd_addr, keyfile, password, api_key, testing, insecure_transport, chains)
+class Scanner(AbstractScanner):
+    def __init__(self):
         self.clamd = clamd.ClamdNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
-```
-
-Now, all we need is a scan method.
-
-```python
-    async def scan(self, guid, content):
 ```
 
 We interact with `clamd` by sending it a byte stream of artifact contents.
@@ -63,9 +66,10 @@ ClamAV responds to these byte streams in the form:
 
 We can easily parse the result using python's `[]` operator. `result[0]` is the word `FOUND`, and `result[1]` in this instance is `Eicar-Test-Signature`.
 
-To complete our scan function:
+Now, all we need is to implement the scan method in the Scanner class.
 
 ```python
+    async def scan(self, guid, content, chain):
         result = self.clamd.instream(BytesIO(content)).get('stream')
         if len(result) >= 2 and result[0] == 'FOUND':
             return True, True, ''
@@ -81,45 +85,30 @@ The return values that the Microengine expects are:
 1. `verdict`: another `boolean` representing whether the engine wishes to assert on the artifact
 1. `metadata`: (optional) `string` describing the artifact
 
-We leave submitting ClamAV's `metadata` as an exercise to the reader - or check [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) :)
+We leave including ClamAV's `metadata` as an exercise to the reader - or check [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) :)
 
-## Testing, Testing, Testing
+<div class="m-flag">
+  <p>
+    <strong>Info:</strong>
+    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+  </p>
+</div>
 
-Let's build a docker image to test our new Microengine. Put your ClamAV code into a file named `clamav.py`, and create a `Dockerfile` with the following contents:
-```dockerfile
-FROM polyswarm/polyswarm-client
-LABEL maintainer="Your Name <your@email.com>"
+## Finalizing & Testing Your Engine
 
-COPY clamav.py src/microengine/clamav.py
-RUN set -x && pip install .
+`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself.
+We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
 
-ENV KEYFILE=docker/microengine_keyfile
-ENV PASSWORD=password
-ENV CLAMD_HOST=clamav
-ENV CLAMD_PORT=3310
+Once everything is in place, let's test our engine:
 
-ENTRYPOINT ["microengine"]
-CMD ["--polyswarmd-addr", "polyswarmd:31337", "--insecure-transport", "--testing", "10", "--backend", "clamav"]
-```
+[Test Linux-based Engines →](/testing-linux/)
 
-Build your image with
-```sh
-docker build -t microengine-clamav .
-```
+[Test Windows-based Engines →](/testing-windows/)
 
-Let's spin up a subset of the end-to-end testnet, leaving out the `tutorial` (Microengine) and `ambassador` services, but including a `clamav` service listening for samples over the network:
-```sh
-$ docker-compose -f base.yml -f tutorial1.yml up --scale microengine=0 --scale ambassador=0
-```
 
-Once `contracts` has reported that it has successfully deployed the PolySwarm contracts, let's spin up our Microengine in a second terminal window:
-```sh
-$ docker run -it --net=orchestration_default microengine-clamav
-```
+## Next Steps
 
-Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window:
-```sh
-$ docker-compose -f base.yml -f tutorial1.yml up --no-deps ambassador
-```
+In the Eicar example, we showed you how to implement scan logic directly in the Scanner class.
+And in this ClamAV example, we showed you how to call out to an external socket to access scanning logic.
 
-Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!
+[Next, we'll wrap ClamAV and Yara into a single Microengine ->](/microengines-clamav-to-multi/)

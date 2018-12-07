@@ -99,7 +99,14 @@ Let's spin up a subset of the testnet, leaving out the stock `microengine` (we'l
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-Once `contracts` has reported that it has successfully deployed the PolySwarm contracts (watch the logs), let's spin up our Microengine in a second terminal window:
+It will take several minutes for `polyswarmd` to become available.
+Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
+```
+INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
+INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
+```
+
+Next, let's spin up our Microengine in a second terminal window:
 ```bash
 $ docker run -it --net=orchestration_default ${PWD##*/}
 ```
