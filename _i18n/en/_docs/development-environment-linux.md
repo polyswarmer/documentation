@@ -56,7 +56,12 @@ source polyswarmvenv/bin/activate
 
 ## Install `polyswarm-client` Libraries
 
-> Info: If you're using a virtualenv (see above), ensure that you activate it before installing `polyswarm-client`.
+<div class="m-flag">
+  <p>
+    <strong>Info:</strong>
+    If you're using a virtualenv (see above), ensure that you activate it before installing `polyswarm-client`.
+  </p>
+</div>
 
 Installing `polyswarm-client` is as simple as:
 ```bash

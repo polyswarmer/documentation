@@ -52,14 +52,21 @@ class Scanner(AbstractScanner):
 ```
 
 <div class="m-flag">
-  <p><strong>Info:</strong> The Microengine class is required, but we do not need to modify it, so it is not shown here.</p>
+  <p>
+    <strong>Info:</strong>
+    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+  </p>
 </div>
 
 The YARA backend included with `polyswarm-client` accepts a `RULES_DIR` environment variable that lets you point to your YARA rules.
 So, you should set the `RULES_DIR` environment variable to point to the YARA rules you downloaded when you test this engine.
 
 <div class="m-flag">
-  <p><strong>Info:</strong> When conducting integration testing (<a href="/testing-linux/#integration-testing">Linux</a>, <a href="/testing-windows/">Windows</a>), our mock Ambassador only bounties 2 files: EICAR and a file that is not EICAR. Therefore, for the purposes of testing in our framework, we only need a YARA rule that detects EICAR.</p>
+  <p>
+    <strong>Info:</strong>
+    When conducting integration testing (<a href="/testing-linux/#integration-testing">Linux</a>, <a href="/testing-windows/">Windows</a>), our mock Ambassador only bounties 2 files: EICAR and a file that is not EICAR.
+    Therefore, for the purposes of testing in our framework, we only need a YARA rule that detects EICAR.
+  </p>
 </div>
 
 With that we have a YARA microengine. But, our plan was to have multiple engines run by a single microengine, so let's continue.
@@ -102,7 +109,10 @@ class Scanner(AbstractScanner):
 ```
 
 <div class="m-flag">
-  <p><strong>Info:</strong> The Microengine class is required, but we do not need to modify it, so it is not shown here.</p>
+  <p>
+    <strong>Info:</strong>
+    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+  </p>
 </div>
 
 This creates a list of backends containing instances of our YaraScanner, plus your ClamavScanner.

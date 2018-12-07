@@ -37,14 +37,14 @@ test_engine_mylinuxengine_1_a9d540dc7394 | hypothesis profile 'default' -> datab
 test_engine_mylinuxengine_1_a9d540dc7394 | rootdir: /usr/src/app, inifile:
 test_engine_mylinuxengine_1_a9d540dc7394 | plugins: timeout-1.3.2, cov-2.6.0, asyncio-0.9.0, hypothesis-3.82.1
 test_engine_mylinuxengine_1_a9d540dc7394 | collected 36 items
-test_engine_mylinuxengine_1_a9d540dc7394 | 
+test_engine_mylinuxengine_1_a9d540dc7394 |
 test_engine_mylinuxengine_1_a9d540dc7394 | src/polyswarm_mylinuxengine/scan_test.py .
 test_engine_mylinuxengine_1_a9d540dc7394 | tests/test_bloom.py ......
 test_engine_mylinuxengine_1_a9d540dc7394 | tests/test_bounties.py .
 test_engine_mylinuxengine_1_a9d540dc7394 | tests/test_client.py ............
 test_engine_mylinuxengine_1_a9d540dc7394 | tests/test_corpus.py ..
 test_engine_mylinuxengine_1_a9d540dc7394 | tests/test_events.py ..............
-test_engine_mylinuxengine_1_a9d540dc7394 | 
+test_engine_mylinuxengine_1_a9d540dc7394 |
 test_engine_mylinuxengine_1_a9d540dc7394 | ========================== 36 passed in 39.42 seconds ==========================
 test_engine_mylinuxengine_1_a9d540dc7394 | ___________________________________ summary ____________________________________
 test_engine_mylinuxengine_1_a9d540dc7394 |   py35: commands succeeded

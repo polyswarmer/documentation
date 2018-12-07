@@ -40,20 +40,27 @@ You can safely ignore the `combine_argument_formatters` warning.
 ## (Local) Integration Testing
 
 <div class="m-flag m-flag--warning">
-  <p><strong>Warning:</strong> Conducting integration tests on Windows-Based Engines is only supported in a VirtualBox configuration at this time.</p>
-  <p>Please refer to [Windows Development Environment](TODO: link to dev env stuff) for more information.</p>
+  <p>
+    <strong>Warning:</strong>
+    Conducting integration tests on Windows-Based Engines is only supported in a VirtualBox configuration at this time.
+    Please refer to <a href="/development-environment-windows/">Windows Development Environment</a> for more information.
+  </p>
 </div>
 
 Integration testing a Windows-Based Engine requires two virtual machines (VMs / Guests):
 1. A Windows guest for running your Windows-Based engine (we already made this).
 1. A Linux guest for standing up a local PolySwarm testnet (we'll make this now).
 
-> Warning: The recommendations presented here are hard-won.
-We strongly recommend that you test using the exact recommendations presented here.
-Using any other configuration will make it difficult for us to provide you with support.
+<div class="m-flag m-flag--warning">
+  <p>
+    <strong>Warning:</strong>
+    The recommendations presented here are hard-won.
+    We strongly recommend that you test using the exact recommendations presented here.
+    Using any other configuration will make it difficult for us to provide you with support.
+  </p>
+</div>
 
-
-### Create a Linux Guest 
+### Create a Linux Guest
 
 
 #### Create the Virtual Machine
@@ -74,8 +81,13 @@ In particular, do NOT enable 3D acceleration.
 
 * [Download Xubuntu 18.04 amd64 ISO](https://xubuntu.org/release/18-04/)
 
-> Warning: We strongly recommend Xubuntu over Ubuntu for VirtualBox guests.
-Ubuntu presents a range of visual lag issues and is prone to total visual lockup when VirtualBox tools are installed.
+<div class="m-flag m-flag--warning">
+  <p>
+    <strong>Warning:</strong>
+    We strongly recommend Xubuntu over Ubuntu for VirtualBox guests.
+    Ubuntu presents a range of visual lag issues and is prone to total visual lockup when VirtualBox tools are installed.
+  </p>
+</div>
 
 Use the ISO you downloaded to install Windows in the VM.
 
@@ -103,8 +115,13 @@ PS C:\Program Files\Oracle\VirtualBox>
 
 Create and assign a dedicated PolySwarm internal network to each VM.
 
-> Warning: these commands will reconfigure network adapter #5 on your VMs.
-If you are already using this adapter (very unlikely), change the number in the commands.
+<div class="m-flag m-flag--warning">
+  <p>
+    <strong>Warning:</strong>
+    These commands will reconfigure network adapter #5 on your VMs.
+    If you are already using this adapter (very unlikely), change the number in the commands.
+  </p>
+</div>
 
 ```powershell
 PS C:\Program Files\Oracle\VirtualBox> .\VBoxManage.exe modifyvm "polyswarm_win" --nic5 intnet
@@ -113,8 +130,12 @@ PS C:\Program Files\Oracle\VirtualBox> .\VBoxManage.exe modifyvm "polyswarm_lin"
 PS C:\Program Files\Oracle\VirtualBox> .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 ```
 
-> Info: for more information on internal networking in VirtualBox, refer to their [official documentation](https://www.virtualbox.org/manual/ch06.html#network_internal)
-
+<div class="m-flag">
+  <p>
+    <strong>Info:</strong>
+    For more information on internal networking in VirtualBox, refer to their <a href="https://www.virtualbox.org/manual/ch06.html#network_internal">official documentation</a>.
+  </p>
+</div>
 
 #### Configure VMs with Static IPs
 
@@ -213,7 +234,12 @@ $ docker-compose -v
 
 Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
 
-> Info: If you receive permission errors when running docker or docker-compose commands, [configure your user account for docker permission](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
+<div class="m-flag">
+  <p>
+    <strong>Info:</strong>
+    If you receive permission errors when running docker or docker-compose commands, <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">configure your user account for docker permission</a>.
+  </p>
+</div>
 
 
 #### Install Git

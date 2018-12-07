@@ -27,9 +27,16 @@ The Swiss Army knife of exemplar PolySwarm participants ("clients").
 ## Customize `engine-template`
 
 <div class="m-flag m-flag--warning">
-  <p><strong>Warning:</strong> Windows-based engines are currently only supported as AMIs (AWS Machine Images).</p>
-  <p>The customization process for Window-based engines assumes you have an AWS account and its ID handy.</p>
-  <p>We'll be expanding deployment options in near future, including self-hosted options. Linux-based engines have no such stipulation.</p>
+  <p>
+    <strong>Warning:</strong>
+    Windows-based engines are currently only supported as AMIs (AWS Machine Images).
+  </p>
+  <p>
+    The customization process for Window-based engines assumes you have an AWS account and its ID handy.
+  </p>
+  <p>
+    We'll be expanding deployment options in near future, including self-hosted options. Linux-based engines have no such stipulation.
+  </p>
 </div>
 
 We're going to cut our Engine from `engine-template`.

@@ -2,10 +2,14 @@
 
 Conducting Windows-Based Engine development inside of a VirtualBox Guest is the only fully-supported configuration at this time.
 
-> Warning: The recommendations presented here are hard-won.
-We strongly recommend that you test using the exact parameters presented here.
-Using any other configuration will make it difficult for us to provide you with support.
-
+<div class="m-flag m-flag--warning">
+  <p>
+    <strong>Warning:</strong>
+    The recommendations presented here are hard-won.
+    We strongly recommend that you test using the exact parameters presented here.
+    Using any other configuration will make it difficult for us to provide you with support.
+  </p>
+</div>
 
 ### System Requirements
 
@@ -25,10 +29,16 @@ This mean you cannot run:
 * VMWare Workstation / Player
 * any other product that uses hypervisor extensions
 
-> Warning: Nested virtualization is NOT a currently supported configuration.
-Instructions presented here assume your host Windows install is running on "bare metal".
-Separate instructions for developing under a hypervisor (e.g. on AWS) are coming soon!
-
+<div class="m-flag m-flag--warning">
+  <p>
+    <strong>Warning:</strong>
+    Nested virtualization is NOT a currently supported configuration.
+  </p>
+  <p>
+    Instructions presented here assume your host Windows install is running on "bare metal".
+    Separate instructions for developing under a hypervisor (e.g. on AWS) are coming soon!
+  </p>
+</div>
 
 ### Prerequisites
 
@@ -56,9 +66,13 @@ In particular, **do NOT enable 3D acceleration**.
 
 Use the ISO you downloaded to install Windows in the VM.
 
-> Warning: Conducting Windows updates in a VirtualBox VM is not recommended and is quite likely to leave your VM in an un-bootable state.
-We recommend [disabling Windows Update](https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10) immediately after you install Windows in the VM.
-
+<div class="m-flag m-flag--warning">
+  <p>
+    <strong>Warning:</strong>
+    Conducting Windows updates in a VirtualBox VM is not recommended and is quite likely to leave your VM in an un-bootable state.
+    We recommend <a href="https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10">disabling Windows Update</a> immediately after you install Windows in the VM.
+  </p>
+</div>
 
 ### (Optional) Install VirtualBox Guest Additions
 
@@ -69,14 +83,17 @@ Guest Additions are necessary for Shared Clipboard / Copy & Paste features betwe
 
 ###  Guest Creation Complete
 
-Once Guest Additions are installed, you're ready to [Configure Windows](TODO: link to configure windows section below) for development inside of the VM.
+Once Guest Additions are installed, you're ready to [Configure Windows](/development-environment-windows/#configure-windows) for development inside of the VM.
 
 
 ## (Unsupported) Custom Configuration
 
 <div class="m-flag m-flag--warning">
-  <p><strong>Warning:</strong> Developing Windows-Based Engines outside of a VirtualBox virtual machine will preclude you from conducting integration tests at this time.</p>
-  <p>We strongly recommend that you conduct development inside of a Windows VirtualBox Guest (described above) at this time.</p>
+  <p>
+    <strong>Warning:</strong>
+    Developing Windows-Based Engines outside of a VirtualBox virtual machine will preclude you from conducting integration tests at this time.
+    We strongly recommend that you conduct development inside of a Windows VirtualBox Guest (described above) at this time.
+  </p>
 </div>
 
 Minimum system requirements:
@@ -135,7 +152,12 @@ choco install -y visualcpp-build-tools --version 14.0.25420.1
 ## Disable Anti-Malware Products
 
 <div class="m-flag m-flag--warning">
-  <p><strong>Warning:</strong> We strongly recommend disabling all anti-malware products in your development environment - including the built-in Windows Defender. Below, we describe disabling Windows Defender. Disabling third party solutions is left as an exercise for the reader.</p>
+  <p>
+    <strong>Warning:</strong>
+    We strongly recommend disabling all anti-malware products in your development environment - including the built-in Windows Defender.
+    Below, we describe disabling Windows Defender.
+    Disabling third party solutions is left as an exercise for the reader.
+  </p>
 </div>
 
 PolySwarm engines should expect to come into contact with malware.
@@ -165,7 +187,12 @@ python -m venv polyswarmvenv
 
 ## Install `polyswarm-client` Libraries
 
-> Info: If you're using a virtualenv (see above), ensure that you activate it before installing `polyswarm-client`.
+<div class="m-flag">
+  <p>
+    <strong>Info:</strong>
+    If you're using a virtualenv (see above), ensure that you activate it before installing `polyswarm-client`.
+  </p>
+</div>
 
 Installing `polyswarm-client` is as simple as:
 ```bash
