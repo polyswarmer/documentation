@@ -83,7 +83,7 @@ Guest Additions are necessary for Shared Clipboard / Copy & Paste features betwe
 
 ###  Guest Creation Complete
 
-Once Guest Additions are installed, you're ready to [Configure Windows](/development-environment-windows/#configure-windows) for development inside of the VM.
+Once Guest Additions are installed, you're ready to [Configure Windows](#configure-windows) for development inside of the VM.
 
 
 ## (Unsupported) Custom Configuration
