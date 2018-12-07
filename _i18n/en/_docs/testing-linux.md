@@ -108,9 +108,6 @@ Finally, let's introduce some artifacts for our Microengine to scan in a third t
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
-TODO: do we want to use scale in above?
-
-TODO: do we want to run microengine with `--testing 2`?
 
 Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!
 
