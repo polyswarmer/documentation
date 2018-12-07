@@ -54,7 +54,7 @@ test_engine_mylinuxengine_1_a9d540dc7394 |   congratulations :)
 Of course, this testing is quite limited - you'll want to expand on your tests in `scan_test.py`, as appropriate for your Microengine.
 
 
-## Integration Testing
+## Local Integration Testing
 
 The PolySwarm marketplace is composed of a myriad of participants and technologies: Ethereum & IPFS nodes, contracts, Microengines, Ambassadors, Arbiters, artifacts and much more.
 Testing a single component often demands availability of all of the other components.
@@ -62,7 +62,7 @@ Testing a single component often demands availability of all of the other compon
 The `orchestration` project makes standing up a complete testnet easy and seamless.
 True to its name, `orchestration` orchestrates all the components necessary to stand up and tear down an entire PolySwarm marketplace environment on a local development machine.
 
-Grab `orchestration`:
+Clone `orchestration`:
 ```bash
 git clone https://github.com/polyswarm/orchestration
 ```

@@ -3,7 +3,7 @@
 * x86-64 CPU
 * 8GB of RAM
 
-These instructions are developed against and tested to work on Ubuntu 18.04 amd64.
+These instructions are developed against and tested to work on Xubuntu 18.04 amd64.
 
 
 ## Install Docker

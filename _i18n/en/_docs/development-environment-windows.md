@@ -1,15 +1,91 @@
-## System Requirements
+## (Recommended) VirtualBox Guest Configuration
 
-* x86-64 CPU
-* 4GB of RAM
+Conducting Windows-Based Engine development inside of a VirtualBox Guest is the only fully-supported configuration at this time.
+
+> Warning: The recommendations presented here are hard-won.
+We strongly recommend that you test using the exact parameters presented here.
+Using any other configuration will make it difficult for us to provide you with support.
+
+
+### System Requirements
+
+Windows-Based Engine development presents non-trivial system requirements for your development host:
+* Windows 10 (we've tested with Windows 10 Pro, version 1809)
+* VT-x supported and enabled in BIOS
+* 16GB+ of RAM
+* 4+ CPU cores
+* 100GB+ disk space
+
+We'll be using VirtualBox.
+**VirtualBox must have sole ownership of your hypervisor**.
+This mean you cannot run:
+* Hyper-V
+* Windows Credential Guard
+* Windows Device Guard
+* VMWare Workstation / Player
+* any other product that uses hypervisor extensions
+
+> Warning: Nested virtualization is NOT a currently supported configuration.
+Instructions presented here assume your host Windows install is running on "bare metal".
+Separate instructions for developing under a hypervisor (e.g. on AWS) are coming soon!
+
+
+### Prerequisites
+
+* [Download and Install VirtualBox](https://www.virtualbox.org/wiki/Downloads).
+We've tested with VirtualBox 5.2.22.
+* [Download Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO)
+We've tested with Windows 10 Pro, Build 10240.
+
+
+### Create a Windows Guest
+
+Use VirtualBox to create a Windows VM using the following parameters:
+* Name: `polyswarm_win`
+* Type: Windows 10 Pro
+* RAM: 4GB+
+* CPU: 4+ cores
+* video memory: 128MB
+* disk space: 50GB+
+
+Use the default setting for all other options.
+In particular, **do NOT enable 3D acceleration**.
+
+
+### Install Windows 10
+
+Use the ISO you downloaded to install Windows in the VM.
+
+> Warning: Conducting Windows updates in a VirtualBox VM is not recommended and is quite likely to leave your VM in an un-bootable state.
+We recommend [disabling Windows Update](https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10) immediately after you install Windows in the VM.
+
+
+### (Optional) Install VirtualBox Guest Additions
+
+Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+
+[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
+
+
+###  Guest Creation Complete
+
+Once Guest Additions are installed, you're ready to [Configure Windows](TODO: link to configure windows section below) for development inside of the VM.
+
+
+## (Unsupported) Custom Configuration
+
+<div class="m-flag m-flag--warning">
+  <p><strong>Warning:</strong> Developing Windows-Based Engines outside of a VirtualBox virtual machine will preclude you from conducting integration tests at this time.</p>
+  <p>We strongly recommend that you conduct development inside of a Windows VirtualBox Guest (described above) at this time.</p>
+</div>
+
+Minimum system requirements:
 * Windows 10*
+* 4+ CPU cores
+* 4GB of RAM
 
 *Older versions of Windows may work, but are untested (and unsupported) at this time.
 
-<div class="m-flag m-flag--warning">
-  <p><strong>Warning:</strong> These instructions will make changes to your Windows installation.</p>
-  <p>We strongly recommend that you isolate these changes from your host system by conducting Windows development inside of a virtual machine, using e.g. VMWare, QEMU, VirtualBox, etc. TODO: recommend VirtualBox?</p>
-</div>
 
 ## Configure Windows
 
