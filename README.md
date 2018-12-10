@@ -30,9 +30,9 @@ A new English page can be added in four steps:
 ### Step One: Add Your Localized Title
 
 Since the documentation will be available in multiple languages, we need to define the title of our page in a special file that keeps track of all localized content.
-That file is `_i18n/en.yml`, which as you can see is a [YAML](https://en.wikipedia.org/wiki/YAML) file containing key value pairs.
+That file is `_i18n/en-US.yml`, which as you can see is a [YAML](https://en.wikipedia.org/wiki/YAML) file containing key value pairs.
 
-In `_i18n/en.yml`, you will see a section called `docs`.
+In `_i18n/en-US.yml`, you will see a section called `docs`.
 There, add a unique key for your page and then add your title within that key like so:
 
 ```yml
@@ -45,7 +45,7 @@ docs:
 
 Now that we've created our title, let's create the localized file that will hold our content.
 
-In `_i18n/en/_docs`, create a new [Markdown](https://github.com/polyswarm/documentation#markdown) file named using the following format:
+In `_i18n/en-US/_docs`, create a new [Markdown](https://github.com/polyswarm/documentation#markdown) file named using the following format:
 
 ```
 my-page-title.md
@@ -102,13 +102,13 @@ title: docs.my_unique_page_key.title
 
 The section between the triple-dashed lines is the [YAML front matter](https://jekyllrb.com/docs/frontmatter/) block.
 
-As you can see, the front matter block [references the localized title](https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin#54-i18n-in-templates) you defined in `_i18n/en.yml`.
+As you can see, the front matter block [references the localized title](https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin#54-i18n-in-templates) you defined in `_i18n/en-US.yml`.
 
-The content within the curly braces and percentage signs [references the localized content](https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin#52-including-translated-files) from your Markdown file in `_i18n/en/_docs`.
+The content within the curly braces and percentage signs [references the localized content](https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin#52-including-translated-files) from your Markdown file in `_i18n/en-US/_docs`.
 
 ### Step Four: Add Your Page to the Navigation
 
-Navigation items can be added or removed in the `_i18n/en.yml` file.
+Navigation items can be added or removed in the `_i18n/en-US.yml` file.
 There, you will see a key called `header` with a property called `navigation`. You can also see that `navigation` has a property called `items` which is an array of navigation items.
 
 Navigation items should use the following structure:
