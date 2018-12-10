@@ -1,0 +1,236 @@
+---
+global:
+  title: The first decentralized threat intelligence marketplace
+  description: PolySwarm Documentation is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products.
+  languages:
+    - 
+      name: en
+      fullname: English
+      d_url: /
+      text: This page is available in English.
+      ok:
+        text: View now
+      close:
+        text: Close
+  previous_text: Previous article
+  next_text: Next article
+  close_text: Close
+  privacy_settings:
+    heading: Privacy Settings
+    text: Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you consent to our use of cookies, please make sure the box below is checked. Otherwise, uncheck the box below to opt out.
+    label: Enable Cookies
+header:
+  menu_text: Menu
+  languages_text: Languages
+  navigation:
+    home:
+      name: Docs Home
+      d_url: /
+    items:
+      - 
+        name: Concepts
+        subitems:
+          - 
+            name: Participants
+            d_url: /concepts-participants/
+          - 
+            name: Microengines
+            d_url: /concepts-participants-microengine/
+      - 
+        name: Development Environment
+        subitems:
+          - 
+            name: Linux
+            d_url: /development-environment-linux/
+          - 
+            name: Windows
+            d_url: /development-environment-windows/
+      - 
+        name: Microengines
+        subitems:
+          - 
+            name: "Level 0: Scratch to EICAR"
+            d_url: /microengines-scratch-to-eicar/
+          - 
+            name: "Level 1: Scratch to ClamAV"
+            d_url: /microengines-scratch-to-clamav/
+          - 
+            name: "Level 2: ClamAV to Multi"
+            d_url: /microengines-clamav-to-multi/
+      - 
+        name: Testing
+        subitems:
+          - 
+            name: Linux
+            d_url: /testing-linux/
+          - 
+            name: Windows
+            d_url: /testing-windows/
+      - 
+        name: Advanced
+        subitems:
+          - 
+            name: polyswarmd API
+            d_url: /polyswarmd-api/
+          - 
+            name: Hive
+            d_url: /hive/
+footer:
+  navigation:
+    home:
+      d_url: /
+      d_rooturl: true
+    columns:
+      - 
+        items:
+          - 
+            name: Navigation
+          - 
+            name: Home
+            d_url: /
+            d_rooturl: true
+          - 
+            name: Security Experts
+            d_url: /security_experts/
+            d_rooturl: true
+          - 
+            name: How It Works
+            d_url: /how_it_works/
+            d_rooturl: true
+          - 
+            name: Partners
+            d_url: /partners/
+            d_rooturl: true
+          - 
+            name: Updates
+            d_url: /updates/
+            d_rooturl: true
+          - 
+            name: Docs
+            d_url: https://docs.polyswarm.io
+            d_subdomain: true
+          - 
+            name: Contact
+            d_url: /contact/
+            d_rooturl: true
+      - 
+        items:
+          - 
+            name: Company
+          - 
+            name: The Team
+            d_url: /the_team/
+            d_rooturl: true
+          - 
+            name: Careers
+            d_url: /careers/
+            d_rooturl: true
+          - 
+            name: Roadmap
+            d_url: /roadmap/
+            d_rooturl: true
+          - 
+            name: FAQ
+            d_url: /faq/
+            d_rooturl: true
+          - 
+            name: Grants
+            d_url: /grants/
+            d_rooturl: true
+          - 
+            name: Security
+            d_url: /security/
+            d_rooturl: true
+          - 
+            name: Media
+            d_url: /media/
+            d_rooturl: true
+          - 
+            name: Press
+            d_url: /press/
+            d_rooturl: true
+      - 
+        items:
+          - 
+            name: Telegram Channels
+          - 
+            name: PolySwarm
+            d_url: https://t.me/PolySwarm
+            d_target: _blank
+            d_root: true
+          - 
+            name: POLYSWARM官方中文群
+            d_url: https://t.me/PolySwarmChinese
+            d_target: _blank
+            d_root: true
+          - 
+            name: PolySwarm Announcements
+            d_url: https://t.me/PolySwarmAnnouncements
+            d_target: _blank
+            d_root: true
+  cta:
+    name: Download Whitepaper
+    d_url: /polyswarm-whitepaper.pdf
+    d_target: _blank
+    d_rooturl: true
+  privacy:
+    name: Privacy Policy
+    d_url: /privacy/
+  terms:
+    name: Terms of Service
+    d_url: /terms/
+    d_rooturl: true
+pages:
+  page_not_found:
+    title: Page not found
+    d_bg_image: /backgrounds/network-bg.png
+    heading: Page not found
+    button:
+      name: Back to home
+      d_url: /
+      d_style: transparent
+  privacy:
+    title: Privacy Policy
+    description: PolySwarm's Privacy Policy
+docs:
+  concepts_participants:
+    title: Roles in the PolySwarm Marketplace
+    description: PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
+  concepts_participants_microengine:
+    title: "Participants: Microengine"
+    description: Microengines are Security Experts' representation in the PolySwarm marketplace.
+  development_environment_linux:
+    title: Linux Development Environment
+    description: How to configure a Linux development environment for PolySwarm
+  development_environment_windows:
+    title: Windows Development Environment
+    description: How to configure a Windows development environment for PolySwarm
+  microengines_scratch_to_eicar:
+    title: "Level 0: Scratch to EICAR"
+    description: This tutorial will step you through building your very first PolySwarm microengine - a hello world microengine capable of detecting the EICAR test file.
+  microengines_scratch_to_clamav:
+    title: "Level 1: Scratch to ClamAV"
+    description: This tutorial will step you through building your second PolySwarm microengine by means of incorporating ClamAV as an analysis backend.
+  microengines_clamav_to_multi:
+    title: "Level 2: ClamAV to Multi"
+    description: This tutorial will show you how to combine multiple analysis backends (ClamAV and YARA) and outlines a basic verdict distillation primitive.
+  testing_linux:
+    title: Testing Linux-Based Engines
+    description: How to test a Linux-based PolySwarm microengine.
+  testing_windows:
+    title: Testing Windows-Based Engines
+    description: How to test a Windows-based PolySwarm microengine.
+  polyswarmd_api:
+    title: polyswarmd API
+    description: The polyswarmd API documentation.
+  hive:
+    title: PolySwarm Hive
+    description: PolySwarm Hive is an invite-only testnet to facilitate the development of microengines and arbiters. This section will show you how to connect to Hive.
+banners:
+  - 
+    id: cookie-consent
+    text: 'Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you do not consent to our use of cookies, you can change your <a href="/privacy/#privacy-settings" target="_blank">Privacy Settings</a>. Otherwise, you may click <a href="#" class="js-banner__accept">Accept</a>.'
+    d_type: accept
+    link:
+      name: Accept
+      d_url: "#"
