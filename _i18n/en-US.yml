@@ -2,7 +2,7 @@ global:
   title: The first decentralized threat intelligence marketplace
   description: PolySwarm Documentation is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products.
   languages:
-    - name: en
+    - name: en-US
       fullname: English
       d_url: /
       text: This page is available in English.
@@ -10,57 +10,57 @@ global:
         text: View now
       close:
         text: Close
-    # - name: de
+    # - name: de-DE
     #   fullname: Deutsch
-    #   d_url: /de/
+    #   d_url: /de-DE/
     #   text: This page is available in Deutsch.
     #   ok:
     #     text: View now
     #   close:
     #     text: Close
-    # - name: es
+    # - name: es-ES
     #   fullname: Español
-    #   d_url: /es/
+    #   d_url: /es-ES/
     #   text: This page is available in Español.
     #   ok:
     #     text: View now
     #   close:
     #     text: Close
-    # - name: fr
+    # - name: fr-FR
     #   fullname: Français
-    #   d_url: /fr/
+    #   d_url: /fr-FR/
     #   text: This page is available in Français.
     #   ok:
     #     text: View now
     #   close:
     #     text: Close
-    # - name: ru
+    # - name: ru-RU
     #   fullname: Русский
-    #   d_url: /ru/
+    #   d_url: /ru-RU/
     #   text: This page is available in Русский.
     #   ok:
     #     text: View now
     #   close:
     #     text: Close
-    # - name: ko
+    # - name: ko-KR
     #   fullname: 한국어
-    #   d_url: /ko/
+    #   d_url: /ko-KR/
     #   text: This page is available in 한국어.
     #   ok:
     #     text: View now
     #   close:
     #     text: Close
-    # - name: ja
-    #   fullname: 日本語
-    #   d_url: /ja/
-    #   text: This page is available in 日本語.
-    #   ok:
-    #     text: View now
-    #   close:
-    #     text: Close
-    # - name: zh
+    - name: ja-JP
+      fullname: 日本語
+      d_url: /ja-JP/
+      text: This page is available in 日本語.
+      ok:
+        text: View now
+      close:
+        text: Close
+    # - name: zh-CN
     #   fullname: 中文
-    #   d_url: /zh/
+    #   d_url: /zh-CN/
     #   text: This page is available in 中文.
     #   ok:
     #     text: View now
