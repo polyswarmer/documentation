@@ -4,10 +4,19 @@ global:
   description: PolySwarm Documentation is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products.
   languages:
     - 
-      name: en
+      name: en-US
       fullname: English
       d_url: /
       text: This page is available in English.
+      ok:
+        text: View now
+      close:
+        text: Close
+    - 
+      name: ja-JP
+      fullname: 日本語
+      d_url: /ja-JP/
+      text: This page is available in 日本語.
       ok:
         text: View now
       close:
