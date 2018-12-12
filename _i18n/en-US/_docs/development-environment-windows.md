@@ -44,7 +44,8 @@ This mean you cannot run:
 
 * [Download and Install VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 We've tested with VirtualBox 5.2.22.
-* [Download Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO)
+* [Download Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO).
+Use the Media Creation Tool to make a .ISO image.
 We've tested with Windows 10 Pro, Build 10240.
 
 
@@ -52,9 +53,10 @@ We've tested with Windows 10 Pro, Build 10240.
 
 Use VirtualBox to create a Windows VM using the following parameters:
 * Name: `polyswarm_win`
-* Type: Windows 10 Pro
+* Type: Microsoft Windows
+* Version: Windows 10 (64-bit)
 * RAM: 4GB+
-* CPU: 4+ cores
+* CPU: 2+ cores
 * video memory: 128MB
 * disk space: 50GB+
 
@@ -196,7 +198,7 @@ python -m venv polyswarmvenv
 
 Installing `polyswarm-client` is as simple as:
 ```bash
-pip install git+https://github.com/polyswarm/polyswarm-client.git#egg=polyswarm-client
+pip install polyswarm-client
 ```
 
 
