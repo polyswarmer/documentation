@@ -77,7 +77,7 @@ Create a Linux VM using the following parameters:
 Use the default setting for all other options.
 In particular, do NOT enable 3D acceleration.
 
-In general, you will want to provide extra available RAM and CPU resources to the linux VM to make the testnet perform better.
+In general, you will want to provide extra available RAM and CPU resources to the Linux VM to make the testnet perform better.
 
 #### Install Xubuntu 18.04 amd64
 
