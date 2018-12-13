@@ -68,7 +68,7 @@ Integration testing a Windows-Based Engine requires two virtual machines (VMs / 
 Create a Linux VM using the following parameters:
 * Name: `polyswarm_lin`
 * Type: Linux
-* Version: Ubuntu (64-bit)
+* Version: Xubuntu (64-bit)
 * RAM: 8GB+
 * CPU: 4+ cores
 * video memory: 128MB
