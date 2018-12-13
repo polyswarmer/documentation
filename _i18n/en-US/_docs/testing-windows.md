@@ -363,7 +363,7 @@ When it starts printing `Received block on chain` messages, we're ready to launc
 
 Run your Microengine.
 To do this, you will need to start another PowerShell and activate the virtual environment.
-Be sure to update the value for the `--backend` argument to match the name of your microengine's package directory (i.e. the directory in `src/`):
+Be sure to update the value for the `--backend` argument to match the name of your Microengine's package directory (i.e. the directory in `src/`):
 ```powershell
 (polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
 INFO:root:2018-12-06 16:56:20,674 Logging in text format.
