@@ -295,7 +295,7 @@ git clone https://github.com/polyswarm/orchestration
 
 We're going to have to switch between our VMs a little bit here.
 We will first start the Testnet in the Linux VM.
-Then we will start your microengine in the Windows VM.
+Then we will start your Microengine in the Windows VM.
 Finally, we will start the Ambassador in the Linux VM.
 
 #### Linux VM: Launch the Testnet
@@ -319,7 +319,7 @@ INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /
 Now it is safe to move to the next step.
 
 #### Windows VM: Test Connection to `polyswarmd`
-On your Windows VM, confirm that `polyswarmd` is available and ready to respond to your microengine:
+On your Windows VM, confirm that `polyswarmd` is available and ready to respond to your Microengine:
 ```
 PS C:\Users\user> curl -UseBasicParsing http://polyswarmd:31337/status
 
