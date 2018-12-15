@@ -66,13 +66,16 @@ Integration testing a Windows-Based Engine requires two virtual machines (VMs / 
 Create a Linux VM using the following parameters:
 
 * Name: `polyswarm_lin`
-* Type: Xubuntu 18.04 amd64
+* Type: Linux
+* Version: Xubuntu (64-bit)
 * RAM: 8GB+
 * CPU: 4+ cores
 * video memory: 128MB
 * disk space: 50GB+
 
 Use the default setting for all other options. In particular, do NOT enable 3D acceleration.
+
+In general, you will want to provide extra available RAM and CPU resources to the Linux VM to make the testnet perform better.
 
 #### Install Xubuntu 18.04 amd64
 
@@ -133,23 +136,37 @@ PS C:\Program Files\Oracle\VirtualBox> .\VBoxManage.exe modifyvm "polyswarm_lin"
   </p>
 </div>
 
+<div class="m-flag m-flag--warning">
+  <p>
+    <strong>Warning:</strong>
+    You will not see an "adapter #5" listed in your VM settings or inside your VM.
+    What you will see is that your VM will have at least 2 active network adapters and by
+    adding "polyswarm_net" to adapter 5, it should be easier to find because it will be the
+    highest numbered network interface in your VM.
+  </p>
+</div>
+
 #### Configure VMs with Static IPs
 
 Boot `polyswarm_lin` and assign the following static IPv4 information to the new adapter:
 
-* address: `192.168.0.101`
+* address: `10.10.42.101`
 * netmask: `255.255.255.0`
-* gateway: `192.168.0.1`
+* gateway: `10.10.42.1`
+
+If it is unclear which network interface you should apply these settings to, run the `ifconfig -a` command, and in the output you should see multiple network interfaces that start with `enp0s`. The interface with the largest number after that prefix is usually the one you want to modify.
 
 Boot `polyswarm_win` and configure the new adapter for these static IPv4 settings:
 
-* address: `192.168.0.102`
+* address: `10.10.42.102`
 * netmask: `255.255.255.0`
-* gateway: `192.168.0.1`
+* gateway: `10.10.42.1`
+
+If it is unclear which network interface you should apply these settings to, run the `ipconfig /all` command, and in the output you should see multiple network interfaces that start with `Ethernet adapter Ethernet`. The interface with the largest number after that prefix is usually the one you want to modify.
 
 #### Configure Windows VM for `polyswarmd` DNS Resolution
 
-Finally, your Windows VM needs to know that your Linux VM is hosting `polyswarmd`. Open an elevated instance of Notepad and add `polyswarmd` to the bottom of `C:\Windows\System32\Drivers\etc`:
+Finally, your Windows VM needs to know that your Linux VM is hosting `polyswarmd`. Open an elevated instance of Notepad and add `polyswarmd` to the bottom of `C:\Windows\System32\Drivers\etc\hosts`:
 
     # Copyright (c) 1993-2009 Microsoft Corp.
     #
@@ -173,7 +190,7 @@ Finally, your Windows VM needs to know that your Linux VM is hosting `polyswarmd
     #   127.0.0.1       localhost
     #   ::1             localhost
     
-    192.168.0.101 polyswarmd
+    10.10.42.101 polyswarmd
     
 
 #### Verify Configuration
@@ -185,12 +202,12 @@ PS C:\Users\user> Resolve-DnsName -name polyswarmd
 
 Name                                           Type   TTL   Section    IPAddress
 ----                                           ----   ---   -------    ---------
-polyswarmd                                     A      86400 Answer     192.168.0.101
+polyswarmd                                     A      86400 Answer     10.10.42.101
 
 PS C:\Users\user> ping polyswarmd
 
-Pinging polyswarmd [192.168.0.101] with 32 bytes of data:
-Reply from 192.168.0.101: bytes=32 time<1ms TTL=64
+Pinging polyswarmd [10.10.42.101] with 32 bytes of data:
+Reply from 10.10.42.101: bytes=32 time<1ms TTL=64
 ```
 
 Looking good!
@@ -223,8 +240,18 @@ Should output at least: `Docker version 18.05.0-ce build f150324`
 
 Also install [`docker-compose`](https://docs.docker.com/compose/install/)
 
+On Xubuntu:
+
 ```bash
-$ docker-compose -v
+curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
+sudo mv docker-compose /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+Once installed, verify that the installation works.
+
+```bash
+docker-compose -v
 ```
 
 Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
@@ -258,23 +285,30 @@ git clone https://github.com/polyswarm/orchestration
 
 ### Test Your Engine
 
-We're going to have to switch between our VMs a little bit here.
+We're going to have to switch between our VMs a little bit here. We will first start the Testnet in the Linux VM. Then we will start your Microengine in the Windows VM. Finally, we will start the Ambassador in the Linux VM.
 
 #### Linux VM: Launch the Testnet
 
-In your Linux VM, spin up a subset of the testnet, leaving out the stock `microengine` (we'll be substituting this with our own):
+In your Linux VM, spin up a subset of the testnet, leaving out the stock `microengine` (we'll be substituting this with our own) and leaving out the `ambassador` for now (we'll start it later):
 
 ```bash
-$ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0
+cd orchestration
+docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-It will take several minutes for `polyswarmd` to become available. Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
+It will take several minutes for `polyswarmd` to become available. During this time, you will see many messages like `Problem with dial... dial tcp connection refused.` and `chain for config not available in consul yet`. These errors are normal while the testnet is initializing, so have patience.
+
+Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
 
     INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
     
 
-On your Windows VM, confirm that `polyswarmd` is available and ready to respond to your microengine:
+Now it is safe to move to the next step.
+
+#### Windows VM: Test Connection to `polyswarmd`
+
+On your Windows VM, confirm that `polyswarmd` is available and ready to respond to your Microengine:
 
     PS C:\Users\user> curl -UseBasicParsing http://polyswarmd:31337/status
     
@@ -317,10 +351,10 @@ INFO:polyswarmclient:2018-12-06 16:55:33,080 Received block on chain side: {'num
 
 When it starts printing `Received block on chain` messages, we're ready to launch our Engine.
 
-Run your Microengine:
+Run your Microengine. To do this, you will need to start another PowerShell and activate the virtual environment. Be sure to update the value for the `--backend` argument to match the name of your Microengine's package directory (i.e. the directory in `src/`):
 
 ```powershell
-(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2
+(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
 INFO:root:2018-12-06 16:56:20,674 Logging in text format.
 INFO:polyswarmclient:2018-12-06 16:56:21,299 Using account: 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
 INFO:polyswarmclient:2018-12-06 16:56:21,690 Received connected on chain side: {'start_time': '1544126035.507124'}
@@ -346,12 +380,27 @@ INFO:polyswarmclient:2018-12-06 16:56:48,503 Received assertion on chain side: {
 WARNING:polyswarmclient.abstractmicroengine:2018-12-06 16:56:48,503 Received new bounty, but finished with testing mode
 ```
 
-Running with `--testing 2` means our Microengine will respond to 2 bounties and then refuse to respond to further bounties. We can observe this behavior in the output above.
+Running with `--testing 2` means our Microengine will respond to 2 bounties and then refuse to respond to further bounties by shutting itself off. You can adjust this number if you want it to process more bounties in your tests.
+
+But, your microengine will not have any bounties to process until there is an Ambassador sending bounties into the testnet.
+
+#### Linux VM: Launch the Ambassador
+
+In your Linux VM, now start the `ambassador`, which will submit bounties into the testnet, so your microengine can respond to them. Start a new terminal.
+
+```bash
+cd orchestration
+docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
+```
+
+Shortly after this starts, you will see messages in your microengine terminal when it is processing bounties.
 
 ### All Done
 
 Congrats!
 
 Your Windows-Based Engine should now be responding to bounties placed on a local testnet hosted in your Linux VM.
+
+Let your microengine run until it shuts itself off.
 
 Take a close look at the output of your engine to ensure it's doing what you want it to :)
