@@ -7,7 +7,7 @@ ClamAV is an open source signature-based engine with a daemon that provides quic
 <div class="m-flag">
   <p>
     <strong>Note:</strong>
-    the PolySwarm marketplace will be a source of previously unseen malware.
+    The PolySwarm marketplace will be a source of previously unseen malware.
   </p>
   <p>
     Relying on a strictly signature-based engine as your analysis backend, particularly one whose signatures everyone can access (e.g. ClamAV) is unlikely to yield unique insight into "swarmed" artifacts and therefore unlikely to outperform other engines.
@@ -50,7 +50,7 @@ Would you believe me if I said we were almost done? Let's get `clamd` initialize
 ```python
 class Scanner(AbstractScanner):
     def __init__(self):
-        self.clamd = clamd.ClamdNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
+        self.clamd = clamd.ClamdAsyncNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
 ```
 
 We interact with `clamd` by sending it a byte stream of artifact contents.
@@ -67,8 +67,9 @@ Now, all we need is to implement the scan method in the Scanner class.
 
 ```python
     async def scan(self, guid, content, chain):
-        result = self.clamd.instream(BytesIO(content)).get('stream')
-        if len(result) >= 2 and result[0] == 'FOUND':
+        result = await self.clamd.instream(BytesIO(content))
+        stream_result = result.get('stream', [])
+        if len(stream_result) >= 2 and stream_result[0] == 'FOUND':
             return True, True, ''
 
         return True, False, ''
@@ -88,6 +89,12 @@ We leave including ClamAV's `metadata` as an exercise to the reader - or check [
   <p>
     <strong>Info:</strong>
     The Microengine class is required, but we do not need to modify it, so it is not shown here.
+  </p>
+  <p>
+    Python 3's Asyncio - It is important that any external calls you make during a scan do not block the event loop.
+    We forked the clamd project to add support for python 3's asyncio.
+    Thus, for this example to run, you need install our python-clamd project to get the clamd package until our changes are merged upstream.
+    The command you need is: `pip install git+https://github.com/polyswarm/python-clamd.git@async#egg=clamd`.
   </p>
 </div>
 
