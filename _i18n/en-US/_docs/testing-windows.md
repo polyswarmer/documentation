@@ -3,7 +3,7 @@
 
 ## Unit Testing
 
-`tox` runs whatever unit tests you add to `src/scan_test.py`.
+`tox` runs whatever unit tests you add to `tests/scan_test.py`.
 We'll use `tox` to test our Microengine:
 ```powershell
 (polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> tox
@@ -21,7 +21,7 @@ rootdir: C:\Users\user\microengine-mywindowsengine, inifile:
 plugins: timeout-1.3.2, cov-2.6.0, asyncio-0.9.0, hypothesis-3.82.1
 collected 1 item
 
-src\polyswarm_mywindowsengine\scan_test.py .
+tests\scan_test.py .
 
 ================================================== warnings summary ===================================================
 c:\users\user\microengine-mywindowsengine\.tox\py35\lib\site-packages\eth_utils\applicators.py:32: DeprecationWarning: combine_argument_formatters(formatter1, formatter2)([item1, item2])has been deprecated and will be removed in a subsequent major version release of the eth-utils library. Update your calls to use apply_formatters_to_sequence([formatter1, formatter2], [item1, item2]) instead.
