@@ -9,7 +9,6 @@ Unit testing your Microengine is a simple process:
 
 Run the following commands from the root of your project directory.
 
-
 Build your Microengine into a Docker image:
 ```bash
 docker build -t ${PWD##*/} -f docker/Dockerfile .
@@ -19,13 +18,13 @@ This will produce a Docker image tagged with the name of the directory, e.g. `mi
 
 Run the tests:
 ```bash
-docker-compose -f docker/test.yml up
+docker-compose -f docker/test-unit.yml up
 ```
 
 If your Microengine is capable of detecting EICAR and not producing a false positive on the string "not a malicious file", then you should pass these basic unittests and see something like this:
 
 ```bash
-e$ docker-compose -f docker/test.yml up
+e$ docker-compose -f docker/test-unit.yml up
 Recreating docker_test_engine_mylinuxengine_1_a9d540dc7394 ... done
 Attaching to docker_test_engine_mylinuxengine_1_a9d540dc7394
 ...
@@ -38,7 +37,7 @@ test_engine_mylinuxengine_1_a9d540dc7394 | rootdir: /usr/src/app, inifile:
 test_engine_mylinuxengine_1_a9d540dc7394 | plugins: timeout-1.3.2, cov-2.6.0, asyncio-0.9.0, hypothesis-3.82.1
 test_engine_mylinuxengine_1_a9d540dc7394 | collected 36 items
 test_engine_mylinuxengine_1_a9d540dc7394 |
-test_engine_mylinuxengine_1_a9d540dc7394 | src/polyswarm_mylinuxengine/scan_test.py .
+test_engine_mylinuxengine_1_a9d540dc7394 | tests/scan_test.py .
 test_engine_mylinuxengine_1_a9d540dc7394 | tests/test_bloom.py ......
 test_engine_mylinuxengine_1_a9d540dc7394 | tests/test_bounties.py .
 test_engine_mylinuxengine_1_a9d540dc7394 | tests/test_client.py ............
@@ -94,7 +93,9 @@ When you've seen enough log output, do `Ctrl-C` to halt the development testnet 
 
 ### Test Your Engine
 
-Let's spin up a subset of the testnet, leaving out the stock `microengine` (we'll be replacing this with our own) and the `ambassador` services:
+Let's spin up a subset of the testnet, leaving out the stock `microengine` (we'll be replacing this with our own) and the `ambassador` services.
+
+In the cloned `orchestration` project:
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
@@ -106,12 +107,12 @@ INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFD
 INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
 ```
 
-Next, let's spin up our Microengine in a second terminal window:
+Next, let's spin up our Microengine in a second terminal window in our microengine's directory:
 ```bash
-$ docker run -it --net=orchestration_default ${PWD##*/}
+$ docker-compose -f docker/test-integration.yml up
 ```
 
-Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window:
+Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window in the `orchestration` directory:
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
