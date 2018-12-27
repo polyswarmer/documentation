@@ -9,7 +9,7 @@ These instructions are developed against and tested to work on Xubuntu 18.04 amd
 
 We've Docker-ized as many things as possible to make it easy to dive right in.
 
-You need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
+You need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://docs.docker.com/install/).
 
 Once installed, verify that the installation works.
 
@@ -26,6 +26,14 @@ $ docker-compose -v
 ```
 
 Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
+
+After installing Docker, we recommend adding your user to the `docker` group so that you can easily issue `docker` commands without `sudo`:
+
+```bash
+$ sudo usermod -aG docker ${USER}
+```
+
+You'll need to reboot in order for the change to take effect.
 
 ## Install Git
 
@@ -55,10 +63,19 @@ source polyswarmvenv/bin/activate
   </p>
 </div>
 
-Installing `polyswarm-client` is as simple as:
+Compiling & installing `polyswarm-client` libraries is simple.
+
+First, install Python 3 headers / build requirements.
+
+On Ubuntu, this is achieved with:
+
+    $ sudo apt install python3-dev
+    
+
+Next:
 
 ```bash
-pip install git+https://github.com/polyswarm/polyswarm-client.git#egg=polyswarm-client
+pip install polyswarm-client
 ```
 
 ## Verify Installation
