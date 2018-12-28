@@ -11,12 +11,11 @@ There are a few items to be aware of when doing this; we discuss below.
 
 ## Wallets & Keyfiles
 
-PolySwarm is built on top of Ethereum, a programmable world computer fueled by a native cryptocurrency.
-Ethereum's native currency is Ether (ETH).
+PolySwarm is built on top of Ethereum, a programmable world computer fueled by a native cryptocurrency called Ether (ETH).
 When an Ethereum user executes a transfer of ETH or conducts a call into an Ethereum "smart contract" (e.g. PolySwarm's Relay contracts), the user must pay the Ethereum network to carry out this transaction in the form of "Gas".
 Gas is deducted from their ETH balance.
 
-PolySwarm operates on Nectar (NCT) - an application-layer crypto token build on top of Ethereum.
+PolySwarm operates on Nectar (NCT) - an application-layer cryptocurrency token built on top of Ethereum.
 NCT is essential for participating in the PolySwarm marketplace.
 
 Your engine, acting as your representative on the PolySwarm marketplace, must have access to both ETH and NCT.
@@ -43,17 +42,18 @@ Support for offloading transaction signing to another device will arrive in a la
 
 ### Wallet Usage in PolySwarm
 
-When testing our engines, we told our engines where to find a "keyfile" that contains our encrypted private key via the `--keyfile` argument to `polyswarm-client`.
+When testing our engines, we told our engines where to use a "keyfile" that contains our encrypted private key via the `--keyfile` argument to the `polyswarm-client` utilities (i.e. `microengine` and `balancemanager`).
 All keyfiles distributed with `polyswarm-client` (and other PolySwarm projects) are encrypted with a trivial password: `password`, specified via the `--password` argument.
 
 (TODO: RED, BOLD)
 
-NEVER USE KEYFILES FROM POLYSWARM PROJECTS IN PRODUCTION / IN REAL COMMUNITIES.
-NEVER FUND THE WALLETS CONTAINED IN THESE KEYFILES WITH REAL NCT OR ETH.
+THE SOLE PURPOSE OF THESE DISTRIBUTED KEYFILES IS FOR TESTING WITH FAKE NCT AND FAKE ETH.
+NEVER USE TESTING KEYFILES FROM POLYSWARM PROJECTS IN PRODUCTION OR IN REAL COMMUNITIES.
+NEVER FUND THE WALLETS CONTAINED IN THESE TESTING KEYFILES WITH REAL NCT OR REAL ETH.
 
-When operating outside of a development / testing environment, YOU MUST CREATE YOUR OWN KEYFILE.
+When operating outside of a development / testing environment, YOU MUST CREATE YOUR OWN PRODUCTION KEYFILE.
 
-YOU ARE SOLELY RESPONSIBLE FOR THE SECURITY OF YOUR KEYFILE.
+YOU ARE SOLELY RESPONSIBLE FOR THE SECURITY OF YOUR PRODUCTION KEYFILE.
 
 (TODO: END ASIDE)
 
@@ -67,20 +67,21 @@ TODO: link above and make it look nice.
 Once you've generated your own keyfile, you'll need to fund your wallet with ETH and NCT.
 
 Generally, you have 3 funding avenues available:
-1. Purchase ETH and NCT on cryptocurrency exchanges and transfer them to the wallet represented by your microengine's keyfile.
+1. Purchase ETH and NCT on cryptocurrency exchanges and transfer them to the production wallet represented by your microengine's production keyfile.
 Methods to purchase & transfer cryptocurrencies are generally outside the scope of this document.
 2. Subscribe to PolySwarm Direct - an upcoming service with configurable auto-refills that ensure your engine is funded.
 This service is in development, stay tuned!
-3. Initial partners have received an NCT seedling per our published distribution schedule.
+3. Initial partners have received a NCT seedling in their production wallet per our published distribution schedule.
 
 
 ## Finding Your Community(ies)
 
-The PolySwarm marketplace is composed of a patchwork of communities.
-Communities are groups of individuals and corporations that perhaps share a particular malware interest or mutually agree to maintain the confidentiality of artifacts exchanged within the community.
+The PolySwarm marketplace is made up of a patchwork of communities.
+Communities are groups of individuals and corporations that share a particular malware interest or mutually agree to maintain the confidentiality of artifacts exchanged within the community.
 
 PolySwarm's first community, Origin, is a public community accessible to everyone - it's where you'll want to get started.
-Origin acts as a sort of "proving ground" for security expert to build a reputation and later perhaps engage in additional communities.
+Origin acts as a sort of "proving ground" for security experts to build a reputation for their engine.
+Once security experts build a reputation, they may want to engage in additional communities.
 As more communities come online, they'll appear in PolySwarm Portal: <button disabled>Browse Communities → (coming soon!)</button>
 
 TODO: verify above button
@@ -101,8 +102,8 @@ TODO: end aside
 Recall that each community has a distinct *sidechain* where PolySwarm transactions occur (TODO: link on sidechain stuff in home.md).
 In order to participate, you'l need to maintain a balance of NCT (ETH not required) on the Community's sidechain.
 
-We've made this easy: `polyswarm-client` can be run in `balancemanager` mode.
-You'll need to run both your engine and a `balancemanager` to maintain a balance on the community.
+We've made this easy: you can use `polyswarm-client`'s `balancemanager` utility.
+You'll need to run both your engine and a `balancemanager` to maintain a balance of NCT on the Community sidechain.
 Windows users will recall running `balancemanager` from the Windows engine Integration Testing instructions (TODO: link this to relevant instructions).
 Linux users had `balancemanager` handled for them by Docker transparently.
 
