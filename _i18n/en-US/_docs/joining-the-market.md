@@ -3,7 +3,7 @@
 Once you've thoroughly tested your engine, you'll want to put it to work in the real PolySwarm marketplace!
 
 At a high level, plugging into the PolySwarm marketplace is a simple matter of:
-1. determining which Community(ies) you'd like to join 
+1. determining which Community(ies) you'd like to join
 2. pointing your engines to the hosted instance of `polyswarmd ` for those Communities
 
 There are a few items to be aware of when doing this; we discuss below.
@@ -27,12 +27,14 @@ Technically, a wallet is simply a cryptographic keypair and some metadata that d
 Wallets are uniquely identified by a cryptographic hash of the public portion of this cryptographic keypair.
 Possession / control of a wallet (and all funds contained therein) is analogous to possession of the private portion of the wallet's keypair.
 
-(TODO: begin RED, BOLD)
-
-In PolySwarm, as with all cryptocurrency applications, an attacker with access to your wallet's private key can steal all your cryptocurrency (ETH & NCT) and impersonate you in the marketplace.
-It is absolutely essential that you protect the secrecy of your wallet's private key.
-
-(TODO: end aside)
+<div class="m-flag m-flag--danger">
+  <p>
+    <strong>
+      In PolySwarm, as with all cryptocurrency applications, an attacker with access to your wallet's private key can steal all your cryptocurrency (ETH & NCT) and impersonate you in the marketplace.
+      It is absolutely essential that you protect the secrecy of your wallet's private key.
+    </strong>
+  </p>
+</div>
 
 Means to secure your private key are outside of the scope of this document.
 In order for your engine to participate in the PolySwarm marketplace (and place transactions on your behalf), your engine must have the ability to sign transactions with your wallet's private key.
@@ -45,21 +47,27 @@ Support for offloading transaction signing to another device will arrive in a fu
 When testing our engines, we told our engines where to find a "keyfile" that contains our encrypted private key via the `--keyfile` argument to the `polyswarm-client` utilities (i.e. `microengine` and `balancemanager`).
 All keyfiles distributed with `polyswarm-client` (and other PolySwarm projects) are encrypted with a trivial password: `password`, specified via the `--password` argument.
 
-(TODO: RED, BOLD)
+<div class="m-flag m-flag--danger">
+  <p>
+    <strong>
+      The sole purpose of these distributed keyfiles is for testing with fake nct and fake eth.
+      Never use testing keyfiles from polyswarm projects in production or in real communities.
+      Never fund the wallets contained in these testing keyfiles with real nct or real eth.
+    </strong>
+  </p>
+  <p>
+    <strong>
+      When operating outside of a development testing environment you must create your own production keyfile.
+    </strong>
+  </p>
+  <p>
+    <strong>
+      You are solely responsible for the security of your production keyfile.
+    </strong>
+  </p>
+</div>
 
-THE SOLE PURPOSE OF THESE DISTRIBUTED KEYFILES IS FOR TESTING WITH FAKE NCT AND FAKE ETH.
-NEVER USE TESTING KEYFILES FROM POLYSWARM PROJECTS IN PRODUCTION OR IN REAL COMMUNITIES.
-NEVER FUND THE WALLETS CONTAINED IN THESE TESTING KEYFILES WITH REAL NCT OR REAL ETH.
-
-When operating outside of a development / testing environment, YOU MUST CREATE YOUR OWN PRODUCTION KEYFILE.
-
-YOU ARE SOLELY RESPONSIBLE FOR THE SECURITY OF YOUR PRODUCTION KEYFILE.
-
-(TODO: END ASIDE)
-
-The official Ethereum client (`go-ethereum` or `geth` for short) has instructions for generating a keyfile: https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts
-
-TODO: link above and make it look nice.
+The official Ethereum client (`go-ethereum` or `geth` for short) has instructions for generating a keyfile. See [Managing your accounts in geth](https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts).
 
 
 ## Funding Your Wallet
@@ -84,32 +92,31 @@ Origin acts as a sort of "proving ground" for security experts to build a reputa
 Once security experts build a reputation, they may want to engage in additional Communities.
 As more communities come online, they'll appear in PolySwarm Portal: <button disabled>Browse Communities → (coming soon!)</button>
 
-TODO: verify above button
-
 For now, let's proceed under the assumption that we only want to join the Origin community.
 
-TODO: begin info-level aside
-
-`polyswarm-client` based engines currently only support communicating with a single Community at a given time.
-Support for multiple Communities will be included in a future release.
-In the meantime, please run an instance of your engine (& `balancemanager`) per Community.
-
-TODO: end aside
+<div class="m-flag">
+  <p>
+    <strong>Info:</strong>
+      <code>polyswarm-client</code> based engines currently only support communicating with a single Community at a given time.
+      Support for multiple Communities will be included in a future release.
+      In the meantime, please run an instance of your engine (& <code>balancemanager</code>) per Community.
+  </p>
+</div>
 
 
 ## Relaying NCT to Your Community(ies)
 
-Recall that each community has a distinct *sidechain* where PolySwarm transactions occur (TODO: link on sidechain stuff in home.md).
+Recall that each community has a distinct [sidechain](/#chains-home-vs-side) where PolySwarm transactions occur.
 In order to participate, you'll need to maintain a balance of NCT (ETH not required) on the Community's sidechain.
 
 We've made this easy: you can use `polyswarm-client`'s `balancemanager` utility.
 You'll need to run both your engine and a `balancemanager` to maintain a balance of NCT on the Community sidechain.
-Windows users will recall running `balancemanager` from the Windows engine Integration Testing instructions (TODO: link this to relevant instructions).
+Windows users will recall running `balancemanager` from the [Windows engine Integration Testing instructions](/testing-windows/#integration-testing).
 Linux users had `balancemanager` handled for them by Docker transparently.
 
 `balancemanager` can be run in three modes:
 1. `deposit`: deposit the configured amount of NCT onto the Community and exit
-2. `withdraw`: withdraw the configured amount of NCT from the Community and exit 
+2. `withdraw`: withdraw the configured amount of NCT from the Community and exit
 3. `maintain`: continually ensure a configurable balance of NCT in the Community
 
 Most users will want to simply `maintain` a balance - we'll dive into using this functionality below.
@@ -121,7 +128,7 @@ Advanced users may want to manually `deposit` and `withdraw` funds.
 In order to protect themselves from griefing / Denial of Service (DoS), Communities may elect to issue their members API keys and apply rate limits to these keys.
 Origin is one such community, but API keys are available to everyone.
 
-To obtain your Origin API key, sign up on PolySwarm Portal (TODO: LINK to polyswarm.network), click your name in the top right corner and select Account.
+To obtain your Origin API key, sign up on [PolySwarm Portal](https://polyswarm.network/), click your name in the top right corner and select Account.
 Your Origin API key will be displayed in your Profile.
 
 
@@ -206,7 +213,7 @@ In addition to your engine, you'll need to run a `balancemanager`.
   --api-key <your Origin API key> \
   --maximum <(optional) the maximum allowable balance in the Community before a withdraw is made>
   <MINIMUM: deposit into the Community when balance drops below this value>
-  <REFILLE_AMOUNT: the amount of NCT to transfer when Community balance falls below MINIMUM> 
+  <REFILLE_AMOUNT: the amount of NCT to transfer when Community balance falls below MINIMUM>
 ```
 
 For the full list of command line arguments, use the `--help` CLI flag:
@@ -243,7 +250,3 @@ Options:
 ## Congratulations
 
 With your engine & `balanacemanager` running, you are now plugged into your Community(ies) of choice!
-
-
-
-
