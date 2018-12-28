@@ -59,7 +59,7 @@ source polyswarmvenv/bin/activate
 <div class="m-flag">
   <p>
     <strong>Info:</strong>
-    If you're using a virtualenv (see above), ensure that you activate it before installing `polyswarm-client`.
+    If you're using a virtualenv (see above), ensure that you activate it before installing polyswarm-client.
   </p>
 </div>
 

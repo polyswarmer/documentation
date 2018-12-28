@@ -54,13 +54,13 @@ test_engine_mylinuxengine_1_a9d540dc7394 |   congratulations :)
 
 Of course, this testing is quite limited - you'll want to expand on your tests in `scan_test.py`, as appropriate for your Microengine.
 
-## Local Integration Testing
+## Integration Testing
 
 The PolySwarm marketplace is composed of a myriad of participants and technologies: Ethereum & IPFS nodes, contracts, Microengines, Ambassadors, Arbiters, artifacts and much more. Testing a single component often demands availability of all of the other components.
 
 The `orchestration` project makes standing up a complete testnet easy and seamless. True to its name, `orchestration` orchestrates all the components necessary to stand up and tear down an entire PolySwarm marketplace environment on a local development machine.
 
-Clone `orchestration`:
+Clone `orchestration` adjacent to your `microengine-myeicarengine` directory:
 
 ```bash
 git clone https://github.com/polyswarm/orchestration
@@ -68,10 +68,11 @@ git clone https://github.com/polyswarm/orchestration
 
 ### (Optional) Preview a Complete, Working Testnet
 
-Let's spin up a complete, working testnet to get a sense for what things *should* look like:
+Let's spin up a complete, working testnet to get a sense for what things *should* look like.
+
+In the cloned `orchestration` directory:
 
 ```bash
-pushd orchestration
 docker-compose -f base.yml -f tutorial0.yml up
 ```
 
