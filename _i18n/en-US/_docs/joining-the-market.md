@@ -167,6 +167,7 @@ If you've built your engine on `polyswarm-client`, (e.g. using our cookiecutter 
   --keyfile <path to your self-generated and funded keyfile> \
   --password <encryption password for your keyfile> \
   --api-key <your Origin API key>
+  --backend <the name ("slug") of your scan engine (e.g. acme_myeicarengine)>
 ```
 
 For the full list of command line arguments, use the `--help` CLI flag:
