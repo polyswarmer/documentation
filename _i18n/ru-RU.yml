@@ -76,14 +76,11 @@ header:
             name: Windows
             d_url: /testing-windows/
       - 
-        name: Advanced
-        subitems:
-          - 
-            name: polyswarmd API
-            d_url: /polyswarmd-api/
-          - 
-            name: Hive
-            d_url: /hive/
+        name: Marketplace
+        d_url: /joining-the-market/
+      - 
+        name: API
+        d_url: /polyswarmd-api/
 footer:
   navigation:
     home:
@@ -229,12 +226,12 @@ docs:
   testing_windows:
     title: Testing Windows-Based Engines
     description: How to test a Windows-based PolySwarm microengine.
+  joining_the_market:
+    title: Joining the Market
+    description: Participating in the PolySwarm Marketplace.
   polyswarmd_api:
     title: polyswarmd API
     description: The polyswarmd API documentation.
-  hive:
-    title: PolySwarm Hive
-    description: PolySwarm Hive is an invite-only testnet to facilitate the development of microengines and arbiters. This section will show you how to connect to Hive.
 banners:
   - 
     id: cookie-consent
