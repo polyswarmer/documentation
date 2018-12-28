@@ -35,7 +35,7 @@ _______________________________________________________ summary ________________
 
 You can safely ignore the `combine_argument_formatters` warning.
 
-## (Local) Integration Testing
+## Integration Testing
 
 <div class="m-flag m-flag--warning">
   <p>
