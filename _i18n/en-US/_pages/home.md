@@ -25,7 +25,7 @@ PolySwarm Portal is PolySwarm's one-stop shop for:
 
 ... and much, much more.
 
-<button disabled>Explore Portal → (coming soon!)</button>
+[Explore Portal →](https://polyswarm.network/)
 
 
 ## Communities
