@@ -87,12 +87,12 @@ This service is in development, stay tuned!
 The PolySwarm marketplace is made up of a patchwork of Communities.
 Communities are groups of individuals and corporations that share a particular malware interest or mutually agree to maintain the confidentiality of artifacts exchanged within the Community.
 
-PolySwarm's first Community, Origin, is a public Community accessible to everyone - it's where you'll want to get started.
-Origin acts as a sort of "proving ground" for security experts to build a reputation for their engine.
+PolySwarm's first Community, Epoch, is a public Community accessible to everyone - it's where you'll want to get started.
+Epoch acts as a sort of "proving ground" for security experts to build a reputation for their engine.
 Once security experts build a reputation, they may want to engage in additional Communities.
 As more communities come online, they'll appear in PolySwarm Portal: <button disabled>Browse Communities → (coming soon!)</button>
 
-For now, let's proceed under the assumption that we only want to join the Origin community.
+For now, let's proceed under the assumption that we only want to join the Epoch community.
 
 <div class="m-flag">
   <p>
@@ -126,10 +126,10 @@ Advanced users may want to manually `deposit` and `withdraw` funds.
 ## API Keys
 
 In order to protect themselves from griefing / Denial of Service (DoS), Communities may elect to issue their members API keys and apply rate limits to these keys.
-Origin is one such community, but API keys are available to everyone.
+Epoch is one such community, but API keys are available to everyone.
 
-To obtain your Origin API key, sign up on [PolySwarm Portal](https://polyswarm.network/), click your name in the top right corner and select Account.
-Your Origin API key will be displayed in your Profile.
+To obtain your Epoch API key, sign up on [PolySwarm Portal](https://polyswarm.network/), click your name in the top right corner and select Account.
+Your Epoch API key will be displayed in your Profile.
 
 
 ### API Key Usage in `polyswarm-client`-Based Engines
@@ -163,10 +163,10 @@ If you've built your engine on `polyswarm-client`, (e.g. using our cookiecutter 
 
 ```bash
 # microengine \
-  --polyswarmd-addr polyswarmd.origin.polyswarm.network \
+  --polyswarmd-addr polyswarmd.epoch.polyswarm.network \
   --keyfile <path to your self-generated and funded keyfile> \
   --password <encryption password for your keyfile> \
-  --api-key <your Origin API key>
+  --api-key <your Epoch API key>
   --backend <the name ("slug") of your scan engine (e.g. acme_myeicarengine)>
 ```
 
@@ -208,10 +208,10 @@ In addition to your engine, you'll need to run a `balancemanager`.
 `balancemanager` will also require access to your `keyfile`:
 ```bash
 # balancemanager maintain \
-  --polyswarmd-addr polyswarmd.origin.polyswarm.network \
+  --polyswarmd-addr polyswarmd.epoch.polyswarm.network \
   --keyfile <path to your self-generated and funded keyfile> \
   --password <encryption password for your keyfile> \
-  --api-key <your Origin API key> \
+  --api-key <your Epoch API key> \
   --maximum <(optional) the maximum allowable balance in the Community before a withdraw is made>
   <MINIMUM: deposit into the Community when balance drops below this value>
   <REFILLE_AMOUNT: the amount of NCT to transfer when Community balance falls below MINIMUM>
