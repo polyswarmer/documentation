@@ -31,7 +31,7 @@ Conceptually, a Microengine is composed of:
 
 1. `N` **analysis backends**: the scanners that ingest artifacts (files) and determine `malicious` or `benign`.
 2. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
-3. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
+3. `1` **投注引擎**：接收判定引擎输出的结果和市场/竞争信息之后产生一个以花蜜币（NCT）为单位的 `投注` 。
 
 Microengines are Security Experts' autonomous representatives in the PolySwarm marketplace. They handle everything from scanning files to placing stakes on assertions concerning the malintent of files.
 
