@@ -6,7 +6,7 @@ Microengines are Security Experts' representation in the PolySwarm marketplace. 
 
 Microengines respond to Bounties and Offers in the PolySwarm marketplace, determining whether a suspect file is malicious or benign and stake a certain amount of Nectar (NCT) tokens alongside that assertion. Security Experts maintain and tweak their Microengines in response to new threat information and new analyses tools, vying against one another to stay at the forefront of their area of expertise.
 
-If you have unique insight into a particular malware family and want to earn tokens (NCT) along with a reputation for that insight, you want to develop a Microengine!
+若你对某一特别领域的病毒有特别的见解并且想要在累积声誉的同时获取代币（NCT）的话，你应该开发一个微引擎！
 
 ## Microengines' Role in the Marketplace
 
