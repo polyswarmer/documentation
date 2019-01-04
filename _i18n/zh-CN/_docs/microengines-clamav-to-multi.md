@@ -77,7 +77,7 @@ A finished solution can be found in [clamav.py](https://github.com/polyswarm/pol
 
 ## Multiple Analysis Backends
 
-Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyMultiEngine". You should find a `microengine-mymultiengine` in your current working directory - this is what we'll be editing to make use of both ClamAv's and YARA's functionality.
+从一个新的 [engine-template](/microengines-scratch-to-eicar/#customize-engine-template) 开始， 给它 `engine-name` 的 “MyMultiEngine”。 You should find a `microengine-mymultiengine` in your current working directory - this is what we'll be editing to make use of both ClamAv's and YARA's functionality.
 
 We will extend our Microengine to utilize multiple analysis backends, which means we need to have some way to get the result of both backends (YARA and ClamAV) and distill that into our verdict. Let's create a Microengine which initializes multiple scanners:
 
@@ -113,7 +113,7 @@ class Scanner(AbstractScanner):
 
 This creates a list of backends containing instances of our YaraScanner and ClamavScanner.
 
-Now that we can access both Scanners, let's use both of their results to distill a final verdict in our Scanner's `scan()` function.
+现在我们可以访问这两个 Scanner 了，让我们透过我们的 Scanner 的 `scan()` 函数来用他们的结果来提取一个最终裁决。
 
 ```python
     async def scan(self, guid, content, chain):
