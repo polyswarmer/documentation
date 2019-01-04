@@ -85,15 +85,15 @@ You'll see output from the following services:
 5. `contracts`: Responsible for housing & deploying the PolySwarm Nectar (NCT) and `BountyRegistry` contracts onto our development testnet.
 6. `ambassador`：一个虚拟代表（由 `polyswarm-client` 提供），它会置放悬赏在 [EICAR 的文件](https://en.wikipedia.org/wiki/EICAR_test_file) 和非 EICAR 的文件上面。
 7. `arbiter`：一个虚拟仲裁者（由 `polyswarm-client` 提供），它会对热门的工件发送判定和决定“真正事实”。
-8. `microengine`: A mock Microengine (provided by `polyswarm-client`) that will investigate the "swarmed" artifacts and render Assertions.
+8. `microengine`：一个虚拟微引擎 （由 `polyswarm-client` 提供），它会调查“热门”的工件和产生“断言”。
 
-Browse through the logs scroll on the screen to get a sense for what each of these components is doing. Let it run for at least 5 minutes - it can take time to deploy contracts - and then the fun starts :)
+Browse through the logs scroll on the screen to get a sense for what each of these components is doing. 我们让它运行至少5分钟，因为部署合约可能会需要点时间，这时就开始变得有趣了 :)
 
 When you've seen enough log output, do `Ctrl-C` to halt the development testnet gracefully.
 
 ### Test Your Engine
 
-Let's spin up a subset of the testnet, leaving out the stock `microengine` (we'll be replacing this with our own) and the `ambassador` services.
+让我们运行一部分的测试网，不包含预设的 `微引擎`（我们会用我们自己的微引擎来取代）和 `代表` 服务。
 
 In the cloned `orchestration` project:
 
