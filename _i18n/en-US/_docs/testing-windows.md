@@ -1,12 +1,23 @@
 # Testing Windows-Based Engines
 
+In this page, we use `microengine-mywindowsengine` as the name of the Microengine's directory.
+In your own testing, you will use the name of your Microengine's directory instead.
+Additionally, in these instructions, we've shortened the PowerShell command prompt to be `PS >` in order to make it easier to read the commands.
+Your actual PowerShell command prompt will be similar to this: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`.
+Similarly for Linux command prompts, we've shortened them to be `$`, while your actual command prompts will have more text to the left side of the `$`.
 
 ## Unit Testing
 
+We'll use `tox` to test our Microengine.
 `tox` runs whatever unit tests you add to `tests/scan_test.py`.
-We'll use `tox` to test our Microengine:
+
+In a powershell window with an activated virtual environment, and run the `tox` command at the base of your microengine's directory.
 ```powershell
-(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> tox
+PS > tox
+```
+
+The output will look similar to the following:
+```powershell
 GLOB sdist-make: C:\Users\user\microengine-mywindowsengine\setup.py
 py35 create: C:\Users\user\microengine-mywindowsengine\.tox\py35
 py35 installdeps: -rrequirements.txt
@@ -107,9 +118,13 @@ We need to establish an "internal" network that our Linux and Windows VMs will u
 
 Before we get started, shut down both the Linux and the Windows Guests.
 
-On your Host, open a PowerShell and change to the VirtualBox installation directory:
+On your Windows Host, open a PowerShell and change to the VirtualBox installation directory:
 ```powershell
-PS C:\Users\user> pushd $Env:Programfiles\Oracle\VirtualBox
+PS > pushd $Env:Programfiles\Oracle\VirtualBox
+```
+
+You should now see your command prompt look similar to this:
+```powershell
 PS C:\Program Files\Oracle\VirtualBox>
 ```
 
@@ -126,10 +141,10 @@ Create and assign a dedicated PolySwarm internal network to each VM.
 </div>
 
 ```powershell
-PS C:\Program Files\Oracle\VirtualBox> .\VBoxManage.exe modifyvm "polyswarm_win" --nic5 intnet
-PS C:\Program Files\Oracle\VirtualBox> .\VBoxManage.exe modifyvm "polyswarm_win" --intnet5 "polyswarm_net"
-PS C:\Program Files\Oracle\VirtualBox> .\VBoxManage.exe modifyvm "polyswarm_lin" --nic5 intnet
-PS C:\Program Files\Oracle\VirtualBox> .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
+PS > .\VBoxManage.exe modifyvm "polyswarm_win" --nic5 intnet
+PS > .\VBoxManage.exe modifyvm "polyswarm_win" --intnet5 "polyswarm_net"
+PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --nic5 intnet
+PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 ```
 
 <div class="m-flag">
@@ -149,9 +164,9 @@ PS C:\Program Files\Oracle\VirtualBox> .\VBoxManage.exe modifyvm "polyswarm_lin"
   </p>
 </div>
 
-#### Configure VMs with Static IPs
+#### Configure Virtual Machines with Static IP Addresses
 
-Boot `polyswarm_lin` and assign the following static IPv4 information to the new adapter:
+Boot the `polyswarm_lin` VM and edit your network settings to assign the following static IPv4 information to the new adapter:
 * address: `10.10.42.101`
 * netmask: `255.255.255.0`
 * gateway: `10.10.42.1`
@@ -160,7 +175,7 @@ If it is unclear which network interface you should apply these settings to, run
 command, and in the output you should see multiple network interfaces that start with `enp0s`.
 The interface with the largest number after that prefix is usually the one you want to modify.
 
-Boot `polyswarm_win` and configure the new adapter for these static IPv4 settings:
+Boot the `polyswarm_win` VM and edit your network settings to configure the new adapter for these static IPv4 settings:
 * address: `10.10.42.102`
 * netmask: `255.255.255.0`
 * gateway: `10.10.42.1`
@@ -201,21 +216,30 @@ Open an elevated instance of Notepad and add `polyswarmd` to the bottom of `C:\W
 
 #### Verify Configuration
 
-Finally, verify that Windows resolves `polyswarmd` to your Linux VM and is able to reach the VM:
+Finally, verify that Windows resolves `polyswarmd` to your Linux VM and is able to reach the VM.
+First do a DNS test as follows:
 ```powershell
-PS C:\Users\user> Resolve-DnsName -name polyswarmd
-
+PS > Resolve-DnsName -name polyswarmd
+```
+The output should look like this:
+```powershell
 Name                                           Type   TTL   Section    IPAddress
 ----                                           ----   ---   -------    ---------
 polyswarmd                                     A      86400 Answer     10.10.42.101
+```
 
-PS C:\Users\user> ping polyswarmd
+Next, do a ping test as follows:
+```powershell
+PS > ping polyswarmd
+```
 
+The output should look like this:
+```powershell
 Pinging polyswarmd [10.10.42.101] with 32 bytes of data:
 Reply from 10.10.42.101: bytes=32 time<1ms TTL=64
 ```
 
-Looking good!
+If you get those same output results, you have everything setup correctly, so let's continue.
 
 
 ### Configure Linux VM for Hosting a Local Testnet
@@ -228,36 +252,40 @@ If you do not have a recent Docker setup, please [install Docker now](https://ww
 
 On Xubuntu:
 ```bash
-sudo apt update && sudo apt install -y curl
-curl -fsSL https://get.docker.com -o get-docker.sh
-chmod +x get-docker.sh
-./get-docker.sh
-sudo usermod -aG docker $USER
+$ sudo apt-get update && sudo apt-get install -y curl
+$ curl -fsSL https://get.docker.com -o get-docker.sh
+$ chmod +x get-docker.sh
+$ ./get-docker.sh
+$ sudo usermod -aG docker $USER
 ```
 
 Log out, log back in.
 
-Once installed, verify that the installation works.
+Once installed, verify that the installation works, by running the following command:
 
 ```bash
-docker -v
+$ docker ps
 ```
 
-Should output at least: `Docker version 18.05.0-ce build f150324`
+It should output:
 
-Also install [`docker-compose`](https://docs.docker.com/compose/install/)
+```
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```
+
+Also [install `docker-compose`](https://docs.docker.com/compose/install/)
 
 On Xubuntu:
 ```bash
-curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
-sudo mv docker-compose /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+$ curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
+$ sudo mv docker-compose /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 Once installed, verify that the installation works.
 
 ```bash
-docker-compose -v
+$ docker-compose -v
 ```
 
 Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
@@ -277,7 +305,7 @@ Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-G
 
 On Xubuntu 18.04:
 ```bash
-sudo apt update && sudo apt install -y git
+$ sudo apt update && sudo apt install -y git
 ```
 
 #### Download `orchestration`
@@ -287,7 +315,7 @@ We use this same project internally to conduct end-to-end (integration) tests.
 
 Clone `orchestration`:
 ```bash
-git clone https://github.com/polyswarm/orchestration
+$ git clone https://github.com/polyswarm/orchestration
 ```
 
 
@@ -300,10 +328,11 @@ Finally, we will start the Ambassador in the Linux VM.
 
 #### Linux VM: Launch the Testnet
 
-In your Linux VM, spin up a subset of the testnet, leaving out the stock `microengine` (we'll be substituting this with our own) and leaving out the `ambassador` for now (we'll start it later):
+In your Linux VM, spin up a subset of the testnet, leaving out the stock `microengine` (we'll be substituting this with our own) and leaving out the `ambassador` for now (we'll start it later).
+To do that, run the following commands in a new terminal window:
 ```bash
-cd orchestration
-docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
+$ cd orchestration
+$ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
 It will take several minutes for `polyswarmd` to become available.
@@ -319,11 +348,14 @@ INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /
 Now it is safe to move to the next step.
 
 #### Windows VM: Test Connection to `polyswarmd`
-On your Windows VM, confirm that `polyswarmd` is available and ready to respond to your Microengine:
+On your Windows VM, confirm that `polyswarmd` is available and ready to respond to your Microengine.
+To do that, run the following command in PowerShell:
+```powershell
+PS > curl -UseBasicParsing http://polyswarmd:31337/status
 ```
-PS C:\Users\user> curl -UseBasicParsing http://polyswarmd:31337/status
 
-
+It should output the following:
+```powershell
 StatusCode        : 200
 StatusDescription : OK
 Content           : {"result":{"home":{"block":189,"reachable":true,"syncing":false},"ipfs":{"reachable":true},"side":{
@@ -336,17 +368,25 @@ The key thing to look for is `"status":"OK"`.
 
 #### Windows VM: Launch `balancemanager` & Your Engine
 
-In your Microengine's directory, install your Microengine's prerequisites and your Microengine itself
+Start a new PowerShell window and activate your virtual environment.
+Then change into your Microengine's directory.
+
+In your Microengine's directory, install your Microengine's prerequisites and your Microengine itself.
+
 ```powershell
-(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> pip install -r requirements.txt
-(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> pip install .
+PS > pip install -r requirements.txt
+PS > pip install .
 ```
 
 `balancemanager` is a utility (based on `polyswarm-client`) that will help us maintain a balance of (fake) PolySwarm Nectar (NCT) on the sidechain of our local testnet where all transactions will take place.
 
-Launch `balancemanager`:
+In that same PowerShell window, launch `balancemanager` as follows:
 ```powershell
-(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> balancemanager maintain --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport 100000 500000
+PS > balancemanager maintain --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport 100000 500000
+```
+
+It will print output similar to the following:
+```powershell
 INFO:root:2018-12-06 16:55:30,800 Logging in text format.
 INFO:balancemanager.__main__:2018-12-06 16:55:30,815 Maintaining the minimum balance by depositing 500000.0 when it falls below 100000.0
 INFO:polyswarmclient:2018-12-06 16:55:31,440 Using account: 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
@@ -359,13 +399,19 @@ INFO:polyswarmclient:2018-12-06 16:55:33,034 Received block on chain home: {'num
 INFO:polyswarmclient:2018-12-06 16:55:33,080 Received block on chain side: {'number': 18206}
 ```
 
-When it starts printing `Received block on chain` messages, we're ready to launch our Engine.
+When it starts printing `Received block on chain` messages, you are ready to launch your Microeengine.
 
-Run your Microengine.
-To do this, you will need to start another PowerShell and activate the virtual environment.
+Start another new PowerShell window and activate your virutal environment.
+Then change into your Microengine's directory.
+
+Run your Microengine using a command similar to the following command.
 Be sure to update the value for the `--backend` argument to match the name of your Microengine's package directory (i.e. the directory in `src/`):
 ```powershell
-(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine> microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
+PS > microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
+```
+
+It will print output similar to the following:
+```powershell
 INFO:root:2018-12-06 16:56:20,674 Logging in text format.
 INFO:polyswarmclient:2018-12-06 16:56:21,299 Using account: 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
 INFO:polyswarmclient:2018-12-06 16:56:21,690 Received connected on chain side: {'start_time': '1544126035.507124'}
@@ -391,22 +437,22 @@ INFO:polyswarmclient:2018-12-06 16:56:48,503 Received assertion on chain side: {
 WARNING:polyswarmclient.abstractmicroengine:2018-12-06 16:56:48,503 Received new bounty, but finished with testing mode
 ```
 
-Running with `--testing 2` means our Microengine will respond to 2 bounties and then refuse to respond to further bounties by shutting itself off.
+Running with `--testing 2` means that your Microengine will respond to 2 bounties and then refuse to respond to further bounties by shutting itself off.
 You can adjust this number if you want it to process more bounties in your tests.
 
-But, your microengine will not have any bounties to process until there is an Ambassador sending bounties into the testnet.
+But, your Microengine will not have any bounties to process until there is an Ambassador sending bounties into the testnet.
 
 #### Linux VM: Launch the Ambassador
 
 In your Linux VM, now start the `ambassador`, which will submit bounties into the testnet, so your microengine can respond to them.
-Start a new terminal.
+Start a new terminal and run the following commands:
 
 ```bash
-cd orchestration
-docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
+$ cd orchestration
+$ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Shortly after this starts, you will see messages in your microengine terminal when it is processing bounties.
+Shortly after this starts, you will see messages in your Microengine's PowerShell window when it is processing bounties.
 
 ### All Done
 
@@ -414,6 +460,6 @@ Congrats!
 
 Your Windows-Based Engine should now be responding to bounties placed on a local testnet hosted in your Linux VM.
 
-Let your microengine run until it shuts itself off.
+Let your Microengine run until it shuts itself off.
 
 Take a close look at the output of your engine to ensure it's doing what you want it to :)

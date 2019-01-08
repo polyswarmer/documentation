@@ -76,7 +76,7 @@ Use the ISO you downloaded to install Windows in the VM.
   </p>
 </div>
 
-### (Optional) Install VirtualBox Guest Additions
+### Install VirtualBox Guest Additions
 
 Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
 
@@ -176,7 +176,7 @@ Disabling Windows Defender is a two step process.
 2. Reboot Windows.
 
 
-## (Optional) Set up a Virtual Environment (virtualenv)
+## Set up a Virtual Environment (virtualenv)
 
 If you plan to use this Windows installation for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
 
