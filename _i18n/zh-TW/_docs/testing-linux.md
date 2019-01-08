@@ -12,7 +12,7 @@ Run the following commands from the root of your project directory.
 Build your Microengine into a Docker image:
 
 ```bash
-docker build -t ${PWD##*/} -f docker/Dockerfile .
+$ docker build -t ${PWD##*/} -f docker/Dockerfile .
 ```
 
 This will produce a Docker image tagged with the name of the directory, e.g. `microengine-myeicarengine`.
@@ -20,13 +20,13 @@ This will produce a Docker image tagged with the name of the directory, e.g. `mi
 Run the tests:
 
 ```bash
-docker-compose -f docker/test-unit.yml up
+$ docker-compose -f docker/test-unit.yml up
 ```
 
 If your Microengine is capable of detecting EICAR and not producing a false positive on the string "not a malicious file", then you should pass these basic unittests and see something like this:
 
 ```bash
-e$ docker-compose -f docker/test-unit.yml up
+$ docker-compose -f docker/test-unit.yml up
 Recreating docker_test_engine_mylinuxengine_1_a9d540dc7394 ... done
 Attaching to docker_test_engine_mylinuxengine_1_a9d540dc7394
 ...
@@ -63,7 +63,7 @@ The `orchestration` project makes standing up a complete testnet easy and seamle
 Clone `orchestration` adjacent to your `microengine-myeicarengine` directory:
 
 ```bash
-git clone https://github.com/polyswarm/orchestration
+$ git clone https://github.com/polyswarm/orchestration
 ```
 
 ### (Optional) Preview a Complete, Working Testnet
@@ -73,7 +73,7 @@ Let's spin up a complete, working testnet to get a sense for what things *should
 In the cloned `orchestration` directory:
 
 ```bash
-docker-compose -f base.yml -f tutorial0.yml up
+$ docker-compose -f base.yml -f tutorial0.yml up
 ```
 
 You'll see output from the following services:
