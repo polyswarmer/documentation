@@ -11,15 +11,20 @@ We've Docker-ized as many things as possible to make it easy to dive right in.
 
 You need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://docs.docker.com/install/).
 
-Once installed, verify that the installation works.
+Once installed, verify that the installation works by running
 
 ```bash
-docker -v
+$ docker ps
 ```
 
-Should output at least: `Docker version 18.05.0-ce build f150324`
+Should output:
 
-Also install [`docker-compose`](https://docs.docker.com/compose/install/)
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+    
+
+Next, [install `docker-compose`](https://docs.docker.com/compose/install/).
+
+Once it is installed, verify the installation works by running:
 
 ```bash
 $ docker-compose -v
