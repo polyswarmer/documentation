@@ -56,12 +56,12 @@ Prompts will appear, here's how we'll answer them:
 * `author_name`: Wile E Coyote (or your real name)
 * `author_email`: (your email address)
 * `platform`: answer truthfully - will this Engine run on Linux or Windows?
-* `has_backend`: no (see explanation below)
+* `has_backend`: 1 for false (see explanation below)
 * `aws_account_for_ami`: (Windows only) your AWS account ID (for Linux engines, just accept the default)
 
 <div class="m-callout">
   <p>One of the prompt items is <code>has_backend</code>, which can be thought of as "has a disjoint backend" and deserves additional explanation.</p>
-  <p>When wrapping your scan engine, inheritance of <code>polyswarm-client</code> classes and implementation of class functionality are referred to as "frontend" changes. If your scan engine "frontend" must reach out across a network or local socket to a separate process that does the real scanning work (the "backend"), then you have a disjoint "backend" and you should answer <code>yes</code> to <code>has_backend</code>. If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>no</code> for <code>has_backend</code>.</p>
+  <p>When wrapping your scan engine, inheritance of <code>polyswarm-client</code> classes and implementation of class functionality are referred to as "frontend" changes. If your scan engine "frontend" must reach out across a network or local socket to a separate process that does the real scanning work (the "backend"), then you have a disjoint "backend" and you should answer <code>true</code> to <code>has_backend</code>. If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>false</code> for <code>has_backend</code>.</p>
   <p>Example of disjoint frontend / backend:</p>
   <ul>
     <li><a href="https://github.com/polyswarm/polyswarm-client/blob/5959742f0014a582baf5046c7bf6694c23f7435e/src/microengine/clamav.py#L18">ClamAV</a></li>
