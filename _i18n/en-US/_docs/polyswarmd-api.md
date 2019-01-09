@@ -75,7 +75,7 @@ duration - duration of this bounty in blocks
 
 ### Vote on Bounty
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+Called by arbiter after bounty expiration with a malicious or benign vote for each artifact, contributing to the final ground truth determination.
 
 **URL** :`/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
