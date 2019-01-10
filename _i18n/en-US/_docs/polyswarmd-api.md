@@ -320,7 +320,7 @@ metadata - to include in the assertion (can be empty string)
 
 ### Staking Parameters
 
-**URL** : `/bounties/parameters?chain=[chain_name]`
+**URL** : `/staking/parameters?chain=[chain_name]`
 
 **Method** : `GET`
 
