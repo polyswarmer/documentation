@@ -85,7 +85,7 @@ Called by arbiter after bounty expiration with a malicious or benign vote for ea
 
 Provide:
 
-votes - array of votes representing ground truth for the bounty's artifacts
+votes - 一个数组包含着代表此悬赏工件的“真正事实”的投票
 
 valid\_bloom - if this is a bloom vote
 
@@ -161,9 +161,9 @@ Callable after the voting window has closed to handle reward disbursal.
 }
 ```
 
-### Assert on bounty
+### 对悬赏提出“断言”
 
-Called by security experts to post an assertion on a bounty
+由安全专家调用来张贴对一个悬赏的“断言”
 
 **URL** : `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -175,7 +175,7 @@ Provide:
 
 bid - the amount of NCT to stake
 
-mask - the artifacts to assert on from the set in the bounty
+mask - 在这个悬赏中要“断言”的悬赏工件
 
 verdicts - array of verdicts on bounty artifacts
 
@@ -220,9 +220,9 @@ verdicts - array of verdicts on bounty artifacts
 }
 ```
 
-### Reveal bounty assersions
+### 揭示悬赏的“断言”
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+在悬赏到期后，由仲裁者调用来確定他们的“真正事实”判断并且支付“断言”奖励。
 
 **URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -232,11 +232,11 @@ Called by arbiter after bounty expiration to settle with their ground truth dete
 
 Provide:
 
-nonce - the nonce used to generate the commitment hash (returned from asserting on a bounty)
+nonce - 用于生成承诺哈希（从断言悬赏中返回 ）
 
 verdicts - the verdicts making up this assertion
 
-metadata - to include in the assertion (can be empty string)
+metadata - 包含在断言中的元数据（可为空字符串）
 
 ```json
 {
@@ -285,13 +285,13 @@ metadata - to include in the assertion (can be empty string)
 
 **Method** : `GET`
 
-### Get assertions for a bounty
+### 取得一个悬赏的所有“断言”
 
 **URL** : `/<uuid:guid>/assertions?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Get an assertion for a bounty
+### 取得一个悬赏的其中一个“断言”
 
 **URL** : `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
 
