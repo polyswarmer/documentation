@@ -4,7 +4,7 @@ This tutorial will show you how to combine multiple analysis backends and outlin
 
 ## Adding YARA to the Mix
 
-Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyYaraEngine". You should find a `microengine-myyaraengine` in your current working directory - this is what we'll be editing to implement Yara's functionality.
+从一个新的 [engine-template](/microengines-scratch-to-eicar/#customize-engine-template) 开始， 给它 `engine-name` 的 “MyYaraEngine”。 You should find a `microengine-myyaraengine` in your current working directory - this is what we'll be editing to implement Yara's functionality.
 
 We're going to add a YARA backend to our Microengine - but we need some YARA signatures (rules) first!
 
