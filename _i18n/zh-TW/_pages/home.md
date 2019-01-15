@@ -39,7 +39,7 @@ PolySwarm will launch with two communities:
 
 This list will expand, allowing Ambassadors and Microengine developers to control their audience. Future communities may include:
 
-* A GDPR-complaint community with artifact sharing amongst a closed set of complaint participants.
+* A GDPR-compliant community with artifact sharing amongst a closed set of complaint participants.
 * A network of mutually NDA'ed MSSPs & security experts.
 
 Anyone will be able to administer their own Community and advertise their community through PolySwarm Portal.
