@@ -320,7 +320,7 @@ metadata - to include in the assertion (can be empty string)
 
 ### Staking Parameters
 
-**URL** : `/bounties/parameters?chain=[chain_name]`
+**URL** : `/staking/parameters?chain=[chain_name]`
 
 **Method** : `GET`
 
@@ -674,7 +674,7 @@ v - array of the recovery ids from signature of state string for both parties
 
 r - array of outputs of ECDSA signature of state string for both parties
 
-s - rray of outputs of ECDSA signature of state string for both parties
+s - array of outputs of ECDSA signature of state string for both parties
 
 ```json
 {
@@ -739,7 +739,7 @@ v - array of the recovery ids from signature of state string for both parties
 
 r - array of outputs of ECDSA signature of state string for both parties
 
-s - rray of outputs of ECDSA signature of state string for both parties
+s - array of outputs of ECDSA signature of state string for both parties
 
 ```json
 {
