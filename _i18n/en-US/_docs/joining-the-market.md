@@ -214,7 +214,7 @@ In addition to your engine, you'll need to run a `balancemanager`.
   --api-key <your Epoch API key> \
   --maximum <(optional) the maximum allowable balance in the Community before a withdraw is made>
   <MINIMUM: deposit into the Community when balance drops below this value>
-  <REFILLE_AMOUNT: the amount of NCT to transfer when Community balance falls below MINIMUM>
+  <REFILL_AMOUNT: the amount of NCT to transfer when Community balance falls below MINIMUM>
 ```
 
 For the full list of command line arguments, use the `--help` CLI flag:
