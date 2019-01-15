@@ -250,4 +250,4 @@ Options:
 
 ## Congratulations
 
-With your engine & `balanacemanager` running, you are now plugged into your Community(ies) of choice!
+With your engine & `balancemanager` running, you are now plugged into your Community(ies) of choice!
