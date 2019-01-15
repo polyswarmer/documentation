@@ -1,18 +1,18 @@
 ## Introduction
 
-PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
+PolySwarm 是一个由供应方（微引擎）、需求方（大使）、和调解者（仲裁者）所组成的市场。
 
 For a high-level overview of the PolySwarm marketplace, see [How It Works](https://polyswarm.io/how_it_works/).
 
 ## Microengines
 
-**Microengines** are developed by individuals or organizations who have a knack for identifying malware. Microengines encapsulate security expertise and bundle it in an autonomous process that responds to queries from Ambassadors, identifying the latest malware and earning Nectar (NCT) rewards for accurately identifying new strands of malware. *Threat intelligence goes in, NCT comes out.*
+**微引擎**是由一群对辨识恶意程式有特殊见解的个人或是组织所开发的。 微引擎封装了安全专业知识，并将其绑定在一个自动化流程中，该流程可响应大使的询问，识别最新的恶意软件，并获得花蜜令牌（NCT）奖励，以准确识别恶意软件的新支派。 *Threat intelligence goes in, NCT comes out.*
 
 [I want to learn more about creating a Microengine →](/concepts-participants-microengine/)
 
-## Ambassadors
+## 代表
 
-**Ambassadors** pay a fee or purchase a subscription to submit files (artifacts) to the PolySwarm network. This fee funds Microengines and Arbiters for offering thereat intelligence and determining ground truth, respectively. In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in, e.g. triage or incident response. *NCT goes in, threat intelligence comes out.*
+**代表**支付一定的费用或购买订阅来提交档案（工件）到 PolySwarm 网路。 This fee funds Microengines and Arbiters for offering thereat intelligence and determining ground truth, respectively. In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in, e.g. triage or incident response. *NCT goes in, threat intelligence comes out.*
 
 <button disabled>I want to learn more about creating an Ambassador → (coming soon!)</button>
 

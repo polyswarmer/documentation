@@ -9,7 +9,7 @@ These instructions are developed against and tested to work on Xubuntu 18.04 amd
 
 We've Docker-ized as many things as possible to make it easy to dive right in.
 
-You need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://docs.docker.com/install/).
+您需要安装 Docker-CE（base）和 Docker Compose。 If you do not have a recent Docker setup, please [install Docker now](https://docs.docker.com/install/).
 
 Once installed, verify that the installation works by running
 
@@ -48,7 +48,7 @@ We'll need to grab a few source code repositories; it'll be easiest to use Git. 
 
 PolySwarm development requires Python 3.5.4 or above. Please install [Python](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) for your development platform.
 
-## (Optional) Set up a Virtual Environment (virtualenv)
+## （可选）设置一个虚拟环境（virtualenv）
 
 If you plan to use this machine for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
 
