@@ -1098,13 +1098,19 @@ Ambassadors open a websocket with the url defined in the contract. Locally - mes
 **Data constraints**
 
 Provide:
+
 type - type of message (payment, request, assertion)
+
 state - offer state
 
 Optional:
+
 toSocketUri - to send to a different person (defaults to the ambassador)
+
 v - recovery ids from signature of state string for both parties
+
 r - ECDSA signature of state string
+
 s - ECDSA signature of state string
 
 ```json
