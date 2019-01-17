@@ -2,7 +2,7 @@
 
 PolySwarm 是一个由供应方（微引擎）、需求方（大使）、和调解者（仲裁者）所组成的市场。
 
-For a high-level overview of the PolySwarm marketplace, see [How It Works](https://polyswarm.io/how_it_works/).
+更多有关 PolySwarm 市场的概述，请看 [如何运行](https://polyswarm.io/how_it_works/)。
 
 ## Microengines
 
