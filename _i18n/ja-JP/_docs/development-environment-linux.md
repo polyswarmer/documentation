@@ -1,30 +1,30 @@
-## System Requirements
+## システム要件
 
 * x86-64 CPU
-* 8GB of RAM
+* 8GB の RAM
 
-These instructions are developed against and tested to work on Xubuntu 18.04 amd64.
+この説明は、Xubuntu 18.04 amd64 に基づいて作成、テストされています。
 
-## Install Docker
+## Docker のインストール
 
-We've Docker-ized as many things as possible to make it easy to dive right in.
+簡単に実行できるように、できる限り多くのものを Docker 化しています。
 
-You need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://docs.docker.com/install/).
+Docker-CE (ベース) と Docker Compose をインストールする必要があります。 最新の Docker セットアップがない場合は、[ここで Docker をインストールしてください](https://docs.docker.com/install/)。
 
-Once installed, verify that the installation works by running
+インストール後、以下を実行してインストール環境が機能していることを確認します。
 
 ```bash
 $ docker ps
 ```
 
-Should output:
+以下のように出力される必要があります。
 
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
     
 
-Next, [install `docker-compose`](https://docs.docker.com/compose/install/).
+次に、[`docker-compose` をインストールします](https://docs.docker.com/compose/install/)。
 
-Once it is installed, verify the installation works by running:
+インストール後、以下を実行してインストール環境が機能していることを確認します。
 
 ```bash
 $ docker-compose -v
