@@ -33,7 +33,7 @@ PolySwarm マーケットプレイスでは、**アンバサダー**が、西部
 2. `1` 個の**判定生成エンジン**: 分析バックエンドの出力を取り込み、単一の`判定` + `信頼区間`を生成します。
 3. `1` 個の**投資エンジン**: 判定生成の出力とマーケット/競合相手の情報を取り込み、Nectar (NCT) を`投資`します。
 
-Microengines are Security Experts' autonomous representatives in the PolySwarm marketplace. They handle everything from scanning files to placing stakes on assertions concerning the malintent of files.
+マイクロエンジンは、PolySwarm マーケットプレイスでセキュリティー専門家に代わって自律的に動作する主体です。 ファイルのスキャンからファイルの悪意に関するアサーションに対する投資に至るまで、すべてのタスクを実行します。
 
 Specifically, Microengines:
 
