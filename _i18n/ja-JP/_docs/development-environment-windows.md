@@ -11,7 +11,7 @@ Conducting Windows-Based Engine development inside of a VirtualBox Guest is the 
   </p>
 </div>
 
-### System Requirements
+### システム要件
 
 Windows-Based Engine development presents non-trivial system requirements for your development host:
 
@@ -65,41 +65,41 @@ VirtualBox を使用して、以下のパラメーターで Windows VM を作成
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Conducting Windows updates in a VirtualBox VM is not recommended and is quite likely to leave your VM in an un-bootable state.
-    We recommend <a href="https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10">disabling Windows Update</a> immediately after you install Windows in the VM.
+    <strong>警告:</strong>
+    VirtualBox VM での Windows 更新の実行は推奨されません。実行すると、VM が起動不能状態に陥る可能性が非常に高くなります。
+    VM に Windows をインストールした直後に <a href="https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10">Windows 更新を無効にする</a>ことをお勧めします。
   </p>
 </div>
 
-### Install VirtualBox Guest Additions
+### VirtualBox Guest Additions のインストール
 
-Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+ゲストとホスト間でのクリップボードの共有やコピー・アンド・ペーストの機能を使用するために、Guest Additions が必要です。
 
-[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
+[VirtualBox の資料をご覧ください](https://www.virtualbox.org/manual/ch04.html)。
 
-### Guest Creation Complete
+### ゲストの作成の完了
 
-Once Guest Additions are installed, you're ready to [Configure Windows](#configure-windows) for development inside of the VM.
+Guest Additions がインストールされ、VM 内での開発のために [Windows を構成する](#configure-windows)準備ができました。
 
-## (Unsupported) Custom Configuration
+## (サポート対象外) カスタム構成
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Developing Windows-Based Engines outside of a VirtualBox virtual machine will preclude you from conducting integration tests at this time.
-    We strongly recommend that you conduct development inside of a Windows VirtualBox Guest (described above) at this time.
+    <strong>警告:</strong>
+    現時点では、VirtualBox 仮想マシン以外で Windows ベースのエンジンを開発する場合、統合テストを実行できません。
+    現時点では、Windows VirtualBox Guest (上記を参照) 内で開発することを強くお勧めします。
   </p>
 </div>
 
-Minimum system requirements:
+最小システム要件:
 
 - Windows 10*
 - 4 個以上の CPU コア
-- 4GB of RAM
+- 4GB の RAM
 
-*Older versions of Windows may work, but are untested (and unsupported) at this time.
+*これより古いバージョンの Windows でも機能する可能性があります、現時点ではテストされておらず、サポート対象外です。
 
-## Configure Windows
+## Windows の構成
 
 We'll need to use Administrator privilege to make several changes to default Windows settings. We'll need an "elevated" / "privileged" PowerShell console:
 
