@@ -70,19 +70,19 @@ Integration testing a Windows-Based Engine requires two virtual machines (VMs / 
 
 ### Create a Linux Guest
 
-#### Create the Virtual Machine
+#### 仮想マシンの作成
 
-Create a Linux VM using the following parameters:
+以下のパラメーターを使用して Linux VM を作成します。
 
-* Name: `polyswarm_lin`
-* Type: Linux
-* Version: Ubuntu (64-bit)
-* RAM: 8GB+
-* CPU: 4+ cores
-* video memory: 128MB
-* disk space: 50GB+
+* 名前: `polyswarm_lin`
+* タイプ: Linux
+* バージョン: Ubuntu (64 ビット)
+* RAM: 8GB 以上
+* CPU: 4 個以上のコア
+* ビデオ・メモリー: 128MB
+* ディスク・スペース: 50GB 以上
 
-Use the default setting for all other options. In particular, do NOT enable 3D acceleration.
+他のすべてのオプションについては、デフォルト設定を使用します。 特に、3D アクセラレーションは有効にしないでください。
 
 In general, you will want to provide extra available RAM and CPU resources to the Linux VM to make the testnet perform better.
 
@@ -102,9 +102,9 @@ Use the ISO you downloaded to install Xubuntu in the VM.
 
 #### (Optional) Install VirtualBox Guest Additions
 
-Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+ゲストとホスト間でのクリップボードの共有やコピー・アンド・ペーストの機能を使用するために、Guest Additions が必要です。
 
-[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
+[VirtualBox の資料をご覧ください](https://www.virtualbox.org/manual/ch04.html)。
 
 ### Configure Inter-Guest Networking
 
@@ -240,7 +240,7 @@ If you get those same output results, you have everything setup correctly, so le
 
 ### Configure Linux VM for Hosting a Local Testnet
 
-#### Install Docker
+#### Docker のインストール
 
 We've Docker-ized the test version of the PolySwarm marketplace. To use it, you need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
 
