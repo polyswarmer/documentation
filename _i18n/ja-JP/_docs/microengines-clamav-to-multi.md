@@ -8,7 +8,7 @@ Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-e
 
 We're going to add a YARA backend to our Microengine - but we need some YARA signatures (rules) first!
 
-The [Yara-Rules](https://github.com/Yara-Rules/rules) repo is a great resource for free rules. So, let's get those rules and put them into the `pkg` directory of your `microengine-myyaraengine`:
+[Yara-Rules](https://github.com/Yara-Rules/rules) リポジトリーは、無料のルールの優れたリソースです。 So, let's get those rules and put them into the `pkg` directory of your `microengine-myyaraengine`:
 
 ```sh
 cd microengine-myyaraengine/pkg
