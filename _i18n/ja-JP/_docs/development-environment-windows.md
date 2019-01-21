@@ -31,37 +31,37 @@ VirtualBox を使用します。 **VirtualBox は、ハイパーバイザーの�
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>警告:</strong>
-    現在、仮想化のネストは、サポート対象外の構成です。
+    <strong>Warning:</strong>
+    Nested virtualization is NOT a currently supported configuration.
   </p>
   <p>
-    Instructions presented here assume your host Windows install is running on "bare metal".
-    Separate instructions for developing under a hypervisor (e.g. on AWS) are coming soon!
+    ここで示している説明では、ホスト Windows インストール環境が「ベアメタル」で稼働しているものと想定されています。
+    ハイパーバイザー (例えば AWS 上など) での開発の説明は別途準備中であり、近日公開いたします。
   </p>
 </div>
 
-### Prerequisites
+### 前提条件
 
-- [Download and Install VirtualBox](https://www.virtualbox.org/wiki/Downloads). We've tested with VirtualBox 5.2.22.
-- [Download Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO). Use the Media Creation Tool to make a .ISO image. We've tested with Windows 10 Pro, Build 10240.
+- [VirtualBox をダウンロードしてインストールします](https://www.virtualbox.org/wiki/Downloads)。 VirtualBox 5.2.22 でテストしました。
+- [Windows 10 Pro ISO をダウンロードします](https://www.microsoft.com/en-us/software-download/windows10ISO)。 Media Creation Tool を使用して .ISO イメージを作成します。 Windows 10 Pro ビルド 10240 を使用してテストしました。
 
-### Create a Windows Guest
+### Windows Guest の作成
 
-Use VirtualBox to create a Windows VM using the following parameters:
+VirtualBox を使用して、以下のパラメーターで Windows VM を作成します。
 
-- Name: `polyswarm_win`
-- Type: Microsoft Windows
-- Version: Windows 10 (64-bit)
-- RAM: 4GB+
-- CPU: 2+ cores
-- video memory: 128MB
-- disk space: 50GB+
+- 名前: `polyswarm_win`
+- タイプ: Microsoft Windows
+- バージョン: Windows 10 (64 ビット)
+- RAM: 4GB 以上
+- CPU: 2 個以上のコア
+- ビデオ・メモリー: 128MB
+- ディスク・スペース: 50GB 以上
 
-Use the default setting for all other options. In particular, **do NOT enable 3D acceleration**.
+他のすべてのオプションについては、デフォルト設定を使用します。 特に、**3D アクセラレーションは有効にしないでください**。
 
-### Install Windows 10
+### Windows 10 のインストール
 
-Use the ISO you downloaded to install Windows in the VM.
+ダウンロードした ISO を使用して Windows 10 を VM にインストールします。
 
 <div class="m-flag m-flag--warning">
   <p>
