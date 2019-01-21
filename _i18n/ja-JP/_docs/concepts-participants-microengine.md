@@ -53,4 +53,4 @@ PolySwarm マーケットプレイスでは、**アンバサダー**が、西部
 
 Linux ベースのエンジンは、Windows ベースのエンジンよりもテストがはるかに簡単で、用意されているデプロイメント・オプションも多くなっています。
 
-[My scan engine only supports Windows; I want to build a Windows-based Microengine →](/development-environment-windows/)
+[使用しているスキャン・エンジンで Windows しかサポートされないため、Windows ベースのマイクロエンジンを作成する →](/development-environment-windows/)
