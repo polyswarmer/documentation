@@ -1,19 +1,19 @@
-## (Recommended) VirtualBox Guest Configuration
+## (推奨) VirtualBox Guest の構成
 
-Conducting Windows-Based Engine development inside of a VirtualBox Guest is the only fully-supported configuration at this time.
+Windows ベースのエンジンについては、現時点で完全にサポートされる構成は、VirtualBox Guest 内での開発のみです。
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    The recommendations presented here are hard-won.
-    We strongly recommend that you test using the exact parameters presented here.
-    Using any other configuration will make it difficult for us to provide you with support.
+    <strong>警告:</strong>
+    ここで示している推奨は、多大な労力を費やして作成されました。
+    ここで示しているのとまったく同じパラメーターを使用してテストすることを強くお勧めします。
+    他の構成を使用すると、当社でサポートするのが困難になる可能性があります。
   </p>
 </div>
 
 ### システム要件
 
-Windows-Based Engine development presents non-trivial system requirements for your development host:
+Windows ベースのエンジンの開発では、開発ホストに以下の重要なシステム要件があります。
 
 - Windows 10 (Windows 10 Pro バージョン 1809 でテストしました)
 - VT-x がサポートされ、BIOS で有効になっている
@@ -174,7 +174,7 @@ python -m venv polyswarmvenv
 ./polyswarmvenv/Scripts/Activate.ps1
 ```
 
-## Install `polyswarm-client` Libraries
+## `polyswarm-client` ライブラリーのインストール
 
 <div class="m-flag">
   <p>
@@ -189,7 +189,7 @@ Installing `polyswarm-client` is as simple as:
 pip install polyswarm-client
 ```
 
-## Verify Installation
+## インストールの確認
 
 You should now have a working development environment!
 
