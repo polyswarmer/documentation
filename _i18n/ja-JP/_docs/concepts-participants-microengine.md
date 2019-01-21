@@ -2,7 +2,7 @@
 
 ![マイクロエンジン・アーキテクチャー](/public-src/images/microengine-architecture.svg)
 
-Microengines are Security Experts' representation in the PolySwarm marketplace. Microengines encapsulate security expertise in the form of signatures, heuristics, dynamic analyses, emulation, virtualization, a combination of these things or perhaps something else entirely.
+マイクロエンジンは、PolySwarm マーケットプレイスでセキュリティー専門家の代理として機能します。 Microengines encapsulate security expertise in the form of signatures, heuristics, dynamic analyses, emulation, virtualization, a combination of these things or perhaps something else entirely.
 
 Microengines respond to Bounties and Offers in the PolySwarm marketplace, determining whether a suspect file is malicious or benign and stake a certain amount of Nectar (NCT) tokens alongside that assertion. Security Experts maintain and tweak their Microengines in response to new threat information and new analyses tools, vying against one another to stay at the forefront of their area of expertise.
 
