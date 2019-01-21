@@ -35,22 +35,22 @@ PolySwarm マーケットプレイスでは、**アンバサダー**が、西部
 
 マイクロエンジンは、PolySwarm マーケットプレイスでセキュリティー専門家に代わって自律的に動作する主体です。 ファイルのスキャンからファイルの悪意に関するアサーションに対する投資に至るまで、すべてのタスクを実行します。
 
-Specifically, Microengines:
+具体的には、マイクロエンジンは以下を行います。
 
-1. Listen for Bounties and Offers on the Ethereum blockchain (via `polyswarmd`)
-2. Pull artifacts from IPFS (via `polyswarmd`)
-3. Scan/analyze the artifacts (via one or more **analysis backends**)
-4. Determine a Nectar (NCT) staking amount (via a **verdict distillation engine**)
-5. Render an assertion (their `verdict` + `stake`) (via a **staking engine**)
+1. (`polyswarmd` を介して) イーサリアム・ブロックチェーンで報奨金およびオファーがないかを確認する
+2. (`polyswarmd` を介して) IPFS からアーティファクトを取得する
+3. (1 つ以上の**分析バックエンド**を介して) アーティファクトをスキャン/分析する
+4. (**判定生成エンジン**を介して) Nectar (NCT) 投資金額を決定する
+5. (**投資エンジン**を介して) アサーション (`判定` + `投資`) を行う
 
-All Microengines share this set of tasks. This tutorial will focus exclusively on item #3: bulding an analysis backend into our `microengine-scratch` skeleton project. All other items will be covered by `polyswarmd` defaults. After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](/polyswarmd-api/) for pointers on customizing these other aspects of their Microengine.
+すべてのマイクロエンジンがこの一連のタスクを行います。 このチュートリアルでは、項目 3 だけを取り上げ、`microengine-scratch` スケルトン・プロジェクトへの分析バックエンドの作成について説明します。 他のすべての項目については、`polyswarmd` によってデフォルトで処理されます。 このチュートリアルを完了した後に、上級ユーザーは [**polyswarmd API**](/polyswarmd-api/) を参照して、マイクロエンジンの他の側面のカスタマイズを模索することもできます。
 
-## Developing a Microengine
+## マイクロエンジンの開発
 
-Ready to develop your first Microengine and start earning NCT?
+最初のマイクロエンジンを開発して NCT を獲得する準備はできましたか？
 
-(Recommended) [I want to build a Linux-based Microengine →](/development-environment-linux/)
+(推奨) [Linux ベースのマイクロエンジンを作成する →](/development-environment-linux/)
 
-Linux-based Engines are far easier to test and come with more deployment options than Windows-based Engines.
+Linux ベースのエンジンは、Windows ベースのエンジンよりもテストがはるかに簡単で、用意されているデプロイメント・オプションも多くなっています。
 
 [My scan engine only supports Windows; I want to build a Windows-based Microengine →](/development-environment-windows/)
