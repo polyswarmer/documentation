@@ -27,12 +27,12 @@ VirtualBox を使用します。 **VirtualBox は、ハイパーバイザーの�
 - Windows Credential Guard
 - Windows Device Guard
 - VMWare Workstation / Player
-- any other product that uses hypervisor extensions
+- ハイパーバイザー拡張機能を使用する他のすべての製品
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Nested virtualization is NOT a currently supported configuration.
+    <strong>警告:</strong>
+    現在、仮想化のネストは、サポート対象外の構成です。
   </p>
   <p>
     Instructions presented here assume your host Windows install is running on "bare metal".
