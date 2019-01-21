@@ -10,14 +10,14 @@ PolySwarm マーケットプレイスの大まかな概要については、「[
 
 [マイクロエンジンの作成の詳細 →](/concepts-participants-microengine/)
 
-## Ambassadors
+## アンバサダー
 
-**Ambassadors** pay a fee or purchase a subscription to submit files (artifacts) to the PolySwarm network. This fee funds Microengines and Arbiters for offering thereat intelligence and determining ground truth, respectively. In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in, e.g. triage or incident response. *NCT goes in, threat intelligence comes out.*
+**アンバサダー**は、料金を支払うか、サブスクリプションを購入して、ファイル (アーティファクト) を PolySwarm ネットワークに提示します。 この料金が、脅威インテリジェンスの提供に対するマイクロエンジンへの報酬、そして確認・評価に対する評価者への報酬の資金となります。 アンバサダーは、料金と引き換えに、アーティファクトについてクラウドソーシングを活用した脅威インテリジェンスを速やかに受け取り、トリアージやインシデント対応などに役立てることができます。 *NCT を提供して、脅威インテリジェンスを得るのです。*
 
-<button disabled>I want to learn more about creating an Ambassador → (coming soon!)</button>
+<button disabled>アンバサダーの作成の詳細 → (近日公開予定)</button>
 
-## Arbiters
+## 評価者
 
-**Arbiters** marshall the marketplace by way of determining "ground truth". Arbiter serve a critical role: Arbiter-derived ground truth is used to determine which Microengines are deserved of reward. Crucially, Arbiters must expand their internal threat detection capabilities, taking into consideration the assertions of Microengines to push the boundaries of what the PolySwarm marketplace can detect. In return for their service, Arbiters are compensated via PolySwarm network fees imposed on both Ambassadors and Microengines.
+**評価者**は、確認・評価によってマーケットプレイスを統制します。 評価者は、非常に重要な役割を果たします。評価者が出した確認・評価結果は、報酬の提供先マイクロエンジンの決定に使用されます。 評価者は、内部脅威検出機能を拡張する必要があります。これにより、各マイクロエンジンのアサーションを考慮して、PolySwarm マーケットプレイスで検出できる対象を拡大することができるのです。 評価者は、提供したサービスの見返りとして、アンバサダーとマイクロエンジンの両方から集められた PolySwarm ネットワークの料金から報酬を得ます。
 
-<button disabled>I want to learn more about creating an Arbiter → (coming soon!)</button>
+<button disabled>評価者の作成の詳細 → (近日公開予定)</button>
