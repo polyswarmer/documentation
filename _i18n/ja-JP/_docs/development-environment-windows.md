@@ -15,13 +15,13 @@ Conducting Windows-Based Engine development inside of a VirtualBox Guest is the 
 
 Windows-Based Engine development presents non-trivial system requirements for your development host:
 
-- Windows 10 (we've tested with Windows 10 Pro, version 1809)
-- VT-x supported and enabled in BIOS
-- 16GB+ of RAM
-- 4+ CPU cores
-- 100GB+ disk space
+- Windows 10 (Windows 10 Pro バージョン 1809 でテストしました)
+- VT-x がサポートされ、BIOS で有効になっている
+- 16GB 以上の RAM
+- 4 個以上の CPU コア
+- 100GB 以上のディスク・スペース
 
-We'll be using VirtualBox. **VirtualBox must have sole ownership of your hypervisor**. This mean you cannot run:
+VirtualBox を使用します。 **VirtualBox は、ハイパーバイザーの単独の所有権を備えている必要があります**。 このため、以下を実行することはできません。
 
 - Hyper-V
 - Windows Credential Guard
@@ -94,7 +94,7 @@ Once Guest Additions are installed, you're ready to [Configure Windows](#configu
 Minimum system requirements:
 
 - Windows 10*
-- 4+ CPU cores
+- 4 個以上の CPU コア
 - 4GB of RAM
 
 *Older versions of Windows may work, but are untested (and unsupported) at this time.
