@@ -53,17 +53,17 @@ class Scanner(AbstractScanner):
         self.clamd = clamd.ClamdAsyncNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
 ```
 
-We interact with `clamd` by sending it a byte stream of artifact contents.
+`clamd` の操作は、アーティファクト・コンテンツのバイト・ストリームを送信して行います。
 
-ClamAV responds to these byte streams in the form:
+ClamAV は、このバイト・ストリームに対して以下の形式で応答します。
 
 ```json
 {'stream': ('FOUND', 'Eicar-Test-Signature')}
 ```
 
-We can easily parse the result using python's `[]` operator. `result[0]` is the word `FOUND`, and `result[1]` in this instance is `Eicar-Test-Signature`.
+Python の `[]` 演算子を使用して簡単に結果を解析できます。 `result[0]` は単語「`FOUND`」であり、この例の `result[1]` は「`Eicar-Test-Signature`」です。
 
-Now, all we need is to implement the scan method in the Scanner class.
+これで、後は Scanner クラスに scan メソッドを実装するだけです。
 
 ```python
     async def scan(self, guid, content, chain):
@@ -75,15 +75,15 @@ Now, all we need is to implement the scan method in the Scanner class.
         return True, False, ''
 ```
 
-If `clamd` detects a piece of malware, it puts `FOUND` in `result[0]`.
+`clamd` は、マルウェアを検出すると、`result[0]` に「`FOUND`」を入れます。
 
-The return values that the Microengine expects are:
+マイクロエンジンで予期される戻り値は、以下のとおりです。
 
-1. `bit` : a `boolean` representing a `malicious` or `benign` determination
-2. `verdict`: another `boolean` representing whether the engine wishes to assert on the artifact
-3. `metadata`: (optional) `string` describing the artifact
+1. `bit` : `malicious` (悪意がある) か `benign` (無害) かの判定を表す `boolean`
+2. `verdict`: エンジンでアーティファクトに関するアサーションを出すかどうかを表す `boolean`
+3. `metadata`: (オプション) アーティファクトについて記述した `string`
 
-We leave including ClamAV's `metadata` as an exercise to the reader - or check [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) :)
+練習問題として ClamAV の `metadata` の組み込みを行ってください。あるいは、[clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) を確認してください。
 
 <div class="m-flag">
   <p>
@@ -91,25 +91,25 @@ We leave including ClamAV's `metadata` as an exercise to the reader - or check [
     The Microengine class is required, but we do not need to modify it, so it is not shown here.
   </p>
   <p>
-    Python 3's Asyncio - It is important that any external calls you make during a scan do not block the event loop.
-    We forked the clamd project to add support for python 3's asyncio.
-    Thus, for this example to run, you need install our python-clamd project to get the clamd package until our changes are merged upstream.
-    The command you need is: `pip install git+https://github.com/polyswarm/python-clamd.git@async#egg=clamd`.
+    Python 3 の Asyncio - スキャン時に行った外部呼び出しによってイベント・ループがブロックされないことが重要です。
+    clamd プロジェクトをフォークして、Python 3 の asyncio のサポートを追加しました。
+    そのため、変更がアップストリームでマージされるまで、この例を実行するには、PolySwarm の python-clamd プロジェクトをインストールして clamd パッケージを取得する必要があります。
+    必要なコマンドは、「pip install git+https://github.com/polyswarm/python-clamd.git@async#egg=clamd」です。
   </p>
 </div>
 
-## Finalizing & Testing Your Engine
+## エンジンの仕上げとテスト
 
-`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself. We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
+これまでのところ、`cookiecutter` は `engine-template` のみをカスタマイズしています。自分で作成する必要がある項目が少しあります。 主な項目については上記で説明しましたが、`CUSTOMIZE_HERE` をクイック検索して、すべてのカスタマイズが行われたかを確認できます。
 
-Once everything is in place, let's test our engine:
+すべての準備ができたら、エンジンをテストしましょう。
 
-[Test Linux-based Engines →](/testing-linux/)
+[Linux ベースのエンジンのテスト →](/testing-linux/)
 
-[Test Windows-based Engines →](/testing-windows/)
+[Windows ベースのエンジンのテスト →](/testing-windows/)
 
 ## Next Steps
 
-In the Eicar example, we showed you how to implement scan logic directly in the Scanner class. And in this ClamAV example, we showed you how to call out to an external socket to access scanning logic.
+Eicar の例では、Scanner クラスでスキャン・ロジックを直接実装する方法について説明しました。 この ClamAV の例では、外部ソケットを呼び出してスキャン・ロジックにアクセスする方法を示しました。
 
-[Next, we'll wrap ClamAV and Yara into a single Microengine ->](/microengines-clamav-to-multi/)
+[次は、ClamAV と Yara を単一のマイクロエンジンにラップします ->](/microengines-clamav-to-multi/)

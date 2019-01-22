@@ -1,14 +1,14 @@
-# Building a Multi-Backend Microengine
+# マルチバックエンド・マイクロエンジンの作成
 
-This tutorial will show you how to combine multiple analysis backends and outlines a basic verdict distillation primitive. The two backends will be `ClamAV` (from the last tutorial) and [YARA](https://virustotal.github.io/yara/).
+このチュートリアルでは、複数の分析バックエンドを組み合わせる方法について説明し、基本判定生成プリミティブの概要を示します。 バックエンドは 2 つあり、`ClamAV` (直前のチュートリアルのもの) と [YARA](https://virustotal.github.io/yara/) です。
 
-## Adding YARA to the Mix
+## 組み合わせへの YARA の追加
 
-Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyYaraEngine". You should find a `microengine-myyaraengine` in your current working directory - this is what we'll be editing to implement Yara's functionality.
+何も手を加えていない [engine-template](/microengines-scratch-to-eicar/#customize-engine-template) から開始し、「MyYaraEngine」という `engine-name` (エンジン名) を付けます。 現行作業ディレクトリーに `microengine-myyaraengine` があり、これを編集して Yara の機能を実装します。
 
-We're going to add a YARA backend to our Microengine - but we need some YARA signatures (rules) first!
+YARA バックエンドをマイクロエンジンに追加します。ただし、まず、いくつかの YARA シグネチャー (ルール) が必要です。
 
-The [Yara-Rules](https://github.com/Yara-Rules/rules) repo is a great resource for free rules. So, let's get those rules and put them into the `pkg` directory of your `microengine-myyaraengine`:
+[Yara-Rules](https://github.com/Yara-Rules/rules) リポジトリーは、無料のルールの優れたリソースです。 So, let's get those rules and put them into the `pkg` directory of your `microengine-myyaraengine`:
 
 ```sh
 cd microengine-myyaraengine/pkg

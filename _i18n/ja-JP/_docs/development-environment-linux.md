@@ -1,30 +1,30 @@
-## System Requirements
+## システム要件
 
 * x86-64 CPU
-* 8GB of RAM
+* 8GB の RAM
 
-These instructions are developed against and tested to work on Xubuntu 18.04 amd64.
+この説明は、Xubuntu 18.04 amd64 に基づいて作成、テストされています。
 
-## Install Docker
+## Docker のインストール
 
-We've Docker-ized as many things as possible to make it easy to dive right in.
+簡単に実行できるように、できる限り多くのものを Docker 化しています。
 
-You need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://docs.docker.com/install/).
+Docker-CE (ベース) と Docker Compose をインストールする必要があります。 最新の Docker セットアップがない場合は、[ここで Docker をインストールしてください](https://docs.docker.com/install/)。
 
-Once installed, verify that the installation works by running
+インストール後、以下を実行してインストール環境が機能していることを確認します。
 
 ```bash
 $ docker ps
 ```
 
-Should output:
+以下のように出力される必要があります。
 
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
     
 
-Next, [install `docker-compose`](https://docs.docker.com/compose/install/).
+次に、[`docker-compose` をインストールします](https://docs.docker.com/compose/install/)。
 
-Once it is installed, verify the installation works by running:
+インストール後、以下を実行してインストール環境が機能していることを確認します。
 
 ```bash
 $ docker-compose -v
@@ -32,58 +32,58 @@ $ docker-compose -v
 
 Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
 
-After installing Docker, we recommend adding your user to the `docker` group so that you can easily issue `docker` commands without `sudo`:
+Docker のインストール後、以下のようにユーザーを `docker` グループに追加して、`sudo` なしで `docker` コマンドを簡単に実行できるようにすることをお勧めします。
 
 ```bash
 $ sudo usermod -aG docker ${USER}
 ```
 
-You'll need to reboot in order for the change to take effect.
+変更を有効にするには、再起動する必要があります。
 
-## Install Git
+## Git のインストール
 
 We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
-## Install Python & PIP
+## Python と PIP のインストール
 
-PolySwarm development requires Python 3.5.4 or above. Please install [Python](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) for your development platform.
+PolySwarm での開発では、Python 3.5.4 以上が必要です。 ご使用の開発プラットフォーム用の [Python](https://www.python.org/downloads/) と [PIP](https://pip.pypa.io/en/stable/installing/) をインストールしてください。
 
-## (Optional) Set up a Virtual Environment (virtualenv)
+## (オプション) 仮想環境 (virtualenv) のセットアップ
 
-If you plan to use this machine for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
+当該マシンを他の目的で使用する予定の場合は、システム全体の Python パッケージがクリーンな状態に保たれるように、以下のように PolySwarm virtualenv を作成することをお勧めします。
 
 ```bash
 pip install virtualenv
 cd ~
-virtualenv polyswarmvenv -p <PATH TO PYTHON 3.5.4 OR ABOVE>
+virtualenv polyswarmvenv -p <PYTHON 3.5.4 以上のパス>
 source polyswarmvenv/bin/activate
 ```
 
-## Install `polyswarm-client` Libraries
+## `polyswarm-client` ライブラリーのインストール
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you're using a virtualenv (see above), ensure that you activate it before installing polyswarm-client.
+    <strong>情報:</strong>
+    virtualenv (上記を参照) を使用する場合は、polyswarm-client をインストールする前に virtualenv をアクティブ化してください。
   </p>
 </div>
 
-Compiling & installing `polyswarm-client` libraries is simple.
+`polyswarm-client` ライブラリーのコンパイルとインストールはシンプルです。
 
-First, install Python 3 headers / build requirements.
+まず、Python 3 のヘッダー/ビルド要件をインストールします。
 
-On Ubuntu, this is achieved with:
+Ubuntu では、以下のようにします。
 
     $ sudo apt install python3-dev
     
 
-Next:
+次に、以下のようにします。
 
 ```bash
 pip install polyswarm-client
 ```
 
-## Verify Installation
+## インストールの確認
 
 You should now have a working development environment!
 

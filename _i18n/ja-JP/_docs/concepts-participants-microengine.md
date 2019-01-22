@@ -1,56 +1,56 @@
-## Microengine Overview
+## マイクロエンジンの概要
 
-![Microengine Architecture](/public-src/images/microengine-architecture.svg)
+![マイクロエンジン・アーキテクチャー](/public-src/images/microengine-architecture.svg)
 
-Microengines are Security Experts' representation in the PolySwarm marketplace. Microengines encapsulate security expertise in the form of signatures, heuristics, dynamic analyses, emulation, virtualization, a combination of these things or perhaps something else entirely.
+マイクロエンジンは、PolySwarm マーケットプレイスでセキュリティー専門家の代理として機能します。 マイクロエンジンは、シグネチャー、ヒューリスティックス、動的分析、エミュレーション、仮想化などを単体または組み合わせた形で、セキュリティーの専門知識をカプセル化します。
 
-Microengines respond to Bounties and Offers in the PolySwarm marketplace, determining whether a suspect file is malicious or benign and stake a certain amount of Nectar (NCT) tokens alongside that assertion. Security Experts maintain and tweak their Microengines in response to new threat information and new analyses tools, vying against one another to stay at the forefront of their area of expertise.
+マイクロエンジンは、PolySwarm マーケットプレイスで報奨金とオファーに応答し、疑わしいファイルが悪意のあるものなのか無害なのかを判別して、そのアサーションとともに一定量の Nectar (NCT) トークンを投資します。 セキュリティー専門家は、新しい脅威情報や新しい分析ツールに対応して、自身のマイクロエンジンを保守および調整し、専門家同士で競い合って、自身の専門知識分野で先頭に立とうとします。
 
-If you have unique insight into a particular malware family and want to earn tokens (NCT) along with a reputation for that insight, you want to develop a Microengine!
+特定のマルウェア系統に関する独自の知見を有している場合、その知見に対する評判とトークン (NCT) を獲得するために、マイクロエンジンを開発できます。
 
-## Microengines' Role in the Marketplace
+## マーケットプレイスにおけるマイクロエンジンの役割
 
-In the PolySwarm marketplace, **Ambassadors** ask the market for a crowdsourced opinion on a suspect artifact (file) through the Wild-West style PolySwarm Bounty mechanism. *Ambassadors may also ask specific Experts via Offer channels; this topic will be covered later.*
+PolySwarm マーケットプレイスでは、**アンバサダー**が、西部劇の指名手配のような PolySwarm 報奨金メカニズムを利用して、疑わしいアーティファクト (ファイル) についてクラウドソーシングを活用した意見をマーケットに求めます。 *アンバサダーは、オファー・チャネルを利用して特定の専門家に依頼することもできます。これについては、後述します。*
 
-At a high level:
+概要:
 
-1. An **Ambassador** "bounties" a suspect `artifact` (a file).
+1. **アンバサダー**が、疑わしい`アーティファクト` (ファイル) に報奨金をかけます。
 2. **Microengines** hear about this new artifact by listening for Ethereum events (via `polyswarmd`).
-3. Each **Microengine** decides if the artifact at hand is within their area of expertise.
-4. If the **Microengine** posesses insight on the artifact, it produces an `assertion` and places a `stake` of NCT on that `assertion`, escrowed into the BountyRegistry smart contract.
-5. The **Ambassador** considers all `assertions` and returns a `verdict` to their customer.
-6. Some time passes.
-7. **Arbiters** offer *ground truth* regarding the malintent of the artifact.
-8. Correct **Microengines** are rewarded with the escrowed funds of incorrect **Microengines**.
+3. 当該アーティファクトが専門知識分野の範囲内かどうかを各**マイクロエンジン**が判断します。
+4. **マイクロエンジン**は、アーティファクトに関する知見がある場合、`アサーション`を生成し、その`アサーション`に対して NCT を`投資`します。この NCT はいったん BountyRegistry スマート・コントラクトに預託されます。
+5. **アンバサダー**がすべての`アサーション`を検討し、`判定`を顧客に返します。
+6. (時間の経過)
+7. **評価者**が、アーティファクトの悪意性について*確認・評価*を行います。
+8. 不正解だった**マイクロエンジン**が預託した資金を利用して、正解を出した**マイクロエンジン**に報酬が支払われます。
 
-For full details on this process, please refer to the [PolySwarm whitepaper](https://polyswarm.io/polyswarm-whitepaper.pdf).
+このプロセスの詳細については、[PolySwarm ホワイトペーパー](https://polyswarm.io/polyswarm-whitepaper.pdf)をご覧ください。
 
-## Breaking Down Microengines
+## マイクロエンジンの構成
 
-Conceptually, a Microengine is composed of:
+概念的に、マイクロエンジンは以下から構成されています。
 
-1. `N` **analysis backends**: the scanners that ingest artifacts (files) and determine `malicious` or `benign`.
-2. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
-3. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
+1. `N` 個の**分析バックエンド**: アーティファクト (ファイル) を取り込んで、`悪意がある`か`無害`かを判別します。
+2. `1` 個の**判定生成エンジン**: 分析バックエンドの出力を取り込み、単一の`判定` + `信頼区間`を生成します。
+3. `1` 個の**投資エンジン**: 判定生成の出力とマーケット/競合相手の情報を取り込み、Nectar (NCT) を`投資`します。
 
-Microengines are Security Experts' autonomous representatives in the PolySwarm marketplace. They handle everything from scanning files to placing stakes on assertions concerning the malintent of files.
+マイクロエンジンは、PolySwarm マーケットプレイスでセキュリティー専門家に代わって自律的に動作する主体です。 ファイルのスキャンからファイルの悪意に関するアサーションに対する投資に至るまで、すべてのタスクを実行します。
 
-Specifically, Microengines:
+具体的には、マイクロエンジンは以下を行います。
 
-1. Listen for Bounties and Offers on the Ethereum blockchain (via `polyswarmd`)
-2. Pull artifacts from IPFS (via `polyswarmd`)
-3. Scan/analyze the artifacts (via one or more **analysis backends**)
-4. Determine a Nectar (NCT) staking amount (via a **verdict distillation engine**)
-5. Render an assertion (their `verdict` + `stake`) (via a **staking engine**)
+1. (`polyswarmd` を介して) イーサリアム・ブロックチェーンで報奨金およびオファーがないかを確認する
+2. (`polyswarmd` を介して) IPFS からアーティファクトを取得する
+3. (1 つ以上の**分析バックエンド**を介して) アーティファクトをスキャン/分析する
+4. (**判定生成エンジン**を介して) Nectar (NCT) 投資金額を決定する
+5. (**投資エンジン**を介して) アサーション (`判定` + `投資`) を行う
 
-All Microengines share this set of tasks. This tutorial will focus exclusively on item #3: bulding an analysis backend into our `microengine-scratch` skeleton project. All other items will be covered by `polyswarmd` defaults. After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](/polyswarmd-api/) for pointers on customizing these other aspects of their Microengine.
+すべてのマイクロエンジンがこの一連のタスクを行います。 このチュートリアルでは、項目 3 だけを取り上げ、`microengine-scratch` スケルトン・プロジェクトへの分析バックエンドの作成について説明します。 他のすべての項目については、`polyswarmd` によってデフォルトで処理されます。 このチュートリアルを完了した後に、上級ユーザーは [**polyswarmd API**](/polyswarmd-api/) を参照して、マイクロエンジンの他の側面のカスタマイズを模索することもできます。
 
-## Developing a Microengine
+## マイクロエンジンの開発
 
-Ready to develop your first Microengine and start earning NCT?
+最初のマイクロエンジンを開発して NCT を獲得する準備はできましたか？
 
-(Recommended) [I want to build a Linux-based Microengine →](/development-environment-linux/)
+(推奨) [Linux ベースのマイクロエンジンを作成する →](/development-environment-linux/)
 
-Linux-based Engines are far easier to test and come with more deployment options than Windows-based Engines.
+Linux ベースのエンジンは、Windows ベースのエンジンよりもテストがはるかに簡単で、用意されているデプロイメント・オプションも多くなっています。
 
-[My scan engine only supports Windows; I want to build a Windows-based Microengine →](/development-environment-windows/)
+[使用しているスキャン・エンジンで Windows しかサポートされないため、Windows ベースのマイクロエンジンを作成する →](/development-environment-windows/)

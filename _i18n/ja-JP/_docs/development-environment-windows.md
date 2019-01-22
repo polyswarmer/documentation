@@ -1,139 +1,139 @@
-## (Recommended) VirtualBox Guest Configuration
+## (推奨) VirtualBox Guest の構成
 
-Conducting Windows-Based Engine development inside of a VirtualBox Guest is the only fully-supported configuration at this time.
+Windows ベースのエンジンについては、現時点で完全にサポートされる構成は、VirtualBox Guest 内での開発のみです。
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    The recommendations presented here are hard-won.
-    We strongly recommend that you test using the exact parameters presented here.
-    Using any other configuration will make it difficult for us to provide you with support.
+    <strong>警告:</strong>
+    ここで示している推奨は、多大な労力を費やして作成されました。
+    ここで示しているのとまったく同じパラメーターを使用してテストすることを強くお勧めします。
+    他の構成を使用すると、当社でサポートするのが困難になる可能性があります。
   </p>
 </div>
 
-### System Requirements
+### システム要件
 
-Windows-Based Engine development presents non-trivial system requirements for your development host:
+Windows ベースのエンジンの開発では、開発ホストに以下の重要なシステム要件があります。
 
-- Windows 10 (we've tested with Windows 10 Pro, version 1809)
-- VT-x supported and enabled in BIOS
-- 16GB+ of RAM
-- 4+ CPU cores
-- 100GB+ disk space
+- Windows 10 (Windows 10 Pro バージョン 1809 でテストしました)
+- VT-x がサポートされ、BIOS で有効になっている
+- 16GB 以上の RAM
+- 4 個以上の CPU コア
+- 100GB 以上のディスク・スペース
 
-We'll be using VirtualBox. **VirtualBox must have sole ownership of your hypervisor**. This mean you cannot run:
+VirtualBox を使用します。 **VirtualBox は、ハイパーバイザーの単独の所有権を備えている必要があります**。 このため、以下を実行することはできません。
 
 - Hyper-V
 - Windows Credential Guard
 - Windows Device Guard
 - VMWare Workstation / Player
-- any other product that uses hypervisor extensions
+- ハイパーバイザー拡張機能を使用する他のすべての製品
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Nested virtualization is NOT a currently supported configuration.
+    <strong>警告:</strong>
+    現在、仮想化のネストは、サポート対象外の構成です。
   </p>
   <p>
-    Instructions presented here assume your host Windows install is running on "bare metal".
-    Separate instructions for developing under a hypervisor (e.g. on AWS) are coming soon!
+    ここで示している説明では、ホスト Windows インストール環境が「ベアメタル」で稼働しているものと想定されています。
+    ハイパーバイザー (例えば AWS 上など) での開発の説明は別途準備中であり、近日公開いたします。
   </p>
 </div>
 
-### Prerequisites
+### 前提条件
 
-- [Download and Install VirtualBox](https://www.virtualbox.org/wiki/Downloads). We've tested with VirtualBox 5.2.22.
-- [Download Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO). Use the Media Creation Tool to make a .ISO image. We've tested with Windows 10 Pro, Build 10240.
+- [VirtualBox をダウンロードしてインストールします](https://www.virtualbox.org/wiki/Downloads)。 VirtualBox 5.2.22 でテストしました。
+- [Windows 10 Pro ISO をダウンロードします](https://www.microsoft.com/en-us/software-download/windows10ISO)。 Media Creation Tool を使用して .ISO イメージを作成します。 Windows 10 Pro ビルド 10240 を使用してテストしました。
 
-### Create a Windows Guest
+### Windows Guest の作成
 
-Use VirtualBox to create a Windows VM using the following parameters:
+VirtualBox を使用して、以下のパラメーターで Windows VM を作成します。
 
-- Name: `polyswarm_win`
-- Type: Microsoft Windows
-- Version: Windows 10 (64-bit)
-- RAM: 4GB+
-- CPU: 2+ cores
-- video memory: 128MB
-- disk space: 50GB+
+- 名前: `polyswarm_win`
+- タイプ: Microsoft Windows
+- バージョン: Windows 10 (64 ビット)
+- RAM: 4GB 以上
+- CPU: 2 個以上のコア
+- ビデオ・メモリー: 128MB
+- ディスク・スペース: 50GB 以上
 
-Use the default setting for all other options. In particular, **do NOT enable 3D acceleration**.
+他のすべてのオプションについては、デフォルト設定を使用します。 特に、**3D アクセラレーションは有効にしないでください**。
 
-### Install Windows 10
+### Windows 10 のインストール
 
-Use the ISO you downloaded to install Windows in the VM.
+ダウンロードした ISO を使用して Windows 10 を VM にインストールします。
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Conducting Windows updates in a VirtualBox VM is not recommended and is quite likely to leave your VM in an un-bootable state.
-    We recommend <a href="https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10">disabling Windows Update</a> immediately after you install Windows in the VM.
+    <strong>警告:</strong>
+    VirtualBox VM での Windows 更新の実行は推奨されません。実行すると、VM が起動不能状態に陥る可能性が非常に高くなります。
+    VM に Windows をインストールした直後に <a href="https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10">Windows 更新を無効にする</a>ことをお勧めします。
   </p>
 </div>
 
-### Install VirtualBox Guest Additions
+### VirtualBox Guest Additions のインストール
 
-Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+ゲストとホスト間でのクリップボードの共有やコピー・アンド・ペーストの機能を使用するために、Guest Additions が必要です。
 
-[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
+[VirtualBox の資料をご覧ください](https://www.virtualbox.org/manual/ch04.html)。
 
-### Guest Creation Complete
+### ゲストの作成の完了
 
-Once Guest Additions are installed, you're ready to [Configure Windows](#configure-windows) for development inside of the VM.
+Guest Additions がインストールされ、VM 内での開発のために [Windows を構成する](#configure-windows)準備ができました。
 
-## (Unsupported) Custom Configuration
+## (サポート対象外) カスタム構成
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Developing Windows-Based Engines outside of a VirtualBox virtual machine will preclude you from conducting integration tests at this time.
-    We strongly recommend that you conduct development inside of a Windows VirtualBox Guest (described above) at this time.
+    <strong>警告:</strong>
+    現時点では、VirtualBox 仮想マシン以外で Windows ベースのエンジンを開発する場合、統合テストを実行できません。
+    現時点では、Windows VirtualBox Guest (上記を参照) 内で開発することを強くお勧めします。
   </p>
 </div>
 
-Minimum system requirements:
+最小システム要件:
 
 - Windows 10*
-- 4+ CPU cores
-- 4GB of RAM
+- 4 個以上の CPU コア
+- 4GB の RAM
 
-*Older versions of Windows may work, but are untested (and unsupported) at this time.
+*これより古いバージョンの Windows でも機能する可能性があります、現時点ではテストされておらず、サポート対象外です。
 
-## Configure Windows
+## Windows の構成
 
-We'll need to use Administrator privilege to make several changes to default Windows settings. We'll need an "elevated" / "privileged" PowerShell console:
+デフォルトの Windows 設定を変更するために、管理者権限を使用する必要があります。 「昇格された」/「権限が付与された」PowerShell コンソールが必要です。以下のようにします。
 
-- search "PowerShell" in the desktop search bar
-- right click on "Windows PowerShell"
-- select "Run as administrator".
+- デスクトップの検索バーで「PowerShell」を検索します。
+- 「Windows PowerShell」を右クリックします。
+- 「管理者として実行」を選択します。
 
-Run the following in this privileged PowerShell console.
+権限が付与された PowerShell コンソールで以下を実行します。
 
-1. Permit script execution (necessary for installing Chocolatey & using virtualenvs):
+1. 以下のように、スクリプト実行を許可します (Chocolatey のインストールや virtualenvs の使用に必要です)。
     
     ```powershell
     Set-ExecutionPolicy Bypass -Scope LocalMachine -Force
     ```
 
-2. Force PowerShell to use TLSv2 (required of some dependancies):
+2. 以下のように、PowerShell で TLSv2 を強制的に使用するようにします (一部の依存関係のために必要です)。
     
     ```powershell
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     ```
 
-## Install Chocolatey & Prerequisities
+## Chocolatey と前提条件のインストール
 
-Chocolatey is a package manager for Windows. We'll use it to help with installing some prerequisites.
+Chocolatey は、Windows 用のパッケージ・マネージャーです。 一部の前提条件をインストールするために使用します。
 
-Run the following in a *privileged* PowerShell console.
+*権限が付与された* PowerShell コンソールで以下を実行します。
 
-1. Install Chocolatey:
+1. 以下のように、Chocolatey をインストールします。
     
     ```powershell
     iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     ```
 
-2. Use Chocolatey to install prerequisites (do these one at a time):
+2. 以下のように、Chocolatey を使用して前提条件をインストールします (一度に 1 つずつ行います)。
     
     ```powershell
     choco install -y python --version 3.5.4
@@ -141,32 +141,32 @@ Run the following in a *privileged* PowerShell console.
     choco install -y visualcpp-build-tools --version 14.0.25420.1
     ```
 
-## Disable Anti-Malware Products
+## マルウェア対策製品の無効化
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    We strongly recommend disabling all anti-malware products in your development environment - including the built-in Windows Defender.
-    Below, we describe disabling Windows Defender.
-    Disabling third party solutions is left as an exercise for the reader.
+    <strong>警告:</strong>
+    組み込みの Windows Defender も含め、環境内のすべてのマルウェア対策製品を無効にすることを強くお勧めします。
+    以下に、Windows Defender の無効化について説明します。
+    サード・パーティー・ソリューションの無効化は、自分で調べて行ってください。
   </p>
 </div>
 
-PolySwarm engines should expect to come into contact with malware. Existing anti-malware engines, including the built-in Windows Defender, can easily get in our way, quarantining or deleting files during development.
+PolySwarm エンジンは、マルウェアを検出する必要があります。 組み込みの Windows Defender も含め、既存のマルウェア対策エンジンは、開発中にファイルを隔離したり、削除したりするため、邪魔になります。
 
-Disabling Windows Defender is a two step process.
+Windows Defender の無効化は、2 つのステップで完了するプロセスです。
 
-1. Run the following command in a privileged PowerShell:
+1. 権限が付与された PowerShell で以下のコマンドを実行します。
     
     ```powershell
     Set-ItemProperty 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender' DisableAntiSpyware 1
     ```
 
-2. Reboot Windows.
+2. Windows を再起動します。
 
-## Set up a Virtual Environment (virtualenv)
+## 仮想環境 (virtualenv) のセットアップ
 
-If you plan to use this Windows installation for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
+当該 Windows インストール環境を他の目的で使用する予定の場合は、システム全体の Python パッケージがクリーンな状態に保たれるように、以下のように PolySwarm virtualenv を作成することをお勧めします。
 
 ```bash
 cd ~
@@ -174,26 +174,26 @@ python -m venv polyswarmvenv
 ./polyswarmvenv/Scripts/Activate.ps1
 ```
 
-## Install `polyswarm-client` Libraries
+## `polyswarm-client` ライブラリーのインストール
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you're using a virtualenv (see above), ensure that you activate it before installing `polyswarm-client`.
+    <strong>情報:</strong>
+    virtualenv (上記を参照) を使用する場合は、polyswarm-client をインストールする前に virtualenv をアクティブ化してください。
   </p>
 </div>
 
-Installing `polyswarm-client` is as simple as:
+`polyswarm-client` のインストールはシンプルであり、以下のようにします。
 
 ```bash
 pip install polyswarm-client
 ```
 
-## Verify Installation
+## インストールの確認
 
-You should now have a working development environment!
+これで有効な開発環境が用意できているはずです。
 
-To verify, simply try importing `polyswarmclient`:
+確認するために、以下のように `polyswarmclient` をインポートします。
 
 ```bash
 $ python
@@ -203,8 +203,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-You should be able to import `polyswarmclient` without issue.
+問題なく `polyswarmclient` をインポートできる必要があります。
 
-Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
+次に、EICAR テスト・ファイルを検出できる独自の PolySwarm マイクロエンジンの作成について説明します。
 
-[Make a "Hello World" Microengine →](/microengines-scratch-to-eicar/)
+[「Hello World」マイクロエンジンの作成 →](/microengines-scratch-to-eicar/)
