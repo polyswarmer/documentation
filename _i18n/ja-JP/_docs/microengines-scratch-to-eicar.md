@@ -1,8 +1,8 @@
-# Microengine "Hello World"
+# 「Hello World」マイクロエンジン
 
-## Overview
+## 概要
 
-The "Hello World" of developing an anti-malware solution is invariably detecting the [EICAR test file](https://en.wikipedia.org/wiki/EICAR_test_file).
+マルウェア対策ソリューション開発の「Hello World」では常に、[EICAR テスト・ファイル](https://ja.wikipedia.org/wiki/EICAR%E3%83%86%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB)を検出します。
 
 This benign file is detected as "malicious" by all major anti-malware products - a safe way to test a positive result.
 
@@ -165,15 +165,15 @@ By default, all assertions are placed with the minimum stake permitted by the co
 
 Check back soon for an exploration of various staking strategies.
 
-## Finalizing & Testing Your Engine
+## エンジンの仕上げとテスト
 
-`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself. We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
+これまでのところ、`cookiecutter` は `engine-template` のみをカスタマイズしています。自分で作成する必要がある項目が少しあります。 主な項目については上記で説明しましたが、`CUSTOMIZE_HERE` をクイック検索して、すべてのカスタマイズが行われたかを確認できます。
 
-Once everything is in place, let's test our engine:
+すべての準備ができたら、エンジンをテストしましょう。
 
-[Test Linux-based Engines →](/testing-linux/)
+[Linux ベースのエンジンのテスト →](/testing-linux/)
 
-[Test Windows-based Engines →](/testing-windows/)
+[Windows ベースのエンジンのテスト →](/testing-windows/)
 
 ## Next Steps
 
