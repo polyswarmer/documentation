@@ -121,19 +121,19 @@ Guest Additions がインストールされ、VM 内での開発のために [Wi
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     ```
 
-## Install Chocolatey & Prerequisities
+## Chocolatey と前提条件のインストール
 
-Chocolatey is a package manager for Windows. We'll use it to help with installing some prerequisites.
+Chocolatey は、Windows 用のパッケージ・マネージャーです。 一部の前提条件をインストールするために使用します。
 
-Run the following in a *privileged* PowerShell console.
+*権限が付与された* PowerShell コンソールで以下を実行します。
 
-1. Install Chocolatey:
+1. 以下のように、Chocolatey をインストールします。
     
     ```powershell
     iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     ```
 
-2. Use Chocolatey to install prerequisites (do these one at a time):
+2. 以下のように、Chocolatey を使用して前提条件をインストールします (一度に 1 つずつ行います)。
     
     ```powershell
     choco install -y python --version 3.5.4
@@ -141,32 +141,32 @@ Run the following in a *privileged* PowerShell console.
     choco install -y visualcpp-build-tools --version 14.0.25420.1
     ```
 
-## Disable Anti-Malware Products
+## マルウェア対策製品の無効化
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    We strongly recommend disabling all anti-malware products in your development environment - including the built-in Windows Defender.
-    Below, we describe disabling Windows Defender.
-    Disabling third party solutions is left as an exercise for the reader.
+    <strong>警告:</strong>
+    組み込みの Windows Defender も含め、環境内のすべてのマルウェア対策製品を無効にすることを強くお勧めします。
+    以下に、Windows Defender の無効化について説明します。
+    サード・パーティー・ソリューションの無効化は、自分で調べて行ってください。
   </p>
 </div>
 
-PolySwarm engines should expect to come into contact with malware. Existing anti-malware engines, including the built-in Windows Defender, can easily get in our way, quarantining or deleting files during development.
+PolySwarm エンジンは、マルウェアを検出する必要があります。 組み込みの Windows Defender も含め、既存のマルウェア対策エンジンは、開発中にファイルを隔離したり、削除したりするため、邪魔になります。
 
-Disabling Windows Defender is a two step process.
+Windows Defender の無効化は、2 つのステップで完了するプロセスです。
 
-1. Run the following command in a privileged PowerShell:
+1. 権限が付与された PowerShell で以下のコマンドを実行します。
     
     ```powershell
     Set-ItemProperty 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender' DisableAntiSpyware 1
     ```
 
-2. Reboot Windows.
+2. Windows を再起動します。
 
-## Set up a Virtual Environment (virtualenv)
+## 仮想環境 (virtualenv) のセットアップ
 
-If you plan to use this Windows installation for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
+当該 Windows インストール環境を他の目的で使用する予定の場合は、システム全体の Python パッケージがクリーンな状態に保たれるように、以下のように PolySwarm virtualenv を作成することをお勧めします。
 
 ```bash
 cd ~
@@ -178,12 +178,12 @@ python -m venv polyswarmvenv
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you're using a virtualenv (see above), ensure that you activate it before installing `polyswarm-client`.
+    <strong>情報:</strong>
+    virtualenv (上記を参照) を使用する場合は、polyswarm-client をインストールする前に virtualenv をアクティブ化してください。
   </p>
 </div>
 
-Installing `polyswarm-client` is as simple as:
+`polyswarm-client` のインストールはシンプルであり、以下のようにします。
 
 ```bash
 pip install polyswarm-client
@@ -191,9 +191,9 @@ pip install polyswarm-client
 
 ## インストールの確認
 
-You should now have a working development environment!
+これで有効な開発環境が用意できているはずです。
 
-To verify, simply try importing `polyswarmclient`:
+確認するために、以下のように `polyswarmclient` をインポートします。
 
 ```bash
 $ python
@@ -203,8 +203,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-You should be able to import `polyswarmclient` without issue.
+問題なく `polyswarmclient` をインポートできる必要があります。
 
-Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
+次に、EICAR テスト・ファイルを検出できる独自の PolySwarm マイクロエンジンの作成について説明します。
 
-[Make a "Hello World" Microengine →](/microengines-scratch-to-eicar/)
+[「Hello World」マイクロエンジンの作成 →](/microengines-scratch-to-eicar/)
