@@ -1,10 +1,10 @@
-# Building a Multi-Backend Microengine
+# マルチバックエンド・マイクロエンジンの作成
 
-This tutorial will show you how to combine multiple analysis backends and outlines a basic verdict distillation primitive. The two backends will be `ClamAV` (from the last tutorial) and [YARA](https://virustotal.github.io/yara/).
+このチュートリアルでは、複数の分析バックエンドを組み合わせる方法について説明し、基本判定生成プリミティブの概要を示します。 バックエンドは 2 つあり、`ClamAV` (直前のチュートリアルのもの) と [YARA](https://virustotal.github.io/yara/) です。
 
-## Adding YARA to the Mix
+## 組み合わせへの YARA の追加
 
-Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyYaraEngine". You should find a `microengine-myyaraengine` in your current working directory - this is what we'll be editing to implement Yara's functionality.
+何も手を加えていない [engine-template](/microengines-scratch-to-eicar/#customize-engine-template) から開始し、「MyYaraEngine」という `engine-name` (エンジン名) を付けます。 You should find a `microengine-myyaraengine` in your current working directory - this is what we'll be editing to implement Yara's functionality.
 
 We're going to add a YARA backend to our Microengine - but we need some YARA signatures (rules) first!
 
