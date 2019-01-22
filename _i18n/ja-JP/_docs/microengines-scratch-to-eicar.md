@@ -4,42 +4,42 @@
 
 マルウェア対策ソリューション開発の「Hello World」では常に、[EICAR テスト・ファイル](https://ja.wikipedia.org/wiki/EICAR%E3%83%86%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB)を検出します。
 
-This benign file is detected as "malicious" by all major anti-malware products - a safe way to test a positive result.
+この無害なファイルは、すべての主要マルウェア対策製品で「悪因がある」ものとして検出され、陽性結果をテストする安全な手段となります。
 
-Our first Microengine will be no different: let's detect EICAR!
+PolySwarm での最初のマイクロエンジンも同様です。EICAR を検出してみましょう。
 
-[(Optional) review the components of a Microengine →](/concepts-participants-microengine/#breaking-down-microengines)
+[(オプション) マイクロエンジンのコンポーネントの確認 →](/concepts-participants-microengine/#breaking-down-microengines)
 
-## Building Blocks
+## ビルディング・ブロック
 
-This guide will reference and build on:
+このガイドでは、以下を参照し、以下に基づいて作成します。
 
-* [**engine-template**](https://github.com/polyswarm/engine-template): The name says it all - this is a convenient template with interactive prompts for creating new engines. We'll use this in our tutorial.
+* [**engine-template**](https://github.com/polyswarm/engine-template): 名前のとおりです。これは、新規エンジンを作成するための便利なテンプレートであり、対話式プロンプトを備えています。 チュートリアルで使用します。
 
-* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): The Swiss Army knife of exemplar PolySwarm participants ("clients"). `polyswarm-client` can function as a `microengine` (we'll build on this functionality in this tutorial), an `arbiter` and an `ambassador` (we'll use these to test what we built).
+* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): 万能的なサンプル PolySwarm 参加者 (「クライアント」)。 `polyswarm-client` は、`microengine` (マイクロエンジン: このチュートリアルでは、この機能に基づいて作成)、`arbiter` (評価者)、および `ambassador` (アンバサダー: 作成したものをテストするために使用) として機能できます。
 
-## Customize `engine-template`
+## `engine-template` のカスタマイズ
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Windows-based engines are currently only supported as AMIs (AWS Machine Images).
+    <strong>警告:</strong>
+    現在、Windows ベースのエンジンは、AMI (AWS Machine Image) としてのみサポートされます。
   </p>
   <p>
-    The customization process for Window-based engines assumes you have an AWS account and its ID handy.
+    Windows ベースのエンジンのカスタマイズ・プロセスでは、AWS アカウントがあり、その ID を使用できることを前提としています。
   </p>
   <p>
-    We'll be expanding deployment options in near future, including self-hosted options. Linux-based engines have no such stipulation.
+    近い将来、自己ホスト・オプションなど、デプロイメント・オプションを拡張する予定です。 Linux ベースのエンジンには、そのような制約はありません。
   </p>
 </div>
 
-We're going to cut our Engine from `engine-template`. To do this, we'll need `cookiecutter`:
+`engine-template` からエンジンを作成します。 これを行うには、`cookiecutter` が必要です。以下のようにします。
 
 ```bash
 pip install cookiecutter
 ```
 
-With `cookiecutter` installed, jump-starting your engine from our template is as easy as:
+`cookiecutter` がインストールされたので、以下に示すように簡単に、テンプレートからエンジンを作成できます。
 
 ```bash
 cookiecutter https://github.com/polyswarm/engine-template
@@ -179,4 +179,4 @@ Check back soon for an exploration of various staking strategies.
 
 Implementing scan logic directly in the Scanner class is difficult to manage and scale. Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
 
-[Next, we'll wrap ClamAV into a Microengine →](/microengines-scratch-to-clamav/)
+[次は、ClamAV をマイクロエンジンにラップします →](/microengines-scratch-to-clamav/)
