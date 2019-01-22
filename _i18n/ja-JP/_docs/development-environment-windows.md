@@ -31,8 +31,8 @@ VirtualBox を使用します。 **VirtualBox は、ハイパーバイザーの�
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Nested virtualization is NOT a currently supported configuration.
+    <strong>警告:</strong>
+    現在、仮想化のネストは、サポート対象外の構成です。
   </p>
   <p>
     ここで示している説明では、ホスト Windows インストール環境が「ベアメタル」で稼働しているものと想定されています。
@@ -101,21 +101,21 @@ Guest Additions がインストールされ、VM 内での開発のために [Wi
 
 ## Windows の構成
 
-We'll need to use Administrator privilege to make several changes to default Windows settings. We'll need an "elevated" / "privileged" PowerShell console:
+デフォルトの Windows 設定を変更するために、管理者権限を使用する必要があります。 「昇格された」/「権限が付与された」PowerShell コンソールが必要です。以下のようにします。
 
-- search "PowerShell" in the desktop search bar
-- right click on "Windows PowerShell"
-- select "Run as administrator".
+- デスクトップの検索バーで「PowerShell」を検索します。
+- 「Windows PowerShell」を右クリックします。
+- 「管理者として実行」を選択します。
 
-Run the following in this privileged PowerShell console.
+権限が付与された PowerShell コンソールで以下を実行します。
 
-1. Permit script execution (necessary for installing Chocolatey & using virtualenvs):
+1. 以下のように、スクリプト実行を許可します (Chocolatey のインストールや virtualenvs の使用に必要です)。
     
     ```powershell
     Set-ExecutionPolicy Bypass -Scope LocalMachine -Force
     ```
 
-2. Force PowerShell to use TLSv2 (required of some dependancies):
+2. 以下のように、PowerShell で TLSv2 を強制的に使用するようにします (一部の依存関係のために必要です)。
     
     ```powershell
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
