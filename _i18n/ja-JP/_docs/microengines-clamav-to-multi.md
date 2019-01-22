@@ -4,9 +4,9 @@
 
 ## 組み合わせへの YARA の追加
 
-何も手を加えていない [engine-template](/microengines-scratch-to-eicar/#customize-engine-template) から開始し、「MyYaraEngine」という `engine-name` (エンジン名) を付けます。 You should find a `microengine-myyaraengine` in your current working directory - this is what we'll be editing to implement Yara's functionality.
+何も手を加えていない [engine-template](/microengines-scratch-to-eicar/#customize-engine-template) から開始し、「MyYaraEngine」という `engine-name` (エンジン名) を付けます。 現行作業ディレクトリーに `microengine-myyaraengine` があり、これを編集して Yara の機能を実装します。
 
-We're going to add a YARA backend to our Microengine - but we need some YARA signatures (rules) first!
+YARA バックエンドをマイクロエンジンに追加します。ただし、まず、いくつかの YARA シグネチャー (ルール) が必要です。
 
 [Yara-Rules](https://github.com/Yara-Rules/rules) リポジトリーは、無料のルールの優れたリソースです。 So, let's get those rules and put them into the `pkg` directory of your `microengine-myyaraengine`:
 
