@@ -8,34 +8,34 @@ Before we dive into the code, let's get our bearings:
 
 * What does it look like to participate in PolySwarm?
 * Which role fits my use case?
-* Which Communities do I want to engage with?
-* How do I monitor the performance of my Engines?
-* What are Communities? What is an Engine?
+* どのコミュニティーに参加しますか?
+* エンジンのパフォーマンスはどのように監視しますか?
+* コミュニティーとは何ですか? エンジンとは何ですか?
 
-Let's take a look at some of the high level concepts and drill down into details where appropriate.
+それでは、大まかな概念をいくつか確認し、該当する場合には詳細に掘り下げましょう。
 
-## Portal
+## ポータル
 
-PolySwarm Portal is PolySwarm's one-stop shop for:
+PolySwarm ポータルは、以下を行うための PolySwarm のワンストップ・ショップです。
 
-* tracking Engine performance
-* discovering Communities (see below)
-* naming Engines
-* creating Profiles
-* connecting with Security Experts
+* エンジンのパフォーマンスを追跡する
+* コミュニティー (以下を参照) を見つける
+* エンジンに名前を付ける
+* プロファイルを作成する
+* セキュリティー専門家と交流する
 
-... and much, much more.
+... など
 
-[Explore Portal →](https://polyswarm.network/)
+[ポータルの探索 →](https://polyswarm.network/)
 
-## Communities
+## コミュニティー
 
-PolySwarm is composed of a series of Communities (hence the "Poly"). Each Community serves a particular purpose and can either permit everyone to join or limit access to specific participants.
+PolySwarm は、一連のコミュニティーで構成されます (そのため、「たくさん」を表す「Poly」を冠しています)。 各コミュニティーは特定の目的を果たし、全員に参加を許可する場合もあれば、特定の参加者のみにアクセスを制限している場合もあります。
 
-PolySwarm will launch with two communities:
+PolySwarm の立ち上げ時には、以下の 2 つのコミュニティーがあります。
 
-* **Genesis: the public mainnet community**: everyone can join & participate!
-* **Hive: a private testing community**: a closed Community for initial partners preparing for launch on Genesis
+* **Genesis: 公開メインネット・コミュニティー**: 全員が参加できます。
+* **Hive: 非公開テスト・コミュニティー**: Genesis での立ち上げの準備をする初期パートナー用の非公開コミュニティー。
 
 This list will expand, allowing Ambassadors and Microengine developers to control their audience. Future communities may include:
 
