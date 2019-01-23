@@ -144,11 +144,11 @@ footer:
             d_url: /grants/
             d_rooturl: true
           - 
-            name: Security
+            name: セキュリティー
             d_url: /security/
             d_rooturl: true
           - 
-            name: Media
+            name: メディア
             d_url: /media/
             d_rooturl: true
           - 
@@ -224,7 +224,7 @@ docs:
     title: Linux ベースのエンジンのテスト
     description: Linux ベースの PolySwarm マイクロエンジンをテストする方法
   testing_windows:
-    title: Testing Windows-Based Engines
+    title: Windows ベースのエンジンのテスト
     description: Windows ベースの PolySwarm マイクロエンジンをテストする方法
   joining_the_market:
     title: マーケットへの参加
