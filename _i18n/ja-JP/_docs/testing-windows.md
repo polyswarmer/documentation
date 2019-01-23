@@ -1,12 +1,12 @@
-# Testing Windows-Based Engines
+# Windows ベースのエンジンのテスト
 
-In this page, we use `microengine-mywindowsengine` as the name of the Microengine's directory. In your own testing, you will use the name of your Microengine's directory instead. Additionally, in these instructions, we've shortened the PowerShell command prompt to be `PS >` in order to make it easier to read the commands. Your actual PowerShell command prompt will be similar to this: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`. Similarly for Linux command prompts, we've shortened them to be `$`, while your actual command prompts will have more text to the left side of the `$`.
+このページでは、マイクロエンジンのディレクトリーの名前として `microengine-mywindowsengine` を使用します。 ユーザー独自のテストでは、ご使用のマイクロエンジンのディレクトリーの名前を使用します。 また、この説明では、コマンドが読みやすくなるように、PowerShell コマンド・プロンプトを `PS >` と短縮しています。 実際の PowerShell コマンド・プロンプトは、`(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>` のようになります。 同様に、Linux コマンド・プロンプトでは、`$` と短縮していますが、実際のコマンド・プロンプトでは、`$` の左側に追加のテキストがあります。
 
 ## 単体テスト
 
-We'll use `tox` to test our Microengine. `tox` runs whatever unit tests you add to `tests/scan_test.py`.
+`tox` を使用してマイクロエンジンをテストします。 `tox` は、`tests/scan_test.py` に追加したすべての単体テストを実行します。
 
-In a powershell window with an activated virtual environment, and run the `tox` command at the base of your microengine's directory.
+アクティブ化された仮想環境の PowerShell ウィンドウで、マイクロエンジンのディレクトリーから `tox` コマンドを実行します。
 
 ```powershell
 PS > tox
@@ -44,7 +44,7 @@ _______________________________________________________ summary ________________
 
 `combine_argument_formatters` の警告は無視して問題ありません。
 
-## Integration Testing
+## 統合テスト
 
 <div class="m-flag m-flag--warning">
   <p>
@@ -310,7 +310,7 @@ PolySwarm [`orchestration`](https://github.com/polyswarm/orchestration) プロ�
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### Test Your Engine
+### エンジンのテスト
 
 ここでは、少々 VM を切り替える必要があります。 まず、Linux VM で testnet を開始します。 次に、Windows VM でマイクロエンジンを開始します。 最後に、Linux VM でアンバサダーを開始します。
 
@@ -323,25 +323,25 @@ $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-It will take several minutes for `polyswarmd` to become available. During this time, you will see many messages like `Problem with dial... dial tcp connection refused.` and `chain for config not available in consul yet`. These errors are normal while the testnet is initializing, so have patience.
+`polyswarmd` が使用可能になるまでに数分かかります。 このとき、以下のような多数のメッセージが表示されます。「`Problem with dial... dial tcp connection refused.`」や「`chain for config not available in consul yet`」。 testnet の初期化中にこうしたエラーが出ても正常であるため、待機してください。
 
-Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
+`polyswarmd` は、使用可能になると、クライアントに応答を提供しはじめます。例: 
 
     INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
     
 
-Now it is safe to move to the next step.
+これで、問題なく次のステップに進むことができます。
 
-#### Windows VM: Test Connection to `polyswarmd`
+#### Windows VM: `polyswarmd` への接続のテスト
 
-On your Windows VM, confirm that `polyswarmd` is available and ready to respond to your Microengine. To do that, run the following command in PowerShell:
+Windows VM で、`polyswarmd` が使用可能であり、マイクロエンジンに応答する準備ができていることを確認します。 これを行うために、PowerShell で以下のコマンドを実行します。
 
 ```powershell
 PS > curl -UseBasicParsing http://polyswarmd:31337/status
 ```
 
-It should output the following:
+以下のように出力される必要があります。
 
 ```powershell
 StatusCode        : 200
@@ -351,28 +351,28 @@ Content           : {"result":{"home":{"block":189,"reachable":true,"syncing":fa
 ...
 ```
 
-The key thing to look for is `"status":"OK"`.
+確認する必要がある重要な部分は「`"status":"OK"`」です。
 
-#### Windows VM: Launch `balancemanager` & Your Engine
+#### Windows VM: `balancemanager` とエンジンの起動
 
-Start a new PowerShell window and activate your virtual environment. Then change into your Microengine's directory.
+新しい PowerShell ウィンドウを開始し、仮想環境をアクティブ化します。 次に、マイクロエンジンのディレクトリーに移動します。
 
-In your Microengine's directory, install your Microengine's prerequisites and your Microengine itself.
+マイクロエンジンのディレクトリーで、マイクロエンジンの前提条件とマイクロエンジン自体をインストールします。
 
 ```powershell
 PS > pip install -r requirements.txt
 PS > pip install .
 ```
 
-`balancemanager` is a utility (based on `polyswarm-client`) that will help us maintain a balance of (fake) PolySwarm Nectar (NCT) on the sidechain of our local testnet where all transactions will take place.
+`balancemanager` は、すべてのトランザクションが行われるローカル testnet のサイドチェーンで (フェイク) PolySwarm Nectar (NCT) の残高を維持できるようにする (`polyswarm-client` に基づいた) ユーティリティーです。
 
-In that same PowerShell window, launch `balancemanager` as follows:
+同じ PowerShell ウィンドウで、以下のように `balancemanager` を起動します。
 
 ```powershell
 PS > balancemanager maintain --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport 100000 500000
 ```
 
-It will print output similar to the following:
+以下のような出力になります。
 
 ```powershell
 INFO:root:2018-12-06 16:55:30,800 Logging in text format.
@@ -387,17 +387,17 @@ INFO:polyswarmclient:2018-12-06 16:55:33,034 Received block on chain home: {'num
 INFO:polyswarmclient:2018-12-06 16:55:33,080 Received block on chain side: {'number': 18206}
 ```
 
-When it starts printing `Received block on chain` messages, you are ready to launch your Microeengine.
+「`Received block on chain`」メッセージが出力され始めたら、マイクロエンジンを起動する準備ができています。
 
-Start another new PowerShell window and activate your virutal environment. Then change into your Microengine's directory.
+別の新しい PowerShell ウィンドウを開始し、仮想環境をアクティブ化します。 次に、マイクロエンジンのディレクトリーに移動します。
 
-Run your Microengine using a command similar to the following command. Be sure to update the value for the `--backend` argument to match the name of your Microengine's package directory (i.e. the directory in `src/`):
+以下のようなコマンドを使用して、マイクロエンジンを実行します。 Be sure to update the value for the `--backend` argument to match the name of your Microengine's package directory (i.e. the directory in `src/`):
 
 ```powershell
 PS > microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
 ```
 
-It will print output similar to the following:
+以下のような出力になります。
 
 ```powershell
 INFO:root:2018-12-06 16:56:20,674 Logging in text format.
