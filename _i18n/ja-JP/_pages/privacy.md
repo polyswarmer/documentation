@@ -216,23 +216,23 @@ Web サイト所有者 (PolySwarm Pte. Ltd.) によって設定された Cookie 
 
 **Web ビーコンのような他のトラッキング技術**
 
-Web サイトの訪問者の認識や追跡を行える手段は、Cookie 以外にもあります。 ときには、Web ビーコン (「トラッキング・ピクセル」、「クリア GIF」と呼ばれることもある) のような他の類似した技術を使用することもできます。 These are tiny graphics files that contain a unique identifier that enable us to recognize when someone has visited our Sites or opened an e-mail that we have sent them. This allows us, for example, to monitor the traffic patterns of users from one page within our Websites to another, to deliver or communicate with cookies, to understand whether you have come to our Websites from an online advertisement displayed on a third-party website, to improve site performance, and to measure the success of e-mail marketing campaigns. In many instances, these technologies are reliant on cookies to function properly, and so declining cookies will impair their functioning.
+Web サイトの訪問者の認識や追跡を行える手段は、Cookie 以外にもあります。 ときには、Web ビーコン (「トラッキング・ピクセル」、「クリア GIF」と呼ばれることもある) のような他の類似した技術を使用することもできます。 これは、一意の識別子が含まれている小さい画像ファイルです。これにより、いつユーザーが当サイトにアクセスしたかや、当社から送信した E メールをいつ開封したかを認識できます。 例えば、Web サイト内のページ間のユーザー移動トラフィック・パターンを監視したり、Cookie の配信や操作を行ったり、サード・パーティーの Web サイトに表示されたオンライン広告から当社の Web サイトにアクセスしたのかどうかを把握したり、サイトのパフォーマンスを改善したり、E メール・マーケティング戦略の成功度を測定したりすることができます。 多くの場合、こうした技術は、適切に機能するには Cookie を必要としているため、Cookie を拒否すると、機能しなくなります。
 
-**How can I control cookies?**
+**Cookie の制御方法**
 
-You can change your [privacy settings](/privacy/#privacy-settings). Additionally, you can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted. As the means by which you can refuse cookies through your web browser controls vary from browser-to-browser, you should visit your browser's help menu for more information.
+[プライバシーの設定](/privacy/#privacy-settings)を変更できます。 また、Web ブラウザーのコントロールを設定または変更して Cookie を受け入れるか拒否することもできます。 Cookie を拒否した場合でも、当社の Web サイトをご利用いただけますが、当社の Web サイトの一部の機能や領域の利用が制限される可能性があります。 Web ブラウザーのコントロールを使用して Cookie を拒否する方法はブラウザーによって異なるため、詳細については、ご使用のブラウザーのヘルプ・メニューを参照してください。
 
-In addition, most advertising networks offer you a way to opt out of targeted advertising. If you would like to find out more information, please visit <http://www.aboutads.info/choices/> or <http://www.youronlinechoices.com>.
+また、ほとんどの広告ネットワークでは、ターゲットを絞った広告からオプトアウトする手段が用意されています。 詳細については、<http://www.aboutads.info/choices/> または <http://www.youronlinechoices.com> をご覧ください。
 
-#### Do We Make Updates to This Policy?
+#### このポリシーの更新について
 
-**In Short:** Yes, we will update this policy as necessary to stay compliant with relevant laws.
+**概要:** このポリシーは、必要に応じて、関連する法律に対する遵守性を維持するために更新されます。
 
-We may update this privacy policy from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
+このポリシーは、ときどき更新することがあります。 更新版は、更新された「改訂」日で示されます。更新版は、アクセス可能になると同時に発効します。 このプライバシー・ポリシーに対して重大な変更を行った場合は、その変更の案内を目立つように示すか、通知をお客様に直接送信することでお客様に通知することがあります。 当社がお客様の情報をどのように保護しているのかを把握するために、このプライバシー・ポリシーを頻繁に確認することをお勧めします。
 
-#### How Can You Contact Us About This Policy?
+#### このポリシーに関する連絡先
 
-If you have questions or comments about this policy, you may contact us by email at <privacy@polyswarm.io>, or by post to:
+このポリシーに関してご質問やコメントがありましたら、E メール (<privacy@polyswarm.io>) または以下の宛先への郵便で当社までお問い合わせください。
 
 PolySwarm Pte. Ltd.  
 548 Market Street  
