@@ -43,7 +43,7 @@ header:
             name: Participants
             d_url: /concepts-participants/
           - 
-            name: Microengines
+            name: マイクロエンジン
             d_url: /concepts-participants-microengine/
       - 
         name: Development Environment
@@ -55,7 +55,7 @@ header:
             name: Windows
             d_url: /development-environment-windows/
       - 
-        name: Microengines
+        name: マイクロエンジン
         subitems:
           - 
             name: "Level 0: Scratch to EICAR"
@@ -152,13 +152,13 @@ footer:
             d_url: /media/
             d_rooturl: true
           - 
-            name: Press
+            name: プレス
             d_url: /press/
             d_rooturl: true
       - 
         items:
           - 
-            name: Telegram Channels
+            name: Telegram チャネル
           - 
             name: PolySwarm
             d_url: https://t.me/PolySwarm
@@ -170,68 +170,68 @@ footer:
             d_target: _blank
             d_root: true
           - 
-            name: PolySwarm Announcements
+            name: PolySwarm からのお知らせ
             d_url: https://t.me/PolySwarmAnnouncements
             d_target: _blank
             d_root: true
   cta:
-    name: Download Whitepaper
+    name: ホワイトペーパーのダウンロード
     d_url: /polyswarm-whitepaper.pdf
     d_target: _blank
     d_rooturl: true
   privacy:
-    name: Privacy Policy
+    name: プライバシー・ポリシー
     d_url: /privacy/
   terms:
-    name: Terms of Service
+    name: サービス利用規約
     d_url: /terms/
     d_rooturl: true
 pages:
   page_not_found:
-    title: Page not found
+    title: ページが見つかりません
     d_bg_image: /backgrounds/network-bg.png
-    heading: Page not found
+    heading: ページが見つかりません
     button:
-      name: Back to home
+      name: ホームへ戻る
       d_url: /
       d_style: transparent
   privacy:
-    title: Privacy Policy
-    description: PolySwarm's Privacy Policy
+    title: プライバシー・ポリシー
+    description: PolySwarm のプライバシー・ポリシー
 docs:
   concepts_participants:
-    title: Roles in the PolySwarm Marketplace
-    description: PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
+    title: PolySwarm マーケットプレイスでの役割
+    description: PolySwarm は、供給担当 (マイクロエンジン)、需要担当 (アンバサダー)、およびまとめ役 (評価者) が参加するマーケットプレイスです。
   concepts_participants_microengine:
-    title: "Participants: Microengine"
-    description: Microengines are Security Experts' representation in the PolySwarm marketplace.
+    title: "参加者: マイクロエンジン"
+    description: マイクロエンジンは、PolySwarm マーケットプレイスでセキュリティー専門家の代理として機能します。
   development_environment_linux:
-    title: Linux Development Environment
-    description: How to configure a Linux development environment for PolySwarm
+    title: Linux 開発環境
+    description: PolySwarm で Linux 開発環境を構成する方法
   development_environment_windows:
-    title: Windows Development Environment
-    description: How to configure a Windows development environment for PolySwarm
+    title: Windows 開発環境
+    description: PolySwarm で Windows 開発環境を構成する方法
   microengines_scratch_to_eicar:
     title: "Level 0: Scratch to EICAR"
-    description: This tutorial will step you through building your very first PolySwarm microengine - a hello world microengine capable of detecting the EICAR test file.
+    description: このチュートリアルでは、最初の PolySwarm マイクロエンジン (EICAR テスト・ファイルを検出できる「hello world」マイクロエンジン) の作成について順に説明します。
   microengines_scratch_to_clamav:
     title: "Level 1: Scratch to ClamAV"
-    description: This tutorial will step you through building your second PolySwarm microengine by means of incorporating ClamAV as an analysis backend.
+    description: このチュートリアルでは、ClamAV を分析バックエンドとして取り込むことで、2 つ目の PolySwarm マイクロエンジンを作成するプロセスについて順に説明します。
   microengines_clamav_to_multi:
     title: "Level 2: ClamAV to Multi"
-    description: This tutorial will show you how to combine multiple analysis backends (ClamAV and YARA) and outlines a basic verdict distillation primitive.
+    description: このチュートリアルでは、複数の分析バックエンド (ClamAV と YARA) を組み合わせる方法について説明し、基本判定生成プリミティブの概要を示します。
   testing_linux:
-    title: Testing Linux-Based Engines
-    description: How to test a Linux-based PolySwarm microengine.
+    title: Linux ベースのエンジンのテスト
+    description: Linux ベースの PolySwarm マイクロエンジンをテストする方法
   testing_windows:
     title: Testing Windows-Based Engines
-    description: How to test a Windows-based PolySwarm microengine.
+    description: Windows ベースの PolySwarm マイクロエンジンをテストする方法
   joining_the_market:
-    title: Joining the Market
-    description: Participating in the PolySwarm Marketplace.
+    title: マーケットへの参加
+    description: PolySwarm マーケットプレイスへの参加
   polyswarmd_api:
     title: polyswarmd API
-    description: The polyswarmd API documentation.
+    description: polyswarmd API の資料
 banners:
   - 
     id: cookie-consent
