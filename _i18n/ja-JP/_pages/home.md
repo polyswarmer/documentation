@@ -37,35 +37,35 @@ PolySwarm の立ち上げ時には、以下の 2 つのコミュニティーが�
 * **Genesis: 公開メインネット・コミュニティー**: 全員が参加できます。
 * **Hive: 非公開テスト・コミュニティー**: Genesis での立ち上げの準備をする初期パートナー用の非公開コミュニティー。
 
-This list will expand, allowing Ambassadors and Microengine developers to control their audience. Future communities may include:
+今後、このリストは拡張されて、アンバサダーやマイクロエンジン開発者が対象ユーザーを管理できるようになります。 将来のコミュニティーとして、以下のようなものが考えられます。
 
-* A GDPR-compliant community with artifact sharing amongst a closed set of complaint participants.
-* A network of mutually NDA'ed MSSPs & security experts.
+* 制限された苦情担当参加者間でアーティファクトを共有する GDPR 準拠のコミュニティー
+* 相互に機密保持契約を交わした MSSP とセキュリティー専門家のネットワーク
 
-Anyone will be able to administer their own Community and advertise their community through PolySwarm Portal.
+誰でも独自のコミュニティーを管理し、PolySwarm ポータルでそのコミュニティーを公開できます。
 
-### Chains: Home vs Side
+### チェーン: ホームとサイド
 
-Each Community has a "homechain" and a "sidechain", either of which may be shared with other Communities. Generally speaking, the "homechain" is where crypto assets natviely exist and the "sidechain" is where PolySwarm transations take place.
+各コミュニティーには、「ホームチェーン」と「サイドチェーン」があります。いずれも他のコミュニティーと共有できます。 一般的に、「ホームチェーン」は暗号資産がネイティブに存在している場所であり、「サイドチェーン」は PolySwarm トランザクションが行われる場所です。
 
-For example, **Genesis**, the first public Community will be configured as such:
+例えば、最初の公開コミュニティーである **Genesis** は以下のように構成されています。
 
-* `homechain`: the Ethereum Mainnet
-* `sidechain`: a set of hosted `geth` nodes running in a [Clique configuration](https://github.com/ethereum/EIPs/issues/225)
+* `homechain` (ホームチェーン): イーサリアム・メインネット
+* `sidechain` (サイドチェーン): [Clique 構成](https://github.com/ethereum/EIPs/issues/225)で実行されている一連のホストされた `geth` ノード
 
-PolySwarm Nectar (NCT) natively lives on the Ethereum Mainnet. Unfortunately, the Ethereum mainnet is far too slow (~15s block time) and far too expensive to support the sort of micro-transactions required by PolySwarm.
+PolySwarm Nectar (NCT) は、イーサリアム・メインネット上にネイティブに存在しています。 残念ながら、イーサリアム・メインネットは遅すぎ (~15s ブロック時間)、また PolySwarm で要求されるタイプのマイクロ・トランザクションをサポートするにはあまりにも高すぎます。
 
-Rather than transacting directly on the Ethereum Mainnet, PolySwarm participants will instead relay NCT from Mainnet to the Genesis sidechain and conduct their business on this sidechain. Maintaining a minimal balance on the sidechain is made easy by `polyswarm-client`'s [`balancemanager`](https://github.com/polyswarm/polyswarm-client/tree/master/src/balancemanager).
+PolySwarm の参加者は、イーサリアム・メインネットで直接トランザクションを実行するのではなく、メインネットから Genesis サイドチェーンに NCT をリレーし、そのサイドチェーンでビジネスを実行します。 `polyswarm-client` の [`balancemanager`](https://github.com/polyswarm/polyswarm-client/tree/master/src/balancemanager) を使用することで、サイドチェーンで最小限の残高を簡単に維持できます。
 
-This split-chain design provides two key benefits:
+この分割チェーン設計により、以下のような 2 つの主要なメリットが得られます。
 
-1. **Scalability** Today, Ethereum does not scale (they're working on this of course), so applications must implement their own "Layer 2" scaling solutions if they demand low latency or high throughput transactions.
-2. **Confidentiality** PolySwarm supports the notion of limited-access, private Communities. This split-chain design makes that possible.
+1. **拡張可能性** 現在、イーサリアムの拡張性は高くありません (もちろん、イーサリアムでは、この問題に取り組んではいますが)。そのため、低待ち時間/高スループットのトランザクションが必要な場合は、アプリケーションで独自の「レイヤー 2」の拡張対応ソリューションを実装する必要があります。
+2. **機密性** PolySwarm では、アクセスが制限された非公開コミュニティーという概念がサポートされます。 この分割チェーン設計により、それが可能になっています。
 
-<button disabled>Browse Communities → (coming soon!)</button>
+<button disabled>コミュニティーの参照 → (近日公開予定)</button>
 
-## Your Role in the PolySwarm Marketplace
+## PolySwarm マーケットプレイスでの役割
 
-There are several ways to participate in the PolySwarm ecosystem: will you create a Microengine, an Ambassador, an Arbiter or something else entirely?
+PolySwarm エコシステムに参加する方法はいくつかあります。マイクロエンジン、アンバサダー、評価者などを作成してください。
 
-[Determine where you fit into PolySwarm →](/concepts-participants/)
+[PolySwarm における自分に適合した役割の判別 →](/concepts-participants/)
