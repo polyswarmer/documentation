@@ -60,7 +60,7 @@ We use the information we collect or receive:
 *     To send you marketing and promotional communications for Business Purposes and/or with your Consent. We and/or our third party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt-out of our marketing emails at any time (see the "What Are Your Privacy Rights" section below).
      
 
-*     To send administrative information to you for Business Purposes, Legal Reasons and/or possibly for Contractual. We may use your personal information to send you product, service and new feature information and/or information about changes to our terms, conditions, and policies.
+*     業務上の目的、法的理由、契約のために管理情報をお客様に送信するため。 お客様の個人情報を使用して、製品、サービス、新機能情報、規約、条件、およびポリシーの変更に関する情報をお客様に送信することがあります。
      
 
 *     業務上の目的、同意に基づいて、ターゲットを絞った広告をお客様に提供するため。 お客様の情報を使用して、お客様の関心や位置に合わせて、コンテンツおよび広告を作成して表示する (また、それを行う第三者と連携する) こと、またその有効性を測定することがあります。 詳細については、下記の「Cookie のポリシー」セクションを参照して下さい。
@@ -130,47 +130,47 @@ Cookie や類似のトラッキング技術 (Web ビーコンやピクセル画�
 
 お客様の個人情報は、このプライバシー・ポリシーに規定されている目的のために必要な期間だけ保存します。ただし、それより長い保存期間が法律 (例えば、税務、会計などの法的要件) によって要求または許可される場合を除きます。 このポリシーに規定されている目的では、お客様が当社のアカウントを所有している期間を超えてお客様の個人情報を保存する必要はありません。
 
-When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize it, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
+お客様の個人情報を処理する正当な業務上の必要性がなくなった場合、当社では、その情報を削除または匿名化します。(例えば、お客様の個人情報がバックアップ・アーカイブに含まれているために) それが可能でない場合は、お客様の情報をセキュアに保存し、削除できるようになるまで他の処理がなされないように隔離します。
 
-#### How Do We Keep Your Information Safe?
+#### お客様の情報を保護する方法
 
-**In Short:** We aim to protect your personal information through a system of organizational and technical security measures.
+**概要:** 当社では、一連の組織的および技術的なセキュリティー対策を施して、お客様の個人情報を保護しようとします。
 
-We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Sites is at your own risk. You should only access the services within a secure environment.
+当社では、処理する個人情報のセキュリティーを保護できるように設計された適切な技術的および組織的なセキュリティー対策を実装しています。 ただし、インターネット自体が 100% 安全であると保証できないことにも留意してください。 お客様の個人情報を保護するために最善を尽くしますが、当サイトとの個人情報の送受信は、お客様自身の責任で行ってください。 各サービスにアクセスする際には、必ずセキュアな環境で行ってください。
 
-#### Do We Collect Information from Minors?
+#### 未成年からの情報の収集
 
-**In Short:** We do not knowingly collect data from or market to children under 18 years of age.
+**概要:** 18 歳未満の子供と認識した上で未成年者のデータを収集したり、未成年者に販売したりすることはありません。
 
-We do not knowingly solicit data from or market to children under 18 years of age. By using the Sites, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Sites. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at <privacy@polyswarm.io>.
+18 歳未満の子供と認識した上で未成年者のデータを収集したり、未成年者に販売したりすることはありません。 当サイトを使用することで、お客様は自分が 18 歳以上であること、または未成年者の親または保護者であり、その未成年の被扶養者による当サイトの使用に同意していることを表明しているものとします。 18 歳未満のユーザーの個人情報を収集したことが判明した場合、そのアカウントを凍結し、そのデータを当社のレコードから速やかに削除する適切な手段を講じます。 18 歳未満の子供から収集されたデータにお気づきの場合は、<privacy@polyswarm.io> まで連絡してください。
 
-#### What Are Your Privacy Rights?
+#### お客様のプライバシーの権利
 
-**In Short:** In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.
+**概要:** 欧州経済地域などの一部の地域では、お客様は、個人情報への幅広いアクセスと制御を可能にする権利があります。 お客様は、いつでも、自分のアカウントを確認、変更、終了できます。
 
-In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws.
+欧州経済地域などの一部の地域では、適用されるデータ保護法の下、お客様には特定の権利があります。 例えば、(i) 個人情報へのアクセスを要求してそのコピーを取得する権利、(ii) 訂正や消去を要求する権利、(iii) 個人情報の処理を制限する権利、(iv) 該当する場合は、データ・ポータビリティー権などです。 場合によっては、個人情報の処理に対して異議を唱える権利があることもあります。 このような要求を行う場合は、下記の連絡先詳細をご利用ください。 適用されるデータ保護法に従って、要求について検討して対応いたします。
 
-If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.
+お客様の同意に基づいて個人情報を処理している場合、お客様には、いつでもその同意を撤回する権利があります。 ただし、これは撤回前に行われた処理の合法性に影響しないので注意してください。
 
-If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm>.
+欧州経済地域に居住していて、当社でのお客様の個人情報の処理が違法であると思われている場合、お客様には、お客様の地域のデータ保護監督機関に苦情を申し立てる権利もあります。 連絡先の詳細については、<http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm> をご覧ください。
 
-**Account information**
+**アカウント情報**
 
-If you would at any time like to review or change the information in your account or terminate your account, you can:
+いつでも、アカウントの情報を確認または変更したり、アカウントを終了したりする必要が生じた場合は、以下の操作を実行できます。
 
-* Log into your account settings and update your account.
+* アカウント設定にログインし、アカウントを更新する。
 
-Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use and/or comply with legal requirements.
+アカウントの終了が要求されると、アクティブなデータベースのアカウントおよび情報を非アクティブ化または削除します。 ただし、不正の防止、問題のトラブルシューティング、捜査協力、利用規約の適用、法的要件の遵守のために、一部の情報は当社のファイル内に保持されることがあります。
 
-Cookies and similar technologies: Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Sites. For further information, visit <http://www.aboutads.info/choices/>. You can also learn more in the "Cookie Policy" section below.
+Cookie や類似の技術: ほとんどの Web ブラウザーでは、デフォルトで Cookie を受け入れるように設定されています。 必要であれば、通常、Cookie を削除したり、Cookie を拒否したりするようにブラウザーを設定できます。 Cookie の削除または Cookie の拒否を行った場合、当サイトの特定の機能やサービスに影響が出る可能性があります。 詳細については、<http://www.aboutads.info/choices/> をご覧ください。 また、下記の「Cookie のポリシー」セクションにも詳細を記載しています。
 
-Opting out of email marketing:
+E メールによるマーケティングからのオプトアウト:
 
-You can unsubscribe from our marketing email list at any time by clicking on the unsubscribe link in the emails that we send or by contacting us using the details provided below. You will then be removed from the marketing email list – however, we will still need to send you service-related emails that are necessary for the administration and use of your account. To otherwise opt-out, you may:
+いつでも、当社が送信する E メールに含まれているサブスクライブ解除用のリンクをクリックするか、下記の詳細を使用して当社に連絡することで、マーケティング E メール・リストのサブスクライブを解除できます。 そうすると、マーケティング E メール・リストから削除されます。ただし、その場合でも、アカウントの管理や使用のために必要なサービス関連の E メールは引き続き受け取ることになります。 あるいは、以下の方法でもオプトアウトできます。
 
-* Access your account settings and update preferences.
+* アカウント設定にアクセスし、設定を更新する。
 
-#### Do California Residents Have Specific Privacy Rights?
+#### カリフォルニア居住者に固有のプライバシーの権利
 
 **In Short:** Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.
 
