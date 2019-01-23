@@ -182,37 +182,37 @@ If you are under 18 years of age, reside in California, and have a registered ac
 
 **What are cookies?**
 
-Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.
+Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookie は、Web サイト所有者によって Web サイトを機能させるため、動作を効率化するため、レポート情報を提供するために広く使用されています。
 
-Cookies set by the website owner (in this case, PolySwarm Pte. Ltd.) are called "first party cookies". Cookies set by parties other than the website owner are called "third party cookies". Third party cookies enable third party features or functionality to be provided on or through the website (e.g. like advertising, interactive content and analytics). The parties that set these third party cookies can recognize your computer both when it visits the website in question and also when it visits certain other websites.
+Web サイト所有者 (PolySwarm Pte. Ltd.) によって設定された Cookie は、「ファースト・パーティー Cookie」と呼ばれます 。 Web サイト所有者以外によって設定された Cookie は、「サード・パーティー Cookie」と呼ばれます。 サード・パーティー Cookie により、Web サイト上や Web サイトを介してサード・パーティーの機能 (広告、動的コンテンツ、分析など) を提供できます。 このようなサード・パーティー Cookie を設定した当事者は、対象 Web サイトへのアクセス時、および特定の他の Web サイトへのアクセス時に、お客様のコンピューターを認識できます。
 
-**Why do we use cookies?**
+**Cookie を使用している理由**
 
-We use first and third party cookies for several reasons. Some cookies are required for technical reasons in order for our Sites to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our Online Properties. Third parties serve cookies through our Sites for advertising, analytics and other purposes. This is described in more detail below.
+当社では、複数の理由のため、ファースト・パーティー Cookie とサード・パーティー Cookie を使用しています。 一部の Cookie は、当サイトの運用のために技術的な理由で必要です。このような Cookie を「不可欠」または「厳密に必要な」Cookie と呼んでいます。 また、ユーザーの関心を追跡してターゲットを絞ることで、当社のオンライン資産でのユーザー・エクスペリエンスを強化できるようにしている Cookie もあります。 第三者が、広告、分析、その他の目的のために、当サイトを介して Cookie を提供しています。 これについては、以下で詳細に説明します。
 
-The specific types of first and third party cookies served through our Websites and the purposes they perform are described below (please note that the specific cookies served may vary depending on the specific Online Properties you visit):
+当社の Web サイトで提供されるファースト・パーティー Cookie およびサード・パーティー Cookie の具体的なタイプとその目的を以下に記載します (なお、提供される具体的な Cookie は、アクセスした特定のオンライン資産によって異なることがあります)。
 
-**Performance and functionality cookies:**
+**パフォーマンスと機能の Cookie:**
 
-These cookies are used to enhance the performance and functionality of our Sites but are non-essential to their use. However, without these cookies, certain functionality (like videos) may become unavailable.
+このタイプの Cookie は、当サイトのパフォーマンスや機能を強化するために使用されますが、サイトの使用に不可欠ではありません。 ただし、このタイプの Cookie がなければ、特定の機能 (動画など) が利用できなくなることがあります。
 
-* Who serves these cookies? 
- * Cookie provider: PolySwarm 
-  * Website URL: https://polyswarm.io/
-* How to refuse: 
- * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
+* このタイプの Cookie の提供者 
+ * Cookie プロバイダー: PolySwarm 
+  * Web サイトの URL: https://polyswarm.io/
+* 拒否方法: 
+ * このタイプの Cookie を拒否する場合は、下記の「Cookie の制御方法」という見出しの説明に従ってください。 あるいは、[プライバシーの設定](/privacy/#privacy-settings)を変更することもできます。
 
 **Analytics and customization cookies:**
 
 These cookies collect information that is used either in aggregate form to help us understand how our Sites are being used or how effective our marketing campaigns are, or to help us customize our Sites for you.
 
-* Who serves these cookies? 
+* このタイプの Cookie の提供者 
  * Cookie provider: Google Analytics 
   * Website URL: https://analytics.google.com/analytics/web/
  * Cookie provider: Pardot 
   * Website URL: https://www.pardot.com/
-* How to refuse: 
- * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
+* 拒否方法: 
+ * このタイプの Cookie を拒否する場合は、下記の「Cookie の制御方法」という見出しの説明に従ってください。 あるいは、[プライバシーの設定](/privacy/#privacy-settings)を変更することもできます。
 
 **What about other tracking technologies, like web beacons?**
 
