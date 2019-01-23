@@ -1,29 +1,29 @@
-# Testing Linux-Based Engines
+# Linux ベースのエンジンのテスト
 
-## Unit Testing
+## 単体テスト
 
-Unit testing your Microengine is a simple process:
+マイクロエンジンの単体テストは、以下のようにシンプルなプロセスです。
 
-1. build a Docker image of your Microengine
-2. run `docker-compose` to use `tox` to execute your testing logic in `tests/scan_test.py`
+1. マイクロエンジンの Docker イメージをビルドする
+2. `docker-compose` を実行し、`tox` を使用して `tests/scan_test.py` のテスト・ロジックを実行する
 
-Run the following commands from the root of your project directory.
+プロジェクト・ディレクトリーのルートから以下のコマンドを実行します。
 
-Build your Microengine into a Docker image:
+以下のように、マイクロエンジンを Docker イメージにビルドします。
 
 ```bash
 $ docker build -t ${PWD##*/} -f docker/Dockerfile .
 ```
 
-This will produce a Docker image tagged with the name of the directory, e.g. `microengine-myeicarengine`.
+これにより、ディレクトリーの名前でタグ付けされた Docker イメージが生成されます (例えば、`microengine-myeicarengine`)。
 
-Run the tests:
+以下のようにテストを実行します。
 
 ```bash
 $ docker-compose -f docker/test-unit.yml up
 ```
 
-If your Microengine is capable of detecting EICAR and not producing a false positive on the string "not a malicious file", then you should pass these basic unittests and see something like this:
+マイクロエンジンで文字列「not a malicious file」に対して誤検出を生成することなく、EICAR を検出できる場合、基本単体テストに合格し、以下のような出力が表示されます。
 
 ```bash
 $ docker-compose -f docker/test-unit.yml up
