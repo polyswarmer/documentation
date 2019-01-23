@@ -235,8 +235,8 @@ docs:
 banners:
   - 
     id: cookie-consent
-    text: 'Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you do not consent to our use of cookies, you can change your <a href="/privacy/#privacy-settings" target="_blank">Privacy Settings</a>. Otherwise, you may click <a href="#" class="js-banner__accept">Accept</a>.'
+    text: 'このサイトでは、サイトの使用状況の理解を深め、今後の使いやすさを改善するために Cookie を使用しています。Cookie の使用に同意しない場合、<a href="/ja-JP/privacy/#privacy-settings" target="_blank">プライバシー設定</a>を変更できます。それ以外の場合は、<a href="#" class="js-banner__accept">同意</a>をクリックしてください。'
     d_type: accept
     link:
-      name: Accept
+      name: 同意
       d_url: "#"
