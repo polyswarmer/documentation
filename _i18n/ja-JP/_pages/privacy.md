@@ -172,13 +172,13 @@ E メールによるマーケティングからのオプトアウト:
 
 #### カリフォルニア居住者に固有のプライバシーの権利
 
-**In Short:** Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.
+**概要:** カリフォルニアの居住者には、個人情報へのアクセスに関する固有の権利が認められています。
 
-California Civil Code Section 1798.83, also known as the "Shine The Light" law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
+California Civil Code セクション 1798.83 (「Shine The Light」法とも呼ばれる) により、カリフォルニア居住のお客様は、1 年に 1 回無料で、当社がダイレクト・マーケティングのために第三者に開示した個人情報がある場合はそのカテゴリー、前年に個人情報を共有したすべての第三者の名前と住所に関する情報を要求して入手できます。 お客様がカリフォルニアに居住していて、この要求を行う場合は、下記の連絡先情報を使用して書面で要求を当社までお送りください。
 
-If you are under 18 years of age, reside in California, and have a registered account with the Sites, you have the right to request removal of unwanted data that you publicly post on the Sites. To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Sites, but please be aware that the data may not be completely or comprehensively removed from our systems.
+お客様が 18 歳未満のカリフォルニア在住者で、当サイトに登録アカウントがある場合、お客様には、当サイトで公開した望まないデータの削除を要求する権利があります。 該当するデータの削除を要求する場合は、下記の連絡先情報を使用して当社まで連絡してください。その際、アカウントに関連付けられている E メール・アドレスとカリフォルニア在住である旨を記載してください。 データが当サイトで公開されないようにします。ただし、データが当社のシステムから完全には削除されないことがあることに留意してください。
 
-#### Cookie Policy
+#### Cookie のポリシー
 
 **What are cookies?**
 
