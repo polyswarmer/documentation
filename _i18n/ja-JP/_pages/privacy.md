@@ -216,7 +216,7 @@ Web サイト所有者 (PolySwarm Pte. Ltd.) によって設定された Cookie 
 
 **Web ビーコンのような他のトラッキング技術**
 
-Cookies are not the only way to recognize or track visitors to a website. We may use other, similar technologies from time to time, like web beacons (sometimes called "tracking pixels" or "clear gifs"). These are tiny graphics files that contain a unique identifier that enable us to recognize when someone has visited our Sites or opened an e-mail that we have sent them. This allows us, for example, to monitor the traffic patterns of users from one page within our Websites to another, to deliver or communicate with cookies, to understand whether you have come to our Websites from an online advertisement displayed on a third-party website, to improve site performance, and to measure the success of e-mail marketing campaigns. In many instances, these technologies are reliant on cookies to function properly, and so declining cookies will impair their functioning.
+Web サイトの訪問者の認識や追跡を行える手段は、Cookie 以外にもあります。 ときには、Web ビーコン (「トラッキング・ピクセル」、「クリア GIF」と呼ばれることもある) のような他の類似した技術を使用することもできます。 These are tiny graphics files that contain a unique identifier that enable us to recognize when someone has visited our Sites or opened an e-mail that we have sent them. This allows us, for example, to monitor the traffic patterns of users from one page within our Websites to another, to deliver or communicate with cookies, to understand whether you have come to our Websites from an online advertisement displayed on a third-party website, to improve site performance, and to measure the success of e-mail marketing campaigns. In many instances, these technologies are reliant on cookies to function properly, and so declining cookies will impair their functioning.
 
 **How can I control cookies?**
 
