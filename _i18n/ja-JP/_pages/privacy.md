@@ -44,20 +44,20 @@ Web サイト (https://polyswarm.io) にアクセスして当社のサービス�
 
 **概要:** 公開データベース、マーケティング提携先、ソーシャル・メディア・プラットフォームなどの外部ソースから限定されたデータを収集することがあります。
 
-公開データベース、共同マーケティング提携先、ソーシャル・メディア・プラットフォーム (例えば、Facebook) などの他のソースや他の第三者からお客様に関する情報を収集することがあります。 Examples of the information we receive from other sources include: social media profile information (your name, gender, birthday, email, current city, state and country, user identification numbers for your contacts, profile picture URL and any other information that you choose to make public); marketing leads and search results and links, including paid listings (such as sponsored links).
+公開データベース、共同マーケティング提携先、ソーシャル・メディア・プラットフォーム (例えば、Facebook) などの他のソースや他の第三者からお客様に関する情報を収集することがあります。 他のソースから受け取る情報の例としては、ソーシャル・メディアのプロフィール情報 (名前、性別、生年月日、E メール、現在住んでいる国、都道府県、都市、連絡先のユーザー識別番号、プロフィール画像 URL、その他のお客様が公開するように選択した情報)、マーケティングの潜在需要、検索結果、リンク (スポンサード・リンクなどの有料リストを含む) があります。
 
-#### How Do We Use Your Information?
+#### 当社がお客様の情報を使用する方法
 
-**In Short:** We process your information for purposes based on legitimate business interests, the fulfillment of our contract with you, compliance with our legal obligations, and/or your consent.
+**概要:** 正当な業務上の関心、お客様との連絡の実施、法的義務の遵守、お客様の同意に基づいた目的でお客様の情報を処理します。
 
-We use personal information collected via our Sites for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests ("Business Purposes"), in order to enter into or perform a contract with you ("Contractual"), with your consent ("Consent"), and/or for compliance with our legal obligations ("Legal Reasons"). We indicate the specific processing grounds we rely on next to each purpose listed below.
+下記のさまざまな業務上の目的のために、当サイトで収集した個人情報を使用します。 正当な業務上の関心 (「業務上の目的」)、お客様との契約の締結や実施 (「契約」)、お客様の同意 (「同意」)、法的義務の遵守 (「法的理由」) に基づいた理由のために、お客様の個人情報を処理します。 以下に目的を列挙し、各目的に続けて具体的な処理理由を示します。
 
-We use the information we collect or receive:
+収集した情報または受け取った情報を以下のために使用します。
 
-*     To facilitate account creation and login process. See the section below headed "How We Handle Your Social Logins" for further information.
+*     アカウント作成およびログイン処理を容易にするため。 詳細については、下記の「ソーシャル・ログインの処理方法」セクションを参照してください。
      
 
-*     To send you marketing and promotional communications for Business Purposes and/or with your Consent. We and/or our third party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt-out of our marketing emails at any time (see the "What Are Your Privacy Rights" section below).
+*     業務上の目的や同意に基づいて、マーケティングやプロモーションについてお客様に連絡するため。 当社およびサード・パーティーのマーケティング提携先は、お客様が送った個人情報をマーケティング目的で使用することがあります (お客様のマーケティング選好に合っている場合)。 お客様はいつでも、マーケティング E メールからオプトアウトできます (下記の「お客様のプライバシーの権利」セクションを参照)。
      
 
 *     業務上の目的、法的理由、契約のために管理情報をお客様に送信するため。 お客様の個人情報を使用して、製品、サービス、新機能情報、規約、条件、およびポリシーの変更に関する情報をお客様に送信することがあります。
@@ -180,9 +180,9 @@ California Civil Code セクション 1798.83 (「Shine The Light」法とも呼
 
 #### Cookie のポリシー
 
-**What are cookies?**
+**Cookie とは**
 
-Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookie は、Web サイト所有者によって Web サイトを機能させるため、動作を効率化するため、レポート情報を提供するために広く使用されています。
+Cookie は、Web サイトにアクセスしたときにコンピューターやモバイル・デバイスに格納される小さなデータ・ファイルです。 Cookie は、Web サイト所有者によって Web サイトを機能させるため、動作を効率化するため、レポート情報を提供するために広く使用されています。
 
 Web サイト所有者 (PolySwarm Pte. Ltd.) によって設定された Cookie は、「ファースト・パーティー Cookie」と呼ばれます 。 Web サイト所有者以外によって設定された Cookie は、「サード・パーティー Cookie」と呼ばれます。 サード・パーティー Cookie により、Web サイト上や Web サイトを介してサード・パーティーの機能 (広告、動的コンテンツ、分析など) を提供できます。 このようなサード・パーティー Cookie を設定した当事者は、対象 Web サイトへのアクセス時、および特定の他の Web サイトへのアクセス時に、お客様のコンピューターを認識できます。
 
@@ -244,6 +244,6 @@ PolySwarm Pte. Ltd.
 San Francisco, CA 94104  
 United States
 
-#### How Can You Review, Update, or Delete, the Data We Collect from You?
+#### 当社がお客様から収集したデータをお客様が確認、更新、または削除する方法
 
-Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please submit a request by emailing <privacy@polyswarm.io>.
+一部の国の法律に基づいて、お客様には、状況に応じて、当社が収集した個人情報へのアクセス、変更、削除を要求する権利がある場合があります。 個人情報の確認、更新、または削除を要求する場合は、<privacy@polyswarm.io> に E メールを送信することで要求をお送りください。
