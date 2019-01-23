@@ -1,12 +1,12 @@
-## Welcome
+## ようこそ
 
-Welcome and thank you for your interest in PolySwarm!
+ようこそ。PolySwarm に興味を持っていただき、ありがとうございます。
 
-Here you'll find everything you need to get started developing for PolySwarm.
+ここには、PolySwarm での開発を開始する際に必要となるすべての情報があります。
 
-Before we dive into the code, let's get our bearings:
+コードに立ち入る前に、現在の知識、状況を確認してみましょう。
 
-* What does it look like to participate in PolySwarm?
+* PolySwarm に参加するのはどのような感じでしょうか?
 * Which role fits my use case?
 * どのコミュニティーに参加しますか?
 * エンジンのパフォーマンスはどのように監視しますか?
