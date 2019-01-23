@@ -87,7 +87,9 @@ Let's get started.
 
 Open `microengine-myeicarengine/src/(the org slug name)_myeicarengine/__init__.py`.
 
-This file will implement both our Scanner and Microengine classes:
+If you used our cookiecutter `engine-template` from above, you will have some code in your `__init__.py`.
+
+We will modify this file to implement both our Scanner and Microengine classes:
 
 * **Scanner**: our Scanner class. This class will implement our EICAR-detecting logic in its `scan` function.
 
@@ -99,9 +101,9 @@ The EICAR test file is defined as a file that contains only the following string
 
 There are, of course, many ways to identify files that match this criteria. The `scan` function's `content` parameter contains the entire content of the artifact in question - this is what you're matching against.
 
-**Try your hand at writing a `scan` function that detects the EICAR test file.** If you'd like some inspiration, below are a couple of ways to go about it.
+The following are 2 examples for how you can write your `scan()` function to detect `EICAR`. Update the code in your `__init__.py` file with the changes from one of these examples.
 
-From [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py):
+The first way, is the simplest design and is used in [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py):
 
 ```python
 import base64
