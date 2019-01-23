@@ -152,35 +152,33 @@ PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    You will not see an "adapter #5" listed in your VM settings or inside your VM.
-    What you will see is that your VM will have at least 2 active network adapters and by
-    adding "polyswarm_net" to adapter 5, it should be easier to find because it will be the
-    highest numbered network interface in your VM.
+    <strong>警告:</strong>
+    VM 設定や VM 内で「アダプター 5」はリストされません。
+    表示されるのは、VM で少なくとも 2 つのアクティブなネットワーク・アダプターがあるということです。「polyswarm_net」をアダプター 5 に追加すると、VM 内で最も番号が大きいネットワーク・インターフェースになるため、見つけやすくなります。
   </p>
 </div>
 
-#### Configure Virtual Machines with Static IP Addresses
+#### 静的 IP アドレスを使用した仮想マシンの構成
 
-Boot the `polyswarm_lin` VM and edit your network settings to assign the following static IPv4 information to the new adapter:
+`polyswarm_lin` VM を起動し、ネットワーク設定を編集して以下の静的 IPv4 情報を新しいアダプターに割り当てます。
 
-* address: `10.10.42.101`
-* netmask: `255.255.255.0`
-* gateway: `10.10.42.1`
+* アドレス: `10.10.42.101`
+* ネットマスク: `255.255.255.0`
+* ゲートウェイ: `10.10.42.1`
 
-If it is unclear which network interface you should apply these settings to, run the `ifconfig -a` command, and in the output you should see multiple network interfaces that start with `enp0s`. The interface with the largest number after that prefix is usually the one you want to modify.
+上記設定を適用するネットワーク・インターフェースが分からない場合は、`ifconfig -a` コマンドを実行します。出力で、`enp0s` から開始する複数のネットワーク・インターフェースが表示されるはずです。 通常、そのプレフィックスの後の番号が最大であるインターフェースが変更対象のものです。
 
-Boot the `polyswarm_win` VM and edit your network settings to configure the new adapter for these static IPv4 settings:
+`polyswarm_win` VM を起動し、ネットワーク設定を編集して以下の静的 IPv4 設定で新しいアダプターを構成します。
 
-* address: `10.10.42.102`
-* netmask: `255.255.255.0`
-* gateway: `10.10.42.1`
+* アドレス: `10.10.42.102`
+* ネットマスク: `255.255.255.0`
+* ゲートウェイ: `10.10.42.1`
 
-If it is unclear which network interface you should apply these settings to, run the `ipconfig /all` command, and in the output you should see multiple network interfaces that start with `Ethernet adapter Ethernet`. The interface with the largest number after that prefix is usually the one you want to modify.
+上記設定を適用するネットワーク・インターフェースが分からない場合は、`ipconfig /all` コマンドを実行します。出力で、`Ethernet adapter Ethernet` から開始する複数のネットワーク・インターフェースが表示されるはずです。 通常、そのプレフィックスの後の番号が最大であるインターフェースが変更対象のものです。
 
-#### Configure Windows VM for `polyswarmd` DNS Resolution
+#### `polyswarmd` DNS 解決のための Windows VM の構成
 
-Finally, your Windows VM needs to know that your Linux VM is hosting `polyswarmd`. Open an elevated instance of Notepad and add `polyswarmd` to the bottom of `C:\Windows\System32\Drivers\etc\hosts`:
+最後に、Linux VM で `polyswarmd` がホストされていることを Windows VM が認識する必要があります。 Open an elevated instance of Notepad and add `polyswarmd` to the bottom of `C:\Windows\System32\Drivers\etc\hosts`:
 
     # Copyright (c) 1993-2009 Microsoft Corp.
     #
