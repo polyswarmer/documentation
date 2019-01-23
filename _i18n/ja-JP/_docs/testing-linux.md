@@ -84,41 +84,41 @@ $ docker-compose -f base.yml -f tutorial0.yml up
 4. `polyswarmd`: `homechain`、`sidechain`、`ipfs` から提供されているサービスに簡便にアクセスできるようにする PolySwarm デーモン。
 5. `contracts`: PolySwarm Nectar (NCT) と `BountyRegistry` コントラクトを格納して開発 testnet にデプロイします。
 6. `ambassador`: A mock Ambassador (provided by `polyswarm-client`) that will place bounties on [the EICAR file](https://en.wikipedia.org/wiki/EICAR_test_file) and on a file that is not EICAR.
-7. `arbiter`: A mock Arbiter (provided by `polyswarm-client`) that will deliver Verdicts on "swarmed" artifacts, determining ground truth.
-8. `microengine`: A mock Microengine (provided by `polyswarm-client`) that will investigate the "swarmed" artifacts and render Assertions.
+7. `arbiter`: (`polyswarm-client` で提供されている) 演習用評価者。確認・評価を行い、「swarm」されたアーティファクトに関する判定を提供します。
+8. `microengine`: (`polyswarm-client` で提供されている) 演習用マイクロエンジン。「swarm」されたアーティファクトを調べて、アサーションを作成します。
 
-Browse through the logs scroll on the screen to get a sense for what each of these components is doing. Let it run for at least 5 minutes - it can take time to deploy contracts - and then the fun starts :)
+画面でスクロールするログを確認し、上記の各コンポーネントが実行している内容の感触を掴んでください。 少なくとも 5 分間は実行させてください。コントラクトのデプロイに時間がかかることがありますが、その後は興味深くなります。
 
-When you've seen enough log output, do `Ctrl-C` to halt the development testnet gracefully.
+ログ出力を十分に確認したら、`Ctrl-C` を押して開発 testnet を正常に停止します。
 
-### Test Your Engine
+### エンジンのテスト
 
-Let's spin up a subset of the testnet, leaving out the stock `microengine` (we'll be replacing this with our own) and the `ambassador` services.
+testnet のサブセットを開始しましょう。ここでは、ストックの `microengine` (これは独自のもので置き換えます) と `ambassador` サービスは除外します。
 
-In the cloned `orchestration` project:
+複製した `orchestration` プロジェクトで、以下のようにします。
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-It will take several minutes for `polyswarmd` to become available. Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
+`polyswarmd` が使用可能になるまでに数分かかります。 `polyswarmd` は、使用可能になると、クライアントに応答を提供しはじめます。例: 
 
     INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
     
 
-Next, let's spin up our Microengine in a second terminal window in our microengine's directory:
+次に、2 つ目の端末ウィンドウでマイクロエンジンを開始しましょう。マイクロエンジンのディレクトリーで、以下のようにします。
 
 ```bash
 $ docker-compose -f docker/test-integration.yml up
 ```
 
-Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window in the `orchestration` directory:
+最後に、3 つ目の端末ウィンドウで、マイクロエンジンがスキャンする対象アーティファクトを導入します。`orchestration` ディレクトリーで以下のようにします。
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!
+3 つすべての端末ウィンドウのログを確認します。マイクロエンジンがアンバサダーの報奨金に応答しているのが分かるはずです。
 
-When you make changes to your Engine, testing those changes is as simple as re-building your Docker image and re-running the `ambassador` service to inject a new a new pair of EICAR/not-EICAR artifacts. You can keep the rest of the testnet running while you iterate.
+エンジンに変更を加えた場合、その変更をテストするのは簡単です。Docker イメージを再ビルドし、`ambassador` サービスを再実行して新しい EICAR と非 EICAR アーティファクトのペアを注入するだけです。 反復処理時には、testnet の残りの部分は実行されたままで構いません。
