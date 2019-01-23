@@ -213,7 +213,7 @@ PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 PS > Resolve-DnsName -name polyswarmd
 ```
 
-The output should look like this:
+出力は、以下のようになっている必要があります。
 
 ```powershell
 Name                                           Type   TTL   Section    IPAddress
@@ -221,28 +221,28 @@ Name                                           Type   TTL   Section    IPAddress
 polyswarmd                                     A      86400 Answer     10.10.42.101
 ```
 
-Next, do a ping test as follows:
+次に、以下のように ping テストを実行します。
 
 ```powershell
 PS > ping polyswarmd
 ```
 
-The output should look like this:
+出力は、以下のようになっている必要があります。
 
 ```powershell
 Pinging polyswarmd [10.10.42.101] with 32 bytes of data:
 Reply from 10.10.42.101: bytes=32 time<1ms TTL=64
 ```
 
-If you get those same output results, you have everything setup correctly, so let's continue.
+同様の出力結果が得られた場合、すべてが正しくセットアップされているので、先に進めましょう。
 
-### Configure Linux VM for Hosting a Local Testnet
+### ローカル testnet をホストするための Linux VM の構成
 
 #### Docker のインストール
 
-We've Docker-ized the test version of the PolySwarm marketplace. To use it, you need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
+PolySwarm マーケットプレイスのテスト・バージョンを Docker 化しました。 これを使用するには、Docker-CE (ベース) と Docker Compose をインストールする必要があります。 最新の Docker セットアップがない場合は、[ここで Docker をインストールしてください](https://www.docker.com/community-edition)。
 
-On Xubuntu:
+Xubuntu の場合:
 
 ```bash
 $ sudo apt-get update && sudo apt-get install -y curl
@@ -252,22 +252,22 @@ $ ./get-docker.sh
 $ sudo usermod -aG docker $USER
 ```
 
-Log out, log back in.
+ログアウトしてからログインし直します。
 
-Once installed, verify that the installation works, by running the following command:
+インストール後、以下のコマンドを実行してインストール環境が機能していることを確認します。
 
 ```bash
 $ docker ps
 ```
 
-It should output:
+以下のように出力される必要があります。
 
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
     
 
-Also [install `docker-compose`](https://docs.docker.com/compose/install/)
+また、[`docker-compose` をインストールします](https://docs.docker.com/compose/install/)。
 
-On Xubuntu:
+Xubuntu の場合:
 
 ```bash
 $ curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
