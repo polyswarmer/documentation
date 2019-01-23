@@ -45,17 +45,17 @@ pip install cookiecutter
 cookiecutter https://github.com/polyswarm/engine-template
 ```
 
-Prompts will appear, here's how we'll answer them:
+プロンプトが表示されます。以下のように応答します。
 
-* `engine_name`: MyEicarEngine (the name of your engine)
-* `engine_name_slug`: (accept the default)
-* `project_slug`: (accept the default)
-* `author_org`: ACME (or the real name of your organization)
-* `author_org_slug`: (accept the default)
-* `package_slug`: (accept the default)
-* `author_name`: Wile E Coyote (or your real name)
-* `author_email`: (your email address)
-* `platform`: answer truthfully - will this Engine run on Linux or Windows?
+* `engine_name`: MyEicarEngine (エンジン名)
+* `engine_name_slug`: (デフォルトを受け入れる)
+* `project_slug`: (デフォルトを受け入れる)
+* `author_org`: ACME (または実際の組織名)
+* `author_org_slug`: (デフォルトを受け入れる)
+* `package_slug`: (デフォルトを受け入れる)
+* `author_name`: Wile E Coyote (または自分の実際の名前)
+* `author_email`: (E メール・アドレス)
+* `platform`: このエンジンの実行プラットフォームが Linux なのか Windows なのかを正しく応答してください
 * `has_backend`: 1 for false (see explanation below)
 * `aws_account_for_ami`: (Windows only) your AWS account ID (for Linux engines, just accept the default)
 
@@ -175,7 +175,7 @@ Check back soon for an exploration of various staking strategies.
 
 [Windows ベースのエンジンのテスト →](/testing-windows/)
 
-## Next Steps
+## 次のステップ
 
 Implementing scan logic directly in the Scanner class is difficult to manage and scale. Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
 
