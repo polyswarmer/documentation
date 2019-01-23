@@ -275,36 +275,36 @@ $ sudo mv docker-compose /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-Once installed, verify that the installation works.
+インストール後、インストール環境が機能していることを確認します。
 
 ```bash
 $ docker-compose -v
 ```
 
-Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
+少なくとも `docker-compose version 1.21.1, build 5a3f1a3` が出力される必要があります。
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you receive permission errors when running docker or docker-compose commands, <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">configure your user account for docker permission</a>.
+    <strong>情報:</strong>
+    docker または docker-compose コマンドの実行時に許可に関するエラーが表示された場合は、<a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">Docker 許可のためにユーザー・アカウントを構成してください</a>。
   </p>
 </div>
 
 #### Git のインストール
 
-We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
+いくつかのソース・コード・リポジトリーを利用する必要があります。Git を使用するのが最も簡単でしょう。 ご使用の開発環境用の [Git をインストール](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)してください。
 
-On Xubuntu 18.04:
+Xubuntu 18.04 では、以下のようにします。
 
 ```bash
 $ sudo apt update && sudo apt install -y git
 ```
 
-#### Download `orchestration`
+#### `orchestration` のダウンロード
 
-We'll use the PolySwarm [`orchestration`](https://github.com/polyswarm/orchestration) project to launch our development testnet. We use this same project internally to conduct end-to-end (integration) tests.
+PolySwarm [`orchestration`](https://github.com/polyswarm/orchestration) プロジェクトを使用して開発 testnet を起動します。 この同じプロジェクトを内部で使用して、エンドツーエンドの (統合) テストを実行します。
 
-Clone `orchestration`:
+以下のように、`orchestration` を複製します。
 
 ```bash
 $ git clone https://github.com/polyswarm/orchestration
@@ -312,11 +312,11 @@ $ git clone https://github.com/polyswarm/orchestration
 
 ### Test Your Engine
 
-We're going to have to switch between our VMs a little bit here. We will first start the Testnet in the Linux VM. Then we will start your Microengine in the Windows VM. Finally, we will start the Ambassador in the Linux VM.
+ここでは、少々 VM を切り替える必要があります。 まず、Linux VM で testnet を開始します。 次に、Windows VM でマイクロエンジンを開始します。 最後に、Linux VM でアンバサダーを開始します。
 
-#### Linux VM: Launch the Testnet
+#### Linux VM: testnet の起動
 
-In your Linux VM, spin up a subset of the testnet, leaving out the stock `microengine` (we'll be substituting this with our own) and leaving out the `ambassador` for now (we'll start it later). To do that, run the following commands in a new terminal window:
+Linux VM で、testnet のサブセットを開始します。ここでは、ストックの `microengine` は除外し (これは独自のもので置き換えます)、`ambassador` も除外します (これは後から開始します)。 そうするために、新しい端末ウィンドウで以下のコマンドを実行します。
 
 ```bash
 $ cd orchestration
