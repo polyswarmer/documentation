@@ -852,7 +852,7 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ### 決済チャネル状態へのチャレンジ
 
-アンバサダーまたは専門家が、争点の状態にチャレンジするために呼び出します。 The new state is accepted if it is signed by both parties and has a higher sequence number
+アンバサダーまたは専門家が、争点の状態にチャレンジするために呼び出します。 両者が署名し、シーケンス番号が大きい場合、新しい状態が受け入れられます。
 
 **URL** : `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
 
@@ -915,19 +915,19 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 }
 ```
 
-### Get offer channel info
+### オファー・チャネル情報の取得
 
 **URL** : `/offers/<uuid:guid>`
 
 **メソッド** : `GET`
 
-### Get offer channel settlement period
+### オファー・チャネル決済期間の取得
 
 **URL** : `/offers/<uuid:guid>/settlementPeriod`
 
 **メソッド** : `GET`
 
-### Get ambassador websocket uri
+### アンバサダー WebSocket URI の取得
 
 **URL** : `/offers/<uuid:guid>/websocket`
 
@@ -939,41 +939,41 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 **メソッド** : `GET`
 
-### Get opened offers
+### オープン・オファーの取得
 
 **URL** : `/offers/opened`
 
 **メソッド** : `GET`
 
-### Get closed offers
+### クローズ・オファーの取得
 
 **URL** : `/offers/closed`
 
 **メソッド** : `GET`
 
-### Get my offers
+### 自分のオファーの取得
 
 **URL** : `/offers/myoffers?account=[eth_address]`
 
 **メソッド** : `GET`
 
-## Transaction Signing
+## トランザクションの署名
 
 **URL** : `/transactions?chain=[chain_here]`
 
 **メソッド** : `POST`
 
-All signed transactions are POSTed here to start the transaction on the chain of choice.
+すべての署名済みトランザクションは、選択したチェーンでトランザクションを開始するために、ここで POST されます。
 
-To add transaction signing to your polyswarmd dependent project you need to to write/use something that follows the steps below.
+トランザクションの署名を polyswarmd 依存プロジェクトに追加するには、以下のステップに従ったものを作成/使用する必要があります。
 
-0) Upon receiving transaction data from a transaction dependent endpoint
+0) トランザクション依存エンドポイントからトランザクション・データを受け取る
 
-1) Sign the Transaction data with your private key
+1) 秘密鍵を使用してトランザクション・データに署名する
 
-2) POST the signed transaction to `/transactions`
+2) 署名済みトランザクションを `/transactions` に POST する
 
-There is a python example embedded below, though you can use any other language.
+以下に、Python の例を埋め込んでいます。ただし、任意の他の言語を使用できます。
 
 ```python
 import json
@@ -986,7 +986,7 @@ PASSWORD = 'password'
 ADDRESS, PRIV_KEY = unlock_key(KEYFILE, PASSWORD)
 
 def unlock_key(keyfile, password):
-    """Open an encrypted keystore file and decrypt it"""
+    """暗号化鍵ストア・ファイルを開いて復号"""
     with open(keyfile, 'r') as f:
         priv_key = web3.eth.account.decrypt(f.read(), password)
 
@@ -994,7 +994,7 @@ def unlock_key(keyfile, password):
     return (address, priv_key)
 
 def post_transactions(transactions):
-    """Post a set of (signed) transactions to Ethereum via polyswarmd, parsing the emitted events"""
+    """polyswarmd を介して一連の (署名済み) トランザクションをイーサリアムに POST、出されたイベントを解析"""
     signed = []
     for tx in transactions:
         s = web3.eth.account.signTransaction(tx, PRIV_KEY)
@@ -1007,11 +1007,11 @@ def post_transactions(transactions):
     return response.json()
 ```
 
-## State
+## 状態
 
-### Creating State
+### 状態の作成
 
-The state byte string contains details the ambassador and expert sign off on.
+状態バイト文字列には、アンバサダーと専門家が署名した対象の詳細が含まれます。
 
 **URL** : `/offers/state`
 
@@ -1021,29 +1021,29 @@ The state byte string contains details the ambassador and expert sign off on.
 
 指定:
 
-    close_flag - 1 or 0 for is this state is closeable
-    nonce - the sequnce of the state
-    ambassador - ambassador address
-    expert - expert address
-    msig_address - multi signature address
-    ambassador_balance - balance in nectar for ambassador
-    nectar_balance - balance in nectar for expert
-    guid - a globally-unique identifier for the offer listing
-    offer_amount - the offer amount paid for assertion
+    close_flag - 当該状態がクローズ可能かどうかを示す 1 または 0
+    nonce - 状態のシーケンス
+    ambassador - アンバサダーのアドレス
+    expert - 専門家のアドレス
+    msig_address - マルチ署名アドレス
+    ambassador_balance - アンバサダーの残高 (Nectar)
+    nectar_balance - 専門家の残高 (Nectar)
+    guid - オファー・リストのグローバル一意識別子
+    offer_amount - アサーションに対して支払われるオファー金額
     
 
-Optional:
+オプション:
 
-    artifact_hash - cryptographic hash of the artifact
-    ipfs_hash - the IPFS URI of the artifact
-    engagement_deadline - engagement Deadline
-    assertion_deadline - assertion Deadline
-    current_commitment - current commitment
-    verdicts - bitmap of verdicts
-    meta_data - meta data about current offer
+    artifact_hash - アーティファクトの暗号ハッシュ
+    ipfs_hash - アーティファクトの IPFS URI
+    engagement_deadline - エンゲージメントの期限
+    assertion_deadline - アサーションの期限
+    current_commitment - 現在のコミットメント
+    verdicts - 判定のビットマップ
+    meta_data - 現在のオファーに関するメタデータ
     
 
-Example POST data:
+POST データの例:
 
     {
       "close_flag": 0,
@@ -1056,14 +1056,14 @@ Example POST data:
     }
     
 
-#### Gets tranformed to the below bytes string in the response:
+#### 以下のバイト文字列に変換されて応答で返されます。
 
     0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc
     
 
-### Signing State
+### 状態への署名
 
-The offers api requires signed states. Here's an example of signing to create the v, r, and s signature pieces in Javascript.
+オファー API では、署名済みの状態が必要です。 以下に、署名して JavaScript で v、r、s の各署名部分を作成する例を示します。
 
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
@@ -1086,35 +1086,35 @@ let s = '0x' + sig.s.toString('hex')
 let v = sig.v
 ```
 
-### State Messages
+### 状態メッセージ
 
-Ambassadors open a websocket with the url defined in the contract. Locally - messages are sent on `ws://localhost:31337/messages/<uuid:guid>`
+アンバサダーは、コントラクトで定義された URL を使用して WebSocket を開きます。 ローカルでは、メッセージは `ws://localhost:31337/messages/<uuid:guid>` で送信されます。
 
 **データ制約**
 
 指定:
 
-type - type of message (payment, request, assertion)
+type - メッセージのタイプ (支払、要求、アサーション)
 
-state - offer state
+state - オファー状態
 
-Optional:
+オプション:
 
-toSocketUri - to send to a different person (defaults to the ambassador)
+toSocketUri - 別の人に送信する場合 (デフォルトではアンバサダー)
 
-v - recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID
 
-r - ECDSA signature of state string
+r - 状態文字列の ECDSA 署名
 
-s - ECDSA signature of state string
+s - 状態文字列の ECDSA 署名
 
 ```json
 {
-  "fromSocketUri": "[string]",
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "fromSocketUri": "[文字列]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
