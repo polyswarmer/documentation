@@ -673,7 +673,7 @@ v - array of the recovery ids from signature of state string for both parties
 
 r - array of outputs of ECDSA signature of state string for both parties
 
-s - array of outputs of ECDSA signature of state string for both parties
+s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
@@ -738,7 +738,7 @@ v - array of the recovery ids from signature of state string for both parties
 
 r - array of outputs of ECDSA signature of state string for both parties
 
-s - array of outputs of ECDSA signature of state string for both parties
+s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
@@ -797,13 +797,13 @@ Called by ambassador or expert to start initialize a disputed settlement using a
 
 指定:
 
-state - offer state both parties signed
+state - 両者が署名したオファー状態
 
 v - array of the recovery ids from signature of state string for both parties
 
 r - array of outputs of ECDSA signature of state string for both parties
 
-s - array of outputs of ECDSA signature of state string for both parties
+s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
@@ -850,9 +850,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Challenge settle channel state
+### 決済チャネル状態へのチャレンジ
 
-Called by ambassador or expert to challenge a disputed state. The new state is accepted if it is signed by both parties and has a higher sequence number
+アンバサダーまたは専門家が、争点の状態にチャレンジするために呼び出します。 The new state is accepted if it is signed by both parties and has a higher sequence number
 
 **URL** : `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
 
@@ -862,13 +862,13 @@ Called by ambassador or expert to challenge a disputed state. The new state is a
 
 指定:
 
-state - offer state both parties signed
+state - 両者が署名したオファー状態
 
 v - array of the recovery ids from signature of state string for both parties
 
 r - array of outputs of ECDSA signature of state string for both parties
 
-s - array of outputs of ECDSA signature of state string for both parties
+s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
