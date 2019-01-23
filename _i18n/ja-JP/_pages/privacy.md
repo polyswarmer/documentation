@@ -4,47 +4,47 @@
 
 **最終更新日 (発効日): 2018 年 10 月 5 日**
 
-PolySwarm Pte. Ltd. (「当社」) のコミュニティーに参加いただきありがとうございます 。 お客様の個人情報とプライバシーの権利の保護に努めております。 If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at <privacy@polyswarm.io>.
+PolySwarm Pte. Ltd. (「当社」) のコミュニティーに参加いただきありがとうございます 。 お客様の個人情報とプライバシーの権利の保護に努めております。 お客様の個人情報に関してご質問や当社のポリシーや実施内容についての懸念があれば、<privacy@polyswarm.io> までお問い合わせください。
 
-When you visit our website (https://polyswarm.io), and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy notice, we describe our privacy policy. We seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our Sites and our services.
+Web サイト (https://polyswarm.io) にアクセスして当社のサービスを使用した場合、個人情報を当社に委ねることになります。 当社では、お客様のプライバシーを非常に大切に考えています。 このプライバシーに関する特記事項では、当社のプライバシー・ポリシーについて記載します。 収集する情報、使用方法、関連するお客様の権利についてできる限り明確に説明します。 重要ですので、時間をかけてお読みください。 このプライバシー・ポリシーで同意しない条件があった場合は、当社のサイトとサービスの使用を停止してください。
 
-This privacy policy applies to all information collected through our website (such as https://polyswarm.io), and/or any related services, sales, marketing or events (we refer to them collectively in this privacy policy as the "Sites").
+このプライバシー・ポリシーは、当社の Web サイト (https://polyswarm.io など)、関連サービス、販売、マーケティング、イベント (このプライバシー・ポリシーではこれらをまとめて「当サイト」と呼びます) で収集されるすべての情報に適用されます。
 
-PLEASE READ THIS PRIVACY POLICY CAREFULLY AS IT WILL HELP YOU MAKE INFORMED DECISIONS ABOUT SHARING YOUR PERSONAL INFORMATION WITH US.
+当社への個人情報の共有に関する意思決定に役立つため、このプライバシー・ポリシーは十分にお読みください。
 
-#### What Information Do We Collect?
+#### 当社が収集する情報
 
-**Personal information you disclose to us**
+**お客様が開示した個人情報**
 
-**In Short:** We collect personal information that you provide to us such as name, address, contact information, passwords and security data, payment information, and social media login data.
+**概要:** 当社は、名前、住所、連絡先情報、パスワード、セキュリティー・データ、支払情報、ソーシャル・メディアのログインに関するデータなど、お客様が提供した個人情報を収集します。
 
-We collect personal information that you voluntarily provide to us when registering at the Sites expressing an interest in obtaining information about us or our products and services, when participating in activities on the Sites or otherwise contacting us.
+お客様が当サイトで登録するとき、当社または当社の製品・サービスに関する情報の入手に関心を示したとき、当サイトでアクティビティーに参加するとき、あるいは他の何らかの理由で当社に問い合わせたときにお客様が自ら提供した個人情報を収集します。
 
-The personal information that we collect depends on the context of your interactions with us and the Sites, the choices you make and the products and features you use. The personal information we collect can include the following:
+収集する個人情報は、当社および当サイトとのやり取りの文脈、お客様による選択、使用する製品や機能によって異なります。 当社で収集する個人情報には、以下のものがあります。
 
-Name and Contact Data. We collect your first and last name, email address, postal address, phone number, and other similar contact data.
+名前と連絡先データ。 氏名、E メール・アドレス、住所、電話番号、その他の同様の連絡先データを収集します。
 
-Credentials. We collect passwords, password hints, and similar security information used for authentication and account access.
+資格情報。 認証やアカウントへのアクセスに使用されるパスワード、パスワードのヒント、同様のセキュリティー情報を収集します。
 
-Payment Data. We collect data necessary to process your payment if you make purchases, such as your payment instrument number (such as a credit card number), and the security code associated with your payment instrument. All payment data is stored by our payment processor and you should review its privacy policies and contact the payment processor directly to respond to your questions.
+支払データ。 支払手段の番号 (例えば、クレジット・カード番号)、支払手段に関連したセキュリティー・コードなど、お客様が購入した際にお支払いを処理するために必要なデータを収集します。 すべての支払データは支払処理業者で保管されるため、お客様は、支払業者のプライバシー・ポリシーを確認し、質問がある場合には支払業者に直接問い合わせる必要があります。
 
-Social Media Login Data. We provide you with the option to register using social media account details, like your Facebook, Twitter or other social media account. If you choose to register in this way, we will collect the Information described in the section called "How Do We Handle Your Social Logins" below.
+ソーシャル・メディアのログイン・データ。 当社では、Facebook、Twitter などのソーシャル・メディアのアカウントといったソーシャル・メディアのアカウント詳細を使用して登録するオプションを用意しています。 この方法を使用して登録した場合、下記の「ソーシャル・ログインの処理方法」セクションに記載している情報を収集します。
 
-All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information.
+お客様が当社に提供するすべての個人情報は、真実、完全、かつ正確でなければならず、お客様は個人情報に変更があった場合はその変更を当社に通知する必要があります。
 
-**Information automatically collected**
+**自動的に収集される情報**
 
-**In Short:** Some information - such as IP address and/or browser and device characteristics - is collected automatically when you visit our Sites.
+**概要:** IP アドレス、ブラウザーやデバイスの特性などの一部の情報は、お客様が当サイトにアクセスしたときに自動的に収集されます。
 
-We automatically collect certain information when you visit, use or navigate the Sites. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Sites and other technical information. This information is primarily needed to maintain the security and operation of our Sites, and for our internal analytics and reporting purposes.
+お客様が当サイトにアクセスしたとき、当サイトを使用したとき、または当サイト内で移動したとき、特定の情報を自動的に収集します。 この情報は、お客様の特定の身元 (名前や連絡先情報など) を明らかにするものではありませんが、IP アドレス、ブラウザーやデバイスの特性、オペレーティング・システム、言語設定、参照元 URL、デバイス名、国、位置情報、お客様が当社を使用している方法や時間、その他の技術的情報など、デバイスや使用に関する情報が含まれる可能性があります。 この情報は主に、当サイトのセキュリティーや運用を維持するため、および当社内での分析やレポート作成のために必要です。
 
-Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in the "Cookies Policy" section below.
+他の多くの企業と同様に、当社では、Cookie や同様の技術を使用した情報の収集も行います。 これについては、下記の「Cookie ポリシー」で詳細をご確認いただけます。
 
-**Information collected from other sources**
+**他のソースから収集された情報**
 
-**In Short:** We may collect limited data from public databases, marketing partners, social media platforms, and other outside sources.
+**概要:** 公開データベース、マーケティング提携先、ソーシャル・メディア・プラットフォームなどの外部ソースから限定されたデータを収集することがあります。
 
-We may obtain information about you from other sources, such as public databases, joint marketing partners, social media platforms (such as Facebook), as well as from other third parties. Examples of the information we receive from other sources include: social media profile information (your name, gender, birthday, email, current city, state and country, user identification numbers for your contacts, profile picture URL and any other information that you choose to make public); marketing leads and search results and links, including paid listings (such as sponsored links).
+公開データベース、共同マーケティング提携先、ソーシャル・メディア・プラットフォーム (例えば、Facebook) などの他のソースや他の第三者からお客様に関する情報を収集することがあります。 Examples of the information we receive from other sources include: social media profile information (your name, gender, birthday, email, current city, state and country, user identification numbers for your contacts, profile picture URL and any other information that you choose to make public); marketing leads and search results and links, including paid listings (such as sponsored links).
 
 #### How Do We Use Your Information?
 
