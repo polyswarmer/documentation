@@ -202,19 +202,19 @@ Web サイト所有者 (PolySwarm Pte. Ltd.) によって設定された Cookie 
 * 拒否方法: 
  * このタイプの Cookie を拒否する場合は、下記の「Cookie の制御方法」という見出しの説明に従ってください。 あるいは、[プライバシーの設定](/privacy/#privacy-settings)を変更することもできます。
 
-**Analytics and customization cookies:**
+**分析とカスタマイズの Cookie:**
 
-These cookies collect information that is used either in aggregate form to help us understand how our Sites are being used or how effective our marketing campaigns are, or to help us customize our Sites for you.
+このタイプの Cookie は、集計して当サイトの使用状況やマーケティング戦略の有効性を把握したり、お客様に合わせて当サイトをカスタマイズしたりできるようにするために使用される情報を収集します。
 
 * このタイプの Cookie の提供者 
- * Cookie provider: Google Analytics 
-  * Website URL: https://analytics.google.com/analytics/web/
- * Cookie provider: Pardot 
-  * Website URL: https://www.pardot.com/
+ * Cookie プロバイダー: Google Analytics 
+  * Web サイトの URL: https://analytics.google.com/analytics/web/
+ * Cookie プロバイダー: Pardot 
+  * Web サイトの URL: https://www.pardot.com/
 * 拒否方法: 
  * このタイプの Cookie を拒否する場合は、下記の「Cookie の制御方法」という見出しの説明に従ってください。 あるいは、[プライバシーの設定](/privacy/#privacy-settings)を変更することもできます。
 
-**What about other tracking technologies, like web beacons?**
+**Web ビーコンのような他のトラッキング技術**
 
 Cookies are not the only way to recognize or track visitors to a website. We may use other, similar technologies from time to time, like web beacons (sometimes called "tracking pixels" or "clear gifs"). These are tiny graphics files that contain a unique identifier that enable us to recognize when someone has visited our Sites or opened an e-mail that we have sent them. This allows us, for example, to monitor the traffic patterns of users from one page within our Websites to another, to deliver or communicate with cookies, to understand whether you have come to our Websites from an online advertisement displayed on a third-party website, to improve site performance, and to measure the success of e-mail marketing campaigns. In many instances, these technologies are reliant on cookies to function properly, and so declining cookies will impair their functioning.
 
