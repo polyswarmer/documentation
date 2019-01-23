@@ -1229,7 +1229,7 @@ s - ECDSA signature of state string
 
 ***定足数***
 
-Sent when arbiters have reached quorum on a bounty
+評価者が報奨金について定足数に達したときに送信されます。
 
 **コンテンツの例**
 
@@ -1243,9 +1243,9 @@ Sent when arbiters have reached quorum on a bounty
 }
 ```
 
-***Settled***
+***決済***
 
-Sent when a participant settles their portion of a bounty
+参加者が報奨金部分を決済したときに送信されます。
 
 **コンテンツの例**
 
@@ -1259,9 +1259,9 @@ Sent when a participant settles their portion of a bounty
 }
 ```
 
-***Initialized Channel***
+***チャネルの初期化***
 
-Sent when a new channel is initialized
+新しいチャネルが初期化されたときに送信されます。
 
 **コンテンツの例**
 
