@@ -413,25 +413,25 @@ amount - 現在の投資金から引き出す金額 (NCT)
 
 **メソッド** : `GET`
 
-### Get a link associated with hash and link index
+### ハッシュとリンク・インデックスに関連付けられているリンクの取得
 
 **URL** : `/<ipfshash>/<int:id_>`
 
 **メソッド** : `GET`
 
-### Get stats on artifact link
+### アーティファクト・リンクの統計の取得
 
 **URL** : `/<ipfshash>/<int:id_>/stat`
 
 **メソッド** : `GET`
 
-## Offers API
+## オファー API
 
-*Stateless offer api coming soon*
+*ステートレスのオファー API を近日公開予定です。*
 
-### Create an offer channel
+### オファー・チャネルの作成
 
-Called by an ambassador to deploy a new multi signature offer
+アンバサダーが新しいマルチ署名オファーをデプロイするために使用します。
 
 **URL** : `/offers?account=[eth_address]&base_nonce=[integer]`
 
@@ -441,20 +441,20 @@ Called by an ambassador to deploy a new multi signature offer
 
 指定:
 
-ambassador - address of ambassador using channel
+ambassador - チャネルを使用するアンバサダーのアドレス
 
-expert - address of expert using channel
+expert - チャネルを使用する専門家のアドレス
 
-settlementPeriodLength - how long the parties have to dispute the settlement offer channel
+settlementPeriodLength - 当事者がオファー・チャネルの決済を得ようと争う期間
 
-websocketUri - uri of socket to send messages to ambassador
+websocketUri - メッセージをアンバサダーに送信するためのソケットの URI
 
 ```json
 {
-  "ambassador": "[string minimum length 42]",
-  "expert": "[string minimum length 42]",
-  "settlementPeriodLength": "[integer minimum 60]",
-  "websocketUri": "[string with minimum length 1 max 32]"
+  "ambassador": "[文字列、最小長 42]",
+  "expert": "[文字列、最小長 42]",
+  "settlementPeriodLength": "[整数、最小 60]",
+  "websocketUri": "[文字列、最小長 1、最大長 32]"
 }
 ```
 
@@ -492,9 +492,9 @@ websocketUri - uri of socket to send messages to ambassador
 }
 ```
 
-### Open channel
+### チャネルのオープン
 
-Called by ambassador to open channel with expert
+アンバサダーが専門家とのチャネルをオープンするために呼び出します。
 
 **URL** : `offers/open/<uuid:guid>?account=[eth_address]&base_nonce=[integer]`
 
@@ -504,26 +504,26 @@ Called by ambassador to open channel with expert
 
 指定:
 
-state - inital offer state
+state - 初期オファー状態
 
-v - the recovery id from signature of state string
+v - 状態文字列の署名のリカバリー ID
 
-r - output of ECDSA signature of state string
+r - 状態文字列の ECDSA 署名の出力
 
-s - output of ECDSA signature of state string
+s - 状態文字列の ECDSA 署名の出力
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]"
+  "state": "[文字列、最小長 32]",
+  "v": "[整数、最小 0]",
+  "r": "[文字列、最小長 64]",
+  "s": "[文字列、最小長 64]"
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -557,9 +557,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Join channel
+### チャネルへの参加
 
-Called by expert to join ambassador channel
+専門家がアンバサダーのチャネルに参加するために呼び出します。
 
 **URL** : `offers/open?account=[eth_address]&base_nonce=[integer]`
 
@@ -569,26 +569,26 @@ Called by expert to join ambassador channel
 
 指定:
 
-state - offer state from ambassador
+state - アンバサダーからのオファー状態
 
-v - the recovery id from signature of state string
+v - 状態文字列の署名のリカバリー ID
 
-r - output of ECDSA signature of state string
+r - 状態文字列の ECDSA 署名の出力
 
-s - output of ECDSA signature of state string
+s - 状態文字列の ECDSA 署名の出力
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]",
+  "state": "[文字列、最小長 32]",
+  "v": "[整数、最小 0]",
+  "r": "[文字列、最小長 64]",
+  "s": "[文字列、最小長 64]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -622,9 +622,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Cancel channel
+### チャネルのキャンセル
 
-Called by ambassador to cancel if the contract hasn't been joined yet
+コントラクトにまだ参加していない場合にアンバサダーがキャンセルするために呼び出します。
 
 **URL** : `offers/cancel?account=[eth_address]&base_nonce=[integer]`
 
@@ -655,9 +655,9 @@ Called by ambassador to cancel if the contract hasn't been joined yet
 }
 ```
 
-### Close channel
+### チャネルのクローズ
 
-Called by any party with a both signatures on a state with a closed state flag set to 1
+任意の当事者が、クローズ状態フラグが 1 に設定された状態で両者の署名を指定して呼び出します。
 
 **URL** : `/close?account=[eth_address]&base_nonce=[integer]`
 
@@ -667,26 +667,26 @@ Called by any party with a both signatures on a state with a closed state flag s
 
 指定:
 
-state - offer state with closed flag
+state - クローズ・フラグが設定されたオファー状態
 
-v - array of the recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID の配列
 
-r - array of outputs of ECDSA signature of state string for both parties
+r - 両者の状態文字列の ECDSA 署名の出力の配列
 
 s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -720,9 +720,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Close challenged channel with timeout
+### タイムアウトがあるチャレンジされたチャネルのクローズ
 
-Called by any party with a both signatures on a state that is the final challenge state
+任意の当事者が、最終チャレンジ状態である状態に両者の署名を付けて呼び出します。
 
 **URL** : `/offers/closeChallenged?account=[eth_address]&base_nonce=[integer]`
 
@@ -732,26 +732,26 @@ Called by any party with a both signatures on a state that is the final challeng
 
 指定:
 
-state - offer state with closed flag
+state - クローズ・フラグが設定されたオファー状態
 
-v - array of the recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID の配列
 
-r - array of outputs of ECDSA signature of state string for both parties
+r - 両者の状態文字列の ECDSA 署名の出力の配列
 
 s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -785,9 +785,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Settle channel
+### チャネルの決済
 
-Called by ambassador or expert to start initialize a disputed settlement using an agreed upon state. It starts a timeout for a reply using `settlementPeriodLength`
+アンバサダーまたは専門家が、合意した状態を使用して、争点の決済の初期化を開始するために呼び出します。 `settlementPeriodLength` を使用して応答のタイムアウトが開始されます。
 
 **URL** : `/offers/settle?account=[eth_address]&base_nonce=[integer]`
 
@@ -799,24 +799,24 @@ Called by ambassador or expert to start initialize a disputed settlement using a
 
 state - 両者が署名したオファー状態
 
-v - array of the recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID の配列
 
-r - array of outputs of ECDSA signature of state string for both parties
+r - 両者の状態文字列の ECDSA 署名の出力の配列
 
 s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -864,24 +864,24 @@ See state [explaintion](#state)
 
 state - 両者が署名したオファー状態
 
-v - array of the recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID の配列
 
-r - array of outputs of ECDSA signature of state string for both parties
+r - 両者の状態文字列の ECDSA 署名の出力の配列
 
 s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -1120,7 +1120,7 @@ s - ECDSA signature of state string
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explanation](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -1129,17 +1129,17 @@ See state [explanation](#state)
 }
 ```
 
-## Events
+## イベント
 
-A websocket for contract events
+コントラクト・イベント用の WebSocket
 
-Listen to the websocket at `ws://localhost:31337/events/<chain>`
+`ws://localhost:31337/events/<chain>` の WebSocket をリッスンします。
 
-**Event Types**
+**イベント・タイプ**
 
-***Block***
+***ブロック***
 
-Sent when a new block is mined, reports the latest block number
+新しいブロックがマイニングされたときに送信され、最新のブロック番号を報告します。
 
 **コンテンツの例**
 
@@ -1152,9 +1152,9 @@ Sent when a new block is mined, reports the latest block number
 }
 ```
 
-***Bounty***
+***報奨金***
 
-Sent when a new bounty is posted
+新しい報奨金が提示されたときに送信されます。
 
 **コンテンツの例**
 
