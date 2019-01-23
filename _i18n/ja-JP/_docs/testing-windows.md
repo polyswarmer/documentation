@@ -2,7 +2,7 @@
 
 In this page, we use `microengine-mywindowsengine` as the name of the Microengine's directory. In your own testing, you will use the name of your Microengine's directory instead. Additionally, in these instructions, we've shortened the PowerShell command prompt to be `PS >` in order to make it easier to read the commands. Your actual PowerShell command prompt will be similar to this: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`. Similarly for Linux command prompts, we've shortened them to be `$`, while your actual command prompts will have more text to the left side of the `$`.
 
-## Unit Testing
+## 単体テスト
 
 We'll use `tox` to test our Microengine. `tox` runs whatever unit tests you add to `tests/scan_test.py`.
 
@@ -12,7 +12,7 @@ In a powershell window with an activated virtual environment, and run the `tox` 
 PS > tox
 ```
 
-The output will look similar to the following:
+出力は、以下のようになります。
 
 ```powershell
 GLOB sdist-make: C:\Users\user\microengine-mywindowsengine\setup.py
@@ -42,33 +42,33 @@ _______________________________________________________ summary ________________
   congratulations :)
 ```
 
-You can safely ignore the `combine_argument_formatters` warning.
+`combine_argument_formatters` の警告は無視して問題ありません。
 
 ## Integration Testing
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Conducting integration tests on Windows-Based Engines is only supported in a VirtualBox configuration at this time.
-    Please refer to <a href="/development-environment-windows/">Windows Development Environment</a> for more information.
+    <strong>警告:</strong>
+    現在、Windows ベースのエンジンでの統合テストの実行は、VirtualBox 構成でのみサポートされます。
+    詳細については、「<a href="/development-environment-windows/">Windows 開発環境</a>」をご覧ください。
   </p>
 </div>
 
-Integration testing a Windows-Based Engine requires two virtual machines (VMs / Guests):
+Windows ベースのエンジンの統合テストでは、以下の 2 つの仮想マシン (VM / ゲスト) が必要です。
 
-1. A Windows guest for running your Windows-Based engine (we already made this).
-2. A Linux guest for standing up a local PolySwarm testnet (we'll make this now).
+1. Windows ベースのエンジンを実行するための Windows ゲスト (これは既に作成しました)
+2. ローカル PolySwarm testnet を支えるための Linux ゲスト (この説明で作成します)
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    The recommendations presented here are hard-won.
-    We strongly recommend that you test using the exact recommendations presented here.
-    Using any other configuration will make it difficult for us to provide you with support.
+    <strong>警告:</strong>
+    ここで示している推奨は、多大な労力を費やして作成されました。
+    ここで示しているのとまったく同じ推奨を使用してテストすることを強くお勧めします。
+    他の構成を使用すると、当社でサポートするのが困難になる可能性があります。
   </p>
 </div>
 
-### Create a Linux Guest
+### Linux ゲストの作成
 
 #### 仮想マシンの作成
 
@@ -84,55 +84,55 @@ Integration testing a Windows-Based Engine requires two virtual machines (VMs / 
 
 他のすべてのオプションについては、デフォルト設定を使用します。 特に、3D アクセラレーションは有効にしないでください。
 
-In general, you will want to provide extra available RAM and CPU resources to the Linux VM to make the testnet perform better.
+通常、testnet のパフォーマンスを向上させるため、Linux VM で使用可能な RAM と CPU のリソースを追加することをお勧めします。
 
-#### Install Xubuntu 18.04 amd64
+#### Xubuntu 18.04 amd64 のインストール
 
-* [Download Xubuntu 18.04 amd64 ISO](https://xubuntu.org/release/18-04/)
+* [Xubuntu 18.04 amd64 ISO のダウンロード](https://xubuntu.org/release/18-04/)
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    We strongly recommend Xubuntu over Ubuntu for VirtualBox guests.
-    Ubuntu presents a range of visual lag issues and is prone to total visual lockup when VirtualBox tools are installed.
+    <strong>警告:</strong>
+    VirtualBox ゲストには、Ubuntu よりも Xubuntu を強くお勧めします。
+    Ubuntu では、さまざまな視覚的なラグの問題が発生し、VirtualBox ツールをインストールすると、完全な視覚的なロックアップに陥る傾向にあります。
   </p>
 </div>
 
-Use the ISO you downloaded to install Xubuntu in the VM.
+ダウンロードした ISO を使用して、VM に Xubuntu をインストールします。
 
-#### (Optional) Install VirtualBox Guest Additions
+#### (オプション) VirtualBox Guest Additions のインストール
 
 ゲストとホスト間でのクリップボードの共有やコピー・アンド・ペーストの機能を使用するために、Guest Additions が必要です。
 
 [VirtualBox の資料をご覧ください](https://www.virtualbox.org/manual/ch04.html)。
 
-### Configure Inter-Guest Networking
+### ゲスト間ネットワークの構成
 
-We need to establish an "internal" network that our Linux and Windows VMs will use to communicate with one another.
+Linux VM と Windows VM が相互通信に使用する「内部」ネットワークを確立する必要があります。
 
-Before we get started, shut down both the Linux and the Windows Guests.
+始める前に、Linux ゲストと Windows ゲストの両方をシャットダウンします。
 
-On your Windows Host, open a PowerShell and change to the VirtualBox installation directory:
+Windows ホストで、PowerShell を開いて、以下のように VirtualBox インストール環境ディレクトリーに移動します。
 
 ```powershell
 PS > pushd $Env:Programfiles\Oracle\VirtualBox
 ```
 
-You should now see your command prompt look similar to this:
+これで、以下のようなコマンド・プロンプトが表示されます。
 
 ```powershell
 PS C:\Program Files\Oracle\VirtualBox>
 ```
 
-#### Create Internal PolySwarm Network
+#### 内部 PolySwarm ネットワークの作成
 
-Create and assign a dedicated PolySwarm internal network to each VM.
+専用 PolySwarm 内部ネットワークを作成して各 VM に割り当てます。
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    These commands will reconfigure network adapter #5 on your VMs.
-    If you are already using this adapter (very unlikely), change the number in the commands.
+    <strong>警告:</strong>
+    以下のコマンドでは、VM 上のネットワーク・アダプター 5 を再構成します。
+    (可能性は非常に低いですが) このアダプターを既に使用している場合は、コマンド内の番号を変更してください。
   </p>
 </div>
 
@@ -145,8 +145,8 @@ PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    For more information on internal networking in VirtualBox, refer to their <a href="https://www.virtualbox.org/manual/ch06.html#network_internal">official documentation</a>.
+    <strong>情報:</strong>
+    VirtualBox の内部ネットワークの詳細については、<a href="https://www.virtualbox.org/manual/ch06.html#network_internal">公式資料</a>をご覧ください。
   </p>
 </div>
 
@@ -292,7 +292,7 @@ Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
   </p>
 </div>
 
-#### Install Git
+#### Git のインストール
 
 We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
