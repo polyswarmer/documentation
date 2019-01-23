@@ -391,7 +391,7 @@ INFO:polyswarmclient:2018-12-06 16:55:33,080 Received block on chain side: {'num
 
 別の新しい PowerShell ウィンドウを開始し、仮想環境をアクティブ化します。 次に、マイクロエンジンのディレクトリーに移動します。
 
-以下のようなコマンドを使用して、マイクロエンジンを実行します。 Be sure to update the value for the `--backend` argument to match the name of your Microengine's package directory (i.e. the directory in `src/`):
+以下のようなコマンドを使用して、マイクロエンジンを実行します。 必ず、`--backend` 引数の値を更新して、ご使用のマイクロエンジンのパッケージ・ディレクトリー (つまり、`src/` 内のディレクトリー) の名前にしてください。
 
 ```powershell
 PS > microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
@@ -425,27 +425,27 @@ INFO:polyswarmclient:2018-12-06 16:56:48,503 Received assertion on chain side: {
 WARNING:polyswarmclient.abstractmicroengine:2018-12-06 16:56:48,503 Received new bounty, but finished with testing mode
 ```
 
-Running with `--testing 2` means that your Microengine will respond to 2 bounties and then refuse to respond to further bounties by shutting itself off. You can adjust this number if you want it to process more bounties in your tests.
+`--testing 2` と指定して実行すると、マイクロエンジンは 2 つの報奨金に応答してから、自動的にシャットダウンしてそれ以上報奨金に応答しなくなります。 テストでさらに報奨金を処理する場合は、この数値を調整してください。
 
-But, your Microengine will not have any bounties to process until there is an Ambassador sending bounties into the testnet.
+ただし、アンバサダーが報奨金を testnet に送信するまで、処理するための報奨金はマイクロエンジンに提示されません。
 
-#### Linux VM: Launch the Ambassador
+#### Linux VM: ambassador の起動
 
-In your Linux VM, now start the `ambassador`, which will submit bounties into the testnet, so your microengine can respond to them. Start a new terminal and run the following commands:
+次に、Linux VM で `ambassador` を起動します。これは、報奨金を testnet に提示し、マイクロエンジンでその報奨金に応答できるようにします。 新しい端末を開始し、以下のコマンドを実行します。
 
 ```bash
 $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Shortly after this starts, you will see messages in your Microengine's PowerShell window when it is processing bounties.
+この開始後すぐに、マイクロエンジンの PowerShell ウィンドウで、報奨金処理中のメッセージが表示されます。
 
-### All Done
+### 完了
 
-Congrats!
+完了です。
 
-Your Windows-Based Engine should now be responding to bounties placed on a local testnet hosted in your Linux VM.
+これで、Windows ベースのエンジンが、Linux VM にホストされたローカル testnet で提示された報奨金に応答しています。
 
-Let your Microengine run until it shuts itself off.
+自動的にシャットダウンするまでマイクロエンジンを実行してみましょう。
 
-Take a close look at the output of your engine to ensure it's doing what you want it to :)
+エンジンの出力を詳しく調べて、期待される処理を実行しているかを確認してください。
