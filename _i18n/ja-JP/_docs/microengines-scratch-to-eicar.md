@@ -61,47 +61,47 @@ cookiecutter https://github.com/polyswarm/engine-template
 
 <div class="m-callout">
   <p>プロンプト項目の 1 つに <code>has_backend</code> があります。これは、「外部のバックエンドがあるかどうか」と捉えることができます。これについて説明を追加します。</p>
-  <p>スキャン・エンジンをラップする際に、<code>polyswarm-client</code> クラスの継承やクラス機能の実装は、「フロントエンド」の変更と呼びます。 スキャン・エンジンの「フロントエンド」がネットワークまたはローカル・ソケットを介して、実際のスキャン処理を行う別プロセス (バックエンド) を利用する場合、外部の「バックエンド」があり、<code>has_backend</code> に対して <code>true</code> と応答する必要があります。 If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>false</code> for <code>has_backend</code>.</p>
-  <p>Example of disjoint frontend / backend:</p>
+  <p>スキャン・エンジンをラップする際に、<code>polyswarm-client</code> クラスの継承やクラス機能の実装は、「フロントエンド」の変更と呼びます。 スキャン・エンジンの「フロントエンド」がネットワークまたはローカル・ソケットを介して、実際のスキャン処理を行う別プロセス (バックエンド) を利用する場合、外部の「バックエンド」があり、<code>has_backend</code> に対して <code>true</code> と応答する必要があります。 そうではなく、スキャン・エンジンが単一の Docker イメージ (Linux) または AMI (Windows) に容易にカプセル化できる場合は、<code>has_backend</code> に対して <code>false</code> を選択する必要があります。</p>
+  <p>外部のフロントエンド/バックエンドの例:</p>
   <ul>
     <li><a href="https://github.com/polyswarm/polyswarm-client/blob/5959742f0014a582baf5046c7bf6694c23f7435e/src/microengine/clamav.py#L18">ClamAV</a></li>
   </ul>
-  <p>Example of only a frontend (has_backend is false):</p>
+  <p>フロントエンドのみの例 (has_backend は false):</p>
   <ul>
     <li><a href="https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/yara.py">Yara</a></li>
   </ul>
 </div>
 
-You're all set!
+これで完了です。
 
-You should find a `microengine-myeicarengine` in your current working directory - this is what we'll be editing to implement EICAR scan functionality.
+現行作業ディレクトリーに `microengine-myeicarengine` があり、これを編集して EICAR スキャンの機能を実装します。
 
-## Implement an EICAR Scanner & Microengine
+## EICAR スキャナーとマイクロエンジンの実装
 
-Detecting EICAR is as simple as:
+EICAR の検出は、以下のようにシンプルです。
 
-1. implementing a Scanner class that knows how to identify the EICAR test file
-2. implementing a Microengine class that uses this Scanner class
+1. EICAR テスト・ファイルを特定する方法を知っている Scanner クラスを実装する
+2. この Scanner クラスを使用する Microengine クラスを実装する
 
-Let's get started.
+では開始しましょう。
 
-Open `microengine-myeicarengine/src/(the org slug name)_myeicarengine/__init__.py`.
+`microengine-myeicarengine/src/(組織のスラグ名)_myeicarengine/__init__.py` を開きます。
 
-This file will implement both our Scanner and Microengine classes:
+このファイルでは、以下のように、Scanner クラスと Microengine クラスの両方を実装します。
 
-* **Scanner**: our Scanner class. This class will implement our EICAR-detecting logic in its `scan` function.
+* **Scanner**: Scanner クラス。 このクラスでは、`scan` 関数で EICAR 検出ロジックを実装します。
 
-* **Microengine**: our Microengine class. This class will wrap the aforementioned Scanner to handle all the necessary tasks of being a Microengine that detects EICAR.
+* **Microengine**: Microengine クラス。 このクラスは、前述の Scanner をラップして、EICAR を検出マイクロエンジンとして必要なすべてのタスクを処理します。
 
-### Write EICAR Detection Logic
+### EICAR 検出ロジックの作成
 
-The EICAR test file is defined as a file that contains only the following string: `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`.
+EICAR テスト・ファイルは、文字列「`X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`」のみが含まれたファイルとして定義されます。
 
-There are, of course, many ways to identify files that match this criteria. The `scan` function's `content` parameter contains the entire content of the artifact in question - this is what you're matching against.
+もちろん、この条件に一致するファイルを特定する方法はたくさん存在します。 `scan` 関数の `content` パラメーターには、対象アーティファクトの全コンテンツが含まれます。これに対して突き合わせを行います。
 
-**Try your hand at writing a `scan` function that detects the EICAR test file.** If you'd like some inspiration, below are a couple of ways to go about it.
+**では、EICAR テスト・ファイルを検出する `scan` 関数の作成に挑戦してみましょう。** ヒントが必要な場合は、以下に示したいくつかの処理方法を参考にしてください。
 
-From [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py):
+[`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py) より:
 
 ```python
 import base64
@@ -126,7 +126,7 @@ class Microengine(AbstractMicroengine):
 
 ```
 
-Here's another way, this time comparing the SHA-256 of the EICAR test file with a known-bad hash:
+以下に別の方法を示します。今度は、EICAR テスト・ファイルの SHA-256 を既知の不正ハッシュと比較します。
 
 ```python
 import base64
@@ -155,15 +155,15 @@ class Microengine(AbstractMicroengine):
 
 ```
 
-### Develop a Staking Strategy
+### 投資戦略の作成
 
-At a minimum, Microengines are responsible for: (a) detecting malicious files, (b) rendering assertions with NCT staked on them.
+最低でも、マイクロエンジンは、(a) 悪意のあるファイルの検出、(b) NCT の投資とアサーションの作成を行う必要があります。
 
-Staking logic is implemented in the Microengine's `bid` function.
+投資ロジックは、マイクロエンジンの `bid` 関数で実装されます。
 
-By default, all assertions are placed with the minimum stake permitted by the community a Microengine is joined to.
+デフォルトでは、すべてのアサーションは、マイクロエンジンが参加しているコミュニティーで許可される最小の投資額で生成されます。
 
-Check back soon for an exploration of various staking strategies.
+各種投資戦略の説明を追加していきますので、定期的にここの情報をご確認ください。
 
 ## エンジンの仕上げとテスト
 
@@ -177,6 +177,6 @@ Check back soon for an exploration of various staking strategies.
 
 ## 次のステップ
 
-Implementing scan logic directly in the Scanner class is difficult to manage and scale. Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
+Scanner クラスにスキャン・ロジックを直接実装すると、管理も拡張も困難です。 そうではなく、実際のスキャン・ロジックが含まれている外部のバイナリーやサービスを Microengine クラスで呼び出すことをお勧めします。
 
 [次は、ClamAV をマイクロエンジンにラップします →](/microengines-scratch-to-clamav/)
