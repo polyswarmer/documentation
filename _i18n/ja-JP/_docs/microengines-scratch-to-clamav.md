@@ -1,31 +1,31 @@
-# Wrapping a Real Engine: ClamAV
+# 実際のエンジンのラップ: ClamAV
 
-## Setting the Stage
+## 準備
 
-ClamAV is an open source signature-based engine with a daemon that provides quick analysis of artifacts that it recognizes. This tutorial will step you through building your second PolySwarm Microengine by means of incorporating ClamAV as an analysis backend.
+ClamAV は、オープン・ソースのシグネチャー・ベースのエンジンであり、認識したアーティファクトを迅速に分析するデーモンを備えています。 このチュートリアルでは、ClamAV を分析バックエンドとして取り込むことで、2 つ目の PolySwarm マイクロエンジンを作成するプロセスについて順に説明します。
 
 <div class="m-flag">
   <p>
-    <strong>Note:</strong>
-    The PolySwarm marketplace will be a source of previously unseen malware.
+    <strong>注:</strong>
+    PolySwarm マーケットプレイスは、未知のマルウェアのソースになります。
   </p>
   <p>
-    Relying on a strictly signature-based engine as your analysis backend, particularly one whose signatures everyone can access (e.g. ClamAV) is unlikely to yield unique insight into "swarmed" artifacts and therefore unlikely to outperform other engines.
+    厳密なシグネチャー・ベースのエンジン、特にシグネチャーに誰もがアクセスできるもの (ClamAV など) を分析バックエンドとして利用した場合、「swarm」されたアーティファクトに対する独自の知見が得られることはないと思われるため、他のエンジンに勝つことはできないでしょう。
   </p>
   <p>
-    This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into a <strong>Microengine</strong> skeleton.
+    このガイドは、マーケットプレイスへのアプローチの推奨と捉えるのではなく、既存の分析バックエンドを<strong>マイクロエンジン</strong>・スケルトンに取り込む方法を示した例としてお読みください。
   </p>
 </div>
 
-This tutorial will walk the reader through building [microengine/clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py); please refer to `clamav.py` for the completed work.
+このチュートリアルでは、[microengine/clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) の作成について説明します。完成したソリューションについては、`clamav.py` をご覧ください。
 
-## `clamd` Implementation and Integration
+## `clamd` の実装と統合
 
-Start with a [fresh engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyClamAvEngine". You should find a `microengine-myclamavengine` in your current working directory - this is what we'll be editing to implement ClamAV scan functionality.
+[何も手を加えていない engine-template](/microengines-scratch-to-eicar/#customize-engine-template) から開始し、「MyClamAvEngine」という `engine-name` (エンジン名) を付けます。 現行作業ディレクトリーに `microengine-myclamavengine` があり、これを編集して ClamAV スキャンの機能を実装します。
 
-Edit the `__init__.py` as we describe below:
+以下のように、`__init__.py` を編集します。
 
-We begin our ClamAV `analysis backend` by importing the `clamd` module and configuring some globals.
+`clamd` モジュールをインポートして、グローバル変数を構成することで、ClamAV `分析バックエンド`を開始します。
 
 ```python
 #!/usr/bin/env python
@@ -38,14 +38,14 @@ from io import BytesIO
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
 from polyswarmclient.abstractscanner import AbstractScanner
 
-logger = logging.getLogger(__name__)  # Initialize logger
+logger = logging.getLogger(__name__)  # ロガーを初期化
 
 CLAMD_HOST = os.getenv('CLAMD_HOST', 'localhost')
 CLAMD_PORT = int(os.getenv('CLAMD_PORT', '3310'))
 CLAMD_TIMEOUT = 30.0
 ```
 
-Would you believe me if I said we were almost done? Let's get `clamd` initialized and running, so it can communicate with the `clamd-daemon` over a network socket.
+これでもうすぐ完了と言ったら信じられますか? ネットワーク・ソケットを介して `clamd-daemon` と通信できるように、`clamd` を初期化して実行しましょう。
 
 ```python
 class Scanner(AbstractScanner):
@@ -87,8 +87,8 @@ Python の `[]` 演算子を使用して簡単に結果を解析できます。 
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+    <strong>情報:</strong>
+    Microengine クラスが必要ですが、変更する必要がないため、ここでは記載していません。
   </p>
   <p>
     Python 3 の Asyncio - スキャン時に行った外部呼び出しによってイベント・ループがブロックされないことが重要です。
@@ -108,7 +108,7 @@ Python の `[]` 演算子を使用して簡単に結果を解析できます。 
 
 [Windows ベースのエンジンのテスト →](/testing-windows/)
 
-## Next Steps
+## 次のステップ
 
 Eicar の例では、Scanner クラスでスキャン・ロジックを直接実装する方法について説明しました。 この ClamAV の例では、外部ソケットを呼び出してスキャン・ロジックにアクセスする方法を示しました。
 
