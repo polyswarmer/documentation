@@ -52,37 +52,37 @@ test_engine_mylinuxengine_1_a9d540dc7394 |   py35: commands succeeded
 test_engine_mylinuxengine_1_a9d540dc7394 |   congratulations :)
 ```
 
-Of course, this testing is quite limited - you'll want to expand on your tests in `scan_test.py`, as appropriate for your Microengine.
+もちろん、このテストは非常に限定されたものであるため、ご使用のマイクロエンジンに合わせて、`scan_test.py` でテストを拡張できます。
 
-## Integration Testing
+## 統合テスト
 
-The PolySwarm marketplace is composed of a myriad of participants and technologies: Ethereum & IPFS nodes, contracts, Microengines, Ambassadors, Arbiters, artifacts and much more. Testing a single component often demands availability of all of the other components.
+PolySwarm マーケットプレイスは、多数の参加者とテクノロジー (イーサリアム・ノード、IPFS ノード、コントラクト、マイクロエンジン、アンバサダー、評価者、アーティファクトなど) で構成されます。 多くの場合、単一のコンポーネントをテストするには、あらゆる他のコンポーネントが使用可能でなければなりません。
 
-The `orchestration` project makes standing up a complete testnet easy and seamless. True to its name, `orchestration` orchestrates all the components necessary to stand up and tear down an entire PolySwarm marketplace environment on a local development machine.
+`orchestration` プロジェクトは、完全な testnet を容易かつシームレスに利用できるようにします。 名前の通り、`orchestration` は、ローカル開発マシンで PolySwarm マーケットプレイス環境を立ち上げて破棄するために必要なすべてのコンポーネントをオーケストレーションします。
 
-Clone `orchestration` adjacent to your `microengine-myeicarengine` directory:
+以下のように、`microengine-myeicarengine` ディレクトリーの隣に `orchestration` を複製します。
 
 ```bash
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### (Optional) Preview a Complete, Working Testnet
+### (オプション) 機能している完全な testnet のプレビュー
 
-Let's spin up a complete, working testnet to get a sense for what things *should* look like.
+機能している完全な testnet を立ち上げて、どのようになる*はず* なのかを確認してみましょう。
 
-In the cloned `orchestration` directory:
+複製した `orchestration` ディレクトリーで、以下のようにします。
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up
 ```
 
-You'll see output from the following services:
+以下のサービスからの出力が表示されます。
 
-1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running our testnet's "homechain". See [Chains: Home vs Side](/#chains-home-vs-side) for an explanation of our split-chain design.
-2. `sidechain`: Another `geth` instance, this one running our testnet's "sidechain".
-3. `ipfs`: An IPFS node responsible for hosting all artifacts in our development testnet.
-4. `polyswarmd`: The PolySwarm daemon providing convenient access to the services offered by `homechain`, `sidechain` and `ipfs`.
-5. `contracts`: Responsible for housing & deploying the PolySwarm Nectar (NCT) and `BountyRegistry` contracts onto our development testnet.
+1. `homechain`: testnet の「ホームチェーン」を実行している [geth](https://github.com/ethereum/go-ethereum) ノード。 分割チェーン設計の説明については、「[チェーン: ホームとサイド](/#chains-home-vs-side)」をご覧ください。
+2. `sidechain`: testnet の「サイドチェーン」を実行している別の `geth` インスタンス。
+3. `ipfs`: 開発 testnet ですべてのアーティファクトをホストする IPFS ノード。
+4. `polyswarmd`: `homechain`、`sidechain`、`ipfs` から提供されているサービスに簡便にアクセスできるようにする PolySwarm デーモン。
+5. `contracts`: PolySwarm Nectar (NCT) と `BountyRegistry` コントラクトを格納して開発 testnet にデプロイします。
 6. `ambassador`: A mock Ambassador (provided by `polyswarm-client`) that will place bounties on [the EICAR file](https://en.wikipedia.org/wiki/EICAR_test_file) and on a file that is not EICAR.
 7. `arbiter`: A mock Arbiter (provided by `polyswarm-client`) that will deliver Verdicts on "swarmed" artifacts, determining ground truth.
 8. `microengine`: A mock Microengine (provided by `polyswarm-client`) that will investigate the "swarmed" artifacts and render Assertions.
