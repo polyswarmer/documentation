@@ -178,7 +178,7 @@ PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 
 #### `polyswarmd` DNS 解決のための Windows VM の構成
 
-最後に、Linux VM で `polyswarmd` がホストされていることを Windows VM が認識する必要があります。 Open an elevated instance of Notepad and add `polyswarmd` to the bottom of `C:\Windows\System32\Drivers\etc\hosts`:
+最後に、Linux VM で `polyswarmd` がホストされていることを Windows VM が認識する必要があります。 権限が昇格されたメモ帳のインスタンスを開き、以下のように `polyswarmd` を `C:\Windows\System32\Drivers\etc\hosts` の末尾に追加します。
 
     # Copyright (c) 1993-2009 Microsoft Corp.
     #
@@ -205,9 +205,9 @@ PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
     10.10.42.101 polyswarmd
     
 
-#### Verify Configuration
+#### 構成の確認
 
-Finally, verify that Windows resolves `polyswarmd` to your Linux VM and is able to reach the VM. First do a DNS test as follows:
+最後に、Windows で `polyswarmd` が Linux VM に解決され、VM に到達できることを確認します。 まず、以下のように DNS テストを実行します。
 
 ```powershell
 PS > Resolve-DnsName -name polyswarmd
