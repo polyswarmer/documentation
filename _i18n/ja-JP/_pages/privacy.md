@@ -1,10 +1,10 @@
-# Privacy Policy
+# プライバシー・ポリシー
 
-**Date Posted: 02 September 2017**
+**公開日: 2017 年 9 月 2 日**
 
-**Last Updated (effective date): 05 October 2018**
+**最終更新日 (発効日): 2018 年 10 月 5 日**
 
-Thank you for choosing to be part of our community at PolySwarm Pte. Ltd. ("Company", "we", "us", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at <privacy@polyswarm.io>.
+PolySwarm Pte. Ltd. (「当社」) のコミュニティーに参加いただきありがとうございます 。 お客様の個人情報とプライバシーの権利の保護に努めております。 If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at <privacy@polyswarm.io>.
 
 When you visit our website (https://polyswarm.io), and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy notice, we describe our privacy policy. We seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our Sites and our services.
 
@@ -63,7 +63,7 @@ We use the information we collect or receive:
 *     To send administrative information to you for Business Purposes, Legal Reasons and/or possibly for Contractual. We may use your personal information to send you product, service and new feature information and/or information about changes to our terms, conditions, and policies.
      
 
-*     Deliver targeted advertising to you for our Business Purposes and/or with your Consent. We may use your information to develop and display content and advertising (and work with third parties who do so) tailored to your interests and/or location and to measure its effectiveness. For more information, see the "Cookie Policy" section below.
+*     業務上の目的、同意に基づいて、ターゲットを絞った広告をお客様に提供するため。 お客様の情報を使用して、お客様の関心や位置に合わせて、コンテンツおよび広告を作成して表示する (また、それを行う第三者と連携する) こと、またその有効性を測定することがあります。 詳細については、下記の「Cookie のポリシー」セクションを参照して下さい。
      
 
 *     Administer prize draws and competitions for our Business Purposes and/or with your Consent. We may use your information to administer prize draws and competitions when you elect to participate in competitions.
