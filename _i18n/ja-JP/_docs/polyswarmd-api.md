@@ -933,7 +933,7 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 **メソッド** : `GET`
 
-### Get pending offers
+### 未解決のオファーの取得
 
 **URL** : `/offers/pending`
 
