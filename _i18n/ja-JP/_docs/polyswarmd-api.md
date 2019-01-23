@@ -175,15 +175,15 @@ valid\_bloom - ブルーム投票の場合
 
 bid - 投資金額 (NCT)
 
-mask - the artifacts to assert on from the set in the bounty
+mask - 報奨金に含まれている一連のアーティファクトでアサーションを提示するアーティファクト
 
-verdicts - array of verdicts on bounty artifacts
+verdicts - 報奨金の対象アーティファクトの判定の配列
 
 ```json
 {
-  "bid": "[string minimum length 1 with max length 100]",
-  "mask": "[array with a max of 256 boolean items]",
-  "verdicts": "[array with a max of 256 boolean items]"
+  "bid": "[文字列、最小長 1、最大長 100]",
+  "mask": "[最大で 256 個の boolean 項目が含まれた配列]",
+  "verdicts": "[最大で 256 個の boolean 項目が含まれた配列]"
 }
 ```
 
@@ -199,7 +199,7 @@ verdicts - array of verdicts on bounty artifacts
 
 #### 成功応答
 
-**Condition** : If everything is OK the generated nonce will be created later used for reveal and you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**条件** : 正常に処理された場合、後から評価で使用するためのノンスが生成され、また生の未署名のトランザクションの配列が返されます。このトランザクションに署名して `/transactions` エンドポイントを介して送信する必要があります。
 
 **コード** : `200`
 
@@ -220,9 +220,9 @@ verdicts - array of verdicts on bounty artifacts
 }
 ```
 
-### Reveal bounty assersions
+### 報奨金アサーションの評価
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+報奨金の有効期限後に評価者が確認・評価結果を確定し、アサーションの報酬を支払うために呼び出します。
 
 **URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -232,17 +232,17 @@ Called by arbiter after bounty expiration to settle with their ground truth dete
 
 指定:
 
-nonce - the nonce used to generate the commitment hash (returned from asserting on a bounty)
+nonce - コミットメント・ハッシュの生成に使用するノンス (報奨金に対するアサート提示で返されたもの)
 
-verdicts - the verdicts making up this assertion
+verdicts - 当該アサーションの判定
 
-metadata - to include in the assertion (can be empty string)
+metadata - アサーションに含めるもの (空文字列可)
 
 ```json
 {
-  "nonce": "[string minimum length 1 with max length 100]",
-  "verdicts": "[array with a max of 256 boolean items]",
-  "metadata": "[string minimum length 1 with max length 1024]"
+  "nonce": "[文字列、最小長 1、最大長 100]",
+  "verdicts": "[最大で 256 個の boolean 項目が含まれた配列]",
+  "metadata": "[文字列、最小長 1、最大長 1024]"
 }
 ```
 
@@ -279,53 +279,53 @@ metadata - to include in the assertion (can be empty string)
 }
 ```
 
-### Get a bounty's info
+### 報奨金情報の取得
 
 **URL** : `/<uuid:guid>?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Get assertions for a bounty
+### 報奨金の複数のアサーション取得
 
 **URL** : `/<uuid:guid>/assertions?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Get an assertion for a bounty
+### 報奨金の単一のアサーション取得
 
 **URL** : `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Get bloom for a bounty
+### 報奨金のブルーム取得
 
 **URL** : `/<uuid:guid>/bloom?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Get votes for a bounty
+### 報奨金の複数の投票取得
 
 **URL** : `/<uuid:guid>/votes?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Get a vote for a bounty
+### 報奨金の単一の投票取得
 
 **URL** : `/<uuid:guid>/votes/<int:id_>?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-## Staking API
+## 投資 API
 
-### Staking Parameters
+### 投資パラメーター
 
 **URL** : `/staking/parameters?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Post Deposit Stake
+### 投資金の預金
 
-Called by arbiters to deposit stake Nectar.
+評価者が Nectar を預金するために呼び出します。
 
 **URL** : `/staking/deposit?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -335,11 +335,11 @@ Called by arbiters to deposit stake Nectar.
 
 指定:
 
-amount - the amount of NCT to add to current stake
+amount - 現在の投資金に追加する金額 (NCT)
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]"
+  "amount": "[文字列、最小長 1 / 最大長 100]"
 }
 ```
 
@@ -351,9 +351,9 @@ amount - the amount of NCT to add to current stake
 }
 ```
 
-### Post Withdrawal Stake
+### 投資金の引き出し
 
-Called by arbiters to withdraw available staked Nectar.
+評価者が投資された利用可能な Nectar を引き出すために呼び出します。
 
 **URL** : `/staking/withdraw?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -363,11 +363,11 @@ Called by arbiters to withdraw available staked Nectar.
 
 指定:
 
-amount - the amount of NCT to withdraw from current stake
+amount - 現在の投資金から引き出す金額 (NCT)
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]"
+  "amount": "[文字列、最小長 1 / 最大長 100]"
 }
 ```
 
@@ -379,23 +379,23 @@ amount - the amount of NCT to withdraw from current stake
 }
 ```
 
-### Get total stake balance
+### 合計投資金残高の取得
 
 **URL** : `/balances/<address>/staking/total`
 
 **メソッド** : `GET`
 
-### Get withdrawable stake balance
+### 引き出し可能な投資金残高の取得
 
 **URL** : `/balances/<address>/staking/withdrawable`
 
 **メソッド** : `GET`
 
-## Artifacts API
+## アーティファクト API
 
-### Post Artifact
+### アーティファクトの送信
 
-Post an artifact to IPFS
+アーティファクトを IPFS に送信します。
 
 **URL** : `/artifacts`
 
@@ -405,9 +405,9 @@ Post an artifact to IPFS
 
 指定:
 
-List of files to upload. You can upload a max of 256
+アップロードするファイルのリスト。 最大 256 個までアップロード可能
 
-### Get file links associated with hash
+### ハッシュに関連付けられているファイル・リンクの取得
 
 **URL** : `/<ipfshash>`
 
