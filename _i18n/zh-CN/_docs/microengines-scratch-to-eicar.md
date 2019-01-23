@@ -16,7 +16,7 @@ This guide will reference and build on:
 
 * [**engine-template**](https://github.com/polyswarm/engine-template): The name says it all - this is a convenient template with interactive prompts for creating new engines. We'll use this in our tutorial.
 
-* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): The Swiss Army knife of exemplar PolySwarm participants ("clients"). `polyswarm-client` 可以做为 `微引擎` (我们将在本教程中基于此功能来编写) 的`仲裁者`和`代表`（我们将使用这些功能来测试我们所搭建的项目）。
+* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): The Swiss Army knife of exemplar PolySwarm participants ("clients"). `polyswarm-client` can function as a `microengine` (we'll build on this functionality in this tutorial), an `arbiter` and an `ambassador` (we'll use these to test what we built).
 
 ## Customize `engine-template`
 
