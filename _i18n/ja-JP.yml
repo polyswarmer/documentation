@@ -1,52 +1,52 @@
 ---
 global:
-  title: The first decentralized threat intelligence marketplace
-  description: PolySwarm Documentation is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products.
+  title: 世界初の分散型脅威インテリジェンス・マーケットプレイス
+  description: PolySwarm 資料は、専門家、評価者、アンバサダーなどが PolySwarm 製品を理解できるように設計された公開リソースです。
   languages:
-    - 
-      name: en-US
-      fullname: English
-      d_url: /
-      text: This page is available in English.
-      ok:
-        text: View now
-      close:
-        text: Close
     - 
       name: ja-JP
       fullname: 日本語
-      d_url: /ja-JP/
+      d_url: /
       text: This page is available in 日本語.
       ok:
-        text: View now
+        text: 今すぐ表示
       close:
-        text: Close
-  previous_text: Previous article
-  next_text: Next article
-  close_text: Close
+        text: 閉じる
+    - 
+      name: ja-JP
+      fullname: English
+      d_url: /ja-JP/
+      text: このページは English でもご利用いただけます。
+      ok:
+        text: 今すぐ表示
+      close:
+        text: 閉じる
+  previous_text: 前の記事
+  next_text: 次の記事
+  close_text: 閉じる
   privacy_settings:
-    heading: Privacy Settings
-    text: Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you consent to our use of cookies, please make sure the box below is checked. Otherwise, uncheck the box below to opt out.
-    label: Enable Cookies
+    heading: プライバシーの設定
+    text: このサイトでは、サイトの使用状況の理解を深め、今後の使いやすさを改善するために Cookie を使用しています。Cookie の使用に同意する場合、下のボックスにチェック・マークが付いた状態にしてください。それ以外の場合は、下のボックスのチェック・マークを外して、オプトアウトしてください。
+    label: クッキーを有効化
 header:
-  menu_text: Menu
-  languages_text: Languages
+  menu_text: メニュー
+  languages_text: 言語
   navigation:
     home:
-      name: Docs Home
+      name: 資料ホーム
       d_url: /
     items:
       - 
-        name: Concepts
+        name: 概念
         subitems:
           - 
-            name: Participants
+            name: 参加者
             d_url: /concepts-participants/
           - 
             name: マイクロエンジン
             d_url: /concepts-participants-microengine/
       - 
-        name: Development Environment
+        name: 開発環境
         subitems:
           - 
             name: Linux
@@ -58,16 +58,16 @@ header:
         name: マイクロエンジン
         subitems:
           - 
-            name: "Level 0: Scratch to EICAR"
+            name: "レベル 0: ゼロから EICAR 対応へ"
             d_url: /microengines-scratch-to-eicar/
           - 
-            name: "Level 1: Scratch to ClamAV"
+            name: "レベル 1: ゼロから ClamAV 対応へ"
             d_url: /microengines-scratch-to-clamav/
           - 
-            name: "Level 2: ClamAV to Multi"
+            name: "レベル 2: ClamAV 対応からマルチバックエンドへ"
             d_url: /microengines-clamav-to-multi/
       - 
-        name: Testing
+        name: テスト
         subitems:
           - 
             name: Linux
@@ -76,7 +76,7 @@ header:
             name: Windows
             d_url: /testing-windows/
       - 
-        name: Marketplace
+        name: マーケットプレイス
         d_url: /joining-the-market/
       - 
         name: API
@@ -90,49 +90,49 @@ footer:
       - 
         items:
           - 
-            name: Navigation
+            name: ナビゲーション
           - 
-            name: Home
+            name: ホーム
             d_url: /
             d_rooturl: true
           - 
-            name: Security Experts
+            name: セキュリティー専門家
             d_url: /security_experts/
             d_rooturl: true
           - 
-            name: How It Works
+            name: 仕組み
             d_url: /how_it_works/
             d_rooturl: true
           - 
-            name: Partners
+            name: パートナー
             d_url: /partners/
             d_rooturl: true
           - 
-            name: Updates
+            name: 更新情報
             d_url: /updates/
             d_rooturl: true
           - 
-            name: Docs
+            name: 資料
             d_url: https://docs.polyswarm.io
             d_subdomain: true
           - 
-            name: Contact
+            name: お問い合わせ
             d_url: /contact/
             d_rooturl: true
       - 
         items:
           - 
-            name: Company
+            name: 会社
           - 
-            name: The Team
+            name: チーム
             d_url: /the_team/
             d_rooturl: true
           - 
-            name: Careers
+            name: 採用情報
             d_url: /careers/
             d_rooturl: true
           - 
-            name: Roadmap
+            name: ロードマップ
             d_url: /roadmap/
             d_rooturl: true
           - 
@@ -140,7 +140,7 @@ footer:
             d_url: /faq/
             d_rooturl: true
           - 
-            name: Grants
+            name: 助成制度
             d_url: /grants/
             d_rooturl: true
           - 
@@ -212,13 +212,13 @@ docs:
     title: Windows 開発環境
     description: PolySwarm で Windows 開発環境を構成する方法
   microengines_scratch_to_eicar:
-    title: "Level 0: Scratch to EICAR"
+    title: "レベル 0: ゼロから EICAR 対応へ"
     description: このチュートリアルでは、最初の PolySwarm マイクロエンジン (EICAR テスト・ファイルを検出できる「hello world」マイクロエンジン) の作成について順に説明します。
   microengines_scratch_to_clamav:
-    title: "Level 1: Scratch to ClamAV"
+    title: "レベル 1: ゼロから ClamAV 対応へ"
     description: このチュートリアルでは、ClamAV を分析バックエンドとして取り込むことで、2 つ目の PolySwarm マイクロエンジンを作成するプロセスについて順に説明します。
   microengines_clamav_to_multi:
-    title: "Level 2: ClamAV to Multi"
+    title: "レベル 2: ClamAV 対応からマルチバックエンドへ"
     description: このチュートリアルでは、複数の分析バックエンド (ClamAV と YARA) を組み合わせる方法について説明し、基本判定生成プリミティブの概要を示します。
   testing_linux:
     title: Linux ベースのエンジンのテスト
