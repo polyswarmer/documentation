@@ -93,42 +93,42 @@ We use the information we collect or receive:
 *     重大利益や法的権利のため。 当社のポリシーの違反の可能性、不正の疑い、個人の安全を脅かす可能性がある状況や違法行為の調査、防止、またはその対応が必要であると当社が判断した場合、または当社が関係する訴訟の証拠として、お客様の情報を開示することがあります。
      
 
-*     ベンダー、コンサルタント、その他のサード・パーティーのサービス・プロバイダーのため。 We may share your data with third party vendors, service providers, contractors or agents who perform services for us or on our behalf and require access to such information to do that work. Examples include: payment processing, data analysis, email delivery, hosting services, customer service and marketing efforts. We may allow selected third parties to use tracking technology on the Sites, which will enable them to collect data about how you interact with the Sites over time. This information may be used to, among other things, analyze and track data, determine the popularity of certain content and better understand online activity. Unless described in this Policy, we do not share, sell, rent or trade any of your information with third parties for their promotional purposes.
+*     ベンダー、コンサルタント、その他のサード・パーティーのサービス・プロバイダーのため。 当社に対して、または当社に代わってサービスを実行し、その作業のためにお客様の情報にアクセスする必要があるサード・パーティーのベンダー、サービス・プロバイダー、請負業者、代理業者にお客様のデータを共有することがあります。 例えば、支払処理、データ分析、E メール配信、ホスティング・サービス、お客様対応サービスやマーケティング活動などです。 選択した第三者が当サイトでトラッキング技術を使用することを許可することがあります。そのため、この第三者は、お客様の当サイトでの行動に関する経時的なデータを収集できます。 特に、データの分析および追跡、特定のコンテンツの人気度の判別、オンライン活動の把握の改善のために、この情報を使用することがあります。 このポリシーに記載されている場合を除き、プロモーションのために第三者にお客様の情報を共有、販売、貸与、交換しません。
      
 
-*     Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.
+*     事業の譲渡のため。 合併、会社の資産の売却、資金調達、当社の事業のすべてまたは一部の別会社への吸収に関連して、あるいはその交渉時に、お客様の情報を共有または譲渡することがあります。
      
 
-*     With your Consent. We may disclose your personal information for any other purpose with your consent.
+*     お客様の同意を得た場合。 任意の他の目的のために、お客様の同意を得て、お客様の個人情報を開示することがあります。
      
 
-#### Do We Use Cookies and Other Tracking Technologies?
+#### Cookie などのトラッキング技術の使用
 
-**In Short:** We may use cookies and other tracking technologies to collect and store your information.
+**概要:** Cookie などのトラッキング技術を使用して、お客様の情報を収集して保存することがあります。
 
-We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in the "Cookie Policy" section below.
+Cookie や類似のトラッキング技術 (Web ビーコンやピクセル画像など) を使用して、情報にアクセスしたり、情報を保存したりすることがあります。 このような技術を使用する方法や特定の Cookie を拒否する方法に関する具体的な情報は、下記の「Cookie のポリシー」で説明しています。
 
-#### How Do We Handle Your Social Logins?
+#### ソーシャル・ログインの処理方法
 
-**In Short:** If you choose to register or log in to our websites using a social media account, we may have access to certain information about you.
+**概要:** ソーシャル・メディア・アカウントを使用して当社の Web サイトに登録またはログインした場合、当社は、お客様に関する特定の情報にアクセスできることがあります。
 
-Our Sites offer you the ability to register and login using your third party social media account details (like your Facebook or Twitter logins). Where you choose to do this, we will receive certain profile information about you from your social media provider. The profile Information we receive may vary depending on the social media provider concerned, but will often include your name, e-mail address, friends list, profile picture as well as other information you choose to make public.
+当サイトには、サード・パーティーのソーシャル・メディアのアカウント詳細 (例えば、Facebook や Twitter のログイン情報) を使用して登録およびログインする機能が用意されています。 このオプションを選択した場合、お客様に関する特定のプロフィール情報をソーシャル・メディア・プロバイダーから受け取ることになります。 受け取ったプロフィール情報は、関係するソーシャル・メディア・プロバイダーによって異なりますが、多くの場合、名前、E メール・アドレス、友達リスト、プロフィール画像、お客様が公開することを選択した他の情報が含まれています。
 
-We will use the information we receive only for the purposes that are described in this privacy policy or that are otherwise made clear to you on the Sites. Please note that we do not control, and are not responsible for, other uses of your personal information by your third party social media provider. We recommend that you review their privacy policy to understand how they collect, use and share your personal information, and how you can set your privacy preferences on their sites and apps.
+当社では、このプライバシー・ポリシーに記載されている目的、または当サイトで明記された目的でのみ、受け取った情報を使用します。 なお、サード・パーティーのソーシャル・メディア・プロバイダーによるお客様の個人情報の使用は、当社は管理しておらず、またその責任を負いません。 関連するプロバイダーのプライバシー・ポリシーを確認して、個人情報の収集、使用、共有方法、および各サイトやアプリでのプライバシー設定の指定方法を把握することをお勧めします。
 
-#### Is Your Information Transferred Internationally?
+#### 情報の海外への転送
 
-**In Short:** We may transfer, store, and process your information in countries other than your own.
+**概要:** お客様の国以外の国にお客様の情報を転送、保存し、処理することがあります。
 
-Our servers are located in the U.S. If you are accessing our Sites from outside, please be aware that your information may be transferred to, stored, and processed by us in our facilities and by those third parties with whom we may share your personal information (see "Will Your Information Be Shared with Anyone?" above), in the U.S. and other countries.
+当社のサーバーは米国にあります。米国外から当サイトにアクセスしている場合、お客様の情報は当社によって当社の施設に、あるいは当社がお客様の個人情報を共有した第三者 (上記の「お客様の情報の共有先」を参照) によって米国やその他の国に転送して保存され、処理されることがあります。
 
-If you are a resident in the European Economic Area, then these countries may not have data protection or other laws as comprehensive as those in your country. We will however take all necessary measures to protect your personal information in accordance with this privacy policy and applicable law.
+お客様が欧州経済地域に居住している場合、該当する国では、データ保護などの法律がお客様の国ほど包括的ではない可能性があります。 ただし、当社では、このプライバシー・ポリシーや適用法に従って、お客様の個人情報を保護するために必要なあらゆる手段を講じます。
 
-#### How Long Do We Keep Your Information?
+#### お客様の情報の保存期間
 
-**In Short:** We keep your information for as long as necessary to fulfill the purposes outlined in this privacy policy unless otherwise required by law.
+**概要:** 法律で別途要求される場合を除き、このプライバシー・ポリシーで概要が示されている目的を遂行するために必要な期間だけ、お客様の情報を保存します。
 
-We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law (such as tax, accounting or other legal requirements). No purpose in this policy will require us keeping your personal information for longer than the period of time in which users have an account with us.
+お客様の個人情報は、このプライバシー・ポリシーに規定されている目的のために必要な期間だけ保存します。ただし、それより長い保存期間が法律 (例えば、税務、会計などの法的要件) によって要求または許可される場合を除きます。 このポリシーに規定されている目的では、お客様が当社のアカウントを所有している期間を超えてお客様の個人情報を保存する必要はありません。
 
 When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize it, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
 
