@@ -56,11 +56,11 @@ cookiecutter https://github.com/polyswarm/engine-template
 * `author_name`: Wile E Coyote (または自分の実際の名前)
 * `author_email`: (E メール・アドレス)
 * `platform`: このエンジンの実行プラットフォームが Linux なのか Windows なのかを正しく応答してください
-* `has_backend`: 1 for false (see explanation below)
-* `aws_account_for_ami`: (Windows only) your AWS account ID (for Linux engines, just accept the default)
+* `has_backend`: バックエンドがない場合は 1 (後述の説明を参照)
+* `aws_account_for_ami`: (Windows のみ) AWS アカウント ID (Linux エンジンの場合は、デフォルトを受け入れる)
 
 <div class="m-callout">
-  <p>One of the prompt items is <code>has_backend</code>, which can be thought of as "has a disjoint backend" and deserves additional explanation.</p>
+  <p>プロンプト項目の 1 つに <code>has_backend</code> があります。これは、「外部のバックエンドがあるかどうか」と捉えることができます。これについて説明を追加します。</p>
   <p>When wrapping your scan engine, inheritance of <code>polyswarm-client</code> classes and implementation of class functionality are referred to as "frontend" changes. If your scan engine "frontend" must reach out across a network or local socket to a separate process that does the real scanning work (the "backend"), then you have a disjoint "backend" and you should answer <code>true</code> to <code>has_backend</code>. If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>false</code> for <code>has_backend</code>.</p>
   <p>Example of disjoint frontend / backend:</p>
   <ul>
