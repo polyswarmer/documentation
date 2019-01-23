@@ -61,7 +61,7 @@ cookiecutter https://github.com/polyswarm/engine-template
 
 <div class="m-callout">
   <p>プロンプト項目の 1 つに <code>has_backend</code> があります。これは、「外部のバックエンドがあるかどうか」と捉えることができます。これについて説明を追加します。</p>
-  <p>When wrapping your scan engine, inheritance of <code>polyswarm-client</code> classes and implementation of class functionality are referred to as "frontend" changes. If your scan engine "frontend" must reach out across a network or local socket to a separate process that does the real scanning work (the "backend"), then you have a disjoint "backend" and you should answer <code>true</code> to <code>has_backend</code>. If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>false</code> for <code>has_backend</code>.</p>
+  <p>スキャン・エンジンをラップする際に、<code>polyswarm-client</code> クラスの継承やクラス機能の実装は、「フロントエンド」の変更と呼びます。 スキャン・エンジンの「フロントエンド」がネットワークまたはローカル・ソケットを介して、実際のスキャン処理を行う別プロセス (バックエンド) を利用する場合、外部の「バックエンド」があり、<code>has_backend</code> に対して <code>true</code> と応答する必要があります。 If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>false</code> for <code>has_backend</code>.</p>
   <p>Example of disjoint frontend / backend:</p>
   <ul>
     <li><a href="https://github.com/polyswarm/polyswarm-client/blob/5959742f0014a582baf5046c7bf6694c23f7435e/src/microengine/clamav.py#L18">ClamAV</a></li>
