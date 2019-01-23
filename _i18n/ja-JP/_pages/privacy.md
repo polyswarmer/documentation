@@ -66,34 +66,34 @@ We use the information we collect or receive:
 *     業務上の目的、同意に基づいて、ターゲットを絞った広告をお客様に提供するため。 お客様の情報を使用して、お客様の関心や位置に合わせて、コンテンツおよび広告を作成して表示する (また、それを行う第三者と連携する) こと、またその有効性を測定することがあります。 詳細については、下記の「Cookie のポリシー」セクションを参照して下さい。
      
 
-*     Administer prize draws and competitions for our Business Purposes and/or with your Consent. We may use your information to administer prize draws and competitions when you elect to participate in competitions.
+*     業務上の目的、同意に基づいて賞品の抽選やコンペを管理するため。 お客様がコンペに参加することを選択した場合、お客様の情報を使用して、商品の抽選やコンペを管理することがあります。
      
 
-*     To protect our Sites for Business Purposes and/or for Legal Reasons. We may use your information as part of our efforts to keep our Sites safe and secure (for example, for fraud monitoring and prevention).
+*     業務上の目的、法的理由のために当サイト保護するため。 (例えば、不正の監視や防止のために) 当サイトの安全性とセキュリティーを維持する取り組みの一環としてお客様の情報を使用することがあります。
      
 
-*     To enforce our terms, conditions and policies for Business Purposes, Legal Reasons and/or possibly Contractual.
+*     業務上の目的、法的理由、契約のために当社の規約、条件、ポリシーを適用するため。
      
 
-*     To respond to legal requests and prevent harm for Legal Reasons. If we receive a subpoena or other legal request, we may need to inspect the data we hold to determine how to respond.
+*     法的要請に対応するため、法的理由で損害を防止するため。 召喚状などの法的要請を受けた場合、対応方法を決定するために保有しているデータを調べる必要が生じることがあります。
      
 
-*     For other Business Purposes. We may use your information for other Business Purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Sites, products, services, marketing and your experience.
+*     その他の業務上の目的のため。 その他の業務上の目的のためにお客様の情報を使用することがあります。例えば、データ分析、使用傾向の特定、プロモーション戦略の有効性の確認のためや、当サイト、製品、サービス、マーケティング、ユーザー・エクスペリエンスを評価して改善するためなどです。
      
 
-#### Will Your Information Be Shared with Anyone?
+#### お客様の情報の共有先
 
-**In Short:** We only share information with your consent, to comply with laws, to protect your rights, or to fulfill business obligations.
+**概要:** 情報を共有するのは、お客様の同意に基づいている場合、法律を遵守するため、お客様の権利を保護するため、または業務上の義務を遂行するためのみです。
 
-We only share and disclose your information in the following situations:
+お客様の情報を共有および開示するのは、以下の場合のみです。
 
-*     Compliance with Laws. We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process, such as in response to a court order or a subpoena (including in response to public authorities to meet national security or law enforcement requirements).
+*     法律を遵守するため。 裁判所命令や召喚状に対応する場合など (国家安全保障や法執行機関の要件を満たすために公共企業体に対応する場合を含む)、適用法、政府の要請、訴訟手続、裁判所命令、法的手続きを遵守するために法的に必要である場合にお客様の情報を開示することがあります。
      
 
-*     Vital Interests and Legal Rights. We may disclose your information where we believe it is necessary to investigate, prevent, or take action regarding potential violations of our policies, suspected fraud, situations involving potential threats to the safety of any person and illegal activities, or as evidence in litigation in which we are involved.
+*     重大利益や法的権利のため。 当社のポリシーの違反の可能性、不正の疑い、個人の安全を脅かす可能性がある状況や違法行為の調査、防止、またはその対応が必要であると当社が判断した場合、または当社が関係する訴訟の証拠として、お客様の情報を開示することがあります。
      
 
-*     Vendors, Consultants and Other Third-Party Service Providers. We may share your data with third party vendors, service providers, contractors or agents who perform services for us or on our behalf and require access to such information to do that work. Examples include: payment processing, data analysis, email delivery, hosting services, customer service and marketing efforts. We may allow selected third parties to use tracking technology on the Sites, which will enable them to collect data about how you interact with the Sites over time. This information may be used to, among other things, analyze and track data, determine the popularity of certain content and better understand online activity. Unless described in this Policy, we do not share, sell, rent or trade any of your information with third parties for their promotional purposes.
+*     ベンダー、コンサルタント、その他のサード・パーティーのサービス・プロバイダーのため。 We may share your data with third party vendors, service providers, contractors or agents who perform services for us or on our behalf and require access to such information to do that work. Examples include: payment processing, data analysis, email delivery, hosting services, customer service and marketing efforts. We may allow selected third parties to use tracking technology on the Sites, which will enable them to collect data about how you interact with the Sites over time. This information may be used to, among other things, analyze and track data, determine the popularity of certain content and better understand online activity. Unless described in this Policy, we do not share, sell, rent or trade any of your information with third parties for their promotional purposes.
      
 
 *     Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.
