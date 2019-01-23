@@ -1,18 +1,18 @@
-# Testing Windows-Based Engines
+# Windows ベースのエンジンのテスト
 
-In this page, we use `microengine-mywindowsengine` as the name of the Microengine's directory. In your own testing, you will use the name of your Microengine's directory instead. Additionally, in these instructions, we've shortened the PowerShell command prompt to be `PS >` in order to make it easier to read the commands. Your actual PowerShell command prompt will be similar to this: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`. Similarly for Linux command prompts, we've shortened them to be `$`, while your actual command prompts will have more text to the left side of the `$`.
+このページでは、マイクロエンジンのディレクトリーの名前として `microengine-mywindowsengine` を使用します。 ユーザー独自のテストでは、ご使用のマイクロエンジンのディレクトリーの名前を使用します。 また、この説明では、コマンドが読みやすくなるように、PowerShell コマンド・プロンプトを `PS >` と短縮しています。 実際の PowerShell コマンド・プロンプトは、`(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>` のようになります。 同様に、Linux コマンド・プロンプトでは、`$` と短縮していますが、実際のコマンド・プロンプトでは、`$` の左側に追加のテキストがあります。
 
-## Unit Testing
+## 単体テスト
 
-We'll use `tox` to test our Microengine. `tox` runs whatever unit tests you add to `tests/scan_test.py`.
+`tox` を使用してマイクロエンジンをテストします。 `tox` は、`tests/scan_test.py` に追加したすべての単体テストを実行します。
 
-In a powershell window with an activated virtual environment, and run the `tox` command at the base of your microengine's directory.
+アクティブ化された仮想環境の PowerShell ウィンドウで、マイクロエンジンのディレクトリーから `tox` コマンドを実行します。
 
 ```powershell
 PS > tox
 ```
 
-The output will look similar to the following:
+出力は、以下のようになります。
 
 ```powershell
 GLOB sdist-make: C:\Users\user\microengine-mywindowsengine\setup.py
@@ -42,33 +42,33 @@ _______________________________________________________ summary ________________
   congratulations :)
 ```
 
-You can safely ignore the `combine_argument_formatters` warning.
+`combine_argument_formatters` の警告は無視して問題ありません。
 
-## Integration Testing
-
-<div class="m-flag m-flag--warning">
-  <p>
-    <strong>Warning:</strong>
-    Conducting integration tests on Windows-Based Engines is only supported in a VirtualBox configuration at this time.
-    Please refer to <a href="/development-environment-windows/">Windows Development Environment</a> for more information.
-  </p>
-</div>
-
-Integration testing a Windows-Based Engine requires two virtual machines (VMs / Guests):
-
-1. A Windows guest for running your Windows-Based engine (we already made this).
-2. A Linux guest for standing up a local PolySwarm testnet (we'll make this now).
+## 統合テスト
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    The recommendations presented here are hard-won.
-    We strongly recommend that you test using the exact recommendations presented here.
-    Using any other configuration will make it difficult for us to provide you with support.
+    <strong>警告:</strong>
+    現在、Windows ベースのエンジンでの統合テストの実行は、VirtualBox 構成でのみサポートされます。
+    詳細については、「<a href="/development-environment-windows/">Windows 開発環境</a>」をご覧ください。
   </p>
 </div>
 
-### Create a Linux Guest
+Windows ベースのエンジンの統合テストでは、以下の 2 つの仮想マシン (VM / ゲスト) が必要です。
+
+1. Windows ベースのエンジンを実行するための Windows ゲスト (これは既に作成しました)
+2. ローカル PolySwarm testnet を支えるための Linux ゲスト (この説明で作成します)
+
+<div class="m-flag m-flag--warning">
+  <p>
+    <strong>警告:</strong>
+    ここで示している推奨は、多大な労力を費やして作成されました。
+    ここで示しているのとまったく同じ推奨を使用してテストすることを強くお勧めします。
+    他の構成を使用すると、当社でサポートするのが困難になる可能性があります。
+  </p>
+</div>
+
+### Linux ゲストの作成
 
 #### 仮想マシンの作成
 
@@ -84,55 +84,55 @@ Integration testing a Windows-Based Engine requires two virtual machines (VMs / 
 
 他のすべてのオプションについては、デフォルト設定を使用します。 特に、3D アクセラレーションは有効にしないでください。
 
-In general, you will want to provide extra available RAM and CPU resources to the Linux VM to make the testnet perform better.
+通常、testnet のパフォーマンスを向上させるため、Linux VM で使用可能な RAM と CPU のリソースを追加することをお勧めします。
 
-#### Install Xubuntu 18.04 amd64
+#### Xubuntu 18.04 amd64 のインストール
 
-* [Download Xubuntu 18.04 amd64 ISO](https://xubuntu.org/release/18-04/)
+* [Xubuntu 18.04 amd64 ISO のダウンロード](https://xubuntu.org/release/18-04/)
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    We strongly recommend Xubuntu over Ubuntu for VirtualBox guests.
-    Ubuntu presents a range of visual lag issues and is prone to total visual lockup when VirtualBox tools are installed.
+    <strong>警告:</strong>
+    VirtualBox ゲストには、Ubuntu よりも Xubuntu を強くお勧めします。
+    Ubuntu では、さまざまな視覚的なラグの問題が発生し、VirtualBox ツールをインストールすると、完全な視覚的なロックアップに陥る傾向にあります。
   </p>
 </div>
 
-Use the ISO you downloaded to install Xubuntu in the VM.
+ダウンロードした ISO を使用して、VM に Xubuntu をインストールします。
 
-#### (Optional) Install VirtualBox Guest Additions
+#### (オプション) VirtualBox Guest Additions のインストール
 
 ゲストとホスト間でのクリップボードの共有やコピー・アンド・ペーストの機能を使用するために、Guest Additions が必要です。
 
 [VirtualBox の資料をご覧ください](https://www.virtualbox.org/manual/ch04.html)。
 
-### Configure Inter-Guest Networking
+### ゲスト間ネットワークの構成
 
-We need to establish an "internal" network that our Linux and Windows VMs will use to communicate with one another.
+Linux VM と Windows VM が相互通信に使用する「内部」ネットワークを確立する必要があります。
 
-Before we get started, shut down both the Linux and the Windows Guests.
+始める前に、Linux ゲストと Windows ゲストの両方をシャットダウンします。
 
-On your Windows Host, open a PowerShell and change to the VirtualBox installation directory:
+Windows ホストで、PowerShell を開いて、以下のように VirtualBox インストール環境ディレクトリーに移動します。
 
 ```powershell
 PS > pushd $Env:Programfiles\Oracle\VirtualBox
 ```
 
-You should now see your command prompt look similar to this:
+これで、以下のようなコマンド・プロンプトが表示されます。
 
 ```powershell
 PS C:\Program Files\Oracle\VirtualBox>
 ```
 
-#### Create Internal PolySwarm Network
+#### 内部 PolySwarm ネットワークの作成
 
-Create and assign a dedicated PolySwarm internal network to each VM.
+専用 PolySwarm 内部ネットワークを作成して各 VM に割り当てます。
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    These commands will reconfigure network adapter #5 on your VMs.
-    If you are already using this adapter (very unlikely), change the number in the commands.
+    <strong>警告:</strong>
+    以下のコマンドでは、VM 上のネットワーク・アダプター 5 を再構成します。
+    (可能性は非常に低いですが) このアダプターを既に使用している場合は、コマンド内の番号を変更してください。
   </p>
 </div>
 
@@ -145,42 +145,40 @@ PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    For more information on internal networking in VirtualBox, refer to their <a href="https://www.virtualbox.org/manual/ch06.html#network_internal">official documentation</a>.
+    <strong>情報:</strong>
+    VirtualBox の内部ネットワークの詳細については、<a href="https://www.virtualbox.org/manual/ch06.html#network_internal">公式資料</a>をご覧ください。
   </p>
 </div>
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    You will not see an "adapter #5" listed in your VM settings or inside your VM.
-    What you will see is that your VM will have at least 2 active network adapters and by
-    adding "polyswarm_net" to adapter 5, it should be easier to find because it will be the
-    highest numbered network interface in your VM.
+    <strong>警告:</strong>
+    VM 設定や VM 内で「アダプター 5」はリストされません。
+    表示されるのは、VM で少なくとも 2 つのアクティブなネットワーク・アダプターがあるということです。「polyswarm_net」をアダプター 5 に追加すると、VM 内で最も番号が大きいネットワーク・インターフェースになるため、見つけやすくなります。
   </p>
 </div>
 
-#### Configure Virtual Machines with Static IP Addresses
+#### 静的 IP アドレスを使用した仮想マシンの構成
 
-Boot the `polyswarm_lin` VM and edit your network settings to assign the following static IPv4 information to the new adapter:
+`polyswarm_lin` VM を起動し、ネットワーク設定を編集して以下の静的 IPv4 情報を新しいアダプターに割り当てます。
 
-* address: `10.10.42.101`
-* netmask: `255.255.255.0`
-* gateway: `10.10.42.1`
+* アドレス: `10.10.42.101`
+* ネットマスク: `255.255.255.0`
+* ゲートウェイ: `10.10.42.1`
 
-If it is unclear which network interface you should apply these settings to, run the `ifconfig -a` command, and in the output you should see multiple network interfaces that start with `enp0s`. The interface with the largest number after that prefix is usually the one you want to modify.
+上記設定を適用するネットワーク・インターフェースが分からない場合は、`ifconfig -a` コマンドを実行します。出力で、`enp0s` から開始する複数のネットワーク・インターフェースが表示されるはずです。 通常、そのプレフィックスの後の番号が最大であるインターフェースが変更対象のものです。
 
-Boot the `polyswarm_win` VM and edit your network settings to configure the new adapter for these static IPv4 settings:
+`polyswarm_win` VM を起動し、ネットワーク設定を編集して以下の静的 IPv4 設定で新しいアダプターを構成します。
 
-* address: `10.10.42.102`
-* netmask: `255.255.255.0`
-* gateway: `10.10.42.1`
+* アドレス: `10.10.42.102`
+* ネットマスク: `255.255.255.0`
+* ゲートウェイ: `10.10.42.1`
 
-If it is unclear which network interface you should apply these settings to, run the `ipconfig /all` command, and in the output you should see multiple network interfaces that start with `Ethernet adapter Ethernet`. The interface with the largest number after that prefix is usually the one you want to modify.
+上記設定を適用するネットワーク・インターフェースが分からない場合は、`ipconfig /all` コマンドを実行します。出力で、`Ethernet adapter Ethernet` から開始する複数のネットワーク・インターフェースが表示されるはずです。 通常、そのプレフィックスの後の番号が最大であるインターフェースが変更対象のものです。
 
-#### Configure Windows VM for `polyswarmd` DNS Resolution
+#### `polyswarmd` DNS 解決のための Windows VM の構成
 
-Finally, your Windows VM needs to know that your Linux VM is hosting `polyswarmd`. Open an elevated instance of Notepad and add `polyswarmd` to the bottom of `C:\Windows\System32\Drivers\etc\hosts`:
+最後に、Linux VM で `polyswarmd` がホストされていることを Windows VM が認識する必要があります。 権限が昇格されたメモ帳のインスタンスを開き、以下のように `polyswarmd` を `C:\Windows\System32\Drivers\etc\hosts` の末尾に追加します。
 
     # Copyright (c) 1993-2009 Microsoft Corp.
     #
@@ -207,15 +205,15 @@ Finally, your Windows VM needs to know that your Linux VM is hosting `polyswarmd
     10.10.42.101 polyswarmd
     
 
-#### Verify Configuration
+#### 構成の確認
 
-Finally, verify that Windows resolves `polyswarmd` to your Linux VM and is able to reach the VM. First do a DNS test as follows:
+最後に、Windows で `polyswarmd` が Linux VM に解決され、VM に到達できることを確認します。 まず、以下のように DNS テストを実行します。
 
 ```powershell
 PS > Resolve-DnsName -name polyswarmd
 ```
 
-The output should look like this:
+出力は、以下のようになっている必要があります。
 
 ```powershell
 Name                                           Type   TTL   Section    IPAddress
@@ -223,28 +221,28 @@ Name                                           Type   TTL   Section    IPAddress
 polyswarmd                                     A      86400 Answer     10.10.42.101
 ```
 
-Next, do a ping test as follows:
+次に、以下のように ping テストを実行します。
 
 ```powershell
 PS > ping polyswarmd
 ```
 
-The output should look like this:
+出力は、以下のようになっている必要があります。
 
 ```powershell
 Pinging polyswarmd [10.10.42.101] with 32 bytes of data:
 Reply from 10.10.42.101: bytes=32 time<1ms TTL=64
 ```
 
-If you get those same output results, you have everything setup correctly, so let's continue.
+同様の出力結果が得られた場合、すべてが正しくセットアップされているので、先に進めましょう。
 
-### Configure Linux VM for Hosting a Local Testnet
+### ローカル testnet をホストするための Linux VM の構成
 
 #### Docker のインストール
 
-We've Docker-ized the test version of the PolySwarm marketplace. To use it, you need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
+PolySwarm マーケットプレイスのテスト・バージョンを Docker 化しました。 これを使用するには、Docker-CE (ベース) と Docker Compose をインストールする必要があります。 最新の Docker セットアップがない場合は、[ここで Docker をインストールしてください](https://www.docker.com/community-edition)。
 
-On Xubuntu:
+Xubuntu の場合:
 
 ```bash
 $ sudo apt-get update && sudo apt-get install -y curl
@@ -254,22 +252,22 @@ $ ./get-docker.sh
 $ sudo usermod -aG docker $USER
 ```
 
-Log out, log back in.
+ログアウトしてからログインし直します。
 
-Once installed, verify that the installation works, by running the following command:
+インストール後、以下のコマンドを実行してインストール環境が機能していることを確認します。
 
 ```bash
 $ docker ps
 ```
 
-It should output:
+以下のように出力される必要があります。
 
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
     
 
-Also [install `docker-compose`](https://docs.docker.com/compose/install/)
+また、[`docker-compose` をインストールします](https://docs.docker.com/compose/install/)。
 
-On Xubuntu:
+Xubuntu の場合:
 
 ```bash
 $ curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
@@ -277,73 +275,73 @@ $ sudo mv docker-compose /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-Once installed, verify that the installation works.
+インストール後、インストール環境が機能していることを確認します。
 
 ```bash
 $ docker-compose -v
 ```
 
-Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
+少なくとも `docker-compose version 1.21.1, build 5a3f1a3` が出力される必要があります。
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you receive permission errors when running docker or docker-compose commands, <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">configure your user account for docker permission</a>.
+    <strong>情報:</strong>
+    docker または docker-compose コマンドの実行時に許可に関するエラーが表示された場合は、<a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">Docker 許可のためにユーザー・アカウントを構成してください</a>。
   </p>
 </div>
 
-#### Install Git
+#### Git のインストール
 
-We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
+いくつかのソース・コード・リポジトリーを利用する必要があります。Git を使用するのが最も簡単でしょう。 ご使用の開発環境用の [Git をインストール](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)してください。
 
-On Xubuntu 18.04:
+Xubuntu 18.04 では、以下のようにします。
 
 ```bash
 $ sudo apt update && sudo apt install -y git
 ```
 
-#### Download `orchestration`
+#### `orchestration` のダウンロード
 
-We'll use the PolySwarm [`orchestration`](https://github.com/polyswarm/orchestration) project to launch our development testnet. We use this same project internally to conduct end-to-end (integration) tests.
+PolySwarm [`orchestration`](https://github.com/polyswarm/orchestration) プロジェクトを使用して開発 testnet を起動します。 この同じプロジェクトを内部で使用して、エンドツーエンドの (統合) テストを実行します。
 
-Clone `orchestration`:
+以下のように、`orchestration` を複製します。
 
 ```bash
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### Test Your Engine
+### エンジンのテスト
 
-We're going to have to switch between our VMs a little bit here. We will first start the Testnet in the Linux VM. Then we will start your Microengine in the Windows VM. Finally, we will start the Ambassador in the Linux VM.
+ここでは、少々 VM を切り替える必要があります。 まず、Linux VM で testnet を開始します。 次に、Windows VM でマイクロエンジンを開始します。 最後に、Linux VM でアンバサダーを開始します。
 
-#### Linux VM: Launch the Testnet
+#### Linux VM: testnet の起動
 
-In your Linux VM, spin up a subset of the testnet, leaving out the stock `microengine` (we'll be substituting this with our own) and leaving out the `ambassador` for now (we'll start it later). To do that, run the following commands in a new terminal window:
+Linux VM で、testnet のサブセットを開始します。ここでは、ストックの `microengine` は除外し (これは独自のもので置き換えます)、`ambassador` も除外します (これは後から開始します)。 そうするために、新しい端末ウィンドウで以下のコマンドを実行します。
 
 ```bash
 $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-It will take several minutes for `polyswarmd` to become available. During this time, you will see many messages like `Problem with dial... dial tcp connection refused.` and `chain for config not available in consul yet`. These errors are normal while the testnet is initializing, so have patience.
+`polyswarmd` が使用可能になるまでに数分かかります。 このとき、以下のような多数のメッセージが表示されます。「`Problem with dial... dial tcp connection refused.`」や「`chain for config not available in consul yet`」。 testnet の初期化中にこうしたエラーが出ても正常であるため、待機してください。
 
-Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
+`polyswarmd` は、使用可能になると、クライアントに応答を提供しはじめます。例: 
 
     INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
     
 
-Now it is safe to move to the next step.
+これで、問題なく次のステップに進むことができます。
 
-#### Windows VM: Test Connection to `polyswarmd`
+#### Windows VM: `polyswarmd` への接続のテスト
 
-On your Windows VM, confirm that `polyswarmd` is available and ready to respond to your Microengine. To do that, run the following command in PowerShell:
+Windows VM で、`polyswarmd` が使用可能であり、マイクロエンジンに応答する準備ができていることを確認します。 これを行うために、PowerShell で以下のコマンドを実行します。
 
 ```powershell
 PS > curl -UseBasicParsing http://polyswarmd:31337/status
 ```
 
-It should output the following:
+以下のように出力される必要があります。
 
 ```powershell
 StatusCode        : 200
@@ -353,28 +351,28 @@ Content           : {"result":{"home":{"block":189,"reachable":true,"syncing":fa
 ...
 ```
 
-The key thing to look for is `"status":"OK"`.
+確認する必要がある重要な部分は「`"status":"OK"`」です。
 
-#### Windows VM: Launch `balancemanager` & Your Engine
+#### Windows VM: `balancemanager` とエンジンの起動
 
-Start a new PowerShell window and activate your virtual environment. Then change into your Microengine's directory.
+新しい PowerShell ウィンドウを開始し、仮想環境をアクティブ化します。 次に、マイクロエンジンのディレクトリーに移動します。
 
-In your Microengine's directory, install your Microengine's prerequisites and your Microengine itself.
+マイクロエンジンのディレクトリーで、マイクロエンジンの前提条件とマイクロエンジン自体をインストールします。
 
 ```powershell
 PS > pip install -r requirements.txt
 PS > pip install .
 ```
 
-`balancemanager` is a utility (based on `polyswarm-client`) that will help us maintain a balance of (fake) PolySwarm Nectar (NCT) on the sidechain of our local testnet where all transactions will take place.
+`balancemanager` は、すべてのトランザクションが行われるローカル testnet のサイドチェーンで (フェイク) PolySwarm Nectar (NCT) の残高を維持できるようにする (`polyswarm-client` に基づいた) ユーティリティーです。
 
-In that same PowerShell window, launch `balancemanager` as follows:
+同じ PowerShell ウィンドウで、以下のように `balancemanager` を起動します。
 
 ```powershell
 PS > balancemanager maintain --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport 100000 500000
 ```
 
-It will print output similar to the following:
+以下のような出力になります。
 
 ```powershell
 INFO:root:2018-12-06 16:55:30,800 Logging in text format.
@@ -389,17 +387,17 @@ INFO:polyswarmclient:2018-12-06 16:55:33,034 Received block on chain home: {'num
 INFO:polyswarmclient:2018-12-06 16:55:33,080 Received block on chain side: {'number': 18206}
 ```
 
-When it starts printing `Received block on chain` messages, you are ready to launch your Microeengine.
+「`Received block on chain`」メッセージが出力され始めたら、マイクロエンジンを起動する準備ができています。
 
-Start another new PowerShell window and activate your virutal environment. Then change into your Microengine's directory.
+別の新しい PowerShell ウィンドウを開始し、仮想環境をアクティブ化します。 次に、マイクロエンジンのディレクトリーに移動します。
 
-Run your Microengine using a command similar to the following command. Be sure to update the value for the `--backend` argument to match the name of your Microengine's package directory (i.e. the directory in `src/`):
+以下のようなコマンドを使用して、マイクロエンジンを実行します。 必ず、`--backend` 引数の値を更新して、ご使用のマイクロエンジンのパッケージ・ディレクトリー (つまり、`src/` 内のディレクトリー) の名前にしてください。
 
 ```powershell
 PS > microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
 ```
 
-It will print output similar to the following:
+以下のような出力になります。
 
 ```powershell
 INFO:root:2018-12-06 16:56:20,674 Logging in text format.
@@ -427,27 +425,27 @@ INFO:polyswarmclient:2018-12-06 16:56:48,503 Received assertion on chain side: {
 WARNING:polyswarmclient.abstractmicroengine:2018-12-06 16:56:48,503 Received new bounty, but finished with testing mode
 ```
 
-Running with `--testing 2` means that your Microengine will respond to 2 bounties and then refuse to respond to further bounties by shutting itself off. You can adjust this number if you want it to process more bounties in your tests.
+`--testing 2` と指定して実行すると、マイクロエンジンは 2 つの報奨金に応答してから、自動的にシャットダウンしてそれ以上報奨金に応答しなくなります。 テストでさらに報奨金を処理する場合は、この数値を調整してください。
 
-But, your Microengine will not have any bounties to process until there is an Ambassador sending bounties into the testnet.
+ただし、アンバサダーが報奨金を testnet に送信するまで、処理するための報奨金はマイクロエンジンに提示されません。
 
-#### Linux VM: Launch the Ambassador
+#### Linux VM: ambassador の起動
 
-In your Linux VM, now start the `ambassador`, which will submit bounties into the testnet, so your microengine can respond to them. Start a new terminal and run the following commands:
+次に、Linux VM で `ambassador` を起動します。これは、報奨金を testnet に提示し、マイクロエンジンでその報奨金に応答できるようにします。 新しい端末を開始し、以下のコマンドを実行します。
 
 ```bash
 $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Shortly after this starts, you will see messages in your Microengine's PowerShell window when it is processing bounties.
+この開始後すぐに、マイクロエンジンの PowerShell ウィンドウで、報奨金処理中のメッセージが表示されます。
 
-### All Done
+### 完了
 
-Congrats!
+完了です。
 
-Your Windows-Based Engine should now be responding to bounties placed on a local testnet hosted in your Linux VM.
+これで、Windows ベースのエンジンが、Linux VM にホストされたローカル testnet で提示された報奨金に応答しています。
 
-Let your Microengine run until it shuts itself off.
+自動的にシャットダウンするまでマイクロエンジンを実行してみましょう。
 
-Take a close look at the output of your engine to ensure it's doing what you want it to :)
+エンジンの出力を詳しく調べて、期待される処理を実行しているかを確認してください。

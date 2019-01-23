@@ -1,226 +1,224 @@
-# Participating in the PolySwarm Marketplace
+# PolySwarm マーケットプレイスへの参加
 
-Once you've thoroughly tested your engine, you'll want to put it to work in the real PolySwarm marketplace!
+エンジンを詳細にテストした後に、そのエンジンを実際の PolySwarm マーケットプレイスに展開します。
 
-At a high level, plugging into the PolySwarm marketplace is a simple matter of:
+大まかに言うと、PolySwarm マーケットプレイスへの接続は、以下のような単純なタスクです。
 
-1. determining which Community(ies) you'd like to join
-2. pointing your engines to the hosted instance of `polyswarmd` for those Communities
+1. 参加する単一または複数のコミュニティーを決定する
+2. ご使用のエンジンで、該当するコミュニティーの `polyswarmd` のホスト・インスタンスを指定する
 
-There are a few items to be aware of when doing this; we discuss below.
+これを行う際の留意事項がいくつかあります。以下で説明します。
 
-## Wallets & Keyfiles
+## ウォレットとキーファイル
 
-PolySwarm is built on top of Ethereum, a programmable world computer fueled by a native cryptocurrency called Ether (ETH). When an Ethereum user executes a transfer of ETH or conducts a call into an Ethereum "smart contract" (e.g. PolySwarm's Relay contracts), the user must pay the Ethereum network to carry out this transaction in the form of "Gas". Gas is deducted from the user's ETH balance.
+PolySwarm は、イーサ (ETH) というネイティブ暗号通貨で支えられているプログラム可能なワールド・コンピューターであるイーサリアム上に構築されています。 イーサリアム・ユーザーが ETH の送金を実行するか、イーサリアムの「スマート・コントラクト」(例えば、PolySwarm のリレー・コントラクト) の呼び出しを実行する場合、そのユーザーは、そのトランザクションを実行するためにイーサリアム・ネットワークに「ガス」の形式で支払う必要があります。 ガスは、ユーザーの ETH 残高から差し引かれます。
 
-PolySwarm operates on Nectar (NCT) - an application-layer cryptocurrency token built on top of Ethereum. NCT is essential for participating in the PolySwarm marketplace.
+PolySwarm は、イーサリアム上に構築されたアプリケーション層の暗号通貨トークンである Nectar (NCT) を基盤として稼働しています。 NCT は、PolySwarm マーケットプレイスに参加するために必須です。
 
-Your engine, acting as your representative on the PolySwarm marketplace, must have access to both ETH and NCT.
+PolySwarm ネットワークでユーザーに代わって動作するエンジンは、ETH と NCT の両方を利用できる必要があります。
 
-### Cryptocurrency Wallets
+### 暗号通貨ウォレット
 
-As with all cryptocurrencies (e.g. Bitcoin), funds are maintained in "wallets". Technically, a wallet is simply a cryptographic keypair and some metadata that describes the keypairs' usage. Wallets are uniquely identified by a cryptographic hash of the public portion of this cryptographic keypair. Possession / control of a wallet (and all funds contained therein) is analogous to possession of the private portion of the wallet's keypair.
-
-<div class="m-flag m-flag--danger">
-  <p>
-    <strong>
-      In PolySwarm, as with all cryptocurrency applications, an attacker with access to your wallet's private key can steal all your cryptocurrency (ETH & NCT) and impersonate you in the marketplace.
-      It is absolutely essential that you protect the secrecy of your wallet's private key.
-    </strong>
-  </p>
-</div>
-
-Means to secure your private key are outside of the scope of this document. In order for your engine to participate in the PolySwarm marketplace (and place transactions on your behalf), your engine must have the ability to sign transactions with your wallet's private key. This means the engine must either have direct access to the key (less secure) or have the ability to request signatures of a device / process that has access to the key (more secure). The direct keyfile access method is supported by `polyswarm-client` today. Support for offloading transaction signing to another device will arrive in a future `polyswarm-client` release.
-
-### Wallet Usage in PolySwarm
-
-When testing our engines, we told our engines where to find a "keyfile" that contains our encrypted private key via the `--keyfile` argument to the `polyswarm-client` utilities (i.e. `microengine` and `balancemanager`). All keyfiles distributed with `polyswarm-client` (and other PolySwarm projects) are encrypted with a trivial password: `password`, specified via the `--password` argument.
+すべての暗号通貨 (ビットコインなど) と同様に、資金は「ウォレット」で保持されます。 厳密には、ウォレットは単に、暗号鍵ペアと、鍵ペアの使用法を記述したメタデータです。 ウォレットは、この暗号鍵ペアの公開部分の暗号ハッシュによって一意に識別されます。 ウォレット (およびそこに入っているすべての資金) の所有/管理は、ウォレットの鍵ペアの秘密部分の所有と同義です。
 
 <div class="m-flag m-flag--danger">
   <p>
     <strong>
-      The sole purpose of these distributed keyfiles is for testing with fake nct and fake eth.
-      Never use testing keyfiles from polyswarm projects in production or in real communities.
-      Never fund the wallets contained in these testing keyfiles with real nct or real eth.
-    </strong>
-  </p>
-  <p>
-    <strong>
-      When operating outside of a development testing environment you must create your own production keyfile.
-    </strong>
-  </p>
-  <p>
-    <strong>
-      You are solely responsible for the security of your production keyfile.
+      あらゆる暗号通貨アプリケーションと同様に、PolySwarm では、あるユーザーのウォレットの秘密鍵を利用できる攻撃者は、そのユーザーのすべての暗号通貨 (ETH と NCT) を盗んだり、マーケットプレイス内でそのユーザーになりすましたりすることができます。
+      ウォレットの秘密鍵の機密性を保持することは、非常に重要です。
     </strong>
   </p>
 </div>
 
-The official Ethereum client (`go-ethereum` or `geth` for short) has instructions for generating a keyfile. See [Managing your accounts in geth](https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts).
+秘密鍵を保護する手段については、この資料の対象外です。 エンジンが PolySwarm マーケットプレイスに参加するには (また、ユーザーに代わってトランザクションを行うには)、エンジンがウォレットの秘密鍵を使用してトランザクションに署名できる必要があります。 つまり、エンジンは、鍵に直接アクセスできるか (低セキュリティー)、鍵にアクセスできるデバイス/プロセスに署名を要求できる (高セキュリティー) 必要があります。 現在、キーファイルへの直接アクセス方法は、`polyswarm-client` でサポートされています。 別のデバイスへのトランザクションの署名のオフロードのサポートについては、今後の `polyswarm-client` リリースで対応する予定です。
 
-## Funding Your Wallet
+### PolySwarm でのウォレットの使用方法
 
-Once you've generated your own keyfile, you'll need to fund your wallet with ETH and NCT.
+エンジンをテストする際、`--keyfile` 引数を `polyswarm-client` ユーティリティー (つまり、`microengine` や `balancemanager`) に渡して、暗号秘密鍵が入っている「キーファイル」の場所をエンジンに教える必要があります。 `polyswarm-client` (および他の PolySwarm プロジェクト) で配布されているすべてのキーファイルは、単純なパスワード `password` (`--password` 引数で指定) を使用して暗号化されています。
 
-Generally, there are three funding avenues available:
+<div class="m-flag m-flag--danger">
+  <p>
+    <strong>
+      配布されているキーファイルはフェイク NCT とフェイク ETH を使用してテストするためだけのものです。
+      実稼働環境や実コミュニティーでは、PolySwarm プロジェクトからのテスト用キーファイルを使用しないでください。
+      テスト用キーファイルに含まれているウォレットに本物の NCT や本物の ETH を入れないでください。
+    </strong>
+  </p>
+  <p>
+    <strong>
+      開発テスト環境以外の運用では、独自の実動キーファイルを作成する必要があります。
+    </strong>
+  </p>
+  <p>
+    <strong>
+      実動キーファイルのセキュリティーについては、ユーザーが全責任を負います。
+    </strong>
+  </p>
+</div>
 
-1. Purchase ETH and NCT on cryptocurrency exchanges and transfer them to the production wallet represented by your microengine's production keyfile. Methods to purchase & transfer cryptocurrencies are outside the scope of this document.
-2. Subscribe to PolySwarm Direct - an upcoming service with configurable auto-refills that ensure your engine is funded. This service is in development, stay tuned!
-3. Initial partners have received a NCT seedling in their production wallet per our published distribution schedule.
+公式のイーサリアム・クライアント (`go-ethereum` (短縮名は `geth`)) に、キーファイルの生成に関する説明があります。 [geth でのアカウントの管理に関する説明](https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts)をご覧ください。
 
-## Finding Your Community(ies)
+## ウォレットへの入金
 
-The PolySwarm marketplace is made up of a patchwork of Communities. Communities are groups of individuals and corporations that share a particular malware interest or mutually agree to maintain the confidentiality of artifacts exchanged within the Community.
+独自のキーファイルを生成した後には、ウォレットに ETH と NCT を入れる必要があります。
 
-PolySwarm's first Community, Epoch, is a public Community accessible to everyone - it's where you'll want to get started. Epoch acts as a sort of "proving ground" for security experts to build a reputation for their engine. Once security experts build a reputation, they may want to engage in additional Communities. As more communities come online, they'll appear in PolySwarm Portal: <button disabled>Browse Communities → (coming soon!)</button>
+通常、以下の 3 つの入金方法を利用できます。
 
-For now, let's proceed under the assumption that we only want to join the Epoch community.
+1. 暗号通貨取引所で ETH と NCT を購入し、マイクロエンジンの実動キーファイルで表された実動ウォレットに送金します。 暗号通貨の購入と送金の方法については、この資料の対象外です。
+2. PolySwarm Direct (エンジンが常に入金された状態に保つ構成可能な自動再入金機能を備えた近日公開予定のサービス) をサブスクライブします。 このサービスは開発中です。お待ちください。
+3. 初期パートナーの皆様は、公開された配布スケジュールに従って、実動ウォレットで NCT を受け取ります。
+
+## コミュニティーの検索
+
+PolySwarm マーケットプレイスは、複数のコミュニティーで構成されています。 コミュニティーは、特定のマルウェアに対する関心を共有している、あるいはコミュニティー内で交換されるアーティファクトの機密性を保持することを相互に合意した個人や企業から成るグループです。
+
+PolySwarm の最初のコミュニティー Epoch は、誰もがアクセスできる公開コミュニティーであり、そこから開始できます。 Epoch は一種の実験の場であり、セキュリティー専門家はエンジンの評判を築き上げることができます。 セキュリティー専門家は、評判を築き上げた後に、別のコミュニティーに参加できます。 コミュニティーが追加されると、PolySwarm のポータルに表示されます。<button disabled>コミュニティーの参照 → (近日公開予定)</button>
+
+では、Epoch コミュニティーに参加するという想定で先に進めましょう。
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-      <code>polyswarm-client</code> based engines currently only support communicating with a single Community at a given time.
-      Support for multiple Communities will be included in a future release.
-      In the meantime, please run an instance of your engine (& <code>balancemanager</code>) per Community.
+    <strong>情報:</strong>
+      現在、<code>polyswarm-client</code> ベースのエンジンでは、一度に 1 つのコミュニティーとしか通信できません。
+      複数のコミュニティーのサポートは、将来のリリースで追加される予定です。
+      それまでは、コミュニティーごとにエンジンのインスタンスを実行してください (& <code>balancemanager</code>)。
   </p>
 </div>
 
-## Relaying NCT to Your Community(ies)
+## コミュニティーへの NCT のリレー
 
-Recall that each community has a distinct [sidechain](/#chains-home-vs-side) where PolySwarm transactions occur. In order to participate, you'll need to maintain a balance of NCT (ETH not required) on the Community's sidechain.
+各コミュニティーには、PolySwarm トランザクションが行われる固有の[サイドチェーン](/#chains-home-vs-side)があることに留意してください。 参加するには、コミュニティーのサイドチェーンで NCT の残高を維持する必要があります (ETH は不要です)。
 
-We've made this easy: you can use `polyswarm-client`'s `balancemanager` utility. You'll need to run both your engine and a `balancemanager` to maintain a balance of NCT on the Community sidechain. Windows users will recall running `balancemanager` from the [Windows engine Integration Testing instructions](/testing-windows/#integration-testing). Linux users had `balancemanager` handled for them by Docker transparently.
+`polyswarm-client` の `balancemanager` ユーティリティーを使用することで、これは簡単に行うことができます。 コミュニティーのサイドチェーンで NCT の残高を維持するには、エンジンと `balancemanager` の両方を実行する必要があります。 Windows ユーザーは、[Windows エンジン統合テストの説明](/testing-windows/#integration-testing)にある `balancemanager` の実行を行います。 Linux ユーザーの場合、`balancemanager` は Docker によって透過的に処理されます。
 
-`balancemanager` can be run in three modes:
+`balancemanager` は、以下の 3 つのモードで実行できます。
 
-1. `deposit`: deposit the configured amount of NCT onto the Community and exit
-2. `withdraw`: withdraw the configured amount of NCT from the Community and exit
-3. `maintain`: continually ensure a configurable balance of NCT in the Community
+1. `deposit`: コミュニティーに構成された金額の NCT を預金して終了します
+2. `withdraw`: コミュニティーから構成された金額の NCT を引き出し、終了します
+3. `maintain`: コミュニティーで構成可能な NCT の残高を継続的に確保します
 
-Most users will want to simply `maintain` a balance - we'll dive into using this functionality below. Advanced users may want to manually `deposit` and `withdraw` funds.
+ほとんどのユーザーは、残高の維持 (`maintain`) のみを行います。この機能の使用については、後で詳しく説明します。 上級ユーザーは、預金 (`deposit`) と資金の引き出し (`withdraw`) を手動で行えます。
 
-## API Keys
+## API キー
 
-In order to protect themselves from griefing / Denial of Service (DoS), Communities may elect to issue their members API keys and apply rate limits to these keys. Epoch is one such community, but API keys are available to everyone.
+荒らし行為やサービス拒否 (DoS) からの保護のため、コミュニティーは、メンバーに API キーを発行し、レート制限を各キーに適用することがあります。 Epoch もこれに該当するコミュニティーですが、API キーは全ユーザーが使用可能です。
 
-To obtain your Epoch API key, sign up on [PolySwarm Portal](https://polyswarm.network/), click your name in the top right corner and select Account. Your Epoch API key will be displayed in your Profile.
+Epoch の API キーを取得するには、[PolySwarm ポータル](https://polyswarm.network/)に登録し、右上隅にある名前をクリックして「アカウント」を選択します。 Epoch の API キーが、プロファイルに表示されます。
 
-### API Key Usage in `polyswarm-client`-Based Engines
+### `polyswarm-client` ベースのエンジンでの API キーの使用法
 
-Using your API key in `polyswarm-client` based engines is as simple as populating the `--api-key` command line argument. We discuss this below.
+`polyswarm-client` ベースのエンジンでの API の使用はシンプルであり、`--api-key` コマンド・ライン引数を指定するだけです。 これについては、後で説明します。
 
-### API Key Usage in a Custom Engine
+### カスタム・エンジンでの API キーの使用法
 
-If you're building a custom engine, please ensure that all API requests to Community-hosted `polyswarmd` instances contain your API key in the headers:
+カスタム・エンジンを作成する場合、以下のように、コミュニティーでホストされた `polyswarmd` インスタンスへのすべての API 要求のヘッダーに API キーを必ず含めてください。
 
-    Authorization: [API KEY]
+    Authorization: [API キー]
     
 
-For more details on the `polyswarmd API`, please refer to our API specification [polyswarmd API Documentation](/polyswarmd-api/).
+`polyswarmd API` の詳細については、PolySwarm の API 仕様が示されている [polyswarmd API 資料](/polyswarmd-api/)をご覧ください。
 
-## Putting it all Together
+## 最後の作業
 
-To recap, we've:
+まとめると、以下を行いました。
 
-1. generated a wallet keyfile for *production* use
-2. funded this wallet with both ETH and NCT
-3. decided on our Community(ies)
-4. retrieved our API key for our Community(ies)
+1. *実稼働環境*で使用するためのウォレットのキーファイルを生成しました
+2. そのウォレットに ETH と NCT の両方を入金しました
+3. コミュニティーを決定しました
+4. コミュニティーの API キーを取得しました
 
-Now we're ready to plug our engine (& `balancemanager`) into the PolySwarm marketplace!
+これで、エンジン (および `balancemanager`) を PolySwarm マーケットプレイスに接続する準備ができました。
 
-If you've built your engine on `polyswarm-client`, (e.g. using our cookiecutter `engine-template` in the tutorials here), you simply need to specify some command line arguments (can also be specified as environment variables):
+`polyswarm-client` でエンジンを作成した場合 (例えば、このチュートリアルの `engine-template` テンプレートを使用した場合)、以下のように、いくつかのコマンド・ライン引数を指定するだけで済みます (環境変数として指定することも可能です)。
 
 ```bash
 # microengine \
   --polyswarmd-addr polyswarmd.epoch.polyswarm.network \
-  --keyfile <path to your self-generated and funded keyfile> \
-  --password <encryption password for your keyfile> \
-  --api-key <your Epoch API key>
-  --backend <the name ("slug") of your scan engine (e.g. acme_myeicarengine)>
+  --keyfile <自分で生成し、入金したキーファイルのパス> \
+  --password <キーファイルの暗号化パスワード> \
+  --api-key <Epoch API キー>
+  --backend <スキャン・エンジンの名前 (「スラグ」) (例えば、acme_myeicarengine)>
 ```
 
-For the full list of command line arguments, use the `--help` CLI flag:
+コマンド・ライン引数の完全なリストを表示するには、以下のように `--help` CLI フラグを使用します。
 
 ```bash
 # microengine --help
-Usage: microengine [OPTIONS]
+使用法: microengine [オプション]
 
-  Entrypoint for the microengine driver
+  マイクロエンジン・ドライバーのエントリーポイント
 
-  Args:     log (str): Logging level     polyswarmd_addr(str): Address of
-  polyswarmd     keyfile (str): Path to private key file to use to sign
-  transactions     password (str): Password to decrypt the encrypted private
-  key     backend (str): Backend implementation to use     api_key(str): API
-  key to use with polyswarmd     testing (int): Mode to process N bounties
-  then exit (optional)     insecure_transport (bool): Connect to polyswarmd
-  without TLS     log_format (str): Format to output logs in. `text` or
-  `json`
+  引数:     log (str): ロギングのレベル     polyswarmd_addr(str): 
+  polyswarmd のアドレス     keyfile (str): トランザクションの署名に使用する
+  秘密鍵ファイルのパス     password (str): 暗号秘密鍵を複合するためのパス
+  ワード     backend (str): 使用するバックエンド実装     api_key(str): polyswarmd
+  で使用する API キー     testing (int): N 報奨金を処理して終了するモード
+   (オプション)     insecure_transport (bool): TLS なしで polyswarmd
+  に接続     log_format (str): ログの出力フォーマット (「text」または
+  「json」)
 
-Options:
-  --log TEXT              Logging level
-  --polyswarmd-addr TEXT  Address (host:port) of polyswarmd instance
-  --keyfile PATH          Keystore file containing the private key to use with
-                          this microengine
-  --password TEXT         Password to decrypt the keyfile with
-  --api-key TEXT          API key to use with polyswarmd
-  --backend TEXT          Backend to use
-  --testing INTEGER       Activate testing mode for integration testing,
-                          respond to N bounties and N offers then exit
-  --insecure-transport    Connect to polyswarmd via http:// and ws://,
-                          mutually exclusive with --api-key
-  --chains TEXT           Chain(s) to operate on
-  --log-format TEXT       Log format. Can be `json` or `text` (default)
-  --help                  Show this message and exit.
+オプション:
+  --log TEXT              ロギング・レベル
+  --polyswarmd-addr TEXT  polyswarmd インスタンスのアドレス (ホスト:ポート)
+  --keyfile PATH          当該マイクロエンジンで使用する秘密鍵が含まれている
+                          鍵ストア・ファイル
+  --password TEXT         キーファイルを複合するためのパスワード
+  --api-key TEXT          polyswarmd で使用する API キー 
+  --backend TEXT          使用するバックエンド
+  --testing INTEGER       統合テスト用にテスト・モードをアクティブ化。
+                          N 報奨金と N オファーに応答して終了
+  --insecure-transport    http:// および ws:// を介して polyswarmd 
+                          に接続。--api-key との同時使用不可
+  --chains TEXT           動作対象のチェーン
+  --log-format TEXT       ログ・フォーマット。 「json」または「text」(デフォルト)
+  --help                  このメッセージ (英語) を表示して終了
 ```
 
-In addition to your engine, you'll need to run a `balancemanager`.
+エンジンに加え、`balancemanager` を実行する必要があります。
 
-`balancemanager` will also require access to your `keyfile`:
+以下のように、`balancemanager` でも `keyfile` にアクセスできる必要があります。
 
 ```bash
 # balancemanager maintain \
   --polyswarmd-addr polyswarmd.epoch.polyswarm.network \
-  --keyfile <path to your self-generated and funded keyfile> \
-  --password <encryption password for your keyfile> \
-  --api-key <your Epoch API key> \
-  --maximum <(optional) the maximum allowable balance in the Community before a withdraw is made>
-  <MINIMUM: deposit into the Community when balance drops below this value>
-  <REFILL_AMOUNT: the amount of NCT to transfer when Community balance falls below MINIMUM>
+  --keyfile <自分で生成して入金したキーファイルのパス> \
+  --password <キーファイルの暗号化パスワード> \
+  --api-key <Epoch API キー> \
+  --maximum <(オプション) コミュニティー内の最大許容残高。この値を超えると、引き出しが実行される>
+  <MINIMUM: 残高がこの金額を下回ると、コミュニティーに対する預金を実行>
+  <REFILL_AMOUNT: コミュニティーの残高が MINIMUM を下回ったときに送金する金額 (NCT)>
 ```
 
-For the full list of command line arguments, use the `--help` CLI flag:
+コマンド・ライン引数の完全なリストを表示するには、以下のように `--help` CLI フラグを使用します。
 
 ```bash
 # balancemanager maintain --help
-INFO:root:2018-12-28 03:04:11,352 Logging in text format.
-Usage: balancemanager maintain [OPTIONS] MINIMUM REFILL_AMOUNT
+INFO:root:2018-12-28 03:04:11,352 テキスト・フォーマットでロギング
+使用法: balancemanager maintain [オプション] MINIMUM REFILL_AMOUNT
 
-  Entrypoint to withdraw NCT from a sidechain into the homechain
+  サイドチェーンからホームチェーンに NCT を引き出すエントリーポイント
 
-  Args:     minimum (float): Value of NCT on sidechain where you want to
-  transfer more NCT     refill-amount (float): Value of NCT to transfer
-  anytime the balance falls below the minimum
+  引数:     minimum (float): NCT を送金するサイドチェーンの金額 (NCT)
+       refill-amount (float): 残高が minimum を下回ったときに送金する金額 (NCT)
 
-Options:
-  --polyswarmd-addr TEXT   Address (host:port) of polyswarmd instance
-  --keyfile PATH           Keystore file containing the private key to use
-                           with this microengine
-  --password TEXT          Password to decrypt the keyfile with
-  --api-key TEXT           API key to use with polyswarmd
-  --testing INTEGER        Activate testing mode for integration testing,
-                           trigger N balances to the sidechain then exit
-  --insecure-transport     Connect to polyswarmd via http:// and ws://,
-                           mutually exclusive with --api-key
-  --maximum FLOAT          Maximum allowable balance before triggering a
-                           withdraw from the sidechain
-  --withdraw-target FLOAT  The goal balance of the sidechain after the
-                           withdrawal
-  --confirmations INTEGER  Number of block confirmations relay requires before
-                           approving the transfer
-  --help                   Show this message and exit.
+オプション:
+  --polyswarmd-addr TEXT   polyswarmd インスタンスのアドレス (ホスト:ポート)
+  --keyfile PATH           当該マイクロエンジンで使用する秘密鍵が含まれている
+                           鍵ストア・ファイル
+  --password TEXT          キーファイルを複合するためのパスワード
+  --api-key TEXT           polyswarmd で使用する API キー
+  --testing INTEGER        統合テスト用にテスト・モードをアクティブ化。
+                          サイドチェーンに残高 N をトリガーして終了
+  --insecure-transport     http:// および ws:// を介して polyswarmd 
+                          に接続。--api-key との同時使用不可
+  --maximum FLOAT          最大許容残高。この値を超えると、サイドチェーン
+                           からの引き出しがトリガーされる
+  --withdraw-target FLOAT  引き出し後のサイドチェーンの目標残高
+  --confirmations INTEGER  リレーでの送金の承認に必要なブロック
+                           確認数
+  --help                   このメッセージ (英語) を表示して終了
 ```
 
-## Congratulations
+## 結果
 
-With your engine & `balancemanager` running, you are now plugged into your Community(ies) of choice!
+エンジンと `balancemanager` が実行され、任意のコミュニティーに接続できるようになりました。

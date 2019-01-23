@@ -175,15 +175,15 @@ valid\_bloom - ブルーム投票の場合
 
 bid - 投資金額 (NCT)
 
-mask - the artifacts to assert on from the set in the bounty
+mask - 報奨金に含まれている一連のアーティファクトでアサーションを提示するアーティファクト
 
-verdicts - array of verdicts on bounty artifacts
+verdicts - 報奨金の対象アーティファクトの判定の配列
 
 ```json
 {
-  "bid": "[string minimum length 1 with max length 100]",
-  "mask": "[array with a max of 256 boolean items]",
-  "verdicts": "[array with a max of 256 boolean items]"
+  "bid": "[文字列、最小長 1、最大長 100]",
+  "mask": "[最大で 256 個の boolean 項目が含まれた配列]",
+  "verdicts": "[最大で 256 個の boolean 項目が含まれた配列]"
 }
 ```
 
@@ -199,7 +199,7 @@ verdicts - array of verdicts on bounty artifacts
 
 #### 成功応答
 
-**Condition** : If everything is OK the generated nonce will be created later used for reveal and you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**条件** : 正常に処理された場合、後から評価で使用するためのノンスが生成され、また生の未署名のトランザクションの配列が返されます。このトランザクションに署名して `/transactions` エンドポイントを介して送信する必要があります。
 
 **コード** : `200`
 
@@ -220,9 +220,9 @@ verdicts - array of verdicts on bounty artifacts
 }
 ```
 
-### Reveal bounty assersions
+### 報奨金アサーションの評価
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+報奨金の有効期限後に評価者が確認・評価結果を確定し、アサーションの報酬を支払うために呼び出します。
 
 **URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -232,17 +232,17 @@ Called by arbiter after bounty expiration to settle with their ground truth dete
 
 指定:
 
-nonce - the nonce used to generate the commitment hash (returned from asserting on a bounty)
+nonce - コミットメント・ハッシュの生成に使用するノンス (報奨金に対するアサート提示で返されたもの)
 
-verdicts - the verdicts making up this assertion
+verdicts - 当該アサーションの判定
 
-metadata - to include in the assertion (can be empty string)
+metadata - アサーションに含めるもの (空文字列可)
 
 ```json
 {
-  "nonce": "[string minimum length 1 with max length 100]",
-  "verdicts": "[array with a max of 256 boolean items]",
-  "metadata": "[string minimum length 1 with max length 1024]"
+  "nonce": "[文字列、最小長 1、最大長 100]",
+  "verdicts": "[最大で 256 個の boolean 項目が含まれた配列]",
+  "metadata": "[文字列、最小長 1、最大長 1024]"
 }
 ```
 
@@ -279,53 +279,53 @@ metadata - to include in the assertion (can be empty string)
 }
 ```
 
-### Get a bounty's info
+### 報奨金情報の取得
 
 **URL** : `/<uuid:guid>?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Get assertions for a bounty
+### 報奨金の複数のアサーション取得
 
 **URL** : `/<uuid:guid>/assertions?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Get an assertion for a bounty
+### 報奨金の単一のアサーション取得
 
 **URL** : `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Get bloom for a bounty
+### 報奨金のブルーム取得
 
 **URL** : `/<uuid:guid>/bloom?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Get votes for a bounty
+### 報奨金の複数の投票取得
 
 **URL** : `/<uuid:guid>/votes?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Get a vote for a bounty
+### 報奨金の単一の投票取得
 
 **URL** : `/<uuid:guid>/votes/<int:id_>?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-## Staking API
+## 投資 API
 
-### Staking Parameters
+### 投資パラメーター
 
 **URL** : `/staking/parameters?chain=[chain_name]`
 
 **メソッド** : `GET`
 
-### Post Deposit Stake
+### 投資金の預金
 
-Called by arbiters to deposit stake Nectar.
+評価者が Nectar を預金するために呼び出します。
 
 **URL** : `/staking/deposit?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -335,11 +335,11 @@ Called by arbiters to deposit stake Nectar.
 
 指定:
 
-amount - the amount of NCT to add to current stake
+amount - 現在の投資金に追加する金額 (NCT)
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]"
+  "amount": "[文字列、最小長 1 / 最大長 100]"
 }
 ```
 
@@ -351,9 +351,9 @@ amount - the amount of NCT to add to current stake
 }
 ```
 
-### Post Withdrawal Stake
+### 投資金の引き出し
 
-Called by arbiters to withdraw available staked Nectar.
+評価者が投資された利用可能な Nectar を引き出すために呼び出します。
 
 **URL** : `/staking/withdraw?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -363,11 +363,11 @@ Called by arbiters to withdraw available staked Nectar.
 
 指定:
 
-amount - the amount of NCT to withdraw from current stake
+amount - 現在の投資金から引き出す金額 (NCT)
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]"
+  "amount": "[文字列、最小長 1 / 最大長 100]"
 }
 ```
 
@@ -379,23 +379,23 @@ amount - the amount of NCT to withdraw from current stake
 }
 ```
 
-### Get total stake balance
+### 合計投資金残高の取得
 
 **URL** : `/balances/<address>/staking/total`
 
 **メソッド** : `GET`
 
-### Get withdrawable stake balance
+### 引き出し可能な投資金残高の取得
 
 **URL** : `/balances/<address>/staking/withdrawable`
 
 **メソッド** : `GET`
 
-## Artifacts API
+## アーティファクト API
 
-### Post Artifact
+### アーティファクトの送信
 
-Post an artifact to IPFS
+アーティファクトを IPFS に送信します。
 
 **URL** : `/artifacts`
 
@@ -405,33 +405,33 @@ Post an artifact to IPFS
 
 指定:
 
-List of files to upload. You can upload a max of 256
+アップロードするファイルのリスト。 最大 256 個までアップロード可能
 
-### Get file links associated with hash
+### ハッシュに関連付けられているファイル・リンクの取得
 
 **URL** : `/<ipfshash>`
 
 **メソッド** : `GET`
 
-### Get a link associated with hash and link index
+### ハッシュとリンク・インデックスに関連付けられているリンクの取得
 
 **URL** : `/<ipfshash>/<int:id_>`
 
 **メソッド** : `GET`
 
-### Get stats on artifact link
+### アーティファクト・リンクの統計の取得
 
 **URL** : `/<ipfshash>/<int:id_>/stat`
 
 **メソッド** : `GET`
 
-## Offers API
+## オファー API
 
-*Stateless offer api coming soon*
+*ステートレスのオファー API を近日公開予定です。*
 
-### Create an offer channel
+### オファー・チャネルの作成
 
-Called by an ambassador to deploy a new multi signature offer
+アンバサダーが新しいマルチ署名オファーをデプロイするために使用します。
 
 **URL** : `/offers?account=[eth_address]&base_nonce=[integer]`
 
@@ -441,20 +441,20 @@ Called by an ambassador to deploy a new multi signature offer
 
 指定:
 
-ambassador - address of ambassador using channel
+ambassador - チャネルを使用するアンバサダーのアドレス
 
-expert - address of expert using channel
+expert - チャネルを使用する専門家のアドレス
 
-settlementPeriodLength - how long the parties have to dispute the settlement offer channel
+settlementPeriodLength - 当事者がオファー・チャネルの決済を得ようと争う期間
 
-websocketUri - uri of socket to send messages to ambassador
+websocketUri - メッセージをアンバサダーに送信するためのソケットの URI
 
 ```json
 {
-  "ambassador": "[string minimum length 42]",
-  "expert": "[string minimum length 42]",
-  "settlementPeriodLength": "[integer minimum 60]",
-  "websocketUri": "[string with minimum length 1 max 32]"
+  "ambassador": "[文字列、最小長 42]",
+  "expert": "[文字列、最小長 42]",
+  "settlementPeriodLength": "[整数、最小 60]",
+  "websocketUri": "[文字列、最小長 1、最大長 32]"
 }
 ```
 
@@ -492,9 +492,9 @@ websocketUri - uri of socket to send messages to ambassador
 }
 ```
 
-### Open channel
+### チャネルのオープン
 
-Called by ambassador to open channel with expert
+アンバサダーが専門家とのチャネルをオープンするために呼び出します。
 
 **URL** : `offers/open/<uuid:guid>?account=[eth_address]&base_nonce=[integer]`
 
@@ -504,26 +504,26 @@ Called by ambassador to open channel with expert
 
 指定:
 
-state - inital offer state
+state - 初期オファー状態
 
-v - the recovery id from signature of state string
+v - 状態文字列の署名のリカバリー ID
 
-r - output of ECDSA signature of state string
+r - 状態文字列の ECDSA 署名の出力
 
-s - output of ECDSA signature of state string
+s - 状態文字列の ECDSA 署名の出力
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]"
+  "state": "[文字列、最小長 32]",
+  "v": "[整数、最小 0]",
+  "r": "[文字列、最小長 64]",
+  "s": "[文字列、最小長 64]"
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -557,9 +557,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Join channel
+### チャネルへの参加
 
-Called by expert to join ambassador channel
+専門家がアンバサダーのチャネルに参加するために呼び出します。
 
 **URL** : `offers/open?account=[eth_address]&base_nonce=[integer]`
 
@@ -569,26 +569,26 @@ Called by expert to join ambassador channel
 
 指定:
 
-state - offer state from ambassador
+state - アンバサダーからのオファー状態
 
-v - the recovery id from signature of state string
+v - 状態文字列の署名のリカバリー ID
 
-r - output of ECDSA signature of state string
+r - 状態文字列の ECDSA 署名の出力
 
-s - output of ECDSA signature of state string
+s - 状態文字列の ECDSA 署名の出力
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]",
+  "state": "[文字列、最小長 32]",
+  "v": "[整数、最小 0]",
+  "r": "[文字列、最小長 64]",
+  "s": "[文字列、最小長 64]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -622,9 +622,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Cancel channel
+### チャネルのキャンセル
 
-Called by ambassador to cancel if the contract hasn't been joined yet
+コントラクトにまだ参加していない場合にアンバサダーがキャンセルするために呼び出します。
 
 **URL** : `offers/cancel?account=[eth_address]&base_nonce=[integer]`
 
@@ -655,9 +655,9 @@ Called by ambassador to cancel if the contract hasn't been joined yet
 }
 ```
 
-### Close channel
+### チャネルのクローズ
 
-Called by any party with a both signatures on a state with a closed state flag set to 1
+任意の当事者が、クローズ状態フラグが 1 に設定された状態で両者の署名を指定して呼び出します。
 
 **URL** : `/close?account=[eth_address]&base_nonce=[integer]`
 
@@ -667,26 +667,26 @@ Called by any party with a both signatures on a state with a closed state flag s
 
 指定:
 
-state - offer state with closed flag
+state - クローズ・フラグが設定されたオファー状態
 
-v - array of the recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID の配列
 
-r - array of outputs of ECDSA signature of state string for both parties
+r - 両者の状態文字列の ECDSA 署名の出力の配列
 
-s - array of outputs of ECDSA signature of state string for both parties
+s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -720,9 +720,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Close challenged channel with timeout
+### タイムアウトがあるチャレンジされたチャネルのクローズ
 
-Called by any party with a both signatures on a state that is the final challenge state
+任意の当事者が、最終チャレンジ状態である状態に両者の署名を付けて呼び出します。
 
 **URL** : `/offers/closeChallenged?account=[eth_address]&base_nonce=[integer]`
 
@@ -732,26 +732,26 @@ Called by any party with a both signatures on a state that is the final challeng
 
 指定:
 
-state - offer state with closed flag
+state - クローズ・フラグが設定されたオファー状態
 
-v - array of the recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID の配列
 
-r - array of outputs of ECDSA signature of state string for both parties
+r - 両者の状態文字列の ECDSA 署名の出力の配列
 
-s - array of outputs of ECDSA signature of state string for both parties
+s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -785,9 +785,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Settle channel
+### チャネルの決済
 
-Called by ambassador or expert to start initialize a disputed settlement using an agreed upon state. It starts a timeout for a reply using `settlementPeriodLength`
+アンバサダーまたは専門家が、合意した状態を使用して、争点の決済の初期化を開始するために呼び出します。 `settlementPeriodLength` を使用して応答のタイムアウトが開始されます。
 
 **URL** : `/offers/settle?account=[eth_address]&base_nonce=[integer]`
 
@@ -797,26 +797,26 @@ Called by ambassador or expert to start initialize a disputed settlement using a
 
 指定:
 
-state - offer state both parties signed
+state - 両者が署名したオファー状態
 
-v - array of the recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID の配列
 
-r - array of outputs of ECDSA signature of state string for both parties
+r - 両者の状態文字列の ECDSA 署名の出力の配列
 
-s - array of outputs of ECDSA signature of state string for both parties
+s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -850,9 +850,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Challenge settle channel state
+### 決済チャネル状態へのチャレンジ
 
-Called by ambassador or expert to challenge a disputed state. The new state is accepted if it is signed by both parties and has a higher sequence number
+アンバサダーまたは専門家が、争点の状態にチャレンジするために呼び出します。 両者が署名し、シーケンス番号が大きい場合、新しい状態が受け入れられます。
 
 **URL** : `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
 
@@ -862,26 +862,26 @@ Called by ambassador or expert to challenge a disputed state. The new state is a
 
 指定:
 
-state - offer state both parties signed
+state - 両者が署名したオファー状態
 
-v - array of the recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID の配列
 
-r - array of outputs of ECDSA signature of state string for both parties
+r - 両者の状態文字列の ECDSA 署名の出力の配列
 
-s - array of outputs of ECDSA signature of state string for both parties
+s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explaintion](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -915,65 +915,65 @@ See state [explaintion](#state)
 }
 ```
 
-### Get offer channel info
+### オファー・チャネル情報の取得
 
 **URL** : `/offers/<uuid:guid>`
 
 **メソッド** : `GET`
 
-### Get offer channel settlement period
+### オファー・チャネル決済期間の取得
 
 **URL** : `/offers/<uuid:guid>/settlementPeriod`
 
 **メソッド** : `GET`
 
-### Get ambassador websocket uri
+### アンバサダー WebSocket URI の取得
 
 **URL** : `/offers/<uuid:guid>/websocket`
 
 **メソッド** : `GET`
 
-### Get pending offers
+### 未解決のオファーの取得
 
 **URL** : `/offers/pending`
 
 **メソッド** : `GET`
 
-### Get opened offers
+### オープン・オファーの取得
 
 **URL** : `/offers/opened`
 
 **メソッド** : `GET`
 
-### Get closed offers
+### クローズ・オファーの取得
 
 **URL** : `/offers/closed`
 
 **メソッド** : `GET`
 
-### Get my offers
+### 自分のオファーの取得
 
 **URL** : `/offers/myoffers?account=[eth_address]`
 
 **メソッド** : `GET`
 
-## Transaction Signing
+## トランザクションの署名
 
 **URL** : `/transactions?chain=[chain_here]`
 
 **メソッド** : `POST`
 
-All signed transactions are POSTed here to start the transaction on the chain of choice.
+すべての署名済みトランザクションは、選択したチェーンでトランザクションを開始するために、ここで POST されます。
 
-To add transaction signing to your polyswarmd dependent project you need to to write/use something that follows the steps below.
+トランザクションの署名を polyswarmd 依存プロジェクトに追加するには、以下のステップに従ったものを作成/使用する必要があります。
 
-0) Upon receiving transaction data from a transaction dependent endpoint
+0) トランザクション依存エンドポイントからトランザクション・データを受け取る
 
-1) Sign the Transaction data with your private key
+1) 秘密鍵を使用してトランザクション・データに署名する
 
-2) POST the signed transaction to `/transactions`
+2) 署名済みトランザクションを `/transactions` に POST する
 
-There is a python example embedded below, though you can use any other language.
+以下に、Python の例を埋め込んでいます。ただし、任意の他の言語を使用できます。
 
 ```python
 import json
@@ -986,7 +986,7 @@ PASSWORD = 'password'
 ADDRESS, PRIV_KEY = unlock_key(KEYFILE, PASSWORD)
 
 def unlock_key(keyfile, password):
-    """Open an encrypted keystore file and decrypt it"""
+    """暗号化鍵ストア・ファイルを開いて復号"""
     with open(keyfile, 'r') as f:
         priv_key = web3.eth.account.decrypt(f.read(), password)
 
@@ -994,7 +994,7 @@ def unlock_key(keyfile, password):
     return (address, priv_key)
 
 def post_transactions(transactions):
-    """Post a set of (signed) transactions to Ethereum via polyswarmd, parsing the emitted events"""
+    """polyswarmd を介して一連の (署名済み) トランザクションをイーサリアムに POST、出されたイベントを解析"""
     signed = []
     for tx in transactions:
         s = web3.eth.account.signTransaction(tx, PRIV_KEY)
@@ -1007,11 +1007,11 @@ def post_transactions(transactions):
     return response.json()
 ```
 
-## State
+## 状態
 
-### Creating State
+### 状態の作成
 
-The state byte string contains details the ambassador and expert sign off on.
+状態バイト文字列には、アンバサダーと専門家が署名した対象の詳細が含まれます。
 
 **URL** : `/offers/state`
 
@@ -1021,29 +1021,29 @@ The state byte string contains details the ambassador and expert sign off on.
 
 指定:
 
-    close_flag - 1 or 0 for is this state is closeable
-    nonce - the sequnce of the state
-    ambassador - ambassador address
-    expert - expert address
-    msig_address - multi signature address
-    ambassador_balance - balance in nectar for ambassador
-    nectar_balance - balance in nectar for expert
-    guid - a globally-unique identifier for the offer listing
-    offer_amount - the offer amount paid for assertion
+    close_flag - 当該状態がクローズ可能かどうかを示す 1 または 0
+    nonce - 状態のシーケンス
+    ambassador - アンバサダーのアドレス
+    expert - 専門家のアドレス
+    msig_address - マルチ署名アドレス
+    ambassador_balance - アンバサダーの残高 (Nectar)
+    nectar_balance - 専門家の残高 (Nectar)
+    guid - オファー・リストのグローバル一意識別子
+    offer_amount - アサーションに対して支払われるオファー金額
     
 
-Optional:
+オプション:
 
-    artifact_hash - cryptographic hash of the artifact
-    ipfs_hash - the IPFS URI of the artifact
-    engagement_deadline - engagement Deadline
-    assertion_deadline - assertion Deadline
-    current_commitment - current commitment
-    verdicts - bitmap of verdicts
-    meta_data - meta data about current offer
+    artifact_hash - アーティファクトの暗号ハッシュ
+    ipfs_hash - アーティファクトの IPFS URI
+    engagement_deadline - エンゲージメントの期限
+    assertion_deadline - アサーションの期限
+    current_commitment - 現在のコミットメント
+    verdicts - 判定のビットマップ
+    meta_data - 現在のオファーに関するメタデータ
     
 
-Example POST data:
+POST データの例:
 
     {
       "close_flag": 0,
@@ -1056,14 +1056,14 @@ Example POST data:
     }
     
 
-#### Gets tranformed to the below bytes string in the response:
+#### 以下のバイト文字列に変換されて応答で返されます。
 
     0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc
     
 
-### Signing State
+### 状態への署名
 
-The offers api requires signed states. Here's an example of signing to create the v, r, and s signature pieces in Javascript.
+オファー API では、署名済みの状態が必要です。 以下に、署名して JavaScript で v、r、s の各署名部分を作成する例を示します。
 
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
@@ -1086,41 +1086,41 @@ let s = '0x' + sig.s.toString('hex')
 let v = sig.v
 ```
 
-### State Messages
+### 状態メッセージ
 
-Ambassadors open a websocket with the url defined in the contract. Locally - messages are sent on `ws://localhost:31337/messages/<uuid:guid>`
+アンバサダーは、コントラクトで定義された URL を使用して WebSocket を開きます。 ローカルでは、メッセージは `ws://localhost:31337/messages/<uuid:guid>` で送信されます。
 
 **データ制約**
 
 指定:
 
-type - type of message (payment, request, assertion)
+type - メッセージのタイプ (支払、要求、アサーション)
 
-state - offer state
+state - オファー状態
 
-Optional:
+オプション:
 
-toSocketUri - to send to a different person (defaults to the ambassador)
+toSocketUri - 別の人に送信する場合 (デフォルトではアンバサダー)
 
-v - recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID
 
-r - ECDSA signature of state string
+r - 状態文字列の ECDSA 署名
 
-s - ECDSA signature of state string
+s - 状態文字列の ECDSA 署名
 
 ```json
 {
-  "fromSocketUri": "[string]",
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "fromSocketUri": "[文字列]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-See state [explanation](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -1129,17 +1129,17 @@ See state [explanation](#state)
 }
 ```
 
-## Events
+## イベント
 
-A websocket for contract events
+コントラクト・イベント用の WebSocket
 
-Listen to the websocket at `ws://localhost:31337/events/<chain>`
+`ws://localhost:31337/events/<chain>` の WebSocket をリッスンします。
 
-**Event Types**
+**イベント・タイプ**
 
-***Block***
+***ブロック***
 
-Sent when a new block is mined, reports the latest block number
+新しいブロックがマイニングされたときに送信され、最新のブロック番号を報告します。
 
 **コンテンツの例**
 
@@ -1152,9 +1152,9 @@ Sent when a new block is mined, reports the latest block number
 }
 ```
 
-***Bounty***
+***報奨金***
 
-Sent when a new bounty is posted
+新しい報奨金が提示されたときに送信されます。
 
 **コンテンツの例**
 
@@ -1171,9 +1171,9 @@ Sent when a new bounty is posted
 }
 ```
 
-***Assertion***
+***アサーション***
 
-Sent when a new assertion to a bounty is posted
+報奨金に対する新しいアサーションが提示されたときに送信されます。
 
 **コンテンツの例**
 
@@ -1191,9 +1191,9 @@ Sent when a new assertion to a bounty is posted
 }
 ```
 
-***Reveal***
+***評価***
 
-Sent when an assertion to a bounty is revealed
+報奨金に対するアサーションが評価されたときに送信されます。
 
 **コンテンツの例**
 
@@ -1211,9 +1211,9 @@ Sent when an assertion to a bounty is revealed
 }
 ```
 
-***Vote***
+***投票***
 
-Sent when an arbiter votes on a bounty
+評価者が報奨金について投票したときに送信されます。
 
 **コンテンツの例**
 
@@ -1227,9 +1227,9 @@ Sent when an arbiter votes on a bounty
 }
 ```
 
-***Quorum***
+***定足数***
 
-Sent when arbiters have reached quorum on a bounty
+評価者が報奨金について定足数に達したときに送信されます。
 
 **コンテンツの例**
 
@@ -1243,9 +1243,9 @@ Sent when arbiters have reached quorum on a bounty
 }
 ```
 
-***Settled***
+***決済***
 
-Sent when a participant settles their portion of a bounty
+参加者が報奨金部分を決済したときに送信されます。
 
 **コンテンツの例**
 
@@ -1259,9 +1259,9 @@ Sent when a participant settles their portion of a bounty
 }
 ```
 
-***Initialized Channel***
+***チャネルの初期化***
 
-Sent when a new channel is initialized
+新しいチャネルが初期化されたときに送信されます。
 
 **コンテンツの例**
 

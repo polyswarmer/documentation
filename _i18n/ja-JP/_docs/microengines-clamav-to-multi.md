@@ -8,22 +8,22 @@
 
 YARA バックエンドをマイクロエンジンに追加します。ただし、まず、いくつかの YARA シグネチャー (ルール) が必要です。
 
-[Yara-Rules](https://github.com/Yara-Rules/rules) リポジトリーは、無料のルールの優れたリソースです。 So, let's get those rules and put them into the `pkg` directory of your `microengine-myyaraengine`:
+[Yara-Rules](https://github.com/Yara-Rules/rules) リポジトリーは、無料のルールの優れたリソースです。 では、以下のように、ルールを取得して `microengine-myyaraengine` の `pkg` ディレクトリーに入れます。
 
 ```sh
 cd microengine-myyaraengine/pkg
 git clone https://github.com/Yara-Rules/rules.git
 ```
 
-We will also need the `yara-python` module to interpret these rules - install this if you don't have it:
+ルールを解釈するために `yara-python` モジュールも必要です。まだインストールされていない場合は、以下のようにインストールします。
 
 ```sh
 pip install yara-python
 ```
 
-Next, we will create a Scanner which uses `yara-python` to scan artifacts.
+次に、`yara-python` を使用してアーティファクトをスキャンするスキャナーを作成します。
 
-Edit the `__init__.py` as we describe below:
+以下のように、`__init__.py` を編集します。
 
 ```python
 #!/usr/bin/env python
@@ -35,7 +35,7 @@ import yara
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
 from polyswarmclient.abstractscanner import AbstractScanner
 
-logger = logging.getLogger(__name__)  # Initialize logger
+logger = logging.getLogger(__name__)  # ロガーを初期化
 RULES_DIR = os.getenv('RULES_DIR', 'docker/yara-rules')
 
 class Scanner(AbstractScanner):
@@ -52,34 +52,34 @@ class Scanner(AbstractScanner):
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+    <strong>情報:</strong>
+    Microengine クラスが必要ですが、変更する必要がないため、ここでは記載していません。
   </p>
 </div>
 
-The YARA backend included with `polyswarm-client` accepts a `RULES_DIR` environment variable that lets you point to your YARA rules. So, you should set the `RULES_DIR` environment variable to point to the YARA rules you downloaded when you test this engine.
+`polyswarm-client` に付属の YARA バックエンドは、YARA ルールの場所を指定できる `RULES_DIR` 環境変数を受け入れます。 そのため、このエンジンのテスト時には、`RULES_DIR` 環境変数を設定して、ダウンロードした YARA ルールの場所を指定する必要があります。
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    When conducting integration testing (<a href="/testing-linux/#integration-testing">Linux</a>, <a href="/testing-windows/">Windows</a>), our mock Ambassador only bounties 2 files: EICAR and a file that is not EICAR.
-    Therefore, for the purposes of testing in our framework, we only need a YARA rule that detects EICAR.
+    <strong>情報:</strong>
+    統合テストを実行する際 (<a href="/testing-linux/#integration-testing">Linux</a>、<a href="/testing-windows/">Windows</a>)、演習用アンバサダーは、2 つのファイル (EICAR と EICAR でないファイル) のみに報奨金を設定します。
+    従って、このフレームワークのテスト目的では、EICAR を検出する YARA ルールのみが必要になります。
   </p>
 </div>
 
-With that we have a YARA microengine. But, our plan was to have multiple engines run by a single microengine, so let's continue.
+これに関しては、YARA マイクロエンジンがあります。 ただし、ここでは、単一のマイクロエンジンで複数のエンジンを実行することが目的です。では、説明を進めます。
 
-## ClamAV Scanner
+## ClamAV スキャナー
 
-We are going to re-use the ClamAV scanner from the [previous tutorial](/microengines-scratch-to-clamav/).
+[前のチュートリアル](/microengines-scratch-to-clamav/)の ClamAV スキャナーを再利用します。
 
-A finished solution can be found in [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py).
+完成ソリューションは、[clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) で確認できます。
 
-## Multiple Analysis Backends
+## 複数の分析バックエンド
 
-Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyMultiEngine". You should find a `microengine-mymultiengine` in your current working directory - this is what we'll be editing to make use of both ClamAv's and YARA's functionality.
+何も手を加えていない [engine-template](/microengines-scratch-to-eicar/#customize-engine-template) から開始し、「MyMultiEngine」という `engine-name` (エンジン名) を付けます。 現行作業ディレクトリーに `microengine-mymultiengine` があり、これを編集して、ClamAv と YARA の両方の機能を使用します。
 
-We will extend our Microengine to utilize multiple analysis backends, which means we need to have some way to get the result of both backends (YARA and ClamAV) and distill that into our verdict. Let's create a Microengine which initializes multiple scanners:
+複数の分析バックエンドを利用するようにマイクロエンジンを拡張します。つまり、両バックエンド (YARA と ClamAV) の結果を取得して判定を生成する手段が必要です。 では、複数のスキャナーを初期化するマイクロエンジンを作成しましょう。
 
 ```python
 #!/usr/bin/env python
@@ -92,7 +92,7 @@ from polyswarmclient.abstractscanner import AbstractScanner
 from polyswarm_myclamavengine import Scanner as ClamavScanner
 from polyswarm_myyaraengine import Scanner as YaraScanner
 
-logger = logging.getLogger(__name__)  # Initialize logger
+logger = logging.getLogger(__name__)  # ロガーを初期化
 BACKENDS = [ClamavScanner, YaraScanner]
 
 
@@ -106,34 +106,34 @@ class Scanner(AbstractScanner):
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+    <strong>情報:</strong>
+    Microengine クラスが必要ですが、変更する必要がないため、ここでは記載していません。
   </p>
 </div>
 
-This creates a list of backends containing instances of our YaraScanner and ClamavScanner.
+これにより、YaraScanner と ClamavScanner のインスタンスが含まれたバックエンドのリストが作成されます。
 
-Now that we can access both Scanners, let's use both of their results to distill a final verdict in our Scanner's `scan()` function.
+両方のスキャナーにアクセスできるようになったため、両方の結果を使用して、スキャナーの `scan()` 関数で最終判定を生成しましょう。
 
 ```python
     async def scan(self, guid, content, chain):
         results = await asyncio.gather(*[backend.scan(guid, content, chain) for backend in self.backends])
 
-        # Unzip the result tuples
+        # 結果タプルを解凍
         bits, verdicts, metadatas = tuple(zip(*results))
         return any(bits), any(verdicts), ';'.join(metadatas)
 ```
 
-Here we calculate all of our Scanner's results asynchronously, and then combine them into our final verdict. Here we will assert if any of the backends return a True bit, and we will assert that the artifact is malicious if any backend claims it is. We will also combine all of the metadata from our scanners into one string to be attached to our assertion.
+ここでは、スキャナーのすべての結果を非同期的に計算してから、結合して最終判定を生成しています。 この例では、バックエンドのいずれかが True ビットを返したかどうかを判定し、いずれかのバックエンドが悪意があると判別した場合にアーティファクトが悪意のあるものであるというアサーションを生成します。 また、スキャナーからのすべてのメタデータを単一の文字列に結合し、アサーションに添付します。
 
-A finished solution can be found in [multi.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/multi.py).
+完成ソリューションは、[multi.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/multi.py) で確認できます。
 
-Note: the python modules `polyswarm_myclamavengine` and `polyswarm_myyaraengine` come from the previous examples. In order for this Multi-engine to be able to use the ClamAV and YARA engines, they have to be available in your PYTHONPATH. To achieve that, you can run the following command in the root of both the ClamAV and the YARA project directories:
+注: Python モジュール `polyswarm_myclamavengine` および `polyswarm_myyaraengine` は、前述の例からのものです。 このマルチエンジンで ClamAV エンジンと YARA エンジンを使用するには、PYTHONPATH に該当モジュールがなければなりません。 そのために、ClamAV と YARA の両方のプロジェクト・ディレクトリーのルートで以下のコマンドを実行できます。
 
 ```bash
 pip install .
 ```
 
-## Next Steps
+## 次のステップ
 
-Now that we've learned how to make a variety of microengines using existing AV products, you can move onto creating your own custom microengine.
+既存のウィルス対策製品を使用してさまざまなマイクロエンジンを作成する方法について学びました。次は、独自のカスタム・マイクロエンジンの作成に進むことができます。

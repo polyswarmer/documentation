@@ -1,29 +1,29 @@
-# Testing Linux-Based Engines
+# Linux ベースのエンジンのテスト
 
-## Unit Testing
+## 単体テスト
 
-Unit testing your Microengine is a simple process:
+マイクロエンジンの単体テストは、以下のようにシンプルなプロセスです。
 
-1. build a Docker image of your Microengine
-2. run `docker-compose` to use `tox` to execute your testing logic in `tests/scan_test.py`
+1. マイクロエンジンの Docker イメージをビルドする
+2. `docker-compose` を実行し、`tox` を使用して `tests/scan_test.py` のテスト・ロジックを実行する
 
-Run the following commands from the root of your project directory.
+プロジェクト・ディレクトリーのルートから以下のコマンドを実行します。
 
-Build your Microengine into a Docker image:
+以下のように、マイクロエンジンを Docker イメージにビルドします。
 
 ```bash
 $ docker build -t ${PWD##*/} -f docker/Dockerfile .
 ```
 
-This will produce a Docker image tagged with the name of the directory, e.g. `microengine-myeicarengine`.
+これにより、ディレクトリーの名前でタグ付けされた Docker イメージが生成されます (例えば、`microengine-myeicarengine`)。
 
-Run the tests:
+以下のようにテストを実行します。
 
 ```bash
 $ docker-compose -f docker/test-unit.yml up
 ```
 
-If your Microengine is capable of detecting EICAR and not producing a false positive on the string "not a malicious file", then you should pass these basic unittests and see something like this:
+マイクロエンジンで文字列「not a malicious file」に対して誤検出を生成することなく、EICAR を検出できる場合、基本単体テストに合格し、以下のような出力が表示されます。
 
 ```bash
 $ docker-compose -f docker/test-unit.yml up
@@ -52,73 +52,73 @@ test_engine_mylinuxengine_1_a9d540dc7394 |   py35: commands succeeded
 test_engine_mylinuxengine_1_a9d540dc7394 |   congratulations :)
 ```
 
-Of course, this testing is quite limited - you'll want to expand on your tests in `scan_test.py`, as appropriate for your Microengine.
+もちろん、このテストは非常に限定されたものであるため、ご使用のマイクロエンジンに合わせて、`scan_test.py` でテストを拡張できます。
 
-## Integration Testing
+## 統合テスト
 
-The PolySwarm marketplace is composed of a myriad of participants and technologies: Ethereum & IPFS nodes, contracts, Microengines, Ambassadors, Arbiters, artifacts and much more. Testing a single component often demands availability of all of the other components.
+PolySwarm マーケットプレイスは、多数の参加者とテクノロジー (イーサリアム・ノード、IPFS ノード、コントラクト、マイクロエンジン、アンバサダー、評価者、アーティファクトなど) で構成されます。 多くの場合、単一のコンポーネントをテストするには、あらゆる他のコンポーネントが使用可能でなければなりません。
 
-The `orchestration` project makes standing up a complete testnet easy and seamless. True to its name, `orchestration` orchestrates all the components necessary to stand up and tear down an entire PolySwarm marketplace environment on a local development machine.
+`orchestration` プロジェクトは、完全な testnet を容易かつシームレスに利用できるようにします。 名前の通り、`orchestration` は、ローカル開発マシンで PolySwarm マーケットプレイス環境を立ち上げて破棄するために必要なすべてのコンポーネントをオーケストレーションします。
 
-Clone `orchestration` adjacent to your `microengine-myeicarengine` directory:
+以下のように、`microengine-myeicarengine` ディレクトリーの隣に `orchestration` を複製します。
 
 ```bash
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### (Optional) Preview a Complete, Working Testnet
+### (オプション) 機能している完全な testnet のプレビュー
 
-Let's spin up a complete, working testnet to get a sense for what things *should* look like.
+機能している完全な testnet を立ち上げて、どのようになる*はず* なのかを確認してみましょう。
 
-In the cloned `orchestration` directory:
+複製した `orchestration` ディレクトリーで、以下のようにします。
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up
 ```
 
-You'll see output from the following services:
+以下のサービスからの出力が表示されます。
 
-1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running our testnet's "homechain". See [Chains: Home vs Side](/#chains-home-vs-side) for an explanation of our split-chain design.
-2. `sidechain`: Another `geth` instance, this one running our testnet's "sidechain".
-3. `ipfs`: An IPFS node responsible for hosting all artifacts in our development testnet.
-4. `polyswarmd`: The PolySwarm daemon providing convenient access to the services offered by `homechain`, `sidechain` and `ipfs`.
-5. `contracts`: Responsible for housing & deploying the PolySwarm Nectar (NCT) and `BountyRegistry` contracts onto our development testnet.
+1. `homechain`: testnet の「ホームチェーン」を実行している [geth](https://github.com/ethereum/go-ethereum) ノード。 分割チェーン設計の説明については、「[チェーン: ホームとサイド](/#chains-home-vs-side)」をご覧ください。
+2. `sidechain`: testnet の「サイドチェーン」を実行している別の `geth` インスタンス。
+3. `ipfs`: 開発 testnet ですべてのアーティファクトをホストする IPFS ノード。
+4. `polyswarmd`: `homechain`、`sidechain`、`ipfs` から提供されているサービスに簡便にアクセスできるようにする PolySwarm デーモン。
+5. `contracts`: PolySwarm Nectar (NCT) と `BountyRegistry` コントラクトを格納して開発 testnet にデプロイします。
 6. `ambassador`: A mock Ambassador (provided by `polyswarm-client`) that will place bounties on [the EICAR file](https://en.wikipedia.org/wiki/EICAR_test_file) and on a file that is not EICAR.
-7. `arbiter`: A mock Arbiter (provided by `polyswarm-client`) that will deliver Verdicts on "swarmed" artifacts, determining ground truth.
-8. `microengine`: A mock Microengine (provided by `polyswarm-client`) that will investigate the "swarmed" artifacts and render Assertions.
+7. `arbiter`: (`polyswarm-client` で提供されている) 演習用評価者。確認・評価を行い、「swarm」されたアーティファクトに関する判定を提供します。
+8. `microengine`: (`polyswarm-client` で提供されている) 演習用マイクロエンジン。「swarm」されたアーティファクトを調べて、アサーションを作成します。
 
-Browse through the logs scroll on the screen to get a sense for what each of these components is doing. Let it run for at least 5 minutes - it can take time to deploy contracts - and then the fun starts :)
+画面でスクロールするログを確認し、上記の各コンポーネントが実行している内容の感触を掴んでください。 少なくとも 5 分間は実行させてください。コントラクトのデプロイに時間がかかることがありますが、その後は興味深くなります。
 
-When you've seen enough log output, do `Ctrl-C` to halt the development testnet gracefully.
+ログ出力を十分に確認したら、`Ctrl-C` を押して開発 testnet を正常に停止します。
 
-### Test Your Engine
+### エンジンのテスト
 
-Let's spin up a subset of the testnet, leaving out the stock `microengine` (we'll be replacing this with our own) and the `ambassador` services.
+testnet のサブセットを開始しましょう。ここでは、ストックの `microengine` (これは独自のもので置き換えます) と `ambassador` サービスは除外します。
 
-In the cloned `orchestration` project:
+複製した `orchestration` プロジェクトで、以下のようにします。
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-It will take several minutes for `polyswarmd` to become available. Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
+`polyswarmd` が使用可能になるまでに数分かかります。 `polyswarmd` は、使用可能になると、クライアントに応答を提供しはじめます。例: 
 
     INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
     
 
-Next, let's spin up our Microengine in a second terminal window in our microengine's directory:
+次に、2 つ目の端末ウィンドウでマイクロエンジンを開始しましょう。マイクロエンジンのディレクトリーで、以下のようにします。
 
 ```bash
 $ docker-compose -f docker/test-integration.yml up
 ```
 
-Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window in the `orchestration` directory:
+最後に、3 つ目の端末ウィンドウで、マイクロエンジンがスキャンする対象アーティファクトを導入します。`orchestration` ディレクトリーで以下のようにします。
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!
+3 つすべての端末ウィンドウのログを確認します。マイクロエンジンがアンバサダーの報奨金に応答しているのが分かるはずです。
 
-When you make changes to your Engine, testing those changes is as simple as re-building your Docker image and re-running the `ambassador` service to inject a new a new pair of EICAR/not-EICAR artifacts. You can keep the rest of the testnet running while you iterate.
+エンジンに変更を加えた場合、その変更をテストするのは簡単です。Docker イメージを再ビルドし、`ambassador` サービスを再実行して新しい EICAR と非 EICAR アーティファクトのペアを注入するだけです。 反復処理時には、testnet の残りの部分は実行されたままで構いません。
