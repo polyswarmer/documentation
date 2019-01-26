@@ -83,7 +83,7 @@ $ docker-compose -f base.yml -f tutorial0.yml up
 3. `ipfs`: 開発 testnet ですべてのアーティファクトをホストする IPFS ノード。
 4. `polyswarmd`: `homechain`、`sidechain`、`ipfs` から提供されているサービスに簡便にアクセスできるようにする PolySwarm デーモン。
 5. `contracts`: PolySwarm Nectar (NCT) と `BountyRegistry` コントラクトを格納して開発 testnet にデプロイします。
-6. `ambassador`: A mock Ambassador (provided by `polyswarm-client`) that will place bounties on [the EICAR file](https://en.wikipedia.org/wiki/EICAR_test_file) and on a file that is not EICAR.
+6. `ambassador`: (`polyswarm-client` で提供されている) 演習用アンバサダー。[EICAR ファイル](https://ja.wikipedia.org/wiki/EICAR%E3%83%86%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB)に対する報奨金と EICAR でないファイルに対する報奨金を提示します。
 7. `arbiter`: (`polyswarm-client` で提供されている) 演習用評価者。確認・評価を行い、「swarm」されたアーティファクトに関する判定を提供します。
 8. `microengine`: (`polyswarm-client` で提供されている) 演習用マイクロエンジン。「swarm」されたアーティファクトを調べて、アサーションを作成します。
 

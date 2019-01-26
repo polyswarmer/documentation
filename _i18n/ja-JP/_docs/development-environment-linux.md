@@ -30,7 +30,7 @@ $ docker ps
 $ docker-compose -v
 ```
 
-Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
+少なくとも `docker-compose version 1.21.1, build 5a3f1a3` が出力される必要があります。
 
 Docker のインストール後、以下のようにユーザーを `docker` グループに追加して、`sudo` なしで `docker` コマンドを簡単に実行できるようにすることをお勧めします。
 
@@ -42,7 +42,7 @@ $ sudo usermod -aG docker ${USER}
 
 ## Git のインストール
 
-We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
+いくつかのソース・コード・リポジトリーを利用する必要があります。Git を使用するのが最も簡単でしょう。 ご使用の開発環境用の [Git をインストール](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)してください。
 
 ## Python と PIP のインストール
 
@@ -85,9 +85,9 @@ pip install polyswarm-client
 
 ## インストールの確認
 
-You should now have a working development environment!
+これで有効な開発環境が用意できているはずです。
 
-To verify, simply try importing `polyswarmclient`:
+確認するために、以下のように `polyswarmclient` をインポートします。
 
 ```bash
 $ python
@@ -96,8 +96,8 @@ $ python
 >>>
 ```
 
-You should be able to import `polyswarmclient` without issue.
+問題なく `polyswarmclient` をインポートできる必要があります。
 
-Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
+次に、EICAR テスト・ファイルを検出できる独自の PolySwarm マイクロエンジンの作成について説明します。
 
-[Make a "Hello World" Microengine →](/microengines-scratch-to-eicar/)
+[「Hello World」マイクロエンジンの作成 →](/microengines-scratch-to-eicar/)

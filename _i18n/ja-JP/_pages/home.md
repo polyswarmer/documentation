@@ -39,7 +39,7 @@ PolySwarm の立ち上げ時には、以下の 2 つのコミュニティーが�
 
 今後、このリストは拡張されて、アンバサダーやマイクロエンジン開発者が対象ユーザーを管理できるようになります。 将来のコミュニティーとして、以下のようなものが考えられます。
 
-* 制限された苦情担当参加者間でアーティファクトを共有する GDPR 準拠のコミュニティー
+* A GDPR-compliant community with artifact sharing amongst a closed set of complaint participants.
 * 相互に機密保持契約を交わした MSSP とセキュリティー専門家のネットワーク
 
 誰でも独自のコミュニティーを管理し、PolySwarm ポータルでそのコミュニティーを公開できます。
