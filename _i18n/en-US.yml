@@ -163,9 +163,6 @@ footer:
           - name: Media
             d_url: /media/
             d_rooturl: true
-          - name: Press
-            d_url: /press/
-            d_rooturl: true
       - items:
           - name: Telegram Channels
           - name: PolySwarm
