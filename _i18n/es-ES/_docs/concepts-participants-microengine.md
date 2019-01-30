@@ -1,56 +1,56 @@
-## Microengine Overview
+## Micromotores: aspectos generales
 
-![Microengine Architecture](/public-src/images/microengine-architecture.svg)
+![Arquitectura de los micromotores](/public-src/images/microengine-architecture.svg)
 
-Microengines are Security Experts' representation in the PolySwarm marketplace. Microengines encapsulate security expertise in the form of signatures, heuristics, dynamic analyses, emulation, virtualization, a combination of these things or perhaps something else entirely.
+Los micromotores son la representación de los expertos en seguridad dentro del mercado de PolySwarm. Encapsulan la especialización en seguridad en forma de firmas, heurística, análisis dinámicos, emulación, virtualización, una combinación de lo anterior o, quizás, algo completamente distinto.
 
-Microengines respond to Bounties and Offers in the PolySwarm marketplace, determining whether a suspect file is malicious or benign and stake a certain amount of Nectar (NCT) tokens alongside that assertion. Security Experts maintain and tweak their Microengines in response to new threat information and new analyses tools, vying against one another to stay at the forefront of their area of expertise.
+Los micromotores responden a las recompensas y las ofertas que se presentan en el mercado de PolySwarm, determinando si un archivo sospechoso es malicioso o benigno, y apuestan una determinada cantidad de vales o "tokens" néctar (NCT) por esa afirmación. Los expertos en seguridad mantienen y ajustan sus micromotores en respuesta a nuevas informaciones sobre amenazas y nuevas herramientas de análisis, compitiendo entre sí para mantenerse a la vanguardia de su área de especialización.
 
-If you have unique insight into a particular malware family and want to earn tokens (NCT) along with a reputation for that insight, you want to develop a Microengine!
+Si posees conocimientos especializados sobre una familia concreta de código malicioso y quieres ganar vales NCT y forjarte una reputación por esos conocimientos, ¡lo que te interesa es desarrollar un micromotor!
 
-## Microengines' Role in the Marketplace
+## Papel de los micromotores en el mercado
 
-In the PolySwarm marketplace, **Ambassadors** ask the market for a crowdsourced opinion on a suspect artifact (file) through the Wild-West style PolySwarm Bounty mechanism. *Ambassadors may also ask specific Experts via Offer channels; this topic will be covered later.*
+En el mercado de PolySwarm, los **embajadores** utilizan la colaboración masiva o "crowdsourcing" para pedirle al mercado una opinión sobre el artefacto sospechoso (el archivo), utilizando para ello el sistema de recompensas de Polyswarm al estilo del salvaje oeste americano. *Los embajadores también pueden pedir la opinión de expertos específicos a través de los canales de la oferta; este tema se abordará más adelante.*
 
-At a high level:
+Desde una perspectiva de alto nivel:
 
-1. An **Ambassador** "bounties" a suspect `artifact` (a file).
-2. **Microengines** hear about this new artifact by listening for Ethereum events (via `polyswarmd`).
-3. Each **Microengine** decides if the artifact at hand is within their area of expertise.
-4. If the **Microengine** posesses insight on the artifact, it produces an `assertion` and places a `stake` of NCT on that `assertion`, escrowed into the BountyRegistry smart contract.
-5. The **Ambassador** considers all `assertions` and returns a `verdict` to their customer.
-6. Some time passes.
-7. **Arbiters** offer *ground truth* regarding the malintent of the artifact.
-8. Correct **Microengines** are rewarded with the escrowed funds of incorrect **Microengines**.
+1. Un **embajador** ofrece una recompensa por un `artefacto` sospechoso (un archivo).
+2. Los **micromotores** se enteran de la existencia de este nuevo artefacto gracias a los eventos de Ethereum (a través de `polyswarmd`).
+3. Cada **micromotor** decide si el artefacto en cuestión pertenece a su área de especialización.
+4. Si el **micromotor** posee conocimientos sobre el artefacto, produce una `afirmación` y `apuesta` una determinada cantidad de vales NCT por tal `afirmación`. Este importe queda en depósito en el contrato inteligente del registro de recompensas BountyRegistry.
+5. El **embajador** evalúa todas las `afirmaciones` y genera un `veredicto` a su cliente.
+6. Tras esto, transcurre un cierto tiempo.
+7. Los **árbitros** ofrecen la *verdad terreno* con respecto a las intenciones maliciosas del artefacto.
+8. Los **micromotores** que estuvieran en lo cierto son recompensados con los fondos puestos en depósito por los **micromotores** que se hubieran equivocado.
 
-For full details on this process, please refer to the [PolySwarm whitepaper](https://polyswarm.io/polyswarm-whitepaper.pdf).
+Para conocer todos los detalles de este proceso, consulta el [libro blanco de PolySwarm](https://polyswarm.io/polyswarm-whitepaper.pdf).
 
-## Breaking Down Microengines
+## Descripción detallada de los micromotores
 
-Conceptually, a Microengine is composed of:
+Conceptualmente, un micromotor se compone de lo siguiente:
 
-1. `N` **analysis backends**: the scanners that ingest artifacts (files) and determine `malicious` or `benign`.
-2. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
-3. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
+1. `N` **procesadores de análisis**: los escáneres que analizan los artefactos (archivos) y determinan si son `maliciosos` o `benignos`.
+2. `1` **motor de sintetización de veredictos**: analiza el resultado de los procesadores de análisis y los sintetiza para obtener un único `veredicto` y un `intervalo de confianza`.
+3. `1` **motor de apuestas**: analiza el resultado de la sintetización de veredictos, así como información sobre la competencia y el mercado, para producir una `apuesta` que se cuantifica en unidades néctar (NCT).
 
-Microengines are Security Experts' autonomous representatives in the PolySwarm marketplace. They handle everything from scanning files to placing stakes on assertions concerning the malintent of files.
+Los micromotores son representantes autónomos de los expertos en seguridad dentro del mercado de PolySwarm. Se encargan de todas las tareas: desde escanear los archivos hasta apostar por las afirmaciones realizadas con respecto a sus intenciones maliciosas.
 
-Specifically, Microengines:
+En particular, los micromotores:
 
-1. Listen for Bounties and Offers on the Ethereum blockchain (via `polyswarmd`)
-2. Pull artifacts from IPFS (via `polyswarmd`)
-3. Scan/analyze the artifacts (via one or more **analysis backends**)
-4. Determine a Nectar (NCT) staking amount (via a **verdict distillation engine**)
-5. Render an assertion (their `verdict` + `stake`) (via a **staking engine**)
+1. Se enteran de las recompensas y ofertas realizadas en la cadena de bloques de Ethereum (a través de `polyswarmd`).
+2. Recogen artefactos del IPFS (a través de `polyswarmd`).
+3. Escanean/Analizan los artefactos (mediante uno o más **procesadores de análisis**).
+4. Determinan el importe de la apuesta en néctar (NCT) (**a través de un motor de sintetización de veredictos**).
+5. Generan una afirmación (su `veredicto` y `apuesta`) (a través de un **motor de apuestas**).
 
-All Microengines share this set of tasks. This tutorial will focus exclusively on item #3: bulding an analysis backend into our `microengine-scratch` skeleton project. All other items will be covered by `polyswarmd` defaults. After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](/polyswarmd-api/) for pointers on customizing these other aspects of their Microengine.
+Todos los micromotores comparten este conjunto de tareas. Este tutorial se centrará exclusivamente en el punto 3: crear un procesador de análisis dentro de nuestro proyecto esquemático `microengine-scratch`. Todos los demás puntos se llevarán a cabo usando los valores por defecto de `polyswarmd`. Una vez completados estos tutoriales, los usuarios avanzados quizá deseen consultar la [**API de polyswarmd**](/polyswarmd-api/) para aprender a personalizar los demás aspectos de su micromotor.
 
-## Developing a Microengine
+## Cómo desarrollar un micromotor
 
-Ready to develop your first Microengine and start earning NCT?
+¿Estás listo para desarrollar tu primer micromotor y empezar a ganar NCT?
 
-(Recommended) [I want to build a Linux-based Microengine →](/development-environment-linux/)
+(Recomendado) [Quiero crear un micromotor en Linux →](/development-environment-linux/)
 
-Linux-based Engines are far easier to test and come with more deployment options than Windows-based Engines.
+Los micromotores creados en Linux son mucho más fáciles de probar e incluyen más opciones de implementación que los creados en Windows.
 
-[My scan engine only supports Windows; I want to build a Windows-based Microengine →](/development-environment-windows/)
+[Mi motor de escaneo solo es compatible con Windows; quiero crear un micromotor en Windows →](/development-environment-windows/)
