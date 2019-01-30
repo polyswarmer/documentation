@@ -18,10 +18,10 @@ Desde una perspectiva de alto nivel:
 2. Los **micromotores** se enteran de la existencia de este nuevo artefacto gracias a los eventos de Ethereum (a través de `polyswarmd`).
 3. Cada **micromotor** decide si el artefacto en cuestión pertenece a su área de especialización.
 4. Si el **micromotor** posee conocimientos sobre el artefacto, produce una `afirmación` y `apuesta` una determinada cantidad de vales NCT por tal `afirmación`. Este importe queda en depósito en el contrato inteligente del registro de recompensas BountyRegistry.
-5. The **Ambassador** considers all `assertions` and returns a `verdict` to their customer.
-6. Some time passes.
-7. **Arbiters** offer *ground truth* regarding the malintent of the artifact.
-8. Correct **Microengines** are rewarded with the escrowed funds of incorrect **Microengines**.
+5. El **embajador** evalúa todas las `afirmaciones` y genera un `veredicto` a su cliente.
+6. Tras esto, transcurre un cierto tiempo.
+7. Los **árbitros** ofrecen la *verdad terreno* con respecto a las intenciones maliciosas del artefacto.
+8. Los **micromotores** que estuvieran en lo cierto son recompensados con los fondos puestos en depósito por los **micromotores** que se hubieran equivocado.
 
 For full details on this process, please refer to the [PolySwarm whitepaper](https://polyswarm.io/polyswarm-whitepaper.pdf).
 
