@@ -2,22 +2,22 @@
 
 PolySwarm es un mercado formado por participantes que constituyen la oferta (micromotores) y la demanda (embajadores), además de mediadores (árbitros).
 
-For a high-level overview of the PolySwarm marketplace, see [How It Works](https://polyswarm.io/how_it_works/).
+Para obtener una visión general de alto nivel del mercado de PolySwarm, consulta [Cómo funciona](https://polyswarm.io/how_it_works/).
 
-## Microengines
+## Micromotores
 
-**Microengines** are developed by individuals or organizations who have a knack for identifying malware. Microengines encapsulate security expertise and bundle it in an autonomous process that responds to queries from Ambassadors, identifying the latest malware and earning Nectar (NCT) rewards for accurately identifying new strands of malware. *Threat intelligence goes in, NCT comes out.*
+Los **micromotores** son desarrollados por personas u organizaciones capaces de identificar código malicioso. Los micromotores encapsulan la especialización en seguridad y la empaquetan en un proceso autónomo que responde a las consultas efectuadas por los embajadores. De este modo, identifican el código malicioso más reciente y obtienen recompensas en vales néctar (NCT) por detectar de manera precisa estas nuevas cepas. *Se suministra inteligencia contra amenazas y se obtiene NCT.*
 
-[I want to learn more about creating a Microengine →](/concepts-participants-microengine/)
+[Quiero más información sobre cómo crear un micromotor →](/concepts-participants-microengine/)
 
-## Ambassadors
+## Embajadores
 
-**Ambassadors** pay a fee or purchase a subscription to submit files (artifacts) to the PolySwarm network. This fee funds Microengines and Arbiters for offering thereat intelligence and determining ground truth, respectively. In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in, e.g. triage or incident response. *NCT goes in, threat intelligence comes out.*
+Los **embajadores** pagan una tarifa o adquieren una suscripción para remitir archivos (artefactos) a la red de PolySwarm. Este importe permite financiar micromotores y árbitros que ofrezcan inteligencia contra amenazas y determinen la verdad terreno, respectivamente. A cambio de dicha tarifa, los embajadores reciben de manera oportuna, por colaboración masiva, inteligencia contra amenazas para, por ejemplo, clasificar el artefacto o responder a un incidente. *Se suministra NCT y se obtiene inteligencia contra amenazas.*
 
-<button disabled>I want to learn more about creating an Ambassador → (coming soon!)</button>
+<button disabled>Quiero más información sobre cómo crear un embajador → (¡próximamente!)</button>
 
-## Arbiters
+## Árbitros
 
-**Arbiters** marshall the marketplace by way of determining "ground truth". Arbiter serve a critical role: Arbiter-derived ground truth is used to determine which Microengines are deserved of reward. Crucially, Arbiters must expand their internal threat detection capabilities, taking into consideration the assertions of Microengines to push the boundaries of what the PolySwarm marketplace can detect. In return for their service, Arbiters are compensated via PolySwarm network fees imposed on both Ambassadors and Microengines.
+Los **árbitros** moderan el mercado mediante la determinación de la "verdad terreno". Su función es vital: la verdad terreno que suministran se emplea para decidir qué micromotores merecen ser recompensados. No solo eso; los árbitros deben expandir su capacidad interna de detección de amenazas teniendo en cuenta las afirmaciones de los micromotores para, de ese modo, ampliar los límites de lo que puede detectar el mercado de PolySwarm. Los árbitros reciben compensación por los servicios prestados mediante las tarifas de la red de PolySwarm, impuestas tanto a embajadores como a micromotores.
 
-<button disabled>I want to learn more about creating an Arbiter → (coming soon!)</button>
+<button disabled>Quiero más información sobre cómo crear un árbitro → (¡próximamente!)</button>
