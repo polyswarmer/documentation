@@ -1,4 +1,4 @@
-## Introduction
+## Introducción
 
 PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
 
