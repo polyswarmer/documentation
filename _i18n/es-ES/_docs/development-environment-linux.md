@@ -1,30 +1,30 @@
-## System Requirements
+## Requisitos del sistema
 
-* x86-64 CPU
-* 8GB of RAM
+* CPU x86-64
+* 8 GB de RAM
 
-These instructions are developed against and tested to work on Xubuntu 18.04 amd64.
+Estas instrucciones han sido desarrolladas y probadas para funcionar en Xubuntu 18.04 amd64.
 
-## Install Docker
+## Instalar Docker
 
-We've Docker-ized as many things as possible to make it easy to dive right in.
+Hemos integrado en Docker tanto como nos ha sido posible para que te sea más fácil iniciarte con rapidez.
 
-You need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://docs.docker.com/install/).
+Debes instalar tanto Docker-CE (como base) como Docker Compose. Si no dispones de una instalación reciente de Docker, [instálalo ahora](https://docs.docker.com/install/).
 
-Once installed, verify that the installation works by running
+Al finalizar, comprueba que la instalación funciona ejecutando:
 
 ```bash
 $ docker ps
 ```
 
-Should output:
+Que debería generar de vuelta:
 
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
     
 
-Next, [install `docker-compose`](https://docs.docker.com/compose/install/).
+Después, [instala `docker-compose`](https://docs.docker.com/compose/install/).
 
-Once it is installed, verify the installation works by running:
+Una vez instalado, comprueba que funciona ejecutando:
 
 ```bash
 $ docker-compose -v
@@ -32,23 +32,23 @@ $ docker-compose -v
 
 Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
 
-After installing Docker, we recommend adding your user to the `docker` group so that you can easily issue `docker` commands without `sudo`:
+Después de instalar Docker, te recomendamos añadir tu usuario al grupo `docker` para que puedas emitir fácilmente comandos `docker` sin `sudo`:
 
 ```bash
 $ sudo usermod -aG docker ${USER}
 ```
 
-You'll need to reboot in order for the change to take effect.
+Deberás reiniciar el equipo para que el cambio surta efecto.
 
-## Install Git
+## Instalar Git
 
 We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
-## Install Python & PIP
+## Instalar Python y PIP
 
-PolySwarm development requires Python 3.5.4 or above. Please install [Python](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) for your development platform.
+Desarrollar para PolySwarm requiere Python 3.5.4 o superior. Instala [Python](https://www.python.org/downloads/) y [PIP](https://pip.pypa.io/en/stable/installing/) para tu plataforma de desarrollo.
 
-## (Optional) Set up a Virtual Environment (virtualenv)
+## (Opcional) Configura un entorno virtual (virtualenv)
 
 If you plan to use this machine for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
 
