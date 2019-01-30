@@ -43,14 +43,14 @@ En particular, los micromotores:
 4. Determinan el importe de la apuesta en néctar (NCT) (**a través de un motor de sintetización de veredictos**).
 5. Generan una afirmación (su `veredicto` y `apuesta`) (a través de un **motor de apuestas**).
 
-Todos los micromotores comparten este conjunto de tareas. Este tutorial se centrará exclusivamente en el punto 3: crear un procesador de análisis dentro de nuestro proyecto esquemático `microengine-scratch`. All other items will be covered by `polyswarmd` defaults. After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](/polyswarmd-api/) for pointers on customizing these other aspects of their Microengine.
+Todos los micromotores comparten este conjunto de tareas. Este tutorial se centrará exclusivamente en el punto 3: crear un procesador de análisis dentro de nuestro proyecto esquemático `microengine-scratch`. Todos los demás puntos se llevarán a cabo usando los valores por defecto de `polyswarmd`. Una vez completados estos tutoriales, los usuarios avanzados quizá deseen consultar la [**API de polyswarmd**](/polyswarmd-api/) para aprender a personalizar los demás aspectos de su micromotor.
 
-## Developing a Microengine
+## Cómo desarrollar un micromotor
 
-Ready to develop your first Microengine and start earning NCT?
+¿Estás listo para desarrollar tu primer micromotor y empezar a ganar NCT?
 
-(Recommended) [I want to build a Linux-based Microengine →](/development-environment-linux/)
+(Recomendado) [Quiero crear un micromotor en Linux →](/development-environment-linux/)
 
-Linux-based Engines are far easier to test and come with more deployment options than Windows-based Engines.
+Los micromotores creados en Linux son mucho más fáciles de probar e incluyen más opciones de implementación que los creados en Windows.
 
-[My scan engine only supports Windows; I want to build a Windows-based Microengine →](/development-environment-windows/)
+[Mi motor de escaneo solo es compatible con Windows; quiero crear un micromotor en Windows →](/development-environment-windows/)
