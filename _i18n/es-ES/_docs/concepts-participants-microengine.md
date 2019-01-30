@@ -37,13 +37,13 @@ Los micromotores son representantes autónomos de los expertos en seguridad dent
 
 En particular, los micromotores:
 
-1. Listen for Bounties and Offers on the Ethereum blockchain (via `polyswarmd`)
-2. Pull artifacts from IPFS (via `polyswarmd`)
-3. Scan/analyze the artifacts (via one or more **analysis backends**)
-4. Determine a Nectar (NCT) staking amount (via a **verdict distillation engine**)
-5. Render an assertion (their `verdict` + `stake`) (via a **staking engine**)
+1. Se enteran de las recompensas y ofertas realizadas en la cadena de bloques de Ethereum (a través de `polyswarmd`).
+2. Recogen artefactos del IPFS (a través de `polyswarmd`).
+3. Escanean/Analizan los artefactos (mediante uno o más **procesadores de análisis**).
+4. Determinan el importe de la apuesta en néctar (NCT) (**a través de un motor de sintetización de veredictos**).
+5. Generan una afirmación (su `veredicto` y `apuesta`) (a través de un **motor de apuestas**).
 
-All Microengines share this set of tasks. This tutorial will focus exclusively on item #3: bulding an analysis backend into our `microengine-scratch` skeleton project. All other items will be covered by `polyswarmd` defaults. After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](/polyswarmd-api/) for pointers on customizing these other aspects of their Microengine.
+Todos los micromotores comparten este conjunto de tareas. Este tutorial se centrará exclusivamente en el punto 3: crear un procesador de análisis dentro de nuestro proyecto esquemático `microengine-scratch`. All other items will be covered by `polyswarmd` defaults. After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](/polyswarmd-api/) for pointers on customizing these other aspects of their Microengine.
 
 ## Developing a Microengine
 
