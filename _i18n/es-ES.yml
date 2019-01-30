@@ -151,10 +151,6 @@ footer:
             name: Media
             d_url: /media/
             d_rooturl: true
-          - 
-            name: Press
-            d_url: /press/
-            d_rooturl: true
       - 
         items:
           - 
@@ -201,10 +197,10 @@ pages:
 docs:
   concepts_participants:
     title: Roles in the PolySwarm Marketplace
-    description: PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
+    description: PolySwarm es un mercado formado por participantes que constituyen la oferta (micromotores) y la demanda (embajadores), además de mediadores (árbitros).
   concepts_participants_microengine:
     title: "Participants: Microengine"
-    description: Microengines are Security Experts' representation in the PolySwarm marketplace.
+    description: Los micromotores son la representación de los expertos en seguridad dentro del mercado de PolySwarm.
   development_environment_linux:
     title: Linux Development Environment
     description: How to configure a Linux development environment for PolySwarm
