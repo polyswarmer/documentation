@@ -23,13 +23,13 @@ Desde una perspectiva de alto nivel:
 7. Los **árbitros** ofrecen la *verdad terreno* con respecto a las intenciones maliciosas del artefacto.
 8. Los **micromotores** que estuvieran en lo cierto son recompensados con los fondos puestos en depósito por los **micromotores** que se hubieran equivocado.
 
-For full details on this process, please refer to the [PolySwarm whitepaper](https://polyswarm.io/polyswarm-whitepaper.pdf).
+Para conocer todos los detalles de este proceso, consulta el [libro blanco de PolySwarm](https://polyswarm.io/polyswarm-whitepaper.pdf).
 
-## Breaking Down Microengines
+## Descripción detallada de los micromotores
 
-Conceptually, a Microengine is composed of:
+Conceptualmente, un micromotor se compone de lo siguiente:
 
-1. `N` **analysis backends**: the scanners that ingest artifacts (files) and determine `malicious` or `benign`.
+1. `N` **procesadores de análisis**: los escáneres que analizan los artefactos (archivos) y determinan si son `maliciosos` o `benignos`.
 2. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
 3. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
 
