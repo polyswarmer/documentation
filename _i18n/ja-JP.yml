@@ -151,10 +151,6 @@ footer:
             name: メディア
             d_url: /media/
             d_rooturl: true
-          - 
-            name: プレス
-            d_url: /press/
-            d_rooturl: true
       - 
         items:
           - 
