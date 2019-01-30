@@ -69,20 +69,20 @@ source polyswarmvenv/bin/activate
 
 Compilar e instalar las bibliotecas de `polyswarm-client` es muy sencillo.
 
-First, install Python 3 headers / build requirements.
+Primero, instala los encabezados y los requisitos de compilación de Python 3.
 
-On Ubuntu, this is achieved with:
+En Ubuntu se hace con:
 
     $ sudo apt install python3-dev
     
 
-Next:
+A continuación:
 
 ```bash
 pip install polyswarm-client
 ```
 
-## Verify Installation
+## Verificar la instalación
 
 You should now have a working development environment!
 
