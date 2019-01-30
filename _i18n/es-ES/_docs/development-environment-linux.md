@@ -50,7 +50,7 @@ Desarrollar para PolySwarm requiere Python 3.5.4 o superior. Instala [Python](ht
 
 ## (Opcional) Configura un entorno virtual (virtualenv)
 
-If you plan to use this machine for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
+Si piensas usar este equipo para otros fines, te recomendamos mantener limpios los paquetes de Python que afectan a todo el sistema creando un entorno virtual virtualenv de PolySwarm:
 
 ```bash
 pip install virtualenv
@@ -59,16 +59,15 @@ virtualenv polyswarmvenv -p <PATH TO PYTHON 3.5.4 OR ABOVE>
 source polyswarmvenv/bin/activate
 ```
 
-## Install `polyswarm-client` Libraries
+## Instala las bibliotecas de `polyswarm-client`
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you're using a virtualenv (see above), ensure that you activate it before installing polyswarm-client.
+    <strong>Información:</strong> Si usas un entorno virtual virtualenv (ver arriba), asegúrate de activarlo antes de instalar polyswarm-client.
   </p>
 </div>
 
-Compiling & installing `polyswarm-client` libraries is simple.
+Compilar e instalar las bibliotecas de `polyswarm-client` es muy sencillo.
 
 First, install Python 3 headers / build requirements.
 
