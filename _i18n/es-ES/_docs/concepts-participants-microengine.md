@@ -30,12 +30,12 @@ Para conocer todos los detalles de este proceso, consulta el [libro blanco de Po
 Conceptualmente, un micromotor se compone de lo siguiente:
 
 1. `N` **procesadores de análisis**: los escáneres que analizan los artefactos (archivos) y determinan si son `maliciosos` o `benignos`.
-2. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
-3. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
+2. `1` **motor de sintetización de veredictos**: analiza el resultado de los procesadores de análisis y los sintetiza para obtener un único `veredicto` y un `intervalo de confianza`.
+3. `1` **motor de apuestas**: analiza el resultado de la sintetización de veredictos, así como información sobre la competencia y el mercado, para producir una `apuesta` que se cuantifica en unidades néctar (NCT).
 
-Microengines are Security Experts' autonomous representatives in the PolySwarm marketplace. They handle everything from scanning files to placing stakes on assertions concerning the malintent of files.
+Los micromotores son representantes autónomos de los expertos en seguridad dentro del mercado de PolySwarm. Se encargan de todas las tareas: desde escanear los archivos hasta apostar por las afirmaciones realizadas con respecto a sus intenciones maliciosas.
 
-Specifically, Microengines:
+En particular, los micromotores:
 
 1. Listen for Bounties and Offers on the Ethereum blockchain (via `polyswarmd`)
 2. Pull artifacts from IPFS (via `polyswarmd`)
