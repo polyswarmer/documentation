@@ -23,7 +23,7 @@ global:
         text: Close
   previous_text: Previous article
   next_text: Next article
-  close_text: Close
+  close_text: Cerrar
   privacy_settings:
     heading: Privacy Settings
     text: Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you consent to our use of cookies, please make sure the box below is checked. Otherwise, uncheck the box below to opt out.
