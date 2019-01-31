@@ -4,17 +4,17 @@ global:
   description: PolySwarm 資料は、専門家、評価者、アンバサダーなどが PolySwarm 製品を理解できるように設計された公開リソースです。
   languages:
     - 
-      name: ja-JP
-      fullname: 日本語
+      name: en-US
+      fullname: English
       d_url: /
-      text: This page is available in 日本語.
+      text: This page is available in English.
       ok:
-        text: 今すぐ表示
+        text: View now
       close:
-        text: 閉じる
+        text: Close
     - 
       name: ja-JP
-      fullname: English
+      fullname: 日本語
       d_url: /ja-JP/
       text: このページは English でもご利用いただけます。
       ok:
@@ -150,10 +150,6 @@ footer:
           - 
             name: メディア
             d_url: /media/
-            d_rooturl: true
-          - 
-            name: プレス
-            d_url: /press/
             d_rooturl: true
       - 
         items:
