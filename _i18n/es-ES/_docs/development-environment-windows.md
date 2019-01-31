@@ -11,7 +11,7 @@ Conducting Windows-Based Engine development inside of a VirtualBox Guest is the 
   </p>
 </div>
 
-### System Requirements
+### Requisitos del sistema
 
 Windows-Based Engine development presents non-trivial system requirements for your development host:
 
@@ -174,7 +174,7 @@ python -m venv polyswarmvenv
 ./polyswarmvenv/Scripts/Activate.ps1
 ```
 
-## Install `polyswarm-client` Libraries
+## Instala las bibliotecas de `polyswarm-client`
 
 <div class="m-flag">
   <p>
@@ -189,7 +189,7 @@ Installing `polyswarm-client` is as simple as:
 pip install polyswarm-client
 ```
 
-## Verify Installation
+## Verificar la instalación
 
 You should now have a working development environment!
 
