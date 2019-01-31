@@ -240,7 +240,7 @@ If you get those same output results, you have everything setup correctly, so le
 
 ### Configure Linux VM for Hosting a Local Testnet
 
-#### Install Docker
+#### Instalar Docker
 
 We've Docker-ized the test version of the PolySwarm marketplace. To use it, you need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
 
@@ -292,7 +292,7 @@ Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
   </p>
 </div>
 
-#### Install Git
+#### Instalar Git
 
 We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
