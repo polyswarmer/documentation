@@ -9,21 +9,21 @@ global:
       d_url: /
       text: This page is available in English.
       ok:
-        text: 今すぐ表示
+        text: View now
       close:
-        text: 閉じる
+        text: Close
     - 
       name: ja-JP
       fullname: 日本語
       d_url: /ja-JP/
       text: このページは English でもご利用いただけます。
       ok:
-        text: 今すぐ表示
+        text: View now
       close:
-        text: 閉じる
+        text: Close
   previous_text: 前の記事
   next_text: 次の記事
-  close_text: 閉じる
+  close_text: Close
   privacy_settings:
     heading: プライバシーの設定
     text: このサイトでは、サイトの使用状況の理解を深め、今後の使いやすさを改善するために Cookie を使用しています。Cookie の使用に同意する場合、下のボックスにチェック・マークが付いた状態にしてください。それ以外の場合は、下のボックスのチェック・マークを外して、オプトアウトしてください。
