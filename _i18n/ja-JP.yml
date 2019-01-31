@@ -18,12 +18,12 @@ global:
       d_url: /ja-JP/
       text: このページは English でもご利用いただけます。
       ok:
-        text: View now
+        text: 今すぐ表示
       close:
-        text: Close
+        text: 閉じる
   previous_text: 前の記事
   next_text: 次の記事
-  close_text: Close
+  close_text: 閉じる
   privacy_settings:
     heading: プライバシーの設定
     text: このサイトでは、サイトの使用状況の理解を深め、今後の使いやすさを改善するために Cookie を使用しています。Cookie の使用に同意する場合、下のボックスにチェック・マークが付いた状態にしてください。それ以外の場合は、下のボックスのチェック・マークを外して、オプトアウトしてください。
