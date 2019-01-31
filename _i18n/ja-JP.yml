@@ -5,16 +5,16 @@ global:
   languages:
     - 
       name: ja-JP
-      fullname: 日本語
+      fullname: English
       d_url: /
-      text: This page is available in 日本語.
+      text: This page is available in English.
       ok:
         text: 今すぐ表示
       close:
         text: 閉じる
     - 
       name: ja-JP
-      fullname: English
+      fullname: 日本語
       d_url: /ja-JP/
       text: このページは English でもご利用いただけます。
       ok:
