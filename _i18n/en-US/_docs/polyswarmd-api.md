@@ -1010,6 +1010,127 @@ def post_transactions(transactions):
     return response.json()
 ```
 
+#### Success Response
+
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+
+**Code** : `200`
+
+**Content example**
+
+```json
+[
+  {
+    "is_error": false,
+    "message": "0x3ba9b38a6014048897a47633727eec4999d7936ea0f1d8e7bd42a51a1164ffad"
+  },
+]
+```
+
+## Transaction Events
+
+A list of events or errors that resulted from the transaction with the given hash
+
+**URL** : `/transactions/?chain=[chain_here]`
+
+**Method** : `GET`
+
+**Data constraints**
+
+Provide:
+
+transactions - a list transaction hashes to check
+
+```json
+{
+  "transactions": "[array of transaction hashes]",
+}
+```
+
+**Data example** All fields must be sent.
+
+```json
+{
+  "transactions": ["0x3ba9b38a6014048897a47633727eec4999d7936ea0f1d8e7bd42a51a1164ffad"],
+}
+```
+
+#### Success Response
+
+**Condition** : If all of the transactions completed without reverting. (If some failed, it will return 400)
+
+**Code** : `200`
+
+**Content example**
+
+```json
+{
+  "transfers": [
+    {
+    "value": 20000000000000000,
+    "from": "0x000000000000000000000000000000000",
+    "to": "0x000000000000000000000000000000000"
+    }
+  ],
+  "bounties": [
+    {
+      "guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+      "author": "0x000000000000000000000000000000000",
+      "amount": "1000",
+      "uri": "QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG",
+      "expiration": "1000"
+    }
+  ],
+  "assertions": [
+    {
+      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+      "author": "0x000000000000000000000000000000000",
+      "index": 0,
+      "bid": "1000",
+      "mask": [true],
+      "commitment": "1000"
+    }
+  ],
+  "reveals": [
+    {
+      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+      "author": "0x000000000000000000000000000000000",
+      "index": 0,
+      "nonce": "0",
+      "verdicts": [true],
+      "metadata": ""
+    }
+  ],
+  "votes": [
+    {
+      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+      "votes": [true],
+      "voter": "0x000000000000000000000000000000000"
+    }
+  ],
+  "settles": [
+    {
+      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+      "settler": "0x000000000000000000000000000000000",
+      "payout": 0
+    }
+  ],
+  "withdrawals": [
+    {
+      "to": "0x000000000000000000000000000000000",
+      "value": 0
+    }
+  ],
+  "deposits": [
+    {
+      "from": "0x000000000000000000000000000000000",
+      "value": 0
+    }
+  ],
+  "errors": []
+}
+```
+
 ## State
 
 ### Creating State
@@ -1227,7 +1348,8 @@ Sent when an arbiter votes on a bounty
   "event": "vote",
   "data": {
     "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "votes": [true]
+    "votes": [true],
+    "voter": "0x000000000000000000000000000000000"
   }
 }
 ```
@@ -1259,7 +1381,8 @@ Sent when a participant settles their portion of a bounty
   "event": "settled_bounty",
   "data": {
     "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "settler": "0x0000000000000000000000000000000000000000"
+    "settler": "0x0000000000000000000000000000000000000000",
+    "payout": 0
   }
 }
 ```
