@@ -61,10 +61,7 @@ Integration testing a Windows-Based Engine requires two virtual machines (VMs / 
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    The recommendations presented here are hard-won.
-    We strongly recommend that you test using the exact recommendations presented here.
-    Using any other configuration will make it difficult for us to provide you with support.
+    <strong>Aviso:</strong> Las recomendaciones aquí incluidas son el resultado de un trabajo minucioso. We strongly recommend that you test using the exact recommendations presented here. Nos resultará más difícil prestarte ayuda si empleas cualquier otra configuración.
   </p>
 </div>
 
@@ -79,10 +76,10 @@ Create a Linux VM using the following parameters:
 * Version: Ubuntu (64-bit)
 * RAM: 8GB+
 * CPU: 4+ cores
-* video memory: 128MB
-* disk space: 50GB+
+* Memoria de vídeo: 128 MB
+* Espacio en disco: 50 GB o más
 
-Use the default setting for all other options. In particular, do NOT enable 3D acceleration.
+Usa la configuración por defecto para las demás opciones. In particular, do NOT enable 3D acceleration.
 
 In general, you will want to provide extra available RAM and CPU resources to the Linux VM to make the testnet perform better.
 
@@ -102,9 +99,9 @@ Use the ISO you downloaded to install Xubuntu in the VM.
 
 #### (Optional) Install VirtualBox Guest Additions
 
-Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+Las adiciones de invitados ("Guest Additions") son necesarias para disfrutar de las funciones de portapapeles compartido o copiar y pegar entre el invitado y el host.
 
-[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
+[Consulta el manual de VirtualBox](https://www.virtualbox.org/manual/ch04.html).
 
 ### Configure Inter-Guest Networking
 
