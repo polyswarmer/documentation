@@ -79,25 +79,25 @@ Una vez instaladas las adiciones de invitados, ya estás listo para [Configurar 
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Aviso:</strong> Por ahora, el desarrollo de motores en Windows fuera de una máquina virtual VirtualBox te impedirá ejecutar pruebas de integración. We strongly recommend that you conduct development inside of a Windows VirtualBox Guest (described above) at this time.
+    <strong>Aviso:</strong> Por ahora, el desarrollo de motores en Windows fuera de una máquina virtual VirtualBox te impedirá ejecutar pruebas de integración. Te recomendamos encarecidamente que, por el momento, lleves a cabo el desarrollo dentro de un invitado Windows de VirtualBox tal y como se ha descrito anteriormente.
   </p>
 </div>
 
-Minimum system requirements:
+Requisitos mínimos del sistema:
 
-- Windows 10*
+- Windows 10*.
 - Mínimo de 4 núcleos de CPU.
-- 4GB of RAM
+- 4 GB de RAM.
 
-*Older versions of Windows may work, but are untested (and unsupported) at this time.
+*Es posible que funcionen versiones anteriores de Windows pero, por ahora, no se han probado ni se ofrece ayuda con ellas.
 
-## Configure Windows
+## Configura Windows
 
-We'll need to use Administrator privilege to make several changes to default Windows settings. We'll need an "elevated" / "privileged" PowerShell console:
+Necesitamos privilegios de Administrador para realizar varios cambios en la configuración por defecto de Windows. Para ello, abriremos una consola PowerShell "con privilegios"/"elevada":
 
-- search "PowerShell" in the desktop search bar
-- right click on "Windows PowerShell"
-- select "Run as administrator".
+- busca "PowerShell" en la barra de búsqueda del escritorio;
+- haz clic con el botón derecho en "Windows PowerShell";
+- selecciona "Ejecutar como administrador".
 
 Run the following in this privileged PowerShell console.
 
