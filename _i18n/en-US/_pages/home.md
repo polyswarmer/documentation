@@ -30,7 +30,7 @@ PolySwarm Portal is PolySwarm's one-stop shop for:
 
 ## Communities
 
-PolySwarm is composed of a series of Communities (hence the "Poly").
+PolySwarm is made up of a series of Communities (hence the "Poly").
 Each Community serves a particular purpose and can either permit everyone to join or limit access to specific participants.
 
 PolySwarm will launch with two communities:
@@ -39,7 +39,7 @@ PolySwarm will launch with two communities:
 
 This list will expand, allowing Ambassadors and Microengine developers to control their audience.
 Future communities may include:
-* A GDPR-compliant community with artifact sharing amongst a closed set of complaint participants.
+* A GDPR-compliant community with artifact sharing amongst a closed set of compliant participants.
 * A network of mutually NDA'ed MSSPs & security experts.
 
 Anyone will be able to administer their own Community and advertise their community through PolySwarm Portal.
