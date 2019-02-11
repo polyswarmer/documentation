@@ -99,33 +99,33 @@ Necesitamos privilegios de Administrador para realizar varios cambios en la conf
 - haz clic con el botón derecho en "Windows PowerShell";
 - selecciona "Ejecutar como administrador".
 
-Run the following in this privileged PowerShell console.
+Ejecuta lo siguiente en esa consola PowerShell con privilegios:
 
-1. Permit script execution (necessary for installing Chocolatey & using virtualenvs):
+1. Autoriza la ejecución de scripts (necesaria para instalar Chocolatey y usar entornos virtuales):
     
     ```powershell
     Set-ExecutionPolicy Bypass -Scope LocalMachine -Force
     ```
 
-2. Force PowerShell to use TLSv2 (required of some dependancies):
+2. Obliga a PowerShell a usar TLSv2 (requerido por algunas dependencias):
     
     ```powershell
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     ```
 
-## Install Chocolatey & Prerequisities
+## Instala Chocolatey y los requisitos previos
 
-Chocolatey is a package manager for Windows. We'll use it to help with installing some prerequisites.
+Chocolatey es un gestor de paquetes para Windows. Lo emplearemos para facilitar la instalación de algunos requisitos previos.
 
-Run the following in a *privileged* PowerShell console.
+Ejecuta lo siguiente en una consola PowerShell *con privilegios*.
 
-1. Install Chocolatey:
+1. Instala Chocolatey:
     
     ```powershell
     iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     ```
 
-2. Use Chocolatey to install prerequisites (do these one at a time):
+2. Usa Chocolatey para instalar los requisitos previos (de uno en uno):
     
     ```powershell
     choco install -y python --version 3.5.4
@@ -133,32 +133,29 @@ Run the following in a *privileged* PowerShell console.
     choco install -y visualcpp-build-tools --version 14.0.25420.1
     ```
 
-## Disable Anti-Malware Products
+## Deshabilita cualquier protección contra código malicioso
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    We strongly recommend disabling all anti-malware products in your development environment - including the built-in Windows Defender.
-    Below, we describe disabling Windows Defender.
-    Disabling third party solutions is left as an exercise for the reader.
+    <strong>Aviso:</strong> Te recomendamos encarecidamente deshabilitar todos los productos de protección contra código malicioso, incluida la instalación de Windows Defender integrada. A continuación, indicamos cómo deshabilitar Windows Defender. Se deja al lector el trabajo de deshabilitar cualquier otra solución de terceros.
   </p>
 </div>
 
-PolySwarm engines should expect to come into contact with malware. Existing anti-malware engines, including the built-in Windows Defender, can easily get in our way, quarantining or deleting files during development.
+Se entiende que los motores de PolySwarm deben entrar en contacto con el código malicioso. Cualquier otro sistema de protección contra código malicioso, incluida la instalación de Windows Defender integrada, podría fácilmente interferir y poner en cuarentena o borrar archivos durante el desarrollo.
 
-Disabling Windows Defender is a two step process.
+Deshabilitar Windows Defender consta de dos pasos:
 
-1. Run the following command in a privileged PowerShell:
+1. Ejecuta el siguiente comando en un PowerShell con privilegios:
     
     ```powershell
     Set-ItemProperty 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender' DisableAntiSpyware 1
     ```
 
-2. Reboot Windows.
+2. Reinicia Windows.
 
-## Set up a Virtual Environment (virtualenv)
+## Configura un entorno virtual (virtualenv)
 
-If you plan to use this Windows installation for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
+Si piensas usar esta instalación de Windows para otros fines, te recomendamos mantener limpios los paquetes de Python que afectan a todo el sistema creando un entorno virtual virtualenv de PolySwarm:
 
 ```bash
 cd ~
@@ -170,12 +167,11 @@ python -m venv polyswarmvenv
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you're using a virtualenv (see above), ensure that you activate it before installing `polyswarm-client`.
+    <strong>Información:</strong> Si estás usando un entorno virtual (ver arriba), asegúrate de activarlo antes de instalar "polyswarm-client".
   </p>
 </div>
 
-Installing `polyswarm-client` is as simple as:
+Instalar `polyswarm-client` es muy sencillo:
 
 ```bash
 pip install polyswarm-client
@@ -183,9 +179,9 @@ pip install polyswarm-client
 
 ## Verificar la instalación
 
-You should now have a working development environment!
+¡Ahora ya deberías tener un entorno de desarrollo funcional!
 
-To verify, simply try importing `polyswarmclient`:
+Para comprobarlo, intenta importar `polyswarmclient`:
 
 ```bash
 $ python
@@ -195,8 +191,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-You should be able to import `polyswarmclient` without issue.
+La importación de `polyswarmclient` debería llevarse a cabo sin problemas.
 
-Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
+A continuación, te guiaremos en la creación de tu propio micromotor de PolySwarm, capaz de detectar el archivo de prueba EICAR.
 
-[Make a "Hello World" Microengine →](/microengines-scratch-to-eicar/)
+[Crea un micromotor "Hola mundo" →](/microengines-scratch-to-eicar/)
