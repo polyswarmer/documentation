@@ -12,7 +12,7 @@ For a high-level overview of the PolySwarm marketplace, see [How It Works](https
 
 ## Ambassadors
 
-**Ambassadors** pay a fee or purchase a subscription to submit files (artifacts) to the PolySwarm network. This fee funds Microengines and Arbiters for offering thereat intelligence and determining ground truth, respectively. In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in, e.g. triage or incident response. *NCT goes in, threat intelligence comes out.*
+**Ambassadors** pay a fee or purchase a subscription to submit files (artifacts) to the PolySwarm network. This fee funds Microengines and Arbiters for offering threat intelligence and determining ground truth, respectively. In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in, e.g. triage or incident response. *NCT goes in, threat intelligence comes out.*
 
 <button disabled>I want to learn more about creating an Ambassador → (coming soon!)</button>
 
