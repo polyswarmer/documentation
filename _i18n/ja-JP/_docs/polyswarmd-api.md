@@ -1007,11 +1007,132 @@ def post_transactions(transactions):
     return response.json()
 ```
 
-## 状態
+#### 成功応答
+
+**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+
+**コード** : `200`
+
+**コンテンツの例**
+
+```json
+[
+  {
+    "is_error": false,
+    "message": "0x3ba9b38a6014048897a47633727eec4999d7936ea0f1d8e7bd42a51a1164ffad"
+  },
+]
+```
+
+## Transaction Events
+
+A list of events or errors that resulted from the transaction with the given hash
+
+**URL** : `/transactions/?chain=[chain_here]`
+
+**メソッド** : `GET`
+
+**データ制約**
+
+指定:
+
+transactions - a list transaction hashes to check
+
+```json
+{
+  "transactions": "[array of transaction hashes]",
+}
+```
+
+**データの例** すべてのフィールドを送信する必要があります。
+
+```json
+{
+  "transactions": ["0x3ba9b38a6014048897a47633727eec4999d7936ea0f1d8e7bd42a51a1164ffad"],
+}
+```
+
+#### 成功応答
+
+**Condition** : If all of the transactions completed without reverting. (If some failed, it will return 400)
+
+**コード** : `200`
+
+**コンテンツの例**
+
+```json
+{
+  "transfers": [
+    {
+    "value": 20000000000000000,
+    "from": "0x000000000000000000000000000000000",
+    "to": "0x000000000000000000000000000000000"
+    }
+  ],
+  "bounties": [
+    {
+      "guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+      "author": "0x000000000000000000000000000000000",
+      "amount": "1000",
+      "uri": "QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG",
+      "expiration": "1000"
+    }
+  ],
+  "assertions": [
+    {
+      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+      "author": "0x000000000000000000000000000000000",
+      "index": 0,
+      "bid": "1000",
+      "mask": [true],
+      "commitment": "1000"
+    }
+  ],
+  "reveals": [
+    {
+      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+      "author": "0x000000000000000000000000000000000",
+      "index": 0,
+      "nonce": "0",
+      "verdicts": [true],
+      "metadata": ""
+    }
+  ],
+  "votes": [
+    {
+      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+      "votes": [true],
+      "voter": "0x000000000000000000000000000000000"
+    }
+  ],
+  "settles": [
+    {
+      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+      "settler": "0x000000000000000000000000000000000",
+      "payout": 0
+    }
+  ],
+  "withdrawals": [
+    {
+      "to": "0x000000000000000000000000000000000",
+      "value": 0
+    }
+  ],
+  "deposits": [
+    {
+      "from": "0x000000000000000000000000000000000",
+      "value": 0
+    }
+  ],
+  "errors": []
+}
+```
+
+## State
 
 ### 状態の作成
 
-状態バイト文字列には、アンバサダーと専門家が署名した対象の詳細が含まれます。
+The state byte string contains details the ambassador and expert sign off on.
 
 **URL** : `/offers/state`
 
@@ -1021,29 +1142,29 @@ def post_transactions(transactions):
 
 指定:
 
-    close_flag - 当該状態がクローズ可能かどうかを示す 1 または 0
-    nonce - 状態のシーケンス
-    ambassador - アンバサダーのアドレス
-    expert - 専門家のアドレス
-    msig_address - マルチ署名アドレス
-    ambassador_balance - アンバサダーの残高 (Nectar)
-    nectar_balance - 専門家の残高 (Nectar)
-    guid - オファー・リストのグローバル一意識別子
-    offer_amount - アサーションに対して支払われるオファー金額
+    close_flag - 1 or 0 for is this state is closeable
+    nonce - the sequnce of the state
+    ambassador - ambassador address
+    expert - expert address
+    msig_address - multi signature address
+    ambassador_balance - balance in nectar for ambassador
+    nectar_balance - balance in nectar for expert
+    guid - a globally-unique identifier for the offer listing
+    offer_amount - the offer amount paid for assertion
     
 
-オプション:
+Optional:
 
-    artifact_hash - アーティファクトの暗号ハッシュ
-    ipfs_hash - アーティファクトの IPFS URI
-    engagement_deadline - エンゲージメントの期限
-    assertion_deadline - アサーションの期限
-    current_commitment - 現在のコミットメント
-    verdicts - 判定のビットマップ
-    meta_data - 現在のオファーに関するメタデータ
+    artifact_hash - cryptographic hash of the artifact
+    ipfs_hash - the IPFS URI of the artifact
+    engagement_deadline - engagement Deadline
+    assertion_deadline - assertion Deadline
+    current_commitment - current commitment
+    verdicts - bitmap of verdicts
+    meta_data - meta data about current offer
     
 
-POST データの例:
+Example POST data:
 
     {
       "close_flag": 0,
@@ -1056,14 +1177,14 @@ POST データの例:
     }
     
 
-#### 以下のバイト文字列に変換されて応答で返されます。
+#### Gets tranformed to the below bytes string in the response:
 
     0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc
     
 
 ### 状態への署名
 
-オファー API では、署名済みの状態が必要です。 以下に、署名して JavaScript で v、r、s の各署名部分を作成する例を示します。
+The offers api requires signed states. Here's an example of signing to create the v, r, and s signature pieces in Javascript.
 
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
@@ -1088,39 +1209,39 @@ let v = sig.v
 
 ### 状態メッセージ
 
-アンバサダーは、コントラクトで定義された URL を使用して WebSocket を開きます。 ローカルでは、メッセージは `ws://localhost:31337/messages/<uuid:guid>` で送信されます。
+Ambassadors open a websocket with the url defined in the contract. Locally - messages are sent on `ws://localhost:31337/messages/<uuid:guid>`
 
 **データ制約**
 
 指定:
 
-type - メッセージのタイプ (支払、要求、アサーション)
+type - type of message (payment, request, assertion)
 
-state - オファー状態
+state - offer state
 
-オプション:
+Optional:
 
-toSocketUri - 別の人に送信する場合 (デフォルトではアンバサダー)
+toSocketUri - to send to a different person (defaults to the ambassador)
 
-v - 両者の状態文字列の署名からのリカバリー ID
+v - recovery ids from signature of state string for both parties
 
-r - 状態文字列の ECDSA 署名
+r - ECDSA signature of state string
 
-s - 状態文字列の ECDSA 署名
+s - ECDSA signature of state string
 
 ```json
 {
-  "fromSocketUri": "[文字列]",
-  "state": "[文字列、最小長 32]",
-  "v": "[2 個の整数の配列]",
-  "r": "[最小長が 64 の 2 個の文字列の配列]",
-  "s": "[最小長が 64 の 2 個の文字列の配列]",
+  "fromSocketUri": "[string]",
+  "state": "[string minimum length 32]",
+  "v": "[array of 2 integers]",
+  "r": "[array of 2 strings with min length 64]",
+  "s": "[array of 2 strings with min length 64]",
 }
 ```
 
 **データの例** すべてのフィールドを送信する必要があります。
 
-状態の[説明](#state)をご覧ください。
+See state [explanation](#state)
 
 ```json
 {
@@ -1129,17 +1250,17 @@ s - 状態文字列の ECDSA 署名
 }
 ```
 
-## イベント
+## Events
 
-コントラクト・イベント用の WebSocket
+A websocket for contract events
 
-`ws://localhost:31337/events/<chain>` の WebSocket をリッスンします。
+Listen to the websocket at `ws://localhost:31337/events/<chain>`
 
-**イベント・タイプ**
+**Event Types**
 
-***ブロック***
+***Block***
 
-新しいブロックがマイニングされたときに送信され、最新のブロック番号を報告します。
+Sent when a new block is mined, reports the latest block number
 
 **コンテンツの例**
 
@@ -1152,9 +1273,9 @@ s - 状態文字列の ECDSA 署名
 }
 ```
 
-***報奨金***
+***Bounty***
 
-新しい報奨金が提示されたときに送信されます。
+Sent when a new bounty is posted
 
 **コンテンツの例**
 
@@ -1171,9 +1292,9 @@ s - 状態文字列の ECDSA 署名
 }
 ```
 
-***アサーション***
+***Assertion***
 
-報奨金に対する新しいアサーションが提示されたときに送信されます。
+Sent when a new assertion to a bounty is posted
 
 **コンテンツの例**
 
@@ -1191,9 +1312,9 @@ s - 状態文字列の ECDSA 署名
 }
 ```
 
-***評価***
+***Reveal***
 
-報奨金に対するアサーションが評価されたときに送信されます。
+Sent when an assertion to a bounty is revealed
 
 **コンテンツの例**
 
@@ -1211,9 +1332,9 @@ s - 状態文字列の ECDSA 署名
 }
 ```
 
-***投票***
+***Vote***
 
-評価者が報奨金について投票したときに送信されます。
+Sent when an arbiter votes on a bounty
 
 **コンテンツの例**
 
@@ -1222,14 +1343,15 @@ s - 状態文字列の ECDSA 署名
   "event": "vote",
   "data": {
     "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "votes": [true]
+    "votes": [true],
+    "voter": "0x000000000000000000000000000000000"
   }
 }
 ```
 
-***定足数***
+***Quorum***
 
-評価者が報奨金について定足数に達したときに送信されます。
+Sent when arbiters have reached quorum on a bounty
 
 **コンテンツの例**
 
@@ -1243,9 +1365,9 @@ s - 状態文字列の ECDSA 署名
 }
 ```
 
-***決済***
+***Settled***
 
-参加者が報奨金部分を決済したときに送信されます。
+Sent when a participant settles their portion of a bounty
 
 **コンテンツの例**
 
@@ -1254,14 +1376,15 @@ s - 状態文字列の ECDSA 署名
   "event": "settled_bounty",
   "data": {
     "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "settler": "0x0000000000000000000000000000000000000000"
+    "settler": "0x0000000000000000000000000000000000000000",
+    "payout": 0
   }
 }
 ```
 
-***チャネルの初期化***
+***Initialized Channel***
 
-新しいチャネルが初期化されたときに送信されます。
+Sent when a new channel is initialized
 
 **コンテンツの例**
 
