@@ -12,7 +12,7 @@ Los **micromotores** son desarrollados por personas u organizaciones capaces de 
 
 ## Embajadores
 
-Los **embajadores** pagan una tarifa o adquieren una suscripción para remitir archivos (artefactos) a la red de PolySwarm. Este importe permite financiar micromotores y árbitros que ofrezcan inteligencia contra amenazas y determinen la verdad terreno, respectivamente. A cambio de dicha tarifa, los embajadores reciben de manera oportuna, por colaboración masiva, inteligencia contra amenazas para, por ejemplo, clasificar el artefacto o responder a un incidente. *Se suministra NCT y se obtiene inteligencia contra amenazas.*
+Los **embajadores** pagan una tarifa o adquieren una suscripción para remitir archivos (artefactos) a la red de PolySwarm. This fee funds Microengines and Arbiters for offering threat intelligence and determining ground truth, respectively. A cambio de dicha tarifa, los embajadores reciben de manera oportuna, por colaboración masiva, inteligencia contra amenazas para, por ejemplo, clasificar el artefacto o responder a un incidente. *Se suministra NCT y se obtiene inteligencia contra amenazas.*
 
 <button disabled>Quiero más información sobre cómo crear un embajador → (¡próximamente!)</button>
 
