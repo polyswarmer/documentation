@@ -101,9 +101,9 @@ La mayor parte de usuarios preferirán simplemente mantener un saldo con `mainta
 
 ## Claves API
 
-Con el fin de protegerse de cualquier abuso o ataque de denegación de servicio (DoS), las comunidades pueden decidir entregar a sus miembros claves API y aplicarles límites de uso. Epoch is one such community, but API keys are available to everyone.
+Con el fin de protegerse de cualquier abuso o ataque de denegación de servicio (DoS), las comunidades pueden decidir entregar a sus miembros claves API y aplicarles límites de uso. Epoch lo hace así, pero las claves API están disponibles para todos.
 
-To obtain your Epoch API key, sign up on [PolySwarm Portal](https://polyswarm.network/), click your name in the top right corner and select Account. Your Epoch API key will be displayed in your Profile.
+Para obtener tu clave API para Epoch, date de alta en el [portal de PolySwarm](https://polyswarm.network/), haz clic en tu nombre en la esquina superior derecha y selecciona Cuenta. La clave API para Epoch se mostrará en tu perfil.
 
 ### Uso de la clave API en motores de `polyswarm-client`
 
@@ -134,10 +134,10 @@ Si has creado tu motor con `polyswarm-client` (por ejemplo, usando nuestra plant
 ```bash
 # microengine \
   --polyswarmd-addr polyswarmd.epoch.polyswarm.network \
-  --keyfile <path to your self-generated and funded keyfile> \
-  --password <encryption password for your keyfile> \
-  --api-key <your Epoch API key>
-  --backend <the name ("slug") of your scan engine (e.g. acme_myeicarengine)>
+  --keyfile <ruta al archivo de clave autogenerado y cargado con saldo> \
+  --password <contraseña de encriptación del archivo de clave> \
+  --api-key <tu clave API para Epoch>
+  --backend <el nombre (en formato "slug") de tu motor de escaneo (p. ej., acme_myeicarengine)>
 ```
 
 Para obtener la lista completa de argumentos de línea de comandos, usa la opción `--help`:
@@ -173,12 +173,12 @@ Además de tu motor, necesitarás ejecutar un gestor de saldo `balancemanager`.
 ```bash
 # balancemanager maintain \
   --polyswarmd-addr polyswarmd.epoch.polyswarm.network \
-  --keyfile <path to your self-generated and funded keyfile> \
-  --password <encryption password for your keyfile> \
-  --api-key <your Epoch API key> \
-  --maximum <(optional) the maximum allowable balance in the Community before a withdraw is made>
-  <MINIMUM: deposit into the Community when balance drops below this value>
-  <REFILL_AMOUNT: the amount of NCT to transfer when Community balance falls below MINIMUM>
+  --keyfile <ruta al archivo de clave autogenerado y cargado con saldo> \
+  --password <contraseña de encriptación del archivo de clave> \
+  --api-key <tu clave API para Epoch>
+  --maximum <(opcional) el máximo saldo permisible en la comunidad antes de realizar una retirada>
+  <MINIMUM: realizar un ingreso en la comunidad cuando el saldo caiga por debajo de este valor>
+  <REFILL_AMOUNT: el importe en NCT a transferir cuando el saldo de la comunidad caiga por debajo de MINIMUM>
 ```
 
 Para obtener la lista completa de argumentos de línea de comandos, usa la opción `--help`:
@@ -207,4 +207,4 @@ Opciones:
 
 ## Felicidades
 
-With your engine & `balancemanager` running, you are now plugged into your Community(ies) of choice!
+Con tu motor y `balancemanager` en marcha, ¡ya estás conectado a las comunidades que elegiste!
