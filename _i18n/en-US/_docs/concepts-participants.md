@@ -17,7 +17,7 @@ Microengines encapsulate security expertise and bundle it in an autonomous proce
 ## Ambassadors
 
 **Ambassadors** pay a fee or purchase a subscription to submit files (artifacts) to the PolySwarm network.
-This fee funds Microengines and Arbiters for offering thereat intelligence and determining ground truth, respectively.
+This fee funds Microengines and Arbiters for offering threat intelligence and determining ground truth, respectively.
 In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in, e.g. triage or incident response.
 *NCT goes in, threat intelligence comes out.*
 
