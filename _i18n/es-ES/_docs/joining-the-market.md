@@ -1,135 +1,135 @@
-# Participating in the PolySwarm Marketplace
+# Cómo participar en el mercado de PolySwarm
 
-Once you've thoroughly tested your engine, you'll want to put it to work in the real PolySwarm marketplace!
+Una vez que hayas probado a fondo tu motor, querrás ponerlo en funcionamiento en el mercado real de PolySwarm.
 
-At a high level, plugging into the PolySwarm marketplace is a simple matter of:
+Desde una perspectiva de alto nivel, para conectar con el mercado de PolySwarm basta con:
 
-1. determining which Community(ies) you'd like to join
-2. pointing your engines to the hosted instance of `polyswarmd` for those Communities
+1. determinar a qué comunidades te gustaría incorporarte, y
+2. apuntar tus motores a la instancia hospedada de `polyswarmd` correspondiente a esas comunidades.
 
-There are a few items to be aware of when doing this; we discuss below.
+Para ello, se deben tener en cuenta determinados aspectos, que abordamos a continuación.
 
-## Wallets & Keyfiles
+## Carteras y archivos de claves
 
-PolySwarm is built on top of Ethereum, a programmable world computer fueled by a native cryptocurrency called Ether (ETH). When an Ethereum user executes a transfer of ETH or conducts a call into an Ethereum "smart contract" (e.g. PolySwarm's Relay contracts), the user must pay the Ethereum network to carry out this transaction in the form of "Gas". Gas is deducted from the user's ETH balance.
+PolySwarm está creado sobre Ethereum, un ordenador mundial programable impulsado por una criptomoneda nativa denominada "Ether" (ETH). Cuando un usuario de Ethereum ejecuta una transferencia de ETH o realiza una llamada a un "contrato inteligente" de Ethereum (por ejemplo, los contratos de transferencia de PolySwarm), dicho usuario debe pagarle a la red Ethereum con "Gas" para ejecutar tal transacción. El gas se deduce del saldo de ETH del usuario.
 
-PolySwarm operates on Nectar (NCT) - an application-layer cryptocurrency token built on top of Ethereum. NCT is essential for participating in the PolySwarm marketplace.
+PolySwarm opera con néctar (NCT), una criptomoneda de capa de aplicación que funciona sobre Ethereum. NCT es esencial para participar en el mercado de PolySwarm.
 
-Your engine, acting as your representative on the PolySwarm marketplace, must have access to both ETH and NCT.
+Tu motor, que actúa en representación tuya dentro del mercado de PolySwarm, debe disponer de acceso tanto a ETH como a NCT.
 
-### Cryptocurrency Wallets
+### Carteras de criptomonedas
 
-As with all cryptocurrencies (e.g. Bitcoin), funds are maintained in "wallets". Technically, a wallet is simply a cryptographic keypair and some metadata that describes the keypairs' usage. Wallets are uniquely identified by a cryptographic hash of the public portion of this cryptographic keypair. Possession / control of a wallet (and all funds contained therein) is analogous to possession of the private portion of the wallet's keypair.
-
-<div class="m-flag m-flag--danger">
-  <p>
-    <strong>
-      In PolySwarm, as with all cryptocurrency applications, an attacker with access to your wallet's private key can steal all your cryptocurrency (ETH & NCT) and impersonate you in the marketplace.
-      It is absolutely essential that you protect the secrecy of your wallet's private key.
-    </strong>
-  </p>
-</div>
-
-Means to secure your private key are outside of the scope of this document. In order for your engine to participate in the PolySwarm marketplace (and place transactions on your behalf), your engine must have the ability to sign transactions with your wallet's private key. This means the engine must either have direct access to the key (less secure) or have the ability to request signatures of a device / process that has access to the key (more secure). The direct keyfile access method is supported by `polyswarm-client` today. Support for offloading transaction signing to another device will arrive in a future `polyswarm-client` release.
-
-### Wallet Usage in PolySwarm
-
-When testing our engines, we told our engines where to find a "keyfile" that contains our encrypted private key via the `--keyfile` argument to the `polyswarm-client` utilities (i.e. `microengine` and `balancemanager`). All keyfiles distributed with `polyswarm-client` (and other PolySwarm projects) are encrypted with a trivial password: `password`, specified via the `--password` argument.
+Al igual que sucede con las demás criptomonedas (por ejemplo, el bitcóin), los fondos se guardan en lo que se denomina "carteras". Técnicamente, una cartera no es más que un par de claves criptográficas y ciertos metadatos que describen su uso. Las carteras se identifican de forma unívoca por medio de un *hash* criptográfico de la porción pública de ese par de claves criptográficas. La posesión o control de una cartera (y de los fondos contenidos en ella) equivale a la posesión de la porción privada de su par de claves.
 
 <div class="m-flag m-flag--danger">
   <p>
     <strong>
-      The sole purpose of these distributed keyfiles is for testing with fake nct and fake eth.
-      Never use testing keyfiles from polyswarm projects in production or in real communities.
-      Never fund the wallets contained in these testing keyfiles with real nct or real eth.
-    </strong>
-  </p>
-  <p>
-    <strong>
-      When operating outside of a development testing environment you must create your own production keyfile.
-    </strong>
-  </p>
-  <p>
-    <strong>
-      You are solely responsible for the security of your production keyfile.
+      En PolySwarm, al igual que sucede con las demás aplicaciones de criptomonedas, un atacante que disponga de acceso a la clave privada de tu cartera puede robarte todos sus fondos (ETH y NCT) y suplantar tu identidad en el mercado.
+      Debes mantener en secreto la clave privada de tu cartera por encima de todo.
     </strong>
   </p>
 </div>
 
-The official Ethereum client (`go-ethereum` or `geth` for short) has instructions for generating a keyfile. See [Managing your accounts in geth](https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts).
+Los medios para garantizar la protección de tu clave privada quedan fuera del ámbito de este documento. Para que tu motor participe en el mercado de PolySwarm (y realice transacciones en tu nombre), deberá ser capaz de firmar transacciones usando la clave privada de tu cartera. Ello implica que deberá disponer de acceso directo a la clave (método menos seguro) o deberá poder solicitar las firmas a un dispositivo o proceso que cuente con acceso a la clave (método más seguro). En la actualidad, `polyswarm-client` ya admite el método de acceso directo al archivo de la clave. La posibilidad de delegar la firma de la transacción a otro dispositivo llegará en un futura versión de `polyswarm-client`.
 
-## Funding Your Wallet
+### Uso de carteras en PolySwarm
 
-Once you've generated your own keyfile, you'll need to fund your wallet with ETH and NCT.
+Al probar nuestros motores, les dijimos dónde encontrar un "archivo de clave" que contenga nuestra clave privada encriptada por medio del argumento `--keyfile` en las utilidades de `polyswarm-client` (es decir, `microengine` y `balancemanager`). Todos los archivos de clave distribuidos con `polyswarm-client` (y otros proyectos de PolySwarm) se encriptan con una contraseña trivial, `password`, que se especifica por medio del argumento `--password`.
 
-Generally, there are three funding avenues available:
+<div class="m-flag m-flag--danger">
+  <p>
+    <strong>
+      La única finalidad de estos archivos de clave distribuidos es realizar pruebas con vales NCT y ETH falsos.
+      Nunca emplees los archivos de clave usados para pruebas en los proyectos de PolySwarm en producción o en comunidades reales.
+      Nunca transfieras fondos reales de NCT o ETH a las carteras contenidas en estos archivos de prueba.
+    </strong>
+  </p>
+  <p>
+    <strong>
+      Cuando operes fuera de los entornos de prueba usados para el desarrollo, deberás crear tu propio archivo de clave de producción.
+    </strong>
+  </p>
+  <p>
+    <strong>
+      Tú eres el único responsable de la seguridad de tu archivo de clave de producción.
+    </strong>
+  </p>
+</div>
 
-1. Purchase ETH and NCT on cryptocurrency exchanges and transfer them to the production wallet represented by your microengine's production keyfile. Methods to purchase & transfer cryptocurrencies are outside the scope of this document.
-2. Subscribe to PolySwarm Direct - an upcoming service with configurable auto-refills that ensure your engine is funded. This service is in development, stay tuned!
-3. Initial partners have received a NCT seedling in their production wallet per our published distribution schedule.
+El cliente oficial de Ethereum (`go-ethereum`, o `geth` de forma abreviada) ofrece instrucciones para generar un archivo de clave. Consulta [Cómo administrar tus cuentas con geth](https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts).
 
-## Finding Your Community(ies)
+## Cómo añadir fondos a tu cartera
 
-The PolySwarm marketplace is made up of a patchwork of Communities. Communities are groups of individuals and corporations that share a particular malware interest or mutually agree to maintain the confidentiality of artifacts exchanged within the Community.
+Una vez que hayas generado tu propio archivo de clave, tendrás que añadir fondos ETH y NCT a tu cartera.
 
-PolySwarm's first Community, Epoch, is a public Community accessible to everyone - it's where you'll want to get started. Epoch acts as a sort of "proving ground" for security experts to build a reputation for their engine. Once security experts build a reputation, they may want to engage in additional Communities. As more communities come online, they'll appear in PolySwarm Portal: <button disabled>Browse Communities → (coming soon!)</button>
+Normalmente existen tres modos de hacerlo:
 
-For now, let's proceed under the assumption that we only want to join the Epoch community.
+1. Comprar ETH y NCT en casas de cambio de criptomonedas y transferirlas a la cartera de producción representada por el archivo de clave de producción de tu micromotor. Los métodos empleados para adquirir y transferir criptomonedas quedan fuera del ámbito de este documento.
+2. Suscribirse a PolySwarm Direct, un servicio futuro que permitirá configurar recargas automáticas para que tu motor siempre disponga de saldo. Este servicio está actualmente en desarrollo. ¡Seguiremos informando!
+3. Los socios iniciales han recibido un fondo inicial de NCT en su cartera de producción de acuerdo con el programa de distribución publicado.
+
+## Cómo localizar tus comunidades
+
+El mercado de PolySwarm es un crisol de distintas comunidades. Las comunidades son grupos de individuos y empresas que comparten un interés específico en el código malicioso o acuerdan mutuamente mantener la confidencialidad de los artefactos intercambiados dentro de ellas.
+
+La primera comunidad de PolySwarm, Epoch, es una comunidad pública accesible a todo el mundo: será tu punto de partida. Epoch sirve como escenario donde los expertos en seguridad pueden demostrar su valía y forjarse una buena reputación para su motor. Una vez que los expertos en seguridad posean una reputación, quizá deseen participar en otras comunidades. A medida que se vayan creando nuevas comunidades, estas aparecerán en el portal de PolySwarm: <button disabled>Explorar comunidades → (¡próximamente!)</button>
+
+De momento, asumamos que solo deseas incorporarte a la comunidad Epoch.
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-      <code>polyswarm-client</code> based engines currently only support communicating with a single Community at a given time.
-      Support for multiple Communities will be included in a future release.
-      In the meantime, please run an instance of your engine (& <code>balancemanager</code>) per Community.
+    <strong>Información:</strong>
+      Actualmente, los motores basados en <code>polyswarm-client</code> no pueden comunicarse con más de una comunidad al mismo tiempo.
+      En una futura versión se incluirá la posibilidad de hacerlo con varias comunidades.
+      Mientras tanto, deberás ejecutar una instancia de tu motor (y de <code>balancemanager</code>) para cada comunidad.
   </p>
 </div>
 
-## Relaying NCT to Your Community(ies)
+## Cómo transferir NCT a tus comunidades
 
-Recall that each community has a distinct [sidechain](/#chains-home-vs-side) where PolySwarm transactions occur. In order to participate, you'll need to maintain a balance of NCT (ETH not required) on the Community's sidechain.
+Recuerda que cada comunidad posee una [cadena paralela](/#chains-home-vs-side) exclusiva donde se producen las transacciones de PolySwarm. Para participar, deberás mantener un saldo de NCT (no se necesitan ETH) en la cadena paralela de la comunidad.
 
-We've made this easy: you can use `polyswarm-client`'s `balancemanager` utility. You'll need to run both your engine and a `balancemanager` to maintain a balance of NCT on the Community sidechain. Windows users will recall running `balancemanager` from the [Windows engine Integration Testing instructions](/testing-windows/#integration-testing). Linux users had `balancemanager` handled for them by Docker transparently.
+Te hemos facilitado las cosas: puedes usar la utilidad de gestión de saldo `balancemanager` de `polyswarm-client`. Tendrás que ejecutar tanto tu motor como un `balancemanager` para mantener un saldo de NCT en la cadena paralela de la comunidad. Los usuarios de Windows recordarán haber ejecutado `balancemanager` en las [instrucciones para las pruebas de integración de motores en Windows](/testing-windows/#integration-testing). Para los usuarios de Linux, Docker se encarga de `balancemanager` de manera transparente.
 
-`balancemanager` can be run in three modes:
+`balancemanager` puede ejecutarse en tres modos distintos:
 
-1. `deposit`: deposit the configured amount of NCT onto the Community and exit
-2. `withdraw`: withdraw the configured amount of NCT from the Community and exit
-3. `maintain`: continually ensure a configurable balance of NCT in the Community
+1. `deposit`: ingresa en la comunidad la cantidad de NCT configurada y sale.
+2. `withdraw`: retira de la comunidad la cantidad de NCT configurada y sale.
+3. `maintain`: se asegura de mantener en la comunidad un saldo de NCT constante configurable.
 
-Most users will want to simply `maintain` a balance - we'll dive into using this functionality below. Advanced users may want to manually `deposit` and `withdraw` funds.
+La mayor parte de usuarios preferirán simplemente mantener un saldo con `maintain`: entraremos en detalle en esta funcionalidad más adelante. Algunos usuarios avanzados pueden querer ingresar (`deposit`) y retirar (`withdraw`) fondos.
 
-## API Keys
+## Claves API
 
-In order to protect themselves from griefing / Denial of Service (DoS), Communities may elect to issue their members API keys and apply rate limits to these keys. Epoch is one such community, but API keys are available to everyone.
+Con el fin de protegerse de cualquier abuso o ataque de denegación de servicio (DoS), las comunidades pueden decidir entregar a sus miembros claves API y aplicarles límites de uso. Epoch is one such community, but API keys are available to everyone.
 
 To obtain your Epoch API key, sign up on [PolySwarm Portal](https://polyswarm.network/), click your name in the top right corner and select Account. Your Epoch API key will be displayed in your Profile.
 
-### API Key Usage in `polyswarm-client`-Based Engines
+### Uso de la clave API en motores de `polyswarm-client`
 
-Using your API key in `polyswarm-client` based engines is as simple as populating the `--api-key` command line argument. We discuss this below.
+Usar tu clave API en motores de `polyswarm-client` es tan sencillo como proporcionarle un valor al argumento `--api-key` en la línea de comandos. Lo abordamos más adelante.
 
-### API Key Usage in a Custom Engine
+### Uso de la clave API en un motor personalizado
 
-If you're building a custom engine, please ensure that all API requests to Community-hosted `polyswarmd` instances contain your API key in the headers:
+Si creas un motor personalizado, asegúrate de que todas las solicitudes API que dirijas a instancias de `polyswarmd` hospedadas en una comunidad contengan tu clave API en los encabezados:
 
-    Authorization: [API KEY]
+    Authorization: [CLAVE API]
     
 
-For more details on the `polyswarmd API`, please refer to our API specification [polyswarmd API Documentation](/polyswarmd-api/).
+Para obtener más detalles sobre la `API de polyswarmd`, consulta nuestra especificación: [Documentación de la API de polyswarmd](/polyswarmd-api/).
 
-## Putting it all Together
+## Recapitulemos
 
-To recap, we've:
+En resumen:
 
-1. generated a wallet keyfile for *production* use
-2. funded this wallet with both ETH and NCT
-3. decided on our Community(ies)
-4. retrieved our API key for our Community(ies)
+1. Hemos generado un archivo de clave de cartera para su uso en *producción*.
+2. Hemos añadido saldo de ETH y NCT a esa cartera.
+3. Hemos decidido las comunidades de las que formaremos parte.
+4. Hemos obtenido la clave API de esas comunidades.
 
-Now we're ready to plug our engine (& `balancemanager`) into the PolySwarm marketplace!
+Ahora ya estamos listos para conectar nuestro motor (y `balancemanager`) al mercado de PolySwarm.
 
-If you've built your engine on `polyswarm-client`, (e.g. using our cookiecutter `engine-template` in the tutorials here), you simply need to specify some command line arguments (can also be specified as environment variables):
+Si has creado tu motor con `polyswarm-client` (por ejemplo, usando nuestra plantilla de motor `engine-template` de Cookiecutter en estos tutoriales), solo tienes que especificar algunos argumentos en la línea de comandos (también pueden especificarse como variables de entorno):
 
 ```bash
 # microengine \
@@ -140,43 +140,35 @@ If you've built your engine on `polyswarm-client`, (e.g. using our cookiecutter 
   --backend <the name ("slug") of your scan engine (e.g. acme_myeicarengine)>
 ```
 
-For the full list of command line arguments, use the `--help` CLI flag:
+Para obtener la lista completa de argumentos de línea de comandos, usa la opción `--help`:
 
 ```bash
 # microengine --help
-Usage: microengine [OPTIONS]
+Utilización: microengine [OPTIONS]
 
-  Entrypoint for the microengine driver
+  Punto de entrada al controlador del micromotor
 
-  Args:     log (str): Logging level     polyswarmd_addr(str): Address of
-  polyswarmd     keyfile (str): Path to private key file to use to sign
-  transactions     password (str): Password to decrypt the encrypted private
-  key     backend (str): Backend implementation to use     api_key(str): API
-  key to use with polyswarmd     testing (int): Mode to process N bounties
-  then exit (optional)     insecure_transport (bool): Connect to polyswarmd
-  without TLS     log_format (str): Format to output logs in. `text` or
+  Argumentos: log (str): Nivel de traza     polyswarmd_addr(str): Dirección de
+polyswarmd keyfile (str): Ruta al archivo de clave privada que se usará para firmar las transacciones password (str): Contraseña para desencriptar la clave privada encriptada backend (str): Implementación del procesador de análisis que se usará api_key(str): Clave API que se usará con polyswarmd testing (int): Modo para procesar N recompensas y salir (opcional)     insecure_transport (bool): Conectarse a polyswarmd sin TLS log_format (str): Formato en el que presentar las trazas. `text` o
   `json`
 
-Options:
-  --log TEXT              Logging level
-  --polyswarmd-addr TEXT  Address (host:port) of polyswarmd instance
-  --keyfile PATH          Keystore file containing the private key to use with
-                          this microengine
-  --password TEXT         Password to decrypt the keyfile with
-  --api-key TEXT          API key to use with polyswarmd
-  --backend TEXT          Backend to use
-  --testing INTEGER       Activate testing mode for integration testing,
-                          respond to N bounties and N offers then exit
-  --insecure-transport    Connect to polyswarmd via http:// and ws://,
-                          mutually exclusive with --api-key
-  --chains TEXT           Chain(s) to operate on
-  --log-format TEXT       Log format. Can be `json` or `text` (default)
-  --help                  Show this message and exit.
+Opciones:
+  --log TEXT Nivel de traza
+  --polyswarmd-addr TEXT Dirección de la instancia de polyswarmd (host:puerto)
+  --keyfile PATH Archivo de almacén de claves que contiene la clave privada que se usará con este micromotor
+  --password TEXT Contraseña con la que desencriptar el archivo de clave
+  --api-key TEXT Clave API que se usará con polyswarmd
+  --backend TEXT Procesador de análisis que se usará
+  --testing INTEGER Habilitar modo de pruebas de integración, responder a N recompensas y N ofertas y salir
+  --insecure-transport Conectarse a polyswarmd mediante http:// y ws://, mutuamente exclusivos cuando se usa --api-key
+  --chains TEXT Cadenas en las que operar
+  --log-format TEXT Formato de trazas. Puede ser 'json' o 'text' (por defecto)
+  --help Mostrar este mensaje y salir.
 ```
 
-In addition to your engine, you'll need to run a `balancemanager`.
+Además de tu motor, necesitarás ejecutar un gestor de saldo `balancemanager`.
 
-`balancemanager` will also require access to your `keyfile`:
+`balancemanager` también necesitará acceso a tu archivo de clave `keyfile`:
 
 ```bash
 # balancemanager maintain \
@@ -189,38 +181,30 @@ In addition to your engine, you'll need to run a `balancemanager`.
   <REFILL_AMOUNT: the amount of NCT to transfer when Community balance falls below MINIMUM>
 ```
 
-For the full list of command line arguments, use the `--help` CLI flag:
+Para obtener la lista completa de argumentos de línea de comandos, usa la opción `--help`:
 
 ```bash
 # balancemanager maintain --help
-INFO:root:2018-12-28 03:04:11,352 Logging in text format.
-Usage: balancemanager maintain [OPTIONS] MINIMUM REFILL_AMOUNT
+INFO:root:2018-12-28 03:04:11,352 Trazas en formato de texto.
+Utilización: balancemanager maintain [OPTIONS] MINIMUM REFILL_AMOUNT
 
-  Entrypoint to withdraw NCT from a sidechain into the homechain
+  Punto de entrada para retirar NCT desde una cadena paralela a la cadena base
 
-  Args:     minimum (float): Value of NCT on sidechain where you want to
-  transfer more NCT     refill-amount (float): Value of NCT to transfer
-  anytime the balance falls below the minimum
+  Argumentos: minimum (float): Valor de NCT en la cadena paralela donde deseas transferir más NCT     refill-amount (float): Valor de NCT que se transferirá en cuanto el saldo caiga por debajo del mínimo
 
-Options:
-  --polyswarmd-addr TEXT   Address (host:port) of polyswarmd instance
-  --keyfile PATH           Keystore file containing the private key to use
-                           with this microengine
-  --password TEXT          Password to decrypt the keyfile with
-  --api-key TEXT           API key to use with polyswarmd
-  --testing INTEGER        Activate testing mode for integration testing,
-                           trigger N balances to the sidechain then exit
-  --insecure-transport     Connect to polyswarmd via http:// and ws://,
-                           mutually exclusive with --api-key
-  --maximum FLOAT          Maximum allowable balance before triggering a
-                           withdraw from the sidechain
-  --withdraw-target FLOAT  The goal balance of the sidechain after the
-                           withdrawal
-  --confirmations INTEGER  Number of block confirmations relay requires before
-                           approving the transfer
-  --help                   Show this message and exit.
+Opciones:
+  --polyswarmd-addr TEXT Dirección de la instancia de polyswarmd (host:puerto)
+  --keyfile PATH Archivo de almacén de claves que contiene la clave privada que se usará con este micromotor
+  --password TEXT Contraseña con la que desencriptar el archivo de clave
+  --api-key TEXT Clave API que se usará con polyswarmd
+  --testing INTEGER Habilitar modo de pruebas de integración, activar N saldos en la cadena paralela y salir
+  --insecure-transport Conectarse a polyswarmd mediante http:// y ws://, mutuamente exclusivos cuando se usa --api-key
+  --maximum FLOAT Máximo saldo permisible antes de activar una retirada desde la cadena paralela
+  --withdraw-target FLOAT El saldo objetivo en la cadena paralela después de la retirada
+  --confirmations INTEGER Número de confirmaciones de bloque transmitidas antes de autorizar la transferencia
+  --help Mostrar este mensaje y salir.
 ```
 
-## Congratulations
+## Felicidades
 
 With your engine & `balancemanager` running, you are now plugged into your Community(ies) of choice!
