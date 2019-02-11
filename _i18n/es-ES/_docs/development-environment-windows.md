@@ -12,11 +12,11 @@ En este momento, la única configuración plenamente compatible para desarrollar
 
 El desarrollo de motores sobre Windows impone unas exigencias nada despreciables para el host de desarrollo:
 
-- Windows 10 (probado con Windows 10 Pro, versión 1809)
-- Compatibilidad con VT-x habilitada en la BIOS
-- Mínimo de 16 GB de RAM
-- Mínimo de 4 núcleos de CPU
-- Mínimo de 100 GB de espacio en disco
+- Windows 10 (probado con Windows 10 Pro, versión 1809).
+- Compatibilidad con VT-x habilitada en la BIOS.
+- Mínimo de 16 GB de RAM.
+- Mínimo de 4 núcleos de CPU.
+- Mínimo de 100 GB de espacio en disco.
 
 Usaremos VirtualBox. **VirtualBox deberá ser el propietario exclusivo de tu hipervisor**. Ello implica que no puedes ejecutar:
 
@@ -86,7 +86,7 @@ Una vez instaladas las adiciones de invitados, ya estás listo para [Configurar 
 Minimum system requirements:
 
 - Windows 10*
-- Mínimo de 4 núcleos de CPU
+- Mínimo de 4 núcleos de CPU.
 - 4GB of RAM
 
 *Older versions of Windows may work, but are untested (and unsupported) at this time.
