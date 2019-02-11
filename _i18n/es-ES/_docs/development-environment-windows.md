@@ -1,100 +1,92 @@
-## (Recommended) VirtualBox Guest Configuration
+## (Recomendado) Configuración de invitado de VirtualBox
 
-Conducting Windows-Based Engine development inside of a VirtualBox Guest is the only fully-supported configuration at this time.
+En este momento, la única configuración plenamente compatible para desarrollar motores sobre Windows es dentro de un invitado de VirtualBox.
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    The recommendations presented here are hard-won.
-    We strongly recommend that you test using the exact parameters presented here.
-    Using any other configuration will make it difficult for us to provide you with support.
+    <strong>Aviso:</strong> Las recomendaciones aquí incluidas son el resultado de un trabajo minucioso. Te recomendamos encarecidamente llevar a cabo las pruebas usando los parámetros exactos que se indican. Nos resultará más difícil prestarte ayuda si empleas cualquier otra configuración.
   </p>
 </div>
 
 ### Requisitos del sistema
 
-Windows-Based Engine development presents non-trivial system requirements for your development host:
+El desarrollo de motores sobre Windows impone unas exigencias nada despreciables para el host de desarrollo:
 
-- Windows 10 (we've tested with Windows 10 Pro, version 1809)
-- VT-x supported and enabled in BIOS
-- 16GB+ of RAM
-- 4+ CPU cores
-- 100GB+ disk space
+- Windows 10 (probado con Windows 10 Pro, versión 1809)
+- Compatibilidad con VT-x habilitada en la BIOS
+- Mínimo de 16 GB de RAM
+- Mínimo de 4 núcleos de CPU
+- Mínimo de 100 GB de espacio en disco
 
-We'll be using VirtualBox. **VirtualBox must have sole ownership of your hypervisor**. This mean you cannot run:
+Usaremos VirtualBox. **VirtualBox deberá ser el propietario exclusivo de tu hipervisor**. Ello implica que no puedes ejecutar:
 
-- Hyper-V
-- Windows Credential Guard
-- Windows Device Guard
-- VMWare Workstation / Player
-- any other product that uses hypervisor extensions
-
-<div class="m-flag m-flag--warning">
-  <p>
-    <strong>Warning:</strong>
-    Nested virtualization is NOT a currently supported configuration.
-  </p>
-  <p>
-    Instructions presented here assume your host Windows install is running on "bare metal".
-    Separate instructions for developing under a hypervisor (e.g. on AWS) are coming soon!
-  </p>
-</div>
-
-### Prerequisites
-
-- [Download and Install VirtualBox](https://www.virtualbox.org/wiki/Downloads). We've tested with VirtualBox 5.2.22.
-- [Download Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO). Use the Media Creation Tool to make a .ISO image. We've tested with Windows 10 Pro, Build 10240.
-
-### Create a Windows Guest
-
-Use VirtualBox to create a Windows VM using the following parameters:
-
-- Name: `polyswarm_win`
-- Type: Microsoft Windows
-- Version: Windows 10 (64-bit)
-- RAM: 4GB+
-- CPU: 2+ cores
-- video memory: 128MB
-- disk space: 50GB+
-
-Use the default setting for all other options. In particular, **do NOT enable 3D acceleration**.
-
-### Install Windows 10
-
-Use the ISO you downloaded to install Windows in the VM.
+- Hyper-V,
+- Windows Credential Guard,
+- Windows Device Guard,
+- VMWare Workstation o Player, o
+- cualquier otro producto que use extensiones para hipervisor.
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Conducting Windows updates in a VirtualBox VM is not recommended and is quite likely to leave your VM in an un-bootable state.
-    We recommend <a href="https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10">disabling Windows Update</a> immediately after you install Windows in the VM.
+    <strong>Aviso:</strong> La virtualización anidada NO es una configuración compatible en la actualidad.
+  </p>
+  
+  <p>
+    Estas instrucciones asumen que la instalación host de Windows se ejecuta "en limpio". Próximamente se incluirán instrucciones específicas para desarrollar bajo un hipervisor (por ejemplo, AWS).
   </p>
 </div>
 
-### Install VirtualBox Guest Additions
+### Requisitos previos
 
-Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+- [Descarga e instala VirtualBox](https://www.virtualbox.org/wiki/Downloads). En nuestras pruebas hemos usado VirtualBox 5.2.22.
+- [Descarga la imagen ISO de Windows 10 Pro](https://www.microsoft.com/en-us/software-download/windows10ISO). Usa Media Creation Tool para crear una imagen .iso. En nuestras pruebas hemos usado Windows 10 Pro en su compilación 10240.
 
-[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
+### Crea un invitado de Windows
 
-### Guest Creation Complete
+Usa VirtualBox para crear una máquina virtual de Windows usando los siguientes parámetros:
 
-Once Guest Additions are installed, you're ready to [Configure Windows](#configure-windows) for development inside of the VM.
+- Nombre: `polyswarm_win`
+- Tipo: Microsoft Windows
+- Versión: Windows 10 (64 bits)
+- RAM: 4 GB o más
+- CPU: 2 núcleos o más
+- Memoria de vídeo: 128 MB
+- Espacio en disco: 50 GB o más
 
-## (Unsupported) Custom Configuration
+Usa la configuración por defecto para las demás opciones. Sobre todo, **NO habilites la aceleración 3D**.
+
+### Instala Windows 10
+
+Usa la ISO que has descargado para instalar Windows en la máquina virtual.
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Developing Windows-Based Engines outside of a VirtualBox virtual machine will preclude you from conducting integration tests at this time.
-    We strongly recommend that you conduct development inside of a Windows VirtualBox Guest (described above) at this time.
+    <strong>Aviso:</strong> No se recomienda realizar actualizaciones de Windows en una máquina virtual de VirtualBox, ya que es muy probable que la dejen en un estado imposible de arrancar. Recomendamos <a href="https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10">deshabilitar Windows Update</a> tan pronto como instales Windows en ella.
+  </p>
+</div>
+
+### Instala adiciones de invitados de VirtualBox
+
+Las adiciones de invitados ("Guest Additions") son necesarias para disfrutar de las funciones de portapapeles compartido o copiar y pegar entre el invitado y el host.
+
+[Consulta el manual de VirtualBox](https://www.virtualbox.org/manual/ch04.html).
+
+### Creación de invitado completada
+
+Una vez instaladas las adiciones de invitados, ya estás listo para [Configurar Windows](#configure-windows) de cara al desarrollo dentro de la máquina virtual.
+
+## Configuración personalizada (no compatible)
+
+<div class="m-flag m-flag--warning">
+  <p>
+    <strong>Aviso:</strong> Por ahora, el desarrollo de motores en Windows fuera de una máquina virtual VirtualBox te impedirá ejecutar pruebas de integración. We strongly recommend that you conduct development inside of a Windows VirtualBox Guest (described above) at this time.
   </p>
 </div>
 
 Minimum system requirements:
 
 - Windows 10*
-- 4+ CPU cores
+- Mínimo de 4 núcleos de CPU
 - 4GB of RAM
 
 *Older versions of Windows may work, but are untested (and unsupported) at this time.
