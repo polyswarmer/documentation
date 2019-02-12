@@ -8,22 +8,22 @@ Comienza con una [plantilla de motor](/microengines-scratch-to-eicar/#customize-
 
 Vamos a añadirle un procesador YARA a nuestro micromotor, pero antes necesitaremos algunas firmas de YARA (reglas).
 
-The [Yara-Rules](https://github.com/Yara-Rules/rules) repo is a great resource for free rules. So, let's get those rules and put them into the `pkg` directory of your `microengine-myyaraengine`:
+El repositorio [Yara-Rules](https://github.com/Yara-Rules/rules) es una excelente fuente de reglas gratuitas. Descárgalas y colócalas en el directorio `pkg` de tu micromotor `microengine-myyaraengine`:
 
 ```sh
 cd microengine-myyaraengine/pkg
 git clone https://github.com/Yara-Rules/rules.git
 ```
 
-We will also need the `yara-python` module to interpret these rules - install this if you don't have it:
+También necesitaremos el módulo `yara-python` para interpretarlas. Instálalo si no lo tienes:
 
 ```sh
 pip install yara-python
 ```
 
-Next, we will create a Scanner which uses `yara-python` to scan artifacts.
+A continuación, crearemos un escáner que use `yara-python` para escanear artefactos.
 
-Edit the `__init__.py` as we describe below:
+Edita `__init__.py` del siguiente modo:
 
 ```python
 #!/usr/bin/env python
@@ -32,10 +32,12 @@ import logging
 import os
 import yara
 
-from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
+from polyswarmclient.abstractmicroengine
+import AbstractMicroengine
+from polyswarmclient.abstractscanner
+import AbstractScanner
 
-logger = logging.getLogger(__name__)  # Initialize logger
+logger = logging.getLogger(__name__)  # Inicialización de las trazas
 RULES_DIR = os.getenv('RULES_DIR', 'docker/yara-rules')
 
 class Scanner(AbstractScanner):
@@ -52,34 +54,34 @@ class Scanner(AbstractScanner):
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+    <strong>Información:</strong>
+    Aunque se requiere la clase Microengine, no se muestra aquí al no ser necesario modificarla.
   </p>
 </div>
 
-The YARA backend included with `polyswarm-client` accepts a `RULES_DIR` environment variable that lets you point to your YARA rules. So, you should set the `RULES_DIR` environment variable to point to the YARA rules you downloaded when you test this engine.
+El procesador YARA incluido con `polyswarm-client` acepta una variable de entorno `RULES_DIR` que te permite apuntar a las reglas de YARA. Por tanto, para probar este motor, modifica la variable de entorno `RULES_DIR` para que apunte a las reglas de YARA que descargaste.
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    When conducting integration testing (<a href="/testing-linux/#integration-testing">Linux</a>, <a href="/testing-windows/">Windows</a>), our mock Ambassador only bounties 2 files: EICAR and a file that is not EICAR.
-    Therefore, for the purposes of testing in our framework, we only need a YARA rule that detects EICAR.
+    <strong>Información:</strong>
+    Al realizar las pruebas de integración (<a href="/testing-linux/#integration-testing">Linux</a>, <a href="/testing-windows/">Windows</a>), nuestro embajador de prueba solo ofrecerá recompensa por dos archivos: el archivo EICAR y otro distinto a EICAR.
+    Para probar nuestra infraestructura, por tanto, solo necesitaremos una regla de YARA que detecte EICAR.
   </p>
 </div>
 
-With that we have a YARA microengine. But, our plan was to have multiple engines run by a single microengine, so let's continue.
+De este modo, ya tendremos un micromotor YARA. Sin embargo, nuestro plan era disponer de varios motores gestionados por un solo micromotor, así que, prosigamos.
 
-## ClamAV Scanner
+## Escáner ClamAV
 
-We are going to re-use the ClamAV scanner from the [previous tutorial](/microengines-scratch-to-clamav/).
+Reutilizaremos el escáner ClamAV del [tutorial anterior](/microengines-scratch-to-clamav/).
 
-A finished solution can be found in [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py).
+En [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) puedes encontrar una solución terminada.
 
-## Multiple Analysis Backends
+## Varios procesadores de análisis
 
-Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyMultiEngine". You should find a `microengine-mymultiengine` in your current working directory - this is what we'll be editing to make use of both ClamAv's and YARA's functionality.
+Comienza con una [plantilla de motor](/microengines-scratch-to-eicar/#customize-engine-template) nueva y usa `engine-name` para bautizarla como "MyMultiEngine". Al hacerlo, en tu actual directorio de trabajo debería aparecer el micromotor `microengine-mymultiengine`: será lo que editemos para usar la funcionalidad tanto de ClamAV como de Yara.
 
-We will extend our Microengine to utilize multiple analysis backends, which means we need to have some way to get the result of both backends (YARA and ClamAV) and distill that into our verdict. Let's create a Microengine which initializes multiple scanners:
+Extenderemos nuestro micromotor para que utilice varios procesadores de análisis, por lo que necesitaremos algún modo de recibir los resultados de ambos procesadores (YARA y ClamAV) y sintetizar nuestro veredicto a partir de ellos. Vamos a crear un micromotor que inicialice varios escáneres:
 
 ```python
 #!/usr/bin/env python
@@ -87,12 +89,16 @@ We will extend our Microengine to utilize multiple analysis backends, which mean
 import asyncio
 import logging
 
-from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
-from polyswarm_myclamavengine import Scanner as ClamavScanner
-from polyswarm_myyaraengine import Scanner as YaraScanner
+from polyswarmclient.abstractmicroengine 
+import AbstractMicroengine
+from polyswarmclient.abstractscanner 
+import AbstractScanner
+from polyswarm_myclamavengine 
+import Scanner as ClamavScanner
+from polyswarm_myyaraengine 
+import Scanner as YaraScanner
 
-logger = logging.getLogger(__name__)  # Initialize logger
+logger = logging.getLogger(__name__)  # Inicialización de las trazas
 BACKENDS = [ClamavScanner, YaraScanner]
 
 
@@ -106,14 +112,14 @@ class Scanner(AbstractScanner):
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+    <strong>Información:</strong>
+    Aunque se requiere la clase Microengine, no se muestra aquí al no ser necesario modificarla.
   </p>
 </div>
 
-This creates a list of backends containing instances of our YaraScanner and ClamavScanner.
+Esto crea una lista de procesadores que contienen instancias de nuestras clases, YaraScanner y ClamavScanner.
 
-Now that we can access both Scanners, let's use both of their results to distill a final verdict in our Scanner's `scan()` function.
+Ahora que ya podemos acceder a ambos, vamos a usar sus resultados para sintetizar un veredicto final en la función `scan()` de nuestra función Scanner.
 
 ```python
     async def scan(self, guid, content, chain):
