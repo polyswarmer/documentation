@@ -125,21 +125,21 @@ Ahora que ya podemos acceder a ambos, vamos a usar sus resultados para sintetiza
     async def scan(self, guid, content, chain):
         results = await asyncio.gather(*[backend.scan(guid, content, chain) for backend in self.backends])
 
-        # Unzip the result tuples
+        # Descompresión de las tuplas resultantes
         bits, verdicts, metadatas = tuple(zip(*results))
         return any(bits), any(verdicts), ';'.join(metadatas)
 ```
 
-Here we calculate all of our Scanner's results asynchronously, and then combine them into our final verdict. Here we will assert if any of the backends return a True bit, and we will assert that the artifact is malicious if any backend claims it is. We will also combine all of the metadata from our scanners into one string to be attached to our assertion.
+Aquí calculamos todos los resultados de nuestros escáneres de forma asíncrona y los combinamos después en nuestro veredicto final. De esta manera, comprobaremos si alguno de los procesadores devuelve el bit "verdadero" y afirmaremos que el artefacto es malicioso en caso de que alguno de los procesadores así lo indique. También combinaremos todos los metadatos de nuestros escáneres en una sola cadena, que incluiremos junto con la afirmación.
 
-A finished solution can be found in [multi.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/multi.py).
+En [multi.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/multi.py) puede verse una solución terminada.
 
-Note: the python modules `polyswarm_myclamavengine` and `polyswarm_myyaraengine` come from the previous examples. In order for this Multi-engine to be able to use the ClamAV and YARA engines, they have to be available in your PYTHONPATH. To achieve that, you can run the following command in the root of both the ClamAV and the YARA project directories:
+Nota: Los módulos Python `polyswarm_myclamavengine` y `polyswarm_myyaraengine` proceden de ejemplos anteriores. Para que este multimotor pueda usar los motores ClamAV y YARA, deben estar disponibles en tu variable de entorno PYTHONPATH. Para ello, puedes ejecutar el siguiente comando desde la raíz de ambos directorios de proyecto, ClamAV y YARA:
 
 ```bash
 pip install .
 ```
 
-## Next Steps
+## Próximos pasos
 
-Now that we've learned how to make a variety of microengines using existing AV products, you can move onto creating your own custom microengine.
+Ahora que ya sabemos cómo crear diferentes tipos de micromotores usando productos antivirus existentes, ya puedes comenzar a crear tu propio micromotor personalizado.
