@@ -1,12 +1,12 @@
-# Building a Multi-Backend Microengine
+# Cómo crear un micromotor multiproceso
 
-This tutorial will show you how to combine multiple analysis backends and outlines a basic verdict distillation primitive. The two backends will be `ClamAV` (from the last tutorial) and [YARA](https://virustotal.github.io/yara/).
+Este tutorial te mostrará cómo combinar varios procesadores de análisis y te ofrecerá un esbozo de una primitiva básica para la sintetización de veredictos. Los procesadores a combinar serán `ClamAV` (del anterior tutorial) y [YARA](https://virustotal.github.io/yara/).
 
-## Adding YARA to the Mix
+## Incorporación de YARA
 
-Start with a fresh [engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyYaraEngine". You should find a `microengine-myyaraengine` in your current working directory - this is what we'll be editing to implement Yara's functionality.
+Comienza con una [plantilla de motor](/microengines-scratch-to-eicar/#customize-engine-template) nueva y usa `engine-name` para bautizarla como "MyYaraEngine". Al hacerlo, en tu actual directorio de trabajo debería aparecer el micromotor `microengine-myyaraengine`: será lo que editemos para implementar la funcionalidad de Yara.
 
-We're going to add a YARA backend to our Microengine - but we need some YARA signatures (rules) first!
+Vamos a añadirle un procesador YARA a nuestro micromotor, pero antes necesitaremos algunas firmas de YARA (reglas).
 
 The [Yara-Rules](https://github.com/Yara-Rules/rules) repo is a great resource for free rules. So, let's get those rules and put them into the `pkg` directory of your `microengine-myyaraengine`:
 
