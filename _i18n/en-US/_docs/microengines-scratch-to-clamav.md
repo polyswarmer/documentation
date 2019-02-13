@@ -38,7 +38,7 @@ import os
 from io import BytesIO
 
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
+from polyswarmclient.abstractscanner import AbstractScanner, ScanResult
 
 logger = logging.getLogger(__name__)  # Initialize logger
 
@@ -73,17 +73,18 @@ Now, all we need is to implement the scan method in the Scanner class.
         result = await self.clamd.instream(BytesIO(content))
         stream_result = result.get('stream', [])
         if len(stream_result) >= 2 and stream_result[0] == 'FOUND':
-            return True, True, ''
+            return ScanResult(bit=True, verdict=True)
 
-        return True, False, ''
+        return ScanResult(bit=True, verdict=False)
 ```
 
 If `clamd` detects a piece of malware, it puts `FOUND` in `result[0]`.
 
-The return values that the Microengine expects are:
+The ScanResult object's constructor that our scan method returns takes the following parameters representing our results:
 
 1. `bit` : a `boolean` representing a `malicious` or `benign` determination
 1. `verdict`: another `boolean` representing whether the engine wishes to assert on the artifact
+1. `confidence`: a `float` representing our confidence in our assertion, ranging from 0.0 to 1.0
 1. `metadata`: (optional) `string` describing the artifact
 
 We leave including ClamAV's `metadata` as an exercise to the reader - or check [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) :)
