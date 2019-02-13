@@ -1,32 +1,32 @@
-# Microengine "Hello World"
+# Micromotor "Hola mundo"
 
-## Overview
+## Aspectos generales
 
-The "Hello World" of developing an anti-malware solution is invariably detecting the [EICAR test file](https://en.wikipedia.org/wiki/EICAR_test_file).
+Cuando se desarrollan soluciones contra código malicioso, el equivalente al "Hola mundo" es, indefectiblemente, el [archivo de prueba EICAR](https://en.wikipedia.org/wiki/EICAR_test_file).
 
-This benign file is detected as "malicious" by all major anti-malware products - a safe way to test a positive result.
+Este archivo benigno es identificado como "malicioso" por los productos anticódigo malicioso más importantes del mundo; una manera fiable de probar un resultado positivo.
 
-Our first Microengine will be no different: let's detect EICAR!
+Nuestro primer micromotor no puede ser menos: ¡detectemos el archivo EICAR!
 
-[(Optional) review the components of a Microengine →](/concepts-participants-microengine/#breaking-down-microengines)
+[(Opcional) Repasa los componentes de un micromotor →](/concepts-participants-microengine/#breaking-down-microengines)
 
-## Building Blocks
+## Elementos básicos
 
-This guide will reference and build on:
+Esta guía mencionará y se apoyará en los siguientes elementos:
 
-* [**engine-template**](https://github.com/polyswarm/engine-template): The name says it all - this is a convenient template with interactive prompts for creating new engines. We'll use this in our tutorial.
+* [**engine-template**](https://github.com/polyswarm/engine-template): Como su nombre indica, es una práctica plantilla con entrada interactiva de datos para crear nuevos motores. La usaremos en nuestro tutorial.
 
-* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): The Swiss Army knife of exemplar PolySwarm participants ("clients"). `polyswarm-client` can function as a `microengine` (we'll build on this functionality in this tutorial), an `arbiter` and an `ambassador` (we'll use these to test what we built).
+* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): La navaja multiusos de los distintos prototipos de participantes de PolySwarm ("clientes"). `polyswarm-client` puede actuar como micromotor (`microengine`) (usaremos esta funcionalidad en este tutorial), árbitro (`arbiter`) o embajador (`ambassador`) (usaremos esta otra funcionalidad para probar lo que creemos).
 
-## Customize `engine-template`
+## Personaliza `engine-template`
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Windows-based engines are currently only supported as AMIs (AWS Machine Images).
+    <strong>Aviso:</strong>
+    Los motores basados en Windows solamente son compatibles como imágenes de máquina de Amazon Web Services (AMI).
   </p>
   <p>
-    The customization process for Window-based engines assumes you have an AWS account and its ID handy.
+    El proceso de personalización de los motores basados en Windows asume que dispones de una cuenta AWS con su correspondiente identificador.
   </p>
   <p>
     We'll be expanding deployment options in near future, including self-hosted options. Linux-based engines have no such stipulation.
@@ -167,17 +167,17 @@ By default, all assertions are placed with the minimum stake permitted by the co
 
 Check back soon for an exploration of various staking strategies.
 
-## Finalizing & Testing Your Engine
+## Finalización y prueba de tu motor
 
-`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself. We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
+La utilidad `cookiecutter` solo personaliza `engine-template` hasta cierto punto; los demás elementos deberás personalizarlos tú. Aunque hemos abordado los más importantes, te aconsejamos que hagas una búsqueda rápida de `CUSTOMIZE_HERE` para asegurarte de haber personalizado todos los aspectos necesarios.
 
-Once everything is in place, let's test our engine:
+Una vez que esté todo listo, probaremos nuestro motor:
 
-[Test Linux-based Engines →](/testing-linux/)
+[Prueba los motores basados en Linux →](/testing-linux/)
 
-[Test Windows-based Engines →](/testing-windows/)
+[Prueba los motores basados en Windows →](/testing-windows/)
 
-## Next Steps
+## Próximos pasos
 
 Implementing scan logic directly in the Scanner class is difficult to manage and scale. Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
 
