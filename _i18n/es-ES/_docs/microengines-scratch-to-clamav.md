@@ -77,15 +77,15 @@ Ahora solo nos queda implementar el método *scan* en la clase Scanner.
         return True, False, ''
 ```
 
-If `clamd` detects a piece of malware, it puts `FOUND` in `result[0]`.
+Si `clamd` detecta un fragmento de código malicioso, inserta `FOUND` (encontrado) en `result[0]`.
 
-The return values that the Microengine expects are:
+Los valores de retorno que espera el micromotor son:
 
-1. `bit` : a `boolean` representing a `malicious` or `benign` determination
-2. `verdict`: another `boolean` representing whether the engine wishes to assert on the artifact
-3. `metadata`: (optional) `string` describing the artifact
+1. `bit` : Un `booleano` que representa la determinación de `malicioso` o `benigno`.
+2. `verdict`: Otro `booleano` que indica si el motor desea realizar una afirmación sobre el artefacto.
+3. `metadata`: Valor de `cadena` (opcional) que describe el artefacto.
 
-We leave including ClamAV's `metadata` as an exercise to the reader - or check [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) :)
+Dejamos la inclusión del valor `metadata` de ClamAV como un ejercicio para el lector. También puedes echarle un vistazo a [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py). :)
 
 <div class="m-flag">
   <p>
@@ -93,25 +93,25 @@ We leave including ClamAV's `metadata` as an exercise to the reader - or check [
     Aunque se requiere la clase Microengine, no se muestra aquí al no ser necesario modificarla.
   </p>
   <p>
-    Python 3's Asyncio - It is important that any external calls you make during a scan do not block the event loop.
-    We forked the clamd project to add support for python 3's asyncio.
-    Thus, for this example to run, you need install our python-clamd project to get the clamd package until our changes are merged upstream.
-    The command you need is: `pip install git+https://github.com/polyswarm/python-clamd.git@async#egg=clamd`.
+    Librería asyncio de Python 3: Es importante que cualquier llamada externa que se haga durante el escaneo no bloquee el bucle de eventos.
+    Hemos bifurcado el proyecto clamd para que sea compatible con asyncio de Python 3.
+    Así, para que este ejemplo funcione, debes instalar nuestro proyecto python-clamd para obtener el paquete clamd hasta que nuestros cambios se combinen en el repositorio original.
+    El comando que necesitas es: "pip install git+https://github.com/polyswarm/python-clamd.git@async#egg=clamd".
   </p>
 </div>
 
-## Finalizing & Testing Your Engine
+## Finalización y prueba de tu motor
 
-`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself. We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
+La utilidad `cookiecutter` solo personaliza `engine-template` hasta cierto punto; los demás elementos deberás personalizarlos tú. Aunque hemos abordado los más importantes, te aconsejamos que hagas una búsqueda rápida de `CUSTOMIZE_HERE` para asegurarte de haber personalizado todos los aspectos necesarios.
 
-Once everything is in place, let's test our engine:
+Una vez que esté todo listo, probaremos nuestro motor:
 
-[Test Linux-based Engines →](/testing-linux/)
+[Prueba los motores basados en Linux →](/testing-linux/)
 
-[Test Windows-based Engines →](/testing-windows/)
+[Prueba los motores basados en Windows →](/testing-windows/)
 
 ## Próximos pasos
 
-In the Eicar example, we showed you how to implement scan logic directly in the Scanner class. And in this ClamAV example, we showed you how to call out to an external socket to access scanning logic.
+En el ejemplo de EICAR, te enseñamos a implementar la lógica de escaneo directamente en la clase Scanner. Y en este ejemplo con ClamAV, has aprendido a invocar un *socket* externo para acceder a la lógica de escaneo.
 
-[Next, we'll wrap ClamAV and Yara into a single Microengine ->](/microengines-clamav-to-multi/)
+[A continuación, encapsularemos ClamAV y Yara en un único micromotor ->](/microengines-clamav-to-multi/)
