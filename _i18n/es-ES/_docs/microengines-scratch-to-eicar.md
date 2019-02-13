@@ -29,86 +29,88 @@ Esta guía mencionará y se apoyará en los siguientes elementos:
     El proceso de personalización de los motores basados en Windows asume que dispones de una cuenta AWS con su correspondiente identificador.
   </p>
   <p>
-    We'll be expanding deployment options in near future, including self-hosted options. Linux-based engines have no such stipulation.
+    Próximamente, ampliaremos las opciones de despliegue, incluida la posibilidad de hospedaje propio. Los motores basados en Linux no presentan esa restricción.
   </p>
 </div>
 
-We're going to cut our Engine from `engine-template`. To do this, we'll need `cookiecutter`:
+Modelaremos nuestro motor usando `engine-template`. Para ello necesitaremos `cookiecutter`:
 
 ```bash
 pip install cookiecutter
 ```
 
-With `cookiecutter` installed, jump-starting your engine from our template is as easy as:
+Con `cookiecutter` instalado, crear un motor a partir de la plantilla es así de fácil:
 
 ```bash
 cookiecutter https://github.com/polyswarm/engine-template
 ```
 
-Prompts will appear, here's how we'll answer them:
+Estas son las respuestas que debes dar a las distintas peticiones de entrada de datos que aparecerán:
 
-* `engine_name`: MyEicarEngine (the name of your engine)
-* `engine_name_slug`: (accept the default)
-* `project_slug`: (accept the default)
-* `author_org`: ACME (or the real name of your organization)
-* `author_org_slug`: (accept the default)
-* `package_slug`: (accept the default)
-* `author_name`: Wile E Coyote (or your real name)
-* `author_email`: (your email address)
-* `platform`: answer truthfully - will this Engine run on Linux or Windows?
-* `has_backend`: 1 for false (see explanation below)
-* `aws_account_for_ami`: (Windows only) your AWS account ID (for Linux engines, just accept the default)
+* `engine_name`: MyEicarEngine (el nombre de tu motor)
+* `engine_name_slug`: (acepta el valor por defecto)
+* `project_slug`: (acepta el valor por defecto)
+* `author_org`: ACME (o el nombre real de tu organización)
+* `author_org_slug`: (acepta el valor por defecto)
+* `package_slug`: (acepta el valor por defecto)
+* `author_name`: Pepito Grillo (o tu nombre real)
+* `author_email`: (tu dirección de correo electrónico)
+* `platform`: responde con exactitud: ¿este motor se ejecutará en Linux o en Windows?
+* `has_backend`: 1 si es falso (consulta la explicación siguiente)
+* `aws_account_for_ami`: (solo Windows) El identificador de tu cuenta AWS (para motores Linux, basta con aceptar el valor por defecto)
 
 <div class="m-callout">
-  <p>One of the prompt items is <code>has_backend</code>, which can be thought of as "has a disjoint backend" and deserves additional explanation.</p>
-  <p>When wrapping your scan engine, inheritance of <code>polyswarm-client</code> classes and implementation of class functionality are referred to as "frontend" changes. If your scan engine "frontend" must reach out across a network or local socket to a separate process that does the real scanning work (the "backend"), then you have a disjoint "backend" and you should answer <code>true</code> to <code>has_backend</code>. If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>false</code> for <code>has_backend</code>.</p>
-  <p>Example of disjoint frontend / backend:</p>
+  <p>Una de las peticiones es <code>has_backend</code>, que puede interpretarse como "¿cuenta el motor con un procesador de análisis disociado?" y merece explicarse en más detalle:</p>
+  <p>Cuando encapsulas tu motor de escaneo, al proceso de heredar las clases de <code>polyswarm-client</code> e implementar su funcionalidad se le denomina cambiar el "frontal" (<i>frontend</i>). Si el "frontal" de tu motor de escaneo debe comunicarse a través de una red o de un <i>socket</i> local con un proceso independiente que realice el auténtico trabajo de escaneo (el procesador de análisis o <i>backend</i>), tendrás un procesador disociado y deberás responder <code>true</code> a la pregunta <code>has_backend</code>. Si, por contra, tu motor de escaneo puede encapsularse fácilmente en una sola imagen de Docker (Linux) o AMI (Windows), debes responder <code>false</code> a la pregunta <code>has_backend</code>.</p>
+  <p>Ejemplo de "frontal" y procesador de análisis disociados:</p>
   <ul>
     <li><a href="https://github.com/polyswarm/polyswarm-client/blob/5959742f0014a582baf5046c7bf6694c23f7435e/src/microengine/clamav.py#L18">ClamAV</a></li>
   </ul>
-  <p>Example of only a frontend (has_backend is false):</p>
+  <p>Ejemplo que solamente consta de "frontal" ("has_backend" es falso):</p>
   <ul>
     <li><a href="https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/yara.py">Yara</a></li>
   </ul>
 </div>
 
-You're all set!
+¡Ya está todo listo!
 
-You should find a `microengine-myeicarengine` in your current working directory - this is what we'll be editing to implement EICAR scan functionality.
+Ahora, tu directorio de trabajo actual debería contener el archivo `microengine-myeicarengine`. Este es el motor que editaremos para implementar la funcionalidad de escaneo de EICAR.
 
-## Implement an EICAR Scanner & Microengine
+## Implementa un escáner y un micromotor para EICAR
 
-Detecting EICAR is as simple as:
+Detectar EICAR es tan sencillo como:
 
-1. implementing a Scanner class that knows how to identify the EICAR test file
-2. implementing a Microengine class that uses this Scanner class
+1. implementar una clase Scanner que sepa cómo identificar el archivo de prueba EICAR, e
+2. implementar una clase Microengine que use esa clase Scanner.
 
-Let's get started.
+Comencemos.
 
-Open `microengine-myeicarengine/src/(the org slug name)_myeicarengine/__init__.py`.
+Abre `microengine-myeicarengine/src/(el nombre con org)_myeicarengine/__init__.py`.
 
-If you used our cookiecutter `engine-template` from above, you will have some code in your `__init__.py`.
+Si usaste la plantilla `engine-template` de Cookiecutter arriba, tu `__init__.py` contendrá código.
 
-We will modify this file to implement both our Scanner and Microengine classes:
+Modificaremos este archivo para implementar nuestras clases Scanner y Microengine:
 
-* **Scanner**: our Scanner class. This class will implement our EICAR-detecting logic in its `scan` function.
+* **Scanner**: Nuestra clase Scanner. Esta clase implementará la lógica de detección de EICAR en su función `scan`.
 
-* **Microengine**: our Microengine class. This class will wrap the aforementioned Scanner to handle all the necessary tasks of being a Microengine that detects EICAR.
+* **Microengine**: Nuestra clase Microengine. Esta clase encapsulará la clase Scanner anterior para gestionar todas las tareas que implica ser un micromotor que detecta EICAR.
 
-### Write EICAR Detection Logic
+### Escribe la lógica de detección de EICAR
 
-The EICAR test file is defined as a file that contains only the following string: `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`.
+El archivo de prueba EICAR se define como un archivo que contiene exclusivamente la siguiente cadena: `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`.
 
-There are, of course, many ways to identify files that match this criteria. The `scan` function's `content` parameter contains the entire content of the artifact in question - this is what you're matching against.
+Por supuesto, existen numerosos modos de identificar archivos que cumplan con estos criterios. El parámetro `content` de la función `scan` alberga el contenido completo del artefacto en cuestión; es decir, la coincidencia a localizar.
 
-The following are 2 examples for how you can write your `scan()` function to detect `EICAR`. Update the code in your `__init__.py` file with the changes from one of these examples.
+Incluimos a continuación dos ejemplos de cómo escribir tu función `scan()` para detectar `EICAR`. Actualiza el código contenido en el archivo `__init__.py` con los cambios indicados en uno de los dos.
 
-The first way, is the simplest design and is used in [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py):
+El primero representa el diseño más sencillo y se usa en [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py):
 
 ```python
 import base64
-from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
+from polyswarmclient.abstractmicroengine 
+import AbstractMicroengine
+from polyswarmclient.abstractscanner 
+import AbstractScanner
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 
@@ -128,14 +130,16 @@ class Microengine(AbstractMicroengine):
 
 ```
 
-Here's another way, this time comparing the SHA-256 of the EICAR test file with a known-bad hash:
+En el segundo ejemplo, comparamos el valor SHA-256 del archivo de prueba EICAR con un *hash* malicioso conocido:
 
 ```python
 import base64
 
 from hashlib import sha256
-from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
+from polyswarmclient.abstractmicroengine 
+import AbstractMicroengine
+from polyswarmclient.abstractscanner 
+import AbstractScanner
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 HASH = sha256(EICAR).hexdigest()
@@ -157,15 +161,15 @@ class Microengine(AbstractMicroengine):
 
 ```
 
-### Develop a Staking Strategy
+### Desarrolla una estrategia de apuesta
 
-At a minimum, Microengines are responsible for: (a) detecting malicious files, (b) rendering assertions with NCT staked on them.
+Los micromotores son responsables, como mínimo, de: (a) detectar archivos maliciosos, (b) efectuar afirmaciones, por las que apuestan NCT.
 
-Staking logic is implemented in the Microengine's `bid` function.
+La lógica de apuestas está implementada en la función `bid` del micromotor.
 
-By default, all assertions are placed with the minimum stake permitted by the community a Microengine is joined to.
+Por defecto, para todas las afirmaciones se apuesta el valor mínimo permitido por la comunidad a la que pertenece el micromotor.
 
-Check back soon for an exploration of various staking strategies.
+Vuelve a consultar esta documentación próximamente para conocer las distintas estrategias de apuesta.
 
 ## Finalización y prueba de tu motor
 
@@ -179,6 +183,6 @@ Una vez que esté todo listo, probaremos nuestro motor:
 
 ## Próximos pasos
 
-Implementing scan logic directly in the Scanner class is difficult to manage and scale. Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
+Implementar la lógica de escaneo directamente en la clase Scanner es difícil de gestionar y de escalar. En su lugar, probablemente prefieras que tu clase Microengine invoque un código binario o un servicio externo que albergue la verdadera lógica de escaneo.
 
-[Next, we'll wrap ClamAV into a Microengine →](/microengines-scratch-to-clamav/)
+[A continuación, encapsularemos ClamAV en un micromotor →](/microengines-scratch-to-clamav/)
