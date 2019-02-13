@@ -35,7 +35,7 @@ import os
 import yara
 
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
+from polyswarmclient.abstractscanner import AbstractScanner, ScanResult
 
 logger = logging.getLogger(__name__)  # Initialize logger
 RULES_DIR = os.getenv('RULES_DIR', 'docker/yara-rules')
@@ -47,9 +47,9 @@ class Scanner(AbstractScanner):
     async def scan(self, guid, content, chain):
         matches = self.rules.match(data=content)
         if matches:
-            return True, True, ''
+            return ScanResult(bit=True, verdict=True)
 
-        return True, False, ''
+        return ScanResult(bit=True, verdict=False)
 ```
 
 <div class="m-flag">
@@ -124,13 +124,21 @@ Now that we can access both Scanners, let's use both of their results to distill
     async def scan(self, guid, content, chain):
         results = await asyncio.gather(*[backend.scan(guid, content, chain) for backend in self.backends])
 
-        # Unzip the result tuples
-        bits, verdicts, metadatas = tuple(zip(*results))
-        return any(bits), any(verdicts), ';'.join(metadatas)
+        # Unpack the results
+        bits = [r.bit for r in results]
+        verdicts = [r.verdict for r in results]
+        confidences = [r.confidence for r in results]
+        metadatas = [r.metadata for r in results]
+
+        asserted_confidences = [c for b, c in zip(bits, confidences) if b]
+        avg_confidence = sum(asserted_confidences) / len(asserted_confidences)
+
+        return ScanResult(bit=any(bits), verdict=any(verdicts), confidence=avg_confidence, metadata=';'.join(metadatas))
 ```
 
 Here we calculate all of our Scanner's results asynchronously, and then combine them into our final verdict.
 Here we will assert if any of the backends return a True bit, and we will assert that the artifact is malicious if any backend claims it is.
+We average out the confidence ratings from each of the backends and report this as our aggregate confidence
 We will also combine all of the metadata from our scanners into one string to be attached to our assertion.
 
 A finished solution can be found in [multi.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/multi.py).

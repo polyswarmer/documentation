@@ -178,7 +178,15 @@ bid - the amount of NCT to stake
 
 mask - the artifacts to assert on from the set in the bounty
 
+and one of:
+
 verdicts - array of verdicts on bounty artifacts
+
+commitment - a commitment hash equal to `keccak256(verdicts ^ keccak256(nonce) ^ sender))` where:
+
+    - verdicts is the array of verdicts represented as a big-endian bitset
+    - nonce is a 256-bit random non-zero integer
+    - sender is the address of the microengine placing the assertion
 
 ```json
 {
@@ -200,7 +208,7 @@ verdicts - array of verdicts on bounty artifacts
 
 #### Success Response
 
-**Condition** : If everything is OK the generated nonce will be created later used for reveal and you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condition** : If everything is OK the generated nonce will be created later used for reveal (unless commitment hash was provided) and you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
 **Code** : `200`
 

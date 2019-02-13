@@ -117,7 +117,7 @@ The first way, is the simplest design and is used in [`eicar.py`](https://github
 ```python
 import base64
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
+from polyswarmclient.abstractscanner import AbstractScanner, ScanResult
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 
@@ -125,9 +125,9 @@ class Scanner(AbstractScanner):
 
     async def scan(self, guid, content, chain):
         if content == EICAR:
-            return True, True, ''
+            return ScanResult(bit=True, verdict=True)
 
-        return True, False, ''
+        return ScanResult(bit=True, verdict=False)
 
 
 class Microengine(AbstractMicroengine):
@@ -144,7 +144,7 @@ import base64
 
 from hashlib import sha256
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
+from polyswarmclient.abstractscanner import AbstractScanner, ScanResult
 
 EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQVJELUFOVElWSVJVUy1URVNULUZJTEUhJEgrSCo=')
 HASH = sha256(EICAR).hexdigest()
@@ -154,9 +154,9 @@ class Scanner(AbstractScanner):
     async def scan(self, guid, content, chain):
         testhash = sha256(content).hexdigest()
         if (testhash == HASH):
-            return True, True, ''
+            return ScanResult(bit=True, verdict=True)
 
-        return True, False, ''
+        return ScanResult(bit=True, verdict=False)
 
 
 class Microengine(AbstractMicroengine):
@@ -169,13 +169,18 @@ class Microengine(AbstractMicroengine):
 
 ### Develop a Staking Strategy
 
-At a minimum, Microengines are responsible for: (a) detecting malicious files, (b) rendering assertions with NCT staked on them.
+At a minimum, Microengines are responsible for: (a) detecting malicious files, (b) rendering assertions with a NCT bid.
 
-Staking logic is implemented in the Microengine's `bid` function.
+Bidding logic is implemented in the Microengine's `bid` function.
 
 By default, all assertions are placed with the minimum stake permitted by the community a Microengine is joined to.
 
-Check back soon for an exploration of various staking strategies.
+Microengines can customize the default behavior by:
+
+1. Using the default logic, which weights your bid based on the confidence rating for each artifact between the `min_bid` and `max_bid` properties of the `Microengine` object
+1. Overriding the bid function to perform arbitrary logic
+
+Check back soon for an exploration of various bidding strategies.
 
 
 ## Finalizing & Testing Your Engine
