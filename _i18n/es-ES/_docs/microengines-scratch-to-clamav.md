@@ -1,31 +1,31 @@
-# Wrapping a Real Engine: ClamAV
+# Cómo encapsular un motor real: ClamAV
 
-## Setting the Stage
+## Preparativos
 
-ClamAV is an open source signature-based engine with a daemon that provides quick analysis of artifacts that it recognizes. This tutorial will step you through building your second PolySwarm Microengine by means of incorporating ClamAV as an analysis backend.
+ClamAV es un motor de código abierto basado en firmas y equipado con un *daemon* que proporciona un rápido análisis de los artefactos que identifica. Este tutorial te guiará paso a paso en la creación de tu segundo motor de PolySwarm incorporando ClamAV como procesador de análisis.
 
 <div class="m-flag">
   <p>
-    <strong>Note:</strong>
-    The PolySwarm marketplace will be a source of previously unseen malware.
+    <strong>Nota:</strong>
+    El mercado de PolySwarm será una fuente de código malicioso jamás visto anteriormente.
   </p>
   <p>
-    Relying on a strictly signature-based engine as your analysis backend, particularly one whose signatures everyone can access (e.g. ClamAV) is unlikely to yield unique insight into "swarmed" artifacts and therefore unlikely to outperform other engines.
+    No es muy probable que depender de un procesador de análisis con un motor estrictamente basado en firmas, especialmente uno a cuyas firmas puede acceder cualquiera (por ejemplo, ClamAV), proporcione información privilegiada sobre los artefactos detectados por el "enjambre", y poco probable, en consecuencia, que supere a otros motores.
   </p>
   <p>
-    This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into a <strong>Microengine</strong> skeleton.
+    La presente guía no pretende sugerir el modo de abordar el mercado, sino proporcionar un ejemplo de cómo incorporar un procesador de análisis existente en el esqueleto de un <strong>micromotor</strong>.
   </p>
 </div>
 
-This tutorial will walk the reader through building [microengine/clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py); please refer to `clamav.py` for the completed work.
+Este tutorial guiará al lector en la creación de [microengine/clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py); consulta el trabajo finalizado en `clamav.py`.
 
-## `clamd` Implementation and Integration
+## Implementación e integración de `clamd`
 
-Start with a [fresh engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyClamAvEngine". You should find a `microengine-myclamavengine` in your current working directory - this is what we'll be editing to implement ClamAV scan functionality.
+Comienza con una [plantilla de motor nueva](/microengines-scratch-to-eicar/#customize-engine-template) y usa `engine-name` para bautizarla como "MyClamAvEngine". Tu directorio de trabajo actual debería contener ahora el archivo `microengine-myclamavengine`. Este es el motor que editaremos para implementar la funcionalidad de escaneo de ClamAV.
 
-Edit the `__init__.py` as we describe below:
+Edita `__init__.py` del siguiente modo:
 
-We begin our ClamAV `analysis backend` by importing the `clamd` module and configuring some globals.
+Comenzamos nuestro procesador de análisis ClamAV importando el módulo `clamd` y configurando algunas variables globales.
 
 ```python
 #!/usr/bin/env python
@@ -35,17 +35,19 @@ import logging
 import os
 from io import BytesIO
 
-from polyswarmclient.abstractmicroengine import AbstractMicroengine
-from polyswarmclient.abstractscanner import AbstractScanner
+from polyswarmclient.abstractmicroengine
+import AbstractMicroengine
+from polyswarmclient.abstractscanner
+import AbstractScanner
 
-logger = logging.getLogger(__name__)  # Initialize logger
+logger = logging.getLogger(__name__)  # Inicialización de las trazas
 
 CLAMD_HOST = os.getenv('CLAMD_HOST', 'localhost')
 CLAMD_PORT = int(os.getenv('CLAMD_PORT', '3310'))
 CLAMD_TIMEOUT = 30.0
 ```
 
-Would you believe me if I said we were almost done? Let's get `clamd` initialized and running, so it can communicate with the `clamd-daemon` over a network socket.
+¿Me creerías si te dijera que ya casi hemos terminado? Vamos a inicializar y ejecutar `clamd` para que pueda comunicarse con `clamd-daemon` a través de un *socket* de red.
 
 ```python
 class Scanner(AbstractScanner):
@@ -53,17 +55,17 @@ class Scanner(AbstractScanner):
         self.clamd = clamd.ClamdAsyncNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
 ```
 
-We interact with `clamd` by sending it a byte stream of artifact contents.
+Interactuamos con `clamd` enviándole el contenido de los artefactos como secuencias de bytes.
 
-ClamAV responds to these byte streams in the form:
+ClamAV responde a las secuencias en este formato:
 
 ```json
 {'stream': ('FOUND', 'Eicar-Test-Signature')}
 ```
 
-We can easily parse the result using python's `[]` operator. `result[0]` is the word `FOUND`, and `result[1]` in this instance is `Eicar-Test-Signature`.
+Podemos analizar fácilmente el resultado usando el operador `[]` de Python. Veremos que `result[0]` es la palabra `FOUND`, y `result[1]`, en esta instancia, es `Eicar-Test-Signature`.
 
-Now, all we need is to implement the scan method in the Scanner class.
+Ahora solo nos queda implementar el método *scan* en la clase Scanner.
 
 ```python
     async def scan(self, guid, content, chain):
@@ -75,41 +77,41 @@ Now, all we need is to implement the scan method in the Scanner class.
         return True, False, ''
 ```
 
-If `clamd` detects a piece of malware, it puts `FOUND` in `result[0]`.
+Si `clamd` detecta un fragmento de código malicioso, inserta `FOUND` (encontrado) en `result[0]`.
 
-The return values that the Microengine expects are:
+Los valores de retorno que espera el micromotor son:
 
-1. `bit` : a `boolean` representing a `malicious` or `benign` determination
-2. `verdict`: another `boolean` representing whether the engine wishes to assert on the artifact
-3. `metadata`: (optional) `string` describing the artifact
+1. `bit` : Un `booleano` que representa la determinación de `malicioso` o `benigno`.
+2. `verdict`: Otro `booleano` que indica si el motor desea realizar una afirmación sobre el artefacto.
+3. `metadata`: Valor de `cadena` (opcional) que describe el artefacto.
 
-We leave including ClamAV's `metadata` as an exercise to the reader - or check [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) :)
+Dejamos la inclusión del valor `metadata` de ClamAV como un ejercicio para el lector. También puedes echarle un vistazo a [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py). :)
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+    <strong>Información:</strong>
+    Aunque se requiere la clase Microengine, no se muestra aquí al no ser necesario modificarla.
   </p>
   <p>
-    Python 3's Asyncio - It is important that any external calls you make during a scan do not block the event loop.
-    We forked the clamd project to add support for python 3's asyncio.
-    Thus, for this example to run, you need install our python-clamd project to get the clamd package until our changes are merged upstream.
-    The command you need is: `pip install git+https://github.com/polyswarm/python-clamd.git@async#egg=clamd`.
+    Librería asyncio de Python 3: Es importante que cualquier llamada externa que se haga durante el escaneo no bloquee el bucle de eventos.
+    Hemos bifurcado el proyecto clamd para que sea compatible con asyncio de Python 3.
+    Así, para que este ejemplo funcione, debes instalar nuestro proyecto python-clamd para obtener el paquete clamd hasta que nuestros cambios se combinen en el repositorio original.
+    El comando que necesitas es: "pip install git+https://github.com/polyswarm/python-clamd.git@async#egg=clamd".
   </p>
 </div>
 
-## Finalizing & Testing Your Engine
+## Finalización y prueba de tu motor
 
-`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself. We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
+La utilidad `cookiecutter` solo personaliza `engine-template` hasta cierto punto; los demás elementos deberás personalizarlos tú. Aunque hemos abordado los más importantes, te aconsejamos que hagas una búsqueda rápida de `CUSTOMIZE_HERE` para asegurarte de haber personalizado todos los aspectos necesarios.
 
-Once everything is in place, let's test our engine:
+Una vez que esté todo listo, probaremos nuestro motor:
 
-[Test Linux-based Engines →](/testing-linux/)
+[Prueba los motores basados en Linux →](/testing-linux/)
 
-[Test Windows-based Engines →](/testing-windows/)
+[Prueba los motores basados en Windows →](/testing-windows/)
 
-## Next Steps
+## Próximos pasos
 
-In the Eicar example, we showed you how to implement scan logic directly in the Scanner class. And in this ClamAV example, we showed you how to call out to an external socket to access scanning logic.
+En el ejemplo de EICAR, te enseñamos a implementar la lógica de escaneo directamente en la clase Scanner. Y en este ejemplo con ClamAV, has aprendido a invocar un *socket* externo para acceder a la lógica de escaneo.
 
-[Next, we'll wrap ClamAV and Yara into a single Microengine ->](/microengines-clamav-to-multi/)
+[A continuación, encapsularemos ClamAV y Yara en un único micromotor ->](/microengines-clamav-to-multi/)
