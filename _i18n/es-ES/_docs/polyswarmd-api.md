@@ -381,23 +381,23 @@ amount: La cantidad de NCT a retirar de la apuesta actual.
 
 ### Obtener balance total apostado
 
-**URL** : `/balances/<address>/staking/total`
+**URL**: `/balances/<dirección>/staking/total`
 
 **Método**: `GET`
 
-### Get withdrawable stake balance
+### Obtener saldo apostado retirable
 
-**URL** : `/balances/<address>/staking/withdrawable`
+**URL**: `/balances/<dirección>/staking/withdrawable`
 
 **Método**: `GET`
 
-## Artifacts API
+## API de artefactos
 
-### Post Artifact
+### Enviar artefacto
 
-Post an artifact to IPFS
+Enviar un artefacto al IPFS.
 
-**URL** : `/artifacts`
+**URL**: `/artifacts`
 
 **Método**: `POST`
 
@@ -405,35 +405,35 @@ Post an artifact to IPFS
 
 Debes suministrar:
 
-List of files to upload. You can upload a max of 256
+Lista de archivos a cargar. El máximo son 256.
 
-### Get file links associated with hash
+### Obtener vínculos de archivos asociados a un *hash*
 
-**URL** : `/<ipfshash>`
-
-**Método**: `GET`
-
-### Get a link associated with hash and link index
-
-**URL** : `/<ipfshash>/<int:id_>`
+**URL**: `/<ipfshash>`
 
 **Método**: `GET`
 
-### Get stats on artifact link
+### Obtener un vínculo asociado a un *hash* con un índice
 
-**URL** : `/<ipfshash>/<int:id_>/stat`
+**URL**: `/<ipfshash>/<int:id_>`
 
 **Método**: `GET`
 
-## Offers API
+### Obtener estadísticas de un vínculo a un artefacto
 
-*Stateless offer api coming soon*
+**URL**: `/<ipfshash>/<int:id_>/stat`
 
-### Create an offer channel
+**Método**: `GET`
 
-Called by an ambassador to deploy a new multi signature offer
+## API de ofertas
 
-**URL** : `/offers?account=[eth_address]&base_nonce=[integer]`
+*Próximamente, API de ofertas sin estado*
+
+### Crear un canal de ofertas
+
+Invocado por un embajador para desplegar una nueva oferta multifirma.
+
+**URL**: `/offers?account=[eth_address]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -441,20 +441,20 @@ Called by an ambassador to deploy a new multi signature offer
 
 Debes suministrar:
 
-ambassador - address of ambassador using channel
+ambassador: Dirección del embajador que usará el canal.
 
-expert - address of expert using channel
+experto: Dirección del experto que usará el canal.
 
-settlementPeriodLength - how long the parties have to dispute the settlement offer channel
+settlementPeriodLength: Tiempo del que disponen las partes para disputar la liquidación del canal de oferta.
 
-websocketUri - uri of socket to send messages to ambassador
+websocketUri: URI del *socket* para enviar mensajes al embajador.
 
 ```json
 {
-  "ambassador": "[string minimum length 42]",
-  "expert": "[string minimum length 42]",
-  "settlementPeriodLength": "[integer minimum 60]",
-  "websocketUri": "[string with minimum length 1 max 32]"
+  "ambassador": "[cadena, longitud mín. 42]",
+  "expert": "[cadena, longitud mín. 42]",
+  "settlementPeriodLength": "[entero, mínimo 60]",
+  "websocketUri": "[cadena, longitud mín. 1 y máx. 32]"
 }
 ```
 
@@ -492,11 +492,11 @@ websocketUri - uri of socket to send messages to ambassador
 }
 ```
 
-### Open channel
+### Abrir canal
 
-Called by ambassador to open channel with expert
+Invocado por un embajador para abrir un canal con un experto.
 
-**URL** : `offers/open/<uuid:guid>?account=[eth_address]&base_nonce=[integer]`
+**URL**: `offers/open/<uuid:guid>?account=[eth_address]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -504,26 +504,26 @@ Called by ambassador to open channel with expert
 
 Debes suministrar:
 
-state - inital offer state
+state: Estado de oferta inicial.
 
-v - the recovery id from signature of state string
+v: El identificador de recuperación de la firma correspondiente a la cadena de estado.
 
-r - output of ECDSA signature of state string
+r: Salida de la firma ECDSA de la cadena de estado.
 
-s - output of ECDSA signature of state string
+s: Salida de la firma ECDSA de la cadena de estado.
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]"
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[entero, mínimo 0]",
+  "r": "[cadena, longitud mínima 64]",
+  "s": "[cadena, longitud mínima 64]"
 }
 ```
 
 **Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state).
 
 ```json
 {
@@ -557,11 +557,11 @@ See state [explaintion](#state)
 }
 ```
 
-### Join channel
+### Unirse a un canal
 
-Called by expert to join ambassador channel
+Invocado por el experto para unirse al canal de un embajador.
 
-**URL** : `offers/open?account=[eth_address]&base_nonce=[integer]`
+**URL**: `offers/open?account=[eth_address]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -569,26 +569,26 @@ Called by expert to join ambassador channel
 
 Debes suministrar:
 
-state - offer state from ambassador
+state: Estado de oferta del embajador.
 
-v - the recovery id from signature of state string
+v: El identificador de recuperación de la firma correspondiente a la cadena de estado.
 
-r - output of ECDSA signature of state string
+r: Salida de la firma ECDSA de la cadena de estado.
 
-s - output of ECDSA signature of state string
+s: Salida de la firma ECDSA de la cadena de estado.
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[entero, mínimo 0]",
+  "r": "[cadena, longitud mínima 64]",
+  "s": "[cadena, longitud mínima 64]",
 }
 ```
 
 **Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state).
 
 ```json
 {
@@ -622,11 +622,11 @@ See state [explaintion](#state)
 }
 ```
 
-### Cancel channel
+### Cancelar canal
 
-Called by ambassador to cancel if the contract hasn't been joined yet
+Invocado por un embajador para cancelar el canal si el contrato todavía no se ha incorporado.
 
-**URL** : `offers/cancel?account=[eth_address]&base_nonce=[integer]`
+**URL**: `offers/cancel?account=[eth_address]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -655,11 +655,11 @@ Called by ambassador to cancel if the contract hasn't been joined yet
 }
 ```
 
-### Close channel
+### Cerrar canal
 
-Called by any party with a both signatures on a state with a closed state flag set to 1
+Invocado por cualquiera de las partes con ambas firmas en un estado cuyo indicador `close_flag` sea 1.
 
-**URL** : `/close?account=[eth_address]&base_nonce=[integer]`
+**URL**: `/close?account=[eth_address]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -667,9 +667,9 @@ Called by any party with a both signatures on a state with a closed state flag s
 
 Debes suministrar:
 
-state - offer state with closed flag
+state: Estado de oferta con indicador `close_flag` igual a 1.
 
-v - array of the recovery ids from signature of state string for both parties
+v: Matriz formada por los identificadores de recuperación de firma de la cadena de estado de ambas partes.
 
 r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
@@ -686,7 +686,7 @@ s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de am
 
 **Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state).
 
 ```json
 {
@@ -732,9 +732,9 @@ Invocado por cualquiera de las partes con ambas firmas en un estado que sea el e
 
 Debes suministrar:
 
-state - offer state with closed flag
+state: Estado de oferta con indicador `close_flag` igual a 1.
 
-v - array of the recovery ids from signature of state string for both parties
+v: Matriz formada por los identificadores de recuperación de firma de la cadena de estado de ambas partes.
 
 r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
@@ -751,7 +751,7 @@ s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de am
 
 **Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state).
 
 ```json
 {
@@ -799,7 +799,7 @@ Debes suministrar:
 
 state: Estado de la oferta firmado por ambas partes.
 
-v - array of the recovery ids from signature of state string for both parties
+v: Matriz formada por los identificadores de recuperación de firma de la cadena de estado de ambas partes.
 
 r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
@@ -816,7 +816,7 @@ s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de am
 
 **Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state).
 
 ```json
 {
@@ -864,7 +864,7 @@ Debes suministrar:
 
 state: Estado de la oferta firmado por ambas partes.
 
-v - array of the recovery ids from signature of state string for both parties
+v: Matriz formada por los identificadores de recuperación de firma de la cadena de estado de ambas partes.
 
 r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
@@ -881,7 +881,7 @@ s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de am
 
 **Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state).
 
 ```json
 {
@@ -1130,11 +1130,11 @@ transactions: Lista de *hashes* correspondientes a las transacciones a comprobar
 
 ## Estado
 
-### Creating State
+### Creación de un estado
 
-The state byte string contains details the ambassador and expert sign off on.
+La cadena de *bytes* de estado contiene detalles que el embajador y el experto acuerdan mediante su firma.
 
-**URL** : `/offers/state`
+**URL**: `/offers/state`
 
 **Método**: `POST`
 
@@ -1142,29 +1142,29 @@ The state byte string contains details the ambassador and expert sign off on.
 
 Debes suministrar:
 
-    close_flag - 1 or 0 for is this state is closeable
-    nonce - the sequnce of the state
-    ambassador - ambassador address
-    expert - expert address
-    msig_address - multi signature address
-    ambassador_balance - balance in nectar for ambassador
-    nectar_balance - balance in nectar for expert
-    guid - a globally-unique identifier for the offer listing
-    offer_amount - the offer amount paid for assertion
+    close_flag: 1 o 0 para "¿este estado se puede cerrar?"
+    nonce: La secuencia del estado
+    ambassador: Dirección del embajador
+    expert: Dirección del experto
+    msig_address: Dirección de multifirma
+    ambassador_balance: Saldo en néctares para el embajador
+    nectar_balance: Saldo en néctares para el experto
+    guid: Identificador único global para la publicación de la oferta
+    offer_amount: El importe de la oferta abonado por afirmación
     
 
-Optional:
+Opcional:
 
-    artifact_hash - cryptographic hash of the artifact
-    ipfs_hash - the IPFS URI of the artifact
-    engagement_deadline - engagement Deadline
-    assertion_deadline - assertion Deadline
-    current_commitment - current commitment
-    verdicts - bitmap of verdicts
-    meta_data - meta data about current offer
+    artifact_hash: <i>Hash</i> criptográfico del artefacto
+    ipfs_hash: La URI al IPFS del artefacto
+    engagement_deadline: Vencimiento de participación
+    assertion_deadline: Vencimiento de afirmación
+    current_commitment: Compromiso actual
+    verdicts: Mapa de bits de los veredictos
+    meta_data: Metadatos relativos a la oferta actual
     
 
-Example POST data:
+Ejemplo de datos enviados por POST:
 
     {
       "close_flag": 0,
@@ -1219,7 +1219,7 @@ type - type of message (payment, request, assertion)
 
 state - offer state
 
-Optional:
+Opcional:
 
 toSocketUri - to send to a different person (defaults to the ambassador)
 
@@ -1382,9 +1382,9 @@ Sent when a participant settles their portion of a bounty
 }
 ```
 
-***Initialized Channel***
+***Canal inicializado***
 
-Sent when a new channel is initialized
+Enviado cuando se inicializa un nuevo canal.
 
 **Ejemplo de contenido**
 
