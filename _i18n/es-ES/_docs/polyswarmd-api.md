@@ -1,6 +1,6 @@
-## Bounties API
+## API de recompensas
 
-### Bounty Parameters
+### Parámetros de una recompensa
 
 **URL** : `/bounties/parameters?chain=[chain_name]`
 
