@@ -325,9 +325,9 @@ metadata: Metadatos a incluir en la afirmación (puede ser una cadena vacía).
 
 ### Enviar depósito de apuesta
 
-Called by arbiters to deposit stake Nectar.
+Invocado por los árbitros para depositar NCT en la apuesta.
 
-**URL** : `/staking/deposit?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**URL**: `/staking/deposit?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -335,11 +335,11 @@ Called by arbiters to deposit stake Nectar.
 
 Debes suministrar:
 
-amount - the amount of NCT to add to current stake
+amount: El importe en NCT a añadir a la apuesta actual.
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]"
+  "amount": "[cadena, longitud mín. 1 / longitud máx. 100]"
 }
 ```
 
@@ -351,11 +351,11 @@ amount - the amount of NCT to add to current stake
 }
 ```
 
-### Post Withdrawal Stake
+### Enviar retirada de apuesta
 
-Called by arbiters to withdraw available staked Nectar.
+Invocado por los árbitros para retirar el NCT disponible apostado.
 
-**URL** : `/staking/withdraw?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**URL**: `/staking/withdraw?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -363,11 +363,11 @@ Called by arbiters to withdraw available staked Nectar.
 
 Debes suministrar:
 
-amount - the amount of NCT to withdraw from current stake
+amount: La cantidad de NCT a retirar de la apuesta actual.
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]"
+  "amount": "[cadena, longitud mín. 1 / longitud máx. 100]"
 }
 ```
 
@@ -379,7 +379,7 @@ amount - the amount of NCT to withdraw from current stake
 }
 ```
 
-### Get total stake balance
+### Obtener balance total apostado
 
 **URL** : `/balances/<address>/staking/total`
 
@@ -671,16 +671,16 @@ state - offer state with closed flag
 
 v - array of the recovery ids from signature of state string for both parties
 
-r - array of outputs of ECDSA signature of state string for both parties
+r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
-s - array of outputs of ECDSA signature of state string for both parties
+s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[matriz de 2 enteros]",
+  "r": "[matriz de 2 cadenas con longitud mín. 64]",
+  "s": "[matriz de 2 cadenas con longitud mín. 64]",
 }
 ```
 
@@ -720,11 +720,11 @@ See state [explaintion](#state)
 }
 ```
 
-### Close challenged channel with timeout
+### Cerrar canal impugnado con plazo de espera vencido
 
-Called by any party with a both signatures on a state that is the final challenge state
+Invocado por cualquiera de las partes con ambas firmas en un estado que sea el estado final de impugnación.
 
-**URL** : `/offers/closeChallenged?account=[eth_address]&base_nonce=[integer]`
+**URL**: `/offers/closeChallenged?account=[eth_address]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -736,16 +736,16 @@ state - offer state with closed flag
 
 v - array of the recovery ids from signature of state string for both parties
 
-r - array of outputs of ECDSA signature of state string for both parties
+r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
-s - array of outputs of ECDSA signature of state string for both parties
+s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[matriz de 2 enteros]",
+  "r": "[matriz de 2 cadenas con longitud mín. 64]",
+  "s": "[matriz de 2 cadenas con longitud mín. 64]",
 }
 ```
 
@@ -785,11 +785,11 @@ See state [explaintion](#state)
 }
 ```
 
-### Settle channel
+### Liquidar canal
 
-Called by ambassador or expert to start initialize a disputed settlement using an agreed upon state. It starts a timeout for a reply using `settlementPeriodLength`
+Invocado por un embajador o un experto para inicializar una liquidación en disputa usando un estado previamente acordado. Abre un plazo de respuesta con `settlementPeriodLength`.
 
-**URL** : `/offers/settle?account=[eth_address]&base_nonce=[integer]`
+**URL**: `/offers/settle?account=[eth_address]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -797,20 +797,20 @@ Called by ambassador or expert to start initialize a disputed settlement using a
 
 Debes suministrar:
 
-state - offer state both parties signed
+state: Estado de la oferta firmado por ambas partes.
 
 v - array of the recovery ids from signature of state string for both parties
 
-r - array of outputs of ECDSA signature of state string for both parties
+r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
-s - array of outputs of ECDSA signature of state string for both parties
+s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[matriz de 2 enteros]",
+  "r": "[matriz de 2 cadenas con longitud mín. 64]",
+  "s": "[matriz de 2 cadenas con longitud mín. 64]",
 }
 ```
 
@@ -850,11 +850,11 @@ See state [explaintion](#state)
 }
 ```
 
-### Challenge settle channel state
+### Impugnar estado de liquidación de canal
 
-Called by ambassador or expert to challenge a disputed state. The new state is accepted if it is signed by both parties and has a higher sequence number
+Invocado por un embajador o un experto para impugnar un estado en disputa. El nuevo estado se aceptará si es firmado por ambas partes y posee un número de secuencia más elevado.
 
-**URL** : `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
+**URL**: `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -862,20 +862,20 @@ Called by ambassador or expert to challenge a disputed state. The new state is a
 
 Debes suministrar:
 
-state - offer state both parties signed
+state: Estado de la oferta firmado por ambas partes.
 
 v - array of the recovery ids from signature of state string for both parties
 
-r - array of outputs of ECDSA signature of state string for both parties
+r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
-s - array of outputs of ECDSA signature of state string for both parties
+s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[matriz de 2 enteros]",
+  "r": "[matriz de 2 cadenas con longitud mín. 64]",
+  "s": "[matriz de 2 cadenas con longitud mín. 64]",
 }
 ```
 
@@ -915,65 +915,65 @@ See state [explaintion](#state)
 }
 ```
 
-### Get offer channel info
+### Obtener información de canal de oferta
 
-**URL** : `/offers/<uuid:guid>`
-
-**Método**: `GET`
-
-### Get offer channel settlement period
-
-**URL** : `/offers/<uuid:guid>/settlementPeriod`
+**URL**: `/offers/<uuid:guid>`
 
 **Método**: `GET`
 
-### Get ambassador websocket uri
+### Obtener periodo de liquidación de canal de oferta
 
-**URL** : `/offers/<uuid:guid>/websocket`
-
-**Método**: `GET`
-
-### Get pending offers
-
-**URL** : `/offers/pending`
+**URL**: `/offers/<uuid:guid>/settlementPeriod`
 
 **Método**: `GET`
 
-### Get opened offers
+### Obtener URI del *socket* web del embajador
 
-**URL** : `/offers/opened`
-
-**Método**: `GET`
-
-### Get closed offers
-
-**URL** : `/offers/closed`
+**URL**: `/offers/<uuid:guid>/websocket`
 
 **Método**: `GET`
 
-### Get my offers
+### Obtener ofertas pendientes
 
-**URL** : `/offers/myoffers?account=[eth_address]`
+**URL**: `/offers/pending`
 
 **Método**: `GET`
 
-## Transaction Signing
+### Obtener ofertas abiertas
 
-**URL** : `/transactions?chain=[chain_here]`
+**URL**: `/offers/opened`
+
+**Método**: `GET`
+
+### Obtener ofertas cerradas
+
+**URL**: `/offers/closed`
+
+**Método**: `GET`
+
+### Obtener mis ofertas
+
+**URL**: `/offers/myoffers?account=[eth_address]`
+
+**Método**: `GET`
+
+## Firma de transacciones
+
+**URL**: `/transactions?chain=[chain_here]`
 
 **Método**: `POST`
 
-All signed transactions are POSTed here to start the transaction on the chain of choice.
+Todas las transacciones firmadas se envían aquí mediante POST para iniciarlas en la cadena deseada.
 
-To add transaction signing to your polyswarmd dependent project you need to to write/use something that follows the steps below.
+Para incorporar la funcionalidad de firma de transacciones en tu proyecto dependiente de polyswarmd, tu código debe llevar a cabo las siguientes acciones:
 
-0) Upon receiving transaction data from a transaction dependent endpoint
+0) Al recibir los datos de la transacción desde un nodo basado en transacciones:
 
-1) Sign the Transaction data with your private key
+1) firma los datos de la transacción con tu clave privada, y
 
-2) POST the signed transaction to `/transactions`
+2) envía la transacción firmada mediante POST a `/transactions`.
 
-There is a python example embedded below, though you can use any other language.
+A continuación se incluye un ejemplo con Python, pero puedes usar cualquier otro lenguaje.
 
 ```python
 import json
@@ -986,7 +986,7 @@ PASSWORD = 'password'
 ADDRESS, PRIV_KEY = unlock_key(KEYFILE, PASSWORD)
 
 def unlock_key(keyfile, password):
-    """Open an encrypted keystore file and decrypt it"""
+    """Abrir un archivo de almacén de claves encriptado y desencriptarlo"""
     with open(keyfile, 'r') as f:
         priv_key = web3.eth.account.decrypt(f.read(), password)
 
@@ -994,7 +994,7 @@ def unlock_key(keyfile, password):
     return (address, priv_key)
 
 def post_transactions(transactions):
-    """Post a set of (signed) transactions to Ethereum via polyswarmd, parsing the emitted events"""
+    """Enviar un conjunto de transacciones (firmadas) a Ethereum mediante polyswarmd, parseando los eventos emitidos"""
     signed = []
     for tx in transactions:
         s = web3.eth.account.signTransaction(tx, PRIV_KEY)
@@ -1024,11 +1024,11 @@ def post_transactions(transactions):
 ]
 ```
 
-## Transaction Events
+## Eventos de transacción
 
-A list of events or errors that resulted from the transaction with the given hash
+Lista de eventos o errores resultantes de la transacción designada con el *hash* proporcionado.
 
-**URL** : `/transactions/?chain=[chain_here]`
+**URL**: `/transactions/?chain=[chain_here]`
 
 **Método**: `GET`
 
@@ -1036,11 +1036,11 @@ A list of events or errors that resulted from the transaction with the given has
 
 Debes suministrar:
 
-transactions - a list transaction hashes to check
+transactions: Lista de *hashes* correspondientes a las transacciones a comprobar.
 
 ```json
 {
-  "transactions": "[array of transaction hashes]",
+  "transactions": "[matriz de <i>hashes</i> de transacción]",
 }
 ```
 
@@ -1054,7 +1054,7 @@ transactions - a list transaction hashes to check
 
 #### Respuesta correcta
 
-**Condition** : If all of the transactions completed without reverting. (If some failed, it will return 400)
+**Condición**: Que todas las transacciones se hayan completado sin revertirse (si alguna de ellas hubiera fallado, se devolverá un código 400).
 
 **Código**: `200`
 
@@ -1128,7 +1128,7 @@ transactions - a list transaction hashes to check
 }
 ```
 
-## State
+## Estado
 
 ### Creating State
 
