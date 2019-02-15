@@ -1164,7 +1164,7 @@ Opcional:
     meta_data: Metadatos relativos a la oferta actual
     
 
-Ejemplo de datos enviados por POST:
+Ejemplo de datos enviados mediante POST:
 
     {
       "close_flag": 0,
@@ -1177,14 +1177,14 @@ Ejemplo de datos enviados por POST:
     }
     
 
-#### Gets tranformed to the below bytes string in the response:
+#### Convertidos a la siguiente cadena de *bytes* en la respuesta:
 
     0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc
     
 
-### Signing State
+### Estado de las firmas
 
-The offers api requires signed states. Here's an example of signing to create the v, r, and s signature pieces in Javascript.
+La API de ofertas requiere remitir estados firmados. Este es un ejemplo de cómo firmar para crear los elementos v, r y s de la firma en Javascript:
 
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
@@ -1207,41 +1207,41 @@ let s = '0x' + sig.s.toString('hex')
 let v = sig.v
 ```
 
-### State Messages
+### Mensajes de estado
 
-Ambassadors open a websocket with the url defined in the contract. Locally - messages are sent on `ws://localhost:31337/messages/<uuid:guid>`
+Los embajadores abren un *socket* web con la URL definida en el contrato. Localmente, los mensajes se envían a `ws://localhost:31337/messages/<uuid:guid>`.
 
 **Restricciones de datos**
 
 Debes suministrar:
 
-type - type of message (payment, request, assertion)
+type: Tipo de mensaje (pago, petición, afirmación).
 
-state - offer state
+state: Estado de oferta.
 
 Opcional:
 
-toSocketUri - to send to a different person (defaults to the ambassador)
+toSocketUri: Para enviar a una persona distinta (por defecto, va al embajador).
 
-v - recovery ids from signature of state string for both parties
+v: Identificadores de recuperación correspondientes a la firma de la cadena de estado de ambas partes.
 
-r - ECDSA signature of state string
+r: Firma ECDSA de la cadena de estado.
 
-s - ECDSA signature of state string
+s: Firma ECDSA de la cadena de estado.
 
 ```json
 {
-  "fromSocketUri": "[string]",
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "fromSocketUri": "[cadena]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[matriz de 2 enteros]",
+  "r": "[matriz de 2 cadenas con longitud mín. 64]",
+  "s": "[matriz de 2 cadenas con longitud mín. 64]",
 }
 ```
 
 **Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explanation](#state)
+Consulta la explicación sobre el [estado](#state).
 
 ```json
 {
@@ -1250,15 +1250,15 @@ See state [explanation](#state)
 }
 ```
 
-## Events
+## Eventos
 
-A websocket for contract events
+Un *socket* web para eventos contractuales.
 
-Listen to the websocket at `ws://localhost:31337/events/<chain>`
+Debes dirigir la escucha a `ws://localhost:31337/events/<chain>`.
 
-**Event Types**
+**Tipos de eventos**
 
-***Block***
+***Bloque***
 
 Sent when a new block is mined, reports the latest block number
 
