@@ -136,7 +136,7 @@ Invocable una vez cerrada la ventana de votación para gestionar el desembolso d
 
 **Método**: `POST`
 
-**No data needed for this request**
+**Esta petición no requiere datos**
 
 #### Respuesta correcta
 
@@ -161,11 +161,11 @@ Invocable una vez cerrada la ventana de votación para gestionar el desembolso d
 }
 ```
 
-### Assert on bounty
+### Realizar una afirmación sobre una recompensa
 
-Called by security experts to post an assertion on a bounty
+Invocado por los expertos en seguridad para emitir una afirmación al respecto de una recompensa.
 
-**URL** : `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**URL**: `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -173,17 +173,17 @@ Called by security experts to post an assertion on a bounty
 
 Debes suministrar:
 
-bid - the amount of NCT to stake
+bid: La cantidad en NCT a apostar.
 
-mask - the artifacts to assert on from the set in the bounty
+mask: Los artefactos del conjunto incluido en la recompensa respecto para los que se emite la afirmación.
 
-verdicts - array of verdicts on bounty artifacts
+verdicts: Matriz de veredictos a emitir sobre los artefactos de la recompensa.
 
 ```json
 {
-  "bid": "[string minimum length 1 with max length 100]",
-  "mask": "[array with a max of 256 boolean items]",
-  "verdicts": "[array with a max of 256 boolean items]"
+  "bid": "[cadena, longitud mín. 1 y longitud máx. 100]",
+  "mask": "[matriz, máx. de 256 booleanos]",
+  "verdicts": "[matriz, máx. de 256 booleanos]"
 }
 ```
 
@@ -199,7 +199,7 @@ verdicts - array of verdicts on bounty artifacts
 
 #### Respuesta correcta
 
-**Condition** : If everything is OK the generated nonce will be created later used for reveal and you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, se creará un hápax (*nonce*) que se usará después para revelar la afirmación, y obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`.
 
 **Código**: `200`
 
@@ -220,11 +220,11 @@ verdicts - array of verdicts on bounty artifacts
 }
 ```
 
-### Reveal bounty assersions
+### Revelar afirmaciones sobre una recompensa
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+Invocado por un árbitro una vez vencida la recompensa, permite realizar la liquidación con su determinación de la verdad terreno y abonar las recompensas correspondientes por las afirmaciones.
 
-**URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**URL**: `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Método**: `POST`
 
@@ -232,17 +232,17 @@ Called by arbiter after bounty expiration to settle with their ground truth dete
 
 Debes suministrar:
 
-nonce - the nonce used to generate the commitment hash (returned from asserting on a bounty)
+nonce: El hápax (*nonce*) usado para generar el *hash* de compromiso (obtenido tras realizar una afirmación para obtener una recompensa).
 
-verdicts - the verdicts making up this assertion
+verdicts: Los veredictos que componen esta afirmación.
 
-metadata - to include in the assertion (can be empty string)
+metadata: Metadatos a incluir en la afirmación (puede ser una cadena vacía).
 
 ```json
 {
-  "nonce": "[string minimum length 1 with max length 100]",
-  "verdicts": "[array with a max of 256 boolean items]",
-  "metadata": "[string minimum length 1 with max length 1024]"
+  "nonce": "[cadena, longitud mín. 1 y longitud máx. 100]",
+  "verdicts": "[matriz, máx. de 256 booleanos]",
+  "metadata": "[cadena, longitud mín. 1 y longitud máx. 1024]"
 }
 ```
 
@@ -279,51 +279,51 @@ metadata - to include in the assertion (can be empty string)
 }
 ```
 
-### Get a bounty's info
+### Obtener información sobre una recompensa
 
-**URL** : `/<uuid:guid>?chain=[chain_name]`
-
-**Método**: `GET`
-
-### Get assertions for a bounty
-
-**URL** : `/<uuid:guid>/assertions?chain=[chain_name]`
+**URL**: `/<uuid:guid>?chain=[chain_name]`
 
 **Método**: `GET`
 
-### Get an assertion for a bounty
+### Obtener afirmaciones para una recompensa
 
-**URL** : `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
+**URL**: `/<uuid:guid>/assertions?chain=[chain_name]`
 
 **Método**: `GET`
 
-### Get bloom for a bounty
+### Obtener una afirmación para una recompensa
+
+**URL**: `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
+
+**Método**: `GET`
+
+### Obtener filtro *bloom* para una recompensa
 
 **URL** : `/<uuid:guid>/bloom?chain=[chain_name]`
 
 **Método**: `GET`
 
-### Get votes for a bounty
+### Obtener votos para una recompensa
 
-**URL** : `/<uuid:guid>/votes?chain=[chain_name]`
+**URL**: `/<uuid:guid>/votes?chain=[chain_name]`
 
 **Método**: `GET`
 
-### Get a vote for a bounty
+### Obtener un voto para una recompensa
 
 **URL** : `/<uuid:guid>/votes/<int:id_>?chain=[chain_name]`
 
 **Método**: `GET`
 
-## Staking API
+## API de apuestas
 
-### Staking Parameters
+### Parámetros de una apuesta
 
-**URL** : `/staking/parameters?chain=[chain_name]`
+**URL**: `/staking/parameters?chain=[chain_name]`
 
 **Método**: `GET`
 
-### Post Deposit Stake
+### Enviar depósito de apuesta
 
 Called by arbiters to deposit stake Nectar.
 
