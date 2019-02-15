@@ -1260,7 +1260,7 @@ Debes dirigir la escucha a `ws://localhost:31337/events/<chain>`.
 
 ***Bloque***
 
-Sent when a new block is mined, reports the latest block number
+Enviado cuando se mina un nuevo bloque; comunica el número de bloque más reciente.
 
 **Ejemplo de contenido**
 
@@ -1273,9 +1273,9 @@ Sent when a new block is mined, reports the latest block number
 }
 ```
 
-***Bounty***
+***Recompensa***
 
-Sent when a new bounty is posted
+Enviado cuando se fija una nueva recompensa.
 
 **Ejemplo de contenido**
 
@@ -1292,9 +1292,9 @@ Sent when a new bounty is posted
 }
 ```
 
-***Assertion***
+***Afirmación***
 
-Sent when a new assertion to a bounty is posted
+Enviado cuando se remite una nueva afirmación al respecto de una recompensa.
 
 **Ejemplo de contenido**
 
@@ -1312,9 +1312,9 @@ Sent when a new assertion to a bounty is posted
 }
 ```
 
-***Reveal***
+***Revelación***
 
-Sent when an assertion to a bounty is revealed
+Enviado cuando se revela una afirmación al respecto de una recompensa.
 
 **Ejemplo de contenido**
 
@@ -1332,9 +1332,9 @@ Sent when an assertion to a bounty is revealed
 }
 ```
 
-***Vote***
+***Voto***
 
-Sent when an arbiter votes on a bounty
+Enviado cuando un árbritro vota al respecto de una recompensa.
 
 **Ejemplo de contenido**
 
@@ -1349,9 +1349,9 @@ Sent when an arbiter votes on a bounty
 }
 ```
 
-***Quorum***
+***Cuórum***
 
-Sent when arbiters have reached quorum on a bounty
+Enviado cuando los árbitros han alcanzado el cuórum al respecto de una recompensa.
 
 **Ejemplo de contenido**
 
@@ -1365,9 +1365,9 @@ Sent when arbiters have reached quorum on a bounty
 }
 ```
 
-***Settled***
+***Liquidado***
 
-Sent when a participant settles their portion of a bounty
+Enviado cuando un participante liquida su parte de una recompensa.
 
 **Ejemplo de contenido**
 
