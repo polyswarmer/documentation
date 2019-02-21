@@ -167,17 +167,17 @@ By default, all assertions are placed with the minimum stake permitted by the co
 
 Check back soon for an exploration of various staking strategies.
 
-## エンジンの仕上げとテスト
+## Finalizing & Testing Your Engine
 
-これまでのところ、`cookiecutter` は `engine-template` のみをカスタマイズしています。自分で作成する必要がある項目が少しあります。 主な項目については上記で説明しましたが、`CUSTOMIZE_HERE` をクイック検索して、すべてのカスタマイズが行われたかを確認できます。
+`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself. We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
 
-すべての準備ができたら、エンジンをテストしましょう。
+Once everything is in place, let's test our engine:
 
-[Linux ベースのエンジンのテスト →](/testing-linux/)
+[Test Linux-based Engines →](/testing-linux/)
 
-[Windows ベースのエンジンのテスト →](/testing-windows/)
+[Test Windows-based Engines →](/testing-windows/)
 
-## 次のステップ
+## Next Steps
 
 Implementing scan logic directly in the Scanner class is difficult to manage and scale. Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
 
