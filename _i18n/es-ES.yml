@@ -43,7 +43,7 @@ header:
             name: Participants
             d_url: /concepts-participants/
           - 
-            name: Micromotores
+            name: Microengines
             d_url: /concepts-participants-microengine/
       - 
         name: Development Environment
@@ -55,7 +55,7 @@ header:
             name: Windows
             d_url: /development-environment-windows/
       - 
-        name: Micromotores
+        name: Microengines
         subitems:
           - 
             name: "Level 0: Scratch to EICAR"
@@ -197,10 +197,10 @@ pages:
 docs:
   concepts_participants:
     title: Roles in the PolySwarm Marketplace
-    description: PolySwarm es un mercado formado por participantes que constituyen la oferta (micromotores) y la demanda (embajadores), además de mediadores (árbitros).
+    description: PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
   concepts_participants_microengine:
     title: "Participants: Microengine"
-    description: Los micromotores son la representación de los expertos en seguridad dentro del mercado de PolySwarm.
+    description: Microengines are Security Experts' representation in the PolySwarm marketplace.
   development_environment_linux:
     title: Linux Development Environment
     description: How to configure a Linux development environment for PolySwarm
