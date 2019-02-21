@@ -61,7 +61,10 @@ Integration testing a Windows-Based Engine requires two virtual machines (VMs / 
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Aviso:</strong> Las recomendaciones aquí incluidas son el resultado de un trabajo minucioso. We strongly recommend that you test using the exact recommendations presented here. Nos resultará más difícil prestarte ayuda si empleas cualquier otra configuración.
+    <strong>Warning:</strong>
+    The recommendations presented here are hard-won.
+    We strongly recommend that you test using the exact recommendations presented here.
+    Using any other configuration will make it difficult for us to provide you with support.
   </p>
 </div>
 
@@ -76,10 +79,10 @@ Create a Linux VM using the following parameters:
 * Version: Ubuntu (64-bit)
 * RAM: 8GB+
 * CPU: 4+ cores
-* Memoria de vídeo: 128 MB
-* Espacio en disco: 50 GB o más
+* video memory: 128MB
+* disk space: 50GB+
 
-Usa la configuración por defecto para las demás opciones. In particular, do NOT enable 3D acceleration.
+Use the default setting for all other options. In particular, do NOT enable 3D acceleration.
 
 In general, you will want to provide extra available RAM and CPU resources to the Linux VM to make the testnet perform better.
 
@@ -99,9 +102,9 @@ Use the ISO you downloaded to install Xubuntu in the VM.
 
 #### (Optional) Install VirtualBox Guest Additions
 
-Las adiciones de invitados ("Guest Additions") son necesarias para disfrutar de las funciones de portapapeles compartido o copiar y pegar entre el invitado y el host.
+Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
 
-[Consulta el manual de VirtualBox](https://www.virtualbox.org/manual/ch04.html).
+[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
 
 ### Configure Inter-Guest Networking
 
@@ -237,7 +240,7 @@ If you get those same output results, you have everything setup correctly, so le
 
 ### Configure Linux VM for Hosting a Local Testnet
 
-#### Instalar Docker
+#### Install Docker
 
 We've Docker-ized the test version of the PolySwarm marketplace. To use it, you need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
 
@@ -289,7 +292,7 @@ Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
   </p>
 </div>
 
-#### Instalar Git
+#### Install Git
 
 We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
