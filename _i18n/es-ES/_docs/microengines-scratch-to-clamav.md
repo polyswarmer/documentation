@@ -23,7 +23,7 @@ Este tutorial guiará al lector en la creación de [microengine/clamav.py](https
 
 Comienza con una [plantilla de motor nueva](/microengines-scratch-to-eicar/#customize-engine-template) y usa `engine-name` para bautizarla como "MyClamAvEngine". Tu directorio de trabajo actual debería contener ahora el archivo `microengine-myclamavengine`. Este es el motor que editaremos para implementar la funcionalidad de escaneo de ClamAV.
 
-Edita `__init__.py` del siguiente modo:
+Edit the `__init__.py` as we describe below:
 
 Comenzamos nuestro procesador de análisis ClamAV importando el módulo `clamd` y configurando algunas variables globales.
 
@@ -89,8 +89,8 @@ Dejamos la inclusión del valor `metadata` de ClamAV como un ejercicio para el l
 
 <div class="m-flag">
   <p>
-    <strong>Información:</strong>
-    Aunque se requiere la clase Microengine, no se muestra aquí al no ser necesario modificarla.
+    <strong>Info:</strong>
+    The Microengine class is required, but we do not need to modify it, so it is not shown here.
   </p>
   <p>
     Librería asyncio de Python 3: Es importante que cualquier llamada externa que se haga durante el escaneo no bloquee el bucle de eventos.
@@ -110,7 +110,7 @@ Una vez que esté todo listo, probaremos nuestro motor:
 
 [Prueba los motores basados en Windows →](/testing-windows/)
 
-## Próximos pasos
+## Next Steps
 
 En el ejemplo de EICAR, te enseñamos a implementar la lógica de escaneo directamente en la clase Scanner. Y en este ejemplo con ClamAV, has aprendido a invocar un *socket* externo para acceder a la lógica de escaneo.
 
