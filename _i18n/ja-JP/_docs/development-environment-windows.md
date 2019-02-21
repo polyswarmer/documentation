@@ -11,7 +11,7 @@ Windows ベースのエンジンについては、現時点で完全にサポー
   </p>
 </div>
 
-### システム要件
+### System Requirements
 
 Windows ベースのエンジンの開発では、開発ホストに以下の重要なシステム要件があります。
 
@@ -94,7 +94,7 @@ Guest Additions がインストールされ、VM 内での開発のために [Wi
 最小システム要件:
 
 - Windows 10*
-- 4 個以上の CPU コア
+- 4+ CPU cores
 - 4GB の RAM
 
 *これより古いバージョンの Windows でも機能する可能性があります、現時点ではテストされておらず、サポート対象外です。
@@ -174,7 +174,7 @@ python -m venv polyswarmvenv
 ./polyswarmvenv/Scripts/Activate.ps1
 ```
 
-## `polyswarm-client` ライブラリーのインストール
+## Install `polyswarm-client` Libraries
 
 <div class="m-flag">
   <p>
@@ -189,7 +189,7 @@ python -m venv polyswarmvenv
 pip install polyswarm-client
 ```
 
-## インストールの確認
+## Verify Installation
 
 これで有効な開発環境が用意できているはずです。
 
