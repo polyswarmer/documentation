@@ -23,7 +23,7 @@ ClamAV は、オープン・ソースのシグネチャー・ベースのエン�
 
 [何も手を加えていない engine-template](/microengines-scratch-to-eicar/#customize-engine-template) から開始し、「MyClamAvEngine」という `engine-name` (エンジン名) を付けます。 現行作業ディレクトリーに `microengine-myclamavengine` があり、これを編集して ClamAV スキャンの機能を実装します。
 
-以下のように、`__init__.py` を編集します。
+Edit the `__init__.py` as we describe below:
 
 `clamd` モジュールをインポートして、グローバル変数を構成することで、ClamAV `分析バックエンド`を開始します。
 
@@ -87,8 +87,8 @@ Python の `[]` 演算子を使用して簡単に結果を解析できます。 
 
 <div class="m-flag">
   <p>
-    <strong>情報:</strong>
-    Microengine クラスが必要ですが、変更する必要がないため、ここでは記載していません。
+    <strong>Info:</strong>
+    The Microengine class is required, but we do not need to modify it, so it is not shown here.
   </p>
   <p>
     Python 3 の Asyncio - スキャン時に行った外部呼び出しによってイベント・ループがブロックされないことが重要です。
@@ -108,7 +108,7 @@ Python の `[]` 演算子を使用して簡単に結果を解析できます。 
 
 [Windows ベースのエンジンのテスト →](/testing-windows/)
 
-## 次のステップ
+## Next Steps
 
 Eicar の例では、Scanner クラスでスキャン・ロジックを直接実装する方法について説明しました。 この ClamAV の例では、外部ソケットを呼び出してスキャン・ロジックにアクセスする方法を示しました。
 
