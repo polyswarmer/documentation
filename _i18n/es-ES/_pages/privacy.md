@@ -228,11 +228,11 @@ Por otro lado, la mayor parte de redes publicitarias te ofrecen algún modo de d
 
 **En resumen:** Sí. Actualizaremos esta política cuando sea necesario para seguir cumpliendo con la legislación vigente.
 
-Podemos actualizar esta política de privacidad de manera ocasional. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
+Podemos actualizar esta política de privacidad de manera ocasional. La versión actualizada se indicará por medio de una fecha de revisión nueva y entrará en vigor tan pronto como esté accesible. Cuando realicemos cambios sustanciales, podremos comunicártelos bien publicando un aviso destacado de tales cambios o, directamente, enviándote una notificación. Te recomendamos que revises esta política de privacidad con frecuencia para mantenerte informado de cómo protegemos tu información.
 
-#### How Can You Contact Us About This Policy?
+#### ¿Cómo puedes ponerte en contacto con nosotros en relación con esta política?
 
-If you have questions or comments about this policy, you may contact us by email at <privacy@polyswarm.io>, or by post to:
+Si tienes cualquier pregunta o deseas realizar un comentario al respecto de esta política de privacidad, puedes hacerlo por correo electrónico en <privacy@polyswarm.io> o vía postal escribiendo a:
 
 PolySwarm Pte. Ltd.  
 548 Market Street  
@@ -242,8 +242,8 @@ PolySwarm Pte. Ltd.
 
 
 San Francisco, CA 94104  
-United States
+Estados Unidos
 
-#### How Can You Review, Update, or Delete, the Data We Collect from You?
+#### ¿Cómo puedes consultar, actualizar o suprimir los datos que recojamos de ti?
 
-Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please submit a request by emailing <privacy@polyswarm.io>.
+De acuerdo con las leyes de algunos países, puede que tengas derecho a solicitar el acceso a la información personal que recojamos de ti, a cambiar esa información o a suprimirla en determinadas circunstancias. Para solicitar la revisión, la actualización o la supresión de tu información personal, envíanos un correo electrónico a <privacy@polyswarm.io>.
