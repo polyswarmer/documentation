@@ -1275,7 +1275,7 @@ s - 状態文字列の ECDSA 署名
 
 ***報奨金***
 
-Sent when a new bounty is posted
+新しい報奨金が提示されたときに送信されます。
 
 **Content example**
 
@@ -1292,9 +1292,9 @@ Sent when a new bounty is posted
 }
 ```
 
-***Assertion***
+***アサーション***
 
-Sent when a new assertion to a bounty is posted
+報奨金に対する新しいアサーションが提示されたときに送信されます。
 
 **Content example**
 
@@ -1312,9 +1312,9 @@ Sent when a new assertion to a bounty is posted
 }
 ```
 
-***Reveal***
+***評価***
 
-Sent when an assertion to a bounty is revealed
+報奨金に対するアサーションが評価されたときに送信されます。
 
 **Content example**
 
@@ -1332,9 +1332,9 @@ Sent when an assertion to a bounty is revealed
 }
 ```
 
-***Vote***
+***投票***
 
-Sent when an arbiter votes on a bounty
+評価者が報奨金について投票したときに送信されます。
 
 **Content example**
 
@@ -1349,9 +1349,9 @@ Sent when an arbiter votes on a bounty
 }
 ```
 
-***Quorum***
+***定足数***
 
-Sent when arbiters have reached quorum on a bounty
+評価者が報奨金について定足数に達したときに送信されます。
 
 **Content example**
 
@@ -1365,9 +1365,9 @@ Sent when arbiters have reached quorum on a bounty
 }
 ```
 
-***Settled***
+***決済***
 
-Sent when a participant settles their portion of a bounty
+参加者が報奨金の担当部分を決済したときに送信されます。
 
 **Content example**
 
@@ -1382,9 +1382,9 @@ Sent when a participant settles their portion of a bounty
 }
 ```
 
-***Initialized Channel***
+***チャネルの初期化***
 
-Sent when a new channel is initialized
+新しいチャネルが初期化されたときに送信されます。
 
 **Content example**
 
