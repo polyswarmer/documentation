@@ -87,9 +87,9 @@ EICAR の検出は、以下のようにシンプルです。
 
 `microengine-myeicarengine/src/(組織のスラグ名)_myeicarengine/__init__.py` を開きます。
 
-If you used our cookiecutter `engine-template` from above, you will have some code in your `__init__.py`.
+上記の cookiecutter `engine-template` を使用した場合、`__init__.py` にコードが含まれています。
 
-We will modify this file to implement both our Scanner and Microengine classes:
+以下のように、このファイルを変更して、xScanner クラスと Microengine クラスの両方を実装します。
 
 * **Scanner**: Scanner クラス。 このクラスでは、`scan` 関数で EICAR 検出ロジックを実装します。
 
@@ -97,7 +97,7 @@ We will modify this file to implement both our Scanner and Microengine classes:
 
 ### EICAR 検出ロジックの作成
 
-The EICAR test file is defined as a file that contains only the following string: `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`.
+EICAR テスト・ファイルは、文字列「`X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`」のみが含まれたファイルとして定義されます。
 
 There are, of course, many ways to identify files that match this criteria. The `scan` function's `content` parameter contains the entire content of the artifact in question - this is what you're matching against.
 
