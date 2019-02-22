@@ -36,23 +36,23 @@ Toda la información personal que nos proporciones deberá ser cierta, completa 
 
 **En resumen:** Determinada información (direcciones IP, características del navegador y el dispositivo, etc.) se recoge automáticamente cuando visitas nuestros Sitios web.
 
-Cuando visitas los Sitios web, los usas o navegas por ellos; recogemos automáticamente determinada información. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Sites and other technical information. This information is primarily needed to maintain the security and operation of our Sites, and for our internal analytics and reporting purposes.
+Cuando visitas los Sitios web, los usas o navegas por ellos; recogemos automáticamente determinada información. Aunque esta no revela tu identidad específica (nombre, información de contacto, etc.), puede incluir datos sobre tu dispositivo y el uso que realizas de él: dirección IP, características del navegador y del dispositivo, sistema operativo, preferencias de idioma, URL de procedencia, nombre del dispositivo, país, ubicación, información sobre cómo y cuándo usas nuestros Sitios web, y otros datos de carácter técnico. Toda esta información es necesaria, sobre todo, para mantener la seguridad y el buen funcionamiento de nuestros Sitios web, así como para nuestros procesos internos de análisis y generación de informes.
 
-Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in the "Cookies Policy" section below.
+Como muchas otras empresas, también recogemos información a través de *cookies* y tecnologías similares. Puedes conocer más al respecto en la sección "Política de *cookies*" a continuación.
 
-**Information collected from other sources**
+**Información recogida desde otras fuentes**
 
-**In Short:** We may collect limited data from public databases, marketing partners, social media platforms, and other outside sources.
+**En resumen:** Puede que recojamos una cantidad limitada de datos a partir de bases de datos públicas, socios de mercadotecnia, plataformas de redes sociales y otras fuentes externas.
 
-We may obtain information about you from other sources, such as public databases, joint marketing partners, social media platforms (such as Facebook), as well as from other third parties. Examples of the information we receive from other sources include: social media profile information (your name, gender, birthday, email, current city, state and country, user identification numbers for your contacts, profile picture URL and any other information that you choose to make public); marketing leads and search results and links, including paid listings (such as sponsored links).
+Es posible que obtengamos información sobre ti desde otras fuentes como bases de datos públicas, socios de mercadotecnia conjunta, plataformas de redes sociales (como Facebook) y otros terceros. Entre los ejemplos de información que recibimos a partir de otras fuentes se encuentran: información de tu perfil en redes sociales (nombre, sexo, fecha de nacimiento, correo electrónico, ciudad, región administrativa y país actuales, números de identificación de usuario para tus contactos, URL de tu fotografía de perfil y cualquier otra información que elijas hacer pública); referencias de mercadotecnia; y resultados de búsqueda e hipervínculos, incluidos los de los anuncios de pago (por ejemplo, hipervínculos patrocinados).
 
-#### How Do We Use Your Information?
+#### ¿Cómo usamos tu información?
 
-**In Short:** We process your information for purposes based on legitimate business interests, the fulfillment of our contract with you, compliance with our legal obligations, and/or your consent.
+**En resumen:** Procesamos tu información para fines basados en nuestros intereses legítimos como empresa, la satisfacción de las obligaciones contractuales establecidas contigo, el cumplimiento de nuestras propias obligaciones legales y/o tu consentimiento.
 
-We use personal information collected via our Sites for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests ("Business Purposes"), in order to enter into or perform a contract with you ("Contractual"), with your consent ("Consent"), and/or for compliance with our legal obligations ("Legal Reasons"). We indicate the specific processing grounds we rely on next to each purpose listed below.
+Usamos la información personal recogida a través de nuestros Sitios web para diversos fines comerciales, que se describen a continuación. Tratamos tu información personal para estos fines de acuerdo con nuestros intereses legítimos como empresa (los "Fines comerciales"), para establecer un contrato contigo o satisfacerlo (los "Fines contractuales"), con tu consentimiento (el "Consentimiento"), y/o para el cumplimiento de nuestras obligaciones legales (las "Razones legales"). Junto a cada uno de los fines enumerados, indicamos las razones específicas en las que nos basamos para llevar a cabo dicho tratamiento.
 
-We use the information we collect or receive:
+Usamos la información que recogemos o recibimos:
 
 *     To facilitate account creation and login process. See the section below headed "How We Handle Your Social Logins" for further information.
      
