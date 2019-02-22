@@ -1,12 +1,12 @@
-# Privacy Policy
+# Política de privacidad
 
-**Date Posted: 02 September 2017**
+**Fecha de publicación: 2 de septiembre de 2017**
 
-**Last Updated (effective date): 05 October 2018**
+**Última actualización (fecha de entrada en vigor): 5 de octubre de 2018**
 
-Thank you for choosing to be part of our community at PolySwarm Pte. Ltd. ("Company", "we", "us", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at <privacy@polyswarm.io>.
+Gracias por haber elegido formar parte de nuestra comunidad en PolySwarm Pte. Ltd. (en adelante, "la Empresa", "nosotros" o "nuestro/a/os/as"). Nos comprometemos a proteger tu información personal y tu derecho a la intimidad. Si tienes cualquier pregunta o duda sobre nuestra política y nuestras prácticas en lo que se refiere a tus datos personales, ponte en contacto con nosotros en <privacy@polyswarm.io>.
 
-When you visit our website (https://polyswarm.io), and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy notice, we describe our privacy policy. We seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our Sites and our services.
+Al visitar nuestra web (https://polyswarm.io) y usar nuestros servicios, nos estás confiando tu información personal. Nos tomamos muy en serio tu intimidad. En este aviso, describimos nuestra política de privacidad. Su finalidad es explicarte, de la manera más clara posible, qué información recopilamos, cómo la usamos y qué derechos posees con respecto a ella. Esperamos que dediques unos minutos a leerla con detenimiento, ya que es importante. Si contuviera cualquier cláusula con la que no estuvieras de acuerdo, te rogamos que dejes de usar nuestros sitios web y nuestros servicios.
 
 This privacy policy applies to all information collected through our website (such as https://polyswarm.io), and/or any related services, sales, marketing or events (we refer to them collectively in this privacy policy as the "Sites").
 
