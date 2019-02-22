@@ -6,37 +6,37 @@
 
 Gracias por haber elegido formar parte de nuestra comunidad en PolySwarm Pte. Ltd. (en adelante, "la Empresa", "nosotros" o "nuestro/a/os/as"). Nos comprometemos a proteger tu información personal y tu derecho a la intimidad. Si tienes cualquier pregunta o duda sobre nuestra política y nuestras prácticas en lo que se refiere a tus datos personales, ponte en contacto con nosotros en <privacy@polyswarm.io>.
 
-Al visitar nuestra web (https://polyswarm.io) y usar nuestros servicios, nos estás confiando tu información personal. Nos tomamos muy en serio tu intimidad. En este aviso, describimos nuestra política de privacidad. Su finalidad es explicarte, de la manera más clara posible, qué información recopilamos, cómo la usamos y qué derechos posees con respecto a ella. Esperamos que dediques unos minutos a leerla con detenimiento, ya que es importante. Si contuviera cualquier cláusula con la que no estuvieras de acuerdo, te rogamos que dejes de usar nuestros sitios web y nuestros servicios.
+Al visitar nuestra web (https://polyswarm.io) y usar nuestros servicios, nos estás confiando tu información personal. Nos tomamos muy en serio tu intimidad. En este aviso, describimos nuestra política de privacidad. Su finalidad es explicarte, de la manera más clara posible, qué información recogemos, cómo la usamos y qué derechos posees con respecto a ella. Esperamos que dediques unos minutos a leerla con detenimiento, ya que es importante. Si contuviera cualquier cláusula con la que no estuvieras de acuerdo, te rogamos que dejes de usar nuestros Sitios web y nuestros servicios.
 
-This privacy policy applies to all information collected through our website (such as https://polyswarm.io), and/or any related services, sales, marketing or events (we refer to them collectively in this privacy policy as the "Sites").
+La presente política de privacidad se aplica a toda la información recogida a través de nuestra web (por ejemplo, https://polyswarm.io) y/o cualesquiera servicios, ventas, promociones o eventos relacionados (a los que, en este texto, nos referimos colectivamente como "los Sitios web").
 
-PLEASE READ THIS PRIVACY POLICY CAREFULLY AS IT WILL HELP YOU MAKE INFORMED DECISIONS ABOUT SHARING YOUR PERSONAL INFORMATION WITH US.
+LEE ESTA POLÍTICA DE PRIVACIDAD CON DETENIMIENTO, YA QUE TE AYUDARÁ A TOMAR DECISIONES INFORMADAS SOBRE CÓMO COMPARTES TU INFORMACIÓN PERSONAL CON NOSOTROS.
 
-#### What Information Do We Collect?
+#### ¿Qué información recogemos?
 
-**Personal information you disclose to us**
+**Información personal que tú mismo nos comuniques**
 
-**In Short:** We collect personal information that you provide to us such as name, address, contact information, passwords and security data, payment information, and social media login data.
+**En resumen:** Recogemos la información personal que tú mismo nos comuniques, como, por ejemplo, nombre, dirección, datos de contacto, contraseñas y datos de seguridad, información sobre pagos y datos de acceso a redes sociales.
 
-We collect personal information that you voluntarily provide to us when registering at the Sites expressing an interest in obtaining information about us or our products and services, when participating in activities on the Sites or otherwise contacting us.
+Recogemos aquella información personal que tú nos proporciones de forma voluntaria al registrarte en los Sitios web expresando tu interés en obtener información sobre nosotros o nuestros productos y servicios, al participar en actividades en los Sitios web o al ponerte en contacto con nosotros de cualquier otro modo.
 
-The personal information that we collect depends on the context of your interactions with us and the Sites, the choices you make and the products and features you use. The personal information we collect can include the following:
+La información personal que recojamos depende del contexto de tus interacciones con nosotros y con los Sitios web, de las decisiones que tomes y de los productos y características que uses. Esta información personal puede incluir los siguientes elementos:
 
-Name and Contact Data. We collect your first and last name, email address, postal address, phone number, and other similar contact data.
+Nombre y datos de contacto. Recogemos tu nombre y apellidos, tu dirección de correo electrónico, tu dirección postal, tu número de teléfono y otros datos de contacto similares.
 
-Credentials. We collect passwords, password hints, and similar security information used for authentication and account access.
+Credenciales. Recogemos las contraseñas, las pistas relativas a ellas y cualquier otra información de seguridad similar empleada para la autenticación y el acceso a tu cuenta.
 
-Payment Data. We collect data necessary to process your payment if you make purchases, such as your payment instrument number (such as a credit card number), and the security code associated with your payment instrument. All payment data is stored by our payment processor and you should review its privacy policies and contact the payment processor directly to respond to your questions.
+Datos de pago. Recogemos los datos necesarios para procesar tu pago si efectúas cualquier compra: por ejemplo, el número del medio de pago (tarjeta de crédito, etc.) y el código de seguridad asociado a él. Todos los datos de pago son almacenados por nuestro procesador de pagos. Te aconsejamos que revises sus políticas de privacidad y te pongas directamente en contacto con él para resolver cualquier duda.
 
-Social Media Login Data. We provide you with the option to register using social media account details, like your Facebook, Twitter or other social media account. If you choose to register in this way, we will collect the Information described in the section called "How Do We Handle Your Social Logins" below.
+Datos de acceso a redes sociales. Te ofrecemos la opción de registrarte usando los datos de tus cuentas en redes sociales: Facebook, Twitter u otras. Si eliges registrarte de tal modo, recogeremos la información indicada en la sección "¿Cómo tratamos tus datos de acceso a redes sociales?", situada más abajo.
 
-All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information.
+Toda la información personal que nos proporciones deberá ser cierta, completa y precisa, y habrás de informarnos de cualquier cambio que se produzca en ella.
 
-**Information automatically collected**
+**Información recogida automáticamente**
 
-**In Short:** Some information - such as IP address and/or browser and device characteristics - is collected automatically when you visit our Sites.
+**En resumen:** Determinada información (direcciones IP, características del navegador y el dispositivo, etc.) se recoge automáticamente cuando visitas nuestros Sitios web.
 
-We automatically collect certain information when you visit, use or navigate the Sites. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Sites and other technical information. This information is primarily needed to maintain the security and operation of our Sites, and for our internal analytics and reporting purposes.
+Cuando visitas los Sitios web, los usas o navegas por ellos; recogemos automáticamente determinada información. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Sites and other technical information. This information is primarily needed to maintain the security and operation of our Sites, and for our internal analytics and reporting purposes.
 
 Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in the "Cookies Policy" section below.
 
