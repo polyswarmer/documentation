@@ -146,35 +146,35 @@ No solicitamos datos ni comercializamos nuestros servicios deliberadamente a men
 
 #### ¿Cuáles son tus derechos en materia de privacidad?
 
-**In Short:** In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.
+**En resumen:** En regiones como el Espacio Económico Europeo posees derechos de un mayor acceso y control sobre tu información personal. Puedes revisar, modificar o cancelar tu cuenta en cualquier momento.
 
-In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws.
+En algunas regiones (por ejemplo, el Espacio Económico Europeo), las leyes de protección de datos vigentes te proporcionan determinados derechos. Entre ellos puede encontrarse el derecho (i) a solicitar el acceso a tu información personal y obtener una copia de ella, (ii) a solicitar su rectificación o supresión, (iii) a limitar su tratamiento y (iv) a la portabilidad de los datos. En determinadas circunstancias, también puedes tener derecho a oponerte al tratamiento de tu información personal. Para cualquier solicitud al respecto, usa los datos de contacto indicados más adelante. Procederemos a responderte de conformidad con las leyes aplicables en materia de protección de datos.
 
-If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.
+Si el tratamiento que realizamos de tu información personal se basa en tu consentimiento, tienes derecho a retirar tal consentimiento en cualquier momento. Ten en cuenta, no obstante, que ello no afectará a la legalidad de cualquier tratamiento realizado con anterioridad.
 
-If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm>.
+Si resides en el Espacio Económico Europeo y crees que estamos tratando tu información personal de forma indebida, tienes además derecho a denunciarlo a la autoridad de control responsable de la protección de datos en tu región. Puedes encontrar sus datos de contacto aquí: <http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm>.
 
-**Account information**
+**Información de la cuenta**
 
-If you would at any time like to review or change the information in your account or terminate your account, you can:
+Si, en cualquier momento, desearas revisar o modificar la información de tu cuenta, o cancelarla:
 
-* Log into your account settings and update your account.
+* Accede a los ajustes de tu cuenta y actualízala.
 
-Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use and/or comply with legal requirements.
+Si recibimos la solicitud de cancelar tu cuenta, desactivaremos o suprimiremos dicha cuenta y tu información de nuestras bases de datos activas. Sin embargo, es posible que conservemos cierta información en nuestros archivos para prevenir el fraude, resolver problemas, ayudar en cualquier investigación, hacer cumplir nuestras condiciones de uso y/o ejercer nuestras obligaciones legales.
 
-Cookies and similar technologies: Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Sites. For further information, visit <http://www.aboutads.info/choices/>. You can also learn more in the "Cookie Policy" section below.
+*Cookies* y tecnologías similares: La mayor parte de navegadores web están configurados para aceptar las *cookies* por defecto. Si lo deseas, suele ser posible configurar tu navegador para que las elimine y las rechace. Ello podría afectar a algunas funciones o servicios de nuestros Sitios web. Para más información, visita <http://www.aboutads.info/choices/>. Puedes consultar además la sección "Política de *cookies*" más adelante.
 
-Opting out of email marketing:
+Cómo renunciar a recibir correos electrónicos promocionales:
 
-You can unsubscribe from our marketing email list at any time by clicking on the unsubscribe link in the emails that we send or by contacting us using the details provided below. You will then be removed from the marketing email list – however, we will still need to send you service-related emails that are necessary for the administration and use of your account. To otherwise opt-out, you may:
+Puedes darte de baja de nuestra lista de correos electrónicos promocionales en cualquier momento haciendo clic en el vínculo incluido en ellos o poniéndote en contacto con nosotros por los medios indicados más adelante. Al hacerlo, te eliminaremos de la lista, pero seguiremos estando obligados a enviarte los correos electrónicos relativos a nuestro servicio que sean necesarios para la gestión y el uso de tu cuenta. Para renunciar en cualquier caso:
 
-* Access your account settings and update preferences.
+* Accede a los datos de tu cuenta y actualiza las preferencias.
 
-#### Do California Residents Have Specific Privacy Rights?
+#### ¿Cuentan con derechos de privacidad específicos los residentes en California?
 
-**In Short:** Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.
+**En resumen:** Sí. Si resides en California, posees derechos específicos en lo que respecta al acceso a tu información personal.
 
-California Civil Code Section 1798.83, also known as the "Shine The Light" law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
+La sección 1798.83 del Código civil de California, también conocida como ley "Shine the Light", permite a aquellos usuarios que son residentes de California solicitarnos y obtener, una vez al año y sin cargo alguno, información sobre las categorías de información personal que hayamos comunicado a terceros con fines de promoción directa (si las hubiera) y los nombres y direcciones de todos los terceros con los que hayamos compartido información personal en el año natural inmediatamente anterior. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
 
 If you are under 18 years of age, reside in California, and have a registered account with the Sites, you have the right to request removal of unwanted data that you publicly post on the Sites. To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Sites, but please be aware that the data may not be completely or comprehensively removed from our systems.
 
