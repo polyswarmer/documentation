@@ -194,41 +194,41 @@ Estos son los tipos específicos de *cookies* de origen y de terceros utilizadas
 
 ***Cookies* de rendimiento y funcionalidad:**
 
-These cookies are used to enhance the performance and functionality of our Sites but are non-essential to their use. However, without these cookies, certain functionality (like videos) may become unavailable.
+Estas *cookies* sirven para mejorar el rendimiento y la funcionalidad de nuestros Sitios web, pero no son esenciales para su uso. Sin embargo, sin ellas, determinada funcionalidad (como los vídeos) podría dejar de estar disponible.
+
+* ¿Quién sirve estas *cookies*? 
+ * Proveedor de *cookies*: PolySwarm 
+  * URL de su sitio web: https://polyswarm.io/
+* Cómo rechazarlas: 
+ * Para rechazar estas *cookies*, sigue las instrucciones indicadas más adelante en el apartado "¿Cómo puedo controlar las *cookies*?". También puedes cambiar tu [configuración de privacidad](/privacy/#privacy-settings).
+
+***Cookies* de análisis y personalización:**
+
+Estas *cookies* recogen información que se usa bien de forma agregada, para ayudarnos a comprender cómo se están usando nuestros Sitios web o cuán eficaces son nuestras campañas promocionales; o bien para ayudarnos a personalizar nuestros Sitios web para ti.
 
 * Who serves these cookies? 
- * Cookie provider: PolySwarm 
-  * Website URL: https://polyswarm.io/
+ * Proveedor de *cookies*: Google Analytics 
+  * URL de su sitio web: https://analytics.google.com/analytics/web/
+ * Proveedor de *cookies*: Pardot 
+  * URL de su sitio web: https://www.pardot.com/
 * How to refuse: 
  * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
 
-**Analytics and customization cookies:**
+**¿Y qué sucede con otras tecnologías como las balizas web?**
 
-These cookies collect information that is used either in aggregate form to help us understand how our Sites are being used or how effective our marketing campaigns are, or to help us customize our Sites for you.
+Las *cookies* no son el único modo de reconocer o rastrear a los visitantes de un sitio web. Podemos usar además ocasionalmente otras tecnologías similares, como las balizas web (a veces denominadas "píxeles de seguimiento" o "GIF transparentes"). Se trata de minúsculos archivos gráficos con un identificador único que nos permiten saber cuándo ha visitado alguien nuestros Sitios web o ha abierto un correo electrónico que le hayamos enviado. Ello nos permite, por ejemplo, supervisar los patrones de tráfico de los usuarios desde una página de nuestros Sitios web a otras, entregar *cookies* o comunicarnos con ellas, conocer si has venido a nuestros Sitios web desde un anuncio en línea mostrado en un sitio web de terceros, mejorar el rendimiento de los Sitios web y cuantificar el éxito de las campañas promocionales realizadas por correo electrónico. En muchos casos, estas tecnologías dependen de las *cookies* para operar adecuadamente, por lo que rechazarlas afectará a su correcto funcionamiento.
 
-* Who serves these cookies? 
- * Cookie provider: Google Analytics 
-  * Website URL: https://analytics.google.com/analytics/web/
- * Cookie provider: Pardot 
-  * Website URL: https://www.pardot.com/
-* How to refuse: 
- * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
+**¿Cómo puedo controlar las *cookies*?**
 
-**What about other tracking technologies, like web beacons?**
+Puedes cambiar tu [configuración de privacidad](/privacy/#privacy-settings). Además, puedes configurar o modificar los controles de tu navegador para aceptar o rechazar las *cookies*. Si decides rechazarlas, podrás seguir usando nuestro sitio web, aunque puede que se te limite el acceso a ciertas áreas y a determinadas funciones. El modo de rechazar las *cookies* varía de un navegador a otro: consulta el menú de ayuda del tuyo para obtener más información.
 
-Cookies are not the only way to recognize or track visitors to a website. We may use other, similar technologies from time to time, like web beacons (sometimes called "tracking pixels" or "clear gifs"). These are tiny graphics files that contain a unique identifier that enable us to recognize when someone has visited our Sites or opened an e-mail that we have sent them. This allows us, for example, to monitor the traffic patterns of users from one page within our Websites to another, to deliver or communicate with cookies, to understand whether you have come to our Websites from an online advertisement displayed on a third-party website, to improve site performance, and to measure the success of e-mail marketing campaigns. In many instances, these technologies are reliant on cookies to function properly, and so declining cookies will impair their functioning.
+Por otro lado, la mayor parte de redes publicitarias te ofrecen algún modo de dejar de recibir publicidad personalizada. Para obtener más información, visita <http://www.aboutads.info/choices/> o <http://www.youronlinechoices.com>.
 
-**How can I control cookies?**
+#### ¿Realizamos actualizaciones de esta política?
 
-You can change your [privacy settings](/privacy/#privacy-settings). Additionally, you can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted. As the means by which you can refuse cookies through your web browser controls vary from browser-to-browser, you should visit your browser's help menu for more information.
+**En resumen:** Sí. Actualizaremos esta política cuando sea necesario para seguir cumpliendo con la legislación vigente.
 
-In addition, most advertising networks offer you a way to opt out of targeted advertising. If you would like to find out more information, please visit <http://www.aboutads.info/choices/> or <http://www.youronlinechoices.com>.
-
-#### Do We Make Updates to This Policy?
-
-**In Short:** Yes, we will update this policy as necessary to stay compliant with relevant laws.
-
-We may update this privacy policy from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
+Podemos actualizar esta política de privacidad de manera ocasional. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
 
 #### How Can You Contact Us About This Policy?
 
