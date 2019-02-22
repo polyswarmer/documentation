@@ -1209,7 +1209,7 @@ let v = sig.v
 
 ### 状態メッセージ
 
-アンバサダーは、コントラクトで定義された URL を使用して WebSocket を開きます。 Locally - messages are sent on `ws://localhost:31337/messages/<uuid:guid>`
+アンバサダーは、コントラクトで定義された URL を使用して WebSocket を開きます。 ローカルでは、メッセージは `ws://localhost:31337/messages/<uuid:guid>` で送信されます。
 
 **Data constraints**
 
@@ -1225,23 +1225,23 @@ toSocketUri - 別の人に送信する場合 (デフォルトではアンバサ�
 
 v - 両者の状態文字列の署名からのリカバリー ID
 
-r - ECDSA signature of state string
+r - 状態文字列の ECDSA 署名
 
-s - ECDSA signature of state string
+s - 状態文字列の ECDSA 署名
 
 ```json
 {
-  "fromSocketUri": "[string]",
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "fromSocketUri": "[文字列]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
 **Data example** All fields must be sent.
 
-See state [explanation](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -1250,17 +1250,17 @@ See state [explanation](#state)
 }
 ```
 
-## Events
+## イベント
 
-A websocket for contract events
+コントラクト・イベント用の WebSocket
 
-Listen to the websocket at `ws://localhost:31337/events/<chain>`
+`ws://localhost:31337/events/<chain>` の WebSocket をリッスンします。
 
-**Event Types**
+**イベント・タイプ**
 
-***Block***
+***ブロック***
 
-Sent when a new block is mined, reports the latest block number
+新しいブロックがマイニングされたときに送信され、最新のブロック番号を報告します。
 
 **Content example**
 
@@ -1273,7 +1273,7 @@ Sent when a new block is mined, reports the latest block number
 }
 ```
 
-***Bounty***
+***報奨金***
 
 Sent when a new bounty is posted
 
