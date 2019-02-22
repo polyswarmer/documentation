@@ -28,7 +28,7 @@ Credenciales. Recogemos las contraseñas, las pistas relativas a ellas y cualqui
 
 Datos de pago. Recogemos los datos necesarios para procesar tu pago si efectúas cualquier compra: por ejemplo, el número del medio de pago (tarjeta de crédito, etc.) y el código de seguridad asociado a él. Todos los datos de pago son almacenados por nuestro procesador de pagos. Te aconsejamos que revises sus políticas de privacidad y te pongas directamente en contacto con él para resolver cualquier duda.
 
-Datos de acceso a redes sociales. Te ofrecemos la opción de registrarte usando los datos de tus cuentas en redes sociales: Facebook, Twitter u otras. Si eliges registrarte de tal modo, recogeremos la información indicada en la sección "¿Cómo tratamos tus datos de acceso a redes sociales?", situada más abajo.
+Datos de acceso a redes sociales. Te ofrecemos la opción de registrarte usando los datos de tus cuentas en redes sociales: Facebook, Twitter u otras. Si eliges registrarte de tal modo, recogeremos la información indicada en la sección "¿Cómo tratamos tus datos de acceso a redes sociales?", situada más adelante.
 
 Toda la información personal que nos proporciones deberá ser cierta, completa y precisa, y habrás de informarnos de cualquier cambio que se produzca en ella.
 
@@ -38,7 +38,7 @@ Toda la información personal que nos proporciones deberá ser cierta, completa 
 
 Cuando visitas los Sitios web, los usas o navegas por ellos; recogemos automáticamente determinada información. Aunque esta no revela tu identidad específica (nombre, información de contacto, etc.), puede incluir datos sobre tu dispositivo y el uso que realizas de él: dirección IP, características del navegador y del dispositivo, sistema operativo, preferencias de idioma, URL de procedencia, nombre del dispositivo, país, ubicación, información sobre cómo y cuándo usas nuestros Sitios web, y otros datos de carácter técnico. Toda esta información es necesaria, sobre todo, para mantener la seguridad y el buen funcionamiento de nuestros Sitios web, así como para nuestros procesos internos de análisis y generación de informes.
 
-Como muchas otras empresas, también recogemos información a través de *cookies* y tecnologías similares. Puedes conocer más al respecto en la sección "Política de *cookies*" a continuación.
+Como muchas otras empresas, también recogemos información a través de *cookies* y tecnologías similares. Puedes conocer más al respecto en la sección "Política de *cookies*" más adelante.
 
 **Información recogida desde otras fuentes**
 
@@ -50,20 +50,20 @@ Es posible que obtengamos información sobre ti desde otras fuentes como bases d
 
 **En resumen:** Procesamos tu información para fines basados en nuestros intereses legítimos como empresa, la satisfacción de las obligaciones contractuales establecidas contigo, el cumplimiento de nuestras propias obligaciones legales y/o tu consentimiento.
 
-Usamos la información personal recogida a través de nuestros Sitios web para diversos fines comerciales, que se describen a continuación. Tratamos tu información personal para estos fines de acuerdo con nuestros intereses legítimos como empresa (los "Fines comerciales"), para establecer un contrato contigo o satisfacerlo (los "Fines contractuales"), con tu consentimiento (el "Consentimiento"), y/o para el cumplimiento de nuestras obligaciones legales (las "Razones legales"). Junto a cada uno de los fines enumerados, indicamos las razones específicas en las que nos basamos para llevar a cabo dicho tratamiento.
+Usamos la información personal recogida a través de nuestros Sitios web para diversos fines comerciales, que se describen más adelante. Tratamos tu información personal para estos fines de acuerdo con nuestros intereses legítimos como empresa (los "Fines comerciales"), para establecer un contrato contigo o satisfacerlo (los "Fines contractuales"), con tu consentimiento (el "Consentimiento"), y/o para el cumplimiento de nuestras obligaciones legales (las "Razones legales"). Junto a cada uno de los fines enumerados, indicamos las razones específicas en las que nos basamos para llevar a cabo dicho tratamiento.
 
 Usamos la información que recogemos o recibimos:
 
-*     Para facilitar el proceso de creación de tu cuenta y el acceso a ella. Consulta a continuación la sección titulada "¿Cómo tratamos tus datos de acceso a redes sociales?" para obtener más información.
+*     Para facilitar el proceso de creación de tu cuenta y el acceso a ella. Consulta más adelante la sección titulada "¿Cómo tratamos tus datos de acceso a redes sociales?" para obtener más información.
      
 
-*     Para enviarte comunicados promocionales y de mercadotecnia con Fines comerciales y/o con tu Consentimiento. Nosotros y/o nuestros socios de mercadotecnia podemos usar la información personal que nos envíes para nuestros fines de mercadotecnia si tus preferencias indican que estás de acuerdo. Puedes darte de baja de nuestros correos electrónicos promocionales en cualquier momento (consulta a continuación la sección "¿Cuáles son tus derechos en materia de privacidad?").
+*     Para enviarte comunicados promocionales y de mercadotecnia con Fines comerciales y/o con tu Consentimiento. Nosotros y/o nuestros socios de mercadotecnia podemos usar la información personal que nos envíes para nuestros fines de mercadotecnia si tus preferencias indican que estás de acuerdo. Puedes darte de baja de nuestros correos electrónicos promocionales en cualquier momento (consulta más adelante la sección "¿Cuáles son tus derechos en materia de privacidad?").
      
 
 *     Para enviarte información administrativa con Fines comerciales, por Razones legales y/o, posiblemente, con Fines contractuales. Podemos usar tu información personal para remitirte información sobre productos, servicios y nuevas funciones, así como información sobre cambios en nuestras cláusulas y políticas.
      
 
-*     Para remitirte publicidad personalizada para nuestros Fines comerciales y/o con tu Consentimiento. Podemos usar tu información para desarrollar y mostrarte contenido y publicidad adaptados a tus intereses y/o tu ubicación (y trabajar con terceros que lo hagan), y para medir su efectividad. Para más información, consulta a continuación la sección "Política de <i>cookies</i>".
+*     Para remitirte publicidad personalizada para nuestros Fines comerciales y/o con tu Consentimiento. Podemos usar tu información para desarrollar y mostrarte contenido y publicidad adaptados a tus intereses y/o tu ubicación (y trabajar con terceros que lo hagan), y para medir su efectividad. Para más información, consulta más adelante la sección "Política de <i>cookies</i>".
      
 
 *     Para administrar sorteos y competiciones de acuerdo con nuestros Fines comerciales y/o con tu Consentimiento. Podemos usar tu información para administrar sorteos y competiciones cuando tú elijas participar en ellas.
@@ -106,7 +106,7 @@ Solo compartimos y comunicamos tu información en las siguientes situaciones:
 
 **En resumen:** Podemos usar *cookies* y otras tecnologías de rastreo similares para recoger y almacenar tu información.
 
-Podemos usar *cookies* y tecnologías de rastreo similares (como balizas o píxeles web) para acceder a información o almacenarla. Puedes conocer con más detalle cómo usamos estas tecnologías y cómo rechazar ciertas *cookies* en la sección "Política de *cookies*" a continuación.
+Podemos usar *cookies* y tecnologías de rastreo similares (como balizas o píxeles web) para acceder a información o almacenarla. Puedes conocer con más detalle cómo usamos estas tecnologías y cómo rechazar ciertas *cookies* en la sección "Política de *cookies*" más adelante.
 
 #### ¿Cómo tratamos tus datos de acceso a redes sociales?
 
@@ -174,25 +174,25 @@ Puedes darte de baja de nuestra lista de correos electrónicos promocionales en 
 
 **En resumen:** Sí. Si resides en California, posees derechos específicos en lo que respecta al acceso a tu información personal.
 
-La sección 1798.83 del Código civil de California, también conocida como ley "Shine the Light", permite a aquellos usuarios que son residentes de California solicitarnos y obtener, una vez al año y sin cargo alguno, información sobre las categorías de información personal que hayamos comunicado a terceros con fines de promoción directa (si las hubiera) y los nombres y direcciones de todos los terceros con los que hayamos compartido información personal en el año natural inmediatamente anterior. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
+La sección 1798.83 del Código civil de California, también conocida como ley "Shine the Light", permite a aquellos usuarios que son residentes de California solicitarnos y obtener, una vez al año y sin cargo alguno, información sobre las categorías de información personal que hayamos comunicado a terceros con fines de promoción directa (si las hubiera) y los nombres y direcciones de todos los terceros con los que hayamos compartido información personal en el año natural inmediatamente anterior. Si eres residente de California y deseas efectuar tal petición, remítenosla por escrito usando la información de contacto indicada más adelante.
 
-If you are under 18 years of age, reside in California, and have a registered account with the Sites, you have the right to request removal of unwanted data that you publicly post on the Sites. To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Sites, but please be aware that the data may not be completely or comprehensively removed from our systems.
+Si eres menor de 18 años de edad, resides en California y has dado de alta una cuenta en nuestros Sitios web, tienes derecho a solicitar la supresión de cualquier dato no deseado que compartas de forma pública en ellas. Para ello, ponte en contacto con nosotros usando la información de contacto indicada más adelante e incluye la dirección de correo electrónico asociada a tu cuenta y una declaración de que resides en California. Aunque tomaremos medidas para asegurarnos de que los datos no se muestren públicamente en los Sitios web, ten en cuenta que podrían no ser borrados de forma exhaustiva o completa de nuestros sistemas.
 
-#### Cookie Policy
+#### Política de *cookies*
 
-**What are cookies?**
+**¿Qué son las *cookies*?**
 
-Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.
+Las *cookies* son pequeños archivos de datos que se instalan en tu equipo o dispositivo móvil cuando visitas un sitio web. Las *cookies* son ampliamente usadas por los propietarios de los sitios web para hacer que dichos sitios funcionen, o que lo hagan de manera más eficiente, y también para obtener información analítica.
 
-Cookies set by the website owner (in this case, PolySwarm Pte. Ltd.) are called "first party cookies". Cookies set by parties other than the website owner are called "third party cookies". Third party cookies enable third party features or functionality to be provided on or through the website (e.g. like advertising, interactive content and analytics). The parties that set these third party cookies can recognize your computer both when it visits the website in question and also when it visits certain other websites.
+Las *cookies* configuradas por el propietario del sitio web (en este caso, PolySwarm Pte. Ltd.) se denominan "*cookies* de origen". Las *cookies* configuradas por cualquier otra entidad que no sea el propietario del sitio web se denominan "*cookies* de terceros". Las *cookies* de terceros habilitan prestaciones o funcionalidad de terceros en el sitio web (por ejemplo, publicidad, contenido interactivo y analíticas). Las entidades que configuran estas *cookies* pueden reconocer tu equipo tanto cuando visitas el sitio web en cuestión como cuando visitas otros sitios web determinados.
 
-**Why do we use cookies?**
+**¿Por qué usamos *cookies*?**
 
-We use first and third party cookies for several reasons. Some cookies are required for technical reasons in order for our Sites to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our Online Properties. Third parties serve cookies through our Sites for advertising, analytics and other purposes. This is described in more detail below.
+Usamos *cookies* de origen y de terceros por diversas razones. Algunas son necesarias por razones técnicas, para que nuestros Sitios web funcionen, y nos referimos a ellas como "esenciales" o "estrictamente necesarias". Otras nos permiten además realizar un seguimiento de los intereses de nuestros usuarios y adaptarnos a ellos para mejorar la experiencia de nuestras Propiedades en línea. Nuestros colaboradores sirven *cookies* en nuestros Sitios web con fines publicitarios, analíticos o de otro tipo. Ello se describe detalladamente a continuación.
 
-The specific types of first and third party cookies served through our Websites and the purposes they perform are described below (please note that the specific cookies served may vary depending on the specific Online Properties you visit):
+Estos son los tipos específicos de *cookies* de origen y de terceros utilizadas en nuestros Sitios web y su finalidad (ten en cuenta que las *cookies* específicamente usadas pueden variar en función de qué Propiedades en línea visites):
 
-**Performance and functionality cookies:**
+***Cookies* de rendimiento y funcionalidad:**
 
 These cookies are used to enhance the performance and functionality of our Sites but are non-essential to their use. However, without these cookies, certain functionality (like videos) may become unavailable.
 
