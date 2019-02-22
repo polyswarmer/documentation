@@ -1142,29 +1142,29 @@ transactions - 検査するトランザクション・ハッシュのリスト
 
 Provide:
 
-    close_flag - 1 or 0 for is this state is closeable
-    nonce - the sequnce of the state
-    ambassador - ambassador address
-    expert - expert address
-    msig_address - multi signature address
-    ambassador_balance - balance in nectar for ambassador
-    nectar_balance - balance in nectar for expert
-    guid - a globally-unique identifier for the offer listing
-    offer_amount - the offer amount paid for assertion
+    close_flag - 当該状態がクローズ可能かどうかを示す 1 または 0
+    nonce - 状態のシーケンス
+    ambassador - アンバサダーのアドレス
+    expert - 専門家のアドレス
+    msig_address - マルチ署名アドレス
+    ambassador_balance - アンバサダーの残高 (Nectar)
+    nectar_balance - 専門家の残高 (Nectar)
+    guid - オファー・リストのグローバル一意識別子
+    offer_amount - アサーションに対して支払われるオファー金額
     
 
-Optional:
+オプション:
 
-    artifact_hash - cryptographic hash of the artifact
-    ipfs_hash - the IPFS URI of the artifact
-    engagement_deadline - engagement Deadline
-    assertion_deadline - assertion Deadline
-    current_commitment - current commitment
-    verdicts - bitmap of verdicts
-    meta_data - meta data about current offer
+    artifact_hash - アーティファクトの暗号ハッシュ
+    ipfs_hash - アーティファクトの IPFS URI
+    engagement_deadline - エンゲージメントの期限
+    assertion_deadline - アサーションの期限
+    current_commitment - 現在のコミットメント
+    verdicts - 判定のビットマップ
+    meta_data - 現在のオファーに関するメタデータ
     
 
-Example POST data:
+POST データの例:
 
     {
       "close_flag": 0,
@@ -1177,14 +1177,14 @@ Example POST data:
     }
     
 
-#### Gets tranformed to the below bytes string in the response:
+#### 以下のバイト文字列に変換されて応答で返されます。
 
     0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc
     
 
 ### 状態への署名
 
-The offers api requires signed states. Here's an example of signing to create the v, r, and s signature pieces in Javascript.
+オファー API では、署名済みの状態が必要です。 以下に、署名して JavaScript で v、r、s の各署名部分を作成する例を示します。
 
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
@@ -1209,7 +1209,7 @@ let v = sig.v
 
 ### 状態メッセージ
 
-Ambassadors open a websocket with the url defined in the contract. Locally - messages are sent on `ws://localhost:31337/messages/<uuid:guid>`
+アンバサダーは、コントラクトで定義された URL を使用して WebSocket を開きます。 Locally - messages are sent on `ws://localhost:31337/messages/<uuid:guid>`
 
 **Data constraints**
 
