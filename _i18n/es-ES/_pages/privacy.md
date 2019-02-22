@@ -60,40 +60,40 @@ Usamos la información que recogemos o recibimos:
 *     Para enviarte comunicados promocionales y de mercadotecnia con Fines comerciales y/o con tu Consentimiento. Nosotros y/o nuestros socios de mercadotecnia podemos usar la información personal que nos envíes para nuestros fines de mercadotecnia si tus preferencias indican que estás de acuerdo. Puedes darte de baja de nuestros correos electrónicos promocionales en cualquier momento (consulta a continuación la sección "¿Cuáles son tus derechos en materia de privacidad?").
      
 
-*     To send administrative information to you for Business Purposes, Legal Reasons and/or possibly for Contractual. We may use your personal information to send you product, service and new feature information and/or information about changes to our terms, conditions, and policies.
+*     Para enviarte información administrativa con Fines comerciales, por Razones legales y/o, posiblemente, con Fines contractuales. Podemos usar tu información personal para remitirte información sobre productos, servicios y nuevas funciones, así como información sobre cambios en nuestras cláusulas y políticas.
      
 
-*     Deliver targeted advertising to you for our Business Purposes and/or with your Consent. We may use your information to develop and display content and advertising (and work with third parties who do so) tailored to your interests and/or location and to measure its effectiveness. For more information, see the "Cookie Policy" section below.
+*     Para remitirte publicidad personalizada para nuestros Fines comerciales y/o con tu Consentimiento. Podemos usar tu información para desarrollar y mostrarte contenido y publicidad adaptados a tus intereses y/o tu ubicación (y trabajar con terceros que lo hagan), y para medir su efectividad. Para más información, consulta a continuación la sección "Política de <i>cookies</i>".
      
 
-*     Administer prize draws and competitions for our Business Purposes and/or with your Consent. We may use your information to administer prize draws and competitions when you elect to participate in competitions.
+*     Para administrar sorteos y competiciones de acuerdo con nuestros Fines comerciales y/o con tu Consentimiento. Podemos usar tu información para administrar sorteos y competiciones cuando tú elijas participar en ellas.
      
 
-*     To protect our Sites for Business Purposes and/or for Legal Reasons. We may use your information as part of our efforts to keep our Sites safe and secure (for example, for fraud monitoring and prevention).
+*     Para proteger nuestros Sitios web con Fines comerciales y/o por Razones legales. Podemos usar tu información como parte de nuestros esfuerzos para mantener nuestros Sitios web seguros (por ejemplo, para controlar y prevenir el fraude).
      
 
-*     To enforce our terms, conditions and policies for Business Purposes, Legal Reasons and/or possibly Contractual.
+*     Para hacer cumplir nuestras cláusulas y políticas con Fines comerciales, por Razones legales o, posiblemente, con Fines contractuales.
      
 
-*     To respond to legal requests and prevent harm for Legal Reasons. If we receive a subpoena or other legal request, we may need to inspect the data we hold to determine how to respond.
+*     Para responder a cualquier requerimiento legal y evitar daños por Razones legales. Si recibimos una citación judicial o cualquier otro tipo de requerimiento legal, puede que necesitemos inspeccionar los datos que poseamos a fin de determinar cómo responder.
      
 
-*     For other Business Purposes. We may use your information for other Business Purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Sites, products, services, marketing and your experience.
+*     Para otros Fines comerciales cualesquiera. Podemos usar tu información para otros Fines comerciales como, por ejemplo, realizar análisis de datos, identificar tendencias de uso, determinar la efectividad de nuestras campañas promocionales o evaluar y mejorar nuestros Sitios web, productos, servicios y actividades de mercadotecnica, así como tu experiencia.
      
 
-#### Will Your Information Be Shared with Anyone?
+#### ¿Compartiremos con alguien más tu información?
 
-**In Short:** We only share information with your consent, to comply with laws, to protect your rights, or to fulfill business obligations.
+**En resumen:** Solamente compartimos tu información con tu consentimiento, para cumplir con la ley, para proteger tus derechos o para satisfacer nuestras obligaciones como empresa.
 
-We only share and disclose your information in the following situations:
+Solo compartimos y comunicamos tu información en las siguientes situaciones:
 
-*     Compliance with Laws. We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process, such as in response to a court order or a subpoena (including in response to public authorities to meet national security or law enforcement requirements).
+*     Para cumplir con la ley. Podemos comunicar tu información cuando así se nos requiera legalmente para cumplir con la legislación aplicable, la petición de un gobierno o cualquier diligencia o proceso judicial, o, por ejemplo, en respuesta a una citación o resolución (incluyendo las realizadas por las autoridades públicas con fines de seguridad nacional o en cumplimiento de la ley).
      
 
-*     Vital Interests and Legal Rights. We may disclose your information where we believe it is necessary to investigate, prevent, or take action regarding potential violations of our policies, suspected fraud, situations involving potential threats to the safety of any person and illegal activities, or as evidence in litigation in which we are involved.
+*     De acuerdo con intereses vitales y derechos legales. Podemos comunicar tu información cuando lo consideremos necesario para investigar, prevenir o tomar medidas ante posibles infracciones de nuestras políticas, sospechas de fraude, situaciones que impliquen una posible amenaza para la seguridad de cualquier persona y actividades ilegales, o como prueba en un litigio que nos afecte.
      
 
-*     Vendors, Consultants and Other Third-Party Service Providers. We may share your data with third party vendors, service providers, contractors or agents who perform services for us or on our behalf and require access to such information to do that work. Examples include: payment processing, data analysis, email delivery, hosting services, customer service and marketing efforts. We may allow selected third parties to use tracking technology on the Sites, which will enable them to collect data about how you interact with the Sites over time. This information may be used to, among other things, analyze and track data, determine the popularity of certain content and better understand online activity. Unless described in this Policy, we do not share, sell, rent or trade any of your information with third parties for their promotional purposes.
+*     Distribuidores, consultores y otros terceros proveedores de servicios. Podemos compartir tus datos con terceros tales como distribuidores, proveedores de servicios, contratistas o agentes que realicen servicios para nosotros, o en nuestro nombre, y requieran acceder a tal información para llevar a cabo su trabajo. Estos servicios incluyen procesamiento de pagos, análisis de datos, envío de correos electrónicos, servicios de hospedaje, atención al cliente y acciones de mercadotecnia. We may allow selected third parties to use tracking technology on the Sites, which will enable them to collect data about how you interact with the Sites over time. This information may be used to, among other things, analyze and track data, determine the popularity of certain content and better understand online activity. Unless described in this Policy, we do not share, sell, rent or trade any of your information with third parties for their promotional purposes.
      
 
 *     Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.
