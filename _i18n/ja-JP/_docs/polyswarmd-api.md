@@ -1215,15 +1215,15 @@ let v = sig.v
 
 Provide:
 
-type - type of message (payment, request, assertion)
+type - メッセージのタイプ (支払、要求、アサーション)
 
-state - offer state
+state - オファー状態
 
 Optional:
 
-toSocketUri - to send to a different person (defaults to the ambassador)
+toSocketUri - 別の人に送信する場合 (デフォルトではアンバサダー)
 
-v - recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID
 
 r - ECDSA signature of state string
 
