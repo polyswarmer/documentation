@@ -93,58 +93,58 @@ Solo compartimos y comunicamos tu información en las siguientes situaciones:
 *     De acuerdo con intereses vitales y derechos legales. Podemos comunicar tu información cuando lo consideremos necesario para investigar, prevenir o tomar medidas ante posibles infracciones de nuestras políticas, sospechas de fraude, situaciones que impliquen una posible amenaza para la seguridad de cualquier persona y actividades ilegales, o como prueba en un litigio que nos afecte.
      
 
-*     Distribuidores, consultores y otros terceros proveedores de servicios. Podemos compartir tus datos con terceros tales como distribuidores, proveedores de servicios, contratistas o agentes que realicen servicios para nosotros, o en nuestro nombre, y requieran acceder a tal información para llevar a cabo su trabajo. Estos servicios incluyen procesamiento de pagos, análisis de datos, envío de correos electrónicos, servicios de hospedaje, atención al cliente y acciones de mercadotecnia. We may allow selected third parties to use tracking technology on the Sites, which will enable them to collect data about how you interact with the Sites over time. This information may be used to, among other things, analyze and track data, determine the popularity of certain content and better understand online activity. Unless described in this Policy, we do not share, sell, rent or trade any of your information with third parties for their promotional purposes.
+*     Distribuidores, consultores y otros terceros proveedores de servicios. Podemos compartir tus datos con terceros tales como distribuidores, proveedores de servicios, contratistas o agentes que realicen servicios para nosotros, o en nuestro nombre, y requieran acceder a tal información para llevar a cabo su trabajo. Estos servicios incluyen procesamiento de pagos, análisis de datos, envío de correos electrónicos, servicios de hospedaje, atención al cliente y acciones de mercadotecnia. Podemos autorizar a determinados terceros para que usen tecnología de rastreo en los Sitios web que les permita recoger datos sobre cómo interactúas con dichos Sitios web a lo largo del tiempo. Esta información puede usarse, entre otras cosas, para analizar y rastrear datos, determinar la popularidad de ciertos contenidos y entender mejor tu actividad en línea. Salvo de acuerdo a lo descrito en esta política, no compartimos, vendemos, alquilamos ni intercambiamos con terceros tu información para atender a sus fines promocionales.
      
 
-*     Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.
+*     Traspasos comerciales. Podemos compartir o transferir tu información en el marco o durante la negociación de cualquier fusión, venta de activos, financiación o adquisición de una parte o la totalidad de nuestro negocio a otra empresa.
      
 
-*     With your Consent. We may disclose your personal information for any other purpose with your consent.
+*     Con tu consentimiento. Podemos comunicar tu información personal para cualquier otra finalidad con tu consentimiento.
      
 
-#### Do We Use Cookies and Other Tracking Technologies?
+#### ¿Usamos *cookies* y otras tecnologías de rastreo?
 
-**In Short:** We may use cookies and other tracking technologies to collect and store your information.
+**En resumen:** Podemos usar *cookies* y otras tecnologías de rastreo similares para recoger y almacenar tu información.
 
-We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in the "Cookie Policy" section below.
+Podemos usar *cookies* y tecnologías de rastreo similares (como balizas o píxeles web) para acceder a información o almacenarla. Puedes conocer con más detalle cómo usamos estas tecnologías y cómo rechazar ciertas *cookies* en la sección "Política de *cookies*" a continuación.
 
-#### How Do We Handle Your Social Logins?
+#### ¿Cómo tratamos tus datos de acceso a redes sociales?
 
-**In Short:** If you choose to register or log in to our websites using a social media account, we may have access to certain information about you.
+**En resumen:** Si eliges registrarte o acceder a nuestros Sitios web usando tu cuenta en una red social, podemos tener acceso a determinada información sobre ti.
 
-Our Sites offer you the ability to register and login using your third party social media account details (like your Facebook or Twitter logins). Where you choose to do this, we will receive certain profile information about you from your social media provider. The profile Information we receive may vary depending on the social media provider concerned, but will often include your name, e-mail address, friends list, profile picture as well as other information you choose to make public.
+Nuestros Sitios web te ofrecen la posibilidad de registrarte y acceder usando los datos de cuenta de una red social (por ejemplo, Facebook o Twitter). Si eliges hacerlo así, dicha red social nos comunicará determinada información de tu perfil. La información que recibamos puede variar en función de la red social, pero, por lo general, incluirá tu nombre, dirección de correo electrónico, lista de amigos, fotografía de perfil y cualquier otro dato que hayas elegido hacer público.
 
-We will use the information we receive only for the purposes that are described in this privacy policy or that are otherwise made clear to you on the Sites. Please note that we do not control, and are not responsible for, other uses of your personal information by your third party social media provider. We recommend that you review their privacy policy to understand how they collect, use and share your personal information, and how you can set your privacy preferences on their sites and apps.
+Usaremos esta información recibida solo para los fines descritos en esta política de privacidad u otros cualesquiera que se te expliquen con claridad en los Sitios web. Ten en cuenta que no controlamos ni somos responsables de cualquier otro uso de tu información personal realizado por dicha red social. Te recomendamos revisar su política de privacidad para entender cómo recogen, usan y comparten tu información personal y cómo puedes configurar tus preferencias de privacidad en sus sitios web y aplicaciones.
 
-#### Is Your Information Transferred Internationally?
+#### ¿Se transfiere internacionalmente tu información?
 
-**In Short:** We may transfer, store, and process your information in countries other than your own.
+**En resumen:** Podemos transferir, almacenar y tratar tu información en países distintos al tuyo.
 
-Our servers are located in the U.S. If you are accessing our Sites from outside, please be aware that your information may be transferred to, stored, and processed by us in our facilities and by those third parties with whom we may share your personal information (see "Will Your Information Be Shared with Anyone?" above), in the U.S. and other countries.
+Nuestros servidores están ubicados en los Estados Unidos. Si accedes a nuestros Sitios web desde el exterior, debes tener en cuenta que tu información puede sernos transferida y resultar almacenada y procesada por nosotros, en nuestras instalaciones, y por aquellos terceros con quienes compartamos tu información personal (consulta anteriormente "¿Compartiremos con alguien más tu información?") en los Estados Unidos y en otros países.
 
-If you are a resident in the European Economic Area, then these countries may not have data protection or other laws as comprehensive as those in your country. We will however take all necessary measures to protect your personal information in accordance with this privacy policy and applicable law.
+Si resides en el Espacio Económico Europeo, debes saber que estos países podrían no ofrecer leyes de protección de datos y de otro tipo tan exhaustivas como las existentes en tu país. No obstante, tomaremos todas las medidas necesarias para proteger tu información personal de acuerdo con esta política de privacidad y con la legislación aplicable.
 
-#### How Long Do We Keep Your Information?
+#### ¿Cuánto tiempo conservamos tu información?
 
-**In Short:** We keep your information for as long as necessary to fulfill the purposes outlined in this privacy policy unless otherwise required by law.
+**En resumen:** Conservamos tu información el tiempo necesario para satisfacer los fines descritos en esta política de privacidad salvo que la ley establezca lo contrario.
 
-We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law (such as tax, accounting or other legal requirements). No purpose in this policy will require us keeping your personal information for longer than the period of time in which users have an account with us.
+Solo conservaremos tu información personal durante el tiempo necesario para cumplir con los fines establecidos en esta política de privacidad, salvo que la ley permita o exija un tiempo de retención mayor (por razones fiscales, contables o legales de cualquier otro tipo). Ninguno de los fines recogidos en esta política nos obligará a mantener la información personal por un plazo superior al tiempo durante el que los usuarios posean una cuenta con nosotros.
 
-When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize it, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
+Cuando no tengamos, como empresa, la necesidad legítima de seguir tratando tu información personal, la suprimiremos o la anonimizaremos; o, de no ser esto posible (por ejemplo, por haber sido guardada en archivos de respaldo), la almacenaremos de forma segura y la aislaremos de cualquier tratamiento adicional hasta que sea posible suprimirla.
 
-#### How Do We Keep Your Information Safe?
+#### ¿Cómo mantenemos segura tu información?
 
-**In Short:** We aim to protect your personal information through a system of organizational and technical security measures.
+**En resumen:** Intentamos proteger tu información personal mediante un conjunto de medidas de seguridad técnicas y organizativas.
 
-We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Sites is at your own risk. You should only access the services within a secure environment.
+Hemos puesto en marcha las medidas de seguridad técnicas y organizativas adecuadas para proteger la seguridad de cualquier información personal que tratamos. No obstante, recuerda que no podemos garantizar al 100 % la seguridad en Internet. Aunque haremos todo lo posible para proteger tu información personal, su transmisión desde y hasta nuestros Sitios web se realiza bajo tu propia cuenta y riesgo. Solo deberías acceder a los servicios desde un entorno seguro.
 
-#### Do We Collect Information from Minors?
+#### ¿Recogemos información de personas menores de edad?
 
-**In Short:** We do not knowingly collect data from or market to children under 18 years of age.
+**En resumen:** No recogemos datos de ni comercializamos nuestros servicios a menores de 18 años de forma deliberada.
 
-We do not knowingly solicit data from or market to children under 18 years of age. By using the Sites, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Sites. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at <privacy@polyswarm.io>.
+No solicitamos datos ni comercializamos nuestros servicios deliberadamente a menores de 18 años. Al usar los Sitios web, declaras que eres mayor de 18 años, o que eres el padre o tutor legal de tal menor y brindas tu consentimiento al uso tutelado de los Sitios web por su parte. Si llegara a nuestro conocimiento que se ha recogido información personal de un usuario menor de 18 años, desactivaremos su cuenta y tomaremos las medidas adecuadas para suprimir sus datos de nuestros archivos. Si descubres que hemos recogido datos de algún menor de 18 años, ponte en contacto con nosotros en <privacy@polyswarm.io>.
 
-#### What Are Your Privacy Rights?
+#### ¿Cuáles son tus derechos en materia de privacidad?
 
 **In Short:** In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.
 
