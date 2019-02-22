@@ -1024,11 +1024,11 @@ def post_transactions(transactions):
 ]
 ```
 
-## Transaction Events
+## トランザクション・イベント
 
-A list of events or errors that resulted from the transaction with the given hash
+特定のハッシュでのトランザクションから生じたイベントまたはエラーのリスト
 
-**URL** : `/transactions/?chain=[chain_here]`
+**URL** : `/transactions/?chain=[チェーン]`
 
 **Method** : `GET`
 
@@ -1036,11 +1036,11 @@ A list of events or errors that resulted from the transaction with the given has
 
 Provide:
 
-transactions - a list transaction hashes to check
+transactions - 検査するトランザクション・ハッシュのリスト
 
 ```json
 {
-  "transactions": "[array of transaction hashes]",
+  "transactions": "[トランザクション・ハッシュの配列]",
 }
 ```
 
@@ -1054,7 +1054,7 @@ transactions - a list transaction hashes to check
 
 #### Success Response
 
-**Condition** : If all of the transactions completed without reverting. (If some failed, it will return 400)
+**条件** : すべてのトランザクションが戻ることなく完了するかどうか。 (失敗したものがあった場合、400 が返されます)
 
 **Code** : `200`
 
@@ -1128,11 +1128,11 @@ transactions - a list transaction hashes to check
 }
 ```
 
-## State
+## 状態
 
 ### 状態の作成
 
-The state byte string contains details the ambassador and expert sign off on.
+状態バイト文字列には、アンバサダーと専門家が署名した対象の詳細が含まれます。
 
 **URL** : `/offers/state`
 
