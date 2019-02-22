@@ -54,10 +54,10 @@ Usamos la información personal recogida a través de nuestros Sitios web para d
 
 Usamos la información que recogemos o recibimos:
 
-*     To facilitate account creation and login process. See the section below headed "How We Handle Your Social Logins" for further information.
+*     Para facilitar el proceso de creación de tu cuenta y el acceso a ella. Consulta a continuación la sección titulada "¿Cómo tratamos tus datos de acceso a redes sociales?" para obtener más información.
      
 
-*     To send you marketing and promotional communications for Business Purposes and/or with your Consent. We and/or our third party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt-out of our marketing emails at any time (see the "What Are Your Privacy Rights" section below).
+*     Para enviarte comunicados promocionales y de mercadotecnia con Fines comerciales y/o con tu Consentimiento. Nosotros y/o nuestros socios de mercadotecnia podemos usar la información personal que nos envíes para nuestros fines de mercadotecnia si tus preferencias indican que estás de acuerdo. Puedes darte de baja de nuestros correos electrónicos promocionales en cualquier momento (consulta a continuación la sección "¿Cuáles son tus derechos en materia de privacidad?").
      
 
 *     To send administrative information to you for Business Purposes, Legal Reasons and/or possibly for Contractual. We may use your personal information to send you product, service and new feature information and/or information about changes to our terms, conditions, and policies.
