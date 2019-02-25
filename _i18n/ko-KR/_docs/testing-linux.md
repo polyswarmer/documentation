@@ -78,8 +78,8 @@ $ docker-compose -f base.yml -f tutorial0.yml up
 
 각 서비스에서 출력되는 내용은 다음과 같습니다.
 
-1. `homechain`: 테스트넷의 "homechain"을 실행하는 [geth](https://github.com/ethereum/go-ethereum) 노드. 체인-분할 설계에 대한 설명은 [체인: 홈 vs 사이드](/#chains-home-vs-side)를 참조하세요.
-2. `sidechain`: 테스트넷의 "sidechain"을 실행하는 `geth` 인스턴스.
+1. `homechain`: 테스트넷의 '홈체인'을 실행하는 [geth](https://github.com/ethereum/go-ethereum) 노드. 체인-분할 설계에 대한 설명은 [체인: 홈 vs 사이드](/#chains-home-vs-side)를 참조하세요.
+2. `sidechain`: 테스트넷의 "사이드체인"을 실행하는 `geth` 인스턴스.
 3. `ipfs`: 개발 테스트넷에 모든 아티팩트를 호스팅하는 IPFS 노드.
 4. `polyswarmd`: `homechain`, `sidechain` 및 `ipfs`가 제공하는 서비스에 편리하게 액세스하게 해주는 PolySwarm 데몬.
 5. `contracts`: PolySwarm Nectar(NCT) 및 `BountyRegistry` 계약을 개발 테스트넷에 보관 & 배포.
