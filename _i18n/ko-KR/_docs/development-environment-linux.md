@@ -42,9 +42,9 @@ $ sudo usermod -aG docker ${USER}
 
 ## Git 설치
 
-일부 소스 코드 저장소가 필요합니다. Git을 사용하는 것이 가장 쉽습니다. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
+일부 소스 코드 저장소가 필요합니다. Git을 사용하는 것이 가장 쉽습니다. 개발 환경용으로 [Git을 설치](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)하시기 바랍니다.
 
-## Install Python & PIP
+## Python 및 PIP 설치
 
 PolySwarm development requires Python 3.5.4 or above. Please install [Python](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) for your development platform.
 
