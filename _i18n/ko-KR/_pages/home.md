@@ -1,36 +1,36 @@
-## Welcome
+## 환영합니다
 
-Welcome and thank you for your interest in PolySwarm!
+PolySwarm에 오신 것을 환영하며, 관심을 가져주셔서 감사합니다!
 
-Here you'll find everything you need to get started developing for PolySwarm.
+여기에서 PolySwarm에 관한 개발을 시작하는 데 필요한 모든 정보를 찾으실 수 있습니다.
 
-Before we dive into the code, let's get our bearings:
+코드를 살펴보기 전에 주목해야 할 사항을 검토해보시기 바랍니다.
 
-* What does it look like to participate in PolySwarm?
-* Which role fits my use case?
-* Which Communities do I want to engage with?
-* How do I monitor the performance of my Engines?
-* What are Communities? What is an Engine?
+* PolySwarm에 참여하는 방식
+* 자신의 사례에 적합한 역할
+* 참여하고 싶은 커뮤니티
+* 엔진의 성능을 확인하는 방법
+* 커뮤니티의 개념. 엔진의 개념
 
-Let's take a look at some of the high level concepts and drill down into details where appropriate.
+먼저 전체적인 개요를 살펴보고, 필요에 따라 세부적인 사항을 들여다보도록 하겠습니다.
 
-## Portal
+## 포털
 
-PolySwarm Portal is PolySwarm's one-stop shop for:
+PolySwarm 포털은 PolySwarm의 원스톱 지원 센터입니다.
 
-* tracking Engine performance
-* discovering Communities (see below)
-* naming Engines
-* creating Profiles
-* connecting with Security Experts
+* 엔진 성능 추적
+* 커뮤니티 검색 (아래 참조)
+* 엔진 이름 지정
+* 프로필 생성
+* 보안 전문가와 연결
 
-... and much, much more.
+... 그 밖에 수많은 작업이 가능합니다.
 
-[Explore Portal →](https://polyswarm.network/)
+[포털 탐색 →](https://polyswarm.network/)
 
-## Communities
+## 커뮤니티
 
-PolySwarm is made up of a series of Communities (hence the "Poly"). Each Community serves a particular purpose and can either permit everyone to join or limit access to specific participants.
+PolySwarm은 여러 커뮤니티로 구성되어 있습니다(그래서 "Poly"라고 함). 각 커뮤니티는 특정한 목적을 위해 활동하며, 누구에게나 가입을 허용하거나 특정 참가자로만 접근을 제한할 수 있습니다.
 
 PolySwarm will launch with two communities:
 
