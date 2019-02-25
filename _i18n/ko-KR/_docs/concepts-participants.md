@@ -1,12 +1,12 @@
-## Introduction
+## 서론
 
-PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
+PolySwarm은 공급자(마이크로엔진), 수요자(홍보대사), 중개인(중재자)으로 구성된 마켓플레이스입니다.
 
-For a high-level overview of the PolySwarm marketplace, see [How It Works](https://polyswarm.io/how_it_works/).
+PolySwarm 마켓플레이스에 대한 전체적인 개요는 [작동 방법](https://polyswarm.io/how_it_works/)을 참고하시기 바랍니다.
 
-## Microengines
+## 마이크로엔진
 
-**Microengines** are developed by individuals or organizations who have a knack for identifying malware. Microengines encapsulate security expertise and bundle it in an autonomous process that responds to queries from Ambassadors, identifying the latest malware and earning Nectar (NCT) rewards for accurately identifying new strands of malware. *Threat intelligence goes in, NCT comes out.*
+**마이크로엔진**은 맬웨어를 식별하는 데 소질이 있는 개인 또는 단체가 개발합니다. Microengines encapsulate security expertise and bundle it in an autonomous process that responds to queries from Ambassadors, identifying the latest malware and earning Nectar (NCT) rewards for accurately identifying new strands of malware. *Threat intelligence goes in, NCT comes out.*
 
 [I want to learn more about creating a Microengine →](/concepts-participants-microengine/)
 
