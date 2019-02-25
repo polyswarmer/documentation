@@ -1,18 +1,18 @@
-# Testing Windows-Based Engines
+# Cómo probar motores basados en Windows
 
-In this page, we use `microengine-mywindowsengine` as the name of the Microengine's directory. In your own testing, you will use the name of your Microengine's directory instead. Additionally, in these instructions, we've shortened the PowerShell command prompt to be `PS >` in order to make it easier to read the commands. Your actual PowerShell command prompt will be similar to this: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`. Similarly for Linux command prompts, we've shortened them to be `$`, while your actual command prompts will have more text to the left side of the `$`.
+En esta página usamos `microengine-mywindowsengine` como nombre de directorio del micromotor. En tus pruebas usarás el nombre de directorio de tu propio micromotor. Asimismo, en estas instrucciones hemos abreviado el indicador de entrada de comandos de PowerShell a `PS >` para mejorar la legibilidad de los comandos. El indicador real de PowerShell que veas será similar a: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`. Del mismo modo, en la línea de comandos de Linux, hemos abreviado la indicación de entrada a `$`. En la realidad, habrá más texto a la izquierda del símbolo `$`.
 
 ## Unit Testing
 
-We'll use `tox` to test our Microengine. `tox` runs whatever unit tests you add to `tests/scan_test.py`.
+Usaremos `tox` para probar nuestro micromotor. Este comando ejecutará todas las pruebas unitarias que añadas en `tests/scan_test.py`.
 
-In a powershell window with an activated virtual environment, and run the `tox` command at the base of your microengine's directory.
+Activa un entorno virtual en una ventana de PowerShell y ejecuta el comando `tox` desde el directorio base de tu micromotor.
 
 ```powershell
 PS > tox
 ```
 
-The output will look similar to the following:
+La salida será parecida a esto:
 
 ```powershell
 GLOB sdist-make: C:\Users\user\microengine-mywindowsengine\setup.py
