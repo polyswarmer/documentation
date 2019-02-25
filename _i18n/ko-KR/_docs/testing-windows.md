@@ -98,7 +98,7 @@ Use the default setting for all other options. 특히, 3D 가속을 활성화하
 
 #### (선택 사항) VirtualBox 게스트 확장 설치
 
-Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+게스트 확장은 게스트 및 호스트 사이에 공유 클립보드 / 복사 & 붙여넣기 기능을 사용하기 위하여 필요합니다.
 
 [Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
 
