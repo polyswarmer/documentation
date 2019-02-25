@@ -445,7 +445,7 @@ ambassador - 채널을 사용하는 홍보대사의 주소
 
 expert - 채널을 사용하는 전문가의 주소
 
-settlementPeriodLength - how long the parties have to dispute the settlement offer channel
+settlementPeriodLength - 당사자들이 제안 채널을 합의하기 위하여 논의하는 기간
 
 websocketUri - 홍보대사에게 메시지를 전송할 소켓의 uri
 
@@ -722,7 +722,7 @@ See state [explaintion](#state)
 
 ### 시간 제한으로 이의가 제기된 채널 종료
 
-Called by any party with a both signatures on a state that is the final challenge state
+최종 이의 제기 상태에 대한 두 서명을 포함하여 임의의 당사자가 호출합니다
 
 **URL** : `/offers/closeChallenged?account=[eth_address]&base_nonce=[integer]`
 
@@ -785,9 +785,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Settle channel
+### 채널 합의
 
-Called by ambassador or expert to start initialize a disputed settlement using an agreed upon state. It starts a timeout for a reply using `settlementPeriodLength`
+합의된 상태를 사용하여 이의가 제기된 합의를 초기화하기 위하여 홍보대사 또는 전문가가 호출합니다. `settlementPeriodLength`를 사용하여 회신에 대한 시간 제한을 설정합니다
 
 **URL** : `/offers/settle?account=[eth_address]&base_nonce=[integer]`
 
@@ -797,13 +797,13 @@ Called by ambassador or expert to start initialize a disputed settlement using a
 
 Provide:
 
-state - offer state both parties signed
+state - 양 당사자가 서명한 제안 상태
 
 v - array of the recovery ids from signature of state string for both parties
 
 r - array of outputs of ECDSA signature of state string for both parties
 
-s - array of outputs of ECDSA signature of state string for both parties
+s - 양 당사자에 대한 상태 문자열 ECDSA 서명의 출력 배열
 
 ```json
 {
@@ -850,9 +850,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Challenge settle channel state
+### 채널 상태 합의 이의 제기
 
-Called by ambassador or expert to challenge a disputed state. The new state is accepted if it is signed by both parties and has a higher sequence number
+논의 중인 상태에 이의를 제기하기 위하여 홍보대사 또는 전문가가 호출합니다. 양 당사자가 서명하면 새로운 상태가 수락되고, 더 높은 시퀀스 번호가 부여됩니다
 
 **URL** : `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
 
@@ -915,65 +915,65 @@ See state [explaintion](#state)
 }
 ```
 
-### Get offer channel info
+### 제안 채널 정보 가져오기
 
 **URL** : `/offers/<uuid:guid>`
 
 **Method** : `GET`
 
-### Get offer channel settlement period
+### 제안 채널 합의 기간 가져오기
 
 **URL** : `/offers/<uuid:guid>/settlementPeriod`
 
 **Method** : `GET`
 
-### Get ambassador websocket uri
+### 홍보대사 웹 소켓 uri 가져오기
 
 **URL** : `/offers/<uuid:guid>/websocket`
 
 **Method** : `GET`
 
-### Get pending offers
+### 대기 중인 제안 가져오기
 
 **URL** : `/offers/pending`
 
 **Method** : `GET`
 
-### Get opened offers
+### 개설된 제안 가져오기
 
 **URL** : `/offers/opened`
 
 **Method** : `GET`
 
-### Get closed offers
+### 종료된 제안 가져오기
 
 **URL** : `/offers/closed`
 
 **Method** : `GET`
 
-### Get my offers
+### 내 제안 가져오기
 
 **URL** : `/offers/myoffers?account=[eth_address]`
 
 **Method** : `GET`
 
-## Transaction Signing
+## 트랜잭션 서명
 
 **URL** : `/transactions?chain=[chain_here]`
 
 **Method** : `POST`
 
-All signed transactions are POSTed here to start the transaction on the chain of choice.
+서명된 모든 트랜잭션은 여기서 게시(POST)되어 선택된 체인에서 트랜잭션이 시작됩니다.
 
-To add transaction signing to your polyswarmd dependent project you need to to write/use something that follows the steps below.
+polyswarmd 종속 프로젝트에 트랜잭션 서명을 추가하려면 다음 단계에 따라 항목을 작성/사용해야 합니다.
 
-0) Upon receiving transaction data from a transaction dependent endpoint
+0) 트랜잭션 종속 엔드포인트로부터 트랜잭션 데이터를 받을 때
 
-1) Sign the Transaction data with your private key
+1) 사용자의 개인 키로 트랜잭션 데이터에 서명합니다
 
-2) POST the signed transaction to `/transactions`
+2) 서명된 트랜잭션을 `/트랜잭션`에 게시(POST)합니다
 
-There is a python example embedded below, though you can use any other language.
+아래에 python으로 작성된 예가 있지만, 다른 어떤 언어도 사용할 수 있습니다.
 
 ```python
 import json
@@ -986,25 +986,25 @@ PASSWORD = 'password'
 ADDRESS, PRIV_KEY = unlock_key(KEYFILE, PASSWORD)
 
 def unlock_key(keyfile, password):
-    """Open an encrypted keystore file and decrypt it"""
-    with open(keyfile, 'r') as f:
-        priv_key = web3.eth.account.decrypt(f.read(), password)
+"""Open an encrypted keystore file and decrypt it"""
+with open(keyfile, 'r') as f:
+priv_key = web3.eth.account.decrypt(f.read(), password)
 
-    address = web3.eth.account.privateKeyToAccount(priv_key).address
-    return (address, priv_key)
+address = web3.eth.account.privateKeyToAccount(priv_key).address
+return (address, priv_key)
 
 def post_transactions(transactions):
-    """Post a set of (signed) transactions to Ethereum via polyswarmd, parsing the emitted events"""
-    signed = []
-    for tx in transactions:
-        s = web3.eth.account.signTransaction(tx, PRIV_KEY)
-        raw = bytes(s['rawTransaction']).hex()
-        signed.append(raw)
+"""Post a set of (signed) transactions to Ethereum via polyswarmd, parsing the emitted events"""
+signed = []
+for tx in transactions:
+s = web3.eth.account.signTransaction(tx, PRIV_KEY)
+raw = bytes(s['rawTransaction']).hex()
+signed.append(raw)
 
-    uri = 'http://{0}/transactions'.format(POLYSWARMD_ADDR)
+uri = 'http://{0}/transactions'.format(POLYSWARMD_ADDR)
 
-    response = requests.post(uri, data=json.dumps({'transactions': signed})):
-    return response.json()
+response = requests.post(uri, data=json.dumps({'transactions': signed})):
+return response.json()
 ```
 
 #### Success Response
@@ -1017,16 +1017,16 @@ def post_transactions(transactions):
 
 ```json
 [
-  {
-    "is_error": false,
-    "message": "0x3ba9b38a6014048897a47633727eec4999d7936ea0f1d8e7bd42a51a1164ffad"
-  },
+{
+"is_error": false,
+"message": "0x3ba9b38a6014048897a47633727eec4999d7936ea0f1d8e7bd42a51a1164ffad"
+},
 ]
 ```
 
-## Transaction Events
+## 트랜잭션 이벤트
 
-A list of events or errors that resulted from the transaction with the given hash
+제공된 해시가 포함된 트랜잭션에서 발생한 이벤트 또는 오류 목록
 
 **URL** : `/transactions/?chain=[chain_here]`
 
@@ -1036,11 +1036,11 @@ A list of events or errors that resulted from the transaction with the given has
 
 Provide:
 
-transactions - a list transaction hashes to check
+transactions - 검사할 트랜잭션 해시 목록
 
 ```json
 {
-  "transactions": "[array of transaction hashes]",
+"transactions": "[트랜잭션 해시의 배열]",
 }
 ```
 
