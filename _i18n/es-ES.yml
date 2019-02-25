@@ -1,7 +1,7 @@
 ---
 global:
-  title: The first decentralized threat intelligence marketplace
-  description: PolySwarm Documentation is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products.
+  title: El primer mercado descentralizado de inteligencia contra amenazas
+  description: La documentación de PolySwarm constituye un recurso público concebido para ayudar a expertos, árbitros, embajadores y otras personas a familiarizarse con los productos de PolySwarm.
   languages:
     - 
       name: en-US
@@ -21,11 +21,11 @@ global:
         text: View now
       close:
         text: Close
-  previous_text: Previous article
-  next_text: Next article
+  previous_text: Artículo anterior
+  next_text: Artículo siguiente
   close_text: Cerrar
   privacy_settings:
-    heading: Privacy Settings
+    heading: Configuración de privacidad
     text: Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you consent to our use of cookies, please make sure the box below is checked. Otherwise, uncheck the box below to opt out.
     label: Enable Cookies
 header:
