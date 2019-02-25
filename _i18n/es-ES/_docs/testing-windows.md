@@ -42,97 +42,97 @@ _______________________________________________________ summary ________________
   congratulations :)
 ```
 
-You can safely ignore the `combine_argument_formatters` warning.
+Puedes ignorar completamente el aviso `combine_argument_formatters`.
 
 ## Integration Testing
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Conducting integration tests on Windows-Based Engines is only supported in a VirtualBox configuration at this time.
-    Please refer to <a href="/development-environment-windows/">Windows Development Environment</a> for more information.
+    <strong>Aviso:</strong>
+    Por el momento, las pruebas de integración de motores basados en Windows solo son posibles a través de VirtualBox.
+    Consulta <a href="/development-environment-windows/">Entorno de desarrollo Windows</a> para obtener más información.
   </p>
 </div>
 
-Integration testing a Windows-Based Engine requires two virtual machines (VMs / Guests):
+Las pruebas de integración de motores basados en Windows requieren dos máquinas virtuales (máquinas virtuales/invitados):
 
-1. A Windows guest for running your Windows-Based engine (we already made this).
-2. A Linux guest for standing up a local PolySwarm testnet (we'll make this now).
+1. Un invitado de Windows para ejecutar el motor basado en Windows (ya lo tenemos).
+2. Un invitado de Linux para levantar una red de pruebas local para PolySwarm (lo crearemos ahora).
 
 <div class="m-flag m-flag--warning">
   <p>
     <strong>Warning:</strong>
     The recommendations presented here are hard-won.
-    We strongly recommend that you test using the exact recommendations presented here.
+    Te recomendamos encarecidamente que realices las pruebas usando las indicaciones exactas proporcionadas.
     Using any other configuration will make it difficult for us to provide you with support.
   </p>
 </div>
 
-### Create a Linux Guest
+### Crea un invitado de Linux
 
-#### Create the Virtual Machine
+#### Crea la máquina virtual
 
-Create a Linux VM using the following parameters:
+Crea una máquina virtual Linux usando los siguientes parámetros:
 
-* Name: `polyswarm_lin`
-* Type: Linux
-* Version: Ubuntu (64-bit)
-* RAM: 8GB+
-* CPU: 4+ cores
+* Nombre: `polyswarm_lin`
+* Tipo: Linux
+* Versión: Ubuntu (64 bits)
+* RAM: 8 GB o más
+* CPU: 4 núcleos o más
 * video memory: 128MB
 * disk space: 50GB+
 
-Use the default setting for all other options. In particular, do NOT enable 3D acceleration.
+Use the default setting for all other options. Sobre todo, NO habilites la aceleración 3D.
 
-In general, you will want to provide extra available RAM and CPU resources to the Linux VM to make the testnet perform better.
+Por lo general, preferirás asignar los recursos adicionales de RAM y CPU a la máquina virtual Linux para que la red de pruebas ofrezca un mejor rendimiento.
 
-#### Install Xubuntu 18.04 amd64
+#### Instala Xubuntu 18.04 amd64
 
-* [Download Xubuntu 18.04 amd64 ISO](https://xubuntu.org/release/18-04/)
+* [Descarga la ISO de Xubuntu 18.04 amd64](https://xubuntu.org/release/18-04/)
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    We strongly recommend Xubuntu over Ubuntu for VirtualBox guests.
-    Ubuntu presents a range of visual lag issues and is prone to total visual lockup when VirtualBox tools are installed.
+    <strong>Aviso:</strong>
+    Para crear invitados en VirtualBox, recomendamos sin lugar a dudas Xubuntu frente a Ubuntu.
+    Ubuntu presenta una serie de problemas de retardo a nivel visual y tiende a producir cuelgues totales de vídeo cuando se instalan las herramientas de VirtualBox.
   </p>
 </div>
 
-Use the ISO you downloaded to install Xubuntu in the VM.
+Usa la ISO descargada para instalar Xubuntu en la máquina virtual.
 
-#### (Optional) Install VirtualBox Guest Additions
+#### (Opcional) Instala adiciones de invitados de VirtualBox
 
 Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
 
 [Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
 
-### Configure Inter-Guest Networking
+### Configura la red de comunicaciones entre invitados
 
-We need to establish an "internal" network that our Linux and Windows VMs will use to communicate with one another.
+Necesitamos establecer una red interna para que nuestras máquinas virtuales de Linux y Windows puedan comunicarse entre sí.
 
-Before we get started, shut down both the Linux and the Windows Guests.
+Antes de empezar, apaga tanto el invitado de Linux como el de Windows.
 
-On your Windows Host, open a PowerShell and change to the VirtualBox installation directory:
+En tu host de Windows, abre una instancia de PowerShell y desplázate hasta el directorio de instalación de VirtualBox:
 
 ```powershell
 PS > pushd $Env:Programfiles\Oracle\VirtualBox
 ```
 
-You should now see your command prompt look similar to this:
+Tu indicador de entrada de comandos debería ser similar a esto:
 
 ```powershell
 PS C:\Program Files\Oracle\VirtualBox>
 ```
 
-#### Create Internal PolySwarm Network
+#### Crea una red PolySwarm interna
 
-Create and assign a dedicated PolySwarm internal network to each VM.
+Crea y asigna una red interna específica de Polyswarm a cada máquina virtual.
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    These commands will reconfigure network adapter #5 on your VMs.
-    If you are already using this adapter (very unlikely), change the number in the commands.
+    <strong>Aviso:</strong>
+    Estos comandos reconfigurarán el adaptador de red #5 en tus máquinas virtuales.
+    Si ya lo estás usando, lo cual es poco probable, cambia su número a continuación.
   </p>
 </div>
 
@@ -145,34 +145,34 @@ PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    For more information on internal networking in VirtualBox, refer to their <a href="https://www.virtualbox.org/manual/ch06.html#network_internal">official documentation</a>.
+    <strong>Información:</strong>
+    Para saber más sobre cómo crear redes internas en VirtualBox, consulta su <a href="https://www.virtualbox.org/manual/ch06.html#network_internal">documentación oficial</a>.
   </p>
 </div>
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    You will not see an "adapter #5" listed in your VM settings or inside your VM.
-    What you will see is that your VM will have at least 2 active network adapters and by
-    adding "polyswarm_net" to adapter 5, it should be easier to find because it will be the
-    highest numbered network interface in your VM.
+    <strong>Aviso:</strong>
+    No verás un "adaptador #5" enumerado en la configuración de la máquina virtual ni dentro de ella.
+    Lo que sí verás es que tu máquina virtual tendrá al menos dos adaptadores de red activos y, al
+    añadir <code>"polyswarm_net"</code> al adaptador #5, debería ser más fácil encontrarlo, al convertirse en
+    la interfaz de red con el número más alto dentro de la máquina virtual.
   </p>
 </div>
 
-#### Configure Virtual Machines with Static IP Addresses
+#### Configura las máquinas virtuales con direcciones IP estáticas
 
-Boot the `polyswarm_lin` VM and edit your network settings to assign the following static IPv4 information to the new adapter:
+Arranca la máquina virtual `polyswarm_lin` y edita la configuración de red para asignar al nuevo adaptador los siguientes datos de IPv4 estática:
 
-* address: `10.10.42.101`
-* netmask: `255.255.255.0`
-* gateway: `10.10.42.1`
+* Dirección: `10.10.42.101`
+* Máscara de red: `255.255.255.0`
+* Puerta de enlace: `10.10.42.1`
 
-If it is unclear which network interface you should apply these settings to, run the `ifconfig -a` command, and in the output you should see multiple network interfaces that start with `enp0s`. The interface with the largest number after that prefix is usually the one you want to modify.
+Si no te queda claro a qué interfaz de red debes aplicar estos ajustes, ejecuta el comando `ifconfig -a`: la salida resultante debería incluir varias interfaces de red que empiecen por `enp0s`. Normalmente, la interfaz que se modificará será la que posea el número más alto tras ese prefijo.
 
-Boot the `polyswarm_win` VM and edit your network settings to configure the new adapter for these static IPv4 settings:
+Arranca la máquina virtual `polyswarm_win` y edita la configuración de red para que el nuevo adaptador use estos valores de IPv4 estática:
 
-* address: `10.10.42.102`
+* Dirección: `10.10.42.102`
 * netmask: `255.255.255.0`
 * gateway: `10.10.42.1`
 
