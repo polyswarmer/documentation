@@ -1,192 +1,192 @@
-# Privacy Policy
+# 개인정보 보호정책
 
-**Date Posted: 02 September 2017**
+**게시일: 2017년 9월 2일**
 
-**Last Updated (effective date): 05 October 2018**
+**최근 개정일(효력 발생일): 2018년 10월 5일**
 
-Thank you for choosing to be part of our community at PolySwarm Pte. Ltd. ("Company", "we", "us", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at <privacy@polyswarm.io>.
+PolySwarm Pte. Ltd. (이하 "회사", "당사", "우리" 또는 "당사의"라고 함) 커뮤니티의 일원이 되어 주셔서 감사합니다. 당사는 개인정보 및 개인정보 관련 권리를 보호하기 위하여 최선을 다하고 있습니다. 당사의 정책 또는 개인정보와 관련된 업무에 대하여 질문이나 우려사항이 있는 경우 <privacy@polyswarm.io>로 문의해 주시기 바랍니다.
 
-When you visit our website (https://polyswarm.io), and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy notice, we describe our privacy policy. We seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our Sites and our services.
+귀하께서 당사의 웹사이트(https://polyswarm.io)를 방문하고 서비스를 이용하실 경우 개인정보와 관련하여 당사를 신뢰하시는 것으로 간주됩니다. 당사는 개인정보를 매우 엄격하게 취급합니다. 본 개인정보 보호정책에는 당사의 개인정보 관련 정책이 설명되어 있습니다. 당사가 수집하는 정보, 사용하는 방법 및 이와 관련하여 귀하께서 보유하는 권리에 대하여 최대한 명확하게 설명해드리고자 합니다. 이 내용은 매우 중요하므로 시간을 내어 전문을 신중하게 읽어 주시기 바랍니다. 본 개인정보 보호정책에 동의하지 않는 조건이 있는 경우, 당사의 사이트와 서비스의 이용을 중지해 주십시오.
 
-This privacy policy applies to all information collected through our website (such as https://polyswarm.io), and/or any related services, sales, marketing or events (we refer to them collectively in this privacy policy as the "Sites").
+본 개인정보 보호정책은 당사의 웹사이트(예: https://polyswarm.io) 및 이와 관련된 모든 서비스, 판매, 마케팅 또는 이벤트(이하 본 개인정보 보호정책에서 통틀어 "사이트"라고 함)를 통해 수집된 모든 정보에 적용됩니다.
 
-PLEASE READ THIS PRIVACY POLICY CAREFULLY AS IT WILL HELP YOU MAKE INFORMED DECISIONS ABOUT SHARING YOUR PERSONAL INFORMATION WITH US.
+본 개인정보 보호정책은 귀하께서 당사와 개인정보를 공유할 때 정보를 바탕으로 현명한 결정을 내리실 수 있도록 도와드리는 문서이므로 신중하게 읽어 주시기 바랍니다.
 
-#### What Information Do We Collect?
+#### 수집되는 정보는 무엇입니까?
 
-**Personal information you disclose to us**
+**귀하께서 당사에 공개하시는 개인정보**
 
-**In Short:** We collect personal information that you provide to us such as name, address, contact information, passwords and security data, payment information, and social media login data.
+**요약:** 당사는 이름, 주소, 연락처, 비밀번호 및 보안 데이터, 결제 정보, 소셜 미디어 로그인 데이터 등 귀하께서 당사에 제공해 주시는 개인정보를 수집합니다.
 
-We collect personal information that you voluntarily provide to us when registering at the Sites expressing an interest in obtaining information about us or our products and services, when participating in activities on the Sites or otherwise contacting us.
+당사는 귀하께서 당사나 당사의 제품 및 서비스에 대한 정보를 얻고자 사이트에 가입할 때, 사이트의 활동에 참여할 때 또는 기타 당사에 연락할 때 자발적으로 제공해 주신 개인정보를 수집합니다.
 
-The personal information that we collect depends on the context of your interactions with us and the Sites, the choices you make and the products and features you use. The personal information we collect can include the following:
+당사가 수집하는 개인정보는 귀하와 당사 및 사이트 사이에서 발생한 상호작용의 상황, 귀하의 선택 및 사용하시는 제품과 기능에 따라 달라질 수 있습니다. 당사가 수집하는 개인정보에 포함되는 항목은 다음과 같습니다.
 
-Name and Contact Data. We collect your first and last name, email address, postal address, phone number, and other similar contact data.
+이름 및 연락처 데이터. 당사는 귀하의 이름과 성, 이메일 주소, 우편주소, 전화번호 및 기타 이와 유사한 연락처 데이터를 수집합니다.
 
-Credentials. We collect passwords, password hints, and similar security information used for authentication and account access.
+자격 증명. 당사는 인증 및 계정 액세스를 위하여 사용된 비밀번호, 비밀번호 힌트 및 이와 유사한 보안 정보를 수집합니다.
 
-Payment Data. We collect data necessary to process your payment if you make purchases, such as your payment instrument number (such as a credit card number), and the security code associated with your payment instrument. All payment data is stored by our payment processor and you should review its privacy policies and contact the payment processor directly to respond to your questions.
+결제 데이터. 당사는 귀하께서 구매하신 경우 결제 수단 번호(예: 신용카드 번호), 결제 수단과 관련된 보안 코드 등 결제를 처리하는 데 필요한 데이터를 수집합니다. 모든 결제 데이터는 당사의 결제 처리 대행사에 저장되며, 질문이 있을 경우 해당 회사의 개인정보 보호정책을 검토하고 결제 처리 대행사에 직접 문의하셔야 합니다.
 
-Social Media Login Data. We provide you with the option to register using social media account details, like your Facebook, Twitter or other social media account. If you choose to register in this way, we will collect the Information described in the section called "How Do We Handle Your Social Logins" below.
+소셜 미디어 로그인 데이터. 당사는 Facebook, Twitter 또는 기타 소셜 미디어 계정 등 소셜 미디어 계정 정보를 사용해 가입할 수 있는 옵션을 제공합니다. 귀하께서 이러한 방식으로 가입하실 경우, 당사는 아래의 "사용자의 소셜 로그인 정보를 어떻게 처리합니까?" 섹션에 기재된 정보를 수집합니다.
 
-All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information.
+귀하께서 제공하신 모든 개인정보는 진실하고 완전하며 정확해야 합니다. 또한, 해당 개인정보가 변경된 경우 당사에 통지해 주셔야 합니다.
 
-**Information automatically collected**
+**자동으로 수집되는 정보**
 
-**In Short:** Some information - such as IP address and/or browser and device characteristics - is collected automatically when you visit our Sites.
+**요약:** 귀하께서 당사의 사이트를 방문하실 때 IP 주소, 브라우저, 장치 속성과 같은 일부 정보가 자동으로 수집됩니다.
 
-We automatically collect certain information when you visit, use or navigate the Sites. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Sites and other technical information. This information is primarily needed to maintain the security and operation of our Sites, and for our internal analytics and reporting purposes.
+당사는 귀하께서 사이트를 방문, 이용 또는 탐색하실 때 특정 정보를 자동으로 수집합니다. 이러한 정보는 귀하의 구체적인 신원 정보(이름이나 연락처 정보 등)를 드러내지 않습니다. 하지만, IP 주소, 브라우저 및 장치 속성, 운영 체제, 언어 설정, 참조 URL, 장치 이름, 국가, 위치, 당사의 사이트를 이용한 방식과 시기에 대한 정보 및 기타 기술적인 정보와 같은 장치 및 이용 현황 정보가 포함될 수 있습니다. 이러한 정보는 주로 사이트의 보안과 운영을 유지하고, 내부적인 분석과 보고를 수행하기 위하여 필요합니다.
 
-Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in the "Cookies Policy" section below.
+다른 많은 기업처럼 당사도 쿠키 및 이와 유사한 기술을 통해 정보를 수집합니다. 아래의 "쿠키 정책"에서 더 자세한 내용을 확인하실 수 있습니다.
 
-**Information collected from other sources**
+**다른 정보원에서 수집되는 정보**
 
-**In Short:** We may collect limited data from public databases, marketing partners, social media platforms, and other outside sources.
+**요약:** 당사는 제한적으로 공개 데이터베이스, 마케팅 파트너, 소셜 미디어 플랫폼 및 기타 외부 정보원에서 데이터를 수집할 수 있습니다.
 
-We may obtain information about you from other sources, such as public databases, joint marketing partners, social media platforms (such as Facebook), as well as from other third parties. Examples of the information we receive from other sources include: social media profile information (your name, gender, birthday, email, current city, state and country, user identification numbers for your contacts, profile picture URL and any other information that you choose to make public); marketing leads and search results and links, including paid listings (such as sponsored links).
+당사는 공개 데이터베이스, 공동 마케팅 파트너, 소셜 미디어 플랫폼(Facebook 등) 및 기타 제3자 등 다른 정보원으로부터 귀하에 관한 정보를 얻을 수 있습니다. 당사가 다른 정보원으로부터 받는 정보의 예: 소셜 미디어 프로필 정보(귀하의 이름, 성별, 생년월일, 이메일, 현재 거주하는 도시, 주 및 국가, 연락처용 사용자 신원 확인 번호, 프로필 사진 URL 및 귀하께서 공개하신 기타 정보), 마케팅 리드 및 검색 결과와 링크(스폰서 링크를 비롯한 유료 리스팅 포함).
 
-#### How Do We Use Your Information?
+#### 사용자의 정보는 어떻게 사용됩니까?
 
-**In Short:** We process your information for purposes based on legitimate business interests, the fulfillment of our contract with you, compliance with our legal obligations, and/or your consent.
+**요약:** 당사는 합법적인 사업 목적, 귀하와 체결한 계약의 이행, 법적 의무 준수 및/또는 귀하의 동의에 근거한 목적을 달성하기 위하여 귀하의 정보를 처리합니다.
 
-We use personal information collected via our Sites for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests ("Business Purposes"), in order to enter into or perform a contract with you ("Contractual"), with your consent ("Consent"), and/or for compliance with our legal obligations ("Legal Reasons"). We indicate the specific processing grounds we rely on next to each purpose listed below.
+당사는 당사의 사이트를 통해 수집된 개인정보를 아래에 기재된 다양한 사업상의 목적으로 사용합니다. 당사는 합법적인 사업 목적("사업 목적"), 귀하와의 계약 체결 및 이행("계약"), 귀하의 동의("동의") 및/또는 법적 의무 준수("법적 사유")에 근거한 목적을 달성하기 위하여 귀하의 개인정보를 처리합니다. 아래에 나열된 각 목적의 옆에 구체적인 처리 근거를 표시하였습니다.
 
-We use the information we collect or receive:
+당사는 다음과 같은 목적으로 수집하거나 받은 정보를 사용합니다.
 
-*     To facilitate account creation and login process. See the section below headed "How We Handle Your Social Logins" for further information.
+*     계정 생성 및 로그인 절차를 원활하게 하기 위한 목적. 자세한 내용은 아래의 "사용자의 소셜 로그인 정보를 어떻게 처리합니까?" 섹션을 참조해 주십시오.
      
 
-*     To send you marketing and promotional communications for Business Purposes and/or with your Consent. We and/or our third party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt-out of our marketing emails at any time (see the "What Are Your Privacy Rights" section below).
+*     사업 목적 및/또는 귀하의 동의에 따라 마케팅 및 프로모션 정보를 보내드리기 위한 목적. 귀하의 마케팅 선호 사항에 부합하는 경우, 당사 및/또는 당사의 제3자 마케팅 파트너는 당사의 마케팅 목적으로 귀하께서 당사에 제공하신 개인정보를 사용할 수 있습니다. 귀하께서는 언제든 마케팅 이메일 수신을 거부하실 수 있습니다(아래의 "사용자가 보유한 개인정보 관련 권리는 무엇입니까?" 섹션을 참조하십시오).
      
 
-*     To send administrative information to you for Business Purposes, Legal Reasons and/or possibly for Contractual. We may use your personal information to send you product, service and new feature information and/or information about changes to our terms, conditions, and policies.
+*     사업 목적, 법적 사유 및/또는 계약에 따라 관리적인 정보를 보내드리기 위한 목적. 당사는 제품, 서비스와 신기능 정보 및/또는 당사의 약관, 조건 및 정책의 변경에 대한 정보를 보내드리기 위하여 귀하의 개인정보를 사용할 수 있습니다.
      
 
-*     Deliver targeted advertising to you for our Business Purposes and/or with your Consent. We may use your information to develop and display content and advertising (and work with third parties who do so) tailored to your interests and/or location and to measure its effectiveness. For more information, see the "Cookie Policy" section below.
+*     당사의 사업 목적 및/또는 귀하의 동의에 따라 사용자 맞춤형 광고를 제공하기 위한 목적. 당사는 귀하의 정보를 사용해 귀하의 관심사 및/또는 위치에 맞는 콘텐츠와 광고를 개발 및 표시하고 (또는, 이러한 작업을 수행하는 제3자와 협력할 수 있습니다), 그 효과를 측정할 수 있습니다. 자세한 내용은 아래의 "쿠키 정책" 섹션을 참조하십시오.
      
 
-*     Administer prize draws and competitions for our Business Purposes and/or with your Consent. We may use your information to administer prize draws and competitions when you elect to participate in competitions.
+*     당사의 사업 목적 및/또는 귀하의 동의에 따라 상품 추첨 및 대회를 관리하기 위한 목적. 귀하께서 대회에 참가하시는 경우 당사는 상품 추첨 및 대회를 관리하기 위하여 귀하의 정보를 사용할 수 있습니다.
      
 
-*     To protect our Sites for Business Purposes and/or for Legal Reasons. We may use your information as part of our efforts to keep our Sites safe and secure (for example, for fraud monitoring and prevention).
+*     당사의 사업 목적 및/또는 법적 사유에 따라 사이트를 보호하기 위한 목적. 당사는 당사의 사이트를 안전하게 보호하기 위한 노력의 일환으로 귀하의 정보를 사용할 수 있습니다(예: 사기 감시 및 방지).
      
 
-*     To enforce our terms, conditions and policies for Business Purposes, Legal Reasons and/or possibly Contractual.
+*     당사의 사업 목적, 법적 사유 및 계약에 따라 약관, 조건 및 정책을 개선하기 위한 목적.
      
 
-*     To respond to legal requests and prevent harm for Legal Reasons. If we receive a subpoena or other legal request, we may need to inspect the data we hold to determine how to respond.
+*     법적 사유에 따라 법적 요청에 대응하고 피해를 방지하기 위한 목적. 당사가 소환장 또는 기타 법적 요청을 받은 경우 대응 방법을 결정하기 위하여 보유한 데이터를 조사해야 할 수 있습니다.
      
 
-*     For other Business Purposes. We may use your information for other Business Purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Sites, products, services, marketing and your experience.
+*     기타 사업 목적. 당사는 데이터 분석, 사용 동향 확인, 프로모션 캠페인의 효과 판단, 당사의 사이트, 제품, 서비스, 마케팅 및 귀하의 경험에 대한 평가 및 개선 등의 기타 사업 목적으로 귀하의 정보를 사용할 수 있습니다.
      
 
-#### Will Your Information Be Shared with Anyone?
+#### 사용자의 정보를 타인과 공유합니까?
 
-**In Short:** We only share information with your consent, to comply with laws, to protect your rights, or to fulfill business obligations.
+**요약:** 당사는 귀하의 동의가 있을 때, 법률을 준수하기 위해, 귀하의 권리를 보호하기 위해 또는 사업상의 의무를 이행하기 위해서만 정보를 공유합니다.
 
-We only share and disclose your information in the following situations:
+당사는 다음과 같은 상황에서 귀하의 정보를 공유하고 공개합니다.
 
-*     Compliance with Laws. We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process, such as in response to a court order or a subpoena (including in response to public authorities to meet national security or law enforcement requirements).
+*     법률 준수. 당사는 법원 명령 또는 소환장에 대한 대응(국가 안보 또는 사법 당국의 요구를 충족시키기 위하여 공공 기관에 대응하는 경우 포함) 등 관련 법률, 정부 요청, 사법 절차, 법원 명령 또는 법적 절차를 준수하기 위하여 법적으로 필요한 경우 귀하의 정보를 공개할 수 있습니다.
      
 
-*     Vital Interests and Legal Rights. We may disclose your information where we believe it is necessary to investigate, prevent, or take action regarding potential violations of our policies, suspected fraud, situations involving potential threats to the safety of any person and illegal activities, or as evidence in litigation in which we are involved.
+*     중요한 목적 및 법적 권리. 당사는 당사 정책의 잠재적인 위반, 사기 혐의, 어떤 사람의 안전에 잠재적인 위협이 있는 상황 및 불법적인 행위에 대응하거나 당사가 관여된 소송의 증거를 확보하기 위하여 조사, 방지 또는 조치가 필요하다고 판단된 경우 귀하의 정보를 공개할 수 있습니다.
      
 
-*     Vendors, Consultants and Other Third-Party Service Providers. We may share your data with third party vendors, service providers, contractors or agents who perform services for us or on our behalf and require access to such information to do that work. Examples include: payment processing, data analysis, email delivery, hosting services, customer service and marketing efforts. We may allow selected third parties to use tracking technology on the Sites, which will enable them to collect data about how you interact with the Sites over time. This information may be used to, among other things, analyze and track data, determine the popularity of certain content and better understand online activity. Unless described in this Policy, we do not share, sell, rent or trade any of your information with third parties for their promotional purposes.
+*     공급업체, 컨설턴트 및 기타 제3자 서비스 제공업체. 당사는 당사를 위해서나 당사를 대신해서 서비스를 수행하는 제3자 공급업체, 서비스 제공업체, 계약자 또는 대리인이 해당 서비스를 수행하기 위하여 관련 정보에 접근해야 하는 경우 이들과 귀하의 데이터를 공유할 수 있습니다. 예: 결제 처리, 데이터 분석, 이메일 전송, 호스팅 서비스, 고객 서비스 및 마케팅 활동. 당사는 제3자를 선택하여 사이트에서 추적 기술을 사용하도록 허가할 수 있으며, 이 경우 해당 제3자는 시간별로 귀하께서 사이트와 어떻게 상호작용했는지에 대한 데이터를 수집할 수 있습니다. 이러한 정보는 데이터 분석 및 추적, 특정 콘텐츠의 인기 판단, 온라인 활동에 대한 이해 증진 등의 목적에 사용될 수 있습니다. 본 정책에 기재되지 않은 이상, 당사는 제3자의 프로모션 목적을 위하여 제3자와 귀하의 정보를 공유, 판매, 임대 또는 거래하지 않습니다.
      
 
-*     Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.
+*     사업 이전. 당사는 합병, 회사 자산 매각, 자금 조달 또는 타사에 의한 당사의 사업 전부나 일부의 인수와 관련된 경우 또는 이에 관한 협상이 진행되는 동안 귀하의 정보를 공유하거나 이전할 수 있습니다.
      
 
-*     With your Consent. We may disclose your personal information for any other purpose with your consent.
+*     귀하의 동의. 당사는 귀하의 동의가 있는 경우 기타 목적을 위하여 귀하의 개인정보를 공개할 수 있습니다.
      
 
-#### Do We Use Cookies and Other Tracking Technologies?
+#### 쿠키 및 기타 추적 기술을 사용합니까?
 
-**In Short:** We may use cookies and other tracking technologies to collect and store your information.
+**요약:** 당사는 쿠키 및 기타 추적 기술을 사용해 귀하의 정보를 수집하고 저장할 수 있습니다.
 
-We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in the "Cookie Policy" section below.
+당사는 쿠키 및 이와 유사한 추적 기술(웹 비콘과 픽셀 등)을 사용해 정보에 접근하거나 이를 저장할 수 있습니다. 당사가 이러한 기술을 사용하는 방법과 특정 쿠키를 거부하는 방법은 아래의 "쿠키 정책" 섹션에 기재되어 있습니다.
 
-#### How Do We Handle Your Social Logins?
+#### 사용자의 소셜 로그인 정보를 어떻게 처리합니까?
 
-**In Short:** If you choose to register or log in to our websites using a social media account, we may have access to certain information about you.
+**요약:** 귀하께서 소셜 미디어 계정을 사용하여 당사의 웹사이트에 가입하거나 로그인하신 경우, 당사는 귀하에 대한 일부 정보에 접근할 수 있습니다.
 
-Our Sites offer you the ability to register and login using your third party social media account details (like your Facebook or Twitter logins). Where you choose to do this, we will receive certain profile information about you from your social media provider. The profile Information we receive may vary depending on the social media provider concerned, but will often include your name, e-mail address, friends list, profile picture as well as other information you choose to make public.
+당사의 사이트는 제3자 소셜 미디어 계정 정보(Facebook 또는 Twitter 로그인 정보 등)를 사용하여 가입하고 로그인할 수 있는 기능을 제공합니다. 귀하께서 이 기능을 사용하시는 경우, 당사는 귀하의 소셜 미디어 제공업체로부터 귀하에 대한 일부 프로필 정보를 받습니다. 당사가 받는 프로필 정보는 관련된 소셜 미디어 제공업체에 따라 달라질 수 있습니다. 하지만, 일반적으로 이름, 이메일 주소, 친구 목록, 프로필 사진 및 귀하께서 공개하신 기타 정보가 포함됩니다.
 
-We will use the information we receive only for the purposes that are described in this privacy policy or that are otherwise made clear to you on the Sites. Please note that we do not control, and are not responsible for, other uses of your personal information by your third party social media provider. We recommend that you review their privacy policy to understand how they collect, use and share your personal information, and how you can set your privacy preferences on their sites and apps.
+당사는 이렇게 받은 정보를 본 개인정보 보호정책에 기재되어 있거나 그 밖의 방법으로 사이트에서 귀하께 명확히 밝힌 목적으로만 사용합니다. 귀하의 제3자 소셜 미디어 제공업체가 다른 용도로 귀하의 개인정보를 사용할 경우 당사는 이를 통제하지 않으며, 책임을 부담하지 않음을 양지하시기 바랍니다. 해당 제공업체의 개인정보 보호정책을 검토하여 개인정보를 수집, 사용 및 공유하는 방법을 확인하고, 해당 사이트와 앱에서 개인정보 환경을 설정하는 방법에 대하여 알아보실 것을 권장합니다.
 
-#### Is Your Information Transferred Internationally?
+#### 해외로 사용자의 정보를 이전합니까?
 
-**In Short:** We may transfer, store, and process your information in countries other than your own.
+**요약:** 당사는 귀하께서 거주하시는 국가 이외의 곳으로 귀하의 정보를 이전, 저장 및 처리할 수 있습니다.
 
-Our servers are located in the U.S. If you are accessing our Sites from outside, please be aware that your information may be transferred to, stored, and processed by us in our facilities and by those third parties with whom we may share your personal information (see "Will Your Information Be Shared with Anyone?" above), in the U.S. and other countries.
+당사의 서버는 미국에 위치합니다. 귀하께서 외부에서 당사의 사이트에 접속하실 경우, 미국이나 기타 국가에 위치한 당사의 시설에 또는 귀하의 개인정보를 공유하는 제3자(위의 "사용자의 정보를 타인과 공유합니까?" 섹션을 참조하십시오)에게 귀하의 정보를 이전, 저장 및 처리할 수 있음을 양지하시기 바랍니다.
 
-If you are a resident in the European Economic Area, then these countries may not have data protection or other laws as comprehensive as those in your country. We will however take all necessary measures to protect your personal information in accordance with this privacy policy and applicable law.
+귀하께서 유럽 경제 지역에 거주하시는 경우, 이러한 국가는 귀하께서 거주하시는 국가만큼 포괄적인 데이터 보호 또는 기타 법률이 없을 수 있습니다. 하지만, 당사는 본 개인정보 보호정책과 관련 법률에 따라 귀하의 개인정보를 보호하기 위하여 필요한 모든 조치를 취하겠습니다.
 
-#### How Long Do We Keep Your Information?
+#### 사용자의 정보는 얼마나 오래 보관합니까?
 
-**In Short:** We keep your information for as long as necessary to fulfill the purposes outlined in this privacy policy unless otherwise required by law.
+**요약:** 법률이 달리 요구하지 않는 한, 당사는 본 개인정보 보호정책에 기재된 목적을 달성하는 데 필요한 기간 동안 귀하의 정보를 보관합니다.
 
-We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law (such as tax, accounting or other legal requirements). No purpose in this policy will require us keeping your personal information for longer than the period of time in which users have an account with us.
+더 오랜 기간의 보유가 필요하거나 법률로 허용된 경우(예: 세무, 회계 또는 기타 법적 요구 사항)가 아닌 한, 당사는 본 개인정보 보호정책에 기재된 목적을 달성하기 위하여 필요한 기간 동안만 귀하의 정보를 보관합니다. 사용자의 계정 보유 기간보다 더 오랜 기간 동안 개인정보를 보관하도록 하는 목적은 본 정책에 존재하지 않습니다.
 
-When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize it, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
+개인정보를 처리할 사업상 타당한 필요성이 없는 경우, 당사는 해당 정보를 삭제하거나 익명화합니다. 또는 이러한 처리가 불가능한 경우(예: 개인정보가 백업 아카이브에 저장된 경우) 당사는 개인정보를 안전하게 보관하고, 삭제가 가능해질 때까지 추가로 처리되지 않도록 격리합니다.
 
-#### How Do We Keep Your Information Safe?
+#### 사용자의 정보에 대한 보안은 어떻게 유지합니까?
 
-**In Short:** We aim to protect your personal information through a system of organizational and technical security measures.
+**요약:** 당사는 조직적, 기술적 보안 대책을 갖춘 시스템을 통하여 개인정보를 보호하고자 합니다.
 
-We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Sites is at your own risk. You should only access the services within a secure environment.
+당사는 처리하는 모든 개인정보의 보안을 유지하도록 설계된 기술적, 조직적 보안 대책을 시행하고 있습니다. 하지만, 인터넷 자체가 100% 안전하다고 보장할 수는 없음에 유의해 주십시오. 당사는 최선을 다하여 개인정보를 보호합니다. 하지만, 당사의 사이트를 오고 가는 개인정보의 전송은 전적으로 귀하께서 책임을 부담합니다. 귀하께서는 안전한 환경에서만 서비스에 접근하셔야 합니다.
 
-#### Do We Collect Information from Minors?
+#### 미성년자의 정보를 수집합니까?
 
-**In Short:** We do not knowingly collect data from or market to children under 18 years of age.
+**요약:** 당사는 고의로 18세 미만 미성년자의 데이터를 수집하거나, 이들을 대상으로 마케팅을 하지 않습니다.
 
-We do not knowingly solicit data from or market to children under 18 years of age. By using the Sites, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Sites. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at <privacy@polyswarm.io>.
+당사는 고의로 18세 미만 미성년자의 데이터를 얻으려고 하거나, 이들을 대상으로 마케팅을 하지 않습니다. 본 사이트를 이용할 경우 귀하께서는 최소 18세 이상이거나, 미성년자의 부모 또는 후견인으로서 해당 미성년자가 본 사이트를 이용하는 데 동의하는 것으로 간주됩니다. 만 18세 미만인 사용자의 개인정보가 수집된 사실을 인지한 경우, 당사는 해당 계정을 비활성화하고 적절한 조치를 취하여 즉시 해당 데이터를 당사의 기록에서 삭제합니다. 당사가 18세 미만의 미성년자에게서 데이터를 수집한 사실을 인지하신 경우, <privacy@polyswarm.io>로 연락해 주시기 바랍니다.
 
-#### What Are Your Privacy Rights?
+#### 사용자가 보유한 개인정보 관련 권리는 무엇입니까?
 
-**In Short:** In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.
+**요약:** 유럽 경제 지역을 비롯한 일부 지역에서는 개인정보에 대하여 더 많은 접근과 통제가 가능한 권리가 부여됩니다. 귀하께서는 언제든 귀하의 계정을 검토, 변경 또는 해지하실 수 있습니다.
 
-In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws.
+귀하께서는 일부 지역(유럽 경제 지역 등)에서 관련 데이터 보호법에 따라 특정한 권리를 보유합니다. 여기에는 (i) 개인정보의 사본에 대한 접근 및 취득을 요청할 권리 (ii) 정정 또는 삭제를 요청할 권리 (iii) 개인정보의 처리를 제한할 권리 및 (iv) 해당하는 경우, 개인정보 이동권이 포함될 수 있습니다. 또한, 특정한 상황에서 개인정보의 처리를 거부할 권리를 보유합니다. 이러한 요청을 하시려면 아래에 기재된 연락처 정보를 이용하시기 바랍니다. 당사는 관련 데이터 보호법에 따라 모든 요청을 고려하고 대응하겠습니다.
 
-If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.
+당사가 귀하의 동의에 의거하여 개인정보를 처리하는 경우, 귀하께서는 언제든 동의를 철회할 권리가 있습니다. 그러나, 철회 이전에 발생한 처리의 적법성에는 영향을 미치지 않음에 유의하시기 바랍니다.
 
-If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm>.
+또한, 귀하께서 유럽 경제 지역의 거주하고 당사가 불법적으로 개인정보를 처리하고 있다고 판단하신 경우, 현지 데이터 보호 감독 당국에 불만을 제기할 권리가 있습니다. 연락처 정보는 <http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm>에서 찾아보실 수 있습니다.
 
-**Account information**
+**계정 정보**
 
-If you would at any time like to review or change the information in your account or terminate your account, you can:
+언제든 귀하의 계정 정보를 검토하거나 변경하려는 경우 또는 계정을 해지하려는 경우 다음과 같이 작업하시면 됩니다.
 
-* Log into your account settings and update your account.
+* 계정 설정에 로그인하여 계정을 업데이트합니다.
 
-Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use and/or comply with legal requirements.
+계정 해지 요청이 있으면 당사는 사용 중인 데이터베이스에서 귀하의 계정과 정보를 비활성화하거나 삭제합니다. 하지만, 일부 정보는 사기 방지, 문제 해결, 조사 지원, 이용 약관 집행 및/또는 법적 요구 사항 준수를 위하여 당사에 보관될 수 있습니다.
 
-Cookies and similar technologies: Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Sites. For further information, visit <http://www.aboutads.info/choices/>. You can also learn more in the "Cookie Policy" section below.
+쿠키 및 이와 유사한 기술: 대부분의 웹 브라우저는 기본적으로 쿠키를 허용하도록 설정되어 있습니다. 원하실 경우 쿠키를 제거하고 거부하도록 브라우저를 설정하실 수 있습니다. 쿠키를 삭제하거나 거부하실 경우 당사의 사이트의 일부 기능 또는 서비스에 영향을 미칠 수 있습니다. 자세한 정보는 <http://www.aboutads.info/choices/>를 참조하십시오. 아래의 "쿠키 정책"에서도 자세한 내용을 확인하실 수 있습니다.
 
-Opting out of email marketing:
+이메일 마케팅 수신 거부:
 
-You can unsubscribe from our marketing email list at any time by clicking on the unsubscribe link in the emails that we send or by contacting us using the details provided below. You will then be removed from the marketing email list – however, we will still need to send you service-related emails that are necessary for the administration and use of your account. To otherwise opt-out, you may:
+언제든 당사의 마케팅 이메일 목록에서 수신을 취소하실 수 있습니다. 보내드린 이메일의 수신 취소 링크를 클릭하거나 아래에 기재된 연락처 정보를 사용하여 문의하시기 바랍니다. 그러면 귀하께서는 마케팅 이메일 목록에서 삭제됩니다. 하지만, 계정 관리 및 사용에 필요한 서비스 관련 이메일은 계속해서 보내드립니다. 수신을 거부하려면 다음과 같이 작업하시면 됩니다.
 
-* Access your account settings and update preferences.
+* 계정 설정으로 이동해서 환경 설정을 업데이트합니다.
 
-#### Do California Residents Have Specific Privacy Rights?
+#### 캘리포니아 주민은 특정한 개인정보 관련 권리를 보유합니까?
 
-**In Short:** Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.
+**요약:** 예. 캘리포니아에 거주하시는 경우, 개인정보에 대한 접근과 관련하여 특정한 권리가 부여됩니다.
 
-California Civil Code Section 1798.83, also known as the "Shine The Light" law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
+“불을 비추는(Shine the Light)” 법이라고 알려진 캘리포니아 민법 제1798.83항에 따라 캘리포니아 주민인 사용자는 일 년에 한 번씩 무료로 (해당하는 경우) 당사가 제3자에게 직접 마케팅 목적으로 공개한 개인정보의 유형 및 당사가 직전 연도에 개인정보를 공유한 모든 제3자의 이름과 주소에 관한 정보를 요청하고 취득할 수 있습니다. 캘리포니아 주민으로서 이러한 요청을 하시려는 경우 아래에 기재된 연락처 정보를 사용하여 서면으로 요청서를 제출해 주시기 바랍니다.
 
-If you are under 18 years of age, reside in California, and have a registered account with the Sites, you have the right to request removal of unwanted data that you publicly post on the Sites. To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Sites, but please be aware that the data may not be completely or comprehensively removed from our systems.
+귀하께서 만 18세 미만의 캘리포니아 주민이고 본 사이트에 등록된 계정이 있는 경우 본 사이트에 공개적으로 게시하고 싶지 않은 데이터를 삭제하도록 요청할 권리가 있습니다. 데이터의 삭제 요청을 하시려는 경우 아래에 기재된 연락처 정보를 사용하여 당사에 문의해 주시기 바랍니다. 이때 귀하의 계정과 연관된 이메일 주소를 기재하고 귀하께서 캘리포니아에 거주하고 있음을 명시해 주십시오. 당사는 해당 데이터가 본 사이트에 공개적으로 표시되지 않도록 하겠습니다. 하지만, 해당 데이터가 당사의 시스템에서 완전히 삭제되지 않을 수도 있음을 양지하시기 바랍니다.
 
-#### Cookie Policy
+#### 쿠키 정책
 
-**What are cookies?**
+**쿠키는 무엇입니까?**
 
-Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.
+쿠키는 작은 데이터 파일로서 귀하께서 웹사이트를 방문하실 때 컴퓨터나 모바일 장치에 설치됩니다. 웹사이트 소유자들은 웹사이트를 작동하도록 하거나 더 효율적으로 기능하도록 하기 위하여 또는 보고 정보를 제공할 목적으로 광범위하게 쿠키를 사용합니다.
 
-Cookies set by the website owner (in this case, PolySwarm Pte. Ltd.) are called "first party cookies". Cookies set by parties other than the website owner are called "third party cookies". Third party cookies enable third party features or functionality to be provided on or through the website (e.g. like advertising, interactive content and analytics). The parties that set these third party cookies can recognize your computer both when it visits the website in question and also when it visits certain other websites.
+웹사이트 소유자(이 경우 PolySwarm Pte. Ltd.)가 설정한 쿠키는 "당사자 쿠키(first party cookies)"라고 합니다. 웹사이트 소유자가 아닌 자가 설정한 쿠키는 "제3자 쿠키(third party cookies)"라고 합니다. 제3자 쿠키를 사용하여 웹사이트에서나 웹사이트를 통하여 제3자의 기능(예: 광고, 대화식 콘텐츠 및 분석)을 제공할 수 있습니다. 제3자 쿠키를 설정한 자는 귀하의 컴퓨터가 해당 웹사이트를 방문한 때와 특정한 기타 웹사이트들을 방문한 때를 파악할 수 있습니다.
 
-**Why do we use cookies?**
+**쿠키를 사용하는 이유는 무엇입니까?**
 
 We use first and third party cookies for several reasons. Some cookies are required for technical reasons in order for our Sites to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our Online Properties. Third parties serve cookies through our Sites for advertising, analytics and other purposes. This is described in more detail below.
 
