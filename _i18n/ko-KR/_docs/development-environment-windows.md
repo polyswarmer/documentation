@@ -137,7 +137,7 @@ Chocolatey는 Windows용 패키지 관리자입니다. 이 프로그램을 사�
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>경고:</strong> 내장된 Windows Defender를 포함하여 개발 환경에서 모든 맬웨어 방지 제품을 비활성화하실 것을 강력히 권장합니다. Windows Defender를 비활성화하는 방법은 아래에 설명되어 있습니다. 타사 솔루션은 여러분이 직접 비활성화하시기 바랍니다.
+    <strong>경고:</strong> 내장된 Windows Defender를 포함하여 개발 환경에서 모든 맬웨어 방지 제품을 비활성화하실 것을 강력히 권장합니다. Windows Defender를 비활성화하는 방법은 아래에 설명되어 있습니다. 타사 솔루션은 직접 비활성화하시기 바랍니다.
   </p>
 </div>
 
@@ -167,7 +167,7 @@ python -m venv polyswarmvenv
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong> virtualenv를 사용하는 경우 (상기 내용 참조), `polyswarm-client`를 설치하기 전에 활성화해야 합니다.
+    <strong>정보:</strong> virtualenv를 사용하는 경우 (상기 내용 참조), `polyswarm-client`를 설치하기 전에 활성화해야 합니다.
   </p>
 </div>
 
