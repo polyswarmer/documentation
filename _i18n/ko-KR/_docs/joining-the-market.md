@@ -134,7 +134,7 @@ Epoch API 키를 획득하려면 [PolySwarm 포털](https://polyswarm.network/)�
   --keyfile <사용자가 생성하고 자금을 제공한 키파일의 경로> \
   --password <키파일의 암호화 암호> \
   --api-key <사용자의 Epoch API 키>
-  --backend <검사엔진의 이름("슬러그")(예: acme_myeicarengine)>
+  --backend <검사 엔진의 이름("슬러그")(예: acme_myeicarengine)>
 ```
 
 명령줄 인수의 전체 목록을 보려면 `--help` CLI 플래그를 사용하십시오.
@@ -165,10 +165,10 @@ Keystore 파일
 --backend TEXT          사용할 백엔드
 --testing INTEGER       통합 테스트용 테스트 모드 활성화,
 N개의 현상금 공고 및 N개의 제안에 응답한 후 종료
---insecure-transport    http:// and ws://를 통하여 polyswarmd에 연결,
+--insecure-transport    http:// 및 ws://를 통하여 polyswarmd에 연결,
 --api-key와 서로 배타적임
 --chains TEXT           운영 대상 체인
---log-format TEXT       로그 형식. `json` 또는 `text` (기본)
+--log-format TEXT       로그 형식. `json` 또는 `text`가 될 수 있음 (기본)
   --help 이 메시지를 표시하고 종료.
 ```
 
