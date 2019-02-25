@@ -8,7 +8,7 @@
   </p>
 </div>
 
-### System Requirements
+### 시스템 요구 사항
 
 Windows 기반 엔진 개발 시 개발 호스트용으로 특수한 시스템 요구 사항이 필요합니다.
 
@@ -86,7 +86,7 @@ VirtualBox에서 다음 매개 변수를 사용해서 Windows VM을 만듭니다
 최소 시스템 요구 사항:
 
 - Windows 10*
-- 4+ CPU cores
+- 4개 이상의 CPU 코어
 - 4GB RAM
 
 *이전 버전의 Windows도 가능할 수 있지만, 현재는 테스트되지 않았으며, 지원되지 않습니다.
@@ -163,7 +163,7 @@ python -m venv polyswarmvenv
 ./polyswarmvenv/Scripts/Activate.ps1
 ```
 
-## Install `polyswarm-client` Libraries
+## `polyswarm-client` 라이브러리 설치
 
 <div class="m-flag">
   <p>
@@ -177,7 +177,7 @@ python -m venv polyswarmvenv
 pip install polyswarm-client
 ```
 
-## Verify Installation
+## 설치 확인
 
 이제 작업 개발 환경이 준비되었습니다!
 
