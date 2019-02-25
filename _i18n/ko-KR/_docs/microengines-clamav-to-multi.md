@@ -126,12 +126,12 @@ return any(bits), any(verdicts), ';'.join(metadatas)
 
 완성된 솔루션은 [multi.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/multi.py)에서 확인할 수 있습니다.
 
-참고: python 모듈 `polyswarm_myclamavengine` 및 `polyswarm_myyaraengine`은 이전 예에서 가져온 것입니다. 이 다중 엔진이 ClamAV 및 YARA 엔진을 사용하려면 PYTHONPATH에서 이용할 수 있어야 합니다. To achieve that, you can run the following command in the root of both the ClamAV and the YARA project directories:
+참고: python 모듈 `polyswarm_myclamavengine` 및 `polyswarm_myyaraengine`은 이전 예에서 가져온 것입니다. 이 다중 엔진이 ClamAV 및 YARA 엔진을 사용하려면 PYTHONPATH에서 이용할 수 있어야 합니다. 이를 위해, ClamAV 및 YARA 프로젝트 디렉터리의 루트에서 다음 명령을 실행할 수 있습니다.
 
 ```bash
 pip install .
 ```
 
-## Next Steps
+## 다음 단계
 
-Now that we've learned how to make a variety of microengines using existing AV products, you can move onto creating your own custom microengine.
+기존의 AV 제품을 사용하여 다양한 마이크로엔진을 만드는 법을 배웠으므로 이제 사용자 지정 마이크로엔진을 만들 수 있습니다.
