@@ -101,31 +101,31 @@ VirtualBox에서 다음 매개 변수를 사용해서 Windows VM을 만듭니다
 
 권한 있는 PowerShell 콘솔에서 다음과 같이 실행합니다.
 
-1. Permit script execution (necessary for installing Chocolatey & using virtualenvs):
+1. 스크립트 실행을 허용합니다(Chocolatey 설치 & virtualenvs 사용을 위해 필요):
     
     ```powershell
     Set-ExecutionPolicy Bypass -Scope LocalMachine -Force
     ```
 
-2. Force PowerShell to use TLSv2 (required of some dependancies):
+2. PowerShell이 TLSv2를 사용하도록 강제로 적용합니다(일부 종속성에 필요):
     
     ```powershell
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     ```
 
-## Install Chocolatey & Prerequisities
+## Chocolatey 설치 & 필수 구성 요소
 
-Chocolatey is a package manager for Windows. We'll use it to help with installing some prerequisites.
+Chocolatey는 Windows용 패키지 관리자입니다. 이 프로그램을 사용하여 일부 필수 구성 요소를 설치하겠습니다.
 
-Run the following in a *privileged* PowerShell console.
+*권한 있는* PowerShell 콘솔에서 다음과 같이 실행합니다.
 
-1. Install Chocolatey:
+1. Chocolatey를 설치합니다.
     
     ```powershell
     iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     ```
 
-2. Use Chocolatey to install prerequisites (do these one at a time):
+2. Chocolatey를 사용하여 필수 구성 요소 설치합니다(이 작업은 한 번만 실행).
     
     ```powershell
     choco install -y python --version 3.5.4
@@ -133,32 +133,29 @@ Run the following in a *privileged* PowerShell console.
     choco install -y visualcpp-build-tools --version 14.0.25420.1
     ```
 
-## Disable Anti-Malware Products
+## 맬웨어 방지 제품 비활성화
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    We strongly recommend disabling all anti-malware products in your development environment - including the built-in Windows Defender.
-    Below, we describe disabling Windows Defender.
-    Disabling third party solutions is left as an exercise for the reader.
+    <strong>경고:</strong> 내장된 Windows Defender를 포함하여 개발 환경에서 모든 맬웨어 방지 제품을 비활성화하실 것을 강력히 권장합니다. Windows Defender를 비활성화하는 방법은 아래에 설명되어 있습니다. 타사 솔루션은 여러분이 직접 비활성화하시기 바랍니다.
   </p>
 </div>
 
-PolySwarm engines should expect to come into contact with malware. Existing anti-malware engines, including the built-in Windows Defender, can easily get in our way, quarantining or deleting files during development.
+PolySwarm 엔진은 맬웨어와 접촉하도록 되어 있습니다. 내장된 Windows Defender를 포함하여 기존의 맬웨어 방지 엔진은 개발하는 동안 파일을 격리 또는 삭제하는 등 방해가 될 수 있습니다.
 
-Disabling Windows Defender is a two step process.
+두 단계를 거쳐 Windows Defender를 비활성화할 수 있습니다.
 
-1. Run the following command in a privileged PowerShell:
+1. 권한 있는 PowerShell 콘솔에서 다음 명령을 실행합니다.
     
     ```powershell
     Set-ItemProperty 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender' DisableAntiSpyware 1
     ```
 
-2. Reboot Windows.
+2. Windows를 재부팅합니다.
 
-## Set up a Virtual Environment (virtualenv)
+## 가상 환경 설치 (virtualenv)
 
-If you plan to use this Windows installation for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
+다른 용도로 이 Windows 설치를 사용하실 계획이라면 시스템 전체에서 Python 패키지를 원활하게 관리할 수 있도록 PolySwarm virtualenv를 생성하실 것을 권장합니다.
 
 ```bash
 cd ~
@@ -170,12 +167,11 @@ python -m venv polyswarmvenv
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you're using a virtualenv (see above), ensure that you activate it before installing `polyswarm-client`.
+    <strong>Info:</strong> virtualenv를 사용하는 경우 (상기 내용 참조), `polyswarm-client`를 설치하기 전에 활성화해야 합니다.
   </p>
 </div>
 
-Installing `polyswarm-client` is as simple as:
+`polyswarm-client`는 다음과 같이 간단히 설치할 수 있습니다.
 
 ```bash
 pip install polyswarm-client
@@ -183,13 +179,13 @@ pip install polyswarm-client
 
 ## Verify Installation
 
-You should now have a working development environment!
+이제 작업 개발 환경이 준비되었습니다!
 
-To verify, simply try importing `polyswarmclient`:
+확인을 위해 `polyswarmclient`를 불러오기만 하면 됩니다.
 
 ```bash
 $ python
-Python 3.5.4 (v3.5.4:3f56838, Aug  8 2017, 02:17:05) [MSC v.1900 64 bit (AMD64)] on win32
+Python 3.5.4 (v3.5.4:3f56838, Aug 8 2017, 02:17:05) [MSC v.1900 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import polyswarmclient
 >>>
