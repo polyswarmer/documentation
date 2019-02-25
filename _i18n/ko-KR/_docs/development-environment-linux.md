@@ -1,48 +1,48 @@
-## System Requirements
+## 시스템 요구사항
 
 * x86-64 CPU
-* 8GB of RAM
+* 8GB RAM
 
-These instructions are developed against and tested to work on Xubuntu 18.04 amd64.
+다음 설명은 Xubuntu 18.04 amd64에서 개발하고 테스트한 내용을 바탕으로 합니다.
 
-## Install Docker
+## Docker 설치
 
-We've Docker-ized as many things as possible to make it easy to dive right in.
+작업을 쉽게 진행할 수 있도록 최대한 많은 곳에서 Docker가 활용되었습니다.
 
-You need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://docs.docker.com/install/).
+Docker-CE(기본) 및 Docker Compose를 설치해야 합니다. 최신 Docker가 설치되지 않은 경우 [지금 Docker를 설치](https://docs.docker.com/install/)하시기 바랍니다.
 
-Once installed, verify that the installation works by running
+설치 후 실행하여 작동하는지 확인합니다.
 
 ```bash
 $ docker ps
 ```
 
-Should output:
+기대되는 출력 결과:
 
-    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+    CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
     
 
-Next, [install `docker-compose`](https://docs.docker.com/compose/install/).
+그 다음, [`docker-compose`를 설치](https://docs.docker.com/compose/install/)합니다.
 
-Once it is installed, verify the installation works by running:
+설치 후 실행하여 작동하는지 확인합니다.
 
 ```bash
 $ docker-compose -v
 ```
 
-Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
+다음 중 하나가 출력되어야 합니다: `docker-compose version 1.21.1, build 5a3f1a3`
 
-After installing Docker, we recommend adding your user to the `docker` group so that you can easily issue `docker` commands without `sudo`:
+Docker를 설치한 후, `sudo` 없이 `docker` 명령을 쉽게 실행할 수 있도록 `docker` 그룹에 사용자를 추가하실 것을 권장합니다.
 
 ```bash
 $ sudo usermod -aG docker ${USER}
 ```
 
-You'll need to reboot in order for the change to take effect.
+변경 사항을 적용하려면 다시 부팅해야 합니다.
 
-## Install Git
+## Git 설치
 
-We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
+일부 소스 코드 저장소가 필요합니다. Git을 사용하는 것이 가장 쉽습니다. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
 
 ## Install Python & PIP
 
