@@ -85,7 +85,7 @@ duration - 블록 안에서 이 현상금이 유지되는 시간
 
 제공:
 
-투표 - 현상금 대상 아티팩트에 대한 사실 검증에 해당하는 투표의 배열
+votes - 현상금 대상 아티팩트에 대한 사실 검증에 해당하는 투표의 배열
 
 valid\_bloom - 블룸 투표의 경우
 
@@ -175,9 +175,9 @@ valid\_bloom - 블룸 투표의 경우
 
 bid - 판돈으로 걸 NCT의 수량
 
-마스크 - 현상금 세트에서 주장할 대상 아티팩트
+mask - 현상금 세트에서 주장할 대상 아티팩트
 
-의견 - 현상금 아티팩트에 대한 의견의 배열
+verdicts - 현상금 아티팩트에 대한 의견의 배열
 
 ```json
 {
@@ -232,11 +232,11 @@ bid - 판돈으로 걸 NCT의 수량
 
 제공:
 
-논스 - 약속 해시를 생성하는 데 사용되는 논스 (현상금에 대한 주장에서 반환됨)
+nonce - 약속 해시를 생성하는 데 사용되는 논스 (현상금에 대한 주장에서 반환됨)
 
-의견 - 이 주장을 구성하는 의견들
+verdicts - 이 주장을 구성하는 의견들
 
-메타데이터 - 주장에 포함됨 (빈 문자열일 수 있음)
+metadata - 주장에 포함됨 (빈 문자열일 수 있음)
 
 ```json
 {
@@ -335,7 +335,7 @@ Nectar 판돈을 입금하기 위하여 중재자가 호출합니다.
 
 제공:
 
-수량 - 현재 판돈에 추가할 NCT의 수량
+amount - 현재 판돈에 추가할 NCT의 수량
 
 ```json
 {
@@ -363,7 +363,7 @@ Nectar 판돈을 입금하기 위하여 중재자가 호출합니다.
 
 제공:
 
-수량 - 현재 판돈에서 출금할 NCT의 수량
+amount - 현재 판돈에서 출금할 NCT의 수량
 
 ```json
 {
@@ -441,9 +441,9 @@ IPFS에 아티팩스를 게시합니다
 
 제공:
 
-홍보대사 - 채널을 사용하는 홍보대사의 주소
+ambassador - 채널을 사용하는 홍보대사의 주소
 
-전문가 - 채널을 사용하는 전문가의 주소
+expert - 채널을 사용하는 전문가의 주소
 
 settlementPeriodLength - 당사자들이 제안 채널을 합의하기 위하여 논의하는 기간
 
@@ -677,10 +677,10 @@ s - 양 당사자에 대한 상태 문자열 ECDSA 서명의 출력 배열
 
 ```json
 {
-  "state": "[최소 길이가 32인 문자열]",
-  "v": "[2개의 정수로 구성된 배열]",
-  "r": "[최소 길이가 64인 2개의 문자열로 구성된 배열]",
-  "s": "[최소 길이가 64인 2개의 문자열로 구성된 배열]",
+  "state": "[string minimum length 32]",
+  "v": "[array of 2 integers]",
+  "r": "[array of 2 strings with min length 64]",
+  "s": "[array of 2 strings with min length 64]",
 }
 ```
 
@@ -1040,7 +1040,7 @@ transactions - 검사할 트랜잭션 해시 목록
 
 ```json
 {
-"transactions": "[트랜잭션 해시로 구성된 배열]",
+  "transactions": "[array of transaction hashes]",
 }
 ```
 
@@ -1231,11 +1231,11 @@ s - 상태 문자열의 ECDSA 서명
 
 ```json
 {
-  "fromSocketUri": "[문자열]",
-  "state": "[최소 길이가 32인 문자열]",
-  "v": "[2개의 정수로 구성된 배열]",
-  "r": "[최소 길이가 64인 2개의 문자열로 구성된 배열]",
-  "s": "[최소 길이가 64인 2개의 문자열로 구성된 배열]",
+  "fromSocketUri": "[string]",
+  "state": "[string minimum length 32]",
+  "v": "[array of 2 integers]",
+  "r": "[array of 2 strings with min length 64]",
+  "s": "[array of 2 strings with min length 64]",
 }
 ```
 
