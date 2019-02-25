@@ -44,13 +44,13 @@ $ sudo usermod -aG docker ${USER}
 
 일부 소스 코드 저장소가 필요합니다. Git을 사용하는 것이 가장 쉽습니다. 개발 환경용으로 [Git을 설치](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)하시기 바랍니다.
 
-## Python 및 PIP 설치
+## Python & PIP 설치
 
-PolySwarm development requires Python 3.5.4 or above. Please install [Python](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) for your development platform.
+PolySwarm 개발 시 Python 3.5.4 이상 버전이 필요합니다. 개발 플랫폼용으로 [Python](https://www.python.org/downloads/) 및 [PIP](https://pip.pypa.io/en/stable/installing/)를 설치하시기 바랍니다.
 
-## (Optional) Set up a Virtual Environment (virtualenv)
+## (선택 사항) 가상 환경 설치 (virtualenv)
 
-If you plan to use this machine for other purposes, we recommend that you create a PolySwarm virtualenv so as to keep the system-wide Python packages clean:
+다른 용도로 가상 머신을 사용하실 계획이라면 시스템 전체에서 Python 패키지를 원활하게 관리할 수 있도록 PolySwarm virtualenv를 생성하실 것을 권장합니다.
 
 ```bash
 pip install virtualenv
@@ -59,35 +59,34 @@ virtualenv polyswarmvenv -p <PATH TO PYTHON 3.5.4 OR ABOVE>
 source polyswarmvenv/bin/activate
 ```
 
-## Install `polyswarm-client` Libraries
+## `polyswarm-client` 라이브러리 설치
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you're using a virtualenv (see above), ensure that you activate it before installing polyswarm-client.
+    <strong>Info:</strong> virtualenv를 사용하는 경우 (상기 내용 참조), polyswarm-client를 설치하기 전에 활성화해야 합니다.
   </p>
 </div>
 
-Compiling & installing `polyswarm-client` libraries is simple.
+`polyswarm-client` 라이브러리는 간단하게 컴파일 & 설치할 수 있습니다.
 
-First, install Python 3 headers / build requirements.
+먼저 Python 3 헤더 / 빌드 필수 요소를 설치합니다.
 
-On Ubuntu, this is achieved with:
+Ubuntu에서 다음과 같이 작업합니다.
 
     $ sudo apt install python3-dev
     
 
-Next:
+다음:
 
 ```bash
 pip install polyswarm-client
 ```
 
-## Verify Installation
+## 설치 확인
 
-You should now have a working development environment!
+이제 작업 개발 환경이 준비되었습니다!
 
-To verify, simply try importing `polyswarmclient`:
+확인을 위해 `polyswarmclient`를 불러오기만 하면 됩니다.
 
 ```bash
 $ python
@@ -96,8 +95,8 @@ $ python
 >>>
 ```
 
-You should be able to import `polyswarmclient` without issue.
+`polyswarmclient`를 문제 없이 불러올 수 있어야 합니다.
 
-Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
+다음으로, EICAR 테스트 파일을 탐지할 수 있는 PolySwarm 마이크로엔진을 구축하는 방법에 대해 설명드리겠습니다.
 
-[Make a "Hello World" Microengine →](/microengines-scratch-to-eicar/)
+["Hello World" 마이크로엔진 만들기 →](/microengines-scratch-to-eicar/)
