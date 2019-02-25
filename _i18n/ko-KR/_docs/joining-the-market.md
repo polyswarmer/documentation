@@ -56,48 +56,45 @@ PolySwarm 마켓플레이스에서 사용자의 대리인 역할을 하는 마�
   </p>
 </div>
 
-The official Ethereum client (`go-ethereum` or `geth` for short) has instructions for generating a keyfile. See [Managing your accounts in geth](https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts).
+공식 이더리움 클라이언트(`go-ethereum` 또는 간략하게 `geth`)에서 키파일 생성에 대한 설명을 찾을 수 있습니다. [geth에서 계정 관리하기](https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts)를 참조하십시오.
 
-## Funding Your Wallet
+## 지갑에 자금 입금
 
-Once you've generated your own keyfile, you'll need to fund your wallet with ETH and NCT.
+키파일을 생성했으면 지갑에 ETH와 NCT를 입금해야 합니다.
 
-Generally, there are three funding avenues available:
+일반적으로 세 가지 입금 방법이 있습니다.
 
-1. Purchase ETH and NCT on cryptocurrency exchanges and transfer them to the production wallet represented by your microengine's production keyfile. Methods to purchase & transfer cryptocurrencies are outside the scope of this document.
-2. Subscribe to PolySwarm Direct - an upcoming service with configurable auto-refills that ensure your engine is funded. This service is in development, stay tuned!
-3. Initial partners have received a NCT seedling in their production wallet per our published distribution schedule.
+1. 암호화폐 거래소에서 ETH와 NCT를 구입하여 마이크로엔진의 생산 키파일로 나타나는 생산 지갑에 전송합니다. 암호화폐를 구입 & 전송하는 방법은 이 문서가 다루는 범위에 속하지 않습니다.
+2. PolySwarm Direct(향후 예정된 서비스로 구성 가능한 자동 보충 기능을 통하여 사용자의 엔진에 자금 제공)에 가입합니다. 이 서비스는 현재 개발 중이므로, 계속 지켜봐 주십시오!
+3. 당사가 게시한 배포 일정에 따라 초기 파트너들은 자신들의 생산 지갑에 NCT 씨앗을 받았습니다.
 
-## Finding Your Community(ies)
+## 커뮤니티 찾기
 
-The PolySwarm marketplace is made up of a patchwork of Communities. Communities are groups of individuals and corporations that share a particular malware interest or mutually agree to maintain the confidentiality of artifacts exchanged within the Community.
+PolySwarm 마켓플레이스는 다양한 커뮤니티로 구성되어 있습니다. 커뮤니티는 특정 맬웨어에 대한 관심을 공유하거나 커뮤니티 내에서 교환된 아티팩트에 대한 기밀을 유지하기로 서로 합의한 개인들과 기업들로 구성된 단체입니다.
 
-PolySwarm's first Community, Epoch, is a public Community accessible to everyone - it's where you'll want to get started. Epoch acts as a sort of "proving ground" for security experts to build a reputation for their engine. Once security experts build a reputation, they may want to engage in additional Communities. As more communities come online, they'll appear in PolySwarm Portal: <button disabled>Browse Communities → (coming soon!)</button>
+PolySwarm의 첫 번째 커뮤니티인 Epoch은 누구나 가입할 수 있는 공개 커뮤니티로 여기서 시작하시면 좋습니다. Epoch은 일종의 '성능 시험장'으로 보안 전문가들이 자신의 엔진에 대한 명성을 쌓는 곳입니다. 보안 전문가가 명성을 쌓게 되면 다른 커뮤니티에도 참여하게 될 것입니다. 새로운 커뮤니티가 추가되면 PolySwarm 포털에 표시됩니다: <button disabled>커뮤니티 탐색 → (추가 예정!)</button>
 
-For now, let's proceed under the assumption that we only want to join the Epoch community.
+당분간은 Epoch 커뮤니티에만 가입한다는 가정 하에 진행하겠습니다.
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-      <code>polyswarm-client</code> based engines currently only support communicating with a single Community at a given time.
-      Support for multiple Communities will be included in a future release.
-      In the meantime, please run an instance of your engine (& <code>balancemanager</code>) per Community.
+    <strong>참고:</strong> <code>polyswarm-client</code> 기반 엔진은 특정 시간에 하나의 커뮤니티와만 소통할 수 있습니다. 여러 커뮤니티에 대한 지원은 향후 릴리스에 포함될 예정입니다. 당분간은 커뮤니티마다 하나씩 엔진의 인스턴스(및 <code>balancemanager</code>)를 실행해 주십시오.
   </p>
 </div>
 
-## Relaying NCT to Your Community(ies)
+## 사용자의 커뮤니티에 NCT 전달하기
 
-Recall that each community has a distinct [sidechain](/#chains-home-vs-side) where PolySwarm transactions occur. In order to participate, you'll need to maintain a balance of NCT (ETH not required) on the Community's sidechain.
+각 커뮤니티에는 PolySwarm 트랜잭션이 발생하는 별도의 [사이드체인](/#chains-home-vs-side)이 있다는 것을 기억하십시오. 여기에 참가하려는 사용자는 해당 커뮤니티의 사이드체인에 NCT(ETH는 필요하지 않음) 잔고를 유지해야 합니다.
 
-We've made this easy: you can use `polyswarm-client`'s `balancemanager` utility. You'll need to run both your engine and a `balancemanager` to maintain a balance of NCT on the Community sidechain. Windows users will recall running `balancemanager` from the [Windows engine Integration Testing instructions](/testing-windows/#integration-testing). Linux users had `balancemanager` handled for them by Docker transparently.
+이 과정은 간소화되어서 `polyswarm-client`의 `balancemanager` 유틸리티를 사용하면 됩니다. 엔진과 `balancemanager`를 모두 실행하여 커뮤니티 사이드체인에서 NCT 잔고를 유지해야 합니다. Windows 사용자는 [Windows 엔진 통합 테스트에 대한 설명](/testing-windows/#integration-testing)에서 `balancemanager`를 실행한 것을 기억하실 겁니다. Linux 사용자는 Docker가 투명하게 `balancemanager`를 처리하도록 하였습니다.
 
-`balancemanager` can be run in three modes:
+`balancemanager`는 세 가지 모드로 실행될 수 있습니다.
 
-1. `deposit`: deposit the configured amount of NCT onto the Community and exit
-2. `withdraw`: withdraw the configured amount of NCT from the Community and exit
-3. `maintain`: continually ensure a configurable balance of NCT in the Community
+1. `deposit`: 설정된 NCT 금액을 커뮤니티에 입금하고 종료합니다
+2. `withdraw`: 설정된 NCT 금액을 커뮤니티에서 출금하고 종료합니다
+3. `maintain`: 설정 가능한 NCT 잔고를 커뮤니티에 계속 유지합니다
 
-Most users will want to simply `maintain` a balance - we'll dive into using this functionality below. Advanced users may want to manually `deposit` and `withdraw` funds.
+대부분의 사용자는 단순히 잔고를 `maintain`(유지)하기를 원할 겁니다. 아래에서는 이 기능을 사용하는 법에 대하여 다뤄보겠습니다. Advanced users may want to manually `deposit` and `withdraw` funds.
 
 ## API Keys
 
