@@ -30,27 +30,27 @@ PolySwarm 마켓플레이스에서 **홍보대사**는 서부 시대의 현상�
 마이크로엔진의 개념적인 구성 요소:
 
 1. `N` **분석 백엔드**: 아티팩트(파일)를 입력하여 `악성` 또는 `정상` 여부를 판단하는 스캐너.
-2. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
-3. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
+2. `1` **의견 도출 엔진**: 분석 백엔드의 출력물을 입력하여 단일한 `의견`과 `신뢰 구간`을 도출합니다
+3. `1` **판돈 설정 엔진**: 의견 도출 엔진의 출력물과 시장 정보/경쟁자 정보를 입력하여 Necta(NCT) 단위로 `판돈`을 설정합니다
 
-Microengines are Security Experts' autonomous representatives in the PolySwarm marketplace. They handle everything from scanning files to placing stakes on assertions concerning the malintent of files.
+마이크로엔진은 PolySwarm 마켓플레이스에서 자율적인 보안 전문가들을 대변합니다. 마이크로엔진은 파일 검사, 파일의 악성 여부에 대한 주장, 주장에 대한 판돈 설정 등 모든 작업을 처리합니다.
 
-Specifically, Microengines:
+마이크로엔진이 구체적으로 하는 일:
 
-1. Listen for Bounties and Offers on the Ethereum blockchain (via `polyswarmd`)
-2. Pull artifacts from IPFS (via `polyswarmd`)
-3. Scan/analyze the artifacts (via one or more **analysis backends**)
-4. Determine a Nectar (NCT) staking amount (via a **verdict distillation engine**)
-5. Render an assertion (their `verdict` + `stake`) (via a **staking engine**)
+1. (`polyswarmd`를 통하여) 이더리움 블록체인에서 현상금 및 제안을 경청합니다
+2. (`polyswarmd`를 통하여) IPFS로부터 아티팩트를 취득합니다
+3. (하나 이상의 **분석 백엔드**를 통하여) 아티팩트를 검사/분석합니다
+4. (**의견 도출 엔진**을 통하여) Nectar(NCT)로 판돈 금액을 정합니다
+5. (**판돈 설정 엔진**을 통하여) 주장(`의견` + `판돈`)을 개진합니다
 
-All Microengines share this set of tasks. This tutorial will focus exclusively on item #3: bulding an analysis backend into our `microengine-scratch` skeleton project. All other items will be covered by `polyswarmd` defaults. After completing these tutorials, advanced users may want to refer to [**polyswarmd API**](/polyswarmd-api/) for pointers on customizing these other aspects of their Microengine.
+모든 마이크로엔진이 이 일련의 작업을 공유합니다. 이 튜토리얼은 #3 항목(당사의 `마이크로엔진-스크래치` 기본 프로젝트에 분석 백엔드 구축하기)에 집중합니다. 다른 모든 항목은 `polyswarmd` 기본 사항에서 다뤄집니다. 이 튜토리얼을 완료한 후 고급 사용자는 [**polyswarmd API**](/polyswarmd-api/)를 참고하여 마이크로엔진을 커스터마이징할 수 있습니다.
 
-## Developing a Microengine
+## 마이크로엔진 개발
 
-Ready to develop your first Microengine and start earning NCT?
+마이크로엔진을 개발하고 NCT를 획득할 준비가 되셨습니까?
 
-(Recommended) [I want to build a Linux-based Microengine →](/development-environment-linux/)
+(권장) [Linux에 기반한 마이크로엔진을 구축하고 싶습니다 →](/development-environment-linux/)
 
-Linux-based Engines are far easier to test and come with more deployment options than Windows-based Engines.
+Linux 기반 엔진은 Windows 기반 엔진보다 더 쉽게 테스트할 수 있고 더 많은 배포 옵션을 제공합니다.
 
-[My scan engine only supports Windows; I want to build a Windows-based Microengine →](/development-environment-windows/)
+[제 검사 엔진은 Windows만 지원합니다. 저는 Windows 기반 마이크로엔진을 구축하고 싶습니다 →](/development-environment-windows/)
