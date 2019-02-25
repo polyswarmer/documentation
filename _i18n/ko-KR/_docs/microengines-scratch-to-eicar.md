@@ -1,29 +1,29 @@
-# Microengine "Hello World"
+# "Hello World" 마이크로엔진
 
-## Overview
+## 개요
 
-The "Hello World" of developing an anti-malware solution is invariably detecting the [EICAR test file](https://en.wikipedia.org/wiki/EICAR_test_file).
+맬웨어 방지 솔루션을 개발할 때 "Hello World"는 언제나 [EICAR 테스트 파일](https://en.wikipedia.org/wiki/EICAR_test_file)을 탐지하고 있습니다.
 
-This benign file is detected as "malicious" by all major anti-malware products - a safe way to test a positive result.
+이 양성 파일은 모든 주요 맬웨어 방지 제품이 '악성'으로 식별하므로, 안전하게 긍정적인 결과를 테스트해볼 수 있습니다.
 
-Our first Microengine will be no different: let's detect EICAR!
+우리의 첫 번째 마이크로엔진도 다르지 않습니다. EICAR을 탐지해보겠습니다!
 
-[(Optional) review the components of a Microengine →](/concepts-participants-microengine/#breaking-down-microengines)
+[(선택 사항) 마이크로엔진의 구성 요소 검토 →](/concepts-participants-microengine/#breaking-down-microengines)
 
-## Building Blocks
+## 빌딩 블록
 
-This guide will reference and build on:
+본 가이드는 다음을 참고하여 작성합니다.
 
-* [**engine-template**](https://github.com/polyswarm/engine-template): The name says it all - this is a convenient template with interactive prompts for creating new engines. We'll use this in our tutorial.
+* [**engine-template**](https://github.com/polyswarm/engine-template): 이름 그대로 대화식 프롬프트를 통해 간편하게 새로운 엔진을 만들 수 있는 템플릿입니다. 이는 튜토리얼에서 사용됩니다.
 
-* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): The Swiss Army knife of exemplar PolySwarm participants ("clients"). `polyswarm-client` can function as a `microengine` (we'll build on this functionality in this tutorial), an `arbiter` and an `ambassador` (we'll use these to test what we built).
+* [**polyswarm-client**](https://github.com/polyswarm/polyswarm-client): 전형적인 PolySwarm 참가자("클라이언트")의 스위스 아미 나이프라고 할 수 있습니다. `polyswarm-client`는 `마이크로엔진`(본 튜토리얼에서는 이 기능을 구축합니다), `중재자` 및 `홍보대사`(나중에 이 기능을 사용해 구축한 내용을 테스트합니다)의 기능을 수행할 수 있습니다.
 
-## Customize `engine-template`
+## 사용자 지정 `engine-template`
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Windows-based engines are currently only supported as AMIs (AWS Machine Images).
+    <strong>경고:</strong>
+ Windows 기반 엔진은 현재 AMI(AWS Machine Images)로만 지원됩니다.
   </p>
   <p>
     The customization process for Window-based engines assumes you have an AWS account and its ID handy.
