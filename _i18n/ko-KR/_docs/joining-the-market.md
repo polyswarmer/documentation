@@ -124,7 +124,7 @@ Epoch API 키를 획득하려면 [PolySwarm 포털](https://polyswarm.network/)�
 3. 커뮤니티 결정
 4. 커뮤니티에 대한 API 키 취득
 
-이제 엔진(및 `balancemanager`)을 PolySwarm 마켓플레이스에 연결할 준비가 되었습니다!
+이제 엔진(& `balancemanager`)을 PolySwarm 마켓플레이스에 연결할 준비가 되었습니다!
 
 `polyswarm-client`에 기반하여 엔진을 구축하신 경우(예: 튜토리얼에서 cookiecutter `engine-template` 사용) 몇 가지 명령줄 인수만 지정하시면 됩니다(환경 변수로서 지정할 수도 있음).
 
@@ -219,6 +219,6 @@ Options:
   --help                   Show this message and exit.
 ```
 
-## Congratulations
+## 축하합니다
 
-With your engine & `balancemanager` running, you are now plugged into your Community(ies) of choice!
+이제 엔진 & `balancemanager`가 실행되고, 원하는 커뮤니티에 연결되었습니다.
