@@ -26,42 +26,42 @@
  Windows 기반 엔진은 현재 AMI(AWS Machine Images)로만 지원됩니다.
   </p>
   <p>
-    The customization process for Window-based engines assumes you have an AWS account and its ID handy.
+    Window 기반 엔진의 사용자 지정 과정에서는 사용자가 AWS 계정 및 ID를 가지고 있다고 가정합니다.
   </p>
   <p>
-    We'll be expanding deployment options in near future, including self-hosted options. Linux-based engines have no such stipulation.
+    향후 자체 호스팅 옵션을 포함하여 배포 옵션을 확대할 예정입니다. Linux 기반 엔진은 이러한 조건이 없습니다.
   </p>
 </div>
 
-We're going to cut our Engine from `engine-template`. To do this, we'll need `cookiecutter`:
+`engine-template`에서 엔진을 자릅니다. 이를 위해 `cookiecutter`가 필요합니다.
 
 ```bash
 pip install cookiecutter
 ```
 
-With `cookiecutter` installed, jump-starting your engine from our template is as easy as:
+`cookiecutter`가 설치되면 템플릿에서 엔진을 아주 쉽게 시작할 수 있습니다.
 
 ```bash
 cookiecutter https://github.com/polyswarm/engine-template
 ```
 
-Prompts will appear, here's how we'll answer them:
+프롬프트가 표시되면, 다음과 같이 응답합니다.
 
-* `engine_name`: MyEicarEngine (the name of your engine)
-* `engine_name_slug`: (accept the default)
-* `project_slug`: (accept the default)
-* `author_org`: ACME (or the real name of your organization)
-* `author_org_slug`: (accept the default)
-* `package_slug`: (accept the default)
-* `author_name`: Wile E Coyote (or your real name)
-* `author_email`: (your email address)
-* `platform`: answer truthfully - will this Engine run on Linux or Windows?
-* `has_backend`: 1 for false (see explanation below)
-* `aws_account_for_ami`: (Windows only) your AWS account ID (for Linux engines, just accept the default)
+* `engine_name`: MyEicarEngine (엔진의 이름)
+* `engine_name_slug`: (기본 값 사용)
+* `project_slug`: (기본 값 사용)
+* `author_org`: ACME (또는 조직의 실제 이름)
+* `author_org_slug`: (기본 값 사용)
+* `package_slug`: (기본 값 사용)
+* `author_name`: Wile E Coyote (또는 실제 이름)
+* `author_email`: (이메일 주소)
+* `플랫폼`: 정직하게 답변합니다 - 이 엔진이 Linux와 Windows 중 어디에서 실행됩니까?
+* `has_backend`: false의 경우 1 (아래 설명 참조)
+* `aws_account_for_ami`: (Windows만 해당) AWS 계정 ID (Linux 엔진의 경우 기본 값 사용)
 
 <div class="m-callout">
-  <p>One of the prompt items is <code>has_backend</code>, which can be thought of as "has a disjoint backend" and deserves additional explanation.</p>
-  <p>When wrapping your scan engine, inheritance of <code>polyswarm-client</code> classes and implementation of class functionality are referred to as "frontend" changes. If your scan engine "frontend" must reach out across a network or local socket to a separate process that does the real scanning work (the "backend"), then you have a disjoint "backend" and you should answer <code>true</code> to <code>has_backend</code>. If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>false</code> for <code>has_backend</code>.</p>
+  <p>프롬프트 중 하나는 '분리된 백엔드가 있음'이라고 생각하면 되는 <code>has_backend</code>이며, 추가적인 설명이 필요합니다.</p>
+  <p>검사 엔진을 래핑할 때, <code>polyswarm-client</code> 클래스의 상속과 클래스 함수의 구현은 '프런트엔드' 변경으로 간주됩니다. 검사 엔진 '프런트엔드'가 네트워크나 로컬 소켓을 통하여 실제 검사 작업을 수행하는 별도의 프로세스("백엔드")에 접속해야 할 경우, 분리된 '백엔드'가 있는 셈이므로 <code>has_backend</code>에 <code>true</code>라고 답해야 합니다. If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>false</code> for <code>has_backend</code>.</p>
   <p>Example of disjoint frontend / backend:</p>
   <ul>
     <li><a href="https://github.com/polyswarm/polyswarm-client/blob/5959742f0014a582baf5046c7bf6694c23f7435e/src/microengine/clamav.py#L18">ClamAV</a></li>
