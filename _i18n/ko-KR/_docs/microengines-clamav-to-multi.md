@@ -104,8 +104,7 @@ self.backends = [cls() for cls in BACKENDS]
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+    <strong>정보:</strong> 마이크로엔진 클래스가 필요하지만, 수정할 필요가 없으므로 여기에 표시하지 않았습니다.
   </p>
 </div>
 
