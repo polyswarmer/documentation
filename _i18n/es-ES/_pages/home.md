@@ -1,24 +1,24 @@
-## Welcome
+## Saludos
 
-Welcome and thank you for your interest in PolySwarm!
+¡Te damos la bienvenida! ¡Gracias por tu interés en PolySwarm!
 
-Here you'll find everything you need to get started developing for PolySwarm.
+Aquí encontrarás todo lo necesario para empezar a desarrollar para PolySwarm.
 
-Before we dive into the code, let's get our bearings:
+Antes de zambullirnos en el código, vamos a aclarar los conceptos básicos:
 
-* What does it look like to participate in PolySwarm?
-* Which role fits my use case?
-* Which Communities do I want to engage with?
-* How do I monitor the performance of my Engines?
-* What are Communities? What is an Engine?
+* ¿Cómo se desarrolla la participación en PolySwarm?
+* ¿Qué función se adapta a mi caso de uso?
+* ¿En qué comunidades deseo involucrarme?
+* ¿Cómo superviso el rendimiento de mis motores?
+* ¿Qué son las "comunidades"? ¿Qué es un "motor"?
 
-Let's take a look at some of the high level concepts and drill down into details where appropriate.
+Vamos a repasar algunos de los conceptos más generales, profundizando en los detalles cuando corresponda.
 
 ## Portal
 
-PolySwarm Portal is PolySwarm's one-stop shop for:
+El portal de PolySwarm es el punto de acceso único para:
 
-* tracking Engine performance
+* supervisar el rendimiento de los motores,
 * discovering Communities (see below)
 * naming Engines
 * creating Profiles
