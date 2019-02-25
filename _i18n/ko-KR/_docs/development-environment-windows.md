@@ -191,8 +191,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-You should be able to import `polyswarmclient` without issue.
+`polyswarmclient`를 문제 없이 불러올 수 있어야 합니다.
 
-Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
+다음으로, EICAR 테스트 파일을 탐지할 수 있는 PolySwarm 마이크로엔진을 구축하는 방법에 대해 설명드리겠습니다.
 
-[Make a "Hello World" Microengine →](/microengines-scratch-to-eicar/)
+["Hello World" 마이크로엔진 만들기 →](/microengines-scratch-to-eicar/)
