@@ -80,7 +80,7 @@ Windows 기반 엔진의 통합 테스트 시 두 개의 가상 머신이 필요
 * video memory: 128MB
 * disk space: 50GB+
 
-Use the default setting for all other options. 특히, 3D 가속을 활성화하지 마세요.
+Use the default setting for all other options. 특히, 3D 가속을 활성화하지 마십시오.
 
 일반적으로, Linux VM에 이용 가능한 RAM과 CPU 자원을 추가로 제공하면 테스트넷의 성능이 향상됩니다.
 
@@ -209,9 +209,9 @@ PS > Resolve-DnsName -name polyswarmd
 출력 결과는 다음과 같아야 합니다.
 
 ```powershell
-Name                                           Type   TTL   Section    IPAddress
-----                                           ----   ---   -------    ---------
-polyswarmd                                     A      86400 Answer     10.10.42.101
+Name Type TTL Section IPAddress
+---- ---- --- ------- ---------
+polyswarmd A 86400 Answer 10.10.42.101
 ```
 
 다음으로, 다음과 같이 핑 테스트를 수행합니다.
@@ -274,7 +274,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 $ docker-compose -v
 ```
 
-다음 중 하나가 출력되어야 합니다: `docker-compose version 1.21.1, build 5a3f1a3`
+다음 중 하나가 출력되어야 합니다. `docker-compose version 1.21.1, build 5a3f1a3`
 
 <div class="m-flag">
   <p>
