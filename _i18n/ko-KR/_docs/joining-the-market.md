@@ -94,103 +94,104 @@ PolySwarm의 첫 번째 커뮤니티인 Epoch은 누구나 가입할 수 있는 
 2. `withdraw`: 설정된 NCT 금액을 커뮤니티에서 출금하고 종료합니다
 3. `maintain`: 설정 가능한 NCT 잔고를 커뮤니티에 계속 유지합니다
 
-대부분의 사용자는 단순히 잔고를 `maintain`(유지)하기를 원할 겁니다. 아래에서는 이 기능을 사용하는 법에 대하여 다뤄보겠습니다. Advanced users may want to manually `deposit` and `withdraw` funds.
+대부분의 사용자는 단순히 잔고를 `maintain`(유지)하기를 원할 겁니다. 아래에서는 이 기능을 사용하는 법에 대하여 다뤄보겠습니다. 고급 사용자는 자금을 수동으로 `deposit`(입금) 및 `withdraw`(출금)해보고 싶을 겁니다.
 
-## API Keys
+## API 키
 
-In order to protect themselves from griefing / Denial of Service (DoS), Communities may elect to issue their members API keys and apply rate limits to these keys. Epoch is one such community, but API keys are available to everyone.
+커뮤니티는 그리핑(griefing) / 서비스 거부 공격(DoS)으로부터 스스로를 보호하기 위하여 회원들에게 API 키를 발급하고 이 키들에 속도 제한을 적용할 수 있습니다. Epoch도 이러한 커뮤니티 중 하나이지만 API 키는 누구에게나 제공됩니다.
 
-To obtain your Epoch API key, sign up on [PolySwarm Portal](https://polyswarm.network/), click your name in the top right corner and select Account. Your Epoch API key will be displayed in your Profile.
+Epoch API 키를 획득하려면 [PolySwarm 포털](https://polyswarm.network/)에 가입한 후, 우측 상단 모서리에 있는 자신의 이름을 클릭하고 계정을 선택합니다. 사용자의 Epoch API 키는 프로필에 표시되어 있습니다.
 
-### API Key Usage in `polyswarm-client`-Based Engines
+### `polyswarm-client` 기반 엔진에서의 API 키 사용
 
-Using your API key in `polyswarm-client` based engines is as simple as populating the `--api-key` command line argument. We discuss this below.
+`polyswarm-client` 기반 엔진에서 API 키를 사용하려면 간단하게 `--api-key` 명령줄 인수에 입력하기만 하면 됩니다. 이 사항은 아래에 설명되어 있습니다.
 
-### API Key Usage in a Custom Engine
+### 사용자 지정 엔진에서의 API 키 사용
 
-If you're building a custom engine, please ensure that all API requests to Community-hosted `polyswarmd` instances contain your API key in the headers:
+사용자 지정 엔진을 구축하시면 커뮤니티에 호스팅된 `polyswarmd` 인스턴스에 대한 모든 API 요청이 헤더에 사용자의 API 키를 포함하는지 확인하세요.
 
-    Authorization: [API KEY]
+    허가: [API 키]
     
 
-For more details on the `polyswarmd API`, please refer to our API specification [polyswarmd API Documentation](/polyswarmd-api/).
+`polyswarmd API`에 대한 자세한 사항은 당사의 API 사양 [polyswarmd API 설명서](/polyswarmd-api/)를 참조하시기 바랍니다.
 
-## Putting it all Together
+## 모든 항목 종합하기
 
-To recap, we've:
+지금까지 수행한 작업을 요약하면 다음과 같습니다.
 
-1. generated a wallet keyfile for *production* use
-2. funded this wallet with both ETH and NCT
-3. decided on our Community(ies)
-4. retrieved our API key for our Community(ies)
+1. *생산*용 지갑 키파일 생성
+2. 이 지갑에 ETH 및 NCT 입금
+3. 커뮤니티 결정
+4. 커뮤니티에 대한 API 키 취득
 
-Now we're ready to plug our engine (& `balancemanager`) into the PolySwarm marketplace!
+이제 엔진(및 `balancemanager`)을 PolySwarm 마켓플레이스에 연결할 준비가 되었습니다!
 
-If you've built your engine on `polyswarm-client`, (e.g. using our cookiecutter `engine-template` in the tutorials here), you simply need to specify some command line arguments (can also be specified as environment variables):
+`polyswarm-client`에 기반하여 엔진을 구축하신 경우(예: 튜토리얼에서 cookiecutter `engine-template` 사용) 몇 가지 명령줄 인수만 지정하시면 됩니다(환경 변수로서 지정할 수도 있음).
 
 ```bash
 # microengine \
   --polyswarmd-addr polyswarmd.epoch.polyswarm.network \
-  --keyfile <path to your self-generated and funded keyfile> \
-  --password <encryption password for your keyfile> \
-  --api-key <your Epoch API key>
-  --backend <the name ("slug") of your scan engine (e.g. acme_myeicarengine)>
+  --keyfile <사용자가 생성하고 자금을 제공한 키파일의 경로> \
+  --password <키파일의 암호화 암호> \
+  --api-key <사용자의 Epoch API 키>
+  --backend <검사엔진의 이름("슬러그")(예: acme_myeicarengine)>
 ```
 
-For the full list of command line arguments, use the `--help` CLI flag:
+명령줄 인수의 전체 목록을 보려면 `--help` CLI 플래그를 사용하십시오.
 
 ```bash
 # microengine --help
-Usage: microengine [OPTIONS]
+사용법: microengine [OPTIONS]
 
-  Entrypoint for the microengine driver
+마이크로엔진 드라이버에 대한 엔트리 포인트
 
-  Args:     log (str): Logging level     polyswarmd_addr(str): Address of
-  polyswarmd     keyfile (str): Path to private key file to use to sign
-  transactions     password (str): Password to decrypt the encrypted private
-  key     backend (str): Backend implementation to use     api_key(str): API
-  key to use with polyswarmd     testing (int): Mode to process N bounties
-  then exit (optional)     insecure_transport (bool): Connect to polyswarmd
-  without TLS     log_format (str): Format to output logs in. `text` or
-  `json`
+인수:     log (str): 로깅 수준     polyswarmd_addr(str): polyswarmd의
+주소     keyfile (str): 트랜잭션에 서명할 때 사용하는 개인 키 파일의
+경로     password (str): 암호화된 개인 키를 해독하는
+암호     backend (str): 사용할 백엔드 구현     api_key(str): polyswarmd에서 사용할 API 키     testing (int): N개의 현상금 공고를 처리한 후
+종료하는 모드 (선택 사항)     insecure_transport (bool): TLS 없이 polyswarmd에
+연결     log_format (str): 로그 출력 형식.
 
-Options:
-  --log TEXT              Logging level
-  --polyswarmd-addr TEXT  Address (host:port) of polyswarmd instance
-  --keyfile PATH          Keystore file containing the private key to use with
-                          this microengine
-  --password TEXT         Password to decrypt the keyfile with
-  --api-key TEXT          API key to use with polyswarmd
-  --backend TEXT          Backend to use
-  --testing INTEGER       Activate testing mode for integration testing,
-                          respond to N bounties and N offers then exit
-  --insecure-transport    Connect to polyswarmd via http:// and ws://,
-                          mutually exclusive with --api-key
-  --chains TEXT           Chain(s) to operate on
-  --log-format TEXT       Log format. Can be `json` or `text` (default)
-  --help                  Show this message and exit.
+ `text` 또는
+`json`
+
+옵션:
+--log TEXT              로깅 수준
+--polyswarmd-addr TEXT  polyswarmd 인스턴스의 주소 (호스트:포트)
+--keyfile PATH          이 마이크로엔진에서 사용하는 개인 키가 포함된
+Keystore 파일
+--password TEXT         키파일을 해독하는 암호
+--api-key TEXT          polyswarmd에서 사용하는 API 키
+--backend TEXT          사용할 백엔드
+--testing INTEGER       통합 테스트용 테스트 모드 활성화,
+N개의 현상금 공고 및 N개의 제안에 응답한 후 종료
+--insecure-transport    http:// and ws://를 통하여 polyswarmd에 연결,
+--api-key와 서로 배타적임
+--chains TEXT           운영 대상 체인
+--log-format TEXT       로그 형식. `json` 또는 `text` (기본)
+  --help 이 메시지를 표시하고 종료.
 ```
 
-In addition to your engine, you'll need to run a `balancemanager`.
+엔진과 함께 `balancemanager`를 실행해야 합니다.
 
-`balancemanager` will also require access to your `keyfile`:
+`balancemanager`는 `keyfile`에 대한 접근 권한도 필요합니다.
 
 ```bash
 # balancemanager maintain \
   --polyswarmd-addr polyswarmd.epoch.polyswarm.network \
-  --keyfile <path to your self-generated and funded keyfile> \
-  --password <encryption password for your keyfile> \
-  --api-key <your Epoch API key> \
-  --maximum <(optional) the maximum allowable balance in the Community before a withdraw is made>
-  <MINIMUM: deposit into the Community when balance drops below this value>
-  <REFILL_AMOUNT: the amount of NCT to transfer when Community balance falls below MINIMUM>
+  --keyfile <사용자가 생성하고 자금을 제공한 키파일의 경로> \
+  --password <키파일의 암호화 암호> \
+  --api-key <사용자의 Epoch API 키> \
+  --maximum &lt;(선택 옵션) 출금 전 허용된 커뮤니티 내 최대 잔고&gt;
+  &lt;MINIMUM: 잔고가 이 수치 아래로 떨어질 경우 커뮤니티에 입금&gt;
+  &lt;REFILL_AMOUNT: 커뮤니티 잔고가 MINIMUM 아래로 떨어질 경우 전송할 NCT의 수량&gt;
 ```
 
 For the full list of command line arguments, use the `--help` CLI flag:
 
 ```bash
 # balancemanager maintain --help
-INFO:root:2018-12-28 03:04:11,352 Logging in text format.
+INFO:root:2018-12-28 03:04:11,352 텍스트 형식으로 로깅.
 Usage: balancemanager maintain [OPTIONS] MINIMUM REFILL_AMOUNT
 
   Entrypoint to withdraw NCT from a sidechain into the homechain
