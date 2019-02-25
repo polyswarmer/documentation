@@ -433,21 +433,21 @@ No obstante, el micromotor no tendrá recompensas que procesar hasta que haya un
 
 #### Máquina virtual Linux: lanza el embajador
 
-In your Linux VM, now start the `ambassador`, which will submit bounties into the testnet, so your microengine can respond to them. Start a new terminal and run the following commands:
+En tu máquina virtual Linux, lanza ahora el embajador `ambassador`, que enviará recompensas a la red de pruebas para que tu micromotor pueda responder a ellas. Abre una nueva terminal y ejecuta los siguientes comandos:
 
 ```bash
 $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Shortly after this starts, you will see messages in your Microengine's PowerShell window when it is processing bounties.
+Poco después, comenzarás a ver mensajes en la ventana PowerShell de tu micromotor mientras este procesa las recompensas.
 
-### All Done
+### Pruebas concluidas
 
-Congrats!
+¡Enhorabuena!
 
-Your Windows-Based Engine should now be responding to bounties placed on a local testnet hosted in your Linux VM.
+Tu motor basado en Windows debería estar respondiendo ahora a las recompensas ofrecidas en una red local de pruebas hospedada en tu máquina virtual Linux.
 
-Let your Microengine run until it shuts itself off.
+Déjalo funcionando hasta que se cierre por sí solo.
 
-Take a close look at the output of your engine to ensure it's doing what you want it to :)
+Revisa con atención la salida del micromotor para asegurarte de que esté haciendo lo que se supone. :)
