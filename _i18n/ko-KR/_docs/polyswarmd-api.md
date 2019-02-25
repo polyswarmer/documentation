@@ -1215,174 +1215,174 @@ let v = sig.v
 
 제공:
 
-type - type of message (payment, request, assertion)
+type - 메시지의 종류 (결제, 요청, 주장)
 
-state - offer state
+state - 제안 상태
 
-Optional:
+선택 사항:
 
-toSocketUri - to send to a different person (defaults to the ambassador)
+toSocketUri - 다른 사람에게 전송 (기본적으로 홍보대사에게 전송됨)
 
-v - recovery ids from signature of state string for both parties
+v - 양 당사자에 대한 상태 문자열 서명에서의 복구 id
 
-r - ECDSA signature of state string
+r - 상태 문자열의 ECDSA 서명
 
-s - ECDSA signature of state string
-
-```json
-{
-  "fromSocketUri": "[string]",
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
-}
-```
-
-**Data example** All fields must be sent.
-
-See state [explanation](#state)
+s - 상태 문자열의 ECDSA 서명
 
 ```json
 {
-  "state": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006e6f6e650000000000000000000000000000000000000000000000000000004c6f636b79",
-  "fromSocketUri": "payment"
+  "fromSocketUri": "[문자열]",
+  "state": "[최소 길이가 32인 문자열]",
+  "v": "[2개의 정수로 구성된 배열]",
+  "r": "[최소 길이가 64인 2개의 문자열로 구성된 배열]",
+  "s": "[최소 길이가 64인 2개의 문자열로 구성된 배열]",
 }
 ```
 
-## Events
+**데이터 예** 모든 필드를 전송해야 합니다.
 
-A websocket for contract events
+상태에 대한 [설명](#state)을 참조하세요
 
-Listen to the websocket at `ws://localhost:31337/events/<chain>`
+```json
+{
+"state": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006e6f6e650000000000000000000000000000000000000000000000000000004c6f636b79",
+"fromSocketUri": "payment"
+}
+```
 
-**Event Types**
+## 이벤트
 
-***Block***
+계약 이벤트에 대한 웹 소켓
 
-Sent when a new block is mined, reports the latest block number
+`ws://localhost:31337/events/<chain>`에서 웹 소켓을 경청합니다
+
+**이벤트 유형**
+
+***블록***
+
+새로운 블록을 채굴할 때 전송되고, 최신 블록 번호를 보고합니다
 
 **Content example**
 
 ```json
 {
-  "event": "block",
-  "data": {
-    "number": 1000
-  }
+"event": "block",
+"data": {
+"number": 1000
+}
 }
 ```
 
-***Bounty***
+***현상금***
 
-Sent when a new bounty is posted
+새로운 현상금이 게시될 때 전송됩니다
 
 **Content example**
 
 ```json
 {
-  "event": "bounty",
-  "data": {
-    "guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "author": "0x000000000000000000000000000000000",
-    "amount": "1000",
-    "uri": "QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG",
-    "expiration": "1000"
-  }
+"event": "bounty",
+"data": {
+"guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"author": "0x000000000000000000000000000000000",
+"amount": "1000",
+"uri": "QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG",
+"expiration": "1000"
+}
 }
 ```
 
-***Assertion***
+***주장***
 
-Sent when a new assertion to a bounty is posted
+현상금에 대한 새로운 주장이 게시될 때 전송됩니다
 
 **Content example**
 
 ```json
 {
-  "event": "assertion",
-  "data": {
-    "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "author": "0x000000000000000000000000000000000",
-    "index": 0,
-    "bid": "1000",
-    "mask": [true],
-    "commitment": "1000"
-  }
+"event": "assertion",
+"data": {
+"bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"author": "0x000000000000000000000000000000000",
+"index": 0,
+"bid": "1000",
+"mask": [true],
+"commitment": "1000"
+}
 }
 ```
 
-***Reveal***
+***공개***
 
-Sent when an assertion to a bounty is revealed
+현상금에 대한 주장이 공개될 때 전송됩니다
 
 **Content example**
 
 ```json
 {
-  "event": "assertion",
-  "data": {
-    "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "author": "0x000000000000000000000000000000000",
-    "index": 0,
-    "nonce": "0",
-    "verdicts": [true],
-    "metadata": ""
-  }
+"event": "assertion",
+"data": {
+"bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"author": "0x000000000000000000000000000000000",
+"index": 0,
+"nonce": "0",
+"verdicts": [true],
+"metadata": ""
+}
 }
 ```
 
-***Vote***
+***투표***
 
-Sent when an arbiter votes on a bounty
+중재자가 현상금에 대한 투표를 할 때 전송됩니다
 
 **Content example**
 
 ```json
 {
-  "event": "vote",
-  "data": {
-    "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "votes": [true],
-    "voter": "0x000000000000000000000000000000000"
-  }
+"event": "vote",
+"data": {
+"bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"votes": [true],
+"voter": "0x000000000000000000000000000000000"
+}
 }
 ```
 
-***Quorum***
+***정족수***
 
-Sent when arbiters have reached quorum on a bounty
+현상금에 대하여 중재자들이 정족수에 도달할 때 전송됩니다
 
 **Content example**
 
 ```json
 {
-  "event": "quorum",
-  "data": {
-    "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "quorum_block": 1000
-  }
+"event": "quorum",
+"data": {
+"bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"quorum_block": 1000
+}
 }
 ```
 
-***Settled***
+***합의***
 
-Sent when a participant settles their portion of a bounty
+참가자가 현상금 중 자신의 몫을 합의할 때 전송됩니다
 
 **Content example**
 
 ```json
 {
-  "event": "settled_bounty",
-  "data": {
-    "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "settler": "0x0000000000000000000000000000000000000000",
-    "payout": 0
-  }
+"event": "settled_bounty",
+"data": {
+"bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"settler": "0x0000000000000000000000000000000000000000",
+"payout": 0
+}
 }
 ```
 
-***Initialized Channel***
+***채널 초기화***
 
 Sent when a new channel is initialized
 
