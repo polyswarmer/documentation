@@ -17,19 +17,19 @@ PolySwarm 마켓플레이스에서 **홍보대사**는 서부 시대의 현상�
 1. **홍보대사**는 의심스러운 `아티팩트`(파일)에 대하여 "현상금"을 겁니다.
 2. **마이크로엔진**은 (`polyswarmd`를 통하여) 이더리움 이벤트를 경청함으로써 이 새로운 아티팩트를 인식합니다.
 3. 각 **마이크로엔진**은 해당 아티팩트가 자신의 전문 영역에 속하는지 판단합니다.
-4. If the **Microengine** posesses insight on the artifact, it produces an `assertion` and places a `stake` of NCT on that `assertion`, escrowed into the BountyRegistry smart contract.
-5. The **Ambassador** considers all `assertions` and returns a `verdict` to their customer.
-6. Some time passes.
-7. **Arbiters** offer *ground truth* regarding the malintent of the artifact.
-8. Correct **Microengines** are rewarded with the escrowed funds of incorrect **Microengines**.
+4. **마이크로엔진**이 해당 아이팩트에 대하여 통찰력이 있을 경우 `주장`을 개진하고 `주장`에 대하여 일정 금액의 NCT를 `판돈`으로 겁니다. 판돈은 BountyRegistry 스마트 계약에 보관됩니다.
+5. **홍보대사**는 모든 `주장`을 참작한 후 고객에게 `의견`을 전달합니다.
+6. 얼마간의 시간이 경과합니다.
+7. **중재자**가 아티팩트의 악성 여부에 대하여 *사실 검증*을 제공합니다.
+8. 주장이 맞은 **마이크로엔진**이 틀린 **마이크로엔진**의 보관된 자금으로 보상을 받습니다.
 
-For full details on this process, please refer to the [PolySwarm whitepaper](https://polyswarm.io/polyswarm-whitepaper.pdf).
+이 과정에 대한 자세한 내용은 [PolySwarm 백서](https://polyswarm.io/polyswarm-whitepaper.pdf)를 참조하시기 바랍니다.
 
-## Breaking Down Microengines
+## 마이크로엔진 세부 내역
 
-Conceptually, a Microengine is composed of:
+마이크로엔진의 개념적인 구성 요소:
 
-1. `N` **analysis backends**: the scanners that ingest artifacts (files) and determine `malicious` or `benign`.
+1. `N` **분석 백엔드**: 아티팩트(파일)를 입력하여 `악성` 또는 `정상` 여부를 판단하는 스캐너.
 2. `1` **verdict distillation engine**: ingests analysis backend(s) output, distills to a single `verdict` + a `confidence interval`
 3. `1` **staking engine**: ingests verdict distillation output and market / competitive information and produces a `stake` in units of Nectar (NCT)
 
