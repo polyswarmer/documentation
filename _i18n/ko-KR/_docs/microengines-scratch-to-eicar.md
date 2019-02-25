@@ -55,7 +55,7 @@ cookiecutter https://github.com/polyswarm/engine-template
 * `package_slug`: (기본 값 사용)
 * `author_name`: Wile E Coyote (또는 실제 이름)
 * `author_email`: (이메일 주소)
-* `플랫폼`: 정직하게 답변합니다 - 이 엔진이 Linux와 Windows 중 어디에서 실행됩니까?
+* `platform`: 정직하게 답변합니다 - 이 엔진이 Linux와 Windows 중 어디에서 실행됩니까?
 * `has_backend`: false의 경우 1 (아래 설명 참조)
 * `aws_account_for_ami`: (Windows만 해당) AWS 계정 ID (Linux 엔진의 경우 기본 값 사용)
 
@@ -91,7 +91,7 @@ EICAR은 간단히 탐지할 수 있습니다.
 
 이 파일을 수정하여 스캐너와 마이크로엔진 클래스를 구현합니다.
 
-* **스캐너**: 우리가 사용할 스캐너 클래스. 이 클래스는 자체 `검사` 함수에서 EICAR 탐지 로직을 구현합니다.
+* **Scanner**: 사용할 스캐너 클래스. 이 클래스는 자체 `검사` 함수에서 EICAR 탐지 로직을 구현합니다.
 
 * **마이크로엔진**: 우리가 사용할 마이크로엔진 클래스. 이 클래스는 위에 기술된 스캐너를 래핑하여 EICAR을 탐지하는 마이크로엔진에 필요한 모든 작업을 처리합니다.
 
