@@ -896,22 +896,22 @@ s - 양 당사자에 대한 상태 문자열 ECDSA 서명의 출력 배열
 
 **조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/transactions` 엔드포인트를 통해서 전송하게 됩니다.
 
-**Code** : `200`
+**코드**: `200`
 
-**Content example**
+**내용 예**
 
 ```json
 {
-  "transactions": [
-    { "chainId": 1337,
-      "data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
-      "gas": 5000000,
-      "gasPrice": 100000000000,
-      "nonce": 748,
-      "to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
-      "value": 0
-    }
-  ]
+"transactions": [
+{ "chainId": 1337,
+"data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
+"gas": 5000000,
+"gasPrice": 100000000000,
+"nonce": 748,
+"to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
+"value": 0
+}
+]
 }
 ```
 
@@ -919,49 +919,49 @@ s - 양 당사자에 대한 상태 문자열 ECDSA 서명의 출력 배열
 
 **URL** : `/offers/<uuid:guid>`
 
-**Method** : `GET`
+**메소드**: `GET`
 
 ### 제안 채널 합의 기간 가져오기
 
 **URL** : `/offers/<uuid:guid>/settlementPeriod`
 
-**Method** : `GET`
+**메소드**: `GET`
 
 ### 홍보대사 웹 소켓 uri 가져오기
 
 **URL** : `/offers/<uuid:guid>/websocket`
 
-**Method** : `GET`
+**메소드**: `GET`
 
 ### 대기 중인 제안 가져오기
 
 **URL** : `/offers/pending`
 
-**Method** : `GET`
+**메소드**: `GET`
 
 ### 개설된 제안 가져오기
 
 **URL** : `/offers/opened`
 
-**Method** : `GET`
+**메소드**: `GET`
 
 ### 종료된 제안 가져오기
 
 **URL** : `/offers/closed`
 
-**Method** : `GET`
+**메소드**: `GET`
 
 ### 내 제안 가져오기
 
 **URL** : `/offers/myoffers?account=[eth_address]`
 
-**Method** : `GET`
+**메소드**: `GET`
 
 ## 트랜잭션 서명
 
 **URL** : `/transactions?chain=[chain_here]`
 
-**Method** : `POST`
+**메소드**: `POST`
 
 서명된 모든 트랜잭션은 여기서 게시(POST)되어 선택된 체인에서 트랜잭션이 시작됩니다.
 
@@ -1007,13 +1007,13 @@ response = requests.post(uri, data=json.dumps({'transactions': signed})):
 return response.json()
 ```
 
-#### Success Response
+#### 성공 응답
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/transactions` 엔드포인트를 통해서 전송하게 됩니다.
 
-**Code** : `200`
+**코드**: `200`
 
-**Content example**
+**내용 예**
 
 ```json
 [
@@ -1030,11 +1030,11 @@ return response.json()
 
 **URL** : `/transactions/?chain=[chain_here]`
 
-**Method** : `GET`
+**메소드**: `GET`
 
-**Data constraints**
+**데이터 제약 조건**
 
-Provide:
+제공:
 
 transactions - 검사할 트랜잭션 해시 목록
 
@@ -1044,147 +1044,147 @@ transactions - 검사할 트랜잭션 해시 목록
 }
 ```
 
-**Data example** All fields must be sent.
+**데이터 예** 모든 필드를 전송해야 합니다.
 
 ```json
 {
-  "transactions": ["0x3ba9b38a6014048897a47633727eec4999d7936ea0f1d8e7bd42a51a1164ffad"],
+"transactions": ["0x3ba9b38a6014048897a47633727eec4999d7936ea0f1d8e7bd42a51a1164ffad"],
 }
 ```
 
-#### Success Response
+#### 성공 응답
 
-**Condition** : If all of the transactions completed without reverting. (If some failed, it will return 400)
+**조건** : 모든 트랜잭션이 반환 없이 완료된 경우. (일부가 실패한 경우 400을 반환합니다)
 
-**Code** : `200`
+**코드**: `200`
 
-**Content example**
+**내용 예**
 
 ```json
 {
-  "transfers": [
-    {
-    "value": 20000000000000000,
-    "from": "0x000000000000000000000000000000000",
-    "to": "0x000000000000000000000000000000000"
-    }
-  ],
-  "bounties": [
-    {
-      "guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-      "author": "0x000000000000000000000000000000000",
-      "amount": "1000",
-      "uri": "QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG",
-      "expiration": "1000"
-    }
-  ],
-  "assertions": [
-    {
-      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-      "author": "0x000000000000000000000000000000000",
-      "index": 0,
-      "bid": "1000",
-      "mask": [true],
-      "commitment": "1000"
-    }
-  ],
-  "reveals": [
-    {
-      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-      "author": "0x000000000000000000000000000000000",
-      "index": 0,
-      "nonce": "0",
-      "verdicts": [true],
-      "metadata": ""
-    }
-  ],
-  "votes": [
-    {
-      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-      "votes": [true],
-      "voter": "0x000000000000000000000000000000000"
-    }
-  ],
-  "settles": [
-    {
-      "bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-      "settler": "0x000000000000000000000000000000000",
-      "payout": 0
-    }
-  ],
-  "withdrawals": [
-    {
-      "to": "0x000000000000000000000000000000000",
-      "value": 0
-    }
-  ],
-  "deposits": [
-    {
-      "from": "0x000000000000000000000000000000000",
-      "value": 0
-    }
-  ],
-  "errors": []
+"transfers": [
+{
+"value": 20000000000000000,
+"from": "0x000000000000000000000000000000000",
+"to": "0x000000000000000000000000000000000"
+}
+],
+"bounties": [
+{
+"guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"author": "0x000000000000000000000000000000000",
+"amount": "1000",
+"uri": "QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG",
+"expiration": "1000"
+}
+],
+"assertions": [
+{
+"bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"author": "0x000000000000000000000000000000000",
+"index": 0,
+"bid": "1000",
+"mask": [true],
+"commitment": "1000"
+}
+],
+"reveals": [
+{
+"bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"author": "0x000000000000000000000000000000000",
+"index": 0,
+"nonce": "0",
+"verdicts": [true],
+"metadata": ""
+}
+],
+"votes": [
+{
+"bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"votes": [true],
+"voter": "0x000000000000000000000000000000000"
+}
+],
+"settles": [
+{
+"bounty_guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"settler": "0x000000000000000000000000000000000",
+"payout": 0
+}
+],
+"withdrawals": [
+{
+"to": "0x000000000000000000000000000000000",
+"value": 0
+}
+],
+"deposits": [
+{
+"from": "0x000000000000000000000000000000000",
+"value": 0
+}
+],
+"errors": []
 }
 ```
 
-## State
+## 상태
 
-### Creating State
+### 상태 생성
 
-The state byte string contains details the ambassador and expert sign off on.
+상태 바이트 문자열은 홍보대사와 전문가가 서명하는 세부 정보를 포함합니다.
 
 **URL** : `/offers/state`
 
-**Method** : `POST`
+**메소드**: `POST`
 
-**Data constraints**
+**데이터 제약 조건**
 
-Provide:
+제공:
 
-    close_flag - 1 or 0 for is this state is closeable
-    nonce - the sequnce of the state
-    ambassador - ambassador address
-    expert - expert address
-    msig_address - multi signature address
-    ambassador_balance - balance in nectar for ambassador
-    nectar_balance - balance in nectar for expert
-    guid - a globally-unique identifier for the offer listing
-    offer_amount - the offer amount paid for assertion
+    close_flag - 이 상태의 종료 가능 여부를 나타내는 1 또는 0
+    nonce - 상태의 순서
+    ambassador - 홍보대사의 주소
+    expert - 전문가의 주소
+    msig_address - 다중 서명 주소
+    ambassador_balance - 홍보대사의 nectar 잔고
+    nectar_balance - 전문가의 nectar 잔고
+    guid - 제안 목록에 대한 전역 고유 식별자
+    offer_amount - 주장에 대해 지불되는 제안 금액
     
 
-Optional:
+선택 사항:
 
-    artifact_hash - cryptographic hash of the artifact
-    ipfs_hash - the IPFS URI of the artifact
-    engagement_deadline - engagement Deadline
-    assertion_deadline - assertion Deadline
-    current_commitment - current commitment
-    verdicts - bitmap of verdicts
-    meta_data - meta data about current offer
+    artifact_hash - 아티팩트의 암호화 해시
+    ipfs_hash - 아티팩트의 IPFS URI
+    engagement_deadline - 참여 마감 시간
+    assertion_deadline - 주장 마감 시간
+    current_commitment - 현재 약속
+    verdicts - 의견의 비트맵
+    meta_data - 현재 제안에 대한 메타데이터
     
 
-Example POST data:
+POST 데이터 예:
 
     {
-      "close_flag": 0,
-      "nonce": 0,
-      "ambassador": "0x000000000000000000000000000000000",
-      "ambassador_balance": 100,
-      "expert_balance": 0,
-      "expert":"0x000000000000000000000000000000000",
-      "msig_address": "0x05027017bd3284c3f794474cc9f047e247bea04a"
+    "close_flag": 0,
+    "nonce": 0,
+    "ambassador": "0x000000000000000000000000000000000",
+    "ambassador_balance": 100,
+    "expert_balance": 0,
+    "expert":"0x000000000000000000000000000000000",
+    "msig_address": "0x05027017bd3284c3f794474cc9f047e247bea04a"
     }
     
 
-#### Gets tranformed to the below bytes string in the response:
+#### 응답에서 아래와 같은 바이트 문자열로 변환:
 
     0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc
     
 
-### Signing State
+### 서명 상태
 
-The offers api requires signed states. Here's an example of signing to create the v, r, and s signature pieces in Javascript.
+제안 api는 서명된 상태를 필요로 합니다. 다음은 Javascript로 v, r 및 s 서명 컴포넌트를 생성하는 서명의 예입니다.
 
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
@@ -1207,13 +1207,13 @@ let s = '0x' + sig.s.toString('hex')
 let v = sig.v
 ```
 
-### State Messages
+### 상태 메시지
 
-Ambassadors open a websocket with the url defined in the contract. Locally - messages are sent on `ws://localhost:31337/messages/<uuid:guid>`
+홍보대사는 계약 안에 정의된 url로 웹 소켓을 엽니다. 로컬에서 메시지는 `ws://localhost:31337/messages/<uuid:guid>`에서 전송됩니다
 
-**Data constraints**
+**데이터 제약 조건**
 
-Provide:
+제공:
 
 type - type of message (payment, request, assertion)
 
