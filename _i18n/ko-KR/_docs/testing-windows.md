@@ -430,14 +430,14 @@ $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Shortly after this starts, you will see messages in your Microengine's PowerShell window when it is processing bounties.
+작업 시작 직후 마이크로엔진이 현상금 공고를 처리할 때 마이크로엔진의 PowerShell 창에 메시지가 표시됩니다.
 
-### All Done
+### 작업 완료
 
-Congrats!
+축하합니다!
 
-Your Windows-Based Engine should now be responding to bounties placed on a local testnet hosted in your Linux VM.
+이제 Windows 기반 엔진이 Linux VM에 호스팅된 로컬 테스트넷에 게시된 현상금 공고에 응답할 것입니다.
 
-Let your Microengine run until it shuts itself off.
+스스로 종료할 때까지 마이크로엔진이 실행되도록 합니다.
 
-Take a close look at the output of your engine to ensure it's doing what you want it to :)
+원하는 대로 작업하고 있는지 엔진이 출력하는 내용을 살펴보세요 :)
