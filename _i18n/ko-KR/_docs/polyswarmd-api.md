@@ -22,60 +22,60 @@
 
 uri - 이 현상금을 구성하는 아티팩트의 uri
 
-duration - duration of this bounty in blocks
+지속 시간 - 블록 안에서 이 현상금이 유지되는 시간
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]",
-  "uri": "[string minimum length 1 / max length 100]",
-  "duration": "[integer minimum 1]"
+"amount": "[string minimum length 1 / max length 100]",
+"uri": "[string minimum length 1 / max length 100]",
+"duration": "[integer minimum 1]"
 }
 ```
 
-**Data example** All fields must be sent.
+**데이터 예** 모든 필드를 전송해야 합니다.
 
 ```json
 {
-  "amount": "30000",
-  "uri": "QmYNmQKp6SuaVrpgWRsPTgCQCnpxUYGq76YEKBXuj2N4H6",
-  "duration": 10
+"amount": "30000",
+"uri": "QmYNmQKp6SuaVrpgWRsPTgCQCnpxUYGq76YEKBXuj2N4H6",
+"duration": 10
 }
 ```
 
-#### Success Response
+#### 성공 응답
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
 
-**Code** : `200`
+**코드**: `200`
 
-**Content example**
+**내용 예제**
 
 ```json
 {
-  "transactions": [
-    { "chainId": 1337,
-      "data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
-      "gas": 5000000,
-      "gasPrice": 100000000000,
-      "nonce": 748,
-      "to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
-      "value": 0
-    },
-    { "chainId": 1337,
-      "data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
-      "gas": 5000000,
-      "gasPrice": 100000000000,
-      "nonce": 748,
-      "to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
-      "value": 0
-    }
-  ]
+"transactions": [
+{ "chainId": 1337,
+"data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
+"gas": 5000000,
+"gasPrice": 100000000000,
+"nonce": 748,
+"to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
+"value": 0
+},
+{ "chainId": 1337,
+"data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
+"gas": 5000000,
+"gasPrice": 100000000000,
+"nonce": 748,
+"to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
+"value": 0
+}
+]
 }
 ```
 
-### Vote on Bounty
+### 현상금 투표
 
-Called by arbiter after bounty expiration with a malicious or benign vote for each artifact, contributing to the final ground truth determination.
+현상금 게시 만료 후 중재자가 각 아티팩트에 대한 악성 또는 정상 투표를 호출하고 최종 사실 검증 판단에 연결됩니다.
 
 **URL** :`/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -85,14 +85,14 @@ Called by arbiter after bounty expiration with a malicious or benign vote for ea
 
 Provide:
 
-votes - array of votes representing ground truth for the bounty's artifacts
+투표 - 현상금 대상 아티팩트에 대한 사실 검증에 해당하는 투표의 배열
 
-valid\_bloom - if this is a bloom vote
+valid\_bloom - 블룸 투표의 경우
 
 ```json
 {
-  "votes": "[array with a max of 256 boolean items]",
-  "valid\_bloom": "[boolean]"
+"votes": "[array with a max of 256 boolean items]",
+"valid\_bloom": "[boolean]"
 }
 ```
 
@@ -100,8 +100,8 @@ valid\_bloom - if this is a bloom vote
 
 ```json
 {
-  "votes": "[true, false, true, true, false]",
-  "valid\_bloom": "true"
+"votes": "[true, false, true, true, false]",
+"valid\_bloom": "true"
 }
 ```
 
@@ -115,20 +115,20 @@ valid\_bloom - if this is a bloom vote
 
 ```json
 {
-  "transactions": [
-    { "chainId": 1337,
-      "data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
-      "gas": 5000000,
-      "gasPrice": 100000000000,
-      "nonce": 748,
-      "to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
-      "value": 0
-    }
-  ]
+"transactions": [
+{ "chainId": 1337,
+"data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
+"gas": 5000000,
+"gasPrice": 100000000000,
+"nonce": 748,
+"to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
+"value": 0
+}
+]
 }
 ```
 
-### Settle Bounty
+### 현상금 결정
 
 Callable after the voting window has closed to handle reward disbursal.
 
