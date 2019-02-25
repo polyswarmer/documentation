@@ -1,26 +1,26 @@
-## Bounties API
+## 현상금 API
 
-### Bounty Parameters
+### 현상금 매개 변수
 
 **URL** : `/bounties/parameters?chain=[chain_name]`
 
-**Method** : `GET`
+**메소드**: `GET`
 
-### Post Bounty
+### 현상금 게시
 
-Called by end users and ambassadors to post a bounty.
+현상금을 게시하기 위하여 최종 사용자와 홍보대사가 호출합니다.
 
 **URL** :`/bounties?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**Method** : `POST`
+**메소드**: `POST`
 
-**Data constraints**
+**데이터 제약 조건**
 
-Provide:
+제공:
 
-amount - the amount of NCT to post as a reward
+금액 - 보상으로 게시할 NCT의 수량
 
-uri - uri of the artifacts comprising this bounty
+uri - 이 현상금을 구성하는 아티팩트의 uri
 
 duration - duration of this bounty in blocks
 
