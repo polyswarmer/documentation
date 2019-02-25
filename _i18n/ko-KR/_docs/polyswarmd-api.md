@@ -91,7 +91,7 @@ valid\_bloom - 블룸 투표의 경우
 
 ```json
 {
-"votes": "[array with a max of 256 boolean items]",
+"votes": "[최대 256개의 불리언 항목으로 구성된 배열]",
 "valid\_bloom": "[boolean]"
 }
 ```
@@ -128,7 +128,7 @@ valid\_bloom - 블룸 투표의 경우
 }
 ```
 
-### 현상금 결정
+### 현상금 합의
 
 투표 창을 닫은 후 보상금 지불을 처리하기 위하여 호출합니다.
 
@@ -181,9 +181,9 @@ bid - 판돈으로 걸 NCT의 수량
 
 ```json
 {
-"bid": "[string minimum length 1 with max length 100]",
-"mask": "[array with a max of 256 boolean items]",
-"verdicts": "[array with a max of 256 boolean items]"
+"bid": "[최소 길이 1, 최대 길이 100의 문자열]",
+"mask": "[최대 256개의 불리언 항목으로 구성된 배열]",
+"verdicts": "[최대 256개의 불리언 항목으로 구성된 배열]"
 }
 ```
 
@@ -222,7 +222,7 @@ bid - 판돈으로 걸 NCT의 수량
 
 ### 현상금 주장 공개
 
-현상금 만료 후 사실 검증에 대한 본인의 판단을 확정하고 주장에 대한 보상을 지급하기 위하여 중재자가 호출합니다.
+현상금 만료 후 사실 검증에 대한 결정을 합의하고 주장에 대한 보상을 지급하기 위하여 중재자가 호출합니다.
 
 **URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -240,9 +240,9 @@ bid - 판돈으로 걸 NCT의 수량
 
 ```json
 {
-"nonce": "[string minimum length 1 with max length 100]",
-"verdicts": "[array with a max of 256 boolean items]",
-"metadata": "[string minimum length 1 with max length 1024]"
+"nonce": "[최소 길이 1, 최대 길이 100의 문자열]",
+"verdicts": "[최대 256개의 불리언 항목으로 구성된 배열]",
+"metadata": "[최소 길이 1, 최대 길이 1024의 문자열]"
 }
 ```
 
@@ -787,7 +787,7 @@ s - 양 당사자에 대한 상태 문자열 ECDSA 서명의 출력 배열
 
 ### 채널 합의
 
-합의된 상태를 사용하여 이의가 제기된 합의를 초기화하기 위하여 홍보대사 또는 전문가가 호출합니다. `settlementPeriodLength`를 사용하여 회신에 대한 시간 제한을 설정합니다
+합의된 상태를 사용하여 논의된 합의를 초기화하기 위하여 홍보대사 또는 전문가가 호출합니다. `settlementPeriodLength`를 사용하여 회신에 대한 시간 제한을 설정합니다
 
 **URL** : `/offers/settle?account=[eth_address]&base_nonce=[integer]`
 
@@ -1040,7 +1040,7 @@ transactions - 검사할 트랜잭션 해시 목록
 
 ```json
 {
-"transactions": "[트랜잭션 해시의 배열]",
+"transactions": "[트랜잭션 해시로 구성된 배열]",
 }
 ```
 
@@ -1365,7 +1365,7 @@ s - 상태 문자열의 ECDSA 서명
 }
 ```
 
-***합의***
+***합의됨***
 
 참가자가 현상금 중 자신의 몫을 합의할 때 전송됩니다
 
