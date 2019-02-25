@@ -1,29 +1,29 @@
-# Testing Linux-Based Engines
+# Linux 기반 엔진 테스트
 
-## Unit Testing
+## 유닛 테스트
 
-Unit testing your Microengine is a simple process:
+마이크로엔진의 유닛 테스트 절차는 간단합니다.
 
-1. build a Docker image of your Microengine
-2. run `docker-compose` to use `tox` to execute your testing logic in `tests/scan_test.py`
+1. 마이크로엔진의 Docker 이미지를 빌드합니다
+2. `docker-compose`를 실행하여 `tox`를 사용해 `tests/scan_test.py`에서 테스트 로직을 실행합니다
 
-Run the following commands from the root of your project directory.
+프로젝트 디렉터리의 루트에서 다음 명령을 실행합니다.
 
-Build your Microengine into a Docker image:
+마이크로엔진을 Docker 이미지로 빌드합니다.
 
 ```bash
 $ docker build -t ${PWD##*/} -f docker/Dockerfile .
 ```
 
-This will produce a Docker image tagged with the name of the directory, e.g. `microengine-myeicarengine`.
+이를 통해 디렉터리 이름으로 표시된 Docker 이미지(예: `microengine-myeicarengine`)가 생성됩니다.
 
-Run the tests:
+이를 통해 디렉터리 이름으로 표시된 Docker 이미지(예: <0>microengine-myeicarengine</0>)가 생성됩니다.
 
 ```bash
 $ docker-compose -f docker/test-unit.yml up
 ```
 
-If your Microengine is capable of detecting EICAR and not producing a false positive on the string "not a malicious file", then you should pass these basic unittests and see something like this:
+마이크로엔진이 EICAR을 탐지할 수 있고 "not a malicious file" 문자열에 긍정 오류를 생산하지 않을 경우 이 기본 유닛 테스트를 통과해서 다음과 같은 내용이 표시되어야 합니다.
 
 ```bash
 $ docker-compose -f docker/test-unit.yml up
@@ -52,50 +52,50 @@ test_engine_mylinuxengine_1_a9d540dc7394 |   py35: commands succeeded
 test_engine_mylinuxengine_1_a9d540dc7394 |   congratulations :)
 ```
 
-Of course, this testing is quite limited - you'll want to expand on your tests in `scan_test.py`, as appropriate for your Microengine.
+물론 이 테스트는 제한이 많습니다. 자신의 마이크로엔진에 맞게 `scan_test.py`에서 테스트를 확대해보는 것이 좋습니다.
 
-## Integration Testing
+## 통합 테스트
 
-The PolySwarm marketplace is composed of a myriad of participants and technologies: Ethereum & IPFS nodes, contracts, Microengines, Ambassadors, Arbiters, artifacts and much more. Testing a single component often demands availability of all of the other components.
+PolySwarm 마켓플레이스는 이더리움 & IPFS 노드, 계약, 마이크로엔진, 홍보대사, 중재자, 아티팩트 등 수많은 참가자와 기술로 구성되어 있습니다. 따라서, 하나의 구성 요소를 테스트하려고 해도 종종 다른 모든 구성 요소가 필요합니다.
 
-The `orchestration` project makes standing up a complete testnet easy and seamless. True to its name, `orchestration` orchestrates all the components necessary to stand up and tear down an entire PolySwarm marketplace environment on a local development machine.
+`orchestration` 프로젝트로 쉽고 원활하게 완전한 테스트넷을 구축할 수 있습니다. 이름에서 알 수 있듯이 `orchestration`은 오케스트라를 지휘하듯 필요한 모든 구성 요소를 사용하여 로컬 개발 머신에서 PolySwarm 마켓플레이스의 전체 환경을 구축하고 해체합니다.
 
-Clone `orchestration` adjacent to your `microengine-myeicarengine` directory:
+`microengine-myeicarengine` 디렉터리에 인접한 `orchestration`을 복제합니다.
 
 ```bash
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### (Optional) Preview a Complete, Working Testnet
+### (선택 사항) 완벽하게 작동하는 테스트넷 미리 보기
 
-Let's spin up a complete, working testnet to get a sense for what things *should* look like.
+어떤 모습을 *갖춰야 하는지* 감을 잡을 수 있도록 완벽하게 작동하는 테스트넷을 간단히 구축해보겠습니다.
 
-In the cloned `orchestration` directory:
+복제된 `orchestration` 디렉터리:
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up
 ```
 
-You'll see output from the following services:
+각 서비스에서 출력되는 내용은 다음과 같습니다.
 
-1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running our testnet's "homechain". See [Chains: Home vs Side](/#chains-home-vs-side) for an explanation of our split-chain design.
-2. `sidechain`: Another `geth` instance, this one running our testnet's "sidechain".
-3. `ipfs`: An IPFS node responsible for hosting all artifacts in our development testnet.
-4. `polyswarmd`: The PolySwarm daemon providing convenient access to the services offered by `homechain`, `sidechain` and `ipfs`.
-5. `contracts`: Responsible for housing & deploying the PolySwarm Nectar (NCT) and `BountyRegistry` contracts onto our development testnet.
-6. `ambassador`: A mock Ambassador (provided by `polyswarm-client`) that will place bounties on [the EICAR file](https://en.wikipedia.org/wiki/EICAR_test_file) and on a file that is not EICAR.
-7. `arbiter`: A mock Arbiter (provided by `polyswarm-client`) that will deliver Verdicts on "swarmed" artifacts, determining ground truth.
-8. `microengine`: A mock Microengine (provided by `polyswarm-client`) that will investigate the "swarmed" artifacts and render Assertions.
+1. `homechain`: 테스트넷의 "homechain"을 실행하는 [geth](https://github.com/ethereum/go-ethereum) 노드. 체인-분할 설계에 대한 설명은 [체인: 홈 vs 사이드](/#chains-home-vs-side)를 참조하세요.
+2. `sidechain`: 테스트넷의 "sidechain"을 실행하는 `geth` 인스턴스.
+3. `ipfs`: 개발 테스트넷에 모든 아티팩트를 호스팅하는 IPFS 노드.
+4. `polyswarmd`: `homechain`, `sidechain` 및 `ipfs`가 제공하는 서비스에 편리하게 액세스하게 해주는 PolySwarm 데몬.
+5. `contracts`: PolySwarm Nectar(NCT) 및 `BountyRegistry` 계약을 개발 테스트넷에 보관 & 배포.
+6. `ambassador`: [EICAR 파일](https://en.wikipedia.org/wiki/EICAR_test_file)과 EICAR이 아닌 파일에 현상금을 거는 모의 홍보대사(`polyswarm-client`가 제공).
+7. `arbiter`: '접수된' 아티팩트에 대하여 의견을 제시하고 사실 검증을 판단하는 모의 중재자(`polyswarm-client`가 제공).
+8. `microengine`: '접수된' 아티팩트를 검사하고 주장을 제시하는 모의 마이크로엔진(`polyswarm-client`가 제공).
 
-Browse through the logs scroll on the screen to get a sense for what each of these components is doing. Let it run for at least 5 minutes - it can take time to deploy contracts - and then the fun starts :)
+화면에 표시된 로그를 스크롤해서 탐색하며 각 구성 요소가 어떤 작업을 하는지 살펴보시기 바랍니다. 적어도 5분 이상 실행되도록 합니다. 계약을 배포하는 데는 시간이 걸릴 수 있습니다. 그리고 재미있는 일들이 시작됩니다 :)
 
-When you've seen enough log output, do `Ctrl-C` to halt the development testnet gracefully.
+로그가 충분히 출력되면 `Ctrl-C`를 눌러서 개발 테스트넷을 중단시킵니다.
 
-### Test Your Engine
+### 엔진 테스트
 
-Let's spin up a subset of the testnet, leaving out the stock `microengine` (we'll be replacing this with our own) and the `ambassador` services.
+테스트넷의 서브세트를 구축하여 기본으로 제공된 `microengine`(사용자의 것으로 대체함) 및 `ambassador` 서비스를 생략합니다.
 
-In the cloned `orchestration` project:
+복제된 `orchestration` 프로젝트:
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
