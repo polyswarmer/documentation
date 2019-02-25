@@ -61,49 +61,49 @@ cookiecutter https://github.com/polyswarm/engine-template
 
 <div class="m-callout">
   <p>프롬프트 중 하나는 '분리된 백엔드가 있음'이라고 생각하면 되는 <code>has_backend</code>이며, 추가적인 설명이 필요합니다.</p>
-  <p>검사 엔진을 래핑할 때, <code>polyswarm-client</code> 클래스의 상속과 클래스 함수의 구현은 '프런트엔드' 변경으로 간주됩니다. 검사 엔진 '프런트엔드'가 네트워크나 로컬 소켓을 통하여 실제 검사 작업을 수행하는 별도의 프로세스("백엔드")에 접속해야 할 경우, 분리된 '백엔드'가 있는 셈이므로 <code>has_backend</code>에 <code>true</code>라고 답해야 합니다. If instead your scan engine can easily be encapsulated in a single Docker image (Linux) or AMI (Windows), then you should select <code>false</code> for <code>has_backend</code>.</p>
-  <p>Example of disjoint frontend / backend:</p>
+  <p>검사 엔진을 래핑할 때, <code>polyswarm-client</code> 클래스의 상속과 클래스 함수의 구현은 '프런트엔드' 변경으로 간주됩니다. 검사 엔진 '프런트엔드'가 네트워크나 로컬 소켓을 통하여 실제 검사 작업을 수행하는 별도의 프로세스("백엔드")에 접속해야 할 경우, 분리된 '백엔드'가 있는 셈이므로 <code>has_backend</code>에 <code>true</code>라고 답해야 합니다. 대신 검사 엔진이 단일한 Docker 이미지(Linux) 또는 AMI(Windows)로 쉽게 캡슐화할 수 있다면 <code>has_backend</code>를 <code>false</code>로 선택해야 합니다.</p>
+  <p>분리된 프런트엔드 / 백엔드의 예:</p>
   <ul>
     <li><a href="https://github.com/polyswarm/polyswarm-client/blob/5959742f0014a582baf5046c7bf6694c23f7435e/src/microengine/clamav.py#L18">ClamAV</a></li>
   </ul>
-  <p>Example of only a frontend (has_backend is false):</p>
+  <p>프런트엔드만 존재하는 예(has_backend가 false):</p>
   <ul>
     <li><a href="https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/yara.py">Yara</a></li>
   </ul>
 </div>
 
-You're all set!
+모든 준비가 완료되었습니다!
 
-You should find a `microengine-myeicarengine` in your current working directory - this is what we'll be editing to implement EICAR scan functionality.
+현재 작업 중인 디렉터리에서 `microengine-myeicarengine`을 찾을 수 있습니다. EICAR의 검사 함수를 구현하기 위해서 이를 편집합니다.
 
-## Implement an EICAR Scanner & Microengine
+## EICAR 스캐너 & 마이크로엔진 구현
 
-Detecting EICAR is as simple as:
+EICAR은 간단히 탐지할 수 있습니다.
 
-1. implementing a Scanner class that knows how to identify the EICAR test file
-2. implementing a Microengine class that uses this Scanner class
+1. EICAR 테스트 파일을 탐지할 수 있는 스캐너 클래스 구현
+2. 이 스캐너 클래스를 사용하는 마이크로엔진 클래스 구현
 
-Let's get started.
+이제 시작해보겠습니다.
 
-Open `microengine-myeicarengine/src/(the org slug name)_myeicarengine/__init__.py`.
+`microengine-myeicarengine/src/(the org slug name)_myeicarengine/__init__.py`를 엽니다.
 
-If you used our cookiecutter `engine-template` from above, you will have some code in your `__init__.py`.
+위에서 cookiecutter `engine-template`을 사용한 경우 `__init__.py`에 코드가 포함됩니다.
 
-We will modify this file to implement both our Scanner and Microengine classes:
+이 파일을 수정하여 스캐너와 마이크로엔진 클래스를 구현합니다.
 
-* **Scanner**: our Scanner class. This class will implement our EICAR-detecting logic in its `scan` function.
+* **스캐너**: 우리가 사용할 스캐너 클래스. 이 클래스는 자체 `검사` 함수에서 EICAR 탐지 로직을 구현합니다.
 
-* **Microengine**: our Microengine class. This class will wrap the aforementioned Scanner to handle all the necessary tasks of being a Microengine that detects EICAR.
+* **마이크로엔진**: 우리가 사용할 마이크로엔진 클래스. 이 클래스는 위에 기술된 스캐너를 래핑하여 EICAR을 탐지하는 마이크로엔진에 필요한 모든 작업을 처리합니다.
 
-### Write EICAR Detection Logic
+### EICAR 탐지 로직 작성
 
-The EICAR test file is defined as a file that contains only the following string: `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`.
+EICAR 테스트 파일은 `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*` 문자열만 포함하는 파일로 정의됩니다.
 
-There are, of course, many ways to identify files that match this criteria. The `scan` function's `content` parameter contains the entire content of the artifact in question - this is what you're matching against.
+물론, 이 기준에 부합하는 파일을 식별하는 방법은 많이 있습니다. `검사` 함수의 `콘텐츠` 매개 변수에 해당 아티팩트의 전체 내용이 포함됩니다. 사용자는 이것을 처리해야 합니다.
 
-The following are 2 examples for how you can write your `scan()` function to detect `EICAR`. Update the code in your `__init__.py` file with the changes from one of these examples.
+다음 두 가지 예는 `EICAR`을 탐지하는 `scan()` 함수를 작성하는 방법에 관한 것입니다. 이들 중 하나를 변경하여 `__init__.py` 파일의 코드를 업데이트합니다.
 
-The first way, is the simplest design and is used in [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py):
+첫 번째 방법은 가장 간단한 것으로 [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py)에서 사용됩니다.
 
 ```python
 import base64
@@ -114,21 +114,21 @@ EICAR = base64.b64decode(b'WDVPIVAlQEFQWzRcUFpYNTQoUF4pN0NDKTd9JEVJQ0FSLVNUQU5EQ
 
 class Scanner(AbstractScanner):
 
-    async def scan(self, guid, content, chain):
-        if content == EICAR:
-            return True, True, ''
+async def scan(self, guid, content, chain):
+if content == EICAR:
+return True, True, ''
 
-        return True, False, ''
+return True, False, ''
 
 
 class Microengine(AbstractMicroengine):
-    def __init__(self, client, testing=0, scanner=None, chains=None):
-        scanner = Scanner()
-        super().__init__(client, testing, scanner, chains)
+def __init__(self, client, testing=0, scanner=None, chains=None):
+scanner = Scanner()
+super().__init__(client, testing, scanner, chains)
 
 ```
 
-Here's another way, this time comparing the SHA-256 of the EICAR test file with a known-bad hash:
+다른 방법으로는 이미 알려진 악성 해시가 포함된 EICAR 테스트 파일의 SHA-256을 비교합니다.
 
 ```python
 import base64
@@ -142,30 +142,30 @@ HASH = sha256(EICAR).hexdigest()
 
 class Scanner(AbstractScanner):
 
-    async def scan(self, guid, content, chain):
-        testhash = sha256(content).hexdigest()
-        if (testhash == HASH):
-            return True, True, ''
+async def scan(self, guid, content, chain):
+testhash = sha256(content).hexdigest()
+if (testhash == HASH):
+return True, True, ''
 
-        return True, False, ''
+return True, False, ''
 
 
 class Microengine(AbstractMicroengine):
-    def __init__(self, client, testing=0, scanner=None, chains=None):
-        scanner = Scanner()
-        super().__init__(client, testing, scanner, chains)
+def __init__(self, client, testing=0, scanner=None, chains=None):
+scanner = Scanner()
+super().__init__(client, testing, scanner, chains)
 
 ```
 
-### Develop a Staking Strategy
+### 판돈 설정 전략 개발
 
-At a minimum, Microengines are responsible for: (a) detecting malicious files, (b) rendering assertions with NCT staked on them.
+마이크로엔진은 최소한 (a) 악성 파일을 식별하고 (b) 판돈으로 설정된 NCT가 포함된 주장을 제시해야 합니다.
 
-Staking logic is implemented in the Microengine's `bid` function.
+판돈 설정 로직은 마이크로엔진의 `bid` 함수에서 구현됩니다.
 
-By default, all assertions are placed with the minimum stake permitted by the community a Microengine is joined to.
+기본적으로 모든 주장은 마이크로엔진이 가입한 커뮤니티의 최소 판돈 금액과 함께 제시됩니다.
 
-Check back soon for an exploration of various staking strategies.
+다양한 판돈 설정 전략에 대해 알아보려면 나중에 다시 확인해보세요.
 
 ## Finalizing & Testing Your Engine
 
@@ -179,6 +179,6 @@ Once everything is in place, let's test our engine:
 
 ## Next Steps
 
-Implementing scan logic directly in the Scanner class is difficult to manage and scale. Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
+검사 로직을 스캐너 클래스 안에서 직접 구현하면 관리 및 확장하기가 어렵습니다. 그 대신, 마이크로엔진 클래스가 실제 검사 로직이 포함된 외부 바이너리나 서비스를 호출하게 하는 것이 좋습니다.
 
-[Next, we'll wrap ClamAV into a Microengine →](/microengines-scratch-to-clamav/)
+[다음으로 ClamAV를 마이크로엔진에 래핑하겠습니다 →](/microengines-scratch-to-clamav/)
