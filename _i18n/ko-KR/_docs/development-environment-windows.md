@@ -1,113 +1,105 @@
 ## (권장) VirtualBox 게스트 구성
 
-Conducting Windows-Based Engine development inside of a VirtualBox Guest is the only fully-supported configuration at this time.
+현재 유일하게 완벽히 지원되는 구성은 VirtualBox 게스트 안에서 Windows 기반 엔진을 개발하는 경우입니다.
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    The recommendations presented here are hard-won.
-    We strongly recommend that you test using the exact parameters presented here.
-    Using any other configuration will make it difficult for us to provide you with support.
+    <strong>경고:</strong> 여기에 제시된 권장 사항은 어렵습니다. 여기에 제시된 매개 변수들을 정확히 사용하여 테스트하실 것을 강력히 권장합니다. 다른 구성을 사용하실 경우 지원을 제공해드리기 어려울 수 있습니다.
   </p>
 </div>
 
 ### System Requirements
 
-Windows-Based Engine development presents non-trivial system requirements for your development host:
+Windows 기반 엔진 개발 시 개발 호스트용으로 특수한 시스템 요구 사항이 필요합니다.
 
-- Windows 10 (we've tested with Windows 10 Pro, version 1809)
-- VT-x supported and enabled in BIOS
-- 16GB+ of RAM
-- 4+ CPU cores
-- 100GB+ disk space
+- Windows 10 ( Windows 10 Pro, 1809 버전에서 테스트했습니다)
+- BIOS에서 VT-x 지원 및 활성화
+- 16GB 이상의 RAM
+- 4개 이상의 CPU 코어
+- 100GB 이상의 디스크 공간
 
-We'll be using VirtualBox. **VirtualBox must have sole ownership of your hypervisor**. This mean you cannot run:
+VirtualBox가 사용됩니다. **VirtualBox는 하이퍼바이저를 단독으로 소유해야 합니다**. 즉, 다음 기능은 수행할 수 없습니다.
 
 - Hyper-V
 - Windows Credential Guard
 - Windows Device Guard
 - VMWare Workstation / Player
-- any other product that uses hypervisor extensions
+- 하이퍼바이저 확장을 사용하는 다른 제품
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Nested virtualization is NOT a currently supported configuration.
+    <strong>경고:</strong> 중첩 가상화는 현재 지원되는 구성이 아닙니다.
   </p>
+  
   <p>
-    Instructions presented here assume your host Windows install is running on "bare metal".
-    Separate instructions for developing under a hypervisor (e.g. on AWS) are coming soon!
+    여기에 제시된 설명은 사용자의 호스트 Windows 설치가 '베어 메탈(bare metal)'에서 실행되고 있다고 가정합니다. 하이퍼바이저를 사용한 개발(예: AWS)에 대한 별도의 설명이 곧 추가될 예정입니다!
   </p>
 </div>
 
-### Prerequisites
+### 기본 요구 사항
 
-- [Download and Install VirtualBox](https://www.virtualbox.org/wiki/Downloads). We've tested with VirtualBox 5.2.22.
-- [Download Windows 10 Pro ISO](https://www.microsoft.com/en-us/software-download/windows10ISO). Use the Media Creation Tool to make a .ISO image. We've tested with Windows 10 Pro, Build 10240.
+- [VirtualBox를 다운로드 및 설치합니다](https://www.virtualbox.org/wiki/Downloads). VirtualBox 5.2.22에서 테스트했습니다.
+- [Windows 10 Pro ISO를 다운로드합니다](https://www.microsoft.com/en-us/software-download/windows10ISO). Media Creation Tool을 사용해서 .ISO 이미지를 만듭니다. Windows 10 Pro, 빌드 10240에서 테스트했습니다.
 
-### Create a Windows Guest
+### Windows 게스트 만들기
 
-Use VirtualBox to create a Windows VM using the following parameters:
+VirtualBox에서 다음 매개 변수를 사용해서 Windows VM을 만듭니다.
 
-- Name: `polyswarm_win`
-- Type: Microsoft Windows
-- Version: Windows 10 (64-bit)
-- RAM: 4GB+
-- CPU: 2+ cores
-- video memory: 128MB
-- disk space: 50GB+
+- 이름: `polyswarm_win`
+- 종류: Microsoft Windows
+- 버전 Windows 10 (64비트)
+- RAM: 4GB 이상
+- CPU: 코어 2개 이상
+- 비디오 메모리: 128MB
+- 디스크 공간: 50GB 이상
 
-Use the default setting for all other options. In particular, **do NOT enable 3D acceleration**.
+다른 옵션에는 기본 설정을 사용합니다. 특히, **3D 가속을 활성화하지 마세요**.
 
-### Install Windows 10
+### Windows 10 설치
 
-Use the ISO you downloaded to install Windows in the VM.
+다운로드한 ISO를 사용해서 VM에 Windows를 설치합니다.
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Conducting Windows updates in a VirtualBox VM is not recommended and is quite likely to leave your VM in an un-bootable state.
-    We recommend <a href="https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10">disabling Windows Update</a> immediately after you install Windows in the VM.
+    <strong>경고:</strong> VirtualBox VM에서 Windows 업데이트를 수행하는 것은 권장하지 않습니다. VM이 부팅할 수 없는 상태가 될 수 있습니다. VM에서 Windows를 설치한 후 즉시 <a href="https://www.thewindowsclub.com/turn-off-windows-update-in-windows-10">Windows 업데이트를 비활성화할 것</a>을 권장합니다.
   </p>
 </div>
 
-### Install VirtualBox Guest Additions
+### VirtualBox 게스트 확장 설치
 
-Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+게스트 확장은 게스트 및 호스트 사이에 공유 클립보드 / 복사 & 붙여넣기 기능을 사용하기 위하여 필요합니다.
 
-[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
+[VirtualBox 설명서를 참조하세요](https://www.virtualbox.org/manual/ch04.html).
 
-### Guest Creation Complete
+### 게스트 생성 완료
 
-Once Guest Additions are installed, you're ready to [Configure Windows](#configure-windows) for development inside of the VM.
+게스트 확장이 설치되면 VM에서 개발하기 위한 [Windows 구성](#configure-windows)을 할 준비가 되었습니다.
 
-## (Unsupported) Custom Configuration
+## (지원 안 됨) 사용자 지정 구성
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Developing Windows-Based Engines outside of a VirtualBox virtual machine will preclude you from conducting integration tests at this time.
-    We strongly recommend that you conduct development inside of a Windows VirtualBox Guest (described above) at this time.
+    <strong>경고:</strong> VirtualBox 가상 머신 밖에서 Windows 기반 엔진을 개발할 경우 통합 테스트를 수행할 수 없습니다. 위에 설명된 대로 Windows VirtualBox 게스트 안에서 개발을 수행하실 것을 강력히 권장합니다.
   </p>
 </div>
 
-Minimum system requirements:
+최소 시스템 요구 사항:
 
 - Windows 10*
 - 4+ CPU cores
-- 4GB of RAM
+- 4GB RAM
 
-*Older versions of Windows may work, but are untested (and unsupported) at this time.
+*이전 버전의 Windows도 가능할 수 있지만, 현재는 테스트되지 않았으며, 지원되지 않습니다.
 
-## Configure Windows
+## Windows 구성
 
-We'll need to use Administrator privilege to make several changes to default Windows settings. We'll need an "elevated" / "privileged" PowerShell console:
+관리자 권한을 사용하여 Windows 기본 설정을 몇 가지 변경해야 합니다. '권한이 높거나' '권한 있는' PowerShell 콘솔이 필요합니다.
 
-- search "PowerShell" in the desktop search bar
-- right click on "Windows PowerShell"
-- select "Run as administrator".
+- 바탕화면 검색 창에서 'PowerShell'을 검색합니다
+- 'Windows PowerShell'을 오른쪽 클릭합니다
+- '관리자 권한으로 실행'을 선택합니다.
 
-Run the following in this privileged PowerShell console.
+권한 있는 PowerShell 콘솔에서 다음과 같이 실행합니다.
 
 1. Permit script execution (necessary for installing Chocolatey & using virtualenvs):
     
