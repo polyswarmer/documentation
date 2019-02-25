@@ -1,4 +1,4 @@
-## (Recommended) VirtualBox Guest Configuration
+## (권장) VirtualBox 게스트 구성
 
 Conducting Windows-Based Engine development inside of a VirtualBox Guest is the only fully-supported configuration at this time.
 
