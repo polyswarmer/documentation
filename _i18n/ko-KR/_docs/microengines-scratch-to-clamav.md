@@ -23,7 +23,7 @@ ClamAV는 오픈 소스 서명 기반 엔진으로 식별한 아티팩트에 대
 
 [새로운 engine-template](/microengines-scratch-to-eicar/#customize-engine-template)으로 시작해서 'MyClamAvEngine'으로 `engine-name`을 부여합니다. 현재 작업 중인 디렉터리에서 `microengine-myclamavengine`을 찾을 수 있습니다. ClamAV의 검사 함수를 구현하기 위해 이를 편집합니다.
 
-Edit the `__init__.py` as we describe below:
+아래와 같이 `__init__.py`를 편집합니다.
 
 `clamd` 모듈을 불러오고 일부 전역 구성하여 ClamAV `분석 백엔드` 구축을 시작합니다.
 
@@ -87,8 +87,8 @@ ClamAV의 `메타데이터`를 포함시키는 방법은 직접 확인해보시�
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+    <strong>정보:</strong>
+ 마이크로엔진 클래스가 필요하지만, 수정할 필요가 없으므로 여기에 표시하지 않았습니다.
   </p>
   <p>
     Python 3의 Asyncio - 검사하는 동안 수행한 외부 호출이 이벤트 루프를 차단하지 않도록 해야 합니다.
@@ -108,7 +108,7 @@ ClamAV의 `메타데이터`를 포함시키는 방법은 직접 확인해보시�
 
 [Windows 기반 엔진 테스트 →](/testing-windows/)
 
-## Next Steps
+## 다음 단계
 
 Eicar 예제를 통해 스캐너 클래스의 검사 로직을 직접 구현하는 방법에 대하여 설명했습니다. 그리고 이번 ClamAV 예에서 외부 소켓을 호출하여 검사 로직에 액세스하는 방법에 대하여 설명했습니다.
 
