@@ -1,7 +1,7 @@
 ---
 global:
-  title: The first decentralized threat intelligence marketplace
-  description: PolySwarm Documentation is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products.
+  title: El primer mercado descentralizado de inteligencia contra amenazas
+  description: La documentación de PolySwarm constituye un recurso público concebido para ayudar a expertos, árbitros, embajadores y otras personas a familiarizarse con los productos de PolySwarm.
   languages:
     - 
       name: en-US
@@ -21,32 +21,32 @@ global:
         text: View now
       close:
         text: Close
-  previous_text: Previous article
-  next_text: Next article
+  previous_text: Artículo anterior
+  next_text: Artículo siguiente
   close_text: Cerrar
   privacy_settings:
-    heading: Privacy Settings
-    text: Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you consent to our use of cookies, please make sure the box below is checked. Otherwise, uncheck the box below to opt out.
-    label: Enable Cookies
+    heading: Configuración de privacidad
+    text: Nuestra web usa <i>cookies</i> para ayudarnos a entender cómo la utilizas y para facilitarte su uso en el futuro. Si das tu consentimiento para que usemos <i>cookies</i>, asegúrate de que la casilla a continuación esté activada. De lo contrario, desactívala.
+    label: Habilitar <i>cookies</i>
 header:
-  menu_text: Menu
-  languages_text: Languages
+  menu_text: Menú
+  languages_text: Idiomas
   navigation:
     home:
-      name: Docs Home
+      name: Página de inicio de la documentación
       d_url: /
     items:
       - 
-        name: Concepts
+        name: Conceptos
         subitems:
           - 
-            name: Participants
+            name: Participantes
             d_url: /concepts-participants/
           - 
-            name: Micromotores
+            name: Microengines
             d_url: /concepts-participants-microengine/
       - 
-        name: Development Environment
+        name: Entorno de desarrollo
         subitems:
           - 
             name: Linux
@@ -55,19 +55,19 @@ header:
             name: Windows
             d_url: /development-environment-windows/
       - 
-        name: Micromotores
+        name: Microengines
         subitems:
           - 
-            name: "Level 0: Scratch to EICAR"
+            name: "Nivel 0: de cero a EICAR"
             d_url: /microengines-scratch-to-eicar/
           - 
-            name: "Level 1: Scratch to ClamAV"
+            name: "Nivel 1: de cero a ClamAV"
             d_url: /microengines-scratch-to-clamav/
           - 
-            name: "Level 2: ClamAV to Multi"
+            name: "Nivel 2: de ClamAV a Multi"
             d_url: /microengines-clamav-to-multi/
       - 
-        name: Testing
+        name: Pruebas
         subitems:
           - 
             name: Linux
@@ -76,7 +76,7 @@ header:
             name: Windows
             d_url: /testing-windows/
       - 
-        name: Marketplace
+        name: Mercado
         d_url: /joining-the-market/
       - 
         name: API
@@ -90,71 +90,71 @@ footer:
       - 
         items:
           - 
-            name: Navigation
+            name: Navegación
           - 
-            name: Home
+            name: Inicio
             d_url: /
             d_rooturl: true
           - 
-            name: Security Experts
+            name: Expertos en seguridad
             d_url: /security_experts/
             d_rooturl: true
           - 
-            name: How It Works
+            name: Cómo funciona
             d_url: /how_it_works/
             d_rooturl: true
           - 
-            name: Partners
+            name: Socios
             d_url: /partners/
             d_rooturl: true
           - 
-            name: Updates
+            name: Noticias
             d_url: /updates/
             d_rooturl: true
           - 
-            name: Docs
+            name: Documentos
             d_url: https://docs.polyswarm.io
             d_subdomain: true
           - 
-            name: Contact
+            name: Contacto
             d_url: /contact/
             d_rooturl: true
       - 
         items:
           - 
-            name: Company
+            name: Empresa
           - 
-            name: The Team
+            name: Equipo
             d_url: /the_team/
             d_rooturl: true
           - 
-            name: Careers
+            name: Empleo
             d_url: /careers/
             d_rooturl: true
           - 
-            name: Roadmap
+            name: Hoja de ruta
             d_url: /roadmap/
             d_rooturl: true
           - 
-            name: FAQ
+            name: Preguntas frecuentes
             d_url: /faq/
             d_rooturl: true
           - 
-            name: Grants
+            name: Becas
             d_url: /grants/
             d_rooturl: true
           - 
-            name: Security
+            name: Seguridad
             d_url: /security/
             d_rooturl: true
           - 
-            name: Media
+            name: Multimedia
             d_url: /media/
             d_rooturl: true
       - 
         items:
           - 
-            name: Telegram Channels
+            name: Canales de Telegram
           - 
             name: PolySwarm
             d_url: https://t.me/PolySwarm
@@ -166,12 +166,12 @@ footer:
             d_target: _blank
             d_root: true
           - 
-            name: PolySwarm Announcements
+            name: Comunicados de PolySwarm
             d_url: https://t.me/PolySwarmAnnouncements
             d_target: _blank
             d_root: true
   cta:
-    name: Download Whitepaper
+    name: Descargar libro blanco
     d_url: /polyswarm-whitepaper.pdf
     d_target: _blank
     d_rooturl: true
@@ -179,60 +179,60 @@ footer:
     name: Privacy Policy
     d_url: /privacy/
   terms:
-    name: Terms of Service
+    name: Condiciones del servicio
     d_url: /terms/
     d_rooturl: true
 pages:
   page_not_found:
-    title: Page not found
+    title: Página no encontrada
     d_bg_image: /backgrounds/network-bg.png
     heading: Page not found
     button:
-      name: Back to home
+      name: Volver al inicio
       d_url: /
       d_style: transparent
   privacy:
     title: Privacy Policy
-    description: PolySwarm's Privacy Policy
+    description: Política de privacidad de PolySwarm
 docs:
   concepts_participants:
-    title: Roles in the PolySwarm Marketplace
-    description: PolySwarm es un mercado formado por participantes que constituyen la oferta (micromotores) y la demanda (embajadores), además de mediadores (árbitros).
+    title: Funciones en el mercado de PolySwarm
+    description: PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
   concepts_participants_microengine:
-    title: "Participants: Microengine"
-    description: Los micromotores son la representación de los expertos en seguridad dentro del mercado de PolySwarm.
+    title: "Participantes: micromotores"
+    description: Microengines are Security Experts' representation in the PolySwarm marketplace.
   development_environment_linux:
-    title: Linux Development Environment
-    description: How to configure a Linux development environment for PolySwarm
+    title: Entorno de desarrollo Linux
+    description: Cómo configurar un entorno de desarrollo Linux para PolySwarm
   development_environment_windows:
-    title: Windows Development Environment
-    description: How to configure a Windows development environment for PolySwarm
+    title: Entorno de desarrollo Windows
+    description: Cómo configurar un entorno de desarrollo Windows para PolySwarm
   microengines_scratch_to_eicar:
     title: "Level 0: Scratch to EICAR"
-    description: This tutorial will step you through building your very first PolySwarm microengine - a hello world microengine capable of detecting the EICAR test file.
+    description: 'Este tutorial te guiará paso a paso en la creación de tu primer micromotor de PolySwarm: un micromotor "Hola mundo" capaz de detectar el archivo de prueba EICAR.'
   microengines_scratch_to_clamav:
     title: "Level 1: Scratch to ClamAV"
-    description: This tutorial will step you through building your second PolySwarm microengine by means of incorporating ClamAV as an analysis backend.
+    description: Este tutorial te guiará paso a paso en la creación de tu segundo micromotor PolySwarm integrando ClamAV como procesador de análisis.
   microengines_clamav_to_multi:
     title: "Level 2: ClamAV to Multi"
-    description: This tutorial will show you how to combine multiple analysis backends (ClamAV and YARA) and outlines a basic verdict distillation primitive.
+    description: Este tutorial te mostrará cómo combinar varios procesadores de análisis (ClamAV y YARA) y te ofrecerá un esbozo de una primitiva básica para la sintetización de veredictos.
   testing_linux:
     title: Testing Linux-Based Engines
-    description: How to test a Linux-based PolySwarm microengine.
+    description: Cómo probar un micromotor PolySwarm basado en Linux.
   testing_windows:
     title: Testing Windows-Based Engines
-    description: How to test a Windows-based PolySwarm microengine.
+    description: Cómo probar un micromotor PolySwarm basado en Windows.
   joining_the_market:
-    title: Joining the Market
-    description: Participating in the PolySwarm Marketplace.
+    title: Cómo incorporarse al mercado
+    description: Cómo participar en el mercado de PolySwarm.
   polyswarmd_api:
-    title: polyswarmd API
-    description: The polyswarmd API documentation.
+    title: API polyswarmd
+    description: La documentación correspondiente a la API de polyswarmd.
 banners:
   - 
-    id: cookie-consent
-    text: 'Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you do not consent to our use of cookies, you can change your <a href="/privacy/#privacy-settings" target="_blank">Privacy Settings</a>. Otherwise, you may click <a href="#" class="js-banner__accept">Accept</a>.'
+    id: consentimiento para el uso de cookies
+    text: 'Nuestra web usa <i>cookies</i> para ayudarnos a entender cómo la utilizas y para facilitarte su uso en el futuro. Si no nos das tu consentimiento para que usemos <i>cookies</i>, modifica tu <a href="/privacy/#privacy-settings" target="_blank">configuración de privacidad</a>. De lo contrario, puedes hacer clic en <a href="#" class="js-banner__accept">Aceptar</a>.'
     d_type: accept
     link:
-      name: Accept
+      name: Aceptar
       d_url: "#"

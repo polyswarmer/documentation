@@ -1,23 +1,23 @@
-## Introduction
+## 서론
 
-PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
+PolySwarm은 공급자(마이크로엔진), 수요자(홍보대사), 중개인(중재자)으로 구성된 마켓플레이스입니다.
 
-For a high-level overview of the PolySwarm marketplace, see [How It Works](https://polyswarm.io/how_it_works/).
+PolySwarm 마켓플레이스에 대한 전체적인 개요는 [작동 방법](https://polyswarm.io/how_it_works/)을 참고하시기 바랍니다.
 
-## Microengines
+## 마이크로엔진
 
-**Microengines** are developed by individuals or organizations who have a knack for identifying malware. Microengines encapsulate security expertise and bundle it in an autonomous process that responds to queries from Ambassadors, identifying the latest malware and earning Nectar (NCT) rewards for accurately identifying new strands of malware. *Threat intelligence goes in, NCT comes out.*
+**마이크로엔진**은 맬웨어를 식별하는 데 소질이 있는 개인 또는 단체가 개발합니다. 마이크로엔진은 보안 전문 지식을 캡슐화하고 자율적인 프로세스에 포함시켜 홍보대사의 질의에 대응하고, 최신 맬웨어를 식별하여 새로운 유형의 맬웨어를 탐지할 경우 보상으로 Nectar(NCT)를 획득합니다. *보안 위협 분석 정보가 투입되면 NCT가 제공됩니다.*
 
-[I want to learn more about creating a Microengine →](/concepts-participants-microengine/)
+[마이크로엔진에 대하여 더 자세히 알고 싶습니다 →](/concepts-participants-microengine/)
 
-## Ambassadors
+## 홍보대사
 
-**Ambassadors** pay a fee or purchase a subscription to submit files (artifacts) to the PolySwarm network. This fee funds Microengines and Arbiters for offering threat intelligence and determining ground truth, respectively. In return for their fee, Ambassadors receive timely crowdsourced threat intelligence on their artifact, aiding in, e.g. triage or incident response. *NCT goes in, threat intelligence comes out.*
+**홍보대사**는 요금을 지불하거나 구독을 구매하여 파일(아티팩트)을 PolySwarm 네트워크에 제출합니다. 이 요금은 보안 위협 분석 정보와 사실 검증을 제공하는 대가로 마이크로엔진과 중재자에게 각각 제공됩니다. 홍보대사는 요금에 대한 대가로 크라우드소싱을 통해 도출된 아티팩트에 대한 보안 위협 분석 정보를 얻어 문제 식별 또는 사고 대응에 활용할 수 있습니다. *NCT가 투입되면 보안 위협 분석 정보가 제공됩니다.*
 
-<button disabled>I want to learn more about creating an Ambassador → (coming soon!)</button>
+<button disabled>홍보대사가 되는 법에 대하여 더 자세히 알고 싶습니다 → (향후 추가 예정!)</button>
 
-## Arbiters
+## 중재자
 
-**Arbiters** marshall the marketplace by way of determining "ground truth". Arbiter serve a critical role: Arbiter-derived ground truth is used to determine which Microengines are deserved of reward. Crucially, Arbiters must expand their internal threat detection capabilities, taking into consideration the assertions of Microengines to push the boundaries of what the PolySwarm marketplace can detect. In return for their service, Arbiters are compensated via PolySwarm network fees imposed on both Ambassadors and Microengines.
+**중재자**는 '사실 검증'을 통하여 마켓플레이스를 정리합니다. 중재자는 중요한 역할을 수행합니다. 중재자가 제공하는 사실 검증은 어떤 마이크로엔진이 보상을 받을지 결정하는 데 사용됩니다. 따라서, 중재자는 자체적인 위협 탐지 능력을 강화하고 다양한 마이크로엔진의 주장을 참작하여 PolySwarm 마켓플레이스가 탐지할 수 있는 영역을 확장해야 합니다. 이러한 서비스에 대한 대가로 중재자는 홍보대사 및 마이크로엔진에 부과된 PolySwarm 네트워크 요금에서 보상을 받습니다.
 
-<button disabled>I want to learn more about creating an Arbiter → (coming soon!)</button>
+<button disabled>중재자가 되는 법에 대하여 더 자세히 알고 싶습니다 → (향후 추가 예정!)</button>

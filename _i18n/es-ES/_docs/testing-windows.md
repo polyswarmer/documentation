@@ -1,18 +1,18 @@
-# Testing Windows-Based Engines
+# Cómo probar motores basados en Windows
 
-In this page, we use `microengine-mywindowsengine` as the name of the Microengine's directory. In your own testing, you will use the name of your Microengine's directory instead. Additionally, in these instructions, we've shortened the PowerShell command prompt to be `PS >` in order to make it easier to read the commands. Your actual PowerShell command prompt will be similar to this: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`. Similarly for Linux command prompts, we've shortened them to be `$`, while your actual command prompts will have more text to the left side of the `$`.
+En esta página usamos `microengine-mywindowsengine` como nombre de directorio del micromotor. En tus pruebas usarás el nombre de directorio de tu propio micromotor. Asimismo, en estas instrucciones hemos abreviado el indicador de entrada de comandos de PowerShell a `PS >` para mejorar la legibilidad de los comandos. El indicador real de PowerShell que veas será similar a: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`. Del mismo modo, en la línea de comandos de Linux, hemos abreviado la indicación de entrada a `$`. En la realidad, habrá más texto a la izquierda del símbolo `$`.
 
 ## Unit Testing
 
-We'll use `tox` to test our Microengine. `tox` runs whatever unit tests you add to `tests/scan_test.py`.
+Usaremos `tox` para probar nuestro micromotor. Este comando ejecutará todas las pruebas unitarias que añadas en `tests/scan_test.py`.
 
-In a powershell window with an activated virtual environment, and run the `tox` command at the base of your microengine's directory.
+Activa un entorno virtual en una ventana de PowerShell y ejecuta el comando `tox` desde el directorio base de tu micromotor.
 
 ```powershell
 PS > tox
 ```
 
-The output will look similar to the following:
+La salida será parecida a esto:
 
 ```powershell
 GLOB sdist-make: C:\Users\user\microengine-mywindowsengine\setup.py
@@ -42,94 +42,97 @@ _______________________________________________________ summary ________________
   congratulations :)
 ```
 
-You can safely ignore the `combine_argument_formatters` warning.
+Puedes ignorar completamente el aviso `combine_argument_formatters`.
 
 ## Integration Testing
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Conducting integration tests on Windows-Based Engines is only supported in a VirtualBox configuration at this time.
-    Please refer to <a href="/development-environment-windows/">Windows Development Environment</a> for more information.
+    <strong>Aviso:</strong>
+    Por el momento, las pruebas de integración de motores basados en Windows solo son posibles a través de VirtualBox.
+    Consulta <a href="/development-environment-windows/">Entorno de desarrollo Windows</a> para obtener más información.
   </p>
 </div>
 
-Integration testing a Windows-Based Engine requires two virtual machines (VMs / Guests):
+Las pruebas de integración de motores basados en Windows requieren dos máquinas virtuales (máquinas virtuales/invitados):
 
-1. A Windows guest for running your Windows-Based engine (we already made this).
-2. A Linux guest for standing up a local PolySwarm testnet (we'll make this now).
-
-<div class="m-flag m-flag--warning">
-  <p>
-    <strong>Aviso:</strong> Las recomendaciones aquí incluidas son el resultado de un trabajo minucioso. We strongly recommend that you test using the exact recommendations presented here. Nos resultará más difícil prestarte ayuda si empleas cualquier otra configuración.
-  </p>
-</div>
-
-### Create a Linux Guest
-
-#### Create the Virtual Machine
-
-Create a Linux VM using the following parameters:
-
-* Name: `polyswarm_lin`
-* Type: Linux
-* Version: Ubuntu (64-bit)
-* RAM: 8GB+
-* CPU: 4+ cores
-* Memoria de vídeo: 128 MB
-* Espacio en disco: 50 GB o más
-
-Usa la configuración por defecto para las demás opciones. In particular, do NOT enable 3D acceleration.
-
-In general, you will want to provide extra available RAM and CPU resources to the Linux VM to make the testnet perform better.
-
-#### Install Xubuntu 18.04 amd64
-
-* [Download Xubuntu 18.04 amd64 ISO](https://xubuntu.org/release/18-04/)
+1. Un invitado de Windows para ejecutar el motor basado en Windows (ya lo tenemos).
+2. Un invitado de Linux para levantar una red de pruebas local para PolySwarm (lo crearemos ahora).
 
 <div class="m-flag m-flag--warning">
   <p>
     <strong>Warning:</strong>
-    We strongly recommend Xubuntu over Ubuntu for VirtualBox guests.
-    Ubuntu presents a range of visual lag issues and is prone to total visual lockup when VirtualBox tools are installed.
+    The recommendations presented here are hard-won.
+    Te recomendamos encarecidamente que realices las pruebas usando las indicaciones exactas proporcionadas.
+    Using any other configuration will make it difficult for us to provide you with support.
   </p>
 </div>
 
-Use the ISO you downloaded to install Xubuntu in the VM.
+### Crea un invitado de Linux
 
-#### (Optional) Install VirtualBox Guest Additions
+#### Crea la máquina virtual
 
-Las adiciones de invitados ("Guest Additions") son necesarias para disfrutar de las funciones de portapapeles compartido o copiar y pegar entre el invitado y el host.
+Crea una máquina virtual Linux usando los siguientes parámetros:
 
-[Consulta el manual de VirtualBox](https://www.virtualbox.org/manual/ch04.html).
+* Nombre: `polyswarm_lin`
+* Tipo: Linux
+* Versión: Ubuntu (64 bits)
+* RAM: 8 GB o más
+* CPU: 4 núcleos o más
+* video memory: 128MB
+* disk space: 50GB+
 
-### Configure Inter-Guest Networking
+Use the default setting for all other options. Sobre todo, NO habilites la aceleración 3D.
 
-We need to establish an "internal" network that our Linux and Windows VMs will use to communicate with one another.
+Por lo general, preferirás asignar los recursos adicionales de RAM y CPU a la máquina virtual Linux para que la red de pruebas ofrezca un mejor rendimiento.
 
-Before we get started, shut down both the Linux and the Windows Guests.
+#### Instala Xubuntu 18.04 amd64
 
-On your Windows Host, open a PowerShell and change to the VirtualBox installation directory:
+* [Descarga la ISO de Xubuntu 18.04 amd64](https://xubuntu.org/release/18-04/)
+
+<div class="m-flag m-flag--warning">
+  <p>
+    <strong>Aviso:</strong>
+    Para crear invitados en VirtualBox, recomendamos sin lugar a dudas Xubuntu frente a Ubuntu.
+    Ubuntu presenta una serie de problemas de retardo a nivel visual y tiende a producir cuelgues totales de vídeo cuando se instalan las herramientas de VirtualBox.
+  </p>
+</div>
+
+Usa la ISO descargada para instalar Xubuntu en la máquina virtual.
+
+#### (Opcional) Instala adiciones de invitados de VirtualBox
+
+Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+
+[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
+
+### Configura la red de comunicaciones entre invitados
+
+Necesitamos establecer una red interna para que nuestras máquinas virtuales de Linux y Windows puedan comunicarse entre sí.
+
+Antes de empezar, apaga tanto el invitado de Linux como el de Windows.
+
+En tu host de Windows, abre una instancia de PowerShell y desplázate hasta el directorio de instalación de VirtualBox:
 
 ```powershell
 PS > pushd $Env:Programfiles\Oracle\VirtualBox
 ```
 
-You should now see your command prompt look similar to this:
+Tu indicador de entrada de comandos debería ser similar a esto:
 
 ```powershell
 PS C:\Program Files\Oracle\VirtualBox>
 ```
 
-#### Create Internal PolySwarm Network
+#### Crea una red PolySwarm interna
 
-Create and assign a dedicated PolySwarm internal network to each VM.
+Crea y asigna una red interna específica de Polyswarm a cada máquina virtual.
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    These commands will reconfigure network adapter #5 on your VMs.
-    If you are already using this adapter (very unlikely), change the number in the commands.
+    <strong>Aviso:</strong>
+    Estos comandos reconfigurarán el adaptador de red #5 en tus máquinas virtuales.
+    Si ya lo estás usando, lo cual es poco probable, cambia su número a continuación.
   </p>
 </div>
 
@@ -142,42 +145,42 @@ PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    For more information on internal networking in VirtualBox, refer to their <a href="https://www.virtualbox.org/manual/ch06.html#network_internal">official documentation</a>.
+    <strong>Información:</strong>
+    Para saber más sobre cómo crear redes internas en VirtualBox, consulta su <a href="https://www.virtualbox.org/manual/ch06.html#network_internal">documentación oficial</a>.
   </p>
 </div>
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    You will not see an "adapter #5" listed in your VM settings or inside your VM.
-    What you will see is that your VM will have at least 2 active network adapters and by
-    adding "polyswarm_net" to adapter 5, it should be easier to find because it will be the
-    highest numbered network interface in your VM.
+    <strong>Aviso:</strong>
+    No verás un "adaptador #5" enumerado en la configuración de la máquina virtual ni dentro de ella.
+    Lo que sí verás es que tu máquina virtual tendrá al menos dos adaptadores de red activos y, al
+    añadir <code>"polyswarm_net"</code> al adaptador #5, debería ser más fácil encontrarlo, al convertirse en
+    la interfaz de red con el número más alto dentro de la máquina virtual.
   </p>
 </div>
 
-#### Configure Virtual Machines with Static IP Addresses
+#### Configura las máquinas virtuales con direcciones IP estáticas
 
-Boot the `polyswarm_lin` VM and edit your network settings to assign the following static IPv4 information to the new adapter:
+Arranca la máquina virtual `polyswarm_lin` y edita la configuración de red para asignar al nuevo adaptador los siguientes datos de IPv4 estática:
 
-* address: `10.10.42.101`
+* Dirección: `10.10.42.101`
+* Máscara de red: `255.255.255.0`
+* Puerta de enlace: `10.10.42.1`
+
+Si no te queda claro a qué interfaz de red debes aplicar estos ajustes, ejecuta el comando `ifconfig -a`: la salida resultante debería incluir varias interfaces de red que empiecen por `enp0s`. Normalmente, la interfaz que se modificará será la que posea el número más alto tras ese prefijo.
+
+Arranca la máquina virtual `polyswarm_win` y edita la configuración de red para que el nuevo adaptador use estos valores de IPv4 estática:
+
+* Dirección: `10.10.42.102`
 * netmask: `255.255.255.0`
 * gateway: `10.10.42.1`
 
-If it is unclear which network interface you should apply these settings to, run the `ifconfig -a` command, and in the output you should see multiple network interfaces that start with `enp0s`. The interface with the largest number after that prefix is usually the one you want to modify.
+Si no te queda claro a qué interfaz de red debes aplicar estos ajustes, ejecuta el comando `ipconfig /all`: la salida resultante debería incluir varias interfaces de red que empiecen por `Ethernet adapter Ethernet`. The interface with the largest number after that prefix is usually the one you want to modify.
 
-Boot the `polyswarm_win` VM and edit your network settings to configure the new adapter for these static IPv4 settings:
+#### Configura la máquina virtual Windows para resolución de DNS con `polyswarmd`
 
-* address: `10.10.42.102`
-* netmask: `255.255.255.0`
-* gateway: `10.10.42.1`
-
-If it is unclear which network interface you should apply these settings to, run the `ipconfig /all` command, and in the output you should see multiple network interfaces that start with `Ethernet adapter Ethernet`. The interface with the largest number after that prefix is usually the one you want to modify.
-
-#### Configure Windows VM for `polyswarmd` DNS Resolution
-
-Finally, your Windows VM needs to know that your Linux VM is hosting `polyswarmd`. Open an elevated instance of Notepad and add `polyswarmd` to the bottom of `C:\Windows\System32\Drivers\etc\hosts`:
+Por último, tu máquina virtual Windows necesita saber que tu máquina virtual Linux hospeda `polyswarmd`. Abre una instancia elevada de Notepad y añade `polyswarmd` al final del archivo `C:\Windows\System32\Drivers\etc\hosts`:
 
     # Copyright (c) 1993-2009 Microsoft Corp.
     #
@@ -204,15 +207,15 @@ Finally, your Windows VM needs to know that your Linux VM is hosting `polyswarmd
     10.10.42.101 polyswarmd
     
 
-#### Verify Configuration
+#### Verifica la configuración
 
-Finally, verify that Windows resolves `polyswarmd` to your Linux VM and is able to reach the VM. First do a DNS test as follows:
+Finalmente, verifica que Windows resuelva `polyswarmd` a tu máquina virtual Linux y pueda alcanzarla. Antes, realiza una prueba de DNS así:
 
 ```powershell
 PS > Resolve-DnsName -name polyswarmd
 ```
 
-The output should look like this:
+La salida debería parecerse a esto:
 
 ```powershell
 Name                                           Type   TTL   Section    IPAddress
@@ -220,7 +223,7 @@ Name                                           Type   TTL   Section    IPAddress
 polyswarmd                                     A      86400 Answer     10.10.42.101
 ```
 
-Next, do a ping test as follows:
+A continuación, haz una prueba de *ping*:
 
 ```powershell
 PS > ping polyswarmd
@@ -233,15 +236,15 @@ Pinging polyswarmd [10.10.42.101] with 32 bytes of data:
 Reply from 10.10.42.101: bytes=32 time<1ms TTL=64
 ```
 
-If you get those same output results, you have everything setup correctly, so let's continue.
+Si obtienes esos mismos resultados, habrás configurado todo correctamente y podrás continuar.
 
-### Configure Linux VM for Hosting a Local Testnet
+### Configura la máquina virtual Linux para alojar una red de pruebas local
 
-#### Instalar Docker
+#### Install Docker
 
-We've Docker-ized the test version of the PolySwarm marketplace. To use it, you need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
+Hemos *dockerizado* la versión de pruebas del mercado de PolySwarm. Para usarla, debes instalar Docker-CE (la base) y Docker Compose. Si no dispones de una instalación reciente de Docker, [instálalo ahora](https://www.docker.com/community-edition).
 
-On Xubuntu:
+En Xubuntu:
 
 ```bash
 $ sudo apt-get update && sudo apt-get install -y curl
@@ -251,20 +254,20 @@ $ ./get-docker.sh
 $ sudo usermod -aG docker $USER
 ```
 
-Log out, log back in.
+Cierra la sesión y vuelve a iniciarla.
 
-Once installed, verify that the installation works, by running the following command:
+Al terminar, comprueba que la instalación funcione ejecutando el siguiente comando:
 
 ```bash
 $ docker ps
 ```
 
-It should output:
+Que debería devolver:
 
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
     
 
-Also [install `docker-compose`](https://docs.docker.com/compose/install/)
+Además [instala `docker-compose`](https://docs.docker.com/compose/install/).
 
 On Xubuntu:
 
@@ -274,36 +277,36 @@ $ sudo mv docker-compose /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-Once installed, verify that the installation works.
+Cuando completes la instalación, comprueba que funcione correctamente.
 
 ```bash
 $ docker-compose -v
 ```
 
-Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
+Esto debería mostrar, al menos: `docker-compose version 1.21.1, build 5a3f1a3`.
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you receive permission errors when running docker or docker-compose commands, <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">configure your user account for docker permission</a>.
+    <strong>Información:</strong>
+    Si te encuentras con errores de permisos al ejecutar los comandos <code>docker</code> o <code>docker-compose</code>, <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">configura tu cuenta de usuario para darle permisos a Docker</a>.
   </p>
 </div>
 
-#### Instalar Git
+#### Install Git
 
-We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
+Necesitaremos descargarnos varios repositorios de código fuente. Lo más fácil es usar Git. [Instala Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) para tu entorno de desarrollo.
 
-On Xubuntu 18.04:
+En Xubuntu 18.04:
 
 ```bash
 $ sudo apt update && sudo apt install -y git
 ```
 
-#### Download `orchestration`
+#### Descarga `orchestration`
 
-We'll use the PolySwarm [`orchestration`](https://github.com/polyswarm/orchestration) project to launch our development testnet. We use this same project internally to conduct end-to-end (integration) tests.
+Usaremos el proyecto [`orchestration`](https://github.com/polyswarm/orchestration) de PolySwarm para lanzar nuestra red de pruebas de desarrollo. Nosotros empleamos ese mismo proyecto para llevar a cabo pruebas de integración de extremo a extremo.
 
-Clone `orchestration`:
+Clona `orchestration`:
 
 ```bash
 $ git clone https://github.com/polyswarm/orchestration
@@ -311,18 +314,18 @@ $ git clone https://github.com/polyswarm/orchestration
 
 ### Test Your Engine
 
-We're going to have to switch between our VMs a little bit here. We will first start the Testnet in the Linux VM. Then we will start your Microengine in the Windows VM. Finally, we will start the Ambassador in the Linux VM.
+Ahora tendremos que pasar varias veces de una máquina virtual a otra. Primero arrancaremos la red de pruebas en la máquina virtual Linux. Después arrancaremos tu micromotor en la máquina virtual Windows. Por último, arrancaremos el embajador en la máquina virtual Linux.
 
-#### Linux VM: Launch the Testnet
+#### Máquina virtual Linux: lanza la red de pruebas
 
-In your Linux VM, spin up a subset of the testnet, leaving out the stock `microengine` (we'll be substituting this with our own) and leaving out the `ambassador` for now (we'll start it later). To do that, run the following commands in a new terminal window:
+En tu máquina virtual Linux, pon en marcha un subconjunto de la red de pruebas dejando al margen el micromotor `microengine` incluido por defecto (lo reemplazaremos por el nuestro) y también el embajador `ambassador` por el momento (lo arrancaremos después). Para ello, ejecuta los siguientes comandos en una ventana de terminal nueva:
 
 ```bash
 $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-It will take several minutes for `polyswarmd` to become available. During this time, you will see many messages like `Problem with dial... dial tcp connection refused.` and `chain for config not available in consul yet`. These errors are normal while the testnet is initializing, so have patience.
+It will take several minutes for `polyswarmd` to become available. Durante este tiempo verás muchos mensajes del tipo `Problem with dial... dial tcp connection refused.` y `chain for config not available in consul yet`. Ten paciencia: estos errores son normales mientras se está inicializando la red de pruebas.
 
 Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
 
@@ -330,17 +333,17 @@ Once `polyswarmd` is available, it will begin serving responses to clients, e.g.
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
     
 
-Now it is safe to move to the next step.
+Ahora ya es seguro avanzar hasta el paso siguiente.
 
-#### Windows VM: Test Connection to `polyswarmd`
+#### Máquina virtual Windows: prueba la conexión a `polyswarmd`
 
-On your Windows VM, confirm that `polyswarmd` is available and ready to respond to your Microengine. To do that, run the following command in PowerShell:
+En tu máquina virtual Windows, confirma que `polyswarmd` esté disponible y listo para responder a tu micromotor. Para ello, ejecuta el siguiente comando en PowerShell:
 
 ```powershell
 PS > curl -UseBasicParsing http://polyswarmd:31337/status
 ```
 
-It should output the following:
+Debería generar este resultado:
 
 ```powershell
 StatusCode        : 200
@@ -350,28 +353,28 @@ Content           : {"result":{"home":{"block":189,"reachable":true,"syncing":fa
 ...
 ```
 
-The key thing to look for is `"status":"OK"`.
+Lo verdaderamente importante de esa respuesta es `"status":"OK"`.
 
-#### Windows VM: Launch `balancemanager` & Your Engine
+#### Máquina virtual Windows VM: lanza `balancemanager` y tu motor
 
-Start a new PowerShell window and activate your virtual environment. Then change into your Microengine's directory.
+Abre una nueva ventana de PowerShell y activa tu entorno virtual. A continuación, cámbiate al directorio de tu micromotor.
 
-In your Microengine's directory, install your Microengine's prerequisites and your Microengine itself.
+En él, instala los requisitos previos del micromotor y el propio micromotor.
 
 ```powershell
 PS > pip install -r requirements.txt
 PS > pip install .
 ```
 
-`balancemanager` is a utility (based on `polyswarm-client`) that will help us maintain a balance of (fake) PolySwarm Nectar (NCT) on the sidechain of our local testnet where all transactions will take place.
+La utilidad `balancemanager`, basada en `polyswarm-client`, nos ayudará a mantener un saldo de (falso) néctar (NCT) de PolySwarm en la cadena paralela de nuestra red de pruebas local, que es donde se llevarán a cabo todas las transacciones.
 
-In that same PowerShell window, launch `balancemanager` as follows:
+En esa misma ventana de PowerShell, lanza `balancemanager` del siguiente modo:
 
 ```powershell
 PS > balancemanager maintain --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport 100000 500000
 ```
 
-It will print output similar to the following:
+Mostrará un resultado similar a esto:
 
 ```powershell
 INFO:root:2018-12-06 16:55:30,800 Logging in text format.
@@ -386,11 +389,11 @@ INFO:polyswarmclient:2018-12-06 16:55:33,034 Received block on chain home: {'num
 INFO:polyswarmclient:2018-12-06 16:55:33,080 Received block on chain side: {'number': 18206}
 ```
 
-When it starts printing `Received block on chain` messages, you are ready to launch your Microeengine.
+Cuando empiecen a mostrarse mensajes `Received block on chain` ("bloque recibido en la cadena") podrás lanzar tu micromotor.
 
-Start another new PowerShell window and activate your virutal environment. Then change into your Microengine's directory.
+Abre otra ventana nueva de PowerShell y activa tu entorno virtual. Then change into your Microengine's directory.
 
-Run your Microengine using a command similar to the following command. Be sure to update the value for the `--backend` argument to match the name of your Microengine's package directory (i.e. the directory in `src/`):
+Ejecuta tu micromotor usando un comando similar al siguiente. Asegúrate de modificar el valor del argumento `--backend` para que coincida con el nombre del directorio del paquete de tu micromotor (es decir, el directorio de `src/`):
 
 ```powershell
 PS > microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
@@ -424,27 +427,27 @@ INFO:polyswarmclient:2018-12-06 16:56:48,503 Received assertion on chain side: {
 WARNING:polyswarmclient.abstractmicroengine:2018-12-06 16:56:48,503 Received new bounty, but finished with testing mode
 ```
 
-Running with `--testing 2` means that your Microengine will respond to 2 bounties and then refuse to respond to further bounties by shutting itself off. You can adjust this number if you want it to process more bounties in your tests.
+El argumento `--testing 2` significa que tu micromotor responderá a dos recompensas y, después, declinará responder a otra y se cerrará. Puedes ajustar este valor si deseas que procese más recompensas en tus pruebas.
 
-But, your Microengine will not have any bounties to process until there is an Ambassador sending bounties into the testnet.
+No obstante, el micromotor no tendrá recompensas que procesar hasta que haya un embajador que las envíe a la red de pruebas.
 
-#### Linux VM: Launch the Ambassador
+#### Máquina virtual Linux: lanza el embajador
 
-In your Linux VM, now start the `ambassador`, which will submit bounties into the testnet, so your microengine can respond to them. Start a new terminal and run the following commands:
+En tu máquina virtual Linux, lanza ahora el embajador `ambassador`, que enviará recompensas a la red de pruebas para que tu micromotor pueda responder a ellas. Abre una nueva terminal y ejecuta los siguientes comandos:
 
 ```bash
 $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Shortly after this starts, you will see messages in your Microengine's PowerShell window when it is processing bounties.
+Poco después, comenzarás a ver mensajes en la ventana PowerShell de tu micromotor mientras este procesa las recompensas.
 
-### All Done
+### Pruebas concluidas
 
-Congrats!
+¡Enhorabuena!
 
-Your Windows-Based Engine should now be responding to bounties placed on a local testnet hosted in your Linux VM.
+Tu motor basado en Windows debería estar respondiendo ahora a las recompensas ofrecidas en una red local de pruebas hospedada en tu máquina virtual Linux.
 
-Let your Microengine run until it shuts itself off.
+Déjalo funcionando hasta que se cierre por sí solo.
 
-Take a close look at the output of your engine to ensure it's doing what you want it to :)
+Revisa con atención la salida del micromotor para asegurarte de que esté haciendo lo que se supone. :)

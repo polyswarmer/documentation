@@ -1,238 +1,238 @@
-# Privacy Policy
+# Política de privacidad
 
-**Date Posted: 02 September 2017**
+**Fecha de publicación: 2 de septiembre de 2017**
 
-**Last Updated (effective date): 05 October 2018**
+**Última actualización (fecha de entrada en vigor): 5 de octubre de 2018**
 
-Thank you for choosing to be part of our community at PolySwarm Pte. Ltd. ("Company", "we", "us", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at <privacy@polyswarm.io>.
+Gracias por haber elegido formar parte de nuestra comunidad en PolySwarm Pte. Ltd. (en adelante, "la Empresa", "nosotros" o "nuestro/a/os/as"). Nos comprometemos a proteger tu información personal y tu derecho a la intimidad. Si tienes cualquier pregunta o duda sobre nuestra política y nuestras prácticas en lo que se refiere a tus datos personales, ponte en contacto con nosotros en <privacy@polyswarm.io>.
 
-When you visit our website (https://polyswarm.io), and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy notice, we describe our privacy policy. We seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our Sites and our services.
+Al visitar nuestra web (https://polyswarm.io) y usar nuestros servicios, nos estás confiando tu información personal. Nos tomamos muy en serio tu intimidad. En este aviso, describimos nuestra política de privacidad. Su finalidad es explicarte, de la manera más clara posible, qué información recogemos, cómo la usamos y qué derechos posees con respecto a ella. Esperamos que dediques unos minutos a leerla con detenimiento, ya que es importante. Si contuviera cualquier cláusula con la que no estuvieras de acuerdo, te rogamos que dejes de usar nuestros Sitios web y nuestros servicios.
 
-This privacy policy applies to all information collected through our website (such as https://polyswarm.io), and/or any related services, sales, marketing or events (we refer to them collectively in this privacy policy as the "Sites").
+La presente política de privacidad se aplica a toda la información recogida a través de nuestra web (por ejemplo, https://polyswarm.io) y/o cualesquiera servicios, ventas, promociones o eventos relacionados (a los que, en este texto, nos referimos colectivamente como "los Sitios web").
 
-PLEASE READ THIS PRIVACY POLICY CAREFULLY AS IT WILL HELP YOU MAKE INFORMED DECISIONS ABOUT SHARING YOUR PERSONAL INFORMATION WITH US.
+LEE ESTA POLÍTICA DE PRIVACIDAD CON DETENIMIENTO, YA QUE TE AYUDARÁ A TOMAR DECISIONES INFORMADAS SOBRE CÓMO COMPARTES TU INFORMACIÓN PERSONAL CON NOSOTROS.
 
-#### What Information Do We Collect?
+#### ¿Qué información recogemos?
 
-**Personal information you disclose to us**
+**Información personal que tú mismo nos comuniques**
 
-**In Short:** We collect personal information that you provide to us such as name, address, contact information, passwords and security data, payment information, and social media login data.
+**En resumen:** Recogemos la información personal que tú mismo nos comuniques, como, por ejemplo, nombre, dirección, datos de contacto, contraseñas y datos de seguridad, información sobre pagos y datos de acceso a redes sociales.
 
-We collect personal information that you voluntarily provide to us when registering at the Sites expressing an interest in obtaining information about us or our products and services, when participating in activities on the Sites or otherwise contacting us.
+Recogemos aquella información personal que tú nos proporciones de forma voluntaria al registrarte en los Sitios web expresando tu interés en obtener información sobre nosotros o nuestros productos y servicios, al participar en actividades en los Sitios web o al ponerte en contacto con nosotros de cualquier otro modo.
 
-The personal information that we collect depends on the context of your interactions with us and the Sites, the choices you make and the products and features you use. The personal information we collect can include the following:
+La información personal que recojamos depende del contexto de tus interacciones con nosotros y con los Sitios web, de las decisiones que tomes y de los productos y características que uses. Esta información personal puede incluir los siguientes elementos:
 
-Name and Contact Data. We collect your first and last name, email address, postal address, phone number, and other similar contact data.
+Nombre y datos de contacto. Recogemos tu nombre y apellidos, tu dirección de correo electrónico, tu dirección postal, tu número de teléfono y otros datos de contacto similares.
 
-Credentials. We collect passwords, password hints, and similar security information used for authentication and account access.
+Credenciales. Recogemos las contraseñas, las pistas relativas a ellas y cualquier otra información de seguridad similar empleada para la autenticación y el acceso a tu cuenta.
 
-Payment Data. We collect data necessary to process your payment if you make purchases, such as your payment instrument number (such as a credit card number), and the security code associated with your payment instrument. All payment data is stored by our payment processor and you should review its privacy policies and contact the payment processor directly to respond to your questions.
+Datos de pago. Recogemos los datos necesarios para procesar tu pago si efectúas cualquier compra: por ejemplo, el número del medio de pago (tarjeta de crédito, etc.) y el código de seguridad asociado a él. Todos los datos de pago son almacenados por nuestro procesador de pagos. Te aconsejamos que revises sus políticas de privacidad y te pongas directamente en contacto con él para resolver cualquier duda.
 
-Social Media Login Data. We provide you with the option to register using social media account details, like your Facebook, Twitter or other social media account. If you choose to register in this way, we will collect the Information described in the section called "How Do We Handle Your Social Logins" below.
+Datos de acceso a redes sociales. Te ofrecemos la opción de registrarte usando los datos de tus cuentas en redes sociales: Facebook, Twitter u otras. Si eliges registrarte de tal modo, recogeremos la información indicada en la sección "¿Cómo tratamos tus datos de acceso a redes sociales?", situada más adelante.
 
-All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information.
+Toda la información personal que nos proporciones deberá ser cierta, completa y precisa, y habrás de informarnos de cualquier cambio que se produzca en ella.
 
-**Information automatically collected**
+**Información recogida automáticamente**
 
-**In Short:** Some information - such as IP address and/or browser and device characteristics - is collected automatically when you visit our Sites.
+**En resumen:** Determinada información (direcciones IP, características del navegador y el dispositivo, etc.) se recoge automáticamente cuando visitas nuestros Sitios web.
 
-We automatically collect certain information when you visit, use or navigate the Sites. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Sites and other technical information. This information is primarily needed to maintain the security and operation of our Sites, and for our internal analytics and reporting purposes.
+Cuando visitas los Sitios web, los usas o navegas por ellos; recogemos automáticamente determinada información. Aunque esta no revela tu identidad específica (nombre, información de contacto, etc.), puede incluir datos sobre tu dispositivo y el uso que realizas de él: dirección IP, características del navegador y del dispositivo, sistema operativo, preferencias de idioma, URL de procedencia, nombre del dispositivo, país, ubicación, información sobre cómo y cuándo usas nuestros Sitios web, y otros datos de carácter técnico. Toda esta información es necesaria, sobre todo, para mantener la seguridad y el buen funcionamiento de nuestros Sitios web, así como para nuestros procesos internos de análisis y generación de informes.
 
-Like many businesses, we also collect information through cookies and similar technologies. You can find out more about this in the "Cookies Policy" section below.
+Como muchas otras empresas, también recogemos información a través de *cookies* y tecnologías similares. Puedes conocer más al respecto en la sección "Política de *cookies*" más adelante.
 
-**Information collected from other sources**
+**Información recogida desde otras fuentes**
 
-**In Short:** We may collect limited data from public databases, marketing partners, social media platforms, and other outside sources.
+**En resumen:** Puede que recojamos una cantidad limitada de datos a partir de bases de datos públicas, socios de mercadotecnia, plataformas de redes sociales y otras fuentes externas.
 
-We may obtain information about you from other sources, such as public databases, joint marketing partners, social media platforms (such as Facebook), as well as from other third parties. Examples of the information we receive from other sources include: social media profile information (your name, gender, birthday, email, current city, state and country, user identification numbers for your contacts, profile picture URL and any other information that you choose to make public); marketing leads and search results and links, including paid listings (such as sponsored links).
+Es posible que obtengamos información sobre ti desde otras fuentes como bases de datos públicas, socios de mercadotecnia conjunta, plataformas de redes sociales (como Facebook) y otros terceros. Entre los ejemplos de información que recibimos a partir de otras fuentes se encuentran: información de tu perfil en redes sociales (nombre, sexo, fecha de nacimiento, correo electrónico, ciudad, región administrativa y país actuales, números de identificación de usuario para tus contactos, URL de tu fotografía de perfil y cualquier otra información que elijas hacer pública); referencias de mercadotecnia; y resultados de búsqueda e hipervínculos, incluidos los de los anuncios de pago (por ejemplo, hipervínculos patrocinados).
 
-#### How Do We Use Your Information?
+#### ¿Cómo usamos tu información?
 
-**In Short:** We process your information for purposes based on legitimate business interests, the fulfillment of our contract with you, compliance with our legal obligations, and/or your consent.
+**En resumen:** Procesamos tu información para fines basados en nuestros intereses legítimos como empresa, la satisfacción de las obligaciones contractuales establecidas contigo, el cumplimiento de nuestras propias obligaciones legales y/o tu consentimiento.
 
-We use personal information collected via our Sites for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests ("Business Purposes"), in order to enter into or perform a contract with you ("Contractual"), with your consent ("Consent"), and/or for compliance with our legal obligations ("Legal Reasons"). We indicate the specific processing grounds we rely on next to each purpose listed below.
+Usamos la información personal recogida a través de nuestros Sitios web para diversos fines comerciales, que se describen más adelante. Tratamos tu información personal para estos fines de acuerdo con nuestros intereses legítimos como empresa (los "Fines comerciales"), para establecer un contrato contigo o satisfacerlo (los "Fines contractuales"), con tu consentimiento (el "Consentimiento"), y/o para el cumplimiento de nuestras obligaciones legales (las "Razones legales"). Junto a cada uno de los fines enumerados, indicamos las razones específicas en las que nos basamos para llevar a cabo dicho tratamiento.
 
-We use the information we collect or receive:
+Usamos la información que recogemos o recibimos:
 
-*     To facilitate account creation and login process. See the section below headed "How We Handle Your Social Logins" for further information.
+*     Para facilitar el proceso de creación de tu cuenta y el acceso a ella. Consulta más adelante la sección titulada "¿Cómo tratamos tus datos de acceso a redes sociales?" para obtener más información.
      
 
-*     To send you marketing and promotional communications for Business Purposes and/or with your Consent. We and/or our third party marketing partners may use the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt-out of our marketing emails at any time (see the "What Are Your Privacy Rights" section below).
+*     Para enviarte comunicados promocionales y de mercadotecnia con Fines comerciales y/o con tu Consentimiento. Nosotros y/o nuestros socios de mercadotecnia podemos usar la información personal que nos envíes para nuestros fines de mercadotecnia si tus preferencias indican que estás de acuerdo. Puedes darte de baja de nuestros correos electrónicos promocionales en cualquier momento (consulta más adelante la sección "¿Cuáles son tus derechos en materia de privacidad?").
      
 
-*     To send administrative information to you for Business Purposes, Legal Reasons and/or possibly for Contractual. We may use your personal information to send you product, service and new feature information and/or information about changes to our terms, conditions, and policies.
+*     Para enviarte información administrativa con Fines comerciales, por Razones legales y/o, posiblemente, con Fines contractuales. Podemos usar tu información personal para remitirte información sobre productos, servicios y nuevas funciones, así como información sobre cambios en nuestras cláusulas y políticas.
      
 
-*     Deliver targeted advertising to you for our Business Purposes and/or with your Consent. We may use your information to develop and display content and advertising (and work with third parties who do so) tailored to your interests and/or location and to measure its effectiveness. For more information, see the "Cookie Policy" section below.
+*     Para remitirte publicidad personalizada para nuestros Fines comerciales y/o con tu Consentimiento. Podemos usar tu información para desarrollar y mostrarte contenido y publicidad adaptados a tus intereses y/o tu ubicación (y trabajar con terceros que lo hagan), y para medir su efectividad. Para más información, consulta más adelante la sección "Política de <i>cookies</i>".
      
 
-*     Administer prize draws and competitions for our Business Purposes and/or with your Consent. We may use your information to administer prize draws and competitions when you elect to participate in competitions.
+*     Para administrar sorteos y competiciones de acuerdo con nuestros Fines comerciales y/o con tu Consentimiento. Podemos usar tu información para administrar sorteos y competiciones cuando tú elijas participar en ellas.
      
 
-*     To protect our Sites for Business Purposes and/or for Legal Reasons. We may use your information as part of our efforts to keep our Sites safe and secure (for example, for fraud monitoring and prevention).
+*     Para proteger nuestros Sitios web con Fines comerciales y/o por Razones legales. Podemos usar tu información como parte de nuestros esfuerzos para mantener nuestros Sitios web seguros (por ejemplo, para controlar y prevenir el fraude).
      
 
-*     To enforce our terms, conditions and policies for Business Purposes, Legal Reasons and/or possibly Contractual.
+*     Para hacer cumplir nuestras cláusulas y políticas con Fines comerciales, por Razones legales o, posiblemente, con Fines contractuales.
      
 
-*     To respond to legal requests and prevent harm for Legal Reasons. If we receive a subpoena or other legal request, we may need to inspect the data we hold to determine how to respond.
+*     Para responder a cualquier requerimiento legal y evitar daños por Razones legales. Si recibimos una citación judicial o cualquier otro tipo de requerimiento legal, puede que necesitemos inspeccionar los datos que poseamos a fin de determinar cómo responder.
      
 
-*     For other Business Purposes. We may use your information for other Business Purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Sites, products, services, marketing and your experience.
+*     Para otros Fines comerciales cualesquiera. Podemos usar tu información para otros Fines comerciales como, por ejemplo, realizar análisis de datos, identificar tendencias de uso, determinar la efectividad de nuestras campañas promocionales o evaluar y mejorar nuestros Sitios web, productos, servicios y actividades de mercadotecnica, así como tu experiencia.
      
 
-#### Will Your Information Be Shared with Anyone?
+#### ¿Compartiremos con alguien más tu información?
 
-**In Short:** We only share information with your consent, to comply with laws, to protect your rights, or to fulfill business obligations.
+**En resumen:** Solamente compartimos tu información con tu consentimiento, para cumplir con la ley, para proteger tus derechos o para satisfacer nuestras obligaciones como empresa.
 
-We only share and disclose your information in the following situations:
+Solo compartimos y comunicamos tu información en las siguientes situaciones:
 
-*     Compliance with Laws. We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process, such as in response to a court order or a subpoena (including in response to public authorities to meet national security or law enforcement requirements).
+*     Para cumplir con la ley. Podemos comunicar tu información cuando así se nos requiera legalmente para cumplir con la legislación aplicable, la petición de un gobierno o cualquier diligencia o proceso judicial, o, por ejemplo, en respuesta a una citación o resolución (incluyendo las realizadas por las autoridades públicas con fines de seguridad nacional o en cumplimiento de la ley).
      
 
-*     Vital Interests and Legal Rights. We may disclose your information where we believe it is necessary to investigate, prevent, or take action regarding potential violations of our policies, suspected fraud, situations involving potential threats to the safety of any person and illegal activities, or as evidence in litigation in which we are involved.
+*     De acuerdo con intereses vitales y derechos legales. Podemos comunicar tu información cuando lo consideremos necesario para investigar, prevenir o tomar medidas ante posibles infracciones de nuestras políticas, sospechas de fraude, situaciones que impliquen una posible amenaza para la seguridad de cualquier persona y actividades ilegales, o como prueba en un litigio que nos afecte.
      
 
-*     Vendors, Consultants and Other Third-Party Service Providers. We may share your data with third party vendors, service providers, contractors or agents who perform services for us or on our behalf and require access to such information to do that work. Examples include: payment processing, data analysis, email delivery, hosting services, customer service and marketing efforts. We may allow selected third parties to use tracking technology on the Sites, which will enable them to collect data about how you interact with the Sites over time. This information may be used to, among other things, analyze and track data, determine the popularity of certain content and better understand online activity. Unless described in this Policy, we do not share, sell, rent or trade any of your information with third parties for their promotional purposes.
+*     Distribuidores, consultores y otros terceros proveedores de servicios. Podemos compartir tus datos con terceros tales como distribuidores, proveedores de servicios, contratistas o agentes que realicen servicios para nosotros, o en nuestro nombre, y requieran acceder a tal información para llevar a cabo su trabajo. Estos servicios incluyen procesamiento de pagos, análisis de datos, envío de correos electrónicos, servicios de hospedaje, atención al cliente y acciones de mercadotecnia. Podemos autorizar a determinados terceros para que usen tecnología de rastreo en los Sitios web que les permita recoger datos sobre cómo interactúas con dichos Sitios web a lo largo del tiempo. Esta información puede usarse, entre otras cosas, para analizar y rastrear datos, determinar la popularidad de ciertos contenidos y entender mejor tu actividad en línea. Salvo de acuerdo a lo descrito en esta política, no compartimos, vendemos, alquilamos ni intercambiamos con terceros tu información para atender a sus fines promocionales.
      
 
-*     Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.
+*     Traspasos comerciales. Podemos compartir o transferir tu información en el marco o durante la negociación de cualquier fusión, venta de activos, financiación o adquisición de una parte o la totalidad de nuestro negocio a otra empresa.
      
 
-*     With your Consent. We may disclose your personal information for any other purpose with your consent.
+*     Con tu consentimiento. Podemos comunicar tu información personal para cualquier otra finalidad con tu consentimiento.
      
 
-#### Do We Use Cookies and Other Tracking Technologies?
+#### ¿Usamos *cookies* y otras tecnologías de rastreo?
 
-**In Short:** We may use cookies and other tracking technologies to collect and store your information.
+**En resumen:** Podemos usar *cookies* y otras tecnologías de rastreo similares para recoger y almacenar tu información.
 
-We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in the "Cookie Policy" section below.
+Podemos usar *cookies* y tecnologías de rastreo similares (como balizas o píxeles web) para acceder a información o almacenarla. Puedes conocer con más detalle cómo usamos estas tecnologías y cómo rechazar ciertas *cookies* en la sección "Política de *cookies*" más adelante.
 
-#### How Do We Handle Your Social Logins?
+#### ¿Cómo tratamos tus datos de acceso a redes sociales?
 
-**In Short:** If you choose to register or log in to our websites using a social media account, we may have access to certain information about you.
+**En resumen:** Si eliges registrarte o acceder a nuestros Sitios web usando tu cuenta en una red social, podemos tener acceso a determinada información sobre ti.
 
-Our Sites offer you the ability to register and login using your third party social media account details (like your Facebook or Twitter logins). Where you choose to do this, we will receive certain profile information about you from your social media provider. The profile Information we receive may vary depending on the social media provider concerned, but will often include your name, e-mail address, friends list, profile picture as well as other information you choose to make public.
+Nuestros Sitios web te ofrecen la posibilidad de registrarte y acceder usando los datos de cuenta de una red social (por ejemplo, Facebook o Twitter). Si eliges hacerlo así, dicha red social nos comunicará determinada información de tu perfil. La información que recibamos puede variar en función de la red social, pero, por lo general, incluirá tu nombre, dirección de correo electrónico, lista de amigos, fotografía de perfil y cualquier otro dato que hayas elegido hacer público.
 
-We will use the information we receive only for the purposes that are described in this privacy policy or that are otherwise made clear to you on the Sites. Please note that we do not control, and are not responsible for, other uses of your personal information by your third party social media provider. We recommend that you review their privacy policy to understand how they collect, use and share your personal information, and how you can set your privacy preferences on their sites and apps.
+Usaremos esta información recibida solo para los fines descritos en esta política de privacidad u otros cualesquiera que se te expliquen con claridad en los Sitios web. Ten en cuenta que no controlamos ni somos responsables de cualquier otro uso de tu información personal realizado por dicha red social. Te recomendamos revisar su política de privacidad para entender cómo recogen, usan y comparten tu información personal y cómo puedes configurar tus preferencias de privacidad en sus sitios web y aplicaciones.
 
-#### Is Your Information Transferred Internationally?
+#### ¿Se transfiere internacionalmente tu información?
 
-**In Short:** We may transfer, store, and process your information in countries other than your own.
+**En resumen:** Podemos transferir, almacenar y tratar tu información en países distintos al tuyo.
 
-Our servers are located in the U.S. If you are accessing our Sites from outside, please be aware that your information may be transferred to, stored, and processed by us in our facilities and by those third parties with whom we may share your personal information (see "Will Your Information Be Shared with Anyone?" above), in the U.S. and other countries.
+Nuestros servidores están ubicados en los Estados Unidos. Si accedes a nuestros Sitios web desde el exterior, debes tener en cuenta que tu información puede sernos transferida y resultar almacenada y procesada por nosotros, en nuestras instalaciones, y por aquellos terceros con quienes compartamos tu información personal (consulta anteriormente "¿Compartiremos con alguien más tu información?") en los Estados Unidos y en otros países.
 
-If you are a resident in the European Economic Area, then these countries may not have data protection or other laws as comprehensive as those in your country. We will however take all necessary measures to protect your personal information in accordance with this privacy policy and applicable law.
+Si resides en el Espacio Económico Europeo, debes saber que estos países podrían no ofrecer leyes de protección de datos y de otro tipo tan exhaustivas como las existentes en tu país. No obstante, tomaremos todas las medidas necesarias para proteger tu información personal de acuerdo con esta política de privacidad y con la legislación aplicable.
 
-#### How Long Do We Keep Your Information?
+#### ¿Cuánto tiempo conservamos tu información?
 
-**In Short:** We keep your information for as long as necessary to fulfill the purposes outlined in this privacy policy unless otherwise required by law.
+**En resumen:** Conservamos tu información el tiempo necesario para satisfacer los fines descritos en esta política de privacidad salvo que la ley establezca lo contrario.
 
-We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law (such as tax, accounting or other legal requirements). No purpose in this policy will require us keeping your personal information for longer than the period of time in which users have an account with us.
+Solo conservaremos tu información personal durante el tiempo necesario para cumplir con los fines establecidos en esta política de privacidad, salvo que la ley permita o exija un tiempo de retención mayor (por razones fiscales, contables o legales de cualquier otro tipo). Ninguno de los fines recogidos en esta política nos obligará a mantener la información personal por un plazo superior al tiempo durante el que los usuarios posean una cuenta con nosotros.
 
-When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize it, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
+Cuando no tengamos, como empresa, la necesidad legítima de seguir tratando tu información personal, la suprimiremos o la anonimizaremos; o, de no ser esto posible (por ejemplo, por haber sido guardada en archivos de respaldo), la almacenaremos de forma segura y la aislaremos de cualquier tratamiento adicional hasta que sea posible suprimirla.
 
-#### How Do We Keep Your Information Safe?
+#### ¿Cómo mantenemos segura tu información?
 
-**In Short:** We aim to protect your personal information through a system of organizational and technical security measures.
+**En resumen:** Intentamos proteger tu información personal mediante un conjunto de medidas de seguridad técnicas y organizativas.
 
-We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Sites is at your own risk. You should only access the services within a secure environment.
+Hemos puesto en marcha las medidas de seguridad técnicas y organizativas adecuadas para proteger la seguridad de cualquier información personal que tratamos. No obstante, recuerda que no podemos garantizar al 100 % la seguridad en Internet. Aunque haremos todo lo posible para proteger tu información personal, su transmisión desde y hasta nuestros Sitios web se realiza bajo tu propia cuenta y riesgo. Solo deberías acceder a los servicios desde un entorno seguro.
 
-#### Do We Collect Information from Minors?
+#### ¿Recogemos información de personas menores de edad?
 
-**In Short:** We do not knowingly collect data from or market to children under 18 years of age.
+**En resumen:** No recogemos datos de ni comercializamos nuestros servicios a menores de 18 años de forma deliberada.
 
-We do not knowingly solicit data from or market to children under 18 years of age. By using the Sites, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Sites. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at <privacy@polyswarm.io>.
+No solicitamos datos ni comercializamos nuestros servicios deliberadamente a menores de 18 años. Al usar los Sitios web, declaras que eres mayor de 18 años, o que eres el padre o tutor legal de tal menor y brindas tu consentimiento al uso tutelado de los Sitios web por su parte. Si llegara a nuestro conocimiento que se ha recogido información personal de un usuario menor de 18 años, desactivaremos su cuenta y tomaremos las medidas adecuadas para suprimir sus datos de nuestros archivos. Si descubres que hemos recogido datos de algún menor de 18 años, ponte en contacto con nosotros en <privacy@polyswarm.io>.
 
-#### What Are Your Privacy Rights?
+#### ¿Cuáles son tus derechos en materia de privacidad?
 
-**In Short:** In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.
+**En resumen:** En regiones como el Espacio Económico Europeo posees derechos de un mayor acceso y control sobre tu información personal. Puedes revisar, modificar o cancelar tu cuenta en cualquier momento.
 
-In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws.
+En algunas regiones (por ejemplo, el Espacio Económico Europeo), las leyes de protección de datos vigentes te proporcionan determinados derechos. Entre ellos puede encontrarse el derecho (i) a solicitar el acceso a tu información personal y obtener una copia de ella, (ii) a solicitar su rectificación o supresión, (iii) a limitar su tratamiento y (iv) a la portabilidad de los datos. En determinadas circunstancias, también puedes tener derecho a oponerte al tratamiento de tu información personal. Para cualquier solicitud al respecto, usa los datos de contacto indicados más adelante. Procederemos a responderte de conformidad con las leyes aplicables en materia de protección de datos.
 
-If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.
+Si el tratamiento que realizamos de tu información personal se basa en tu consentimiento, tienes derecho a retirar tal consentimiento en cualquier momento. Ten en cuenta, no obstante, que ello no afectará a la legalidad de cualquier tratamiento realizado con anterioridad.
 
-If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm>.
+Si resides en el Espacio Económico Europeo y crees que estamos tratando tu información personal de forma indebida, tienes además derecho a denunciarlo a la autoridad de control responsable de la protección de datos en tu región. Puedes encontrar sus datos de contacto aquí: <http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm>.
 
-**Account information**
+**Información de la cuenta**
 
-If you would at any time like to review or change the information in your account or terminate your account, you can:
+Si, en cualquier momento, desearas revisar o modificar la información de tu cuenta, o cancelarla:
 
-* Log into your account settings and update your account.
+* Accede a los ajustes de tu cuenta y actualízala.
 
-Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use and/or comply with legal requirements.
+Si recibimos la solicitud de cancelar tu cuenta, desactivaremos o suprimiremos dicha cuenta y tu información de nuestras bases de datos activas. Sin embargo, es posible que conservemos cierta información en nuestros archivos para prevenir el fraude, resolver problemas, ayudar en cualquier investigación, hacer cumplir nuestras condiciones de uso y/o ejercer nuestras obligaciones legales.
 
-Cookies and similar technologies: Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Sites. For further information, visit <http://www.aboutads.info/choices/>. You can also learn more in the "Cookie Policy" section below.
+*Cookies* y tecnologías similares: La mayor parte de navegadores web están configurados para aceptar las *cookies* por defecto. Si lo deseas, suele ser posible configurar tu navegador para que las elimine y las rechace. Ello podría afectar a algunas funciones o servicios de nuestros Sitios web. Para más información, visita <http://www.aboutads.info/choices/>. Puedes consultar además la sección "Política de *cookies*" más adelante.
 
-Opting out of email marketing:
+Cómo renunciar a recibir correos electrónicos promocionales:
 
-You can unsubscribe from our marketing email list at any time by clicking on the unsubscribe link in the emails that we send or by contacting us using the details provided below. You will then be removed from the marketing email list – however, we will still need to send you service-related emails that are necessary for the administration and use of your account. To otherwise opt-out, you may:
+Puedes darte de baja de nuestra lista de correos electrónicos promocionales en cualquier momento haciendo clic en el vínculo incluido en ellos o poniéndote en contacto con nosotros por los medios indicados más adelante. Al hacerlo, te eliminaremos de la lista, pero seguiremos estando obligados a enviarte los correos electrónicos relativos a nuestro servicio que sean necesarios para la gestión y el uso de tu cuenta. Para renunciar en cualquier caso:
 
-* Access your account settings and update preferences.
+* Accede a los datos de tu cuenta y actualiza las preferencias.
 
-#### Do California Residents Have Specific Privacy Rights?
+#### ¿Cuentan con derechos de privacidad específicos los residentes en California?
 
-**In Short:** Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.
+**En resumen:** Sí. Si resides en California, posees derechos específicos en lo que respecta al acceso a tu información personal.
 
-California Civil Code Section 1798.83, also known as the "Shine The Light" law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
+La sección 1798.83 del Código civil de California, también conocida como ley "Shine the Light", permite a aquellos usuarios que son residentes de California solicitarnos y obtener, una vez al año y sin cargo alguno, información sobre las categorías de información personal que hayamos comunicado a terceros con fines de promoción directa (si las hubiera) y los nombres y direcciones de todos los terceros con los que hayamos compartido información personal en el año natural inmediatamente anterior. Si eres residente de California y deseas efectuar tal petición, remítenosla por escrito usando la información de contacto indicada más adelante.
 
-If you are under 18 years of age, reside in California, and have a registered account with the Sites, you have the right to request removal of unwanted data that you publicly post on the Sites. To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Sites, but please be aware that the data may not be completely or comprehensively removed from our systems.
+Si eres menor de 18 años de edad, resides en California y has dado de alta una cuenta en nuestros Sitios web, tienes derecho a solicitar la supresión de cualquier dato no deseado que compartas de forma pública en ellas. Para ello, ponte en contacto con nosotros usando la información de contacto indicada más adelante e incluye la dirección de correo electrónico asociada a tu cuenta y una declaración de que resides en California. Aunque tomaremos medidas para asegurarnos de que los datos no se muestren públicamente en los Sitios web, ten en cuenta que podrían no ser borrados de forma exhaustiva o completa de nuestros sistemas.
 
-#### Cookie Policy
+#### Política de *cookies*
 
-**What are cookies?**
+**¿Qué son las *cookies*?**
 
-Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.
+Las *cookies* son pequeños archivos de datos que se instalan en tu equipo o dispositivo móvil cuando visitas un sitio web. Las *cookies* son ampliamente usadas por los propietarios de los sitios web para hacer que dichos sitios funcionen, o que lo hagan de manera más eficiente, y también para obtener información analítica.
 
-Cookies set by the website owner (in this case, PolySwarm Pte. Ltd.) are called "first party cookies". Cookies set by parties other than the website owner are called "third party cookies". Third party cookies enable third party features or functionality to be provided on or through the website (e.g. like advertising, interactive content and analytics). The parties that set these third party cookies can recognize your computer both when it visits the website in question and also when it visits certain other websites.
+Las *cookies* configuradas por el propietario del sitio web (en este caso, PolySwarm Pte. Ltd.) se denominan "*cookies* de origen". Las *cookies* configuradas por cualquier otra entidad que no sea el propietario del sitio web se denominan "*cookies* de terceros". Las *cookies* de terceros habilitan prestaciones o funcionalidad de terceros en el sitio web (por ejemplo, publicidad, contenido interactivo y analíticas). Las entidades que configuran estas *cookies* pueden reconocer tu equipo tanto cuando visitas el sitio web en cuestión como cuando visitas otros sitios web determinados.
 
-**Why do we use cookies?**
+**¿Por qué usamos *cookies*?**
 
-We use first and third party cookies for several reasons. Some cookies are required for technical reasons in order for our Sites to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our Online Properties. Third parties serve cookies through our Sites for advertising, analytics and other purposes. This is described in more detail below.
+Usamos *cookies* de origen y de terceros por diversas razones. Algunas son necesarias por razones técnicas, para que nuestros Sitios web funcionen, y nos referimos a ellas como "esenciales" o "estrictamente necesarias". Otras nos permiten además realizar un seguimiento de los intereses de nuestros usuarios y adaptarnos a ellos para mejorar la experiencia de nuestras Propiedades en línea. Nuestros colaboradores sirven *cookies* en nuestros Sitios web con fines publicitarios, analíticos o de otro tipo. Ello se describe detalladamente a continuación.
 
-The specific types of first and third party cookies served through our Websites and the purposes they perform are described below (please note that the specific cookies served may vary depending on the specific Online Properties you visit):
+Estos son los tipos específicos de *cookies* de origen y de terceros utilizadas en nuestros Sitios web y su finalidad (ten en cuenta que las *cookies* específicamente usadas pueden variar en función de qué Propiedades en línea visites):
 
-**Performance and functionality cookies:**
+***Cookies* de rendimiento y funcionalidad:**
 
-These cookies are used to enhance the performance and functionality of our Sites but are non-essential to their use. However, without these cookies, certain functionality (like videos) may become unavailable.
+Estas *cookies* sirven para mejorar el rendimiento y la funcionalidad de nuestros Sitios web, pero no son esenciales para su uso. Sin embargo, sin ellas, determinada funcionalidad (como los vídeos) podría dejar de estar disponible.
+
+* ¿Quién sirve estas *cookies*? 
+ * Proveedor de *cookies*: PolySwarm 
+  * URL de su sitio web: https://polyswarm.io/
+* Cómo rechazarlas: 
+ * Para rechazar estas *cookies*, sigue las instrucciones indicadas más adelante en el apartado "¿Cómo puedo controlar las *cookies*?". También puedes cambiar tu [configuración de privacidad](/privacy/#privacy-settings).
+
+***Cookies* de análisis y personalización:**
+
+Estas *cookies* recogen información que se usa bien de forma agregada, para ayudarnos a comprender cómo se están usando nuestros Sitios web o cuán eficaces son nuestras campañas promocionales; o bien para ayudarnos a personalizar nuestros Sitios web para ti.
 
 * Who serves these cookies? 
- * Cookie provider: PolySwarm 
-  * Website URL: https://polyswarm.io/
+ * Proveedor de *cookies*: Google Analytics 
+  * URL de su sitio web: https://analytics.google.com/analytics/web/
+ * Proveedor de *cookies*: Pardot 
+  * URL de su sitio web: https://www.pardot.com/
 * How to refuse: 
  * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
 
-**Analytics and customization cookies:**
+**¿Y qué sucede con otras tecnologías como las balizas web?**
 
-These cookies collect information that is used either in aggregate form to help us understand how our Sites are being used or how effective our marketing campaigns are, or to help us customize our Sites for you.
+Las *cookies* no son el único modo de reconocer o rastrear a los visitantes de un sitio web. Podemos usar además ocasionalmente otras tecnologías similares, como las balizas web (a veces denominadas "píxeles de seguimiento" o "GIF transparentes"). Se trata de minúsculos archivos gráficos con un identificador único que nos permiten saber cuándo ha visitado alguien nuestros Sitios web o ha abierto un correo electrónico que le hayamos enviado. Ello nos permite, por ejemplo, supervisar los patrones de tráfico de los usuarios desde una página de nuestros Sitios web a otras, entregar *cookies* o comunicarnos con ellas, conocer si has venido a nuestros Sitios web desde un anuncio en línea mostrado en un sitio web de terceros, mejorar el rendimiento de los Sitios web y cuantificar el éxito de las campañas promocionales realizadas por correo electrónico. En muchos casos, estas tecnologías dependen de las *cookies* para operar adecuadamente, por lo que rechazarlas afectará a su correcto funcionamiento.
 
-* Who serves these cookies? 
- * Cookie provider: Google Analytics 
-  * Website URL: https://analytics.google.com/analytics/web/
- * Cookie provider: Pardot 
-  * Website URL: https://www.pardot.com/
-* How to refuse: 
- * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
+**¿Cómo puedo controlar las *cookies*?**
 
-**What about other tracking technologies, like web beacons?**
+Puedes cambiar tu [configuración de privacidad](/privacy/#privacy-settings). Además, puedes configurar o modificar los controles de tu navegador para aceptar o rechazar las *cookies*. Si decides rechazarlas, podrás seguir usando nuestro sitio web, aunque puede que se te limite el acceso a ciertas áreas y a determinadas funciones. El modo de rechazar las *cookies* varía de un navegador a otro: consulta el menú de ayuda del tuyo para obtener más información.
 
-Cookies are not the only way to recognize or track visitors to a website. We may use other, similar technologies from time to time, like web beacons (sometimes called "tracking pixels" or "clear gifs"). These are tiny graphics files that contain a unique identifier that enable us to recognize when someone has visited our Sites or opened an e-mail that we have sent them. This allows us, for example, to monitor the traffic patterns of users from one page within our Websites to another, to deliver or communicate with cookies, to understand whether you have come to our Websites from an online advertisement displayed on a third-party website, to improve site performance, and to measure the success of e-mail marketing campaigns. In many instances, these technologies are reliant on cookies to function properly, and so declining cookies will impair their functioning.
+Por otro lado, la mayor parte de redes publicitarias te ofrecen algún modo de dejar de recibir publicidad personalizada. Para obtener más información, visita <http://www.aboutads.info/choices/> o <http://www.youronlinechoices.com>.
 
-**How can I control cookies?**
+#### ¿Realizamos actualizaciones de esta política?
 
-You can change your [privacy settings](/privacy/#privacy-settings). Additionally, you can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted. As the means by which you can refuse cookies through your web browser controls vary from browser-to-browser, you should visit your browser's help menu for more information.
+**En resumen:** Sí. Actualizaremos esta política cuando sea necesario para seguir cumpliendo con la legislación vigente.
 
-In addition, most advertising networks offer you a way to opt out of targeted advertising. If you would like to find out more information, please visit <http://www.aboutads.info/choices/> or <http://www.youronlinechoices.com>.
+Podemos actualizar esta política de privacidad de manera ocasional. La versión actualizada se indicará por medio de una fecha de revisión nueva y entrará en vigor tan pronto como esté accesible. Cuando realicemos cambios sustanciales, podremos comunicártelos bien publicando un aviso destacado de tales cambios o, directamente, enviándote una notificación. Te recomendamos que revises esta política de privacidad con frecuencia para mantenerte informado de cómo protegemos tu información.
 
-#### Do We Make Updates to This Policy?
+#### ¿Cómo puedes ponerte en contacto con nosotros en relación con esta política?
 
-**In Short:** Yes, we will update this policy as necessary to stay compliant with relevant laws.
-
-We may update this privacy policy from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
-
-#### How Can You Contact Us About This Policy?
-
-If you have questions or comments about this policy, you may contact us by email at <privacy@polyswarm.io>, or by post to:
+Si tienes cualquier pregunta o deseas realizar un comentario al respecto de esta política de privacidad, puedes hacerlo por correo electrónico en <privacy@polyswarm.io> o vía postal escribiendo a:
 
 PolySwarm Pte. Ltd.  
 548 Market Street  
@@ -242,8 +242,8 @@ PolySwarm Pte. Ltd.
 
 
 San Francisco, CA 94104  
-United States
+Estados Unidos
 
-#### How Can You Review, Update, or Delete, the Data We Collect from You?
+#### ¿Cómo puedes consultar, actualizar o suprimir los datos que recojamos de ti?
 
-Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please submit a request by emailing <privacy@polyswarm.io>.
+De acuerdo con las leyes de algunos países, puede que tengas derecho a solicitar el acceso a la información personal que recojamos de ti, a cambiar esa información o a suprimirla en determinadas circunstancias. Para solicitar la revisión, la actualización o la supresión de tu información personal, envíanos un correo electrónico a <privacy@polyswarm.io>.

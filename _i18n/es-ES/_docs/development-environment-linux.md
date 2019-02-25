@@ -84,9 +84,9 @@ pip install polyswarm-client
 
 ## Verificar la instalación
 
-¡Ahora ya deberías tener un entorno de desarrollo funcional!
+You should now have a working development environment!
 
-Para comprobarlo, intenta importar `polyswarmclient`:
+To verify, simply try importing `polyswarmclient`:
 
 ```bash
 $ python
@@ -95,8 +95,8 @@ $ python
 >>>
 ```
 
-La importación de `polyswarmclient` debería llevarse a cabo sin problemas.
+You should be able to import `polyswarmclient` without issue.
 
-A continuación, te guiaremos en la creación de tu propio micromotor de PolySwarm, capaz de detectar el archivo de prueba EICAR.
+Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
 
-[Crea un micromotor "Hola mundo" →](/microengines-scratch-to-eicar/)
+[Make a "Hello World" Microengine →](/microengines-scratch-to-eicar/)

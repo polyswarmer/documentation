@@ -206,13 +206,13 @@ Web サイト所有者 (PolySwarm Pte. Ltd.) によって設定された Cookie 
 
 このタイプの Cookie は、集計して当サイトの使用状況やマーケティング戦略の有効性を把握したり、お客様に合わせて当サイトをカスタマイズしたりできるようにするために使用される情報を収集します。
 
-* このタイプの Cookie の提供者 
+* Who serves these cookies? 
  * Cookie プロバイダー: Google Analytics 
   * Web サイトの URL: https://analytics.google.com/analytics/web/
  * Cookie プロバイダー: Pardot 
   * Web サイトの URL: https://www.pardot.com/
-* 拒否方法: 
- * このタイプの Cookie を拒否する場合は、下記の「Cookie の制御方法」という見出しの説明に従ってください。 あるいは、[プライバシーの設定](/privacy/#privacy-settings)を変更することもできます。
+* How to refuse: 
+ * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
 
 **Web ビーコンのような他のトラッキング技術**
 

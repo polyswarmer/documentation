@@ -1,7 +1,7 @@
 ---
 global:
-  title: The first decentralized threat intelligence marketplace
-  description: PolySwarm Documentation is a public resource designed to help Experts, Arbiters, Ambassadors, and others get to know PolySwarm products.
+  title: 최초의 탈중앙화 보안 위협 분석 마켓플레이스
+  description: PolySwarm 설명서는 전문가, 중재자, 홍보대사 등이 PolySwarm 제품을 이해하는 데 도움이 되도록 작성된 공개 자료입니다.
   languages:
     - 
       name: en-US
@@ -21,32 +21,32 @@ global:
         text: View now
       close:
         text: Close
-  previous_text: Previous article
-  next_text: Next article
+  previous_text: 이전 글
+  next_text: 다음 글
   close_text: 닫기
   privacy_settings:
-    heading: Privacy Settings
-    text: Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you consent to our use of cookies, please make sure the box below is checked. Otherwise, uncheck the box below to opt out.
-    label: Enable Cookies
+    heading: 개인정보 설정
+    text: 본 사이트는 귀하의 사이트 이용 방식을 이해하고 향후 더 쉽게 이용하실 수 있도록 개선하고자 쿠키를 사용합니다. 당사의 쿠키 사용에 동의하시는 경우 아래의 확인란을 선택해 주십시오. 그렇지 않으면 아래의 확인란을 선택하지 마시기 바랍니다.
+    label: 쿠키 사용
 header:
-  menu_text: Menu
-  languages_text: Languages
+  menu_text: 메뉴
+  languages_text: 언어
   navigation:
     home:
-      name: Docs Home
+      name: 문서 홈
       d_url: /
     items:
       - 
-        name: Concepts
+        name: 개념
         subitems:
           - 
-            name: Participants
+            name: 참가자
             d_url: /concepts-participants/
           - 
             name: Microengines
             d_url: /concepts-participants-microengine/
       - 
-        name: Development Environment
+        name: 개발 환경
         subitems:
           - 
             name: Linux
@@ -58,16 +58,16 @@ header:
         name: Microengines
         subitems:
           - 
-            name: "Level 0: Scratch to EICAR"
+            name: "레벨 0: 기본에서 EICAR"
             d_url: /microengines-scratch-to-eicar/
           - 
-            name: "Level 1: Scratch to ClamAV"
+            name: "레벨 1: 기본에서 ClamAV"
             d_url: /microengines-scratch-to-clamav/
           - 
-            name: "Level 2: ClamAV to Multi"
+            name: "레벨 2: ClamAV에서 멀티"
             d_url: /microengines-clamav-to-multi/
       - 
-        name: Testing
+        name: 테스트
         subitems:
           - 
             name: Linux
@@ -76,7 +76,7 @@ header:
             name: Windows
             d_url: /testing-windows/
       - 
-        name: Marketplace
+        name: 마켓플레이스
         d_url: /joining-the-market/
       - 
         name: API
@@ -90,71 +90,71 @@ footer:
       - 
         items:
           - 
-            name: Navigation
+            name: 탐색
           - 
-            name: Home
+            name: 홈
             d_url: /
             d_rooturl: true
           - 
-            name: Security Experts
+            name: 보안 전문가
             d_url: /security_experts/
             d_rooturl: true
           - 
-            name: How It Works
+            name: 작동 방법
             d_url: /how_it_works/
             d_rooturl: true
           - 
-            name: Partners
+            name: 파트너
             d_url: /partners/
             d_rooturl: true
           - 
-            name: Updates
+            name: 업데이트
             d_url: /updates/
             d_rooturl: true
           - 
-            name: Docs
+            name: 문서
             d_url: https://docs.polyswarm.io
             d_subdomain: true
           - 
-            name: Contact
+            name: 연락처
             d_url: /contact/
             d_rooturl: true
       - 
         items:
           - 
-            name: Company
+            name: 회사
           - 
-            name: The Team
+            name: 팀
             d_url: /the_team/
             d_rooturl: true
           - 
-            name: Careers
+            name: 채용 정보
             d_url: /careers/
             d_rooturl: true
           - 
-            name: Roadmap
+            name: 로드맵
             d_url: /roadmap/
             d_rooturl: true
           - 
-            name: FAQ
+            name: 자주 묻는 질문
             d_url: /faq/
             d_rooturl: true
           - 
-            name: Grants
+            name: 보조금
             d_url: /grants/
             d_rooturl: true
           - 
-            name: Security
+            name: 보안
             d_url: /security/
             d_rooturl: true
           - 
-            name: Media
+            name: 미디어
             d_url: /media/
             d_rooturl: true
       - 
         items:
           - 
-            name: Telegram Channels
+            name: Telegram 채널
           - 
             name: PolySwarm
             d_url: https://t.me/PolySwarm
@@ -166,12 +166,12 @@ footer:
             d_target: _blank
             d_root: true
           - 
-            name: PolySwarm Announcements
+            name: PolySwarm 공지사항
             d_url: https://t.me/PolySwarmAnnouncements
             d_target: _blank
             d_root: true
   cta:
-    name: Download Whitepaper
+    name: 백서 다운로드
     d_url: /polyswarm-whitepaper.pdf
     d_target: _blank
     d_rooturl: true
@@ -179,60 +179,60 @@ footer:
     name: Privacy Policy
     d_url: /privacy/
   terms:
-    name: Terms of Service
+    name: 서비스 약관
     d_url: /terms/
     d_rooturl: true
 pages:
   page_not_found:
-    title: Page not found
+    title: 페이지를 찾을 수 없습니다
     d_bg_image: /backgrounds/network-bg.png
     heading: Page not found
     button:
-      name: Back to home
+      name: 홈으로 돌아가기
       d_url: /
       d_style: transparent
   privacy:
     title: Privacy Policy
-    description: PolySwarm's Privacy Policy
+    description: PolySwarm 개인정보 보호정책
 docs:
   concepts_participants:
-    title: Roles in the PolySwarm Marketplace
+    title: PolySwarm 마켓플레이스에서의 역할
     description: PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
   concepts_participants_microengine:
-    title: "Participants: Microengine"
+    title: "참가자: 마이크로엔진"
     description: Microengines are Security Experts' representation in the PolySwarm marketplace.
   development_environment_linux:
-    title: Linux Development Environment
-    description: How to configure a Linux development environment for PolySwarm
+    title: Linux 개발 환경
+    description: PolySwarm용 Linux 개발 환경 구성 방법
   development_environment_windows:
-    title: Windows Development Environment
-    description: How to configure a Windows development environment for PolySwarm
+    title: Windows 개발 환경
+    description: PolySwarm용 Windows 개발 환경 구성 방법
   microengines_scratch_to_eicar:
     title: "Level 0: Scratch to EICAR"
-    description: This tutorial will step you through building your very first PolySwarm microengine - a hello world microengine capable of detecting the EICAR test file.
+    description: 이 튜토리얼에서는 첫 번째 PolySwarm 마이크로엔진, 즉 EICAR 테스트 파일을 탐지할 수 있는 hello world 마이크로엔진을 구축하는 방법에 대하여 설명합니다.
   microengines_scratch_to_clamav:
     title: "Level 1: Scratch to ClamAV"
-    description: This tutorial will step you through building your second PolySwarm microengine by means of incorporating ClamAV as an analysis backend.
+    description: 이 튜토리얼에서는 ClamAV를 분석 백엔드로 통합하여 두 번째 PolySwarm 마이크로엔진을 구축하는 방법에 대하여 설명합니다.
   microengines_clamav_to_multi:
     title: "Level 2: ClamAV to Multi"
-    description: This tutorial will show you how to combine multiple analysis backends (ClamAV and YARA) and outlines a basic verdict distillation primitive.
+    description: 이 튜토리얼에서는 여러 개의 분석 백엔드(ClamAV 및 YARA)를 결합하는 방법과 기본적인 의견 도출 엔진에 대하여 설명합니다.
   testing_linux:
     title: Testing Linux-Based Engines
-    description: How to test a Linux-based PolySwarm microengine.
+    description: Linux 기반 PolySwarm 마이크로엔진 테스트 방법.
   testing_windows:
     title: Testing Windows-Based Engines
-    description: How to test a Windows-based PolySwarm microengine.
+    description: Windows 기반 PolySwarm 마이크로엔진 테스트 방법.
   joining_the_market:
-    title: Joining the Market
-    description: Participating in the PolySwarm Marketplace.
+    title: 마켓플레이스 참가
+    description: PolySwarm 마켓플레이스에 참가하기.
   polyswarmd_api:
     title: polyswarmd API
-    description: The polyswarmd API documentation.
+    description: polyswarmd API 설명서.
 banners:
   - 
     id: cookie-consent
-    text: 'Our site uses cookies to better understand how you use our site, and to make it easier to use in the future. If you do not consent to our use of cookies, you can change your <a href="/privacy/#privacy-settings" target="_blank">Privacy Settings</a>. Otherwise, you may click <a href="#" class="js-banner__accept">Accept</a>.'
+    text: '본 사이트는 귀하의 사이트 이용 방식을 이해하고 향후 더 쉽게 이용하실 수 있도록 개선하고자 쿠키를 사용합니다. 당사의 쿠키 사용에 동의하시지 않는 경우 <a href="/privacy/#privacy-settings" target="_blank">개인정보 설정</a>을 변경하실 수 있습니다. 그렇지 않으면 <a href="#" class="js-banner__accept">동의</a>를 클릭해주십시오.'
     d_type: accept
     link:
-      name: Accept
+      name: 동의
       d_url: "#"

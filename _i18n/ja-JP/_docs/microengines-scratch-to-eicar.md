@@ -87,9 +87,9 @@ EICAR の検出は、以下のようにシンプルです。
 
 `microengine-myeicarengine/src/(組織のスラグ名)_myeicarengine/__init__.py` を開きます。
 
-If you used our cookiecutter `engine-template` from above, you will have some code in your `__init__.py`.
+上記の cookiecutter `engine-template` を使用した場合、`__init__.py` にコードが含まれています。
 
-We will modify this file to implement both our Scanner and Microengine classes:
+以下のように、このファイルを変更して、xScanner クラスと Microengine クラスの両方を実装します。
 
 * **Scanner**: Scanner クラス。 このクラスでは、`scan` 関数で EICAR 検出ロジックを実装します。
 
@@ -97,13 +97,13 @@ We will modify this file to implement both our Scanner and Microengine classes:
 
 ### EICAR 検出ロジックの作成
 
-The EICAR test file is defined as a file that contains only the following string: `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`.
+EICAR テスト・ファイルは、文字列「`X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`」のみが含まれたファイルとして定義されます。
 
-There are, of course, many ways to identify files that match this criteria. The `scan` function's `content` parameter contains the entire content of the artifact in question - this is what you're matching against.
+もちろん、この条件に一致するファイルを特定する方法はたくさん存在します。 `scan` 関数の `content` パラメーターには、対象アーティファクトの全コンテンツが含まれます。これに対して突き合わせを行います。
 
-The following are 2 examples for how you can write your `scan()` function to detect `EICAR`. Update the code in your `__init__.py` file with the changes from one of these examples.
+以下に、`EICAR` を検出する `scan()` 関数を作成する方法を示した例を示します。 以下の例のいずれかの変更により、`__init__.py` ファイルのコードを更新します。
 
-The first way, is the simplest design and is used in [`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py):
+以下のように、最初の方法は最もシンプルな設計であり、[`eicar.py`](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/eicar.py) で使用します。
 
 ```python
 import base64
@@ -128,7 +128,7 @@ class Microengine(AbstractMicroengine):
 
 ```
 
-Here's another way, this time comparing the SHA-256 of the EICAR test file with a known-bad hash:
+以下に別の方法を示します。今度は、EICAR テスト・ファイルの SHA-256 を既知の不正ハッシュと比較します。
 
 ```python
 import base64
@@ -159,26 +159,26 @@ class Microengine(AbstractMicroengine):
 
 ### 投資戦略の作成
 
-At a minimum, Microengines are responsible for: (a) detecting malicious files, (b) rendering assertions with NCT staked on them.
+最低でも、マイクロエンジンは、(a) 悪意のあるファイルの検出、(b) NCT の投資とアサーションの作成を行う必要があります。
 
-Staking logic is implemented in the Microengine's `bid` function.
+投資ロジックは、マイクロエンジンの `bid` 関数で実装されます。
 
-By default, all assertions are placed with the minimum stake permitted by the community a Microengine is joined to.
+デフォルトでは、すべてのアサーションは、マイクロエンジンが参加しているコミュニティーで許可される最小の投資額で生成されます。
 
-Check back soon for an exploration of various staking strategies.
+各種投資戦略の説明を追加していきますので、定期的にここの情報をご確認ください。
 
-## エンジンの仕上げとテスト
+## Finalizing & Testing Your Engine
 
-これまでのところ、`cookiecutter` は `engine-template` のみをカスタマイズしています。自分で作成する必要がある項目が少しあります。 主な項目については上記で説明しましたが、`CUSTOMIZE_HERE` をクイック検索して、すべてのカスタマイズが行われたかを確認できます。
+`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself. We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
 
-すべての準備ができたら、エンジンをテストしましょう。
+Once everything is in place, let's test our engine:
 
-[Linux ベースのエンジンのテスト →](/testing-linux/)
+[Test Linux-based Engines →](/testing-linux/)
 
-[Windows ベースのエンジンのテスト →](/testing-windows/)
+[Test Windows-based Engines →](/testing-windows/)
 
-## 次のステップ
+## Next Steps
 
-Implementing scan logic directly in the Scanner class is difficult to manage and scale. Instead, you'll likely want your Microengine class to call out to an external binary or service that holds the actual scan logic.
+Scanner クラスにスキャン・ロジックを直接実装すると、管理も拡張も困難です。 そうではなく、実際のスキャン・ロジックが含まれている外部のバイナリーやサービスを Microengine クラスで呼び出すことをお勧めします。
 
-[Next, we'll wrap ClamAV into a Microengine →](/microengines-scratch-to-clamav/)
+[次は、ClamAV をマイクロエンジンにラップします →](/microengines-scratch-to-clamav/)

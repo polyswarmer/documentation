@@ -1,29 +1,29 @@
-# Testing Linux-Based Engines
+# Cómo probar motores basados en Linux
 
-## Unit Testing
+## Pruebas unitarias
 
-Unit testing your Microengine is a simple process:
+Realizar pruebas unitarias de tu micromotor es un proceso muy sencillo:
 
-1. build a Docker image of your Microengine
-2. run `docker-compose` to use `tox` to execute your testing logic in `tests/scan_test.py`
+1. construye una imagen de tu micromotor en Docker, y
+2. ejecuta `docker-compose` para usar `tox` con el fin de llevar a cabo tu lógica de pruebas en `tests/scan_test.py`.
 
-Run the following commands from the root of your project directory.
+Ejecuta los siguientes comandos desde el directorio raíz de tu proyecto.
 
-Build your Microengine into a Docker image:
+Construye tu micromotor como una imagen de Docker:
 
 ```bash
 $ docker build -t ${PWD##*/} -f docker/Dockerfile .
 ```
 
-This will produce a Docker image tagged with the name of the directory, e.g. `microengine-myeicarengine`.
+Esto producirá una imagen de Docker etiquetada con el nombre del directorio (por ejemplo, `microengine-myeicarengine`).
 
-Run the tests:
+Ejecuta las pruebas:
 
 ```bash
 $ docker-compose -f docker/test-unit.yml up
 ```
 
-If your Microengine is capable of detecting EICAR and not producing a false positive on the string "not a malicious file", then you should pass these basic unittests and see something like this:
+Si tu micromotor es capaz de detectar EICAR sin producir un falso positivo en la cadena "not a malicious file", deberías superar estas sencillas pruebas unitarias y ver algo así:
 
 ```bash
 $ docker-compose -f docker/test-unit.yml up
@@ -52,73 +52,73 @@ test_engine_mylinuxengine_1_a9d540dc7394 |   py35: commands succeeded
 test_engine_mylinuxengine_1_a9d540dc7394 |   congratulations :)
 ```
 
-Of course, this testing is quite limited - you'll want to expand on your tests in `scan_test.py`, as appropriate for your Microengine.
+Obviamente, estas pruebas son muy limitadas y deberás ampliarlas en `scan_test.py` según proceda para tu micromotor.
 
-## Integration Testing
+## Pruebas de integración
 
-The PolySwarm marketplace is composed of a myriad of participants and technologies: Ethereum & IPFS nodes, contracts, Microengines, Ambassadors, Arbiters, artifacts and much more. Testing a single component often demands availability of all of the other components.
+El mercado de PolySwarm consta de multitud de participantes y tecnologías: nodos Ethereum e IPFS, contratos, micromotores, embajadores, árbitros, artefactos y mucho más. Probar un único componente exige a menudo la disponibilidad de todos los demás.
 
-The `orchestration` project makes standing up a complete testnet easy and seamless. True to its name, `orchestration` orchestrates all the components necessary to stand up and tear down an entire PolySwarm marketplace environment on a local development machine.
+El proyecto `orchestration` permite levantar una red de pruebas completa en un abrir y cerrar de ojos. Fiel a su nombre, `orchestration` coordina todos los componentes necesarios para levantar y desmantelar un entorno de mercado PolySwarm entero desde una máquina de desarrollo local.
 
-Clone `orchestration` adjacent to your `microengine-myeicarengine` directory:
+Clona `orchestration` junto a tu directorio `microengine-myeicarengine`:
 
 ```bash
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### (Optional) Preview a Complete, Working Testnet
+### (Opcional) Experimenta una red de pruebas completa y funcional
 
-Let's spin up a complete, working testnet to get a sense for what things *should* look like.
+Pongamos en marcha una red de pruebas completa y funcional que te permita hacerte una idea de cómo *debería* verse todo.
 
-In the cloned `orchestration` directory:
+En el directorio `orchestration` clonado:
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up
 ```
 
-You'll see output from the following services:
+Verás datos de salida de los siguientes servicios:
 
-1. `homechain`: A [geth](https://github.com/ethereum/go-ethereum) node running our testnet's "homechain". See [Chains: Home vs Side](/#chains-home-vs-side) for an explanation of our split-chain design.
-2. `sidechain`: Another `geth` instance, this one running our testnet's "sidechain".
-3. `ipfs`: An IPFS node responsible for hosting all artifacts in our development testnet.
-4. `polyswarmd`: The PolySwarm daemon providing convenient access to the services offered by `homechain`, `sidechain` and `ipfs`.
-5. `contracts`: Responsible for housing & deploying the PolySwarm Nectar (NCT) and `BountyRegistry` contracts onto our development testnet.
-6. `ambassador`: A mock Ambassador (provided by `polyswarm-client`) that will place bounties on [the EICAR file](https://en.wikipedia.org/wiki/EICAR_test_file) and on a file that is not EICAR.
-7. `arbiter`: A mock Arbiter (provided by `polyswarm-client`) that will deliver Verdicts on "swarmed" artifacts, determining ground truth.
-8. `microengine`: A mock Microengine (provided by `polyswarm-client`) that will investigate the "swarmed" artifacts and render Assertions.
+1. `homechain`: Nodo [geth](https://github.com/ethereum/go-ethereum) que ejecuta la cadena base de nuestra red de pruebas. Consulta [Cadenas base y cadenas paralelas](/#chains-home-vs-side) para obtener una explicación de nuestro modelo de cadenas separadas.
+2. `sidechain`: Otra instancia de `geth`, en este caso ejecutando la cadena paralela de nuestra red de pruebas.
+3. `ipfs`: Nodo IPFS responsable de hospedar todos lo artefactos de nuestra red de pruebas de desarrollo.
+4. `polyswarmd`: El *daemon* de PolySwarm que proporciona fácil acceso a los servicios ofrecidos por `homechain`, `sidechain` e `ipfs`.
+5. `contracts`: Responsable de albergar e implementar los contratos de néctar (NCT) y `BountyRegistry` de PolySwarm en nuestra red de pruebas de desarrollo.
+6. `ambassador`: Embajador de prueba (proporcionado por `polyswarm-client`) que fijará recompensas por [el archivo EICAR](https://en.wikipedia.org/wiki/EICAR_test_file) y por un archivo que no sea el EICAR.
+7. `arbiter`: Árbitro de prueba (proporcionado por `polyswarm-client`) que emitirá veredictos sobre artefactos detectados y determinará la verdad terreno.
+8. `microengine`: Micromotor simulado (proporcionado por `polyswarm-client`) que investigará los artefactos detectados y generará afirmaciones.
 
-Browse through the logs scroll on the screen to get a sense for what each of these components is doing. Let it run for at least 5 minutes - it can take time to deploy contracts - and then the fun starts :)
+Desplázate por los registros presentados en pantalla para hacerte una idea de lo que está haciendo cada uno de estos componentes. Deja todo funcionando al menos durante 5 minutos. Desplegar los contratos puede llevar su tiempo... ¡Luego empieza lo bueno! :)
 
-When you've seen enough log output, do `Ctrl-C` to halt the development testnet gracefully.
+Cuando hayas visto suficientes registros, presiona `Ctrl-C` para detener fácilmente la red de pruebas de desarrollo.
 
-### Test Your Engine
+### Prueba tu motor
 
-Let's spin up a subset of the testnet, leaving out the stock `microengine` (we'll be replacing this with our own) and the `ambassador` services.
+Vamos a poner en marcha un subconjunto de la red de pruebas dejando al margen el micromotor `microengine` incluido por defecto (lo sustituiremos por el nuestro) y los servicios del embajador `ambassador`.
 
-In the cloned `orchestration` project:
+En el proyecto `orchestration` clonado:
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-It will take several minutes for `polyswarmd` to become available. Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
+Habrá que esperar unos minutos hasta que `polyswarmd` esté disponible. Una vez lo esté, comenzará a proporcionar respuestas a los clientes. Por ejemplo:
 
     INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
     
 
-Next, let's spin up our Microengine in a second terminal window in our microengine's directory:
+Ahora lancemos nuestro micromotor en una segunda ventana de terminal abierta en su propio directorio:
 
 ```bash
 $ docker-compose -f docker/test-integration.yml up
 ```
 
-Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window in the `orchestration` directory:
+Por último, introduzcamos algunos artefactos en una tercera ventana de terminal abierta en el directorio `orchestration` para que los escanee nuestro micromotor:
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!
+Fíjate en los registros de las tres ventanas: ¡deberías ver cómo tu micromotor responde a las recompensas del embajador!
 
-When you make changes to your Engine, testing those changes is as simple as re-building your Docker image and re-running the `ambassador` service to inject a new a new pair of EICAR/not-EICAR artifacts. You can keep the rest of the testnet running while you iterate.
+Cuando hagas cambios en el motor, probarlos será tan sencillo como reconstruir su imagen en Docker y volver a ejectuar el servicio `ambassador` para inyectar una nueva pareja de artefactos maligno (EICAR) y benigno. El resto de la red de pruebas se puede mantener en funcionamiento durante el proceso de iteración.

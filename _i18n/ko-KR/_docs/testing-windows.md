@@ -1,18 +1,18 @@
-# Testing Windows-Based Engines
+# Windows 기반 엔진 테스트
 
-In this page, we use `microengine-mywindowsengine` as the name of the Microengine's directory. In your own testing, you will use the name of your Microengine's directory instead. Additionally, in these instructions, we've shortened the PowerShell command prompt to be `PS >` in order to make it easier to read the commands. Your actual PowerShell command prompt will be similar to this: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`. Similarly for Linux command prompts, we've shortened them to be `$`, while your actual command prompts will have more text to the left side of the `$`.
+이 페이지에서는 마이크로엔진 디렉터리의 이름으로 `microengine-mywindowsengine`을 사용합니다. 귀하의 테스트에서는 귀하의 마이크로엔진 디렉터리의 이름을 대신 사용하시면 됩니다. 또한, 이 설명에서는 명령을 더 쉽게 읽을 수 있도록 PowerShell 명령 프롬프트를 `PS >`로 단축하였습니다. 실제 PowerShell 명령 프롬프트는 다음과 비슷합니다: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`. Linux 명령 프롬프트와 비슷하게 `$`로 단축하였지만, 실제 명령 프롬프트는 `$`의 왼쪽에 더 많은 텍스트가 있을 겁니다.
 
 ## Unit Testing
 
-We'll use `tox` to test our Microengine. `tox` runs whatever unit tests you add to `tests/scan_test.py`.
+`tox`를 사용해서 마이크로엔진을 테스트합니다. `tox`는 사용자가 `tests/scan_test.py`에 추가한 유닛 테스트를 실행합니다.
 
-In a powershell window with an activated virtual environment, and run the `tox` command at the base of your microengine's directory.
+가상 환경이 활성화된 파워셸 창을 통하여 마이크로엔진의 기본 디렉터리에서 `tox` 명령을 실행합니다.
 
 ```powershell
 PS > tox
 ```
 
-The output will look similar to the following:
+출력 결과는 다음과 비슷합니다.
 
 ```powershell
 GLOB sdist-make: C:\Users\user\microengine-mywindowsengine\setup.py
@@ -42,97 +42,91 @@ _______________________________________________________ summary ________________
   congratulations :)
 ```
 
-You can safely ignore the `combine_argument_formatters` warning.
+`combine_argument_formatters` 경고는 무시하셔도 안전합니다.
 
 ## Integration Testing
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    Conducting integration tests on Windows-Based Engines is only supported in a VirtualBox configuration at this time.
-    Please refer to <a href="/development-environment-windows/">Windows Development Environment</a> for more information.
+    <strong>경고:</strong> Windows 기반 엔진에서 통합 테스트를 수행하는 것은 현재 VirtualBox 구성에서만 지원됩니다. 자세한 정보는 <a href="/development-environment-windows/">Windows 개발 환경</a>을 참조하세요.
   </p>
 </div>
 
-Integration testing a Windows-Based Engine requires two virtual machines (VMs / Guests):
+Windows 기반 엔진의 통합 테스트 시 두 개의 가상 머신이 필요합니다(VM / 게스트).
 
-1. A Windows guest for running your Windows-Based engine (we already made this).
-2. A Linux guest for standing up a local PolySwarm testnet (we'll make this now).
+1. Windows 기반 엔진을 실행하기 위한 Windows 게스트(이미 만들었습니다).
+2. 로컬 PolySwarm 테스트넷을 구축하기 위한 Linux 게스트(지금 만들 것입니다).
 
 <div class="m-flag m-flag--warning">
   <p>
     <strong>Warning:</strong>
     The recommendations presented here are hard-won.
-    We strongly recommend that you test using the exact recommendations presented here.
+    여기에 제시된 권장 사항을 정확히 사용하여 테스트하실 것을 강력히 권장합니다.
     Using any other configuration will make it difficult for us to provide you with support.
   </p>
 </div>
 
-### Create a Linux Guest
+### Linux 게스트 만들기
 
-#### Create the Virtual Machine
+#### 가상 머신 만들기
 
-Create a Linux VM using the following parameters:
+다음 매개 변수를 사용해서 Linux VM을 만듭니다.
 
-* Name: `polyswarm_lin`
-* Type: Linux
-* Version: Ubuntu (64-bit)
-* RAM: 8GB+
-* CPU: 4+ cores
+* 이름: `polyswarm_lin`
+* 종류: Linux
+* 버전: Ubuntu (64비트)
+* RAM: 8GB 이상
+* CPU: 코어 4개 이상
 * video memory: 128MB
 * disk space: 50GB+
 
-Use the default setting for all other options. In particular, do NOT enable 3D acceleration.
+Use the default setting for all other options. 특히, 3D 가속을 활성화하지 마십시오.
 
-In general, you will want to provide extra available RAM and CPU resources to the Linux VM to make the testnet perform better.
+일반적으로, Linux VM에 이용 가능한 RAM과 CPU 자원을 추가로 제공하면 테스트넷의 성능이 향상됩니다.
 
-#### Install Xubuntu 18.04 amd64
+#### Xubuntu 18.04 amd64 설치
 
-* [Download Xubuntu 18.04 amd64 ISO](https://xubuntu.org/release/18-04/)
+* [Xubuntu 18.04 amd64 ISO 다운로드](https://xubuntu.org/release/18-04/)
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    We strongly recommend Xubuntu over Ubuntu for VirtualBox guests.
-    Ubuntu presents a range of visual lag issues and is prone to total visual lockup when VirtualBox tools are installed.
+    <strong>경고:</strong> VirtualBox 게스트의 경우 Ubuntu 대신 Xubuntu를 사용하실 것을 강력히 권장합니다. Ubuntu는 많은 시각적 렉 문제가 있고 VirtualBox 도구가 설치된 경우 시각적으로 완전히 멈춰버리는 경향이 있습니다.
   </p>
 </div>
 
-Use the ISO you downloaded to install Xubuntu in the VM.
+다운로드한 ISO를 사용해서 VM에 Xubuntu를 설치합니다.
 
-#### (Optional) Install VirtualBox Guest Additions
+#### (선택 사항) VirtualBox 게스트 확장 설치
 
-Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+게스트 확장은 게스트 및 호스트 사이에 공유 클립보드 / 복사 & 붙여넣기 기능을 사용하기 위하여 필요합니다.
 
 [Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
 
-### Configure Inter-Guest Networking
+### 게스트 간 네트워크 구성
 
-We need to establish an "internal" network that our Linux and Windows VMs will use to communicate with one another.
+Linux 및 Windows VM이 서로 통신할 때 사용할 수 있는 '내부' 네트워크를 설정해야 합니다.
 
-Before we get started, shut down both the Linux and the Windows Guests.
+작업을 시작하기 전에 Linux 및 Windows 게스트를 모두 종료합니다.
 
-On your Windows Host, open a PowerShell and change to the VirtualBox installation directory:
+Windows 호스트에서 PowerShell을 열고 VirtualBox 설치 디렉터리로 변경합니다.
 
 ```powershell
 PS > pushd $Env:Programfiles\Oracle\VirtualBox
 ```
 
-You should now see your command prompt look similar to this:
+다음과 비슷한 명령 프롬프트가 표시되어야 합니다.
 
 ```powershell
 PS C:\Program Files\Oracle\VirtualBox>
 ```
 
-#### Create Internal PolySwarm Network
+#### 내부 PolySwarm 네트워크 만들기
 
-Create and assign a dedicated PolySwarm internal network to each VM.
+각 VM에 전용 PolySwarm 내부 네트워크를 생성하여 할당합니다.
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    These commands will reconfigure network adapter #5 on your VMs.
-    If you are already using this adapter (very unlikely), change the number in the commands.
+    <strong>경고:</strong> 이 명령은 VM의 5번 네트워크 어댑터를 다시 구성합니다. (가능성은 적지만) 이미 이 어댑터를 사용하고 있는 경우 명령에서 번호를 변경합니다.
   </p>
 </div>
 
@@ -145,42 +139,39 @@ PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    For more information on internal networking in VirtualBox, refer to their <a href="https://www.virtualbox.org/manual/ch06.html#network_internal">official documentation</a>.
+    <strong>정보:</strong> VirtualBox의 내부 네트워크에 대한 자세한 정보는 <a href="https://www.virtualbox.org/manual/ch06.html#network_internal">공식 설명서</a>를 참조하세요.
   </p>
 </div>
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    You will not see an "adapter #5" listed in your VM settings or inside your VM.
-    What you will see is that your VM will have at least 2 active network adapters and by
-    adding "polyswarm_net" to adapter 5, it should be easier to find because it will be the
-    highest numbered network interface in your VM.
+    <strong>경고:</strong>
+ VM 설정 또는 VM 안에서 '어댑터 #5'라고 표시되지 않습니다.
+    단지 VM에 2개 이상의 활성화된 네트워크 어댑터가 있다고만 표시됩니다. "polyswarm_net"를 어댑터 5에 추가하면 VM에서 가장 번호가 높은 네트워크 인터페이스가 되므로 더 쉽게 찾을 수 있습니다.
   </p>
 </div>
 
-#### Configure Virtual Machines with Static IP Addresses
+#### 고정 IP 주소로 가상 머신 구성하기
 
-Boot the `polyswarm_lin` VM and edit your network settings to assign the following static IPv4 information to the new adapter:
+`polyswarm_lin` VM을 부팅하고 네트워크 설정을 편집하여 다음과 같이 고정 IPv4 정보를 새로운 어댑터에 할당합니다.
 
-* address: `10.10.42.101`
+* 주소: `10.10.42.101`
+* 넷마스크: `255.255.255.0`
+* 게이트웨이: `10.10.42.1`
+
+이 설정을 어떤 네트워크 인터페이스에 적용해야 할지 확실치 않으면 `ifconfig -a` 명령을 실행합니다. 그러면, `enp0s`로 시작하는 여러 개의 네트워크 인터페이스가 출력됩니다. 이 접두사 다음에 나오는 번호가 가장 큰 인터페이스가 일반적으로 수정할 대상입니다.
+
+`polyswarm_win` VM을 부팅하고 네트워크 설정을 편집하여 이 고정 IPv4 설정에 맞게 새로운 어댑터를 구성합니다.
+
+* 주소: `10.10.42.102`
 * netmask: `255.255.255.0`
 * gateway: `10.10.42.1`
 
-If it is unclear which network interface you should apply these settings to, run the `ifconfig -a` command, and in the output you should see multiple network interfaces that start with `enp0s`. The interface with the largest number after that prefix is usually the one you want to modify.
+이 설정을 어떤 네트워크 인터페이스에 적용해야 할지 확실치 않으면 `ipconfig /all` 명령을 실행합니다. 그러면, `Ethernet adapter Ethernet`으로 시작되는 여러 개의 네트워크 인터페이스가 출력됩니다. The interface with the largest number after that prefix is usually the one you want to modify.
 
-Boot the `polyswarm_win` VM and edit your network settings to configure the new adapter for these static IPv4 settings:
+#### `polyswarmd` DNS 확인을 위한 Windows VM 구성하기
 
-* address: `10.10.42.102`
-* netmask: `255.255.255.0`
-* gateway: `10.10.42.1`
-
-If it is unclear which network interface you should apply these settings to, run the `ipconfig /all` command, and in the output you should see multiple network interfaces that start with `Ethernet adapter Ethernet`. The interface with the largest number after that prefix is usually the one you want to modify.
-
-#### Configure Windows VM for `polyswarmd` DNS Resolution
-
-Finally, your Windows VM needs to know that your Linux VM is hosting `polyswarmd`. Open an elevated instance of Notepad and add `polyswarmd` to the bottom of `C:\Windows\System32\Drivers\etc\hosts`:
+마지막으로, Linux VM이 `polyswarmd`를 호스팅하고 있다는 것을 Windows VM이 알게 해야 합니다. 관리자 권한으로 Notepad의 인스턴스를 열고 `C:\Windows\System32\Drivers\etc\hosts`의 밑에 `polyswarmd`를 추가합니다.
 
     # Copyright (c) 1993-2009 Microsoft Corp.
     #
@@ -207,23 +198,23 @@ Finally, your Windows VM needs to know that your Linux VM is hosting `polyswarmd
     10.10.42.101 polyswarmd
     
 
-#### Verify Configuration
+#### 구성 확인
 
-Finally, verify that Windows resolves `polyswarmd` to your Linux VM and is able to reach the VM. First do a DNS test as follows:
+마지막으로, Windows가 `polyswarmd`의 주소를 확인해서 Linux VM을 찾고 해당 VM에 접속할 수 있는지 확인합니다. 먼저 다음과 같이 DNS 테스트를 수행합니다.
 
 ```powershell
 PS > Resolve-DnsName -name polyswarmd
 ```
 
-The output should look like this:
+출력 결과는 다음과 같아야 합니다.
 
 ```powershell
-Name                                           Type   TTL   Section    IPAddress
-----                                           ----   ---   -------    ---------
-polyswarmd                                     A      86400 Answer     10.10.42.101
+Name Type TTL Section IPAddress
+---- ---- --- ------- ---------
+polyswarmd A 86400 Answer 10.10.42.101
 ```
 
-Next, do a ping test as follows:
+다음으로, 다음과 같이 핑 테스트를 수행합니다.
 
 ```powershell
 PS > ping polyswarmd
@@ -236,15 +227,15 @@ Pinging polyswarmd [10.10.42.101] with 32 bytes of data:
 Reply from 10.10.42.101: bytes=32 time<1ms TTL=64
 ```
 
-If you get those same output results, you have everything setup correctly, so let's continue.
+출력 결과가 같으면, 모든 항목이 제대로 설정된 것입니다. 계속 진행합니다.
 
-### Configure Linux VM for Hosting a Local Testnet
+### 로컬 테스트넷을 호스팅하도록 Linux VM 구성하기
 
 #### Install Docker
 
-We've Docker-ized the test version of the PolySwarm marketplace. To use it, you need to install Docker-CE (base) as well as Docker Compose. If you do not have a recent Docker setup, please [install Docker now](https://www.docker.com/community-edition).
+PolySwarm 마켓플레이스의 테스트 버전은 Docker를 사용해서 구축되었습니다. 이를 사용하려면 Docker-CE(기본) 및 Docker Compose를 설치해야 합니다. 최신 Docker가 설치되지 않은 경우 [지금 Docker를 설치](https://www.docker.com/community-edition)하시기 바랍니다.
 
-On Xubuntu:
+Xubuntu에서:
 
 ```bash
 $ sudo apt-get update && sudo apt-get install -y curl
@@ -254,20 +245,20 @@ $ ./get-docker.sh
 $ sudo usermod -aG docker $USER
 ```
 
-Log out, log back in.
+로그아웃하고 다시 로그인합니다.
 
-Once installed, verify that the installation works, by running the following command:
+설치 후 다음 명령을 실행하여 작동하는지 확인합니다.
 
 ```bash
 $ docker ps
 ```
 
-It should output:
+기대되는 출력 결과:
 
-    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+    CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
     
 
-Also [install `docker-compose`](https://docs.docker.com/compose/install/)
+그리고, [`docker-compose`](https://docs.docker.com/compose/install/)를 설치합니다.
 
 On Xubuntu:
 
@@ -277,36 +268,35 @@ $ sudo mv docker-compose /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-Once installed, verify that the installation works.
+설치 후 작동하는지 확인합니다.
 
 ```bash
 $ docker-compose -v
 ```
 
-Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
+다음 중 하나가 출력되어야 합니다. `docker-compose version 1.21.1, build 5a3f1a3`
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    If you receive permission errors when running docker or docker-compose commands, <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">configure your user account for docker permission</a>.
+    <strong>정보:</strong> docker 또는 docker-compose 명령 실행 시 권한 오류가 발생하면 <a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">docker 권한을 취득할 수 있도록 사용자 계정을 구성합니다</a>.
   </p>
 </div>
 
 #### Install Git
 
-We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
+일부 소스 코드 저장소가 필요합니다. Git을 사용하는 것이 가장 쉽습니다. 개발 환경용으로 [Git을 설치](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)하시기 바랍니다.
 
-On Xubuntu 18.04:
+Xubuntu 18.04에서:
 
 ```bash
 $ sudo apt update && sudo apt install -y git
 ```
 
-#### Download `orchestration`
+#### `orchestration` 다운로드
 
-We'll use the PolySwarm [`orchestration`](https://github.com/polyswarm/orchestration) project to launch our development testnet. We use this same project internally to conduct end-to-end (integration) tests.
+PolySwarm [`orchestration`](https://github.com/polyswarm/orchestration) 프로젝트를 사용하여 개발 테스트넷을 실행합니다. 내부적으로도 똑같은 프로젝트를 사용하여 종단 간(통합) 테스트를 수행합니다.
 
-Clone `orchestration`:
+`orchestration`을 복제합니다.
 
 ```bash
 $ git clone https://github.com/polyswarm/orchestration
@@ -314,18 +304,18 @@ $ git clone https://github.com/polyswarm/orchestration
 
 ### Test Your Engine
 
-We're going to have to switch between our VMs a little bit here. We will first start the Testnet in the Linux VM. Then we will start your Microengine in the Windows VM. Finally, we will start the Ambassador in the Linux VM.
+여기서 VM들을 약간 전환해보겠습니다. 먼저 Linux VM에서 테스트넷을 시작합니다. 그 다음 Windows VM에서 마이크로엔진을 시작합니다. 마지막으로, Linux VM에서 홍보대사를 시작합니다.
 
-#### Linux VM: Launch the Testnet
+#### Linux VM: 테스트넷 실행
 
-In your Linux VM, spin up a subset of the testnet, leaving out the stock `microengine` (we'll be substituting this with our own) and leaving out the `ambassador` for now (we'll start it later). To do that, run the following commands in a new terminal window:
+Linux VM에서 테스트넷의 서브세트를 구축하여 기본으로 제공된 `microengine`(사용자의 것으로 대체함) 및 `ambassador` 서비스를 당분간 생략합니다(나중에 시작함). 이를 위해 새로운 터미널 창에서 다음 명령을 실행합니다.
 
 ```bash
 $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-It will take several minutes for `polyswarmd` to become available. During this time, you will see many messages like `Problem with dial... dial tcp connection refused.` and `chain for config not available in consul yet`. These errors are normal while the testnet is initializing, so have patience.
+It will take several minutes for `polyswarmd` to become available. 이 작업을 수행하는 동안 `Problem with dial... dial tcp connection refused.` 및 `chain for config not available in consul yet`와 같은 많은 메시지가 표시됩니다. 테스트넷을 초기화하는 동안 이러한 오류는 정상이므로 계속 기다립니다.
 
 Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
 
@@ -333,48 +323,48 @@ Once `polyswarmd` is available, it will begin serving responses to clients, e.g.
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
     
 
-Now it is safe to move to the next step.
+이제 안전하게 다음 단계로 이동할 수 있습니다.
 
-#### Windows VM: Test Connection to `polyswarmd`
+#### Windows VM: `polyswarmd`에 대한 연결 테스트
 
-On your Windows VM, confirm that `polyswarmd` is available and ready to respond to your Microengine. To do that, run the following command in PowerShell:
+Windows VM에서 `polyswarmd`를 이용할 수 있고 마이크로엔진에 응답할 준비가 되어 있는지 확인합니다. 이를 위해 PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell
 PS > curl -UseBasicParsing http://polyswarmd:31337/status
 ```
 
-It should output the following:
+출력 결과는 다음과 같아야 합니다.
 
 ```powershell
-StatusCode        : 200
+StatusCode : 200
 StatusDescription : OK
-Content           : {"result":{"home":{"block":189,"reachable":true,"syncing":false},"ipfs":{"reachable":true},"side":{
-                    "block":191,"reachable":true,"syncing":false}},"status":"OK"}
+Content : {"result":{"home":{"block":189,"reachable":true,"syncing":false},"ipfs":{"reachable":true},"side":{
+"block":191,"reachable":true,"syncing":false}},"status":"OK"}
 ...
 ```
 
-The key thing to look for is `"status":"OK"`.
+찾아볼 항목 중 가장 중요한 것은 `"status":"OK"`입니다.
 
-#### Windows VM: Launch `balancemanager` & Your Engine
+#### Windows VM: `balancemanager` & 사용자의 엔진 실행
 
-Start a new PowerShell window and activate your virtual environment. Then change into your Microengine's directory.
+새로운 PowerShell 창을 시작하고 가상 환경을 활성화합니다. 그 다음 마이크로엔진의 디렉터리로 변경합니다.
 
-In your Microengine's directory, install your Microengine's prerequisites and your Microengine itself.
+마이크로엔진의 디렉터리에서 마이크로엔진의 필수 구성 요소 및 마이크로엔진 자체를 설치합니다.
 
 ```powershell
 PS > pip install -r requirements.txt
 PS > pip install .
 ```
 
-`balancemanager` is a utility (based on `polyswarm-client`) that will help us maintain a balance of (fake) PolySwarm Nectar (NCT) on the sidechain of our local testnet where all transactions will take place.
+`balancemanager`는 (`polyswarm-client`에 기반) 유틸리티로서 모든 트랜잭션이 발생하는 로컬 테스트넷의 사이드체인에서 (모의) PolySwarm Nectar(NCT)의 균형을 유지합니다.
 
-In that same PowerShell window, launch `balancemanager` as follows:
+같은 PowerShell 창에서 다음과 같이 `balancemanager`를 실행합니다.
 
 ```powershell
 PS > balancemanager maintain --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport 100000 500000
 ```
 
-It will print output similar to the following:
+다음과 비슷한 결과가 출력됩니다.
 
 ```powershell
 INFO:root:2018-12-06 16:55:30,800 Logging in text format.
@@ -389,11 +379,11 @@ INFO:polyswarmclient:2018-12-06 16:55:33,034 Received block on chain home: {'num
 INFO:polyswarmclient:2018-12-06 16:55:33,080 Received block on chain side: {'number': 18206}
 ```
 
-When it starts printing `Received block on chain` messages, you are ready to launch your Microeengine.
+`Received block on chain`이라는 메시지가 출력되기 시작하면 마이크로엔진을 실행할 준비가 된 것입니다.
 
-Start another new PowerShell window and activate your virutal environment. Then change into your Microengine's directory.
+새로운 PowerShell 창을 시작하고 가상 환경을 활성화합니다. Then change into your Microengine's directory.
 
-Run your Microengine using a command similar to the following command. Be sure to update the value for the `--backend` argument to match the name of your Microengine's package directory (i.e. the directory in `src/`):
+다음 명령과 비슷한 명령을 사용하여 마이크로엔진을 실행합니다. 마이크로엔진의 패키지 디렉터리 이름과 일치하도록 `--backend` 인수의 값을 업데이트합니다(예: `src/`의 디렉터리).
 
 ```powershell
 PS > microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
@@ -427,27 +417,27 @@ INFO:polyswarmclient:2018-12-06 16:56:48,503 Received assertion on chain side: {
 WARNING:polyswarmclient.abstractmicroengine:2018-12-06 16:56:48,503 Received new bounty, but finished with testing mode
 ```
 
-Running with `--testing 2` means that your Microengine will respond to 2 bounties and then refuse to respond to further bounties by shutting itself off. You can adjust this number if you want it to process more bounties in your tests.
+`--testing 2`로 실행한다는 것은 마이크로엔진이 2개의 현상금 공고에 응답하고 스스로 종료함으로써 추가적인 현상금 공고에는 응답을 거부한다는 뜻입니다. 테스트에서 더 많은 현상금 공고를 처리하고 싶으면 이 번호를 변경하시면 됩니다.
 
-But, your Microengine will not have any bounties to process until there is an Ambassador sending bounties into the testnet.
+하지만, 홍보대사가 테스트넷에 현상금 공고를 전송해야만 마이크로엔진이 현상금 공고를 처리할 수 있습니다.
 
-#### Linux VM: Launch the Ambassador
+#### Linux VM: 홍보대사 실행
 
-In your Linux VM, now start the `ambassador`, which will submit bounties into the testnet, so your microengine can respond to them. Start a new terminal and run the following commands:
+이제 Linux VM에서 `ambassador`를 실행합니다. 마이크로엔진은 홍보대사가 테스트넷에 게시한 현상금 공고를 처리하게 됩니다. 새로운 터미널을 시작하고 다음 명령을 실행합니다.
 
 ```bash
 $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Shortly after this starts, you will see messages in your Microengine's PowerShell window when it is processing bounties.
+작업 시작 직후 마이크로엔진이 현상금 공고를 처리할 때 마이크로엔진의 PowerShell 창에 메시지가 표시됩니다.
 
-### All Done
+### 작업 완료
 
-Congrats!
+축하합니다!
 
-Your Windows-Based Engine should now be responding to bounties placed on a local testnet hosted in your Linux VM.
+이제 Windows 기반 엔진이 Linux VM에 호스팅된 로컬 테스트넷에 게시된 현상금 공고에 응답할 것입니다.
 
-Let your Microengine run until it shuts itself off.
+스스로 종료할 때까지 마이크로엔진이 실행되도록 합니다.
 
-Take a close look at the output of your engine to ensure it's doing what you want it to :)
+원하는 대로 작업하고 있는지 엔진이 출력하는 내용을 살펴보세요 :)

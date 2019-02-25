@@ -189,7 +189,7 @@ Epoch の API キーを取得するには、[PolySwarm ポータル](https://pol
   <REFILL_AMOUNT: コミュニティーの残高が MINIMUM を下回ったときに送金する金額 (NCT)>
 ```
 
-コマンド・ライン引数の完全なリストを表示するには、以下のように `--help` CLI フラグを使用します。
+For the full list of command line arguments, use the `--help` CLI flag:
 
 ```bash
 # balancemanager maintain --help

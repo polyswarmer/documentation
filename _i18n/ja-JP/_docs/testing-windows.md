@@ -2,7 +2,7 @@
 
 このページでは、マイクロエンジンのディレクトリーの名前として `microengine-mywindowsengine` を使用します。 ユーザー独自のテストでは、ご使用のマイクロエンジンのディレクトリーの名前を使用します。 また、この説明では、コマンドが読みやすくなるように、PowerShell コマンド・プロンプトを `PS >` と短縮しています。 実際の PowerShell コマンド・プロンプトは、`(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>` のようになります。 同様に、Linux コマンド・プロンプトでは、`$` と短縮していますが、実際のコマンド・プロンプトでは、`$` の左側に追加のテキストがあります。
 
-## 単体テスト
+## Unit Testing
 
 `tox` を使用してマイクロエンジンをテストします。 `tox` は、`tests/scan_test.py` に追加したすべての単体テストを実行します。
 
@@ -44,7 +44,7 @@ _______________________________________________________ summary ________________
 
 `combine_argument_formatters` の警告は無視して問題ありません。
 
-## 統合テスト
+## Integration Testing
 
 <div class="m-flag m-flag--warning">
   <p>
@@ -61,10 +61,10 @@ Windows ベースのエンジンの統合テストでは、以下の 2 つの仮
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>警告:</strong>
-    ここで示している推奨は、多大な労力を費やして作成されました。
+    <strong>Warning:</strong>
+    The recommendations presented here are hard-won.
     ここで示しているのとまったく同じ推奨を使用してテストすることを強くお勧めします。
-    他の構成を使用すると、当社でサポートするのが困難になる可能性があります。
+    Using any other configuration will make it difficult for us to provide you with support.
   </p>
 </div>
 
@@ -79,10 +79,10 @@ Windows ベースのエンジンの統合テストでは、以下の 2 つの仮
 * バージョン: Ubuntu (64 ビット)
 * RAM: 8GB 以上
 * CPU: 4 個以上のコア
-* ビデオ・メモリー: 128MB
-* ディスク・スペース: 50GB 以上
+* video memory: 128MB
+* disk space: 50GB+
 
-他のすべてのオプションについては、デフォルト設定を使用します。 特に、3D アクセラレーションは有効にしないでください。
+Use the default setting for all other options. 特に、3D アクセラレーションは有効にしないでください。
 
 通常、testnet のパフォーマンスを向上させるため、Linux VM で使用可能な RAM と CPU のリソースを追加することをお勧めします。
 
@@ -102,9 +102,9 @@ Windows ベースのエンジンの統合テストでは、以下の 2 つの仮
 
 #### (オプション) VirtualBox Guest Additions のインストール
 
-ゲストとホスト間でのクリップボードの共有やコピー・アンド・ペーストの機能を使用するために、Guest Additions が必要です。
+Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
 
-[VirtualBox の資料をご覧ください](https://www.virtualbox.org/manual/ch04.html)。
+[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
 
 ### ゲスト間ネットワークの構成
 
@@ -171,10 +171,10 @@ PS > .\VBoxManage.exe modifyvm "polyswarm_lin" --intnet5 "polyswarm_net"
 `polyswarm_win` VM を起動し、ネットワーク設定を編集して以下の静的 IPv4 設定で新しいアダプターを構成します。
 
 * アドレス: `10.10.42.102`
-* ネットマスク: `255.255.255.0`
-* ゲートウェイ: `10.10.42.1`
+* netmask: `255.255.255.0`
+* gateway: `10.10.42.1`
 
-上記設定を適用するネットワーク・インターフェースが分からない場合は、`ipconfig /all` コマンドを実行します。出力で、`Ethernet adapter Ethernet` から開始する複数のネットワーク・インターフェースが表示されるはずです。 通常、そのプレフィックスの後の番号が最大であるインターフェースが変更対象のものです。
+上記設定を適用するネットワーク・インターフェースが分からない場合は、`ipconfig /all` コマンドを実行します。出力で、`Ethernet adapter Ethernet` から開始する複数のネットワーク・インターフェースが表示されるはずです。 The interface with the largest number after that prefix is usually the one you want to modify.
 
 #### `polyswarmd` DNS 解決のための Windows VM の構成
 
@@ -227,7 +227,7 @@ polyswarmd                                     A      86400 Answer     10.10.42.
 PS > ping polyswarmd
 ```
 
-出力は、以下のようになっている必要があります。
+The output should look like this:
 
 ```powershell
 Pinging polyswarmd [10.10.42.101] with 32 bytes of data:
@@ -238,7 +238,7 @@ Reply from 10.10.42.101: bytes=32 time<1ms TTL=64
 
 ### ローカル testnet をホストするための Linux VM の構成
 
-#### Docker のインストール
+#### Install Docker
 
 PolySwarm マーケットプレイスのテスト・バージョンを Docker 化しました。 これを使用するには、Docker-CE (ベース) と Docker Compose をインストールする必要があります。 最新の Docker セットアップがない場合は、[ここで Docker をインストールしてください](https://www.docker.com/community-edition)。
 
@@ -267,7 +267,7 @@ $ docker ps
 
 また、[`docker-compose` をインストールします](https://docs.docker.com/compose/install/)。
 
-Xubuntu の場合:
+On Xubuntu:
 
 ```bash
 $ curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
@@ -290,7 +290,7 @@ $ docker-compose -v
   </p>
 </div>
 
-#### Git のインストール
+#### Install Git
 
 いくつかのソース・コード・リポジトリーを利用する必要があります。Git を使用するのが最も簡単でしょう。 ご使用の開発環境用の [Git をインストール](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)してください。
 
@@ -310,7 +310,7 @@ PolySwarm [`orchestration`](https://github.com/polyswarm/orchestration) プロ�
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### エンジンのテスト
+### Test Your Engine
 
 ここでは、少々 VM を切り替える必要があります。 まず、Linux VM で testnet を開始します。 次に、Windows VM でマイクロエンジンを開始します。 最後に、Linux VM でアンバサダーを開始します。
 
@@ -323,9 +323,9 @@ $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-`polyswarmd` が使用可能になるまでに数分かかります。 このとき、以下のような多数のメッセージが表示されます。「`Problem with dial... dial tcp connection refused.`」や「`chain for config not available in consul yet`」。 testnet の初期化中にこうしたエラーが出ても正常であるため、待機してください。
+It will take several minutes for `polyswarmd` to become available. このとき、以下のような多数のメッセージが表示されます。「`Problem with dial... dial tcp connection refused.`」や「`chain for config not available in consul yet`」。 testnet の初期化中にこうしたエラーが出ても正常であるため、待機してください。
 
-`polyswarmd` は、使用可能になると、クライアントに応答を提供しはじめます。例: 
+Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
 
     INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
@@ -389,7 +389,7 @@ INFO:polyswarmclient:2018-12-06 16:55:33,080 Received block on chain side: {'num
 
 「`Received block on chain`」メッセージが出力され始めたら、マイクロエンジンを起動する準備ができています。
 
-別の新しい PowerShell ウィンドウを開始し、仮想環境をアクティブ化します。 次に、マイクロエンジンのディレクトリーに移動します。
+別の新しい PowerShell ウィンドウを開始し、仮想環境をアクティブ化します。 Then change into your Microengine's directory.
 
 以下のようなコマンドを使用して、マイクロエンジンを実行します。 必ず、`--backend` 引数の値を更新して、ご使用のマイクロエンジンのパッケージ・ディレクトリー (つまり、`src/` 内のディレクトリー) の名前にしてください。
 
@@ -397,7 +397,7 @@ INFO:polyswarmclient:2018-12-06 16:55:33,080 Received block on chain side: {'num
 PS > microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
 ```
 
-以下のような出力になります。
+It will print output similar to the following:
 
 ```powershell
 INFO:root:2018-12-06 16:56:20,674 Logging in text format.

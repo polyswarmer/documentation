@@ -1,71 +1,71 @@
-## Welcome
+## 환영합니다
 
-Welcome and thank you for your interest in PolySwarm!
+PolySwarm에 오신 것을 환영하며, 관심을 가져주셔서 감사합니다!
 
-Here you'll find everything you need to get started developing for PolySwarm.
+여기에서 PolySwarm에 관한 개발을 시작하는 데 필요한 모든 정보를 찾으실 수 있습니다.
 
-Before we dive into the code, let's get our bearings:
+코드를 살펴보기 전에 주목해야 할 사항을 검토해보시기 바랍니다.
 
-* What does it look like to participate in PolySwarm?
-* Which role fits my use case?
-* Which Communities do I want to engage with?
-* How do I monitor the performance of my Engines?
-* What are Communities? What is an Engine?
+* PolySwarm에 참여하는 방식
+* 자신의 사례에 적합한 역할
+* 참여하고 싶은 커뮤니티
+* 엔진의 성능을 확인하는 방법
+* 커뮤니티의 개념. 엔진의 개념
 
-Let's take a look at some of the high level concepts and drill down into details where appropriate.
+먼저 전체적인 개요를 살펴보고, 필요에 따라 세부적인 사항을 들여다보도록 하겠습니다.
 
-## Portal
+## 포털
 
-PolySwarm Portal is PolySwarm's one-stop shop for:
+PolySwarm 포털은 PolySwarm의 원스톱 지원 센터입니다.
 
-* tracking Engine performance
-* discovering Communities (see below)
-* naming Engines
-* creating Profiles
-* connecting with Security Experts
+* 엔진 성능 추적
+* 커뮤니티 검색 (아래 참조)
+* 엔진 이름 지정
+* 프로필 생성
+* 보안 전문가와 연결
 
-... and much, much more.
+... 그 밖에 수많은 작업이 가능합니다.
 
-[Explore Portal →](https://polyswarm.network/)
+[포털 탐색 →](https://polyswarm.network/)
 
-## Communities
+## 커뮤니티
 
-PolySwarm is made up of a series of Communities (hence the "Poly"). Each Community serves a particular purpose and can either permit everyone to join or limit access to specific participants.
+PolySwarm은 여러 커뮤니티로 구성되어 있습니다("Poly"라고 함). 각 커뮤니티는 특정한 목적을 위해 활동하며, 누구에게나 가입을 허용하거나 특정 참가자로 접근을 제한할 수 있습니다.
 
-PolySwarm will launch with two communities:
+PolySwarm은 다음 두 개의 커뮤니티로 시작합니다.
 
-* **Genesis: the public mainnet community**: everyone can join & participate!
-* **Hive: a private testing community**: a closed Community for initial partners preparing for launch on Genesis
+* **제네시스(Genesis): 공개 메인넷 커뮤니티**: 누구나 가입 & 참가할 수 있습니다!
+* **하이브(Hive): 비공개 테스트 커뮤니티**: 제네시스에서 출시를 준비하는 초기 파트너들로 구성된 폐쇄된 커뮤니티
 
-This list will expand, allowing Ambassadors and Microengine developers to control their audience. Future communities may include:
+이 목록은 홍보대사와 마이크로엔진 개발자가 자신의 사용자들을 관리할 수 있도록 확장됩니다. 향후 추가될 수 있는 커뮤니티는 다음과 같습니다.
 
-* A GDPR-compliant community with artifact sharing amongst a closed set of compliant participants.
-* A network of mutually NDA'ed MSSPs & security experts.
+* 규정을 준수하는 참가자들로 구성된 폐쇄된 그룹이 공유하는 아티팩트를 다루는 GDPR(일반 개인정보보호법) 준수 커뮤니티.
+* 서로 기밀유지협약을 체결한 MSSP & 보안 전문가들로 구성된 네트워크
 
-Anyone will be able to administer their own Community and advertise their community through PolySwarm Portal.
+누구나 자신만의 커뮤니티를 관리하고 PolySwarm 포털을 통해서 자신의 커뮤니티를 홍보할 수 있습니다.
 
-### Chains: Home vs Side
+### 체인: 홈 vs 사이드
 
-Each Community has a "homechain" and a "sidechain", either of which may be shared with other Communities. Generally speaking, the "homechain" is where crypto assets natviely exist and the "sidechain" is where PolySwarm transations take place.
+각 커뮤니티는 '홈체인'과 '사이드체인'을 보유하며, 둘 중 하나를 다른 커뮤니티와 공유할 수 있습니다. 일반적으로 '홈체인'은 암호 자산이 기본적으로 존재하는 곳이고, '사이드체인'은 PolySwarm 트랜잭션이 발생하는 곳입니다.
 
-For example, **Genesis**, the first public Community will be configured as such:
+예를 들어, 첫 번째 공개 커뮤니티인 **제네시스**는 다음과 같이 구성됩니다.
 
-* `homechain`: the Ethereum Mainnet
-* `sidechain`: a set of hosted `geth` nodes running in a [Clique configuration](https://github.com/ethereum/EIPs/issues/225)
+* `homechain`: 이더리움 메인넷
+* `sidechain`: [Clique 구성](https://github.com/ethereum/EIPs/issues/225)에서 실행되는 호스팅된 `geth` 노드들의 집합
 
-PolySwarm Nectar (NCT) natively lives on the Ethereum Mainnet. Unfortunately, the Ethereum mainnet is far too slow (~15s block time) and far too expensive to support the sort of micro-transactions required by PolySwarm.
+PolySwarm Nectar(NCT)는 기본적으로 이더리움 메인넷에 존재합니다. 안타깝게도, 이더리움 메인넷은 PolySwarm이 필요로 하는 유형의 마이크로 트랜잭션을 지원하기에는 너무 느리고(~15초 블록타임) 너무 비쌉니다.
 
-Rather than transacting directly on the Ethereum Mainnet, PolySwarm participants will instead relay NCT from Mainnet to the Genesis sidechain and conduct their business on this sidechain. Maintaining a minimal balance on the sidechain is made easy by `polyswarm-client`'s [`balancemanager`](https://github.com/polyswarm/polyswarm-client/tree/master/src/balancemanager).
+PolySwarm 참가자들은 이더리움 메인넷에서 직접 거래하는 대신 메인넷에서 제네시스로 NCT를 전달하여 이 사이드체인에서 비즈니스를 수행합니다. 사이드체인에 최소한의 잔고를 유지하는 것은 `polyswarm-client`의 [`balancemanager`](https://github.com/polyswarm/polyswarm-client/tree/master/src/balancemanager)를 통해서 간단히 구현됩니다.
 
-This split-chain design provides two key benefits:
+체인-분할 설계는 두 가지 주된 장점이 있습니다.
 
-1. **Scalability** Today, Ethereum does not scale (they're working on this of course), so applications must implement their own "Layer 2" scaling solutions if they demand low latency or high throughput transactions.
-2. **Confidentiality** PolySwarm supports the notion of limited-access, private Communities. This split-chain design makes that possible.
+1. **확장성** 오늘날, 이더리움은 확장되지 않으므로(물론 이더리움 측에서도 이 문제를 해결하기 위하여 작업 중입니다), 대기 시간이 적거나 처리 능력이 높은 트랜잭션이 필요할 경우 애플리케이션 측에서 자체적인 '레이어 2' 확장 솔루션을 구현해야 합니다.
+2. **기밀 유지** PolySwarm은 접근이 제한된, 비공개 커뮤니티를 지원합니다. 체인-분할 설계는 이를 가능하게 합니다.
 
-<button disabled>Browse Communities → (coming soon!)</button>
+<button disabled>커뮤니티 탐색 → (추가 예정!)</button>
 
-## Your Role in the PolySwarm Marketplace
+## PolySwarm 마켓플레이스에서 사용자의 역할
 
-There are several ways to participate in the PolySwarm ecosystem: will you create a Microengine, an Ambassador, an Arbiter or something else entirely?
+다양한 방법으로 PolySwarm 에코시스템에 참가할 수 있습니다. 마이크로엔진, 홍보대사, 중재자 또는 전혀 다른 무언가를 생성해보세요!
 
-[Determine where you fit into PolySwarm →](/concepts-participants/)
+[PolySwarm에서 자신에게 맞는 역할 확인해보기 →](/concepts-participants/)

@@ -106,8 +106,8 @@ class Scanner(AbstractScanner):
 
 <div class="m-flag">
   <p>
-    <strong>情報:</strong>
-    Microengine クラスが必要ですが、変更する必要がないため、ここでは記載していません。
+    <strong>Info:</strong>
+    The Microengine class is required, but we do not need to modify it, so it is not shown here.
   </p>
 </div>
 

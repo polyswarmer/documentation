@@ -1,31 +1,31 @@
-# Wrapping a Real Engine: ClamAV
+# 실제 엔진 래핑: ClamAV
 
-## Setting the Stage
+## 스테이지 설정
 
-ClamAV is an open source signature-based engine with a daemon that provides quick analysis of artifacts that it recognizes. This tutorial will step you through building your second PolySwarm Microengine by means of incorporating ClamAV as an analysis backend.
+ClamAV는 오픈 소스 서명 기반 엔진으로 식별한 아티팩트에 대하여 빠른 분석을 제공하는 데몬을 갖추고 있습니다. 이 튜토리얼에서는 ClamAV를 분석 백엔드로 통합하여 두 번째 PolySwarm 마이크로엔진을 구축하는 방법에 대하여 설명합니다.
 
 <div class="m-flag">
   <p>
-    <strong>Note:</strong>
-    The PolySwarm marketplace will be a source of previously unseen malware.
+    <strong>참고:</strong>
+ PolySwarm 마켓플레이스는 전에는 알려지지 않은 맬웨어를 발견하는 곳이 될 것입니다.
   </p>
   <p>
-    Relying on a strictly signature-based engine as your analysis backend, particularly one whose signatures everyone can access (e.g. ClamAV) is unlikely to yield unique insight into "swarmed" artifacts and therefore unlikely to outperform other engines.
+    엄격한 서명 기반 엔진, 특히 누구나 서명에 액세스할 수 있는 엔진(예: ClamAV)을 분석 엔진으로 사용하면 '접수된' 아티팩트에 대하여 고유한 통찰력을 제공하기가 힘들며, 따라서 다른 엔진보다 우수한 성능을 발휘할 가능성이 적습니다.
   </p>
   <p>
-    This guide should not be taken as a recommendation for how to approach the marketplace but rather an example of how to incorporate an existing analysis backend into a <strong>Microengine</strong> skeleton.
+    이 가이드를 마켓플레이스 접근 방법에 대한 권장 사항으로 생각해서는 안 됩니다. 기존의 분석 백엔드를 어떻게 <strong>마이크로엔진</strong>의 틀 안에 통합시킬 수 있는지에 대한 예로 생각하시기 바랍니다.
   </p>
 </div>
 
-This tutorial will walk the reader through building [microengine/clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py); please refer to `clamav.py` for the completed work.
+이 튜토리얼은 [microengine/clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py)를 구축하는 방법을 안내합니다. 완성된 작업은 `clamav.py`를 참조하세요.
 
-## `clamd` Implementation and Integration
+## `clamd` 구현 및 통합
 
-Start with a [fresh engine-template](/microengines-scratch-to-eicar/#customize-engine-template), give it the `engine-name` of "MyClamAvEngine". You should find a `microengine-myclamavengine` in your current working directory - this is what we'll be editing to implement ClamAV scan functionality.
+[새로운 engine-template](/microengines-scratch-to-eicar/#customize-engine-template)으로 시작해서 'MyClamAvEngine'으로 `engine-name`을 부여합니다. 현재 작업 중인 디렉터리에서 `microengine-myclamavengine`을 찾을 수 있습니다. ClamAV의 검사 함수를 구현하기 위해 이를 편집합니다.
 
-Edit the `__init__.py` as we describe below:
+아래와 같이 `__init__.py`를 편집합니다.
 
-We begin our ClamAV `analysis backend` by importing the `clamd` module and configuring some globals.
+`clamd` 모듈을 불러오고 일부 전역 구성하여 ClamAV `분석 백엔드` 구축을 시작합니다.
 
 ```python
 #!/usr/bin/env python
@@ -38,78 +38,78 @@ from io import BytesIO
 from polyswarmclient.abstractmicroengine import AbstractMicroengine
 from polyswarmclient.abstractscanner import AbstractScanner
 
-logger = logging.getLogger(__name__)  # Initialize logger
+logger = logging.getLogger(__name__) # Initialize logger
 
 CLAMD_HOST = os.getenv('CLAMD_HOST', 'localhost')
 CLAMD_PORT = int(os.getenv('CLAMD_PORT', '3310'))
 CLAMD_TIMEOUT = 30.0
 ```
 
-Would you believe me if I said we were almost done? Let's get `clamd` initialized and running, so it can communicate with the `clamd-daemon` over a network socket.
+거의 다 끝났습니다. 네트워크 소켓을 통해 `clamd-daemon`과 통신할 수 있도록 `clamd`를 초기화하고 실행합니다.
 
 ```python
 class Scanner(AbstractScanner):
-    def __init__(self):
-        self.clamd = clamd.ClamdAsyncNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
+def __init__(self):
+self.clamd = clamd.ClamdAsyncNetworkSocket(CLAMD_HOST, CLAMD_PORT, CLAMD_TIMEOUT)
 ```
 
-We interact with `clamd` by sending it a byte stream of artifact contents.
+아티팩트 콘텐츠의 바이트 스트림을 전송해서 `clamd`와 상호 작용합니다.
 
-ClamAV responds to these byte streams in the form:
+ClamAV는 다음과 같은 형태로 이러한 바이트 스트림에 응답합니다.
 
 ```json
 {'stream': ('FOUND', 'Eicar-Test-Signature')}
 ```
 
-We can easily parse the result using python's `[]` operator. `result[0]` is the word `FOUND`, and `result[1]` in this instance is `Eicar-Test-Signature`.
+python의 `[]` 연산자를 사용하여 결과를 쉽게 구문 분석할 수 있습니다. `result[0]`은 `FOUND`라는 단어이고, 인스턴스에서 `result[1]`은 `Eicar-Test-Signature`입니다.
 
-Now, all we need is to implement the scan method in the Scanner class.
+이제 스캐너 클래스의 검사 메소드를 구현하기만 하면 됩니다.
 
 ```python
     async def scan(self, guid, content, chain):
-        result = await self.clamd.instream(BytesIO(content))
-        stream_result = result.get('stream', [])
-        if len(stream_result) >= 2 and stream_result[0] == 'FOUND':
-            return True, True, ''
+result = await self.clamd.instream(BytesIO(content))
+stream_result = result.get('stream', [])
+if len(stream_result) >= 2 and stream_result[0] == 'FOUND':
+return True, True, ''
 
-        return True, False, ''
+return True, False, ''
 ```
 
-If `clamd` detects a piece of malware, it puts `FOUND` in `result[0]`.
+`clamd`가 맬웨어를 탐지하면 `result[0]`에 `FOUND`를 넣습니다.
 
-The return values that the Microengine expects are:
+마이크로엔진이 예상하는 반환 값은 다음과 같습니다.
 
-1. `bit` : a `boolean` representing a `malicious` or `benign` determination
-2. `verdict`: another `boolean` representing whether the engine wishes to assert on the artifact
-3. `metadata`: (optional) `string` describing the artifact
+1. `bit`: `악성` 또는 `정상` 판단을 나타내는 `불리언`
+2. `verdict`: 엔진이 아티팩트에 대해 주장을 할지 여부를 나타내는 `불리언`
+3. `metadata`: (선택 사항) 아티팩트에 대해 설명하는 `문자열`
 
-We leave including ClamAV's `metadata` as an exercise to the reader - or check [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py) :)
+ClamAV의 `메타데이터`를 포함시키는 방법은 직접 확인해보시거나, [clamav.py](https://github.com/polyswarm/polyswarm-client/blob/master/src/microengine/clamav.py)를 참조하시기 바랍니다 :)
 
 <div class="m-flag">
   <p>
-    <strong>Info:</strong>
-    The Microengine class is required, but we do not need to modify it, so it is not shown here.
+    <strong>정보:</strong>
+ 마이크로엔진 클래스가 필요하지만, 수정할 필요가 없으므로 여기에 표시하지 않았습니다.
   </p>
   <p>
-    Python 3's Asyncio - It is important that any external calls you make during a scan do not block the event loop.
-    We forked the clamd project to add support for python 3's asyncio.
-    Thus, for this example to run, you need install our python-clamd project to get the clamd package until our changes are merged upstream.
-    The command you need is: `pip install git+https://github.com/polyswarm/python-clamd.git@async#egg=clamd`.
+    Python 3의 Asyncio - 검사하는 동안 수행한 외부 호출이 이벤트 루프를 차단하지 않도록 해야 합니다.
+    python 3의 asyncio에 대한 지원을 추가하기 위하여 clamd 프로젝트를 포크(fork)하였습니다.
+    따라서, 이 예제를 실행하려면 변경 사항이 업스트림에서 병합될 때까지 python-clamd 프로젝트를 설치하여 clamd 패키지를 취득하셔야 합니다.
+    필요한 명령: `pip install git+https://github.com/polyswarm/python-clamd.git@async#egg=clamd`.
   </p>
 </div>
 
-## Finalizing & Testing Your Engine
+## 엔진 완성 & 테스트
 
-`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself. We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
+지금까지는 `cookiecutter`가 `engine-template`을 적절히 변경했지만, 사용자가 직접 작성해야 하는 몇 가지 항목이 있습니다. 주요 항목들은 위에 다루어져 있지만, `CUSTOMIZE_HERE`라고 검색하여 모든 사용자 지정 항목이 작성되었는지 확인하시기 바랍니다.
 
-Once everything is in place, let's test our engine:
+모든 준비가 완료되면 엔진을 테스트합니다.
 
-[Test Linux-based Engines →](/testing-linux/)
+[Linux 기반 엔진 테스트 →](/testing-linux/)
 
-[Test Windows-based Engines →](/testing-windows/)
+[Windows 기반 엔진 테스트 →](/testing-windows/)
 
-## Next Steps
+## 다음 단계
 
-In the Eicar example, we showed you how to implement scan logic directly in the Scanner class. And in this ClamAV example, we showed you how to call out to an external socket to access scanning logic.
+Eicar 예제를 통해 스캐너 클래스의 검사 로직을 직접 구현하는 방법에 대하여 설명했습니다. 그리고 이번 ClamAV 예에서 외부 소켓을 호출하여 검사 로직에 액세스하는 방법에 대하여 설명했습니다.
 
-[Next, we'll wrap ClamAV and Yara into a single Microengine ->](/microengines-clamav-to-multi/)
+[다음에는 ClamAV와 Yara를 단일한 마이크로엔진에 래핑하겠습니다 ->](/microengines-clamav-to-multi/)

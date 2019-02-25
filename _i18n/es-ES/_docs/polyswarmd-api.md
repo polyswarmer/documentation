@@ -1,38 +1,38 @@
-## Bounties API
+## API de recompensas
 
-### Bounty Parameters
+### Parámetros de una recompensa
 
-**URL** : `/bounties/parameters?chain=[chain_name]`
+**URL**: `/bounties/parameters?chain=[chain_name]`
 
-**Method** : `GET`
+**Método**: `GET`
 
-### Post Bounty
+### Fijar recompensa
 
-Called by end users and ambassadors to post a bounty.
+Invocado por usuarios finales y embajadores para fijar una recompensa.
 
-**URL** :`/bounties?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**URL**: `/bounties?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
-amount - the amount of NCT to post as a reward
+amount: El importe en NCT a fijar como recompensa.
 
-uri - uri of the artifacts comprising this bounty
+uri: URI de los artefactos que conforman esta recompensa.
 
-duration - duration of this bounty in blocks
+duration: Duración de esta recompensa, en bloques.
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]",
-  "uri": "[string minimum length 1 / max length 100]",
-  "duration": "[integer minimum 1]"
+  "amount": "[cadena, longitud mín. 1 / longitud máx. 100]",
+  "uri": "[cadena, longitud mín. 1 / longitud máx. 100]",
+  "duration": "[entero, mín. 1]"
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
 ```json
 {
@@ -42,13 +42,13 @@ duration - duration of this bounty in blocks
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`.
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -73,11 +73,11 @@ duration - duration of this bounty in blocks
 }
 ```
 
-### Vote on Bounty
+### Votar recompensa
 
-Called by arbiter after bounty expiration with a malicious or benign vote for each artifact, contributing to the final ground truth determination.
+Invocado por el árbitro al vencer la recompensa, con un voto de "malicioso" o "benigno" para cada artefacto, con el fin de contribuir a establecer la verdad terreno definitiva.
 
-**URL** :`/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**URL**: `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -85,13 +85,13 @@ Called by arbiter after bounty expiration with a malicious or benign vote for ea
 
 Provide:
 
-votes - array of votes representing ground truth for the bounty's artifacts
+votes: Matriz de votos que representa la verdad terreno para los artefactos vinculados a la recompensa.
 
-valid\_bloom - if this is a bloom vote
+valid\_bloom: Si se trata de un voto *bloom*.
 
 ```json
 {
-  "votes": "[array with a max of 256 boolean items]",
+  "votes": "[matriz con un máx. de 256 booleanos]",
   "valid\_bloom": "[boolean]"
 }
 ```
@@ -128,15 +128,15 @@ valid\_bloom - if this is a bloom vote
 }
 ```
 
-### Settle Bounty
+### Liquidar recompensa
 
-Callable after the voting window has closed to handle reward disbursal.
+Invocable una vez cerrada la ventana de votación para gestionar el desembolso de la recompensa.
 
-**URL** : `/bounties/<uuid:guid>/settle?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**URL**: `/bounties/<uuid:guid>/settle?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
-**No data needed for this request**
+**Esta petición no requiere datos**
 
 #### Success Response
 
@@ -161,11 +161,11 @@ Callable after the voting window has closed to handle reward disbursal.
 }
 ```
 
-### Assert on bounty
+### Realizar una afirmación sobre una recompensa
 
-Called by security experts to post an assertion on a bounty
+Invocado por los expertos en seguridad para emitir una afirmación al respecto de una recompensa.
 
-**URL** : `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**URL**: `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -173,17 +173,17 @@ Called by security experts to post an assertion on a bounty
 
 Provide:
 
-bid - the amount of NCT to stake
+bid: La cantidad en NCT a apostar.
 
-mask - the artifacts to assert on from the set in the bounty
+mask: Los artefactos del conjunto incluido en la recompensa respecto para los que se emite la afirmación.
 
-verdicts - array of verdicts on bounty artifacts
+verdicts: Matriz de veredictos a emitir sobre los artefactos de la recompensa.
 
 ```json
 {
-  "bid": "[string minimum length 1 with max length 100]",
-  "mask": "[array with a max of 256 boolean items]",
-  "verdicts": "[array with a max of 256 boolean items]"
+  "bid": "[cadena, longitud mín. 1 y longitud máx. 100]",
+  "mask": "[matriz, máx. de 256 booleanos]",
+  "verdicts": "[matriz, máx. de 256 booleanos]"
 }
 ```
 
@@ -199,7 +199,7 @@ verdicts - array of verdicts on bounty artifacts
 
 #### Success Response
 
-**Condition** : If everything is OK the generated nonce will be created later used for reveal and you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, se creará un hápax (*nonce*) que se usará después para revelar la afirmación, y obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`.
 
 **Code** : `200`
 
@@ -220,11 +220,11 @@ verdicts - array of verdicts on bounty artifacts
 }
 ```
 
-### Reveal bounty assersions
+### Revelar afirmaciones sobre una recompensa
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+Invocado por un árbitro una vez vencida la recompensa, permite realizar la liquidación con su determinación de la verdad terreno y abonar las recompensas correspondientes por las afirmaciones.
 
-**URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**URL**: `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -232,17 +232,17 @@ Called by arbiter after bounty expiration to settle with their ground truth dete
 
 Provide:
 
-nonce - the nonce used to generate the commitment hash (returned from asserting on a bounty)
+nonce: El hápax (*nonce*) usado para generar el *hash* de compromiso (obtenido tras realizar una afirmación para obtener una recompensa).
 
-verdicts - the verdicts making up this assertion
+verdicts: Los veredictos que componen esta afirmación.
 
-metadata - to include in the assertion (can be empty string)
+metadata: Metadatos a incluir en la afirmación (puede ser una cadena vacía).
 
 ```json
 {
-  "nonce": "[string minimum length 1 with max length 100]",
-  "verdicts": "[array with a max of 256 boolean items]",
-  "metadata": "[string minimum length 1 with max length 1024]"
+  "nonce": "[cadena, longitud mín. 1 y longitud máx. 100]",
+  "verdicts": "[matriz, máx. de 256 booleanos]",
+  "metadata": "[cadena, longitud mín. 1 y longitud máx. 1024]"
 }
 ```
 
@@ -279,55 +279,55 @@ metadata - to include in the assertion (can be empty string)
 }
 ```
 
-### Get a bounty's info
+### Obtener información sobre una recompensa
 
-**URL** : `/<uuid:guid>?chain=[chain_name]`
-
-**Method** : `GET`
-
-### Get assertions for a bounty
-
-**URL** : `/<uuid:guid>/assertions?chain=[chain_name]`
+**URL**: `/<uuid:guid>?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Get an assertion for a bounty
+### Obtener afirmaciones para una recompensa
 
-**URL** : `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
+**URL**: `/<uuid:guid>/assertions?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Get bloom for a bounty
+### Obtener una afirmación para una recompensa
+
+**URL**: `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
+
+**Method** : `GET`
+
+### Obtener filtro *bloom* para una recompensa
 
 **URL** : `/<uuid:guid>/bloom?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Get votes for a bounty
+### Obtener votos para una recompensa
 
-**URL** : `/<uuid:guid>/votes?chain=[chain_name]`
+**URL**: `/<uuid:guid>/votes?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Get a vote for a bounty
+### Obtener un voto para una recompensa
 
 **URL** : `/<uuid:guid>/votes/<int:id_>?chain=[chain_name]`
 
 **Method** : `GET`
 
-## Staking API
+## API de apuestas
 
-### Staking Parameters
+### Parámetros de una apuesta
 
-**URL** : `/staking/parameters?chain=[chain_name]`
+**URL**: `/staking/parameters?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Post Deposit Stake
+### Enviar depósito de apuesta
 
-Called by arbiters to deposit stake Nectar.
+Invocado por los árbitros para depositar NCT en la apuesta.
 
-**URL** : `/staking/deposit?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**URL**: `/staking/deposit?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -335,7 +335,35 @@ Called by arbiters to deposit stake Nectar.
 
 Provide:
 
-amount - the amount of NCT to add to current stake
+amount: El importe en NCT a añadir a la apuesta actual.
+
+```json
+{
+  "amount": "[cadena, longitud mín. 1 / longitud máx. 100]"
+}
+```
+
+**Data example** All fields must be sent.
+
+```json
+{
+  "amount": "30000000000"
+}
+```
+
+### Enviar retirada de apuesta
+
+Invocado por los árbitros para retirar el NCT disponible apostado.
+
+**URL**: `/staking/withdraw?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+
+**Method** : `POST`
+
+**Data constraints**
+
+Provide:
+
+amount: La cantidad de NCT a retirar de la apuesta actual.
 
 ```json
 {
@@ -351,11 +379,25 @@ amount - the amount of NCT to add to current stake
 }
 ```
 
-### Post Withdrawal Stake
+### Obtener balance total apostado
 
-Called by arbiters to withdraw available staked Nectar.
+**URL**: `/balances/<dirección>/staking/total`
 
-**URL** : `/staking/withdraw?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
+**Method** : `GET`
+
+### Obtener saldo apostado retirable
+
+**URL**: `/balances/<dirección>/staking/withdrawable`
+
+**Method** : `GET`
+
+## API de artefactos
+
+### Enviar artefacto
+
+Enviar un artefacto al IPFS.
+
+**URL**: `/artifacts`
 
 **Method** : `POST`
 
@@ -363,41 +405,35 @@ Called by arbiters to withdraw available staked Nectar.
 
 Provide:
 
-amount - the amount of NCT to withdraw from current stake
+Lista de archivos a cargar. El máximo son 256.
 
-```json
-{
-  "amount": "[string minimum length 1 / max length 100]"
-}
-```
+### Obtener vínculos de archivos asociados a un *hash*
 
-**Data example** All fields must be sent.
-
-```json
-{
-  "amount": "30000000000"
-}
-```
-
-### Get total stake balance
-
-**URL** : `/balances/<address>/staking/total`
+**URL**: `/<ipfshash>`
 
 **Method** : `GET`
 
-### Get withdrawable stake balance
+### Obtener un vínculo asociado a un *hash* con un índice
 
-**URL** : `/balances/<address>/staking/withdrawable`
+**URL**: `/<ipfshash>/<int:id_>`
 
 **Method** : `GET`
 
-## Artifacts API
+### Obtener estadísticas de un vínculo a un artefacto
 
-### Post Artifact
+**URL**: `/<ipfshash>/<int:id_>/stat`
 
-Post an artifact to IPFS
+**Method** : `GET`
 
-**URL** : `/artifacts`
+## API de ofertas
+
+*Próximamente, API de ofertas sin estado*
+
+### Crear un canal de ofertas
+
+Invocado por un embajador para desplegar una nueva oferta multifirma.
+
+**URL**: `/offers?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -405,56 +441,20 @@ Post an artifact to IPFS
 
 Provide:
 
-List of files to upload. You can upload a max of 256
+ambassador: Dirección del embajador que usará el canal.
 
-### Get file links associated with hash
+experto: Dirección del experto que usará el canal.
 
-**URL** : `/<ipfshash>`
+settlementPeriodLength: Tiempo del que disponen las partes para disputar la liquidación del canal de oferta.
 
-**Method** : `GET`
-
-### Get a link associated with hash and link index
-
-**URL** : `/<ipfshash>/<int:id_>`
-
-**Method** : `GET`
-
-### Get stats on artifact link
-
-**URL** : `/<ipfshash>/<int:id_>/stat`
-
-**Method** : `GET`
-
-## Offers API
-
-*Stateless offer api coming soon*
-
-### Create an offer channel
-
-Called by an ambassador to deploy a new multi signature offer
-
-**URL** : `/offers?account=[eth_address]&base_nonce=[integer]`
-
-**Method** : `POST`
-
-**Data constraints**
-
-Provide:
-
-ambassador - address of ambassador using channel
-
-expert - address of expert using channel
-
-settlementPeriodLength - how long the parties have to dispute the settlement offer channel
-
-websocketUri - uri of socket to send messages to ambassador
+websocketUri: URI del *socket* para enviar mensajes al embajador.
 
 ```json
 {
-  "ambassador": "[string minimum length 42]",
-  "expert": "[string minimum length 42]",
-  "settlementPeriodLength": "[integer minimum 60]",
-  "websocketUri": "[string with minimum length 1 max 32]"
+  "ambassador": "[cadena, longitud mín. 42]",
+  "expert": "[cadena, longitud mín. 42]",
+  "settlementPeriodLength": "[entero, mínimo 60]",
+  "websocketUri": "[cadena, longitud mín. 1 y máx. 32]"
 }
 ```
 
@@ -492,11 +492,11 @@ websocketUri - uri of socket to send messages to ambassador
 }
 ```
 
-### Open channel
+### Abrir canal
 
-Called by ambassador to open channel with expert
+Invocado por un embajador para abrir un canal con un experto.
 
-**URL** : `offers/open/<uuid:guid>?account=[eth_address]&base_nonce=[integer]`
+**URL**: `offers/open/<uuid:guid>?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -504,26 +504,26 @@ Called by ambassador to open channel with expert
 
 Provide:
 
-state - inital offer state
+state: Estado de oferta inicial.
 
-v - the recovery id from signature of state string
+v: El identificador de recuperación de la firma correspondiente a la cadena de estado.
 
-r - output of ECDSA signature of state string
+r: Salida de la firma ECDSA de la cadena de estado.
 
-s - output of ECDSA signature of state string
+s: Salida de la firma ECDSA de la cadena de estado.
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]"
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[entero, mínimo 0]",
+  "r": "[cadena, longitud mínima 64]",
+  "s": "[cadena, longitud mínima 64]"
 }
 ```
 
 **Data example** All fields must be sent.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state).
 
 ```json
 {
@@ -557,11 +557,11 @@ See state [explaintion](#state)
 }
 ```
 
-### Join channel
+### Unirse a un canal
 
-Called by expert to join ambassador channel
+Invocado por el experto para unirse al canal de un embajador.
 
-**URL** : `offers/open?account=[eth_address]&base_nonce=[integer]`
+**URL**: `offers/open?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -569,7 +569,7 @@ Called by expert to join ambassador channel
 
 Provide:
 
-state - offer state from ambassador
+state: Estado de oferta del embajador.
 
 v - the recovery id from signature of state string
 
@@ -579,10 +579,10 @@ s - output of ECDSA signature of state string
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[entero, mínimo 0]",
+  "r": "[cadena, longitud mínima 64]",
+  "s": "[cadena, longitud mínima 64]",
 }
 ```
 
@@ -622,11 +622,11 @@ See state [explaintion](#state)
 }
 ```
 
-### Cancel channel
+### Cancelar canal
 
-Called by ambassador to cancel if the contract hasn't been joined yet
+Invocado por un embajador para cancelar el canal si el contrato todavía no se ha incorporado.
 
-**URL** : `offers/cancel?account=[eth_address]&base_nonce=[integer]`
+**URL**: `offers/cancel?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -655,11 +655,76 @@ Called by ambassador to cancel if the contract hasn't been joined yet
 }
 ```
 
-### Close channel
+### Cerrar canal
 
-Called by any party with a both signatures on a state with a closed state flag set to 1
+Invocado por cualquiera de las partes con ambas firmas en un estado cuyo indicador `close_flag` sea 1.
 
-**URL** : `/close?account=[eth_address]&base_nonce=[integer]`
+**URL**: `/close?account=[eth_address]&base_nonce=[integer]`
+
+**Method** : `POST`
+
+**Data constraints**
+
+Provide:
+
+state: Estado de oferta con indicador `close_flag` igual a 1.
+
+v: Matriz formada por los identificadores de recuperación de firma de la cadena de estado de ambas partes.
+
+r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
+
+s - array of outputs of ECDSA signature of state string for both parties
+
+```json
+{
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[matriz de 2 enteros]",
+  "r": "[matriz de 2 cadenas con longitud mín. 64]",
+  "s": "[matriz de 2 cadenas con longitud mín. 64]",
+}
+```
+
+**Data example** All fields must be sent.
+
+See state [explaintion](#state)
+
+```json
+{
+  "state": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006e6f6e650000000000000000000000000000000000000000000000000000004c6f636b79",
+  "v": "[27, 28]",
+  "r": "['0x99e71a99cb2270b8cac5254f9e99b6210c6c10224a1579cf389ef88b20a1abe9', 0x59e21a99cb2270b8cac5254f9e99b6210c6c10224a1579cf389ef88b20a1abe9]",
+  "s": "['0x129ff05af364204442bdb53ab6f18a99ab48acc9326fa689f228040429e3ca66', '0x138ff05af364204442bdb53ab6f18a99ab48acc9326fa689f228040429e3ca66']"
+}
+```
+
+#### Success Response
+
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+
+**Code** : `200`
+
+**Content example**
+
+```json
+{
+  "transactions": [
+    { "chainId": 1337,
+      "data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
+      "gas": 5000000,
+      "gasPrice": 100000000000,
+      "nonce": 748,
+      "to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
+      "value": 0
+    }
+  ]
+}
+```
+
+### Cerrar canal impugnado con plazo de espera vencido
+
+Invocado por cualquiera de las partes con ambas firmas en un estado que sea el estado final de impugnación.
+
+**URL**: `/offers/closeChallenged?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -720,11 +785,11 @@ See state [explaintion](#state)
 }
 ```
 
-### Close challenged channel with timeout
+### Liquidar canal
 
-Called by any party with a both signatures on a state that is the final challenge state
+Invocado por un embajador o un experto para inicializar una liquidación en disputa usando un estado previamente acordado. Abre un plazo de respuesta con `settlementPeriodLength`.
 
-**URL** : `/offers/closeChallenged?account=[eth_address]&base_nonce=[integer]`
+**URL**: `/offers/settle?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -732,13 +797,13 @@ Called by any party with a both signatures on a state that is the final challeng
 
 Provide:
 
-state - offer state with closed flag
+state: Estado de la oferta firmado por ambas partes.
 
 v - array of the recovery ids from signature of state string for both parties
 
 r - array of outputs of ECDSA signature of state string for both parties
 
-s - array of outputs of ECDSA signature of state string for both parties
+s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
 ```json
 {
@@ -785,76 +850,11 @@ See state [explaintion](#state)
 }
 ```
 
-### Settle channel
+### Impugnar estado de liquidación de canal
 
-Called by ambassador or expert to start initialize a disputed settlement using an agreed upon state. It starts a timeout for a reply using `settlementPeriodLength`
+Invocado por un embajador o un experto para impugnar un estado en disputa. El nuevo estado se aceptará si es firmado por ambas partes y posee un número de secuencia más elevado.
 
-**URL** : `/offers/settle?account=[eth_address]&base_nonce=[integer]`
-
-**Method** : `POST`
-
-**Data constraints**
-
-Provide:
-
-state - offer state both parties signed
-
-v - array of the recovery ids from signature of state string for both parties
-
-r - array of outputs of ECDSA signature of state string for both parties
-
-s - array of outputs of ECDSA signature of state string for both parties
-
-```json
-{
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
-}
-```
-
-**Data example** All fields must be sent.
-
-See state [explaintion](#state)
-
-```json
-{
-  "state": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006e6f6e650000000000000000000000000000000000000000000000000000004c6f636b79",
-  "v": "[27, 28]",
-  "r": "['0x99e71a99cb2270b8cac5254f9e99b6210c6c10224a1579cf389ef88b20a1abe9', 0x59e21a99cb2270b8cac5254f9e99b6210c6c10224a1579cf389ef88b20a1abe9]",
-  "s": "['0x129ff05af364204442bdb53ab6f18a99ab48acc9326fa689f228040429e3ca66', '0x138ff05af364204442bdb53ab6f18a99ab48acc9326fa689f228040429e3ca66']"
-}
-```
-
-#### Success Response
-
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
-
-**Code** : `200`
-
-**Content example**
-
-```json
-{
-  "transactions": [
-    { "chainId": 1337,
-      "data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
-      "gas": 5000000,
-      "gasPrice": 100000000000,
-      "nonce": 748,
-      "to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
-      "value": 0
-    }
-  ]
-}
-```
-
-### Challenge settle channel state
-
-Called by ambassador or expert to challenge a disputed state. The new state is accepted if it is signed by both parties and has a higher sequence number
-
-**URL** : `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
+**URL**: `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
 
 **Method** : `POST`
 
@@ -915,65 +915,65 @@ See state [explaintion](#state)
 }
 ```
 
-### Get offer channel info
+### Obtener información de canal de oferta
 
-**URL** : `/offers/<uuid:guid>`
-
-**Method** : `GET`
-
-### Get offer channel settlement period
-
-**URL** : `/offers/<uuid:guid>/settlementPeriod`
+**URL**: `/offers/<uuid:guid>`
 
 **Method** : `GET`
 
-### Get ambassador websocket uri
+### Obtener periodo de liquidación de canal de oferta
 
-**URL** : `/offers/<uuid:guid>/websocket`
-
-**Method** : `GET`
-
-### Get pending offers
-
-**URL** : `/offers/pending`
+**URL**: `/offers/<uuid:guid>/settlementPeriod`
 
 **Method** : `GET`
 
-### Get opened offers
+### Obtener URI del *socket* web del embajador
 
-**URL** : `/offers/opened`
-
-**Method** : `GET`
-
-### Get closed offers
-
-**URL** : `/offers/closed`
+**URL**: `/offers/<uuid:guid>/websocket`
 
 **Method** : `GET`
 
-### Get my offers
+### Obtener ofertas pendientes
 
-**URL** : `/offers/myoffers?account=[eth_address]`
+**URL**: `/offers/pending`
 
 **Method** : `GET`
 
-## Transaction Signing
+### Obtener ofertas abiertas
 
-**URL** : `/transactions?chain=[chain_here]`
+**URL**: `/offers/opened`
+
+**Method** : `GET`
+
+### Obtener ofertas cerradas
+
+**URL**: `/offers/closed`
+
+**Method** : `GET`
+
+### Obtener mis ofertas
+
+**URL**: `/offers/myoffers?account=[eth_address]`
+
+**Method** : `GET`
+
+## Firma de transacciones
+
+**URL**: `/transactions?chain=[chain_here]`
 
 **Method** : `POST`
 
-All signed transactions are POSTed here to start the transaction on the chain of choice.
+Todas las transacciones firmadas se envían aquí mediante POST para iniciarlas en la cadena deseada.
 
-To add transaction signing to your polyswarmd dependent project you need to to write/use something that follows the steps below.
+Para incorporar la funcionalidad de firma de transacciones en tu proyecto dependiente de polyswarmd, tu código debe llevar a cabo las siguientes acciones:
 
-0) Upon receiving transaction data from a transaction dependent endpoint
+0) Al recibir los datos de la transacción desde un nodo basado en transacciones:
 
-1) Sign the Transaction data with your private key
+1) firma los datos de la transacción con tu clave privada, y
 
-2) POST the signed transaction to `/transactions`
+2) envía la transacción firmada mediante POST a `/transactions`.
 
-There is a python example embedded below, though you can use any other language.
+A continuación se incluye un ejemplo con Python, pero puedes usar cualquier otro lenguaje.
 
 ```python
 import json
@@ -986,7 +986,7 @@ PASSWORD = 'password'
 ADDRESS, PRIV_KEY = unlock_key(KEYFILE, PASSWORD)
 
 def unlock_key(keyfile, password):
-    """Open an encrypted keystore file and decrypt it"""
+    """Abrir un archivo de almacén de claves encriptado y desencriptarlo"""
     with open(keyfile, 'r') as f:
         priv_key = web3.eth.account.decrypt(f.read(), password)
 
@@ -994,7 +994,7 @@ def unlock_key(keyfile, password):
     return (address, priv_key)
 
 def post_transactions(transactions):
-    """Post a set of (signed) transactions to Ethereum via polyswarmd, parsing the emitted events"""
+    """Enviar un conjunto de transacciones (firmadas) a Ethereum mediante polyswarmd, parseando los eventos emitidos"""
     signed = []
     for tx in transactions:
         s = web3.eth.account.signTransaction(tx, PRIV_KEY)
@@ -1024,11 +1024,11 @@ def post_transactions(transactions):
 ]
 ```
 
-## Transaction Events
+## Eventos de transacción
 
-A list of events or errors that resulted from the transaction with the given hash
+Lista de eventos o errores resultantes de la transacción designada con el *hash* proporcionado.
 
-**URL** : `/transactions/?chain=[chain_here]`
+**URL**: `/transactions/?chain=[chain_here]`
 
 **Method** : `GET`
 
@@ -1036,11 +1036,11 @@ A list of events or errors that resulted from the transaction with the given has
 
 Provide:
 
-transactions - a list transaction hashes to check
+transactions: Lista de *hashes* correspondientes a las transacciones a comprobar.
 
 ```json
 {
-  "transactions": "[array of transaction hashes]",
+  "transactions": "[matriz de <i>hashes</i> de transacción]",
 }
 ```
 
@@ -1054,7 +1054,7 @@ transactions - a list transaction hashes to check
 
 #### Success Response
 
-**Condition** : If all of the transactions completed without reverting. (If some failed, it will return 400)
+**Condición**: Que todas las transacciones se hayan completado sin revertirse (si alguna de ellas hubiera fallado, se devolverá un código 400).
 
 **Code** : `200`
 
@@ -1128,13 +1128,13 @@ transactions - a list transaction hashes to check
 }
 ```
 
-## State
+## Estado
 
-### Creating State
+### Creación de un estado
 
-The state byte string contains details the ambassador and expert sign off on.
+La cadena de *bytes* de estado contiene detalles que el embajador y el experto acuerdan mediante su firma.
 
-**URL** : `/offers/state`
+**URL**: `/offers/state`
 
 **Method** : `POST`
 
@@ -1142,29 +1142,29 @@ The state byte string contains details the ambassador and expert sign off on.
 
 Provide:
 
-    close_flag - 1 or 0 for is this state is closeable
-    nonce - the sequnce of the state
-    ambassador - ambassador address
-    expert - expert address
-    msig_address - multi signature address
-    ambassador_balance - balance in nectar for ambassador
-    nectar_balance - balance in nectar for expert
-    guid - a globally-unique identifier for the offer listing
-    offer_amount - the offer amount paid for assertion
+    close_flag: 1 o 0 para "¿este estado se puede cerrar?"
+    nonce: La secuencia del estado
+    ambassador: Dirección del embajador
+    expert: Dirección del experto
+    msig_address: Dirección de multifirma
+    ambassador_balance: Saldo en néctares para el embajador
+    nectar_balance: Saldo en néctares para el experto
+    guid: Identificador único global para la publicación de la oferta
+    offer_amount: El importe de la oferta abonado por afirmación
     
 
-Optional:
+Opcional:
 
-    artifact_hash - cryptographic hash of the artifact
-    ipfs_hash - the IPFS URI of the artifact
-    engagement_deadline - engagement Deadline
-    assertion_deadline - assertion Deadline
-    current_commitment - current commitment
-    verdicts - bitmap of verdicts
-    meta_data - meta data about current offer
+    artifact_hash: <i>Hash</i> criptográfico del artefacto
+    ipfs_hash: La URI al IPFS del artefacto
+    engagement_deadline: Vencimiento de participación
+    assertion_deadline: Vencimiento de afirmación
+    current_commitment: Compromiso actual
+    verdicts: Mapa de bits de los veredictos
+    meta_data: Metadatos relativos a la oferta actual
     
 
-Example POST data:
+Ejemplo de datos enviados mediante POST:
 
     {
       "close_flag": 0,
@@ -1177,14 +1177,14 @@ Example POST data:
     }
     
 
-#### Gets tranformed to the below bytes string in the response:
+#### Convertidos a la siguiente cadena de *bytes* en la respuesta:
 
     0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc
     
 
-### Signing State
+### Estado de las firmas
 
-The offers api requires signed states. Here's an example of signing to create the v, r, and s signature pieces in Javascript.
+La API de ofertas requiere remitir estados firmados. Este es un ejemplo de cómo firmar para crear los elementos v, r y s de la firma en Javascript:
 
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
@@ -1207,41 +1207,41 @@ let s = '0x' + sig.s.toString('hex')
 let v = sig.v
 ```
 
-### State Messages
+### Mensajes de estado
 
-Ambassadors open a websocket with the url defined in the contract. Locally - messages are sent on `ws://localhost:31337/messages/<uuid:guid>`
+Los embajadores abren un *socket* web con la URL definida en el contrato. Localmente, los mensajes se envían a `ws://localhost:31337/messages/<uuid:guid>`.
 
 **Data constraints**
 
 Provide:
 
-type - type of message (payment, request, assertion)
+type: Tipo de mensaje (pago, petición, afirmación).
 
-state - offer state
+state: Estado de oferta.
 
 Optional:
 
-toSocketUri - to send to a different person (defaults to the ambassador)
+toSocketUri: Para enviar a una persona distinta (por defecto, va al embajador).
 
-v - recovery ids from signature of state string for both parties
+v: Identificadores de recuperación correspondientes a la firma de la cadena de estado de ambas partes.
 
-r - ECDSA signature of state string
+r: Firma ECDSA de la cadena de estado.
 
-s - ECDSA signature of state string
+s: Firma ECDSA de la cadena de estado.
 
 ```json
 {
-  "fromSocketUri": "[string]",
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "fromSocketUri": "[cadena]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[matriz de 2 enteros]",
+  "r": "[matriz de 2 cadenas con longitud mín. 64]",
+  "s": "[matriz de 2 cadenas con longitud mín. 64]",
 }
 ```
 
 **Data example** All fields must be sent.
 
-See state [explanation](#state)
+Consulta la explicación sobre el [estado](#state).
 
 ```json
 {
@@ -1250,17 +1250,17 @@ See state [explanation](#state)
 }
 ```
 
-## Events
+## Eventos
 
-A websocket for contract events
+Un *socket* web para eventos contractuales.
 
-Listen to the websocket at `ws://localhost:31337/events/<chain>`
+Debes dirigir la escucha a `ws://localhost:31337/events/<chain>`.
 
-**Event Types**
+**Tipos de eventos**
 
-***Block***
+***Bloque***
 
-Sent when a new block is mined, reports the latest block number
+Enviado cuando se mina un nuevo bloque; comunica el número de bloque más reciente.
 
 **Content example**
 
@@ -1273,9 +1273,9 @@ Sent when a new block is mined, reports the latest block number
 }
 ```
 
-***Bounty***
+***Recompensa***
 
-Sent when a new bounty is posted
+Enviado cuando se fija una nueva recompensa.
 
 **Content example**
 
@@ -1292,9 +1292,9 @@ Sent when a new bounty is posted
 }
 ```
 
-***Assertion***
+***Afirmación***
 
-Sent when a new assertion to a bounty is posted
+Enviado cuando se remite una nueva afirmación al respecto de una recompensa.
 
 **Content example**
 
@@ -1312,9 +1312,9 @@ Sent when a new assertion to a bounty is posted
 }
 ```
 
-***Reveal***
+***Revelación***
 
-Sent when an assertion to a bounty is revealed
+Enviado cuando se revela una afirmación al respecto de una recompensa.
 
 **Content example**
 
@@ -1332,9 +1332,9 @@ Sent when an assertion to a bounty is revealed
 }
 ```
 
-***Vote***
+***Voto***
 
-Sent when an arbiter votes on a bounty
+Enviado cuando un árbritro vota al respecto de una recompensa.
 
 **Content example**
 
@@ -1349,9 +1349,9 @@ Sent when an arbiter votes on a bounty
 }
 ```
 
-***Quorum***
+***Cuórum***
 
-Sent when arbiters have reached quorum on a bounty
+Enviado cuando los árbitros han alcanzado el cuórum al respecto de una recompensa.
 
 **Content example**
 
@@ -1365,9 +1365,9 @@ Sent when arbiters have reached quorum on a bounty
 }
 ```
 
-***Settled***
+***Liquidado***
 
-Sent when a participant settles their portion of a bounty
+Enviado cuando un participante liquida su parte de una recompensa.
 
 **Content example**
 
@@ -1382,9 +1382,9 @@ Sent when a participant settles their portion of a bounty
 }
 ```
 
-***Initialized Channel***
+***Canal inicializado***
 
-Sent when a new channel is initialized
+Enviado cuando se inicializa un nuevo canal.
 
 **Content example**
 

@@ -1,71 +1,71 @@
-## Welcome
+## Saludos
 
-Welcome and thank you for your interest in PolySwarm!
+¡Te damos la bienvenida! ¡Gracias por tu interés en PolySwarm!
 
-Here you'll find everything you need to get started developing for PolySwarm.
+Aquí encontrarás todo lo necesario para empezar a desarrollar para PolySwarm.
 
-Before we dive into the code, let's get our bearings:
+Antes de zambullirnos en el código, vamos a aclarar los conceptos básicos:
 
-* What does it look like to participate in PolySwarm?
-* Which role fits my use case?
-* Which Communities do I want to engage with?
-* How do I monitor the performance of my Engines?
-* What are Communities? What is an Engine?
+* ¿Cómo se desarrolla la participación en PolySwarm?
+* ¿Qué función se adapta a mi caso de uso?
+* ¿En qué comunidades deseo involucrarme?
+* ¿Cómo superviso el rendimiento de mis motores?
+* ¿Qué son las "comunidades"? ¿Qué es un "motor"?
 
-Let's take a look at some of the high level concepts and drill down into details where appropriate.
+Vamos a repasar algunos de los conceptos más generales, profundizando en los detalles cuando corresponda.
 
 ## Portal
 
-PolySwarm Portal is PolySwarm's one-stop shop for:
+El portal de PolySwarm es el punto de acceso único para:
 
-* tracking Engine performance
-* discovering Communities (see below)
-* naming Engines
-* creating Profiles
-* connecting with Security Experts
+* supervisar el rendimiento de los motores,
+* descubrir comunidades (ver más adelante),
+* darle nombre a los motores,
+* crear perfiles,
+* conectar con expertos en seguridad,
 
-... and much, much more.
+... y muchas cosas más.
 
-[Explore Portal →](https://polyswarm.network/)
+[Explora el portal →](https://polyswarm.network/)
 
-## Communities
+## Comunidades
 
-PolySwarm is made up of a series of Communities (hence the "Poly"). Each Community serves a particular purpose and can either permit everyone to join or limit access to specific participants.
+PolySwarm se compone de una serie de comunidades (de ahí el prefijo "poly-" que recuerda a "poli"). Cada una de ellas tiene una finalidad específica y puede permitir la participación de cualquier persona o restringir el acceso solo a determinados individuos.
 
-PolySwarm will launch with two communities:
+En su lanzamiento, PolySwarm contará con dos comunidades:
 
-* **Genesis: the public mainnet community**: everyone can join & participate!
-* **Hive: a private testing community**: a closed Community for initial partners preparing for launch on Genesis
+* **Genesis: comunidad pública de la red principal o "mainnet"**; todo el mundo puede unirse a ella y participar.
+* **Hive: comunidad de pruebas privada**; una comunidad cerrada donde los socios iniciales se pueden preparar para el lanzamiento en Genesis.
 
-This list will expand, allowing Ambassadors and Microengine developers to control their audience. Future communities may include:
+Esta lista se ampliará y permitirá a embajadores y desarrolladores de micromotores controlar su audiencia. Las comunidades futuras pueden incluir:
 
-* A GDPR-compliant community with artifact sharing amongst a closed set of compliant participants.
-* A network of mutually NDA'ed MSSPs & security experts.
+* Una comunidad donde un grupo cerrado de participantes cualificados pueda compartir artefactos entre sí respetando el RGPD.
+* Una red de proveedores de servicios de seguridad gestionada (PSSG) y expertos en seguridad que hayan suscrito acuerdos de confidencialidad mutuos.
 
-Anyone will be able to administer their own Community and advertise their community through PolySwarm Portal.
+Cualquier persona podrá administrar su propia comunidad y publicitarla a través del portal de PolySwarm.
 
-### Chains: Home vs Side
+### Cadenas base y cadenas paralelas 
 
-Each Community has a "homechain" and a "sidechain", either of which may be shared with other Communities. Generally speaking, the "homechain" is where crypto assets natviely exist and the "sidechain" is where PolySwarm transations take place.
+Cada comunidad cuenta con una cadena base, o "homechain", y una cadena paralela, o "sidechain", y ambas pueden compartirse con otras comunidades. En términos generales, la cadena base es donde residen de forma nativa los criptoactivos, mientras que la cadena paralela es donde tienen lugar las transacciones de PolySwarm.
 
-For example, **Genesis**, the first public Community will be configured as such:
+Por ejemplo, **Genesis**, la primera comunidad pública, estará estructurada del siguiente modo:
 
-* `homechain`: the Ethereum Mainnet
-* `sidechain`: a set of hosted `geth` nodes running in a [Clique configuration](https://github.com/ethereum/EIPs/issues/225)
+* `homechain`: la red principal de Ethereum.
+* `sidechain`: un conjunto de nodos `geth` ejecutándose en [configuración Clique](https://github.com/ethereum/EIPs/issues/225).
 
-PolySwarm Nectar (NCT) natively lives on the Ethereum Mainnet. Unfortunately, the Ethereum mainnet is far too slow (~15s block time) and far too expensive to support the sort of micro-transactions required by PolySwarm.
+PolySwarm Nectar (NCT) reside de forma nativa en la red principal de Ethereum. Por desgracia, esta red es demasiado lenta (~15 s por bloque) y costosa para albergar el tipo de microtransacciones que requiere PolySwarm.
 
-Rather than transacting directly on the Ethereum Mainnet, PolySwarm participants will instead relay NCT from Mainnet to the Genesis sidechain and conduct their business on this sidechain. Maintaining a minimal balance on the sidechain is made easy by `polyswarm-client`'s [`balancemanager`](https://github.com/polyswarm/polyswarm-client/tree/master/src/balancemanager).
+En lugar de efectuar las transacciones directamente en la red principal de Ethereum, los participantes de PolySwarm transferirán NCT desde dicha red principal a la cadena paralela de Genesis y llevarán a cabo sus actividades en ella. La librería [`balancemanager`](https://github.com/polyswarm/polyswarm-client/tree/master/src/balancemanager) de `polyswarm-client` facilita el mantenimiento de un saldo mínimo en la cadena paralela.
 
-This split-chain design provides two key benefits:
+Este diseño en cadenas separadas brinda dos ventajas fundamentales:
 
-1. **Scalability** Today, Ethereum does not scale (they're working on this of course), so applications must implement their own "Layer 2" scaling solutions if they demand low latency or high throughput transactions.
-2. **Confidentiality** PolySwarm supports the notion of limited-access, private Communities. This split-chain design makes that possible.
+1. **Escalabilidad:** Actualmente, Ethereum no es escalable (aunque, obviamente, están trabajando en ello), por lo que, si las aplicaciones exigen transacciones con un alto caudal o una baja latencia, se ven obligadas a implementar sus propias soluciones de escalado de capa 2.
+2. **Confidencialidad:** PolySwarm es compatible con el concepto de comunidades privadas con acceso restringido. El diseño en cadenas separadas lo hace posible.
 
-<button disabled>Browse Communities → (coming soon!)</button>
+<button disabled>Explorar comunidades → (¡próximamente!)</button>
 
-## Your Role in the PolySwarm Marketplace
+## Tu función en el mercado de PolySwarm
 
-There are several ways to participate in the PolySwarm ecosystem: will you create a Microengine, an Ambassador, an Arbiter or something else entirely?
+Hay varias formas de participar en el ecosistema de PolySwarm: ¿crearás un micromotor, un embajador, un árbitro o algo totalmente distinto?
 
-[Determine where you fit into PolySwarm →](/concepts-participants/)
+[Determina dónde encajas dentro de PolySwarm →](/concepts-participants/)

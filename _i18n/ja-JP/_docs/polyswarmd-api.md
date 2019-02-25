@@ -79,11 +79,11 @@ duration - 当該報奨金の期間 (ブロック単位)
 
 **URL** :`/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 votes - 報奨金のアーティファクトの確認・評価結果を表す投票の配列
 
@@ -96,7 +96,7 @@ valid\_bloom - ブルーム投票の場合
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
 ```json
 {
@@ -105,13 +105,13 @@ valid\_bloom - ブルーム投票の場合
 }
 ```
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -134,17 +134,17 @@ valid\_bloom - ブルーム投票の場合
 
 **URL** : `/bounties/<uuid:guid>/settle?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
 **この要求では、データは不要です。**
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -167,11 +167,11 @@ valid\_bloom - ブルーム投票の場合
 
 **URL** : `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 bid - 投資金額 (NCT)
 
@@ -187,7 +187,7 @@ verdicts - 報奨金の対象アーティファクトの判定の配列
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
 ```json
 {
@@ -197,13 +197,13 @@ verdicts - 報奨金の対象アーティファクトの判定の配列
 }
 ```
 
-#### 成功応答
+#### Success Response
 
 **条件** : 正常に処理された場合、後から評価で使用するためのノンスが生成され、また生の未署名のトランザクションの配列が返されます。このトランザクションに署名して `/transactions` エンドポイントを介して送信する必要があります。
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 { "nonce": 432984098,
@@ -226,11 +226,11 @@ verdicts - 報奨金の対象アーティファクトの判定の配列
 
 **URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 nonce - コミットメント・ハッシュの生成に使用するノンス (報奨金に対するアサート提示で返されたもの)
 
@@ -246,7 +246,7 @@ metadata - アサーションに含めるもの (空文字列可)
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
 ```json
 {
@@ -256,13 +256,13 @@ metadata - アサーションに含めるもの (空文字列可)
 }
 ```
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -283,37 +283,37 @@ metadata - アサーションに含めるもの (空文字列可)
 
 **URL** : `/<uuid:guid>?chain=[chain_name]`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### 報奨金の複数のアサーション取得
 
 **URL** : `/<uuid:guid>/assertions?chain=[chain_name]`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### 報奨金の単一のアサーション取得
 
 **URL** : `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### 報奨金のブルーム取得
 
 **URL** : `/<uuid:guid>/bloom?chain=[chain_name]`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### 報奨金の複数の投票取得
 
 **URL** : `/<uuid:guid>/votes?chain=[chain_name]`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### 報奨金の単一の投票取得
 
 **URL** : `/<uuid:guid>/votes/<int:id_>?chain=[chain_name]`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ## 投資 API
 
@@ -321,7 +321,7 @@ metadata - アサーションに含めるもの (空文字列可)
 
 **URL** : `/staking/parameters?chain=[chain_name]`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### 投資金の預金
 
@@ -329,11 +329,11 @@ metadata - アサーションに含めるもの (空文字列可)
 
 **URL** : `/staking/deposit?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 amount - 現在の投資金に追加する金額 (NCT)
 
@@ -343,7 +343,7 @@ amount - 現在の投資金に追加する金額 (NCT)
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
 ```json
 {
@@ -357,21 +357,21 @@ amount - 現在の投資金に追加する金額 (NCT)
 
 **URL** : `/staking/withdraw?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 amount - 現在の投資金から引き出す金額 (NCT)
 
 ```json
 {
-  "amount": "[文字列、最小長 1 / 最大長 100]"
+  "amount": "[string minimum length 1 / max length 100]"
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
 ```json
 {
@@ -383,13 +383,13 @@ amount - 現在の投資金から引き出す金額 (NCT)
 
 **URL** : `/balances/<address>/staking/total`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### 引き出し可能な投資金残高の取得
 
 **URL** : `/balances/<address>/staking/withdrawable`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ## アーティファクト API
 
@@ -399,11 +399,11 @@ amount - 現在の投資金から引き出す金額 (NCT)
 
 **URL** : `/artifacts`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 アップロードするファイルのリスト。 最大 256 個までアップロード可能
 
@@ -411,19 +411,19 @@ amount - 現在の投資金から引き出す金額 (NCT)
 
 **URL** : `/<ipfshash>`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### ハッシュとリンク・インデックスに関連付けられているリンクの取得
 
 **URL** : `/<ipfshash>/<int:id_>`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### アーティファクト・リンクの統計の取得
 
 **URL** : `/<ipfshash>/<int:id_>/stat`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ## オファー API
 
@@ -435,11 +435,11 @@ amount - 現在の投資金から引き出す金額 (NCT)
 
 **URL** : `/offers?account=[eth_address]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 ambassador - チャネルを使用するアンバサダーのアドレス
 
@@ -458,7 +458,7 @@ websocketUri - メッセージをアンバサダーに送信するためのソ�
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
 ```json
 {
@@ -469,13 +469,13 @@ websocketUri - メッセージをアンバサダーに送信するためのソ�
 }
 ```
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -498,11 +498,11 @@ websocketUri - メッセージをアンバサダーに送信するためのソ�
 
 **URL** : `offers/open/<uuid:guid>?account=[eth_address]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 state - 初期オファー状態
 
@@ -521,7 +521,7 @@ s - 状態文字列の ECDSA 署名の出力
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
 状態の[説明](#state)をご覧ください。
 
@@ -534,13 +534,13 @@ s - 状態文字列の ECDSA 署名の出力
 }
 ```
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -563,19 +563,19 @@ s - 状態文字列の ECDSA 署名の出力
 
 **URL** : `offers/open?account=[eth_address]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 state - アンバサダーからのオファー状態
 
-v - 状態文字列の署名のリカバリー ID
+v - the recovery id from signature of state string
 
-r - 状態文字列の ECDSA 署名の出力
+r - output of ECDSA signature of state string
 
-s - 状態文字列の ECDSA 署名の出力
+s - output of ECDSA signature of state string
 
 ```json
 {
@@ -586,9 +586,9 @@ s - 状態文字列の ECDSA 署名の出力
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
-状態の[説明](#state)をご覧ください。
+See state [explaintion](#state)
 
 ```json
 {
@@ -599,13 +599,13 @@ s - 状態文字列の ECDSA 署名の出力
 }
 ```
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -628,17 +628,17 @@ s - 状態文字列の ECDSA 署名の出力
 
 **URL** : `offers/cancel?account=[eth_address]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -661,11 +661,11 @@ s - 状態文字列の ECDSA 署名の出力
 
 **URL** : `/close?account=[eth_address]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 state - クローズ・フラグが設定されたオファー状態
 
@@ -673,7 +673,7 @@ v - 両者の状態文字列の署名からのリカバリー ID の配列
 
 r - 両者の状態文字列の ECDSA 署名の出力の配列
 
-s - 両者の状態文字列の ECDSA 署名の出力の配列
+s - array of outputs of ECDSA signature of state string for both parties
 
 ```json
 {
@@ -684,9 +684,9 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
-状態の[説明](#state)をご覧ください。
+See state [explaintion](#state)
 
 ```json
 {
@@ -697,13 +697,13 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 }
 ```
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -726,32 +726,32 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 **URL** : `/offers/closeChallenged?account=[eth_address]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
-state - クローズ・フラグが設定されたオファー状態
+state - offer state with closed flag
 
-v - 両者の状態文字列の署名からのリカバリー ID の配列
+v - array of the recovery ids from signature of state string for both parties
 
-r - 両者の状態文字列の ECDSA 署名の出力の配列
+r - array of outputs of ECDSA signature of state string for both parties
 
-s - 両者の状態文字列の ECDSA 署名の出力の配列
+s - array of outputs of ECDSA signature of state string for both parties
 
 ```json
 {
-  "state": "[文字列、最小長 32]",
-  "v": "[2 個の整数の配列]",
-  "r": "[最小長が 64 の 2 個の文字列の配列]",
-  "s": "[最小長が 64 の 2 個の文字列の配列]",
+  "state": "[string minimum length 32]",
+  "v": "[array of 2 integers]",
+  "r": "[array of 2 strings with min length 64]",
+  "s": "[array of 2 strings with min length 64]",
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
-状態の[説明](#state)をご覧ください。
+See state [explaintion](#state)
 
 ```json
 {
@@ -762,13 +762,13 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 }
 ```
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -791,32 +791,32 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 **URL** : `/offers/settle?account=[eth_address]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
 state - 両者が署名したオファー状態
 
-v - 両者の状態文字列の署名からのリカバリー ID の配列
+v - array of the recovery ids from signature of state string for both parties
 
-r - 両者の状態文字列の ECDSA 署名の出力の配列
+r - array of outputs of ECDSA signature of state string for both parties
 
 s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 ```json
 {
-  "state": "[文字列、最小長 32]",
-  "v": "[2 個の整数の配列]",
-  "r": "[最小長が 64 の 2 個の文字列の配列]",
-  "s": "[最小長が 64 の 2 個の文字列の配列]",
+  "state": "[string minimum length 32]",
+  "v": "[array of 2 integers]",
+  "r": "[array of 2 strings with min length 64]",
+  "s": "[array of 2 strings with min length 64]",
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
-状態の[説明](#state)をご覧ください。
+See state [explaintion](#state)
 
 ```json
 {
@@ -827,13 +827,13 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 }
 ```
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -856,32 +856,32 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 **URL** : `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
-state - 両者が署名したオファー状態
+state - offer state both parties signed
 
-v - 両者の状態文字列の署名からのリカバリー ID の配列
+v - array of the recovery ids from signature of state string for both parties
 
-r - 両者の状態文字列の ECDSA 署名の出力の配列
+r - array of outputs of ECDSA signature of state string for both parties
 
-s - 両者の状態文字列の ECDSA 署名の出力の配列
+s - array of outputs of ECDSA signature of state string for both parties
 
 ```json
 {
-  "state": "[文字列、最小長 32]",
-  "v": "[2 個の整数の配列]",
-  "r": "[最小長が 64 の 2 個の文字列の配列]",
-  "s": "[最小長が 64 の 2 個の文字列の配列]",
+  "state": "[string minimum length 32]",
+  "v": "[array of 2 integers]",
+  "r": "[array of 2 strings with min length 64]",
+  "s": "[array of 2 strings with min length 64]",
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
-状態の[説明](#state)をご覧ください。
+See state [explaintion](#state)
 
 ```json
 {
@@ -892,13 +892,13 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 }
 ```
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -919,49 +919,49 @@ s - 両者の状態文字列の ECDSA 署名の出力の配列
 
 **URL** : `/offers/<uuid:guid>`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### オファー・チャネル決済期間の取得
 
 **URL** : `/offers/<uuid:guid>/settlementPeriod`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### アンバサダー WebSocket URI の取得
 
 **URL** : `/offers/<uuid:guid>/websocket`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### 未解決のオファーの取得
 
 **URL** : `/offers/pending`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### オープン・オファーの取得
 
 **URL** : `/offers/opened`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### クローズ・オファーの取得
 
 **URL** : `/offers/closed`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ### 自分のオファーの取得
 
 **URL** : `/offers/myoffers?account=[eth_address]`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
 ## トランザクションの署名
 
 **URL** : `/transactions?chain=[chain_here]`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
 すべての署名済みトランザクションは、選択したチェーンでトランザクションを開始するために、ここで POST されます。
 
@@ -1007,13 +1007,13 @@ def post_transactions(transactions):
     return response.json()
 ```
 
-#### 成功応答
+#### Success Response
 
-**条件** : 正常に処理された場合、生の未署名のトランザクションの配列が返されます。これに署名して `/transactions` エンドポイントを介して送信する必要があります。
+**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 [
@@ -1024,27 +1024,27 @@ def post_transactions(transactions):
 ]
 ```
 
-## Transaction Events
+## トランザクション・イベント
 
-A list of events or errors that resulted from the transaction with the given hash
+特定のハッシュでのトランザクションから生じたイベントまたはエラーのリスト
 
-**URL** : `/transactions/?chain=[chain_here]`
+**URL** : `/transactions/?chain=[チェーン]`
 
-**メソッド** : `GET`
+**Method** : `GET`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
-transactions - a list transaction hashes to check
+transactions - 検査するトランザクション・ハッシュのリスト
 
 ```json
 {
-  "transactions": "[array of transaction hashes]",
+  "transactions": "[トランザクション・ハッシュの配列]",
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
 ```json
 {
@@ -1052,13 +1052,13 @@ transactions - a list transaction hashes to check
 }
 ```
 
-#### 成功応答
+#### Success Response
 
-**Condition** : If all of the transactions completed without reverting. (If some failed, it will return 400)
+**条件** : すべてのトランザクションが戻ることなく完了するかどうか。 (失敗したものがあった場合、400 が返されます)
 
-**コード** : `200`
+**Code** : `200`
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -1128,43 +1128,43 @@ transactions - a list transaction hashes to check
 }
 ```
 
-## State
+## 状態
 
 ### 状態の作成
 
-The state byte string contains details the ambassador and expert sign off on.
+状態バイト文字列には、アンバサダーと専門家が署名した対象の詳細が含まれます。
 
 **URL** : `/offers/state`
 
-**メソッド** : `POST`
+**Method** : `POST`
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
-    close_flag - 1 or 0 for is this state is closeable
-    nonce - the sequnce of the state
-    ambassador - ambassador address
-    expert - expert address
-    msig_address - multi signature address
-    ambassador_balance - balance in nectar for ambassador
-    nectar_balance - balance in nectar for expert
-    guid - a globally-unique identifier for the offer listing
-    offer_amount - the offer amount paid for assertion
+    close_flag - 当該状態がクローズ可能かどうかを示す 1 または 0
+    nonce - 状態のシーケンス
+    ambassador - アンバサダーのアドレス
+    expert - 専門家のアドレス
+    msig_address - マルチ署名アドレス
+    ambassador_balance - アンバサダーの残高 (Nectar)
+    nectar_balance - 専門家の残高 (Nectar)
+    guid - オファー・リストのグローバル一意識別子
+    offer_amount - アサーションに対して支払われるオファー金額
     
 
-Optional:
+オプション:
 
-    artifact_hash - cryptographic hash of the artifact
-    ipfs_hash - the IPFS URI of the artifact
-    engagement_deadline - engagement Deadline
-    assertion_deadline - assertion Deadline
-    current_commitment - current commitment
-    verdicts - bitmap of verdicts
-    meta_data - meta data about current offer
+    artifact_hash - アーティファクトの暗号ハッシュ
+    ipfs_hash - アーティファクトの IPFS URI
+    engagement_deadline - エンゲージメントの期限
+    assertion_deadline - アサーションの期限
+    current_commitment - 現在のコミットメント
+    verdicts - 判定のビットマップ
+    meta_data - 現在のオファーに関するメタデータ
     
 
-Example POST data:
+POST データの例:
 
     {
       "close_flag": 0,
@@ -1177,14 +1177,14 @@ Example POST data:
     }
     
 
-#### Gets tranformed to the below bytes string in the response:
+#### 以下のバイト文字列に変換されて応答で返されます。
 
     0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc
     
 
 ### 状態への署名
 
-The offers api requires signed states. Here's an example of signing to create the v, r, and s signature pieces in Javascript.
+オファー API では、署名済みの状態が必要です。 以下に、署名して JavaScript で v、r、s の各署名部分を作成する例を示します。
 
 ```javascript
 const EthereumTx = require('ethereumjs-tx');
@@ -1209,39 +1209,39 @@ let v = sig.v
 
 ### 状態メッセージ
 
-Ambassadors open a websocket with the url defined in the contract. Locally - messages are sent on `ws://localhost:31337/messages/<uuid:guid>`
+アンバサダーは、コントラクトで定義された URL を使用して WebSocket を開きます。 ローカルでは、メッセージは `ws://localhost:31337/messages/<uuid:guid>` で送信されます。
 
-**データ制約**
+**Data constraints**
 
-指定:
+Provide:
 
-type - type of message (payment, request, assertion)
+type - メッセージのタイプ (支払、要求、アサーション)
 
-state - offer state
+state - オファー状態
 
 Optional:
 
-toSocketUri - to send to a different person (defaults to the ambassador)
+toSocketUri - 別の人に送信する場合 (デフォルトではアンバサダー)
 
-v - recovery ids from signature of state string for both parties
+v - 両者の状態文字列の署名からのリカバリー ID
 
-r - ECDSA signature of state string
+r - 状態文字列の ECDSA 署名
 
-s - ECDSA signature of state string
+s - 状態文字列の ECDSA 署名
 
 ```json
 {
-  "fromSocketUri": "[string]",
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "fromSocketUri": "[文字列]",
+  "state": "[文字列、最小長 32]",
+  "v": "[2 個の整数の配列]",
+  "r": "[最小長が 64 の 2 個の文字列の配列]",
+  "s": "[最小長が 64 の 2 個の文字列の配列]",
 }
 ```
 
-**データの例** すべてのフィールドを送信する必要があります。
+**Data example** All fields must be sent.
 
-See state [explanation](#state)
+状態の[説明](#state)をご覧ください。
 
 ```json
 {
@@ -1250,19 +1250,19 @@ See state [explanation](#state)
 }
 ```
 
-## Events
+## イベント
 
-A websocket for contract events
+コントラクト・イベント用の WebSocket
 
-Listen to the websocket at `ws://localhost:31337/events/<chain>`
+`ws://localhost:31337/events/<chain>` の WebSocket をリッスンします。
 
-**Event Types**
+**イベント・タイプ**
 
-***Block***
+***ブロック***
 
-Sent when a new block is mined, reports the latest block number
+新しいブロックがマイニングされたときに送信され、最新のブロック番号を報告します。
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -1273,11 +1273,11 @@ Sent when a new block is mined, reports the latest block number
 }
 ```
 
-***Bounty***
+***報奨金***
 
-Sent when a new bounty is posted
+新しい報奨金が提示されたときに送信されます。
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -1292,11 +1292,11 @@ Sent when a new bounty is posted
 }
 ```
 
-***Assertion***
+***アサーション***
 
-Sent when a new assertion to a bounty is posted
+報奨金に対する新しいアサーションが提示されたときに送信されます。
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -1312,11 +1312,11 @@ Sent when a new assertion to a bounty is posted
 }
 ```
 
-***Reveal***
+***評価***
 
-Sent when an assertion to a bounty is revealed
+報奨金に対するアサーションが評価されたときに送信されます。
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -1332,11 +1332,11 @@ Sent when an assertion to a bounty is revealed
 }
 ```
 
-***Vote***
+***投票***
 
-Sent when an arbiter votes on a bounty
+評価者が報奨金について投票したときに送信されます。
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -1349,11 +1349,11 @@ Sent when an arbiter votes on a bounty
 }
 ```
 
-***Quorum***
+***定足数***
 
-Sent when arbiters have reached quorum on a bounty
+評価者が報奨金について定足数に達したときに送信されます。
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -1365,11 +1365,11 @@ Sent when arbiters have reached quorum on a bounty
 }
 ```
 
-***Settled***
+***決済***
 
-Sent when a participant settles their portion of a bounty
+参加者が報奨金の担当部分を決済したときに送信されます。
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
@@ -1382,11 +1382,11 @@ Sent when a participant settles their portion of a bounty
 }
 ```
 
-***Initialized Channel***
+***チャネルの初期化***
 
-Sent when a new channel is initialized
+新しいチャネルが初期化されたときに送信されます。
 
-**コンテンツの例**
+**Content example**
 
 ```json
 {
