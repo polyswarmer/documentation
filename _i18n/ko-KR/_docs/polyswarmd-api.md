@@ -1384,18 +1384,19 @@ s - 상태 문자열의 ECDSA 서명
 
 ***채널 초기화***
 
-Sent when a new channel is initialized
+새로운 채널이 초기화될 때 전송됩니다
 
 **Content example**
 
 ```json
 {
-  "event": "initialized_channel",
-  "data": {
-    "guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
-    "ambassador": "0x0000000000000000000000000000000000000000",
-    "expert": "0x0000000000000000000000000000000000000000",
-    "mutl_signature": "0x0000000000000000000000000000000000000000"
-  }
+"event": "initialized_channel",
+"data": {
+"guid": "20085e89-c5e3-4fb4-a6cd-055feb342097",
+"ambassador": "0x0000000000000000000000000000000000000000",
+"expert": "0x0000000000000000000000000000000000000000",
+"mutl_signature": "0x0000000000000000000000000000000000000000"
 }
+}
+
 ```
