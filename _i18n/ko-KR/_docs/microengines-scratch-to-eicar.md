@@ -167,17 +167,17 @@ super().__init__(client, testing, scanner, chains)
 
 다양한 판돈 설정 전략에 대해 알아보려면 나중에 다시 확인해보세요.
 
-## Finalizing & Testing Your Engine
+## 엔진 완성 & 테스트
 
-`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself. We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
+지금까지는 `cookiecutter`가 `engine-template`을 적절히 변경했지만, 사용자가 직접 작성해야 하는 몇 가지 항목이 있습니다. 주요 항목들은 위에 다루어져 있지만, `CUSTOMIZE_HERE`라고 검색하여 모든 사용자 지정 항목이 작성되었는지 확인하시기 바랍니다.
 
-Once everything is in place, let's test our engine:
+모든 준비가 완료되면 엔진을 테스트합니다.
 
-[Test Linux-based Engines →](/testing-linux/)
+[Linux 기반 엔진 테스트 →](/testing-linux/)
 
-[Test Windows-based Engines →](/testing-windows/)
+[Windows 기반 엔진 테스트 →](/testing-windows/)
 
-## Next Steps
+## 다음 단계
 
 검사 로직을 스캐너 클래스 안에서 직접 구현하면 관리 및 확장하기가 어렵습니다. 그 대신, 마이크로엔진 클래스가 실제 검사 로직이 포함된 외부 바이너리나 서비스를 호출하게 하는 것이 좋습니다.
 
