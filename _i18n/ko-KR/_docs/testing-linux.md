@@ -101,24 +101,24 @@ $ docker-compose -f base.yml -f tutorial0.yml up
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-It will take several minutes for `polyswarmd` to become available. Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
+`polyswarmd`를 이용할 수 있을 때까지 몇 분 정도 소요됩니다. `polyswarmd`를 이용할 수 있게 되면, 다음과 같이 클라이언트에 응답을 제공하기 시작합니다.
 
     INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
     
 
-Next, let's spin up our Microengine in a second terminal window in our microengine's directory:
+다음으로, 마이크로엔진 디렉터리의 두 번째 터미널 창에서 사용자의 마이크로엔진을 구축합니다.
 
 ```bash
 $ docker-compose -f docker/test-integration.yml up
 ```
 
-Finally, let's introduce some artifacts for our Microengine to scan in a third terminal window in the `orchestration` directory:
+마지막으로, `orchestration` 디렉터리의 세 번째 터미널 창에서 사용자의 마이크로엔진을 위한 아티팩트를 몇 개 도입합니다.
 
 ```bash
 $ docker-compose -f base.yml -f tutorial0.yml up --no-deps ambassador
 ```
 
-Take a look at the logs from all three terminal windows - you should see your Microengine responding to the Ambassador's Bounties!
+세 개의 터미널 창의 로그를 모두 확인합니다. 마이크로엔진이 홍보대사의 현상금에 응답하고 있어야 합니다!
 
-When you make changes to your Engine, testing those changes is as simple as re-building your Docker image and re-running the `ambassador` service to inject a new a new pair of EICAR/not-EICAR artifacts. You can keep the rest of the testnet running while you iterate.
+엔진에 변경을 가할 경우 Docker 이미지를 다시 빌드하고 `ambassador` 서비스를 다시 실행해서 EICAR/비-EICAR 아티팩트의 새로운 쌍을 투입함으로써 간단하게 변경 사항을 테스트할 수 있습니다. 작업을 반복하는 동안 테스트넷의 나머지 부분은 계속 실행되도록 놔둘 수 있습니다.
