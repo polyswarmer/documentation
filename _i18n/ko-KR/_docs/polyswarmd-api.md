@@ -504,7 +504,7 @@ websocketUri - 홍보대사에게 메시지를 전송할 소켓의 uri
 
 제공:
 
-state - inital offer state
+state - 초기 제안 상태
 
 v - 상태 문자열 서명에서 복구 id
 
