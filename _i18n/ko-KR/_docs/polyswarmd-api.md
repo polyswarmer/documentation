@@ -130,13 +130,13 @@ valid\_bloom - 블룸 투표의 경우
 
 ### 현상금 결정
 
-Callable after the voting window has closed to handle reward disbursal.
+투표 창을 닫은 후 보상금 지불을 처리하기 위하여 호출합니다.
 
 **URL** : `/bounties/<uuid:guid>/settle?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
 **Method** : `POST`
 
-**No data needed for this request**
+**이 요청에는 데이터가 필요하지 않습니다**
 
 #### Success Response
 
@@ -161,9 +161,9 @@ Callable after the voting window has closed to handle reward disbursal.
 }
 ```
 
-### Assert on bounty
+### 현상금에 대한 주장
 
-Called by security experts to post an assertion on a bounty
+현상금에 대하여 주장을 게시하기 위하여 보안 전문가들이 호출합니다
 
 **URL** : `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -173,17 +173,17 @@ Called by security experts to post an assertion on a bounty
 
 Provide:
 
-bid - the amount of NCT to stake
+bid - 판돈으로 걸 NCT의 수량
 
-mask - the artifacts to assert on from the set in the bounty
+마스크 - 현상금 세트에서 주장할 대상 아티팩트
 
-verdicts - array of verdicts on bounty artifacts
+의견 - 현상금 아티팩트에 대한 의견의 배열
 
 ```json
 {
-  "bid": "[string minimum length 1 with max length 100]",
-  "mask": "[array with a max of 256 boolean items]",
-  "verdicts": "[array with a max of 256 boolean items]"
+"bid": "[string minimum length 1 with max length 100]",
+"mask": "[array with a max of 256 boolean items]",
+"verdicts": "[array with a max of 256 boolean items]"
 }
 ```
 
@@ -191,15 +191,15 @@ verdicts - array of verdicts on bounty artifacts
 
 ```json
 {
-  "bid": "200000",
-  "mask": "[true, true, true]",
-  "verdicts": "[false, true, false]"
+"bid": "200000",
+"mask": "[true, true, true]",
+"verdicts": "[false, true, false]"
 }
 ```
 
 #### Success Response
 
-**Condition** : If everything is OK the generated nonce will be created later used for reveal and you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**조건**: 모든 항목이 적절하면 나중에 공개 시 사용할 논스가 생성되고, 서명되지 않은 원시 트랜잭션의 배열을 얻으며, 서명 후 `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
 
 **Code** : `200`
 
@@ -207,22 +207,22 @@ verdicts - array of verdicts on bounty artifacts
 
 ```json
 { "nonce": 432984098,
-  "transactions": [
-    { "chainId": 1337,
-      "data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
-      "gas": 5000000,
-      "gasPrice": 100000000000,
-      "nonce": 748,
-      "to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
-      "value": 0
-    }
-  ]
+"transactions": [
+{ "chainId": 1337,
+"data": "0x095ea7b30000000000000000000000007d012af57b89fceded483f6716d2f0862b3af396000000000000000000000000000000000000000000000000098a7d9b8314c000",
+"gas": 5000000,
+"gasPrice": 100000000000,
+"nonce": 748,
+"to": "0xEfEaF137150FC048B1d828B764e44f7ed628Bd66",
+"value": 0
+}
+]
 }
 ```
 
-### Reveal bounty assersions
+### 현상금 주장 공개
 
-Called by arbiter after bounty expiration to settle with their ground truth determination and pay out assertion rewards.
+현상금 만료 후 사실 검증에 대한 본인의 판단을 확정하고 주장에 대한 보상을 지급하기 위하여 중재자가 호출합니다.
 
 **URL** : `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -232,17 +232,17 @@ Called by arbiter after bounty expiration to settle with their ground truth dete
 
 Provide:
 
-nonce - the nonce used to generate the commitment hash (returned from asserting on a bounty)
+논스 - 약속 해시를 생성하는 데 사용되는 논스 (현상금에 대한 주장에서 반환됨)
 
-verdicts - the verdicts making up this assertion
+의견 - 이 주장을 구성하는 의견들
 
-metadata - to include in the assertion (can be empty string)
+메타데이터 - 주장에 포함됨 (빈 문자열일 수 있음)
 
 ```json
 {
-  "nonce": "[string minimum length 1 with max length 100]",
-  "verdicts": "[array with a max of 256 boolean items]",
-  "metadata": "[string minimum length 1 with max length 1024]"
+"nonce": "[string minimum length 1 with max length 100]",
+"verdicts": "[array with a max of 256 boolean items]",
+"metadata": "[string minimum length 1 with max length 1024]"
 }
 ```
 
@@ -250,9 +250,9 @@ metadata - to include in the assertion (can be empty string)
 
 ```json
 {
-  "nonce": "123",
-  "verdicts": "[true, false, true]",
-  "metadata": "Dropper"
+"nonce": "123",
+"verdicts": "[true, false, true]",
+"metadata": "Dropper"
 }
 ```
 
@@ -279,53 +279,53 @@ metadata - to include in the assertion (can be empty string)
 }
 ```
 
-### Get a bounty's info
+### 현상금 정보 가져오기
 
 **URL** : `/<uuid:guid>?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Get assertions for a bounty
+### 현상금에 대한 주장 가져오기
 
 **URL** : `/<uuid:guid>/assertions?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Get an assertion for a bounty
+### 현상금에 대한 특정 주장 가져오기
 
 **URL** : `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Get bloom for a bounty
+### 현상금에 대한 블룸 가져오기
 
 **URL** : `/<uuid:guid>/bloom?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Get votes for a bounty
+### 현상금에 대한 투표 가져오기
 
 **URL** : `/<uuid:guid>/votes?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Get a vote for a bounty
+### 현상금에 대한 특정 투표 가져오기
 
 **URL** : `/<uuid:guid>/votes/<int:id_>?chain=[chain_name]`
 
 **Method** : `GET`
 
-## Staking API
+## 판돈 설정 API
 
-### Staking Parameters
+### 판돈 설정 매개 변수
 
 **URL** : `/staking/parameters?chain=[chain_name]`
 
 **Method** : `GET`
 
-### Post Deposit Stake
+### 판돈 입금 게시
 
-Called by arbiters to deposit stake Nectar.
+Nectar 판돈을 입금하기 위하여 중재자가 호출합니다.
 
 **URL** : `/staking/deposit?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -335,11 +335,11 @@ Called by arbiters to deposit stake Nectar.
 
 Provide:
 
-amount - the amount of NCT to add to current stake
+수량 - 현재 판돈에 추가할 NCT의 수량
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]"
+"amount": "[string minimum length 1 / max length 100]"
 }
 ```
 
@@ -347,13 +347,13 @@ amount - the amount of NCT to add to current stake
 
 ```json
 {
-  "amount": "30000000000"
+"amount": "30000000000"
 }
 ```
 
-### Post Withdrawal Stake
+### 판돈 출금 게시
 
-Called by arbiters to withdraw available staked Nectar.
+남아 있는 Nectar 판돈을 출금하기 위하여 중재자가 호출합니다.
 
 **URL** : `/staking/withdraw?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
@@ -363,7 +363,7 @@ Called by arbiters to withdraw available staked Nectar.
 
 Provide:
 
-amount - the amount of NCT to withdraw from current stake
+수량 - 현재 판돈에서 출금할 NCT의 수량
 
 ```json
 {
@@ -379,23 +379,23 @@ amount - the amount of NCT to withdraw from current stake
 }
 ```
 
-### Get total stake balance
+### 총 판돈 잔고 가져오기
 
 **URL** : `/balances/<address>/staking/total`
 
 **Method** : `GET`
 
-### Get withdrawable stake balance
+### 출금 가능한 판돈 잔고 가져오기
 
 **URL** : `/balances/<address>/staking/withdrawable`
 
 **Method** : `GET`
 
-## Artifacts API
+## 아티팩트 API
 
-### Post Artifact
+### 아티팩트 게시
 
-Post an artifact to IPFS
+IPFS에 아티팩스를 게시합니다
 
 **URL** : `/artifacts`
 
@@ -405,33 +405,33 @@ Post an artifact to IPFS
 
 Provide:
 
-List of files to upload. You can upload a max of 256
+업로드할 파일 목록. 최대 256개를 업로드할 수 있습니다
 
-### Get file links associated with hash
+### 해시와 관련된 파일 링크 가져오기
 
 **URL** : `/<ipfshash>`
 
 **Method** : `GET`
 
-### Get a link associated with hash and link index
+### 해시와 관련된 링크 및 링크 인덱스 가져오기
 
 **URL** : `/<ipfshash>/<int:id_>`
 
 **Method** : `GET`
 
-### Get stats on artifact link
+### 아티팩트 링크에 대한 통계 가져오기
 
 **URL** : `/<ipfshash>/<int:id_>/stat`
 
 **Method** : `GET`
 
-## Offers API
+## 제안 API
 
-*Stateless offer api coming soon*
+*상태 비저장 제안 API 추가 예정*
 
-### Create an offer channel
+### 제안 채널 만들기
 
-Called by an ambassador to deploy a new multi signature offer
+새로운 다중 서명 제안을 배포하기 위하여 홍보대사가 호출합니다
 
 **URL** : `/offers?account=[eth_address]&base_nonce=[integer]`
 
@@ -441,20 +441,20 @@ Called by an ambassador to deploy a new multi signature offer
 
 Provide:
 
-ambassador - address of ambassador using channel
+ambassador - 채널을 사용하는 홍보대사의 주소
 
-expert - address of expert using channel
+expert - 채널을 사용하는 전문가의 주소
 
 settlementPeriodLength - how long the parties have to dispute the settlement offer channel
 
-websocketUri - uri of socket to send messages to ambassador
+websocketUri - 홍보대사에게 메시지를 전송할 소켓의 uri
 
 ```json
 {
-  "ambassador": "[string minimum length 42]",
-  "expert": "[string minimum length 42]",
-  "settlementPeriodLength": "[integer minimum 60]",
-  "websocketUri": "[string with minimum length 1 max 32]"
+"ambassador": "[string minimum length 42]",
+"expert": "[string minimum length 42]",
+"settlementPeriodLength": "[integer minimum 60]",
+"websocketUri": "[string with minimum length 1 max 32]"
 }
 ```
 
@@ -462,10 +462,10 @@ websocketUri - uri of socket to send messages to ambassador
 
 ```json
 {
-  "amount": "0x34E583cf9C1789c3141538EeC77D9F0B8F7E89f2",
-  "uri": "0xf0243D9b2E332D7072dD4B143a881B3f135F380c",
-  "duration": 80,
-  "websocketUri": "ws://localhost:9999/echo"
+"amount": "0x34E583cf9C1789c3141538EeC77D9F0B8F7E89f2",
+"uri": "0xf0243D9b2E332D7072dD4B143a881B3f135F380c",
+"duration": 80,
+"websocketUri": "ws://localhost:9999/echo"
 }
 ```
 
@@ -492,9 +492,9 @@ websocketUri - uri of socket to send messages to ambassador
 }
 ```
 
-### Open channel
+### 채널 개설
 
-Called by ambassador to open channel with expert
+전문가와 함께 채널을 개설하기 위하여 홍보대사가 호출합니다
 
 **URL** : `offers/open/<uuid:guid>?account=[eth_address]&base_nonce=[integer]`
 
@@ -504,33 +504,33 @@ Called by ambassador to open channel with expert
 
 Provide:
 
-state - inital offer state
+state - 초기 제안 상태
 
-v - the recovery id from signature of state string
+v - 상태 문자열 서명에서 복구 id
 
-r - output of ECDSA signature of state string
+r - 상태 문자열 ECDSA 서명의 출력
 
-s - output of ECDSA signature of state string
+s - 상태 문자열 ECDSA 서명의 출력
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]"
+"state": "[string minimum length 32]",
+"v": "[integer minimum 0]",
+"r": "[string minimum length 64]",
+"s": "[string minimum length 64]"
 }
 ```
 
 **Data example** All fields must be sent.
 
-See state [explaintion](#state)
+상태에 대한 [설명](#state)을 참조하세요
 
 ```json
 {
-  "state": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc",
-  "v": "27",
-  "r": "0x99e71a99cb2270b8cac5254f9e99b6210c6c10224a1579cf389ef88b20a1abe9",
-  "s": "0x129ff05af364204442bdb53ab6f18a99ab48acc9326fa689f228040429e3ca66"
+"state": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc",
+"v": "27",
+"r": "0x99e71a99cb2270b8cac5254f9e99b6210c6c10224a1579cf389ef88b20a1abe9",
+"s": "0x129ff05af364204442bdb53ab6f18a99ab48acc9326fa689f228040429e3ca66"
 }
 ```
 
@@ -557,9 +557,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Join channel
+### 채널 가입
 
-Called by expert to join ambassador channel
+홍보대사의 채널에 가입하기 위하여 전문가가 호출합니다
 
 **URL** : `offers/open?account=[eth_address]&base_nonce=[integer]`
 
@@ -569,7 +569,7 @@ Called by expert to join ambassador channel
 
 Provide:
 
-state - offer state from ambassador
+state - 홍보대사의 제안 상태
 
 v - the recovery id from signature of state string
 
@@ -579,10 +579,10 @@ s - output of ECDSA signature of state string
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]",
+"state": "[string minimum length 32]",
+"v": "[integer minimum 0]",
+"r": "[string minimum length 64]",
+"s": "[string minimum length 64]",
 }
 ```
 
@@ -592,10 +592,10 @@ See state [explaintion](#state)
 
 ```json
 {
-  "state": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006e6f6e650000000000000000000000000000000000000000000000000000004c6f636b79",
-  "v": "27",
-  "r": "0x99e71a99cb2270b8cac5254f9e99b6210c6c10224a1579cf389ef88b20a1abe9",
-  "s": "0x129ff05af364204442bdb53ab6f18a99ab48acc9326fa689f228040429e3ca66"
+"state": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000f17f52151ebef6c7334fad080c5704d77216b732000000000000000000000000c5fdf4076b8f3a5357c5e395ab970b5b54098fef000000000000000000000000fa21e79ca2dfb3ab15469796069622903919159c00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000219ebb52f4e92c4fa554e80316b95d4adefb3ed600000000000000000000000000000000000000000000000000000000000001bc000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006e6f6e650000000000000000000000000000000000000000000000000000004c6f636b79",
+"v": "27",
+"r": "0x99e71a99cb2270b8cac5254f9e99b6210c6c10224a1579cf389ef88b20a1abe9",
+"s": "0x129ff05af364204442bdb53ab6f18a99ab48acc9326fa689f228040429e3ca66"
 }
 ```
 
@@ -622,9 +622,9 @@ See state [explaintion](#state)
 }
 ```
 
-### Cancel channel
+### 채널 취소
 
-Called by ambassador to cancel if the contract hasn't been joined yet
+아직 계약이 체결되지 않은 경우 취소하기 위하여 홍보대사가 호출합니다
 
 **URL** : `offers/cancel?account=[eth_address]&base_nonce=[integer]`
 
@@ -655,9 +655,9 @@ Called by ambassador to cancel if the contract hasn't been joined yet
 }
 ```
 
-### Close channel
+### 채널 종료
 
-Called by any party with a both signatures on a state with a closed state flag set to 1
+종료 상태 플래그를 1로 설정하고 상태에 대한 두 서명을 포함하여 임의의 당사자가 호출합니다
 
 **URL** : `/close?account=[eth_address]&base_nonce=[integer]`
 
@@ -667,20 +667,20 @@ Called by any party with a both signatures on a state with a closed state flag s
 
 Provide:
 
-state - offer state with closed flag
+state - 종료 플래그가 포함된 제안 상태
 
-v - array of the recovery ids from signature of state string for both parties
+v - 양 당사자에 대한 상태 문자열 서명에서 복구 id 배열
 
-r - array of outputs of ECDSA signature of state string for both parties
+r - 양 당사자에 대한 상태 문자열 ECDSA 서명의 출력 배열
 
 s - array of outputs of ECDSA signature of state string for both parties
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+"state": "[string minimum length 32]",
+"v": "[array of 2 integers]",
+"r": "[array of 2 strings with min length 64]",
+"s": "[array of 2 strings with min length 64]",
 }
 ```
 
