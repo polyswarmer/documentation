@@ -188,51 +188,51 @@ PolySwarm Pte. Ltd. (이하 "회사", "당사", "우리" 또는 "당사의"라�
 
 **쿠키를 사용하는 이유는 무엇입니까?**
 
-We use first and third party cookies for several reasons. Some cookies are required for technical reasons in order for our Sites to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our Online Properties. Third parties serve cookies through our Sites for advertising, analytics and other purposes. This is described in more detail below.
+당사는 여러 가지 이유로 당사자 쿠키와 제3자 쿠키를 사용합니다. 일부 쿠키는 기술적인 이유에서 당사의 사이트를 운영하는 데 필요합니다. 당사는 이를 "필수" 또는 "매우 필요한" 쿠키라고 부릅니다. 또한, 다른 쿠키도 당사가 사용자의 관심사를 추적하고 대상으로 삼아서 당사의 온라인 자산의 이용 경험을 개선하는 데 사용됩니다. 제3자는 광고, 분석 및 기타 목적으로 당사의 사이트를 통하여 쿠키를 제공합니다. 자세한 내용은 아래에 기재되어 있습니다.
 
-The specific types of first and third party cookies served through our Websites and the purposes they perform are described below (please note that the specific cookies served may vary depending on the specific Online Properties you visit):
+당사의 웹사이트를 통해 제공되는 당사자 쿠키 및 제3자 쿠키의 구체적인 유형과 이들이 수행하는 목적은 아래에 기재되어 있습니다(제공되는 쿠키의 세부적인 사항은 귀하께서 방문하시는 온라인 자산이 구체적으로 무엇인지에 따라 달라질 수 있음을 양지하시기 바랍니다).
 
-**Performance and functionality cookies:**
+**성능 쿠키 및 기능 쿠키:**
 
-These cookies are used to enhance the performance and functionality of our Sites but are non-essential to their use. However, without these cookies, certain functionality (like videos) may become unavailable.
+이 쿠키들은 당사의 사이트의 성능과 기능을 향상시키기 위하여 사용되지만 사이트 이용 시 필수적인 것은 아닙니다. 하지만, 이 쿠키들이 없으면 일부 기능(비디오 등)을 사용하지 못할 수 있습니다.
+
+* 쿠키 제공 주체: 
+ * 쿠키 제공자: PolySwarm 
+  * 웹사이트 URL: https://polyswarm.io/
+* 거부 방법: 
+ * 쿠키를 거부하려면 아래의 "쿠키 설정을 변경하는 방법은 무엇입니까?" 섹션에 기재된 설명을 따라 주시기 바랍니다. 또는, [개인정보 설정](/privacy/#privacy-settings)을 변경하실 수 있습니다.
+
+**분석 쿠키 및 사용자화 쿠키:**
+
+이 쿠키들은 집계된 형태로 사용되는 정보를 수집합니다. 이 정보는 당사의 사이트가 어떻게 사용되고 있는지 또는 당사의 마케팅 캠페인이 얼마나 효과적인지 이해하거나 당사의 사이트를 사용자화하는 데 활용됩니다.
 
 * Who serves these cookies? 
- * Cookie provider: PolySwarm 
-  * Website URL: https://polyswarm.io/
+ * 쿠키 제공자: Google Analytics 
+  * 웹사이트 URL: https://analytics.google.com/analytics/web/
+ * 쿠키 제공자: Pardot 
+  * 웹사이트 URL: https://www.pardot.com/
 * How to refuse: 
  * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
 
-**Analytics and customization cookies:**
+**웹 비콘과 같은 다른 추적 기술도 사용합니까?**
 
-These cookies collect information that is used either in aggregate form to help us understand how our Sites are being used or how effective our marketing campaigns are, or to help us customize our Sites for you.
+웹사이트 방문자를 인식하거나 추적하는 방법은 쿠키뿐만이 아닙니다. 당사는 때때로 웹 비콘(때로는 "추적 픽셀" 또는 "투명 gif"로 불립니다) 등의 다른 유사한 기술을 사용합니다. 이것은 고유한 식별자를 포함하고 있는 작은 그래픽 파일로서 사용자가 당사의 사이트를 방문하거나 당사가 보낸 이메일을 열 때 그 사실을 인식하도록 해줍니다. 예를 들면, 이를 활용해서 당사의 웹사이트 내의 한 페이지에서 다른 곳으로 이동하는 사용자 트래픽 패턴을 모니터링할 수 있습니다. 또한, 쿠키를 전달하거나 쿠키와 커뮤니케이션하고, 제3자 웹사이트에 게시된 온라인 광고를 통해 당사의 웹사이트를 방문했는지를 파악하고, 사이트의 성능을 개선하고, 이메일 마케팅 캠페인의 성공 여부를 측정할 수 있습니다. 이 기술들은 적절하게 기능하려면 쿠키에 의존해야 하는 경우가 많습니다. 따라서, 쿠키를 거부하면 이 기능들이 제대로 작동하지 않습니다.
 
-* Who serves these cookies? 
- * Cookie provider: Google Analytics 
-  * Website URL: https://analytics.google.com/analytics/web/
- * Cookie provider: Pardot 
-  * Website URL: https://www.pardot.com/
-* How to refuse: 
- * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
+**쿠키 설정을 변경하는 방법은 무엇입니까?**
 
-**What about other tracking technologies, like web beacons?**
+[개인정보 설정](/privacy/#privacy-settings)을 변경하실 수 있습니다. 또는, 웹 브라우저에서 쿠키를 허용하거나 거부하도록 설정하거나 해당 설정을 변경하실 수 있습니다. 쿠키를 거부하실 경우 당사의 웹사이트를 이용하실 수는 있으나 웹사이트의 일부 기능과 영역에 대한 접근이 제한될 수 있습니다. 웹 브라우저에서 쿠키를 거부하도록 설정하는 방법은 브라우저마다 다르므로, 브라우저의 도움말 메뉴에서 자세한 정보를 찾아보시기 바랍니다.
 
-Cookies are not the only way to recognize or track visitors to a website. We may use other, similar technologies from time to time, like web beacons (sometimes called "tracking pixels" or "clear gifs"). These are tiny graphics files that contain a unique identifier that enable us to recognize when someone has visited our Sites or opened an e-mail that we have sent them. This allows us, for example, to monitor the traffic patterns of users from one page within our Websites to another, to deliver or communicate with cookies, to understand whether you have come to our Websites from an online advertisement displayed on a third-party website, to improve site performance, and to measure the success of e-mail marketing campaigns. In many instances, these technologies are reliant on cookies to function properly, and so declining cookies will impair their functioning.
+또한, 대부분의 광고 네트워크는 맞춤형 광고의 수신을 거부하는 방법을 제공합니다. 자세한 정보는 <http://www.aboutads.info/choices/> 또는 <http://www.youronlinechoices.com>을 참조하시기 바랍니다.
 
-**How can I control cookies?**
+#### 본 정책은 업데이트됩니까?
 
-You can change your [privacy settings](/privacy/#privacy-settings). Additionally, you can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted. As the means by which you can refuse cookies through your web browser controls vary from browser-to-browser, you should visit your browser's help menu for more information.
+**요약:** 예, 당사는 관련 법률을 준수하기 위하여 필요한 경우 본 정책을 업데이트합니다.
 
-In addition, most advertising networks offer you a way to opt out of targeted advertising. If you would like to find out more information, please visit <http://www.aboutads.info/choices/> or <http://www.youronlinechoices.com>.
+당사는 때때로 본 개인정보 보호정책을 업데이트할 수 있습니다. 업데이트된 버전은 업데이트된 "개정"일로 표시되며, 업데이트된 버전은 접근 가능한 때부터 효력이 발생합니다. 본 개인정보 보호정책에 중대한 변경 사항이 있을 경우 당사는 해당하는 변경 내용을 담은 고지문을 잘 보이는 곳에 게시하거나 직접 귀하께 통지하여 알려드립니다. 본 개인정보 보호정책을 자주 검토하여 당사가 어떻게 귀하의 정보를 보호하는지 자세히 알아두시기 바랍니다.
 
-#### Do We Make Updates to This Policy?
+#### 본 정책에 관하여 당사에 문의하는 방법은 무엇입니까?
 
-**In Short:** Yes, we will update this policy as necessary to stay compliant with relevant laws.
-
-We may update this privacy policy from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
-
-#### How Can You Contact Us About This Policy?
-
-If you have questions or comments about this policy, you may contact us by email at <privacy@polyswarm.io>, or by post to:
+본 정책과 관련하여 문의 사항 또는 의견이 있는 경우 <privacy@polyswarm.io>로 이메일을 보내거나 다음 우편 주소로 연락하실 수 있습니다.
 
 PolySwarm Pte. Ltd.  
 548 Market Street  
@@ -244,6 +244,6 @@ PolySwarm Pte. Ltd.
 San Francisco, CA 94104  
 United States
 
-#### How Can You Review, Update, or Delete, the Data We Collect from You?
+#### 당사가 수집한 데이터를 검토, 업데이트 또는 삭제하는 방법은 무엇입니까?
 
-Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please submit a request by emailing <privacy@polyswarm.io>.
+일부 국가의 법률에 근거하여 귀하께서는 당사가 수집한 개인정보에 접근하거나, 해당 정보를 변경하거나, 상황에 따라 정보를 삭제하도록 요청할 권리를 보유합니다. 귀하의 개인정보를 검토, 업데이트 또는 삭제하고자 하시는 경우 <privacy@polyswarm.io>로 이메일을 보내서 요청을 제출해 주시기 바랍니다.
