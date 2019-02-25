@@ -84,8 +84,8 @@ $ docker-compose -f base.yml -f tutorial0.yml up
 4. `polyswarmd`: `homechain`, `sidechain` 및 `ipfs`가 제공하는 서비스에 편리하게 액세스하게 해주는 PolySwarm 데몬.
 5. `contracts`: PolySwarm Nectar(NCT) 및 `BountyRegistry` 계약을 개발 테스트넷에 보관 & 배포.
 6. `ambassador`: [EICAR 파일](https://en.wikipedia.org/wiki/EICAR_test_file)과 EICAR이 아닌 파일에 현상금을 거는 모의 홍보대사(`polyswarm-client`가 제공).
-7. `arbiter`: '접수된' 아티팩트에 대하여 의견을 제시하고 사실 검증을 판단하는 모의 중재자(`polyswarm-client`가 제공).
-8. `microengine`: '접수된' 아티팩트를 검사하고 주장을 제시하는 모의 마이크로엔진(`polyswarm-client`가 제공).
+7. `arbiter`: '접수된' 아티팩트에 대하여 의견을 제시하고 사실 검증을 판단하는 모의 중재자(`polyswarm-client`가 제공함).
+8. `microengine`: '접수된' 아티팩트를 검사하고 주장을 제시하는 모의 마이크로엔진(`polyswarm-client`가 제공함).
 
 화면에 표시된 로그를 스크롤해서 탐색하며 각 구성 요소가 어떤 작업을 하는지 살펴보시기 바랍니다. 적어도 5분 이상 실행되도록 합니다. 계약을 배포하는 데는 시간이 걸릴 수 있습니다. 그리고 재미있는 일들이 시작됩니다 :)
 
