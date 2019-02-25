@@ -1,57 +1,57 @@
-# Participating in the PolySwarm Marketplace
+# PolySwarm 마켓플레이스에 참가하기
 
-Once you've thoroughly tested your engine, you'll want to put it to work in the real PolySwarm marketplace!
+엔진 테스트를 철저하게 완료했다면 이제 실제 PolySwarm 마켓플레이스에서 작동하도록 만들 차례입니다!
 
-At a high level, plugging into the PolySwarm marketplace is a simple matter of:
+개략적으로 말씀드리면 엔진을 PolySwarm 마켓플레이스에 연결하는 것은 다음과 같이 매우 간단합니다.
 
-1. determining which Community(ies) you'd like to join
-2. pointing your engines to the hosted instance of `polyswarmd` for those Communities
+1. 가입할 커뮤니티를 결정합니다
+2. 엔진이 해당 커뮤니티에 대한 `polyswarmd`의 호스팅된 인스턴스를 가리키도록 합니다
 
-There are a few items to be aware of when doing this; we discuss below.
+이 작업을 수행할 때 주의해야 할 몇 가지 사항에 대하여 아래에서 설명하겠습니다.
 
-## Wallets & Keyfiles
+## 지갑 & 키 파일
 
-PolySwarm is built on top of Ethereum, a programmable world computer fueled by a native cryptocurrency called Ether (ETH). When an Ethereum user executes a transfer of ETH or conducts a call into an Ethereum "smart contract" (e.g. PolySwarm's Relay contracts), the user must pay the Ethereum network to carry out this transaction in the form of "Gas". Gas is deducted from the user's ETH balance.
+PolySwarm은 이더리움 상에 구축되는데, 이는 이더(ETH)라고 불리는 기본 암호화폐를 사용하는, 프로그래밍 가능한 전 세계적인 컴퓨터 네트워크입니다. 이더리움 사용자가 ETH를 전송하거나 이더리움의 '스마트 계약'(예: PolySwarm의 릴레이 계약)을 호출할 경우 사용자는 이 트랜잭션을 수행하기 위하여 이더리움 네트워크에 '가스'라는 수수료를 지불해야 합니다. 가스는 해당 사용자의 ETH 잔고에서 공제됩니다.
 
-PolySwarm operates on Nectar (NCT) - an application-layer cryptocurrency token built on top of Ethereum. NCT is essential for participating in the PolySwarm marketplace.
+PolySwarm은 이더리움 상에 구축된 애플리케이션-레이어 암호화폐 토큰인 Nectar(NCT)에 기반하여 운영됩니다. NCT는 PolySwarm 마켓플레이스에 참가할 때 필수적인 요소입니다.
 
-Your engine, acting as your representative on the PolySwarm marketplace, must have access to both ETH and NCT.
+PolySwarm 마켓플레이스에서 사용자의 대리인 역할을 하는 마이크로엔진은 ETH와 NCT 모두에 액세스할 수 있어야 합니다.
 
-### Cryptocurrency Wallets
+### 암호화폐 지갑
 
-As with all cryptocurrencies (e.g. Bitcoin), funds are maintained in "wallets". Technically, a wallet is simply a cryptographic keypair and some metadata that describes the keypairs' usage. Wallets are uniquely identified by a cryptographic hash of the public portion of this cryptographic keypair. Possession / control of a wallet (and all funds contained therein) is analogous to possession of the private portion of the wallet's keypair.
+다른 모든 암호화폐(예: 비트코인)처럼 자금은 '지갑'에 보관됩니다. 기술적으로 지갑은 단순히 암호화 키 쌍과 키 쌍의 사용법을 기술하는 몇 가지 메타데이터로 구성됩니다. 지갑은 이 암호화 키 쌍의 공개 부분에 대한 암호화 해시로 고유하게 식별됩니다. 지갑(및 그 안에 포함된 모든 자금)을 소유 / 통제한다는 것은 해당 지갑에 속한 키 쌍의 비공개 부분을 소유한다는 것과 유사합니다.
 
 <div class="m-flag m-flag--danger">
   <p>
     <strong>
-      In PolySwarm, as with all cryptocurrency applications, an attacker with access to your wallet's private key can steal all your cryptocurrency (ETH & NCT) and impersonate you in the marketplace.
-      It is absolutely essential that you protect the secrecy of your wallet's private key.
+      다른 모든 암호화폐 애플리케이션과 마찬가지로 PolySwarm에서 사용자 지갑의 개인 키에 접근한 해커는 모든 암호화폐(ETH 및 NCT)를 훔치고, 마켓플레이스에서 해당 사용자를 사칭할 수 있습니다.
+      따라서, 반드시 지갑의 개인 키를 기밀로 보호해야 합니다.
     </strong>
   </p>
 </div>
 
-Means to secure your private key are outside of the scope of this document. In order for your engine to participate in the PolySwarm marketplace (and place transactions on your behalf), your engine must have the ability to sign transactions with your wallet's private key. This means the engine must either have direct access to the key (less secure) or have the ability to request signatures of a device / process that has access to the key (more secure). The direct keyfile access method is supported by `polyswarm-client` today. Support for offloading transaction signing to another device will arrive in a future `polyswarm-client` release.
+개인 키를 보호하는 방법은 이 문서가 다루는 범위에 속하지 않습니다. 사용자의 엔진이 PolySwarm 마켓플레이스에 참여하고 사용자를 대신하여 거래를 진행하려면, 엔진이 지갑의 개인 키로 거래에 서명할 수 있어야 합니다. 즉, 엔진이 개인 키에 직접 접근할 수 있거나(보안성이 약함) 개인 키에 접근 권한이 있는 장치 / 프로세스에 서명을 요청할 수 있는 능력을 보유해야 합니다(보안성이 강함). 현재 `polyswarm-client`는 직접 키파일 접근 방법을 지원하고 있습니다. 다른 장치로 거래 서명을 오프로딩하는 것은 향후 발표될 `polyswarm-client` 릴리스에서 지원됩니다.
 
-### Wallet Usage in PolySwarm
+### PolySwarm에서 지갑 사용
 
-When testing our engines, we told our engines where to find a "keyfile" that contains our encrypted private key via the `--keyfile` argument to the `polyswarm-client` utilities (i.e. `microengine` and `balancemanager`). All keyfiles distributed with `polyswarm-client` (and other PolySwarm projects) are encrypted with a trivial password: `password`, specified via the `--password` argument.
+엔진을 테스트할 때는 `polyswarm-client` 유틸리티(예: `microengine` 및 `balancemanager`)에 `--keyfile` 인수를 전달하는 방식을 통하여 암호화된 개인 키가 포함된 '키파일'을 찾을 수 있는 장소를 엔진에 알려주었습니다. `polyswarm-client`(및 다른 PolySwarm 프로젝트)를 통하여 배포되는 모든 키파일은 `--password` 인수를 통하여 지정된 평범한 암호인 `password`로 암호화됩니다.
 
 <div class="m-flag m-flag--danger">
   <p>
     <strong>
-      The sole purpose of these distributed keyfiles is for testing with fake nct and fake eth.
-      Never use testing keyfiles from polyswarm projects in production or in real communities.
-      Never fund the wallets contained in these testing keyfiles with real nct or real eth.
+      이렇게 배포된 키파일의 유일한 목적은 모의 NCT 및 모의 ETH를 테스트하기 위함입니다.
+      생산 단계나 실제 커뮤니티에서 polyswarm 프로젝트의 테스트용 키파일을 절대로 사용하지 마십시오.
+      이 테스트용 키파일에 포함된 지갑에 실제 NCT 또는 실제 ETH를 절대로 입금하지 마십시오.
     </strong>
   </p>
   <p>
     <strong>
-      When operating outside of a development testing environment you must create your own production keyfile.
+      개발 테스트 환경 밖에서 작업할 경우 자신만의 생산 키파일을 생성해야 합니다.
     </strong>
   </p>
   <p>
     <strong>
-      You are solely responsible for the security of your production keyfile.
+      생산 키파일의 보안에 대한 책임은 전적으로 사용자에게 있습니다.
     </strong>
   </p>
 </div>
