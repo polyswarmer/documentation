@@ -26,9 +26,9 @@ uri - 이 현상금을 구성하는 아티팩트의 uri
 
 ```json
 {
-"amount": "[string minimum length 1 / max length 100]",
-"uri": "[string minimum length 1 / max length 100]",
-"duration": "[integer minimum 1]"
+  "amount": "[string minimum length 1 / max length 100]",
+  "uri": "[string minimum length 1 / max length 100]",
+  "duration": "[integer minimum 1]"
 }
 ```
 
@@ -44,7 +44,7 @@ uri - 이 현상금을 구성하는 아티팩트의 uri
 
 #### 성공 응답
 
-**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/transactions` 엔드포인트를 통해서 전송하게 됩니다.
+**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
 
 **코드**: `200`
 
@@ -91,8 +91,8 @@ valid\_bloom - 블룸 투표의 경우
 
 ```json
 {
-"votes": "[최대 256개의 불리언 항목으로 구성된 배열]",
-"valid\_bloom": "[boolean]"
+  "votes": "[array with a max of 256 boolean items]",
+  "valid\_bloom": "[boolean]"
 }
 ```
 
@@ -107,7 +107,7 @@ valid\_bloom - 블룸 투표의 경우
 
 #### 성공 응답
 
-**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/transactions` 엔드포인트를 통해서 전송하게 됩니다.
+**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
 
 **코드**: `200`
 
@@ -140,7 +140,7 @@ valid\_bloom - 블룸 투표의 경우
 
 #### 성공 응답
 
-**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/transactions` 엔드포인트를 통해서 전송하게 됩니다.
+**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
 
 **코드**: `200`
 
@@ -181,9 +181,9 @@ bid - 판돈으로 걸 NCT의 수량
 
 ```json
 {
-"bid": "[최소 길이 1, 최대 길이 100의 문자열]",
-"mask": "[최대 256개의 불리언 항목으로 구성된 배열]",
-"verdicts": "[최대 256개의 불리언 항목으로 구성된 배열]"
+  "bid": "[string minimum length 1 with max length 100]",
+  "mask": "[array with a max of 256 boolean items]",
+  "verdicts": "[array with a max of 256 boolean items]"
 }
 ```
 
@@ -199,7 +199,7 @@ bid - 판돈으로 걸 NCT의 수량
 
 #### 성공 응답
 
-**조건**: 모든 항목이 적절하면 나중에 공개 시 사용할 논스가 생성되고, 서명되지 않은 원시 트랜잭션의 배열을 얻으며, 서명 후 `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
+**조건**: 모든 항목이 적절하면 나중에 공개 시 사용할 논스가 생성되고, 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
 
 **코드**: `200`
 
@@ -240,9 +240,9 @@ bid - 판돈으로 걸 NCT의 수량
 
 ```json
 {
-"nonce": "[최소 길이 1, 최대 길이 100의 문자열]",
-"verdicts": "[최대 256개의 불리언 항목으로 구성된 배열]",
-"metadata": "[최소 길이 1, 최대 길이 1024의 문자열]"
+  "nonce": "[string minimum length 1 with max length 100]",
+  "verdicts": "[array with a max of 256 boolean items]",
+  "metadata": "[string minimum length 1 with max length 1024]"
 }
 ```
 
@@ -258,7 +258,7 @@ bid - 판돈으로 걸 NCT의 수량
 
 #### 성공 응답
 
-**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/transactions` 엔드포인트를 통해서 전송하게 됩니다.
+**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
 
 **코드**: `200`
 
@@ -339,7 +339,7 @@ Nectar 판돈을 입금하기 위하여 중재자가 호출합니다.
 
 ```json
 {
-"amount": "[string minimum length 1 / max length 100]"
+  "amount": "[string minimum length 1 / max length 100]"
 }
 ```
 
@@ -367,7 +367,7 @@ Nectar 판돈을 입금하기 위하여 중재자가 호출합니다.
 
 ```json
 {
-  "amount": "[최소 길이 1 / 최대 길이 100의 문자열]"
+  "amount": "[string minimum length 1 / max length 100]"
 }
 ```
 
@@ -441,9 +441,9 @@ IPFS에 아티팩스를 게시합니다
 
 제공:
 
-ambassador - 채널을 사용하는 홍보대사의 주소
+홍보대사 - 채널을 사용하는 홍보대사의 주소
 
-expert - 채널을 사용하는 전문가의 주소
+전문가 - 채널을 사용하는 전문가의 주소
 
 settlementPeriodLength - 당사자들이 제안 채널을 합의하기 위하여 논의하는 기간
 
@@ -451,10 +451,10 @@ websocketUri - 홍보대사에게 메시지를 전송할 소켓의 uri
 
 ```json
 {
-"ambassador": "[string minimum length 42]",
-"expert": "[string minimum length 42]",
-"settlementPeriodLength": "[integer minimum 60]",
-"websocketUri": "[string with minimum length 1 max 32]"
+  "ambassador": "[string minimum length 42]",
+  "expert": "[string minimum length 42]",
+  "settlementPeriodLength": "[integer minimum 60]",
+  "websocketUri": "[string with minimum length 1 max 32]"
 }
 ```
 
@@ -471,7 +471,7 @@ websocketUri - 홍보대사에게 메시지를 전송할 소켓의 uri
 
 #### 성공 응답
 
-**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/transactions` 엔드포인트를 통해서 전송하게 됩니다.
+**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
 
 **코드**: `200`
 
@@ -504,7 +504,7 @@ websocketUri - 홍보대사에게 메시지를 전송할 소켓의 uri
 
 제공:
 
-state - 초기 제안 상태
+state - inital offer state
 
 v - 상태 문자열 서명에서 복구 id
 
@@ -514,10 +514,10 @@ s - 상태 문자열 ECDSA 서명의 출력
 
 ```json
 {
-"state": "[string minimum length 32]",
-"v": "[integer minimum 0]",
-"r": "[string minimum length 64]",
-"s": "[string minimum length 64]"
+  "state": "[string minimum length 32]",
+  "v": "[integer minimum 0]",
+  "r": "[string minimum length 64]",
+  "s": "[string minimum length 64]"
 }
 ```
 
@@ -536,7 +536,7 @@ s - 상태 문자열 ECDSA 서명의 출력
 
 #### 성공 응답
 
-**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/transactions` 엔드포인트를 통해서 전송하게 됩니다.
+**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
 
 **코드**: `200`
 
@@ -579,10 +579,10 @@ s - 상태 문자열 ECDSA 서명의 출력
 
 ```json
 {
-"state": "[string minimum length 32]",
-"v": "[integer minimum 0]",
-"r": "[string minimum length 64]",
-"s": "[string minimum length 64]",
+  "state": "[string minimum length 32]",
+  "v": "[integer minimum 0]",
+  "r": "[string minimum length 64]",
+  "s": "[string minimum length 64]",
 }
 ```
 
@@ -601,7 +601,7 @@ s - 상태 문자열 ECDSA 서명의 출력
 
 #### 성공 응답
 
-**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/transactions` 엔드포인트를 통해서 전송하게 됩니다.
+**조건**: 모든 항목이 적절하면 서명되지 않은 원시 트랜잭션의 배열을 얻으며, `/트랜잭션` 엔드포인트를 통해서 전송하게 됩니다.
 
 **코드**: `200`
 
