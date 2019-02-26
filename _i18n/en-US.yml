@@ -13,7 +13,7 @@ global:
     # - name: de-DE
     #   fullname: Deutsch
     #   d_url: /de-DE/
-    #   text: This page is available in Deutsch.
+    #   text: This page is available in German.
     #   ok:
     #     text: View now
     #   close:
@@ -21,7 +21,7 @@ global:
     # - name: es-ES
     #   fullname: Español
     #   d_url: /es-ES/
-    #   text: This page is available in Español.
+    #   text: This page is available in Spanish.
     #   ok:
     #     text: View now
     #   close:
@@ -29,7 +29,7 @@ global:
     # - name: fr-FR
     #   fullname: Français
     #   d_url: /fr-FR/
-    #   text: This page is available in Français.
+    #   text: This page is available in French.
     #   ok:
     #     text: View now
     #   close:
@@ -37,7 +37,7 @@ global:
     # - name: ru-RU
     #   fullname: Русский
     #   d_url: /ru-RU/
-    #   text: This page is available in Русский.
+    #   text: This page is available in Russian.
     #   ok:
     #     text: View now
     #   close:
@@ -45,7 +45,7 @@ global:
     # - name: ko-KR
     #   fullname: 한국어
     #   d_url: /ko-KR/
-    #   text: This page is available in 한국어.
+    #   text: This page is available in Korean.
     #   ok:
     #     text: View now
     #   close:
@@ -53,7 +53,7 @@ global:
     - name: ja-JP
       fullname: 日本語
       d_url: /ja-JP/
-      text: This page is available in 日本語.
+      text: このページは日本語でもご利用いただけます。
       ok:
         text: View now
       close:
@@ -61,7 +61,7 @@ global:
     # - name: zh-CN
     #   fullname: 中文
     #   d_url: /zh-CN/
-    #   text: This page is available in 中文.
+    #   text: This page is available in Chinese.
     #   ok:
     #     text: View now
     #   close:
