@@ -26,9 +26,9 @@ duration - 블록 안에서 이 현상금이 유지되는 시간
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]",
-  "uri": "[string minimum length 1 / max length 100]",
-  "duration": "[integer minimum 1]"
+"amount": "[최소 길이 1 / 최대 길이 100의 문자열]",
+"uri": "[최소 길이 1 / 최대 길이 100의 문자열]",
+"duration": "[최소가 1인 정수]"
 }
 ```
 
@@ -91,8 +91,8 @@ valid\_bloom - 블룸 투표의 경우
 
 ```json
 {
-  "votes": "[array with a max of 256 boolean items]",
-  "valid\_bloom": "[boolean]"
+"votes": "[최대 256개의 불리언 항목으로 구성된 배열]",
+"valid\_bloom": "[boolean]"
 }
 ```
 
@@ -181,9 +181,9 @@ verdicts - 현상금 아티팩트에 대한 의견의 배열
 
 ```json
 {
-  "bid": "[string minimum length 1 with max length 100]",
-  "mask": "[array with a max of 256 boolean items]",
-  "verdicts": "[array with a max of 256 boolean items]"
+"bid": "[최소 길이 1, 최대 길이 100의 문자열]",
+"mask": "[최대 256개의 불리언 항목으로 구성된 배열]",
+"verdicts": "[최대 256개의 불리언 항목으로 구성된 배열]"
 }
 ```
 
@@ -240,9 +240,9 @@ metadata - 주장에 포함됨 (빈 문자열일 수 있음)
 
 ```json
 {
-  "nonce": "[string minimum length 1 with max length 100]",
-  "verdicts": "[array with a max of 256 boolean items]",
-  "metadata": "[string minimum length 1 with max length 1024]"
+"nonce": "[최소 길이 1, 최대 길이 100의 문자열]",
+"verdicts": "[최대 256개의 불리언 항목으로 구성된 배열]",
+"metadata": "[최소 길이 1, 최대 길이 1024의 문자열]"
 }
 ```
 
@@ -339,7 +339,7 @@ amount - 현재 판돈에 추가할 NCT의 수량
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]"
+"amount": "[최소 길이 1 / 최대 길이 100의 문자열]"
 }
 ```
 
@@ -451,10 +451,10 @@ websocketUri - 홍보대사에게 메시지를 전송할 소켓의 uri
 
 ```json
 {
-  "ambassador": "[string minimum length 42]",
-  "expert": "[string minimum length 42]",
-  "settlementPeriodLength": "[integer minimum 60]",
-  "websocketUri": "[string with minimum length 1 max 32]"
+"ambassador": "[최소 길이가 42인 문자열]",
+"expert": "[최소 길이가 42인 문자열]",
+"settlementPeriodLength": "[최소가 60인 정수]",
+"websocketUri": "[최소 길이 1 최대가 32인 문자열]"
 }
 ```
 
@@ -514,10 +514,10 @@ s - 상태 문자열 ECDSA 서명의 출력
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]"
+"state": "[최소 길이가 32인 문자열]",
+"v": "[최소가 0인 정수]",
+"r": "[최소 길이가 64인 문자열]",
+"s": "[최소 길이가 64인 문자열]"
 }
 ```
 
@@ -579,10 +579,10 @@ s - 상태 문자열 ECDSA 서명의 출력
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[integer minimum 0]",
-  "r": "[string minimum length 64]",
-  "s": "[string minimum length 64]",
+"state": "[최소 길이가 32인 문자열]",
+"v": "[최소가 0인 정수]",
+"r": "[최소 길이가 64인 문자열]",
+"s": "[최소 길이가 64인 문자열]",
 }
 ```
 
@@ -677,10 +677,10 @@ s - 양 당사자에 대한 상태 문자열 ECDSA 서명의 출력 배열
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+"state": "[최소 길이가 32인 문자열]",
+"v": "[2개의 정수로 구성된 배열]",
+"r": "[최소 길이가 64인 2개의 문자열로 구성된 배열]",
+"s": "[최소 길이가 64인 2개의 문자열로 구성된 배열]",
 }
 ```
 
@@ -1040,7 +1040,7 @@ transactions - 검사할 트랜잭션 해시 목록
 
 ```json
 {
-  "transactions": "[array of transaction hashes]",
+"transactions": "[트랜잭션 해시로 구성된 배열]",
 }
 ```
 
@@ -1231,11 +1231,11 @@ s - 상태 문자열의 ECDSA 서명
 
 ```json
 {
-  "fromSocketUri": "[string]",
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+"fromSocketUri": "[string]",
+"state": "[최소 길이가 32인 문자열]",
+"v": "[2개의 정수로 구성된 배열]",
+"r": "[최소 길이가 64인 2개의 문자열로 구성된 배열]",
+"s": "[최소 길이가 64인 2개의 문자열로 구성된 배열]",
 }
 ```
 
