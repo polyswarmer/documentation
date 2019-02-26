@@ -192,31 +192,25 @@ For the full list of command line arguments, use the `--help` CLI flag:
 ```bash
 # balancemanager maintain --help
 INFO:root:2018-12-28 03:04:11,352 텍스트 형식으로 로깅.
-Usage: balancemanager maintain [OPTIONS] MINIMUM REFILL_AMOUNT
+사용법: balancemanager maintain [OPTIONS] MINIMUM REFILL_AMOUNT
 
-  Entrypoint to withdraw NCT from a sidechain into the homechain
+사이드체인에서 홈체인으로 NCT를 인출하는 엔트리포인트
 
-  Args:     minimum (float): Value of NCT on sidechain where you want to
-  transfer more NCT     refill-amount (float): Value of NCT to transfer
-  anytime the balance falls below the minimum
+인수:     minimum (float): NCT를 추가로 전송하려는 사이드체인의
+NCT 값     refill-amount (float): 잔고가 최소값 아래로 떨어질 경우
+전송할 NCT 값
 
-Options:
-  --polyswarmd-addr TEXT   Address (host:port) of polyswarmd instance
-  --keyfile PATH           Keystore file containing the private key to use
-                           with this microengine
-  --password TEXT          Password to decrypt the keyfile with
-  --api-key TEXT           API key to use with polyswarmd
-  --testing INTEGER        Activate testing mode for integration testing,
-                           trigger N balances to the sidechain then exit
-  --insecure-transport     Connect to polyswarmd via http:// and ws://,
-                           mutually exclusive with --api-key
-  --maximum FLOAT          Maximum allowable balance before triggering a
-                           withdraw from the sidechain
-  --withdraw-target FLOAT  The goal balance of the sidechain after the
-                           withdrawal
-  --confirmations INTEGER  Number of block confirmations relay requires before
-                           approving the transfer
-  --help                   Show this message and exit.
+옵션:
+--polyswarmd-addr TEXT   polyswarmd 인스턴스의 주소 (호스트:포트)
+--keyfile PATH           이 마이크로엔진에서 사용하는 개인키가 포함된 Keystore 파일
+--password TEXT          키파일을 해독하는 암호
+--api-key TEXT           polyswarmd에서 사용하는 API 키
+--testing INTEGER        통합 테스트용 테스트 모드 활성화, N개의 잔고를 사이드체인에 트리거한 후 종료
+--insecure-transport     http:// 및 ws://를 통해 polyswarmd 연결, --api-key와 상호 배타적
+  --maximum FLOAT          사이드체인에서 인출하기 전 최대 허용 잔고
+--withdraw-target FLOAT  인출 후 사이드체인의 목표 잔고
+  --confirmations INTEGER  전송 승인 전 전달에 필요한 블록 확인 횟수
+  --help                   이 메시지를 표시하고 종료.
 ```
 
 ## 축하합니다
