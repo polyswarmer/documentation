@@ -206,13 +206,13 @@ Estas *cookies* sirven para mejorar el rendimiento y la funcionalidad de nuestro
 
 Estas *cookies* recogen información que se usa bien de forma agregada, para ayudarnos a comprender cómo se están usando nuestros Sitios web o cuán eficaces son nuestras campañas promocionales; o bien para ayudarnos a personalizar nuestros Sitios web para ti.
 
-* Who serves these cookies? 
+* ¿Quién sirve estas cookies? 
  * Proveedor de *cookies*: Google Analytics 
   * URL de su sitio web: https://analytics.google.com/analytics/web/
  * Proveedor de *cookies*: Pardot 
   * URL de su sitio web: https://www.pardot.com/
-* How to refuse: 
- * To refuse these cookies, please follow the instructions below under the heading "How Can I Control Cookies?". Alternatively, you can change your [privacy settings](/privacy/#privacy-settings)
+* Cómo rechazarlas: 
+ * Para rechazar estas cookies, siga las instrucciones indicadas a continuación en el apartado "¿Cómo puedo controlar las cookies?". También puede cambiar su [configuración de privacidad](/privacy/#privacy-settings)
 
 **¿Y qué sucede con otras tecnologías como las balizas web?**
 
