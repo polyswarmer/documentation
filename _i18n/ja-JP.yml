@@ -16,7 +16,7 @@ global:
       name: ja-JP
       fullname: 日本語
       d_url: /ja-JP/
-      text: このページは English でもご利用いただけます。
+      text: このページは日本語でもご利用いただけます。
       ok:
         text: 今すぐ表示
       close:
