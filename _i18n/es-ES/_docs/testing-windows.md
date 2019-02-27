@@ -2,7 +2,7 @@
 
 En esta página usamos `microengine-mywindowsengine` como nombre de directorio del micromotor. En tus pruebas usarás el nombre de directorio de tu propio micromotor. Asimismo, en estas instrucciones hemos abreviado el indicador de entrada de comandos de PowerShell a `PS >` para mejorar la legibilidad de los comandos. El indicador real de PowerShell que veas será similar a: `(polyswarmvenv) PS C:\Users\user\microengine-mywindowsengine>`. Del mismo modo, en la línea de comandos de Linux, hemos abreviado la indicación de entrada a `$`. En la realidad, habrá más texto a la izquierda del símbolo `$`.
 
-## Unit Testing
+## Pruebas unitarias
 
 Usaremos `tox` para probar nuestro micromotor. Este comando ejecutará todas las pruebas unitarias que añadas en `tests/scan_test.py`.
 
@@ -44,7 +44,7 @@ _______________________________________________________ summary ________________
 
 Puedes ignorar completamente el aviso `combine_argument_formatters`.
 
-## Integration Testing
+## Pruebas de integración
 
 <div class="m-flag m-flag--warning">
   <p>
@@ -61,10 +61,7 @@ Las pruebas de integración de motores basados en Windows requieren dos máquina
 
 <div class="m-flag m-flag--warning">
   <p>
-    <strong>Warning:</strong>
-    The recommendations presented here are hard-won.
-    Te recomendamos encarecidamente que realices las pruebas usando las indicaciones exactas proporcionadas.
-    Using any other configuration will make it difficult for us to provide you with support.
+    <strong>Aviso:</strong> Las recomendaciones aquí incluidas son el resultado de un trabajo minucioso. Te recomendamos encarecidamente que realices las pruebas usando las indicaciones exactas proporcionadas. Nos resultará más difícil prestarte ayuda si empleas cualquier otra configuración.
   </p>
 </div>
 
@@ -79,10 +76,10 @@ Crea una máquina virtual Linux usando los siguientes parámetros:
 * Versión: Ubuntu (64 bits)
 * RAM: 8 GB o más
 * CPU: 4 núcleos o más
-* video memory: 128MB
-* disk space: 50GB+
+* memoria de vídeo: 128 MB
+* espacio en disco: 50 GB o más
 
-Use the default setting for all other options. Sobre todo, NO habilites la aceleración 3D.
+Usa la configuración por defecto para las demás opciones. Sobre todo, NO habilites la aceleración 3D.
 
 Por lo general, preferirás asignar los recursos adicionales de RAM y CPU a la máquina virtual Linux para que la red de pruebas ofrezca un mejor rendimiento.
 
@@ -102,9 +99,9 @@ Usa la ISO descargada para instalar Xubuntu en la máquina virtual.
 
 #### (Opcional) Instala adiciones de invitados de VirtualBox
 
-Guest Additions are necessary for Shared Clipboard / Copy & Paste features between Guest and Host.
+Las adiciones de invitados ("Guest Additions") son necesarias para disfrutar de las funciones de portapapeles compartido o copiar y pegar entre el invitado y el host.
 
-[Refer to VirtualBox's manual](https://www.virtualbox.org/manual/ch04.html).
+[Consulta el manual de VirtualBox](https://www.virtualbox.org/manual/ch04.html).
 
 ### Configura la red de comunicaciones entre invitados
 
@@ -173,10 +170,10 @@ Si no te queda claro a qué interfaz de red debes aplicar estos ajustes, ejecuta
 Arranca la máquina virtual `polyswarm_win` y edita la configuración de red para que el nuevo adaptador use estos valores de IPv4 estática:
 
 * Dirección: `10.10.42.102`
-* netmask: `255.255.255.0`
-* gateway: `10.10.42.1`
+* Máscara de red: `255.255.255.0`
+* Puerta de enlace: `10.10.42.1`
 
-Si no te queda claro a qué interfaz de red debes aplicar estos ajustes, ejecuta el comando `ipconfig /all`: la salida resultante debería incluir varias interfaces de red que empiecen por `Ethernet adapter Ethernet`. The interface with the largest number after that prefix is usually the one you want to modify.
+Si no te queda claro a qué interfaz de red debes aplicar estos ajustes, ejecuta el comando `ipconfig /all`: la salida resultante debería incluir varias interfaces de red que empiecen por `Ethernet adapter Ethernet`. Normalmente, la interfaz que se modificará será la que posea el número más alto tras ese prefijo.
 
 #### Configura la máquina virtual Windows para resolución de DNS con `polyswarmd`
 
@@ -229,7 +226,7 @@ A continuación, haz una prueba de *ping*:
 PS > ping polyswarmd
 ```
 
-The output should look like this:
+La salida debería parecerse a esto:
 
 ```powershell
 Pinging polyswarmd [10.10.42.101] with 32 bytes of data:
@@ -240,7 +237,7 @@ Si obtienes esos mismos resultados, habrás configurado todo correctamente y pod
 
 ### Configura la máquina virtual Linux para alojar una red de pruebas local
 
-#### Install Docker
+#### Instalar Docker
 
 Hemos *dockerizado* la versión de pruebas del mercado de PolySwarm. Para usarla, debes instalar Docker-CE (la base) y Docker Compose. Si no dispones de una instalación reciente de Docker, [instálalo ahora](https://www.docker.com/community-edition).
 
@@ -269,7 +266,7 @@ Que debería devolver:
 
 Además [instala `docker-compose`](https://docs.docker.com/compose/install/).
 
-On Xubuntu:
+En Xubuntu:
 
 ```bash
 $ curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
@@ -292,7 +289,7 @@ Esto debería mostrar, al menos: `docker-compose version 1.21.1, build 5a3f1a3`.
   </p>
 </div>
 
-#### Install Git
+#### Instalar Git
 
 Necesitaremos descargarnos varios repositorios de código fuente. Lo más fácil es usar Git. [Instala Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) para tu entorno de desarrollo.
 
@@ -312,7 +309,7 @@ Clona `orchestration`:
 $ git clone https://github.com/polyswarm/orchestration
 ```
 
-### Test Your Engine
+### Prueba tu motor
 
 Ahora tendremos que pasar varias veces de una máquina virtual a otra. Primero arrancaremos la red de pruebas en la máquina virtual Linux. Después arrancaremos tu micromotor en la máquina virtual Windows. Por último, arrancaremos el embajador en la máquina virtual Linux.
 
@@ -325,9 +322,9 @@ $ cd orchestration
 $ docker-compose -f base.yml -f tutorial0.yml up --scale microengine=0 --scale ambassador=0
 ```
 
-It will take several minutes for `polyswarmd` to become available. Durante este tiempo verás muchos mensajes del tipo `Problem with dial... dial tcp connection refused.` y `chain for config not available in consul yet`. Ten paciencia: estos errores son normales mientras se está inicializando la red de pruebas.
+Habrá que esperar unos minutos hasta que `polyswarmd` esté disponible. Durante este tiempo verás muchos mensajes del tipo `Problem with dial... dial tcp connection refused.` y `chain for config not available in consul yet`. Ten paciencia: estos errores son normales mientras se está inicializando la red de pruebas.
 
-Once `polyswarmd` is available, it will begin serving responses to clients, e.g.:
+Una vez lo esté, comenzará a proporcionar respuestas a los clientes. Por ejemplo:
 
     INFO:polyswarmd:2018-12-06 05:42:08.396534 GET 200 /nonce 0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8
     INFO:geventwebsocket.handler:::ffff:172.19.0.12 - - [2018-12-06 05:42:08] "GET /nonce?account=0x05328f171b8c1463eaFDACCA478D9EE6a1d923F8&chain=home HTTP/1.1" 200 135 0.048543
@@ -391,7 +388,7 @@ INFO:polyswarmclient:2018-12-06 16:55:33,080 Received block on chain side: {'num
 
 Cuando empiecen a mostrarse mensajes `Received block on chain` ("bloque recibido en la cadena") podrás lanzar tu micromotor.
 
-Abre otra ventana nueva de PowerShell y activa tu entorno virtual. Then change into your Microengine's directory.
+Abre otra ventana nueva de PowerShell y activa tu entorno virtual. A continuación, cámbiate al directorio de tu micromotor.
 
 Ejecuta tu micromotor usando un comando similar al siguiente. Asegúrate de modificar el valor del argumento `--backend` para que coincida con el nombre del directorio del paquete de tu micromotor (es decir, el directorio de `src/`):
 
@@ -399,7 +396,7 @@ Ejecuta tu micromotor usando un comando similar al siguiente. Asegúrate de modi
 PS > microengine --keyfile microengine_keyfile --password password --polyswarmd-addr polyswarmd:31337 --insecure-transport --testing 2 --backend acme_myeicarengine
 ```
 
-It will print output similar to the following:
+Mostrará un resultado similar a esto:
 
 ```powershell
 INFO:root:2018-12-06 16:56:20,674 Logging in text format.
