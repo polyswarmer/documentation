@@ -79,11 +79,11 @@ Invocado por el árbitro al vencer la recompensa, con un voto de "malicioso" o "
 
 **URL**: `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 votes: Matriz de votos que representa la verdad terreno para los artefactos vinculados a la recompensa.
 
@@ -96,7 +96,7 @@ valid\_bloom: Si se trata de un voto *bloom*.
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
 ```json
 {
@@ -105,13 +105,13 @@ valid\_bloom: Si se trata de un voto *bloom*.
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -134,17 +134,17 @@ Invocable una vez cerrada la ventana de votación para gestionar el desembolso d
 
 **URL**: `/bounties/<uuid:guid>/settle?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
 **Esta petición no requiere datos**
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -167,11 +167,11 @@ Invocado por los expertos en seguridad para emitir una afirmación al respecto d
 
 **URL**: `/bounties/<uuid:guid>/assertions?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 bid: La cantidad en NCT a apostar.
 
@@ -187,7 +187,7 @@ verdicts: Matriz de veredictos a emitir sobre los artefactos de la recompensa.
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
 ```json
 {
@@ -197,13 +197,13 @@ verdicts: Matriz de veredictos a emitir sobre los artefactos de la recompensa.
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
 **Condición**: Si todo es correcto, se creará un hápax (*nonce*) que se usará después para revelar la afirmación, y obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`.
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 { "nonce": 432984098,
@@ -226,11 +226,11 @@ Invocado por un árbitro una vez vencida la recompensa, permite realizar la liqu
 
 **URL**: `/bounties/<uuid:guid>/vote?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 nonce: El hápax (*nonce*) usado para generar el *hash* de compromiso (obtenido tras realizar una afirmación para obtener una recompensa).
 
@@ -246,7 +246,7 @@ metadata: Metadatos a incluir en la afirmación (puede ser una cadena vacía).
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
 ```json
 {
@@ -256,13 +256,13 @@ metadata: Metadatos a incluir en la afirmación (puede ser una cadena vacía).
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -283,37 +283,37 @@ metadata: Metadatos a incluir en la afirmación (puede ser una cadena vacía).
 
 **URL**: `/<uuid:guid>?chain=[chain_name]`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener afirmaciones para una recompensa
 
 **URL**: `/<uuid:guid>/assertions?chain=[chain_name]`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener una afirmación para una recompensa
 
 **URL**: `/<uuid:guid>/assertions/<int:id_>?chain=[chain_name]`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener filtro *bloom* para una recompensa
 
 **URL** : `/<uuid:guid>/bloom?chain=[chain_name]`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener votos para una recompensa
 
 **URL**: `/<uuid:guid>/votes?chain=[chain_name]`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener un voto para una recompensa
 
 **URL** : `/<uuid:guid>/votes/<int:id_>?chain=[chain_name]`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ## API de apuestas
 
@@ -321,7 +321,7 @@ metadata: Metadatos a incluir en la afirmación (puede ser una cadena vacía).
 
 **URL**: `/staking/parameters?chain=[chain_name]`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Enviar depósito de apuesta
 
@@ -329,11 +329,11 @@ Invocado por los árbitros para depositar NCT en la apuesta.
 
 **URL**: `/staking/deposit?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 amount: El importe en NCT a añadir a la apuesta actual.
 
@@ -343,7 +343,7 @@ amount: El importe en NCT a añadir a la apuesta actual.
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
 ```json
 {
@@ -357,21 +357,21 @@ Invocado por los árbitros para retirar el NCT disponible apostado.
 
 **URL**: `/staking/withdraw?account=[eth_address]&chain=[chain_name]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 amount: La cantidad de NCT a retirar de la apuesta actual.
 
 ```json
 {
-  "amount": "[string minimum length 1 / max length 100]"
+  "amount": "[cadena, longitud mín. 1 / longitud máx. 100]"
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
 ```json
 {
@@ -383,13 +383,13 @@ amount: La cantidad de NCT a retirar de la apuesta actual.
 
 **URL**: `/balances/<dirección>/staking/total`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener saldo apostado retirable
 
 **URL**: `/balances/<dirección>/staking/withdrawable`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ## API de artefactos
 
@@ -399,11 +399,11 @@ Enviar un artefacto al IPFS.
 
 **URL**: `/artifacts`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 Lista de archivos a cargar. El máximo son 256.
 
@@ -411,19 +411,19 @@ Lista de archivos a cargar. El máximo son 256.
 
 **URL**: `/<ipfshash>`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener un vínculo asociado a un *hash* con un índice
 
 **URL**: `/<ipfshash>/<int:id_>`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener estadísticas de un vínculo a un artefacto
 
 **URL**: `/<ipfshash>/<int:id_>/stat`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ## API de ofertas
 
@@ -435,11 +435,11 @@ Invocado por un embajador para desplegar una nueva oferta multifirma.
 
 **URL**: `/offers?account=[eth_address]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 ambassador: Dirección del embajador que usará el canal.
 
@@ -458,7 +458,7 @@ websocketUri: URI del *socket* para enviar mensajes al embajador.
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
 ```json
 {
@@ -469,13 +469,13 @@ websocketUri: URI del *socket* para enviar mensajes al embajador.
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -498,11 +498,11 @@ Invocado por un embajador para abrir un canal con un experto.
 
 **URL**: `offers/open/<uuid:guid>?account=[eth_address]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 state: Estado de oferta inicial.
 
@@ -521,7 +521,7 @@ s: Salida de la firma ECDSA de la cadena de estado.
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
 Consulta la explicación sobre el [estado](#state).
 
@@ -534,13 +534,13 @@ Consulta la explicación sobre el [estado](#state).
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -563,19 +563,19 @@ Invocado por el experto para unirse al canal de un embajador.
 
 **URL**: `offers/open?account=[eth_address]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 state: Estado de oferta del embajador.
 
-v - the recovery id from signature of state string
+v: El identificador de recuperación de la firma correspondiente a la cadena de estado
 
-r - output of ECDSA signature of state string
+r: Salida de la firma ECDSA de la cadena de estado.
 
-s - output of ECDSA signature of state string
+s: Salida de la firma ECDSA de la cadena de estado.
 
 ```json
 {
@@ -586,9 +586,9 @@ s - output of ECDSA signature of state string
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state)
 
 ```json
 {
@@ -599,13 +599,13 @@ See state [explaintion](#state)
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -628,17 +628,17 @@ Invocado por un embajador para cancelar el canal si el contrato todavía no se h
 
 **URL**: `offers/cancel?account=[eth_address]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -661,11 +661,11 @@ Invocado por cualquiera de las partes con ambas firmas en un estado cuyo indicad
 
 **URL**: `/close?account=[eth_address]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 state: Estado de oferta con indicador `close_flag` igual a 1.
 
@@ -684,9 +684,9 @@ s - array of outputs of ECDSA signature of state string for both parties
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state)
 
 ```json
 {
@@ -697,13 +697,13 @@ See state [explaintion](#state)
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -726,13 +726,13 @@ Invocado por cualquiera de las partes con ambas firmas en un estado que sea el e
 
 **URL**: `/offers/closeChallenged?account=[eth_address]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
-state - offer state with closed flag
+state: Estado de oferta con indicador `close_flag` igual a 1
 
 v - array of the recovery ids from signature of state string for both parties
 
@@ -742,16 +742,16 @@ s - array of outputs of ECDSA signature of state string for both parties
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[matriz de 2 enteros]",
+  "r": "[matriz de 2 cadenas con longitud mín. 64]",
+  "s": "[matriz de 2 cadenas con longitud mín. 64]",
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state)
 
 ```json
 {
@@ -762,13 +762,13 @@ See state [explaintion](#state)
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -791,11 +791,11 @@ Invocado por un embajador o un experto para inicializar una liquidación en disp
 
 **URL**: `/offers/settle?account=[eth_address]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 state: Estado de la oferta firmado por ambas partes.
 
@@ -807,16 +807,16 @@ s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de am
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[matriz de 2 enteros]",
+  "r": "[matriz de 2 cadenas con longitud mín. 64]",
+  "s": "[matriz de 2 cadenas con longitud mín. 64]",
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state)
 
 ```json
 {
@@ -827,13 +827,13 @@ See state [explaintion](#state)
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -856,11 +856,11 @@ Invocado por un embajador o un experto para impugnar un estado en disputa. El nu
 
 **URL**: `/offers/challenge?account=[eth_address]&base_nonce=[integer]`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 state - offer state both parties signed
 
@@ -872,16 +872,16 @@ s - array of outputs of ECDSA signature of state string for both parties
 
 ```json
 {
-  "state": "[string minimum length 32]",
-  "v": "[array of 2 integers]",
-  "r": "[array of 2 strings with min length 64]",
-  "s": "[array of 2 strings with min length 64]",
+  "state": "[cadena, longitud mínima 32]",
+  "v": "[matriz de 2 enteros]",
+  "r": "[matriz de 2 cadenas con longitud mín. 64]",
+  "s": "[matriz de 2 cadenas con longitud mín. 64]",
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
-See state [explaintion](#state)
+Consulta la explicación sobre el [estado](#state)
 
 ```json
 {
@@ -892,13 +892,13 @@ See state [explaintion](#state)
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -919,49 +919,49 @@ See state [explaintion](#state)
 
 **URL**: `/offers/<uuid:guid>`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener periodo de liquidación de canal de oferta
 
 **URL**: `/offers/<uuid:guid>/settlementPeriod`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener URI del *socket* web del embajador
 
 **URL**: `/offers/<uuid:guid>/websocket`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener ofertas pendientes
 
 **URL**: `/offers/pending`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener ofertas abiertas
 
 **URL**: `/offers/opened`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener ofertas cerradas
 
 **URL**: `/offers/closed`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ### Obtener mis ofertas
 
 **URL**: `/offers/myoffers?account=[eth_address]`
 
-**Method** : `GET`
+**Método**: `GET`
 
 ## Firma de transacciones
 
 **URL**: `/transactions?chain=[chain_here]`
 
-**Method** : `POST`
+**Método**: `POST`
 
 Todas las transacciones firmadas se envían aquí mediante POST para iniciarlas en la cadena deseada.
 
@@ -1007,13 +1007,13 @@ def post_transactions(transactions):
     return response.json()
 ```
 
-#### Success Response
+#### Respuesta correcta
 
-**Condition** : If everything is OK you will get an array of raw unsigned transactions to be signed and sent through the `/transactions` endpoint
+**Condición**: Si todo es correcto, obtendrás una matriz de transacciones en crudo sin firmar, que deberán firmarse y enviarse a través del nodo `/transactions`
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 [
@@ -1030,9 +1030,9 @@ Lista de eventos o errores resultantes de la transacción designada con el *hash
 
 **URL**: `/transactions/?chain=[chain_here]`
 
-**Method** : `GET`
+**Método**: `GET`
 
-**Data constraints**
+**Restricciones de datos**
 
 Provide:
 
