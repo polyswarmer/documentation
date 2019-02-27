@@ -8,7 +8,7 @@ En este momento, la única configuración plenamente compatible para desarrollar
   </p>
 </div>
 
-### System Requirements
+### Requisitos del sistema
 
 El desarrollo de motores sobre Windows impone unas exigencias nada despreciables para el host de desarrollo:
 
@@ -86,7 +86,7 @@ Una vez instaladas las adiciones de invitados, ya estás listo para [Configurar 
 Requisitos mínimos del sistema:
 
 - Windows 10*
-- 4+ CPU cores
+- Mínimo de 4 núcleos de CPU
 - 4 GB de RAM
 
 *Es posible que funcionen versiones anteriores de Windows pero, por ahora, no se han probado ni se ofrece ayuda con ellas.
@@ -163,7 +163,7 @@ python -m venv polyswarmvenv
 ./polyswarmvenv/Scripts/Activate.ps1
 ```
 
-## Install `polyswarm-client` Libraries
+## Instala las bibliotecas de `polyswarm-client`
 
 <div class="m-flag">
   <p>
@@ -177,7 +177,7 @@ Instalar `polyswarm-client` es muy sencillo:
 pip install polyswarm-client
 ```
 
-## Verify Installation
+## Verificar la instalación
 
 ¡Ahora ya deberías tener un entorno de desarrollo funcional!
 
