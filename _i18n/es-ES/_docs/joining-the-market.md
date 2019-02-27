@@ -181,7 +181,7 @@ Además de tu motor, necesitarás ejecutar un gestor de saldo `balancemanager`.
   <REFILL_AMOUNT: el importe en NCT a transferir cuando el saldo de la comunidad caiga por debajo de MINIMUM>
 ```
 
-For the full list of command line arguments, use the `--help` CLI flag:
+Para obtener la lista completa de argumentos de línea de comandos, usa la opción `--help`:
 
 ```bash
 # balancemanager maintain --help
