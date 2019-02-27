@@ -30,7 +30,7 @@ Una vez instalado, comprueba que funciona ejecutando:
 $ docker-compose -v
 ```
 
-Should output at least: `docker-compose version 1.21.1, build 5a3f1a3`
+Esto debería mostrar, al menos: `docker-compose version 1.21.1, build 5a3f1a3`.
 
 Después de instalar Docker, te recomendamos añadir tu usuario al grupo `docker` para que puedas emitir fácilmente comandos `docker` sin `sudo`:
 
@@ -42,7 +42,7 @@ Deberás reiniciar el equipo para que el cambio surta efecto.
 
 ## Instalar Git
 
-We'll need to grab a few source code repositories; it'll be easiest to use Git. Please [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for your development environment.
+Necesitaremos descargarnos varios repositorios de código fuente. Lo más fácil es usar Git. [Instala Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) para tu entorno de desarrollo.
 
 ## Instalar Python y PIP
 
@@ -84,9 +84,9 @@ pip install polyswarm-client
 
 ## Verificar la instalación
 
-You should now have a working development environment!
+¡Ahora ya deberías tener un entorno de desarrollo funcional!
 
-To verify, simply try importing `polyswarmclient`:
+Para comprobarlo, intenta importar `polyswarmclient`:
 
 ```bash
 $ python
@@ -95,7 +95,7 @@ $ python
 >>>
 ```
 
-You should be able to import `polyswarmclient` without issue.
+La importación de `polyswarmclient` debería llevarse a cabo sin problemas.
 
 Next, we'll walk you through building your very own PolySwarm Microengine, capable of detecting the EICAR test file.
 
