@@ -171,17 +171,17 @@ Por defecto, para todas las afirmaciones se apuesta el valor mínimo permitido p
 
 Vuelve a consultar esta documentación próximamente para conocer las distintas estrategias de apuesta.
 
-## Finalizing & Testing Your Engine
+## Finalización y prueba de tu motor
 
-`cookiecutter` customizes `engine-template` only so far - there are a handful of items you'll need to fill out yourself. We've already covered the major items above, but you'll want to do a quick search for `CUSTOMIZE_HERE` to ensure all customization have been made.
+La utilidad `cookiecutter` solo personaliza `engine-template` hasta cierto punto; los demás elementos deberás personalizarlos tú. Aunque hemos abordado los más importantes, te aconsejamos que hagas una búsqueda rápida de `CUSTOMIZE_HERE` para asegurarte de haber personalizado todos los aspectos necesarios.
 
-Once everything is in place, let's test our engine:
+Una vez que esté todo listo, probaremos nuestro motor:
 
-[Test Linux-based Engines →](/testing-linux/)
+[Prueba los motores basados en Linux →](/testing-linux/)
 
-[Test Windows-based Engines →](/testing-windows/)
+[Prueba los motores basados en Windows →](/testing-windows/)
 
-## Next Steps
+## Próximos pasos
 
 Implementar la lógica de escaneo directamente en la clase Scanner es difícil de gestionar y de escalar. En su lugar, probablemente prefieras que tu clase Microengine invoque un código binario o un servicio externo que albergue la verdadera lógica de escaneo.
 
