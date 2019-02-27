@@ -673,7 +673,7 @@ v: Matriz formada por los identificadores de recuperación de firma de la cadena
 
 r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
-s - array of outputs of ECDSA signature of state string for both parties
+s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
 ```json
 {
@@ -734,11 +734,11 @@ Debes suministrar:
 
 state: Estado de oferta con indicador `close_flag` igual a 1
 
-v - array of the recovery ids from signature of state string for both parties
+v: Matriz formada por los identificadores de recuperación de firma de la cadena de estado de ambas partes.
 
-r - array of outputs of ECDSA signature of state string for both parties
+r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
-s - array of outputs of ECDSA signature of state string for both parties
+s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
 ```json
 {
@@ -799,9 +799,9 @@ Debes suministrar:
 
 state: Estado de la oferta firmado por ambas partes.
 
-v - array of the recovery ids from signature of state string for both parties
+v: Matriz formada por los identificadores de recuperación de firma de la cadena de estado de ambas partes.
 
-r - array of outputs of ECDSA signature of state string for both parties
+r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
 s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
@@ -862,13 +862,13 @@ Invocado por un embajador o un experto para impugnar un estado en disputa. El nu
 
 Debes suministrar:
 
-state - offer state both parties signed
+state: Estado de la oferta firmado por ambas partes.
 
-v - array of the recovery ids from signature of state string for both parties
+v: Matriz formada por los identificadores de recuperación de firma de la cadena de estado de ambas partes.
 
-r - array of outputs of ECDSA signature of state string for both parties
+r: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
-s - array of outputs of ECDSA signature of state string for both parties
+s: Matriz formada por las salidas de la firma ECDSA de la cadena de estado de ambas partes.
 
 ```json
 {
@@ -1034,7 +1034,7 @@ Lista de eventos o errores resultantes de la transacción designada con el *hash
 
 **Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 transactions: Lista de *hashes* correspondientes a las transacciones a comprobar.
 
@@ -1044,7 +1044,7 @@ transactions: Lista de *hashes* correspondientes a las transacciones a comprobar
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
 ```json
 {
@@ -1052,13 +1052,13 @@ transactions: Lista de *hashes* correspondientes a las transacciones a comprobar
 }
 ```
 
-#### Success Response
+#### Respuesta correcta
 
 **Condición**: Que todas las transacciones se hayan completado sin revertirse (si alguna de ellas hubiera fallado, se devolverá un código 400).
 
-**Code** : `200`
+**Código**: `200`
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -1136,11 +1136,11 @@ La cadena de *bytes* de estado contiene detalles que el embajador y el experto a
 
 **URL**: `/offers/state`
 
-**Method** : `POST`
+**Método**: `POST`
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
     close_flag: 1 o 0 para "¿este estado se puede cerrar?"
     nonce: La secuencia del estado
@@ -1211,15 +1211,15 @@ let v = sig.v
 
 Los embajadores abren un *socket* web con la URL definida en el contrato. Localmente, los mensajes se envían a `ws://localhost:31337/messages/<uuid:guid>`.
 
-**Data constraints**
+**Restricciones de datos**
 
-Provide:
+Debes suministrar:
 
 type: Tipo de mensaje (pago, petición, afirmación).
 
 state: Estado de oferta.
 
-Optional:
+Opcional:
 
 toSocketUri: Para enviar a una persona distinta (por defecto, va al embajador).
 
@@ -1239,7 +1239,7 @@ s: Firma ECDSA de la cadena de estado.
 }
 ```
 
-**Data example** All fields must be sent.
+**Ejemplo de datos**: Deben completarse todos los campos.
 
 Consulta la explicación sobre el [estado](#state).
 
@@ -1262,7 +1262,7 @@ Debes dirigir la escucha a `ws://localhost:31337/events/<chain>`.
 
 Enviado cuando se mina un nuevo bloque; comunica el número de bloque más reciente.
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -1277,7 +1277,7 @@ Enviado cuando se mina un nuevo bloque; comunica el número de bloque más recie
 
 Enviado cuando se fija una nueva recompensa.
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -1296,7 +1296,7 @@ Enviado cuando se fija una nueva recompensa.
 
 Enviado cuando se remite una nueva afirmación al respecto de una recompensa.
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -1316,7 +1316,7 @@ Enviado cuando se remite una nueva afirmación al respecto de una recompensa.
 
 Enviado cuando se revela una afirmación al respecto de una recompensa.
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -1336,7 +1336,7 @@ Enviado cuando se revela una afirmación al respecto de una recompensa.
 
 Enviado cuando un árbritro vota al respecto de una recompensa.
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -1353,7 +1353,7 @@ Enviado cuando un árbritro vota al respecto de una recompensa.
 
 Enviado cuando los árbitros han alcanzado el cuórum al respecto de una recompensa.
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -1369,7 +1369,7 @@ Enviado cuando los árbitros han alcanzado el cuórum al respecto de una recompe
 
 Enviado cuando un participante liquida su parte de una recompensa.
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
@@ -1386,7 +1386,7 @@ Enviado cuando un participante liquida su parte de una recompensa.
 
 Enviado cuando se inicializa un nuevo canal.
 
-**Content example**
+**Ejemplo de contenido**
 
 ```json
 {
