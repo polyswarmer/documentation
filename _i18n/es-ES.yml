@@ -43,7 +43,7 @@ header:
             name: Participantes
             d_url: /concepts-participants/
           - 
-            name: Microengines
+            name: Micromotores
             d_url: /concepts-participants-microengine/
       - 
         name: Entorno de desarrollo
@@ -55,7 +55,7 @@ header:
             name: Windows
             d_url: /development-environment-windows/
       - 
-        name: Microengines
+        name: Micromotores
         subitems:
           - 
             name: "Nivel 0: de cero a EICAR"
@@ -176,7 +176,7 @@ footer:
     d_target: _blank
     d_rooturl: true
   privacy:
-    name: Privacy Policy
+    name: Política de privacidad
     d_url: /privacy/
   terms:
     name: Condiciones del servicio
@@ -186,21 +186,21 @@ pages:
   page_not_found:
     title: Página no encontrada
     d_bg_image: /backgrounds/network-bg.png
-    heading: Page not found
+    heading: Página no encontrada
     button:
       name: Volver al inicio
       d_url: /
       d_style: transparent
   privacy:
-    title: Privacy Policy
+    title: Política de privacidad
     description: Política de privacidad de PolySwarm
 docs:
   concepts_participants:
     title: Funciones en el mercado de PolySwarm
-    description: PolySwarm is a marketplace with participants on the supply side (Microengines) and the demand side (Ambassadors) as well as mediators (Arbiters).
+    description: PolySwarm es un mercado formado por participantes que constituyen la oferta (micromotores) y la demanda (embajadores), además de mediadores (árbitros).
   concepts_participants_microengine:
     title: "Participantes: micromotores"
-    description: Microengines are Security Experts' representation in the PolySwarm marketplace.
+    description: Los micromotores son la representación de los expertos en seguridad dentro del mercado de PolySwarm.
   development_environment_linux:
     title: Entorno de desarrollo Linux
     description: Cómo configurar un entorno de desarrollo Linux para PolySwarm
@@ -208,19 +208,19 @@ docs:
     title: Entorno de desarrollo Windows
     description: Cómo configurar un entorno de desarrollo Windows para PolySwarm
   microengines_scratch_to_eicar:
-    title: "Level 0: Scratch to EICAR"
+    title: "Nivel 0: de cero a EICAR"
     description: 'Este tutorial te guiará paso a paso en la creación de tu primer micromotor de PolySwarm: un micromotor "Hola mundo" capaz de detectar el archivo de prueba EICAR.'
   microengines_scratch_to_clamav:
-    title: "Level 1: Scratch to ClamAV"
+    title: "Nivel 1: de cero a ClamAV"
     description: Este tutorial te guiará paso a paso en la creación de tu segundo micromotor PolySwarm integrando ClamAV como procesador de análisis.
   microengines_clamav_to_multi:
-    title: "Level 2: ClamAV to Multi"
+    title: "Nivel 2: de ClamAV a Multi"
     description: Este tutorial te mostrará cómo combinar varios procesadores de análisis (ClamAV y YARA) y te ofrecerá un esbozo de una primitiva básica para la sintetización de veredictos.
   testing_linux:
-    title: Testing Linux-Based Engines
+    title: Cómo probar motores basados en Linux
     description: Cómo probar un micromotor PolySwarm basado en Linux.
   testing_windows:
-    title: Testing Windows-Based Engines
+    title: Cómo probar motores basados en Windows
     description: Cómo probar un micromotor PolySwarm basado en Windows.
   joining_the_market:
     title: Cómo incorporarse al mercado
