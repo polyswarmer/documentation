@@ -48,7 +48,7 @@ Anyone will be able to administer their own Community and advertise their commun
 ### Chains: Home vs Side
 
 Each Community has a "homechain" and a "sidechain", either of which may be shared with other Communities.
-Generally speaking, the "homechain" is where crypto assets natviely exist and the "sidechain" is where PolySwarm transations take place.
+Generally speaking, the "homechain" is where crypto assets natively exist and the "sidechain" is where PolySwarm transactions take place.
 
 For example, **Genesis**, the first public Community will be configured as such:
 * `homechain`: the Ethereum Mainnet
